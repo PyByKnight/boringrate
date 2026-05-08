@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Methodology — BoringRate</title>
+<meta name="description" content="How BoringRate ranks auto insurance carriers. Plain-English explanation of our data sources, scoring rules, and the limits of what we know." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink: #161512;
+    --ink-soft: #3a3631;
+    --ink-mute: #6b665e;
+    --paper: #f6f1e8;
+    --paper-deep: #ece5d6;
+    --rule: #d8d0bd;
+    --accent: #b4321a;
+    --accent-deep: #8a1f0f;
+    --good: #2f6b3a;
+    --warn: #b8810a;
+    --bad: #b4321a;
+    --serif: 'Fraunces', 'Georgia', serif;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.06 0 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.55;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+  .wrap-wide { max-width: 1180px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+
+  /* Top bar — same as homepage */
+  header.top {
+    border-bottom: 1px solid var(--rule);
+    padding: 18px 0;
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(6px);
+  }
+  .top-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .brand-mark {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 2px;
+    transform: translateY(-2px);
+  }
+  nav.primary {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  nav.primary a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 120ms;
+  }
+  nav.primary a:hover { color: var(--accent); }
+
+  /* Article frame */
+  article.method {
+    padding: 56px 0 80px;
+  }
+  .article-kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+  h1.article-h {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(34px, 4.5vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 18px;
+  }
+  h1.article-h em { font-style: italic; color: var(--accent); }
+  .article-deck {
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    margin-bottom: 12px;
+  }
+  .article-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-mute);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0;
+    margin: 32px 0 40px;
+  }
+
+  /* Body prose */
+  .prose h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin: 56px 0 16px;
+  }
+  .prose h2 .num {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .prose h3 {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 36px 0 12px;
+  }
+  .prose p {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    color: var(--ink-soft);
+  }
+  .prose p strong { color: var(--ink); font-weight: 600; }
+  .prose a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  .prose a:hover { color: var(--accent-deep); }
+
+  /* Pull-quote / callout */
+  .callout {
+    border-left: 3px solid var(--accent);
+    padding: 16px 20px;
+    background: var(--paper-deep);
+    margin: 24px 0;
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .callout strong { color: var(--ink); font-weight: 600; }
+
+  /* Inline data tables */
+  .data-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 24px 0;
+    font-family: var(--sans);
+    font-size: 15px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+  }
+  .data-table thead {
+    background: var(--paper-deep);
+  }
+  .data-table th, .data-table td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .data-table th {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .data-table td.num {
+    font-family: var(--mono);
+    text-align: right;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+
+  /* Mark legend */
+  .mark-legend { display: flex; gap: 28px; margin: 24px 0 8px; flex-wrap: wrap; }
+  .mark-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .mark-legend svg { width: 18px; height: 18px; }
+  .mark-legend .star svg { fill: var(--good); }
+  .mark-legend .flag svg { fill: var(--accent); }
+  .mark-legend .none {
+    width: 18px; height: 18px; border: 1px dashed var(--rule);
+  }
+
+  /* Footnotes */
+  .footnotes {
+    margin-top: 80px;
+    padding-top: 28px;
+    border-top: 2px solid var(--ink);
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--ink-mute);
+    line-height: 1.6;
+  }
+  .footnotes h3 {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .footnotes ol { padding-left: 18px; }
+  .footnotes li { margin-bottom: 10px; }
+
+  /* Footer — minimal version */
+  footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 48px 0 28px;
+    margin-top: 0;
+    position: relative;
+    z-index: 2;
+  }
+  footer .brand { color: var(--paper); margin-bottom: 16px; }
+  footer p {
+    font-size: 14px;
+    color: rgba(246, 241, 232, 0.7);
+    max-width: 480px;
+    margin-bottom: 22px;
+    line-height: 1.55;
+  }
+  footer .legal {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(246, 241, 232, 0.15);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(246, 241, 232, 0.5);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+    nav.primary { gap: 16px; font-size: 12px; }
+    nav.primary a:not(:first-child):not(:last-child) { display: none; }
+    .prose p { font-size: 16px; }
+    article.method { padding: 36px 0 64px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap-wide top-inner">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
+    <nav class="primary">
+      <a href="index.html">Rankings</a>
+      <a href="index.html#about">About</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="index.html#guides">Guides</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <article class="method">
+
+    <div class="article-kicker">§ Methodology · How we rank</div>
+    <h1 class="article-h">How BoringRate ranks <em>auto insurance carriers.</em></h1>
+    <p class="article-deck">A plain-English explanation of where our numbers come from, what they mean, what they don't mean, and where you should be skeptical. If we changed something, you'll find it dated below.</p>
+    <div class="article-meta">Last updated · May 2026 &nbsp;·&nbsp; Reviewed quarterly &nbsp;·&nbsp; Public data only</div>
+
+    <div class="prose">
+
+      <p>Most insurance comparison sites either show you a single ranked list with no methodology, or they bury the methodology in a footnote that says "various factors." Both approaches are bad for shoppers. The number you see should be backed by something you can read in plain English. This page is that something.</p>
+
+      <p>Two things shape every ranking on BoringRate: a price signal and a quality signal. They're presented separately, on purpose. We don't combine them into a single composite score, because the right tradeoff between price and quality depends on the shopper, not on us. Below is exactly how each signal is sourced and what we will and won't claim about either.</p>
+
+      <h2><span class="num">§ 01</span>The price signal: typical positioning, not a quote</h2>
+
+      <p>When you enter a ZIP code, every carrier in the ranking is shown above or below a horizontal "median" line. Carriers above the line are typically cheaper than the median; carriers below are typically more expensive. The dollar amount next to each carrier is its <strong>typical difference from the median</strong>, rounded to the nearest $20.</p>
+
+      <p>We chose this format for a specific reason. Showing absolute premiums — "$1,420 for GEICO" — implies a level of precision we don't have, and that no comparison site without your full underwriting profile actually has. A user who sees "$1,420" remembers it, gets a quote for $1,680, and concludes the site is broken. The directional delta avoids this trap: <strong>"Save roughly $240 vs. the typical carrier"</strong> survives the user's reality-check in a way that a fake-precise dollar number does not.</p>
+
+      <div class="callout">
+        We are <strong>not</strong> trying to quote you. We are trying to tell you which two or three carriers in your state are most likely to come back with a competitive quote, so you can stop after a handful of phone calls instead of a dozen.
+      </div>
+
+      <h3>What goes into the delta</h3>
+
+      <p>Each carrier has a base price-positioning multiplier vs. the typical premium in your state, derived from public rate filings (SERFF), regulator-published rate comparisons (where states publish them, like California, Texas, Maryland, and a handful of others), and cross-checked against multiple secondary aggregator averages. The four optional refinement questions — homeownership, vehicle count, current carrier, age range — apply standard rating-factor adjustments to that base multiplier, mirroring how the carriers themselves weight those signals.</p>
+
+      <p><strong>What we know reasonably well:</strong> directional positioning. GEICO is, on average, materially cheaper than Liberty Mutual; younger drivers pay more; multi-car households get discounts; lapsed coverage is penalized hard. These patterns are stable across states and well-supported by filings.</p>
+
+      <p><strong>What we don't know:</strong> your actual quote. Your driving record, vehicle, credit (where state law allows its use), prior claims, and exact coverage limits all move the number more than any single demographic factor. The deltas we show are typical; yours will be different.</p>
+
+      <h3>Why a median line, and not a fixed dollar baseline</h3>
+
+      <p>The median line sits between the fourth- and fifth-cheapest carrier in your ranking. We picked this anchor instead of "state average" because the median is internally consistent with the eight carriers we rank — it shifts as the user's profile shifts, which keeps the deltas honest as the underlying ranking changes. The line itself doesn't have a dollar value attached to it, by design. We don't want shoppers anchoring on a number we'd be over-claiming.</p>
+
+      <h2><span class="num">§ 02</span>The quality signal: regulator-filed complaints, normalized</h2>
+
+      <p>Next to each carrier in the ranking, you'll see one of three marks:</p>
+
+      <div class="mark-legend">
+        <div class="mark-legend-item star">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.95 6.6 7.05.7-5.3 4.85 1.55 6.85L12 17.9l-6.25 3.6 1.55-6.85L2 9.8l7.05-.7L12 2.5z"/></svg>
+          Better than average
+        </div>
+        <div class="mark-legend-item">
+          <span class="none"></span>
+          Within the typical band
+        </div>
+        <div class="mark-legend-item flag">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3v18h2v-7h11l-2-3.5 2-3.5H7V3H5z"/></svg>
+          Notably worse than average
+        </div>
+      </div>
+
+      <p>These come from the <strong>NAIC Complaint Index</strong>, a number published by the National Association of Insurance Commissioners and the 50 state Departments of Insurance. The index works like this: take the carrier's share of regulator-filed complaints, divide by the carrier's share of premium written. A score of 1.0 means complaints are exactly proportional to the carrier's market presence — average. Below 1.0 means fewer complaints than expected. Above 1.0 means more.</p>
+
+      <p>Our thresholds mirror the regulator's own framing: a score under 1.0 earns a star, a score above 2.0 earns a flag, and everything between is unmarked. We deliberately picked breakpoints that match how state insurance departments themselves describe the index, rather than inventing finer-grained tiers that would imply more precision than the data supports.</p>
+
+      <h3>What the complaint index measures, precisely</h3>
+
+      <p>Three things to understand:</p>
+
+      <p><strong>It only counts complaints that escalated to a state regulator.</strong> The vast majority of unhappy customers don't file with the state. They cancel, vent on Reddit, or write a Google review. Those grievances aren't in the index. So this number isn't "customer satisfaction" in the broad sense — it's "propensity to generate a regulated complaint serious enough to escalate," which correlates with service quality but isn't identical to it.</p>
+
+      <p><strong>It's normalized for size, but only crudely.</strong> A carrier writing more, larger commercial-flavored personal-auto policies looks different from one writing many small ones, even at the same complaint count. For our list of major personal-auto carriers, the distortion is minor. For specialty or non-standard carriers, it can be substantial — which is one reason we don't include them in the ranking.</p>
+
+      <p><strong>Single-year ratios are noisy.</strong> A carrier with a 0.7 in one year and a 1.2 the next isn't necessarily getting worse — it might be variance. Where we have access to multi-year averages, we use them; where we don't, we note that the figure is a single year.</p>
+
+      <h3>Where our complaint numbers come from, today</h3>
+
+      <p>The complaint index for each carrier in the current ranking is the carrier's <strong>flagship private-passenger-auto entity, sourced nationally</strong>. Most major carriers operate through several legal entities — GEICO has at least five, Allstate has multiple, Liberty Mutual has more than a dozen. We use the largest underwriting entity per carrier as a representative figure.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Carrier</th>
+            <th style="text-align:right;">NAIC Complaint Index</th>
+            <th>Mark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>USAA</td><td class="num">1.18</td><td>—</td></tr>
+          <tr><td>GEICO</td><td class="num">0.69</td><td>★ Better than average</td></tr>
+          <tr><td>State Farm</td><td class="num">0.79</td><td>★ Better than average</td></tr>
+          <tr><td>Progressive</td><td class="num">0.71</td><td>★ Better than average</td></tr>
+          <tr><td>Allstate</td><td class="num">1.10</td><td>—</td></tr>
+          <tr><td>Liberty Mutual</td><td class="num">2.86</td><td>⚑ Notably worse</td></tr>
+          <tr><td>Farmers</td><td class="num">0.86</td><td>★ Better than average</td></tr>
+          <tr><td>Nationwide</td><td class="num">0.63</td><td>★ Better than average</td></tr>
+        </tbody>
+      </table>
+
+      <p>The figures above are sourced from the most recent NAIC complaint index published by CarInsurance.com (June 2025), which compiled them from the NAIC Consumer Information Source database. <strong>This is a single national figure per carrier and is identical across all states until we replace it state by state.</strong> We are actively sourcing state-specific complaint data directly from each Department of Insurance's annual complaint index report — the regulator-direct path. As state-specific data is integrated, the methodology page will be updated and the ranking will reflect state-by-state variation.</p>
+
+      <div class="callout">
+        <strong>What this means for you, today:</strong> the complaint marks are accurate at the national level, but a carrier that scores well nationally might score differently in your specific state, and vice versa. Treat the marks as a directional quality signal, not a state-specific verdict.
+      </div>
+
+      <h3>What we will not claim</h3>
+
+      <p>We won't tell you a carrier with a high complaint index is one to "avoid." A high index means a carrier generates more regulator-filed complaints per dollar of premium than its peers — that's a real signal, but it isn't the same as "this company will mistreat you." A shopper saving $800 a year may rationally accept a 1.5 complaint index in exchange. We don't know your priorities; we present the number, you weigh it.</p>
+
+      <p>We also won't tell you a carrier with a low complaint index has "good customer service." Low complaints with the regulator means few people escalated to the state. That's a useful signal but it isn't the full picture of service quality. Independent surveys (J.D. Power, Consumer Reports) measure broader satisfaction differently and reach different conclusions on some carriers.</p>
+
+      <h2><span class="num">§ 03</span>The "Worth quoting first" callout</h2>
+
+      <p>When the data supports it, the ranking shows a small banner at the top with two or three carrier names labeled "Worth quoting first." This is the closest BoringRate gets to a recommendation, and we want to be clear about what it is and isn't.</p>
+
+      <p><strong>What it is:</strong> a mechanical rule. We take the four cheapest carriers in your ranking, filter out any with a NAIC complaint index of 1.5 or higher, and surface the top two or three that remain. The 1.5 threshold is loose — average is 1.0, "notable" worry starts around 2.0 — and is intended to catch only the cases where price-and-quality have an obvious mismatch.</p>
+
+      <p><strong>What it is not:</strong> editorial endorsement. We don't know whether any specific carrier is a good fit for you. We don't know your driving record, vehicle, accident history, or coverage preferences. We are saying: of the carriers we rank, these are most likely to come back with a competitive quote without obvious quality red flags. They are the carriers worth your phone time first. The rest of the list is still worth comparing if you want broader options.</p>
+
+      <p>If fewer than two carriers pass the rule, the banner is suppressed. We'd rather show nothing than push a recommendation we can't defend.</p>
+
+      <h2><span class="num">§ 04</span>What we don't measure (and why)</h2>
+
+      <p>A short list of things shoppers reasonably care about that we don't currently weight in the ranking, and why:</p>
+
+      <h3>Claims-handling speed and outcomes</h3>
+
+      <p>This is the moment of truth for most policyholders, and it's the thing the NAIC complaint index correlates with most strongly — but indirectly. Direct measures (J.D. Power's claims satisfaction studies) require subscription access and aren't fully public. We may add J.D. Power scores as a secondary signal in a future revision.</p>
+
+      <h3>Financial strength</h3>
+
+      <p>The eight carriers we rank all have AM Best ratings of A (Excellent) or higher. Financial strength is a real consideration for smaller or specialty carriers, but for major personal-auto carriers operating nationally, it doesn't meaningfully discriminate between options. If we expanded to smaller regional carriers, financial strength would become a relevant filter.</p>
+
+      <h3>Discounts you specifically qualify for</h3>
+
+      <p>Telematics, low-mileage, defensive-driving courses, alumni associations, employer affiliations — these can swing premiums by 10–25%, but they're idiosyncratic. The four refinement questions on the homepage capture the highest-leverage ones (homeownership, multi-vehicle, age band). The rest are a quote-time conversation.</p>
+
+      <h3>Coverage breadth and policy features</h3>
+
+      <p>Some carriers offer accident forgiveness, original-equipment-manufacturer parts replacement, or new-car replacement; others don't. These matter, but they vary too much by state and policy tier to summarize in a single ranking. We may publish a coverage-features comparison as a separate piece.</p>
+
+      <h2><span class="num">§ 05</span>What's coming next</h2>
+
+      <p>The ranking you see today is a starting point, not a finished product. Specifically:</p>
+
+      <p><strong>State-specific complaint data (in progress).</strong> Replacing the national figure with state-by-state numbers from each state DOI's annual complaint index report. Colorado, Texas, and Georgia are the first three priority states.</p>
+
+      <p><strong>Multi-year complaint averages.</strong> Three-year rolling averages where state DOIs publish them, to smooth out the noise in single-year figures.</p>
+
+      <p><strong>State-DOI rate filing extraction.</strong> Replacing the typical-price multipliers with rate-filing-derived figures for the 12–15 highest-volume states. This lets us show real positioning instead of estimates.</p>
+
+      <p><strong>Methodology version history.</strong> When the rules change, the change should be readable. We'll log changes here with dates.</p>
+
+      <h2><span class="num">§ 06</span>Things to be skeptical of</h2>
+
+      <p>If you're reading this carefully, here are the questions we'd be asking too:</p>
+
+      <p><strong>"Why these eight carriers, not others?"</strong> The eight in the ranking — USAA, GEICO, State Farm, Progressive, Allstate, Liberty Mutual, Farmers, Nationwide — together hold the majority of personal-auto market share in most states. Smaller national carriers (Travelers, Erie, Auto-Owners, American Family) and regional carriers (Mercury in California, NJM in New Jersey, Auto Club in much of the West) often have excellent records and competitive prices. We don't include them yet because the data quality drops off rapidly outside the top eight, and ranking with patchy data is worse than ranking with a smaller set. We will add carriers as we can do so without weakening the rest of the methodology.</p>
+
+      <p><strong>"Why do the rankings shift when I change a refinement?"</strong> Carriers price drivers differently — some heavily discount older drivers and homeowners, others price more aggressively for younger drivers and renters. A refinement shifts each carrier's typical positioning by a different amount, and that re-sorts the list. The complaint marks don't change with refinements, because the regulator-filed complaint data isn't sliced by demographic.</p>
+
+      <p><strong>"USAA isn't on my list. Why?"</strong> USAA is shown in the ranking, but eligibility is restricted to active and retired military members and their immediate families. If you don't qualify, treat the USAA row as informational only.</p>
+
+      <p><strong>"Why don't you sell my information?"</strong> Most insurance comparison sites are lead-generation businesses — they sell each shopper to three to five carrier or agent buyers. Those buyers call you. We don't capture phone numbers, period. The economics work because we publish editorial research and don't carry inventory.</p>
+
+      <h3>If we got something wrong</h3>
+
+      <p>This methodology page is the most up-to-date version of how we rank. If a carrier's complaint index moves, if a state's rate filings shift the price multiplier materially, or if we change a threshold, the change will appear here with the date. If you spot something that looks wrong — a number that doesn't reconcile with a state DOI's published figure, a methodological inconsistency, anything — we want to know. The contact info is in the footer.</p>
+
+      <div class="footnotes">
+        <h3>Sources & References</h3>
+        <ol>
+          <li><strong>NAIC Consumer Information Source.</strong> National Association of Insurance Commissioners. <a href="https://content.naic.org/cis_consumer_information.htm">content.naic.org/cis_consumer_information.htm</a></li>
+          <li><strong>NAIC complaint index, compiled.</strong> CarInsurance.com, "NAIC ranks auto insurers with the cleanest records," published June 17, 2025. <a href="https://www.carinsurance.com/trends-and-insights/auto-insurers-ranked-by-naic-complaint-data/">carinsurance.com/trends-and-insights/auto-insurers-ranked-by-naic-complaint-data</a></li>
+          <li><strong>State DOI complaint reports</strong> (forthcoming integration): Colorado Division of Insurance, Texas Department of Insurance, Georgia Office of Commissioner of Insurance, plus additional states.</li>
+          <li><strong>System for Electronic Rates &amp; Forms Filing (SERFF).</strong> Underlying source for state-specific rate-filing data, used in the price-positioning multipliers. <a href="http://www.serff.com/">serff.com</a></li>
+          <li><strong>NAIC Auto Insurance Database Report.</strong> Source for state-level average premium figures used as the price-positioning anchor.</li>
+        </ol>
+      </div>
+
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap-wide">
+    <div class="brand"><span class="brand-mark"></span>BoringRate</div>
+    <p>Independent insurance research. Boring on purpose. We publish what carriers don't advertise so shoppers can stop overpaying.</p>
+    <div class="legal">
+      © 2026 BORINGRATE. NOT AN INSURANCE PRODUCER. NOT A LICENSED AGENT. NO COMMISSIONED RELATIONSHIPS WITH ANY CARRIER LISTED ABOVE. ESTIMATES ARE EDITORIAL OPINION BASED ON PUBLIC DATA AND ARE NOT QUOTES. SHOP AT YOUR OWN DISCRETION.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
