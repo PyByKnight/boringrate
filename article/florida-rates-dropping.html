@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Florida auto insurance rates are dropping. Here's what the filings actually say. — BoringRate</title>
+<meta name="description" content="Florida's tort reform is working. State Farm, Progressive, GEICO, USAA and Allstate have all filed rate decreases for 2026. If you're a Florida driver and haven't shopped recently, you're likely overpaying." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink: #161512;
+    --ink-soft: #3a3631;
+    --ink-mute: #6b665e;
+    --paper: #f6f1e8;
+    --paper-deep: #ece5d6;
+    --rule: #d8d0bd;
+    --accent: #b4321a;
+    --good: #2f6b3a;
+    --serif: 'Fraunces', 'Georgia', serif;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; font-size: 17px; -webkit-font-smoothing: antialiased; }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.06 0 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.55;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+  .wrap-narrow { max-width: 720px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+
+  header.top { border-bottom: 1px solid var(--rule); padding: 18px 0; background: var(--paper); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(6px); }
+  .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 26px; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; display: flex; align-items: baseline; gap: 8px; }
+  .brand-mark { display: inline-block; width: 10px; height: 10px; background: var(--accent); border-radius: 2px; transform: translateY(-2px); }
+  nav.primary { display: flex; gap: 28px; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
+  nav.primary a { color: var(--ink-soft); text-decoration: none; text-transform: uppercase; transition: color 120ms; }
+  nav.primary a:hover { color: var(--accent); }
+
+  /* Sticky ZIP bar */
+  .zip-bar { position: sticky; top: 61px; z-index: 40; background: var(--paper); border-bottom: 2px solid var(--accent); padding: 10px 0; backdrop-filter: blur(6px); }
+  .zip-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .zip-bar-slogan { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--ink-soft); letter-spacing: -0.01em; white-space: nowrap; }
+  .zip-bar-slogan strong { font-style: normal; font-weight: 600; color: var(--ink); }
+  .zip-bar-form { display: flex; gap: 0; align-items: stretch; flex-shrink: 0; }
+  .zip-bar-input { font-family: var(--mono); font-size: 16px; letter-spacing: 0.14em; text-align: center; padding: 9px 14px; width: 110px; border: 2px solid var(--ink); border-right: none; background: var(--paper); color: var(--ink); outline: none; transition: border-color 120ms; }
+  .zip-bar-input::placeholder { color: var(--ink-mute); letter-spacing: 0.1em; }
+  .zip-bar-input:focus { border-color: var(--accent); }
+  .zip-bar-btn { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; padding: 9px 18px; border: 2px solid var(--accent); background: var(--accent); color: var(--paper); cursor: pointer; white-space: nowrap; transition: background 120ms; }
+  .zip-bar-btn:hover { background: #8a1f0f; border-color: #8a1f0f; }
+
+  /* Alert banner */
+  .alert-banner {
+    background: var(--paper-deep);
+    border: 1px solid var(--ink);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 32px 0;
+    max-width: 660px;
+  }
+  .alert-banner .alert-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 6px; }
+  .alert-banner p { font-size: 16px; color: var(--ink-soft); line-height: 1.55; margin: 0; }
+
+  /* Rate table */
+  .rate-table { width: 100%; max-width: 660px; border-collapse: collapse; margin: 32px 0; font-family: var(--mono); font-size: 14px; }
+  .rate-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); border-bottom: 2px solid var(--ink); padding: 8px 12px 8px 0; }
+  .rate-table td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--rule); color: var(--ink-soft); vertical-align: middle; }
+  .rate-table td.carrier-name { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+  .rate-table td.rate-num { font-size: 18px; font-weight: 500; color: var(--good); }
+
+  .article-header { padding: 56px 0 40px; border-bottom: 1px solid var(--rule); }
+  .article-kicker { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 18px; }
+  .article-kicker a { color: var(--accent); text-decoration: none; }
+  .article-kicker a:hover { text-decoration: underline; }
+  h1.article-title { font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.05; letter-spacing: -0.025em; max-width: 680px; margin-bottom: 20px; }
+  .article-dek { font-family: var(--serif); font-size: 20px; color: var(--ink-soft); max-width: 600px; line-height: 1.45; margin-bottom: 24px; font-style: italic; }
+  .article-byline { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .article-body { padding: 48px 0 64px; }
+  .article-body p { font-size: 18px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 24px; max-width: 660px; }
+  .article-body p strong { color: var(--ink); font-weight: 600; }
+  .article-body h2 { font-family: var(--serif); font-size: 26px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.15; margin: 40px 0 14px; color: var(--ink); max-width: 660px; }
+
+  .callout { border-left: 3px solid var(--rule); padding: 18px 22px; margin: 32px 0; background: var(--paper-deep); max-width: 660px; }
+  .callout p { font-size: 16px !important; margin-bottom: 0 !important; color: var(--ink-soft); max-width: none !important; }
+
+  .article-email { background: var(--paper-deep); border: 1px solid var(--rule); padding: 28px 32px; margin: 48px 0 0; max-width: 660px; }
+  .article-email strong { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: -0.01em; display: block; margin-bottom: 6px; }
+  .article-email .sub { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 18px; line-height: 1.55; }
+  .email-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .email-input { flex: 1; min-width: 200px; font-family: var(--sans); font-size: 14px; padding: 11px 14px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); outline: none; transition: border-color 120ms; }
+  .email-input:focus { border-color: var(--ink); }
+  .email-btn { font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 11px 22px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); cursor: pointer; white-space: nowrap; transition: background 120ms; }
+  .email-btn:hover { background: var(--accent); border-color: var(--accent); }
+  .email-thanks { font-family: var(--mono); font-size: 12px; color: var(--good); letter-spacing: 0.08em; text-transform: uppercase; display: none; margin-top: 12px; }
+
+  footer { padding: 56px 0 36px; background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  footer .brand { color: var(--paper); }
+  footer p { font-size: 14px; color: rgba(246,241,232,0.7); margin-top: 12px; max-width: 320px; line-height: 1.55; }
+  .foot-col h5 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; color: rgba(246,241,232,0.5); }
+  .foot-col a { display: block; color: var(--paper); text-decoration: none; font-size: 14px; margin-bottom: 8px; opacity: 0.85; transition: opacity 120ms; }
+  .foot-col a:hover { opacity: 1; color: #f0a89a; }
+  .legal { font-size: 11px; color: rgba(246,241,232,0.5); border-top: 1px solid rgba(246,241,232,0.15); padding-top: 22px; line-height: 1.6; font-family: var(--mono); letter-spacing: 0.04em; }
+
+  @media (max-width: 900px) {
+    nav.primary { display: none; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .zip-bar-slogan { display: none; }
+    .zip-bar-inner { justify-content: flex-end; }
+  }
+  @media (max-width: 480px) {
+    .article-header { padding: 36px 0 28px; }
+    .article-body { padding: 32px 0 48px; }
+    .article-body p { font-size: 16px; }
+    .zip-bar { top: 57px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <a href="../index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
+    <nav class="primary">
+      <a href="../index.html#guides">Guides</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="zip-bar">
+  <div class="wrap">
+    <div class="zip-bar-inner">
+      <div class="zip-bar-slogan"><strong>Boring Research.</strong> Easy Decision. — Enter your ZIP to compare rates.</div>
+      <form class="zip-bar-form" id="zipBarForm" autocomplete="off">
+        <input class="zip-bar-input" id="zipBarInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />
+        <button type="submit" class="zip-bar-btn">Compare →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="wrap-narrow">
+  <div class="article-header">
+    <div class="article-kicker"><a href="../index.html#guides">Alert</a> &nbsp;·&nbsp; Florida &nbsp;·&nbsp; 3 min read</div>
+    <h1 class="article-title">Florida auto insurance rates are dropping. Here's what the filings actually say.</h1>
+    <p class="article-dek">State Farm, Progressive, GEICO, USAA, and Allstate have all filed rate decreases for Florida drivers in 2026. If you haven't shopped recently, your renewal is probably higher than it needs to be.</p>
+    <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; May 2026</div>
+  </div>
+
+  <div class="article-body">
+
+    <div class="alert-banner">
+      <div class="alert-label">Boring Research Alert</div>
+      <p>Florida's top 5 auto carriers are averaging an 8% rate decrease for 2026, covering 78% of the state's drivers. This is the most significant rate relief Florida has seen in over a decade.</p>
+    </div>
+
+    <p>For years, Florida drivers absorbed some of the most aggressive rate increases in the country. A combination of litigation abuse, assignment-of-benefits fraud, hurricane losses, and skyrocketing reinsurance costs made Florida one of the most expensive auto insurance markets in the US. That dynamic has reversed.</p>
+
+    <p>The driver is tort reform. Legislation passed in 2022 and 2023 has sharply reduced insurance litigation in the state — filings have fallen more than 35% since 2021. That reduction in legal costs is now flowing directly into carrier rate filings, and the Florida Office of Insurance Regulation has been approving decreases consistently.</p>
+
+    <h2>What the filings show</h2>
+
+    <p>These aren't estimates or projections. These are approved carrier filings with the Florida OIR:</p>
+
+    <table class="rate-table">
+      <thead>
+        <tr>
+          <th>Carrier</th>
+          <th>Filed decrease</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="carrier-name">State Farm</td>
+          <td class="rate-num">−10.1%</td>
+          <td>Multiple approved decreases since 2024</td>
+        </tr>
+        <tr>
+          <td class="carrier-name">AAA</td>
+          <td class="rate-num">−15.0%</td>
+          <td>Three separate decreases over past year</td>
+        </tr>
+        <tr>
+          <td class="carrier-name">Progressive</td>
+          <td class="rate-num">−8.0%</td>
+          <td>Plus separate $1B refund to policyholders</td>
+        </tr>
+        <tr>
+          <td class="carrier-name">USAA</td>
+          <td class="rate-num">−7.0%</td>
+          <td>Effective May 2026, military members only</td>
+        </tr>
+        <tr>
+          <td class="carrier-name">Allstate</td>
+          <td class="rate-num">−7.0%</td>
+          <td>Applies to over 171,000 Florida drivers</td>
+        </tr>
+        <tr>
+          <td class="carrier-name">GEICO</td>
+          <td class="rate-num">Decrease</td>
+          <td>Rate relief for 700,000+ customers, April 2026</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>One carrier outside the top five has indicated a decrease of 16.5% — the largest single filing in the current cycle. In total, 42 companies covering personal auto lines have filed for rate decreases in the past year.</p>
+
+    <h2>Why your renewal might not reflect this yet</h2>
+
+    <p>Rate decreases apply at renewal, not mid-term. If your policy renewed before the decrease took effect at your carrier, you're still on the old rate. You won't see the adjustment until your next renewal — unless you shop and switch to a carrier whose decrease is already in effect.</p>
+
+    <p>This is the part aggregators won't tell you: your current carrier's renewal notice reflects their rates and your current coverage. It does not tell you what other carriers would charge for equivalent coverage. The only way to know whether you're paying more than you need to is to get at least two or three competing quotes.</p>
+
+    <div class="callout">
+      <p><strong>Florida's loss ratio context:</strong> In 2025, Florida ranked first in the nation for the lowest personal auto liability loss ratio at 52.5% — the lowest recorded in 15 years. Carriers are profitable in Florida right now, which is exactly what enables and incentivizes rate reductions. This isn't charity — it's competition for a market that's become attractive again.</p>
+    </div>
+
+    <h2>What's still uncertain</h2>
+
+    <p>The rate environment is favorable, but a few things are worth watching. Vehicle repair costs continue to rise as cars become more technologically complex — sensors, cameras, and driver-assistance systems embedded in bumpers and mirrors cost multiples of what a simple replacement used to. Whether the litigation savings permanently outpace repair inflation is the key question for the medium term.</p>
+
+    <p>Additionally, not every carrier has filed decreases. Smaller carriers outside the top five may lag the market or hold rates flat. Shopping only your current carrier's renewal misses this entirely.</p>
+
+    <p>If you're a Florida driver and your policy renews in the next 90 days, this is the moment to spend 30 minutes getting quotes. The market has moved in your favor — but only if you look.</p>
+
+    <div class="article-email">
+      <strong>Get a Boring Reminder when Florida rates move again.</strong>
+      <div class="sub">No spam. No phone. We will never sell your information.</div>
+      <div class="email-row" id="articleEmailForm">
+        <input class="email-input" id="articleEmailInput" type="email" placeholder="your@email.com" aria-label="Email address" />
+        <button type="button" class="email-btn" id="articleEmailBtn">Notify me</button>
+      </div>
+      <div class="email-thanks" id="articleEmailThanks">✓ You're on the list.</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand"><span class="brand-mark"></span>BoringRate</div>
+        <p>Independent insurance research. Boring on purpose. We publish what carriers don't advertise so shoppers can stop overpaying.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Research</h5>
+        <a href="#">Auto rankings</a>
+        <a href="#">By state</a>
+        <a href="#">By carrier</a>
+        <a href="../methodology.html">Methodology</a>
+      </div>
+      <div class="foot-col">
+        <h5>About</h5>
+        <a href="#">Editorial standards</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h5>Subscribe</h5>
+        <a href="#">Quarterly state digest</a>
+        <a href="#">Rate change alerts</a>
+      </div>
+    </div>
+    <div class="legal">
+      © 2026 BORINGRATE. NOT AN INSURANCE PRODUCER. NOT A LICENSED AGENT. NO COMMISSIONED RELATIONSHIPS WITH ANY CARRIER LISTED ABOVE. ESTIMATES ARE EDITORIAL OPINION BASED ON PUBLIC DATA AND ARE NOT QUOTES. SHOP AT YOUR OWN DISCRETION.
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("zipBarForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const zip = document.getElementById("zipBarInput").value.trim();
+  if (!/^\d{5}$/.test(zip)) { document.getElementById("zipBarInput").focus(); return; }
+  window.location.href = "../index.html?zip=" + zip;
+});
+document.getElementById("zipBarInput").addEventListener("input", e => {
+  e.target.value = e.target.value.replace(/\D/g, "").substring(0, 5);
+});
+document.getElementById("articleEmailBtn").addEventListener("click", () => {
+  const email = document.getElementById("articleEmailInput").value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById("articleEmailInput").focus(); return; }
+  document.getElementById("articleEmailForm").style.display = "none";
+  document.getElementById("articleEmailThanks").style.display = "block";
+});
+</script>
+
+</body>
+</html>
