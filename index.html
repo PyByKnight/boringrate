@@ -123,6 +123,7 @@
   .header-notify-btn:hover { background: var(--ink); color: var(--paper); }
   .header-auth-panel { position: absolute; top: calc(100% + 12px); right: 0; background: var(--paper); border: 1px solid var(--ink); padding: 18px; z-index: 100; min-width: 290px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
   .header-panel-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); }
+  .header-panel-signin { color: var(--ink); font-weight: 600; }
   .header-panel-or { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); text-align: center; }
   .header-panel-row { display: flex; gap: 8px; }
   .header-panel-sent { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
@@ -658,7 +659,7 @@
       <div id="headerAuthOut">
         <button class="header-notify-btn" id="headerNotifyBtn">Notify me &#9662;</button>
         <div class="header-auth-panel" id="headerAuthPanel" style="display:none;">
-          <p class="header-panel-label">Get notified when rates change in your state.</p>
+          <p class="header-panel-label">Notify me when rates change &nbsp;·&nbsp; <span class="header-panel-signin">returning? sign in below</span></p>
           <button class="auth-btn" id="authGoogleBtn">Continue with Google</button>
           <div class="header-panel-or">or enter your email</div>
           <div class="header-panel-row">
