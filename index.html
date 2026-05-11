@@ -108,17 +108,26 @@
   h1.hero-h em { font-style: italic; color: var(--accent); }
   h1.hero-h .hero-sub { display: block; font-size: 0.45em; font-weight: 400; letter-spacing: 0; margin-top: 0.3em; color: var(--ink-mute); font-style: italic; }
   .profile-restored { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); margin-top: 10px; letter-spacing: 0.05em; }
-  .auth-bar { background: var(--paper-deep); border: 1px solid var(--rule); border-bottom: none; padding: 10px 18px; }
-  .auth-signed-out, .auth-signed-in, .auth-magic-sent { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .auth-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); white-space: nowrap; margin-right: 4px; }
   .auth-or { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
   .auth-btn { font-family: var(--sans); font-size: 12px; font-weight: 600; padding: 6px 14px; background: var(--ink); color: var(--paper); border: none; cursor: pointer; white-space: nowrap; }
   .auth-btn:hover { opacity: 0.85; }
   .auth-btn-ghost { background: var(--paper); color: var(--ink); border: 1px solid var(--rule); }
   .auth-btn-ghost:hover { border-color: var(--ink); }
-  .auth-email-input { font-family: var(--sans); font-size: 13px; padding: 5px 10px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); outline: none; width: 190px; }
+  .auth-email-input { font-family: var(--sans); font-size: 13px; padding: 5px 10px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); outline: none; flex: 1; min-width: 0; }
   .auth-email-input:focus { border-color: var(--ink); }
   .auth-btn-link { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); background: none; border: none; cursor: pointer; text-decoration: underline; padding: 0; }
+  .header-auth { position: relative; }
+  .header-notify-btn { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--ink); background: none; border: 1px solid var(--ink); padding: 6px 12px; cursor: pointer; white-space: nowrap; }
+  .header-notify-btn:hover { background: var(--ink); color: var(--paper); }
+  .header-auth-panel { position: absolute; top: calc(100% + 12px); right: 0; background: var(--paper); border: 1px solid var(--ink); padding: 18px; z-index: 100; min-width: 290px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .header-panel-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); }
+  .header-panel-or { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); text-align: center; }
+  .header-panel-row { display: flex; gap: 8px; }
+  .header-panel-sent { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
+  .header-auth-in { display: flex; align-items: center; gap: 10px; }
+  .header-auth-email { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.05em; max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .email-btn-ghost { background: var(--paper-deep); color: var(--ink); }
+  .email-signed-in { font-family: var(--sans); font-size: 14px; color: var(--ink-soft); flex: 1; }
   .hero-tagline {
     font-family: var(--serif);
     font-size: 18px;
@@ -643,6 +652,25 @@
       <a href="methodology.html">Methodology</a>
       <a href="#about">About</a>
     </nav>
+    <div class="header-auth" id="headerAuth">
+      <div id="headerAuthOut">
+        <button class="header-notify-btn" id="headerNotifyBtn">Notify me &#9662;</button>
+        <div class="header-auth-panel" id="headerAuthPanel" style="display:none;">
+          <p class="header-panel-label">Get notified when rates change in your state.</p>
+          <button class="auth-btn" id="authGoogleBtn">Continue with Google</button>
+          <div class="header-panel-or">or enter your email</div>
+          <div class="header-panel-row">
+            <input type="email" class="auth-email-input" id="authEmailInput" placeholder="your@email.com" />
+            <button class="auth-btn auth-btn-ghost" id="authMagicBtn">Send link</button>
+          </div>
+          <div id="authMagicSent" style="display:none;" class="header-panel-sent">&#10003; Check your email — magic link sent.</div>
+        </div>
+      </div>
+      <div id="headerAuthIn" style="display:none;" class="header-auth-in">
+        <span id="authUserEmail" class="header-auth-email"></span>
+        <button class="auth-btn-link" id="authSignOutBtn">Sign out</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -675,24 +703,6 @@
       <span class="result-label-meta" id="resMeta"></span>
     </div>
     <div class="state-banner" id="stateBanner"></div>
-
-    <!-- Auth bar -->
-    <div class="auth-bar" id="authBar">
-      <div class="auth-signed-out" id="authSignedOut">
-        <span class="auth-label">Save profile across devices</span>
-        <button class="auth-btn" id="authGoogleBtn">Continue with Google</button>
-        <span class="auth-or">or</span>
-        <input type="email" class="auth-email-input" id="authEmailInput" placeholder="your@email.com" />
-        <button class="auth-btn auth-btn-ghost" id="authMagicBtn">Send link</button>
-      </div>
-      <div class="auth-signed-in" id="authSignedIn" style="display:none;">
-        <span class="auth-label">&#10003; Signed in as <span id="authUserEmail"></span></span>
-        <button class="auth-btn-link" id="authSignOutBtn">Sign out</button>
-      </div>
-      <div class="auth-magic-sent" id="authMagicSent" style="display:none;">
-        <span class="auth-label">Check your email — magic link sent.</span>
-      </div>
-    </div>
 
     <!-- Refine bar -->
     <div class="refine" id="refineBar">
@@ -801,14 +811,19 @@
 
     <div class="email-capture">
       <div class="email-capture-text">
-        <strong>Get a Boring Reminder.</strong>
-        <p>We'll notify you when rates are shifting in your state.<br>No spam. No phone. We will never sell your information.</p>
+        <strong>Notify me when my rates change.</strong>
+        <p>We'll alert you when rates shift in your state.<br>No spam. No phone. We will never sell your information.</p>
       </div>
       <div class="email-form" id="emailForm">
+        <button type="button" class="email-btn" id="emailGoogleBtn">Continue with Google</button>
+        <span class="auth-or">or</span>
         <input class="email-input" id="emailInput" type="email" placeholder="your@email.com" aria-label="Email address" />
-        <button type="button" class="email-btn" id="emailBtn">Notify me</button>
+        <button type="button" class="email-btn email-btn-ghost" id="emailBtn">Send link</button>
       </div>
-      <div class="email-thanks" id="emailThanks">✓ You're on the list.</div>
+      <div class="email-thanks" id="emailThanks" style="display:none;">&#10003; Check your email — magic link sent.</div>
+      <div class="email-signed-in" id="emailSignedIn" style="display:none;">
+        &#10003; You'll be notified at <strong id="emailSignedInUser"></strong>
+      </div>
     </div>
   </section>
 </div>
@@ -1323,17 +1338,24 @@ async function loadFromSupabase() {
 }
 
 function updateAuthUI(user) {
-  const out = document.getElementById("authSignedOut");
-  const inn = document.getElementById("authSignedIn");
-  const sent = document.getElementById("authMagicSent");
+  const headerOut = document.getElementById("headerAuthOut");
+  const headerIn = document.getElementById("headerAuthIn");
+  const emailForm = document.getElementById("emailForm");
+  const emailSignedIn = document.getElementById("emailSignedIn");
   if (user) {
-    out.style.display = "none";
-    sent.style.display = "none";
-    inn.style.display = "flex";
+    headerOut.style.display = "none";
+    headerIn.style.display = "flex";
     document.getElementById("authUserEmail").textContent = user.email;
+    if (emailForm) emailForm.style.display = "none";
+    if (emailSignedIn) {
+      emailSignedIn.style.display = "block";
+      document.getElementById("emailSignedInUser").textContent = user.email;
+    }
   } else {
-    inn.style.display = "none";
-    out.style.display = "flex";
+    headerOut.style.display = "block";
+    headerIn.style.display = "none";
+    if (emailForm) emailForm.style.display = "flex";
+    if (emailSignedIn) emailSignedIn.style.display = "none";
   }
 }
 
@@ -1347,7 +1369,6 @@ sb.auth.onAuthStateChange(async (event, session) => {
   }
 });
 
-// Check for existing session on load
 sb.auth.getSession().then(({ data: { session } }) => {
   if (session?.user) {
     currentUser = session.user;
@@ -1356,22 +1377,49 @@ sb.auth.getSession().then(({ data: { session } }) => {
   }
 });
 
+// Header "Notify me" dropdown toggle
+document.getElementById("headerNotifyBtn").addEventListener("click", e => {
+  e.stopPropagation();
+  const panel = document.getElementById("headerAuthPanel");
+  panel.style.display = panel.style.display === "none" ? "block" : "none";
+});
+document.addEventListener("click", e => {
+  const auth = document.getElementById("headerAuth");
+  if (auth && !auth.contains(e.target)) {
+    document.getElementById("headerAuthPanel").style.display = "none";
+  }
+});
+
+// Header panel — Google + magic link
 document.getElementById("authGoogleBtn").addEventListener("click", () => {
   sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: window.location.origin } });
 });
-
 document.getElementById("authMagicBtn").addEventListener("click", async () => {
   const email = document.getElementById("authEmailInput").value.trim();
   if (!email) return;
   const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
   if (!error) {
-    document.getElementById("authSignedOut").style.display = "none";
-    document.getElementById("authMagicSent").style.display = "flex";
+    document.getElementById("authEmailInput").style.display = "none";
+    document.getElementById("authMagicBtn").style.display = "none";
+    document.getElementById("authMagicSent").style.display = "block";
   }
 });
-
 document.getElementById("authSignOutBtn").addEventListener("click", async () => {
   await sb.auth.signOut();
+});
+
+// Email capture section — Google + magic link
+document.getElementById("emailGoogleBtn").addEventListener("click", () => {
+  sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: window.location.origin } });
+});
+document.getElementById("emailBtn").addEventListener("click", async () => {
+  const email = document.getElementById("emailInput").value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById("emailInput").focus(); return; }
+  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
+  if (!error) {
+    document.getElementById("emailForm").style.display = "none";
+    document.getElementById("emailThanks").style.display = "block";
+  }
 });
 
 // ── Refine bar toggle ───────────────────────────────────────
@@ -1704,13 +1752,6 @@ document.getElementById("zipInput").addEventListener("input", e => {
   }
 })();
 
-document.getElementById("emailBtn").addEventListener("click", () => {
-  const email = document.getElementById("emailInput").value.trim();
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById("emailInput").focus(); return; }
-  // TODO: wire to email backend (Netlify Forms, Mailchimp, ConvertKit, etc.)
-  document.getElementById("emailForm").style.display = "none";
-  document.getElementById("emailThanks").style.display = "block";
-});
 </script>
 </body>
 </html>
