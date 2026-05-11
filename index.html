@@ -106,6 +106,7 @@
     margin: 0 auto 10px;
   }
   h1.hero-h em { font-style: italic; color: var(--accent); }
+  h1.hero-h .hero-sub { display: block; font-size: 0.55em; font-weight: 400; letter-spacing: 0; margin-top: 0.3em; }
   .hero-tagline {
     font-family: var(--serif);
     font-size: 18px;
@@ -195,41 +196,54 @@
     padding: 14px 18px;
     margin: 0 0 16px;
   }
-  .refine-toggle {
+  .refine-always {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .refine-section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    font-weight: 600;
+    align-self: center;
+    white-space: nowrap;
+    padding-right: 8px;
+    border-right: 1px solid var(--rule);
+  }
+  .refine-more-toggle {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 6px;
     cursor: pointer;
     user-select: none;
+    margin-left: auto;
+    padding-bottom: 2px;
   }
   .refine-toggle-label {
     font-family: var(--mono);
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .refine-more-arrow {
+    font-size: 18px;
+    line-height: 1;
     color: var(--ink-mute);
   }
-  .refine-toggle-icon {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-mute);
-    transition: transform 200ms;
-  }
-  .refine-toggle-icon.open { transform: rotate(180deg); }
-  .refine-body {
+  .refine-more-body {
     display: none;
     padding-top: 14px;
-  }
-  .refine-body.open { display: block; }
-  .refine-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-  .refine-grid-row2 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    margin-top: 18px;
-    padding-top: 18px;
+    margin-top: 14px;
     border-top: 1px solid var(--rule);
   }
+  .refine-more-body.open { display: block; }
+  .refine-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
   .refine-q label {
     display: block;
     font-family: var(--mono);
@@ -576,8 +590,8 @@
   .state-teaser-hed { font-family: var(--serif); font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1.3; }
   .state-teaser-link { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--paper); background: var(--accent); text-decoration: none; padding: 9px 18px; white-space: nowrap; transition: background 120ms; flex-shrink: 0; }
   .state-teaser-link:hover { background: #8a1f0f; }
+    .refine-always { gap: 16px; }
     .refine-grid { grid-template-columns: 1fr 1fr; }
-    .refine-grid-row2 { grid-template-columns: 1fr 1fr; }
     .principles { grid-template-columns: 1fr; }
     .articles { grid-template-columns: 1fr; }
     .below-head { grid-template-columns: 1fr; gap: 14px; }
@@ -597,8 +611,9 @@
     .email-form { min-width: 100%; }
   }
   @media (max-width: 480px) {
+    .refine-always { flex-direction: column; align-items: flex-start; }
+    .refine-more-toggle { margin-left: 0; }
     .refine-grid { grid-template-columns: 1fr; }
-    .refine-grid-row2 { grid-template-columns: 1fr; }
     .hero { padding: 36px 0 24px; }
     .result { padding: 28px 0; }
     .rank-row { padding: 12px 14px; gap: 8px; }
@@ -628,7 +643,7 @@
 <div class="wrap">
   <div class="hero">
     <div class="kicker">Boring on purpose · Independent insurance research</div>
-    <h1 class="hero-h">Boring Research. Easy Comparisons. <em>See Auto Insurance Rates where you live</em></h1>
+    <h1 class="hero-h">Boring Research. Easy Comparisons.<span class="hero-sub"><em>See Auto Insurance Rates where you live</em></span></h1>
     <form class="zip-form" id="zipForm" autocomplete="off">
       <input class="zip-input" id="zipInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />
       <button type="submit" class="zip-btn">See rates</button>
@@ -648,29 +663,39 @@
     </div>
     <div class="state-banner" id="stateBanner"></div>
 
-    <!-- Collapsible refine bar -->
+    <!-- Refine bar -->
     <div class="refine" id="refineBar">
-      <div class="refine-toggle" id="refineToggle">
-        <span class="refine-toggle-label">Refine results &nbsp;·&nbsp; optional</span>
-        <span class="refine-toggle-icon" id="refineIcon">▾</span>
+      <div class="refine-always">
+        <span class="refine-section-label">Personalize your rate</span>
+        <div class="refine-q">
+          <label>Home</label>
+          <div class="pill-row" data-q="own" data-toggle>
+            <button type="button" class="pill" data-v="own">Own</button>
+            <button type="button" class="pill" data-v="rent">Rent</button>
+          </div>
+        </div>
+        <div class="refine-q">
+          <label>Vehicles</label>
+          <div class="pill-row" data-q="vehicles" data-toggle>
+            <button type="button" class="pill" data-v="1">1</button>
+            <button type="button" class="pill" data-v="2">2</button>
+            <button type="button" class="pill" data-v="3+">3+</button>
+          </div>
+        </div>
+        <div class="refine-q">
+          <label>Insurance status</label>
+          <div class="check-row">
+            <input type="checkbox" id="currentlyInsured" checked />
+            <span>Currently insured</span>
+          </div>
+        </div>
+        <div class="refine-more-toggle" id="refineMoreToggle">
+          <span class="refine-toggle-label">More options</span>
+          <span class="refine-more-arrow" id="refineMoreIcon">&#8964;</span>
+        </div>
       </div>
-      <div class="refine-body" id="refineBody">
+      <div class="refine-more-body" id="refineMoreBody">
         <div class="refine-grid">
-          <div class="refine-q">
-            <label>Home</label>
-            <div class="pill-row" data-q="own">
-              <button type="button" class="pill" data-v="own">Own</button>
-              <button type="button" class="pill" data-v="rent">Rent</button>
-            </div>
-          </div>
-          <div class="refine-q">
-            <label>Vehicles</label>
-            <div class="pill-row" data-q="vehicles">
-              <button type="button" class="pill" data-v="1">1</button>
-              <button type="button" class="pill" data-v="2">2</button>
-              <button type="button" class="pill" data-v="3+">3+</button>
-            </div>
-          </div>
           <div class="refine-q">
             <label>Current carrier</label>
             <select id="curCarrier">
@@ -689,20 +714,11 @@
           </div>
           <div class="refine-q">
             <label>Age range</label>
-            <div class="pill-row" data-q="age">
+            <div class="pill-row" data-q="age" data-toggle>
               <button type="button" class="pill" data-v="18-24">18–24</button>
               <button type="button" class="pill" data-v="25-34">25–34</button>
               <button type="button" class="pill" data-v="35-54">35–54</button>
               <button type="button" class="pill" data-v="55+">55+</button>
-            </div>
-          </div>
-        </div>
-        <div class="refine-grid-row2">
-          <div class="refine-q">
-            <label>Insurance status</label>
-            <div class="check-row">
-              <input type="checkbox" id="currentlyInsured" checked />
-              <span>Currently insured</span>
             </div>
           </div>
           <div class="refine-q">
@@ -735,13 +751,13 @@
     <!-- Boring Rank header — shown above table when qualifiers exist -->
     <div class="boring-rank-header" id="boringRankHeader">
       <div class="boring-rank-label">Boring Rank: Quote First</div>
-      <div class="boring-rank-rule">Cheapest carriers with NAIC complaint index below 1.5 — a mechanical rule, not a recommendation of fit. <a href="methodology.html">How we rank →</a></div>
+      <div class="boring-rank-rule"><a href="methodology.html">How we rank →</a></div>
     </div>
 
     <!-- Rank table label sits directly above the table -->
     <div class="rank-table-label" id="rankTableLabel" style="display:none;">
       <span id="rankTableState">—</span>
-      <span class="rank-label-naic">Price vs. median · Quality marks = NAIC complaint index</span>
+      <span class="rank-label-naic">Price vs. median · Customer Satisfaction Rating</span>
     </div>
 
     <div class="rank-list" id="rankList"></div>
@@ -1207,14 +1223,14 @@ function buildTicker() {
 
 // ── Refine bar toggle ───────────────────────────────────────
 function initRefineToggle() {
-  const toggle = document.getElementById("refineToggle");
+  const toggle = document.getElementById("refineMoreToggle");
   if (!toggle) return;
   toggle.addEventListener("click", () => {
-    const body = document.getElementById("refineBody");
-    const icon = document.getElementById("refineIcon");
+    const body = document.getElementById("refineMoreBody");
+    const icon = document.getElementById("refineMoreIcon");
     const isOpen = body.classList.contains("open");
     body.classList.toggle("open", !isOpen);
-    icon.textContent = isOpen ? "▾" : "▴";
+    icon.innerHTML = isOpen ? "&#8964;" : "&#8963;";
   });
 }
 
@@ -1471,7 +1487,7 @@ document.getElementById("zipForm").addEventListener("submit", e => {
   document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
-document.querySelectorAll(".refine-grid .pill-row").forEach(group => {
+document.querySelectorAll("#refineBar .pill-row[data-toggle]").forEach(group => {
   const q = group.dataset.q;
   group.addEventListener("click", e => {
     if (!e.target.classList.contains("pill")) return;
@@ -1484,7 +1500,7 @@ document.querySelectorAll(".refine-grid .pill-row").forEach(group => {
   });
 });
 
-document.querySelectorAll(".refine-grid-row2 .pill-row").forEach(group => {
+document.querySelectorAll("#refineBar .pill-row:not([data-toggle])").forEach(group => {
   const q = group.dataset.q;
   group.addEventListener("click", e => {
     if (!e.target.classList.contains("pill")) return;
