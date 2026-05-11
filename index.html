@@ -108,6 +108,17 @@
   h1.hero-h em { font-style: italic; color: var(--accent); }
   h1.hero-h .hero-sub { display: block; font-size: 0.45em; font-weight: 400; letter-spacing: 0; margin-top: 0.3em; color: var(--ink-mute); font-style: italic; }
   .profile-restored { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); margin-top: 10px; letter-spacing: 0.05em; }
+  .auth-bar { background: var(--paper-deep); border: 1px solid var(--rule); border-bottom: none; padding: 10px 18px; }
+  .auth-signed-out, .auth-signed-in, .auth-magic-sent { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .auth-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); white-space: nowrap; margin-right: 4px; }
+  .auth-or { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
+  .auth-btn { font-family: var(--sans); font-size: 12px; font-weight: 600; padding: 6px 14px; background: var(--ink); color: var(--paper); border: none; cursor: pointer; white-space: nowrap; }
+  .auth-btn:hover { opacity: 0.85; }
+  .auth-btn-ghost { background: var(--paper); color: var(--ink); border: 1px solid var(--rule); }
+  .auth-btn-ghost:hover { border-color: var(--ink); }
+  .auth-email-input { font-family: var(--sans); font-size: 13px; padding: 5px 10px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); outline: none; width: 190px; }
+  .auth-email-input:focus { border-color: var(--ink); }
+  .auth-btn-link { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); background: none; border: none; cursor: pointer; text-decoration: underline; padding: 0; }
   .hero-tagline {
     font-family: var(--serif);
     font-size: 18px;
@@ -665,6 +676,24 @@
     </div>
     <div class="state-banner" id="stateBanner"></div>
 
+    <!-- Auth bar -->
+    <div class="auth-bar" id="authBar">
+      <div class="auth-signed-out" id="authSignedOut">
+        <span class="auth-label">Save profile across devices</span>
+        <button class="auth-btn" id="authGoogleBtn">Continue with Google</button>
+        <span class="auth-or">or</span>
+        <input type="email" class="auth-email-input" id="authEmailInput" placeholder="your@email.com" />
+        <button class="auth-btn auth-btn-ghost" id="authMagicBtn">Send link</button>
+      </div>
+      <div class="auth-signed-in" id="authSignedIn" style="display:none;">
+        <span class="auth-label">&#10003; Signed in as <span id="authUserEmail"></span></span>
+        <button class="auth-btn-link" id="authSignOutBtn">Sign out</button>
+      </div>
+      <div class="auth-magic-sent" id="authMagicSent" style="display:none;">
+        <span class="auth-label">Check your email — magic link sent.</span>
+      </div>
+    </div>
+
     <!-- Refine bar -->
     <div class="refine" id="refineBar">
       <div class="refine-always">
@@ -871,6 +900,7 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 // Full state data — avg is annual full-coverage premium (2025 estimates)
 const STATE_DATA = {
@@ -1231,6 +1261,7 @@ function saveProfile() {
   if (!/^\d{5}$/.test(zip)) return;
   try {
     localStorage.setItem(PROFILE_KEY, JSON.stringify({ zip, refinement: { ...refinement } }));
+    if (currentUser) syncToSupabase();
   } catch(e) {}
 }
 
@@ -1260,6 +1291,88 @@ function loadProfile() {
     setTimeout(() => { note.style.display = "none"; }, 4000);
   } catch(e) {}
 }
+
+// ── Supabase auth ────────────────────────────────────────────
+const SUPABASE_URL = "https://uayypfeqltlrxkdqgvcz.supabase.co";
+const SUPABASE_KEY = "sb_publishable_gAKR-IoPDphx8Zp0GlVt7Q_JeYKeU5f";
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+let currentUser = null;
+
+async function syncToSupabase() {
+  if (!currentUser) return;
+  try {
+    const saved = JSON.parse(localStorage.getItem(PROFILE_KEY));
+    if (!saved) return;
+    await sb.from("profiles").upsert({
+      id: currentUser.id,
+      zip: saved.zip,
+      refinements: saved.refinement,
+      updated_at: new Date().toISOString()
+    });
+  } catch(e) {}
+}
+
+async function loadFromSupabase() {
+  if (!currentUser) return false;
+  try {
+    const { data } = await sb.from("profiles").select("*").eq("id", currentUser.id).single();
+    if (!data) return false;
+    localStorage.setItem(PROFILE_KEY, JSON.stringify({ zip: data.zip, refinement: data.refinements }));
+    return true;
+  } catch(e) { return false; }
+}
+
+function updateAuthUI(user) {
+  const out = document.getElementById("authSignedOut");
+  const inn = document.getElementById("authSignedIn");
+  const sent = document.getElementById("authMagicSent");
+  if (user) {
+    out.style.display = "none";
+    sent.style.display = "none";
+    inn.style.display = "flex";
+    document.getElementById("authUserEmail").textContent = user.email;
+  } else {
+    inn.style.display = "none";
+    out.style.display = "flex";
+  }
+}
+
+sb.auth.onAuthStateChange(async (event, session) => {
+  currentUser = session?.user || null;
+  updateAuthUI(currentUser);
+  if (event === "SIGNED_IN" && currentUser) {
+    const loaded = await loadFromSupabase();
+    if (loaded) loadProfile();
+    else syncToSupabase();
+  }
+});
+
+// Check for existing session on load
+sb.auth.getSession().then(({ data: { session } }) => {
+  if (session?.user) {
+    currentUser = session.user;
+    updateAuthUI(currentUser);
+    loadFromSupabase().then(loaded => { if (loaded) loadProfile(); });
+  }
+});
+
+document.getElementById("authGoogleBtn").addEventListener("click", () => {
+  sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: window.location.origin } });
+});
+
+document.getElementById("authMagicBtn").addEventListener("click", async () => {
+  const email = document.getElementById("authEmailInput").value.trim();
+  if (!email) return;
+  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
+  if (!error) {
+    document.getElementById("authSignedOut").style.display = "none";
+    document.getElementById("authMagicSent").style.display = "flex";
+  }
+});
+
+document.getElementById("authSignOutBtn").addEventListener("click", async () => {
+  await sb.auth.signOut();
+});
 
 // ── Refine bar toggle ───────────────────────────────────────
 function initRefineToggle() {
