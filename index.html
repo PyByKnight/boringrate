@@ -107,6 +107,7 @@
   }
   h1.hero-h em { font-style: italic; color: var(--accent); }
   h1.hero-h .hero-sub { display: block; font-size: 0.45em; font-weight: 400; letter-spacing: 0; margin-top: 0.3em; color: var(--ink-mute); font-style: italic; }
+  .profile-restored { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); margin-top: 10px; letter-spacing: 0.05em; }
   .hero-tagline {
     font-family: var(--serif);
     font-size: 18px;
@@ -648,6 +649,7 @@
       <input class="zip-input" id="zipInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />
       <button type="submit" class="zip-btn">See rates</button>
     </form>
+    <div id="profileRestored" class="profile-restored" style="display:none;">Welcome back — your last search is loaded.</div>
     <div class="promise-line"><span>✓</span> No phone required &nbsp;·&nbsp; <span>✓</span> No information sold &nbsp;·&nbsp; <span>✓</span> 30 seconds</div>
   </div>
 </div>
@@ -1221,6 +1223,44 @@ function buildTicker() {
   }).join("");
 }
 
+// ── localStorage profile ────────────────────────────────────
+const PROFILE_KEY = "br_profile";
+
+function saveProfile() {
+  const zip = document.getElementById("zipInput").value.trim();
+  if (!/^\d{5}$/.test(zip)) return;
+  try {
+    localStorage.setItem(PROFILE_KEY, JSON.stringify({ zip, refinement: { ...refinement } }));
+  } catch(e) {}
+}
+
+function loadProfile() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(PROFILE_KEY));
+    if (!saved || !/^\d{5}$/.test(saved.zip)) return;
+
+    Object.assign(refinement, saved.refinement);
+    document.getElementById("zipInput").value = saved.zip;
+    stateData = lookupZip(saved.zip);
+
+    document.querySelectorAll("#refineBar .pill-row").forEach(group => {
+      const val = refinement[group.dataset.q];
+      group.querySelectorAll(".pill").forEach(p => {
+        p.classList.toggle("active", val != null && p.dataset.v === val);
+      });
+    });
+    document.getElementById("currentlyInsured").checked = refinement.insured;
+    document.getElementById("srRequired").checked = refinement.srRequired;
+    document.getElementById("curCarrier").value = refinement.curCarrier || "";
+
+    renderRanking();
+    document.getElementById("result").classList.add("active");
+    const note = document.getElementById("profileRestored");
+    note.style.display = "block";
+    setTimeout(() => { note.style.display = "none"; }, 4000);
+  } catch(e) {}
+}
+
 // ── Refine bar toggle ───────────────────────────────────────
 function initRefineToggle() {
   const toggle = document.getElementById("refineMoreToggle");
@@ -1237,6 +1277,7 @@ function initRefineToggle() {
 document.addEventListener("DOMContentLoaded", () => {
   buildTicker();
   initRefineToggle();
+  loadProfile();
 });
 
 function naicRatio(name, code) {
@@ -1396,6 +1437,7 @@ function markSvg(kind) {
 
 function renderRanking() {
   if (!stateData) return;
+  saveProfile();
   const ranked = activeCarriers().map(c => {
     const ratio = naicRatio(c.name, stateData.code);
     return { carrier: c, price: estimatePremium(c, stateData.avg), ratio, mark: qualityMark(ratio) };
