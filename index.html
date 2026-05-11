@@ -108,6 +108,8 @@
   h1.hero-h em { font-style: italic; color: var(--accent); }
   h1.hero-h .hero-sub { display: block; font-size: 0.45em; font-weight: 400; letter-spacing: 0; margin-top: 0.3em; color: var(--ink-mute); font-style: italic; }
   .profile-restored { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); margin-top: 10px; letter-spacing: 0.05em; }
+  .auth-toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; padding: 14px 24px; z-index: 999; white-space: nowrap; opacity: 0; transition: opacity 300ms; pointer-events: none; }
+  .auth-toast.show { opacity: 1; }
   .auth-or { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
   .auth-btn { font-family: var(--sans); font-size: 12px; font-weight: 600; padding: 6px 14px; background: var(--ink); color: var(--paper); border: none; cursor: pointer; white-space: nowrap; }
   .auth-btn:hover { opacity: 0.85; }
@@ -1359,6 +1361,13 @@ function updateAuthUI(user) {
   }
 }
 
+function showToast(msg) {
+  const t = document.getElementById("authToast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 4000);
+}
+
 sb.auth.onAuthStateChange(async (event, session) => {
   currentUser = session?.user || null;
   updateAuthUI(currentUser);
@@ -1366,6 +1375,7 @@ sb.auth.onAuthStateChange(async (event, session) => {
     const loaded = await loadFromSupabase();
     if (loaded) loadProfile();
     else syncToSupabase();
+    showToast("✓ You're confirmed — we'll notify you when rates change.");
   }
 });
 
@@ -1753,5 +1763,6 @@ document.getElementById("zipInput").addEventListener("input", e => {
 })();
 
 </script>
+<div class="auth-toast" id="authToast"></div>
 </body>
 </html>
