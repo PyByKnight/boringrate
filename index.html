@@ -417,6 +417,7 @@
   .rank-name-wrap { min-width: 0; }
   .rank-name { font-family: var(--serif); font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
   .rank-tag { font-size: 12px; color: var(--ink-mute); margin-top: 2px; font-family: var(--sans); }
+  .rank-best { font-size: 10px; font-family: var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); margin-top: 4px; }
 
   .rank-mark {
     width: 24px; height: 24px;
@@ -779,6 +780,14 @@
             <button type="button" class="pill" data-v="25-34">25–34</button>
             <button type="button" class="pill" data-v="35-54">35–54</button>
             <button type="button" class="pill" data-v="55+">55+</button>
+          </div>
+        </div>
+        <div class="refine-q">
+          <label>Credit</label>
+          <div class="pill-row" data-q="credit" data-toggle>
+            <button type="button" class="pill" data-v="excellent">Excellent</button>
+            <button type="button" class="pill" data-v="good">Good</button>
+            <button type="button" class="pill" data-v="fair">Fair</button>
           </div>
         </div>
         <div class="refine-q">
@@ -1632,22 +1641,22 @@ const SHOP_MULT = {
 };
 
 const CARRIERS_STANDARD = [
-  { name: "USAA",           base: 0.82, tag: "Military & immediate family only",
-    sens: { own: -0.04, rent: 0.02, age: { "18-24": 0.20, "25-34": 0.04, "35-54": -0.06, "55+": -0.10 }, multi: -0.03, single: 0.02, lapsed: 0.20, renewal: -0.03 } },
-  { name: "GEICO",          base: 0.80, tag: "No agents — buy and manage online",
-    sens: { own: -0.05, rent: 0.02, age: { "18-24": 0.24, "25-34": 0.06, "35-54": -0.04, "55+": -0.08 }, multi: -0.05, single: 0.03, lapsed: 0.15, renewal: -0.02 } },
-  { name: "State Farm",     base: 0.86, tag: "Large local agent network",
-    sens: { own: -0.08, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.02, "35-54": -0.05, "55+": -0.09 }, multi: -0.12, single: 0.02, lapsed: 0.18, renewal: -0.05 } },
-  { name: "Progressive",    base: 0.94, tag: "Rates vary widely by driver profile",
-    sens: { own: -0.03, rent: 0.01, age: { "18-24": 0.04, "25-34": 0.01, "35-54": 0.00, "55+": -0.04 }, multi: -0.04, single: 0.02, lapsed: 0.05, renewal: 0.05 } },
-  { name: "Allstate",       base: 1.08, tag: "Strong bundling discounts",
-    sens: { own: -0.10, rent: 0.04, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.04, "55+": -0.08 }, multi: -0.08, single: 0.03, lapsed: 0.16, renewal: 0.02 } },
-  { name: "Liberty Mutual", base: 1.23, tag: "Broad coverage options",
-    sens: { own: -0.06, rent: 0.03, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.03, "55+": -0.06 }, multi: -0.05, single: 0.02, lapsed: 0.20, renewal: 0.04 } },
-  { name: "Farmers",        base: 1.04, tag: "Strong local agent network",
-    sens: { own: -0.07, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.03, "35-54": -0.04, "55+": -0.07 }, multi: -0.06, single: 0.02, lapsed: 0.14, renewal: 0.01 } },
-  { name: "Nationwide",     base: 0.99, tag: "Strong bundling discounts",
-    sens: { own: -0.08, rent: 0.03, age: { "18-24": 0.15, "25-34": 0.02, "35-54": -0.05, "55+": -0.08 }, multi: -0.06, single: 0.02, lapsed: 0.15, renewal: -0.01 } }
+  { name: "USAA",           base: 0.82, tag: "Military & immediate family only",        bestFor: "Military & veterans",
+    sens: { own: -0.04, rent: 0.02, age: { "18-24": 0.20, "25-34": 0.04, "35-54": -0.06, "55+": -0.10 }, multi: -0.03, single: 0.02, lapsed: 0.20, renewal: -0.03, credit: { excellent: -0.08, fair: 0.18 } } },
+  { name: "GEICO",          base: 0.80, tag: "No agents — buy and manage online",       bestFor: "Online shoppers",
+    sens: { own: -0.05, rent: 0.02, age: { "18-24": 0.24, "25-34": 0.06, "35-54": -0.04, "55+": -0.08 }, multi: -0.05, single: 0.03, lapsed: 0.15, renewal: -0.02, credit: { excellent: -0.14, fair: 0.28 } } },
+  { name: "State Farm",     base: 0.86, tag: "Large local agent network",               bestFor: "Local agent service",
+    sens: { own: -0.08, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.02, "35-54": -0.05, "55+": -0.09 }, multi: -0.12, single: 0.02, lapsed: 0.18, renewal: -0.05, credit: { excellent: -0.10, fair: 0.22 } } },
+  { name: "Progressive",    base: 0.94, tag: "Rates vary widely by driver profile",     bestFor: "High-risk & SR-22",
+    sens: { own: -0.03, rent: 0.01, age: { "18-24": 0.04, "25-34": 0.01, "35-54": 0.00, "55+": -0.04 }, multi: -0.04, single: 0.02, lapsed: 0.05, renewal: 0.05, credit: { excellent: -0.11, fair: 0.25 } } },
+  { name: "Allstate",       base: 1.08, tag: "Strong bundling discounts",               bestFor: "Accident forgiveness",
+    sens: { own: -0.10, rent: 0.04, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.04, "55+": -0.08 }, multi: -0.08, single: 0.03, lapsed: 0.16, renewal: 0.02, credit: { excellent: -0.13, fair: 0.30 } } },
+  { name: "Liberty Mutual", base: 1.23, tag: "Broad coverage options",                  bestFor: "New car replacement",
+    sens: { own: -0.06, rent: 0.03, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.03, "55+": -0.06 }, multi: -0.05, single: 0.02, lapsed: 0.20, renewal: 0.04, credit: { excellent: -0.15, fair: 0.35 } } },
+  { name: "Farmers",        base: 1.04, tag: "Strong local agent network",              bestFor: "Full-service agents",
+    sens: { own: -0.07, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.03, "35-54": -0.04, "55+": -0.07 }, multi: -0.06, single: 0.02, lapsed: 0.14, renewal: 0.01, credit: { excellent: -0.10, fair: 0.24 } } },
+  { name: "Nationwide",     base: 0.99, tag: "Strong bundling discounts",               bestFor: "Vanishing deductible",
+    sens: { own: -0.08, rent: 0.03, age: { "18-24": 0.15, "25-34": 0.02, "35-54": -0.05, "55+": -0.08 }, multi: -0.06, single: 0.02, lapsed: 0.15, renewal: -0.01, credit: { excellent: -0.14, fair: 0.28 } } }
 ];
 
 // Non-standard carriers — high-risk / SR-22 market
@@ -2213,7 +2222,7 @@ const STATE_AGENTS = {
   ],
 };
 
-const refinement = { own: null, vehicles: null, curCarrier: "", age: null, insured: true, srRequired: false, shopPref: "web", coverage: "standard" };
+const refinement = { own: null, vehicles: null, curCarrier: "", age: null, credit: null, insured: true, srRequired: false, shopPref: "web", coverage: "standard" };
 let stateData = null, lastOrder = [];
 
 function isNonStandard() {
@@ -2242,6 +2251,10 @@ function estimatePremium(carrier, avg) {
   if (refinement.vehicles === "2+") m *= (1 + s.multi);
   if (refinement.vehicles === "1") m *= (1 + s.single);
   if (refinement.age && s.age[refinement.age] !== undefined) m *= (1 + s.age[refinement.age]);
+  if (refinement.credit && s.credit) {
+    if (refinement.credit === "excellent") m *= (1 + s.credit.excellent);
+    else if (refinement.credit === "fair")  m *= (1 + s.credit.fair);
+  }
   if (!refinement.insured) { m *= (1 + s.lapsed); }
   else if (refinement.curCarrier === carrier.name) { m *= (1 + s.renewal); }
   else if (refinement.curCarrier === "none") { m *= (1 + s.lapsed); }
@@ -2310,9 +2323,10 @@ function renderRanking() {
     a.target = "_blank";
     a.rel = "noopener noreferrer";
     a.dataset.carrier = c.name;
+    const bestForHtml = c.bestFor ? '<div class="rank-best">↗ ' + c.bestFor + '</div>' : '';
     a.innerHTML =
       '<div class="rank-num">' + num + '</div>' +
-      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div><div class="rank-tag">' + c.tag + '</div></div>' +
+      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div><div class="rank-tag">' + c.tag + '</div>' + bestForHtml + '</div>' +
       markHtml +
       '<div class="rank-vs ' + delta.klass + '">' + delta.text + '<span class="vs-sub">' + delta.sub + '</span></div>' +
       '<div class="rank-cta"><span class="rank-cta-inner">Get a real quote →</span></div>';
