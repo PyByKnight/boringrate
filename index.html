@@ -1955,55 +1955,259 @@ const STATE_LOCAL_CARRIERS = {
 };
 
 const STATE_AGENTS = {
-  "CA": [
-    { name: "MIS Insurance Services",           city: "Los Angeles", url: "https://www.mis-insurance.com",  rating: 4.9, reviews: 3000, source: "Google", tag: "78+ carriers · bilingual service · personal auto &amp; home specialist" },
-    { name: "Fusco Orsini &amp; Associates",    city: "San Diego",   url: "https://www.foagency.com",       rating: 5.0, reviews: 425,  source: "Google", tag: "Founded 2010 · licensed in 31 states · personal auto, home, umbrella" },
-    { name: "Peninsula General Insurance",       city: "Torrance",    url: "https://www.peninsulageneral.com", rating: 4.9, reviews: 227, source: "Google", tag: "Founded 1986 · Mercury, Safeco, Progressive · South Bay &amp; LA" },
+  "AK": [
+    { name: "Alaska Service Agency",          city: "Anchorage", url: "https://alaskaserviceagency.com", tag: "Founded 1980 · one of Alaska's largest independents · personal auto &amp; home" },
+    { name: "Alaska Pacific Insurance Agency", city: "Anchorage", url: "https://alaskapacificins.com",   rating: 4.6, reviews: 54, source: "Google",  tag: "Founded 1998 · 16 carriers · personal auto &amp; home" },
+    { name: "Aurora National Insurance",       city: "Anchorage", url: "https://aurorainsurance.net",    rating: 5.0, reviews: 40, source: "Google",  tag: "20+ years serving Alaska · personal auto &amp; home" },
   ],
-  "TX": [
-    { name: "Texan Insurance",          city: "Houston", url: "https://www.texaninsurance.com",    rating: 4.8, reviews: 2781, source: "Google", tag: "Family-owned since 1985 · 40+ carriers · personal auto &amp; home" },
-    { name: "The Vanguard Agency",      city: "Houston", url: "https://www.vanguardagencyllc.com", rating: 4.9, reviews: 245,  source: "Google", tag: "Personal auto &amp; home · Mercury, Travelers · Trusted Choice" },
-    { name: "Baxter Insurance Agency",  city: "Houston", url: "https://baxterinsuranceagency.com", rating: 5.0, reviews: 58,   source: "Birdeye", tag: "Family-owned since 1989 · personal auto &amp; home · greater Houston" },
+  "AL": [
+    { name: "PAC Insurance Agency",   city: "Birmingham", url: "https://www.pacinsuranceagency.com",  rating: 4.4, reviews: 104, source: "Google",  tag: "Founded 1981 · largest personal lines agency in Alabama · auto &amp; home" },
+    { name: "Guide Insurance Agency", city: "Birmingham", url: "https://www.guideinsuranceagency.com", rating: 4.8, reviews: 113, source: "Google",  tag: "Independent &amp; locally owned · multiple carriers · personal auto &amp; home" },
+    { name: "Altasurance",            city: "Birmingham", url: "https://www.altasurance.com",          rating: 4.7, reviews: 75,  source: "Birdeye", tag: "AIIA member since 2009 · Auto-Owners &amp; multiple carriers · personal auto &amp; home" },
+  ],
+  "AR": [
+    { name: "Berryhill Insurance Group", city: "Little Rock", url: "https://berryhillinsurance.com",     rating: 5.0, reviews: 35, source: "Google", tag: "Independent family agency · serves all of Arkansas · personal auto &amp; home" },
+    { name: "All American Insurance",    city: "Little Rock", url: "https://www.all-americanins.com",    rating: 4.5, reviews: 45, source: "Google", tag: "Independent since 1986 · multiple Arkansas locations · personal auto &amp; home" },
+    { name: "Donnell Insurance Agency",  city: "Little Rock", url: "https://donnellinsuranceagency.com", rating: 4.8, reviews: 17, source: "Google", tag: "Family-owned since 1982 · Nationwide, Progressive, Safeco · personal auto &amp; home" },
+  ],
+  "AZ": [
+    { name: "Greene Insurance Group",   city: "Phoenix", url: "https://greeneinsurancegroup.com",  tag: "Family-owned since 1962 · 12+ carriers · personal auto &amp; home" },
+    { name: "Coriano Insurance Agency", city: "Phoenix", url: "https://ciaaz.com",                  tag: "Family-owned · 60+ carriers · Safeco, Progressive, Travelers · personal auto &amp; home" },
+    { name: "Insurance of State 48",    city: "Phoenix", url: "https://insuranceofstate48.us",      rating: 4.9, reviews: 39, source: "Google", tag: "Independent · personal auto, home &amp; motorcycle · multi-carrier" },
+  ],
+  "CA": [
+    { name: "MIS Insurance Services",         city: "Los Angeles", url: "https://www.mis-insurance.com",    rating: 4.9, reviews: 3000, source: "Google", tag: "78+ carriers · bilingual service · personal auto &amp; home specialist" },
+    { name: "Fusco Orsini &amp; Associates",  city: "San Diego",   url: "https://www.foagency.com",         rating: 5.0, reviews: 425,  source: "Google", tag: "Founded 2010 · licensed in 31 states · personal auto, home, umbrella" },
+    { name: "Peninsula General Insurance",     city: "Torrance",    url: "https://www.peninsulageneral.com", rating: 4.9, reviews: 227,  source: "Google", tag: "Founded 1986 · Mercury, Safeco, Progressive · South Bay &amp; LA" },
+  ],
+  "CO": [
+    { name: "Denver Insurance LLC",          city: "Denver",     url: "https://denverinsuranceteam.com",  rating: 5.0, reviews: 278, source: "Google", tag: "Founded 2015 · shops 33 carriers · personal auto &amp; home, fee-free" },
+    { name: "Square State Insurance",        city: "Denver",     url: "https://squarestateinsurance.com", tag: "Independent · 100+ five-star reviews · personal auto &amp; home specialist" },
+    { name: "Aspen Gold Insurance Brokers",  city: "Broomfield", url: "https://aspengoldins.com",         rating: 4.8, reviews: 161, source: "Google", tag: "Family-owned independent · multi-carrier · personal auto &amp; home" },
+  ],
+  "CT": [
+    { name: "Bouvier Insurance",      city: "West Hartford", url: "https://www.binsurance.com",   rating: 4.6, reviews: 82, source: "Birdeye", tag: "Founded 1959 · 7 CT locations · personal auto &amp; home" },
+    { name: "Hodge Insurance Agency", city: "Danbury",       url: "https://www.hodgeagency.com",  rating: 5.0, reviews: 34, source: "Google",  tag: "Family-owned since 1903 · 20+ carriers · personal auto &amp; home" },
+    { name: "JVR Insurance",          city: "Hamden",        url: "https://www.jvrinsurance.com", rating: 4.6, reviews: 34, source: "Google",  tag: "50+ years · Progressive, Safeco, MAPFRE · personal auto &amp; home" },
+  ],
+  "DC": [
+    { name: "Bridge First Insurance",   city: "Alexandria",  url: "https://www.bridgefirstinsurance.com",  rating: 4.9, reviews: 375, source: "Google", tag: "Founded 2013 · 20+ carriers · personal auto &amp; home for DC/VA/MD" },
+    { name: "Griffin Owens Insurance",  city: "Falls Church", url: "https://www.leavitt.com/griffinowens", rating: 4.9, reviews: 97,  source: "Google", tag: "Founded 1981 · 100+ carriers · serves DC metro" },
+    { name: "Puffenbarger Insurance",   city: "Fairfax",     url: "https://www.leavitt.com/puffenbarger", rating: 4.8, reviews: 171, source: "Google", tag: "Founded 1989 · family-owned · personal auto &amp; home" },
+  ],
+  "DE": [
+    { name: "Blue Hen Insurance",         city: "Middletown", url: "https://www.blueheninsurance.com", rating: 4.9, reviews: 38, source: "Google", tag: "Independent · Chubb, Cincinnati, Hagerty · personal auto &amp; home" },
+    { name: "CBM Insurance",              city: "New Castle",  url: "https://www.cbmins.com",           rating: 5.0, reviews: 27, source: "Google", tag: "Founded 1981 · 15+ carriers · personal auto &amp; home" },
+    { name: "Records/Gebhart Insurance",  city: "Smyrna",     url: "https://www.recordsgebhart.com",    tag: "3rd-generation agency · 70+ years · personal auto &amp; home" },
   ],
   "FL": [
-    { name: "Miami Insurance Brokers",       city: "Miami",       url: "https://www.mibrk.com",            rating: 4.9, reviews: 516,   source: "Google", tag: "30+ years in business · bilingual · personal auto specialist" },
-    { name: "Florida One Insurance Agency",  city: "Miami Lakes", url: "https://floridaoneinsurance.com",  rating: 4.9, reviews: 25540, source: "Google", tag: "40+ carriers · bilingual · personal auto, home, SR-22 · statewide" },
-    { name: "Augustyniak Insurance Group",   city: "Jacksonville", url: "https://www.weshopinsurance.com", rating: 4.9, reviews: 2250,  source: "Google", tag: "80+ carriers · ThreeBestRated Jacksonville #1, 12 years running" },
-  ],
-  "NY": [
-    { name: "K&amp;N Insurance Brokerage",    city: "Queens",      url: "https://kninsurance.com",         rating: 5.0, reviews: 863, source: "Google", tag: "30+ years · personal auto &amp; home · Queens and Long Island" },
-    { name: "Vavas Insurance",                 city: "Brooklyn",    url: "https://www.vavasinsurance.com",  rating: 4.8, reviews: 137, source: "Google", tag: "Personal auto, home, renters · Brooklyn, Queens, Staten Island" },
-    { name: "Haller-Zaremba Insurance",        city: "Long Island", url: "https://www.hzinsurance.com",    rating: 5.0, reviews: 54,  source: "Google", tag: "Family-owned 81+ years · personal auto &amp; home statewide" },
-  ],
-  "PA": [
-    { name: "Premier Group Insurance",   city: "Philadelphia", url: "https://e-premier.com",           rating: 5.0, reviews: 361, source: "Google", tag: "Personal auto, home, flood · Philadelphia metro &amp; suburbs" },
-    { name: "Goebel Insurance Agency",   city: "Philadelphia", url: "https://www.gogoebel.com",        rating: 4.9, reviews: 106, source: "Google", tag: "Independent since 2000 · re-shops rates for existing clients" },
-    { name: "Conrad Insurance",          city: "Wayne",        url: "https://www.conradinsurance.net", rating: 5.0, reviews: 61,  source: "Google", tag: "24+ carriers · personal auto, home, umbrella · PA, NJ, DE" },
-  ],
-  "OH": [
-    { name: "Slyman Insurance Group",              city: "Columbus", url: "https://slymaninsurancegroup.com", rating: 5.0, reviews: 375, source: "Google", tag: "50+ years · personal auto &amp; home · multi-location central Ohio" },
-    { name: "Affordable Insurance Agency of Ohio", city: "Columbus", url: "https://www.affordablemitch.com",  rating: 4.9, reviews: 429, source: "Google", tag: "Family-owned since 1995 · personal auto, SR-22, home · multiple Columbus locations" },
-    { name: "Isner Insurance Associates",          city: "Columbus", url: "https://www.isnerinsurance.com",   rating: 4.9, reviews: 68,  source: "Birdeye", tag: "Independent since 1972 · 50+ year track record · personal auto &amp; home" },
+    { name: "Miami Insurance Brokers",      city: "Miami",        url: "https://www.mibrk.com",           rating: 4.9, reviews: 516,   source: "Google", tag: "30+ years in business · bilingual · personal auto specialist" },
+    { name: "Florida One Insurance Agency", city: "Miami Lakes",  url: "https://floridaoneinsurance.com",  rating: 4.9, reviews: 25540, source: "Google", tag: "40+ carriers · bilingual · personal auto, home, SR-22 · statewide" },
+    { name: "Augustyniak Insurance Group",  city: "Jacksonville", url: "https://www.weshopinsurance.com",  rating: 4.9, reviews: 2250,  source: "Google", tag: "80+ carriers · ThreeBestRated Jacksonville #1, 12 years running" },
   ],
   "GA": [
-    { name: "Dickerson Agency",          city: "Kennesaw",   url: "https://www.dickersonagency.com",       rating: 5.0, reviews: 149, source: "Google", tag: "30+ years · 20+ A-rated carriers · personal auto, home, umbrella" },
-    { name: "Southern States Insurance", city: "Alpharetta", url: "https://southernstatesinsurance.com",   rating: 5.0, reviews: 110, source: "Google", tag: "Founded 1992 · 32 carriers · one of the SE's largest independent agencies" },
-    { name: "Capparelle's Insurance",    city: "Columbus",   url: "https://www.capparellesinsurance.com",  rating: 4.8, reviews: 101, source: "Google", tag: "Family-owned 35+ years · personal auto, home, motorcycle, RV" },
+    { name: "Dickerson Agency",          city: "Kennesaw",   url: "https://www.dickersonagency.com",      rating: 5.0, reviews: 149, source: "Google", tag: "30+ years · 20+ A-rated carriers · personal auto, home, umbrella" },
+    { name: "Southern States Insurance", city: "Alpharetta", url: "https://southernstatesinsurance.com",  rating: 5.0, reviews: 110, source: "Google", tag: "Founded 1992 · 32 carriers · one of the SE's largest independent agencies" },
+    { name: "Capparelle's Insurance",    city: "Columbus",   url: "https://www.capparellesinsurance.com", rating: 4.8, reviews: 101, source: "Google", tag: "Family-owned 35+ years · personal auto, home, motorcycle, RV" },
+  ],
+  "HI": [
+    { name: "Carr's Insurance Agency",   city: "Honolulu", url: "https://carrsinsuranceagency.com", rating: 4.8, reviews: 90, source: "Google", tag: "Founded 1990 · personal auto, home, boat &amp; motorcycle · all major islands" },
+    { name: "Insurance Associates Inc.", city: "Honolulu", url: "https://insuringhawaii.com",        tag: "Founded 1969 · IIABA member · personal auto, home &amp; condo" },
+    { name: "John H Connors Insurance",  city: "Honolulu", url: "https://connorshawaii.com",         rating: 4.8, reviews: 21, source: "Google", tag: "Decades of experience · personal auto &amp; home · independent multi-carrier" },
+  ],
+  "IA": [
+    { name: "Absolute Insurance Agency", city: "Clive",      url: "https://insaia.com",              rating: 4.9, reviews: 210, source: "Google", tag: "Licensed in 18 states · personal auto, home &amp; life · multiple carriers" },
+    { name: "Ligouri Insurance",          city: "Des Moines", url: "https://ligouri-insurance.com",   rating: 4.6, reviews: 144, source: "Google", tag: "70+ years combined experience · personal auto &amp; home" },
+    { name: "Mauro Insurance",            city: "Des Moines", url: "https://www.mauroinsurance.net",  tag: "Family-owned since 1964 · personal auto, home &amp; life" },
+  ],
+  "ID": [
+    { name: "Hartley Insurance",       city: "Boise",    url: "https://hartleyonline.com",    rating: 4.9, reviews: 135, source: "Google", tag: "Founded 1982 · personal auto, home &amp; RV · locally owned independent" },
+    { name: "Insurance4Idaho",         city: "Meridian", url: "https://insurance4idaho.com",  rating: 4.9, reviews: 175, source: "Google", tag: "Founded 2005 · Progressive, Safeco, Travelers &amp; more · personal auto &amp; home" },
+    { name: "Mustard Seed Insurance",  city: "Meridian", url: "https://mseedfinancial.com",   rating: 4.9, reviews: 118, source: "Google", tag: "Independent · multi-state · personal auto, home &amp; umbrella" },
   ],
   "IL": [
-    { name: "Salvador Insurance Agency",  city: "Chicago",  url: "https://www.salvadorinsurance.com",  rating: 4.9, reviews: 540, source: "Google", tag: "50+ years · personal auto &amp; home · bilingual · A+ BBB" },
-    { name: "Concklin Insurance Agency",  city: "Lombard",  url: "https://insurance.concklin.com",     rating: 4.9, reviews: 49,  source: "Google", tag: "Founded 1981 · 30+ carriers · personal auto, home, umbrella" },
-    { name: "Greene Insurance Group",     city: "Hinsdale", url: "https://greeneins.com",              tag: "Family-owned since 1962 · personal auto &amp; home · Chicago suburbs" },
+    { name: "Salvador Insurance Agency", city: "Chicago",  url: "https://www.salvadorinsurance.com", rating: 4.9, reviews: 540, source: "Google", tag: "50+ years · personal auto &amp; home · bilingual · A+ BBB" },
+    { name: "Concklin Insurance Agency", city: "Lombard",  url: "https://insurance.concklin.com",    rating: 4.9, reviews: 49,  source: "Google", tag: "Founded 1981 · 30+ carriers · personal auto, home, umbrella" },
+    { name: "Greene Insurance Group",    city: "Hinsdale", url: "https://greeneins.com",              tag: "Family-owned since 1962 · personal auto &amp; home · Chicago suburbs" },
   ],
-  "NC": [
-    { name: "Spivey Insurance Group",       city: "Indian Trail", url: "https://spiveyinsurancegroup.com",         rating: 5.0, reviews: 980, source: "Google", tag: "Independent since 1989 · personal auto &amp; home · veteran-friendly" },
-    { name: "The Jordan Insurance Agency",  city: "Charlotte",    url: "https://www.thejordaninsuranceagency.com", rating: 5.0, reviews: 147, source: "Google", tag: "Founded 2006 · licensed in 21 states · personal auto &amp; home" },
-    { name: "Summit Insurance Group",       city: "Huntersville", url: "https://sumins.com",                       rating: 4.9, reviews: 164, source: "Google", tag: "Veteran &amp; woman-owned · independent since 1995 · auto, home, RV" },
+  "IN": [
+    { name: "Steffey Insurance Agency", city: "Indianapolis", url: "https://steffeyins.com",           rating: 4.9, reviews: 233, source: "Google", tag: "Founded 1982 · independent · personal auto, home &amp; life" },
+    { name: "Penwell Insurance",        city: "Carmel",       url: "https://www.penwellinsurance.com", rating: 5.0, reviews: 146, source: "Google", tag: "Founded 2005 · multiple carriers · personal auto &amp; home" },
+    { name: "McGowan Insurance Group",  city: "Lebanon",      url: "https://www.mcgowaninsgrp.com",    tag: "Founded 1930 · independent · personal auto, home &amp; life" },
+  ],
+  "KS": [
+    { name: "Steve Pore Insurance Agency",     city: "Wichita", url: "https://stevepore.com",         rating: 5.0, reviews: 52, source: "Google", tag: "27+ carriers · personal auto &amp; home" },
+    { name: "M &amp; M Insurance Associates", city: "Wichita", url: "https://m-minsurance.com",       rating: 4.4, reviews: 64, source: "Google", tag: "Founded 1966 · personal auto, home &amp; life" },
+    { name: "Miller Insurance Agency",         city: "Newton",  url: "https://www.millerinsagency.com", rating: 4.9, reviews: 35, source: "Google", tag: "Founded 1978 · Farmers Alliance, Progressive &amp; more · personal auto &amp; home" },
+  ],
+  "KY": [
+    { name: "Dick Watts Insurance",     city: "Louisville", url: "https://www.dickwattsinsurance.com",      rating: 4.9, reviews: 101, source: "Google", tag: "Locally owned independent · personal auto &amp; home" },
+    { name: "Local Choice Insurance",   city: "Louisville", url: "https://www.localchoiceinsurance.com",    rating: 5.0, reviews: 110, source: "Google", tag: "Independent agency · personal auto &amp; home · multiple carriers" },
+    { name: "Reynolds Insurance Group", city: "Louisville", url: "https://www.claudereynoldsinsurance.com", rating: 4.7, reviews: 108, source: "Google", tag: "Independent · personal auto &amp; home · competitive multi-carrier" },
+  ],
+  "LA": [
+    { name: "Foundation Insurance Group",    city: "River Ridge",  url: "https://www.foundationinsgroup.com", rating: 4.9, reviews: 37, source: "Google", tag: "Locally owned independent · personal auto &amp; home · New Orleans metro" },
+    { name: "TWFG – Rick Rogers Insurance", city: "Metairie",     url: "https://www.rickyrogers.com",         rating: 4.8, reviews: 44, source: "Google", tag: "Independent agency · personal auto &amp; home · multiple carriers · BBB A+" },
+    { name: "Dan Burghardt Insurance",       city: "New Orleans",  url: "https://dbiagency.com",               tag: "Founded 1984 · 50+ A-rated carriers · 6 metro locations · personal auto &amp; home" },
+  ],
+  "MA": [
+    { name: "Vargas &amp; Vargas Insurance", city: "Dorchester", url: "https://www.vargasinsurance.com", rating: 4.8, reviews: 398, source: "Google", tag: "39 years · BBB A+ · personal auto, home &amp; boat" },
+    { name: "Bender Hatch Insurance",        city: "Boston",     url: "https://benderhatch.com",          rating: 5.0, reviews: 233, source: "Google", tag: "Founded 1912 · fourth-generation · 35+ carriers · personal auto &amp; home" },
+    { name: "Chan Insurance Agency",         city: "Quincy",     url: "https://www.chaninsurance.com",    rating: 5.0, reviews: 182, source: "Google", tag: "Operating since 1983 · 40+ carriers · personal auto &amp; home" },
+  ],
+  "MD": [
+    { name: "Baltimore Insurance Network", city: "Baltimore", url: "https://baltimoreinsurancenetwork.com", rating: 4.9, reviews: 322, source: "Google", tag: "Founded 2011 · 15+ carriers · personal auto &amp; home" },
+    { name: "Simmerer Insurance",          city: "Laurel",    url: "https://www.simmererinsurance.com",    rating: 4.9, reviews: 190, source: "Google", tag: "Independent · customized personal auto &amp; home policies" },
+    { name: "Kirby Insurance Agency",      city: "Baltimore", url: "https://www.kirbyinsurance.com",       rating: 4.8, reviews: 65,  source: "Google", tag: "Founded 1934 · independent · personal auto &amp; home" },
+  ],
+  "ME": [
+    { name: "Noyes Hall &amp; Allen Insurance", city: "South Portland", url: "https://www.noyeshallallen.com",         rating: 4.9, reviews: 146, source: "Google",  tag: "Founded 1933 · local independent · personal auto &amp; home" },
+    { name: "Lotfey Dennett Insurance",          city: "Portland",       url: "https://ldibrokers.com",                rating: 5.0, reviews: 263, source: "Birdeye", tag: "Independent · personal auto, home &amp; coastal property" },
+    { name: "Chalmers Insurance Group",          city: "Bridgton",       url: "https://www.chalmersinsurancegroup.com", rating: 4.9, reviews: 79,  source: "Google",  tag: "160+ years · Travelers, Progressive · personal auto &amp; home" },
   ],
   "MI": [
-    { name: "Champagne Agency",         city: "Riverview",  url: "https://www.champagneteam.com",   rating: 4.9, reviews: 2388, source: "Google", tag: "Michigan's top SIAA agency 5 years running · personal auto &amp; home" },
-    { name: "Lademan Insurance Agency", city: "Southgate",  url: "https://lademaninsurance.com",    rating: 4.8, reviews: 145,  source: "Google", tag: "Family-owned since 1947 · 3 generations · personal auto &amp; home" },
-    { name: "TDA Insurance",            city: "Walled Lake", url: "https://www.tdanow.com",         rating: 4.9, reviews: 139,  source: "Google", tag: "100% independent · personal auto, home, life · BBB Accredited" },
+    { name: "Champagne Agency",         city: "Riverview",   url: "https://www.champagneteam.com", rating: 4.9, reviews: 2388, source: "Google", tag: "Michigan's top SIAA agency 5 years running · personal auto &amp; home" },
+    { name: "Lademan Insurance Agency", city: "Southgate",   url: "https://lademaninsurance.com",  rating: 4.8, reviews: 145,  source: "Google", tag: "Family-owned since 1947 · 3 generations · personal auto &amp; home" },
+    { name: "TDA Insurance",            city: "Walled Lake", url: "https://www.tdanow.com",        rating: 4.9, reviews: 139,  source: "Google", tag: "100% independent · personal auto, home, life · BBB Accredited" },
+  ],
+  "MN": [
+    { name: "One Source Insurance Brokers", city: "Minneapolis",     url: "https://www.onesourceib.com",    rating: 5.0, reviews: 108, source: "Google",  tag: "30+ A-rated carriers · personal auto, home &amp; life" },
+    { name: "Reliable Insurance Network",   city: "West Saint Paul", url: "https://reliableinsurance.com",  rating: 4.9, reviews: 65,  source: "Birdeye", tag: "Independent since 1996 · personal auto &amp; home · multiple carriers" },
+    { name: "Garry Insurancenter",          city: "North Saint Paul", url: "https://www.garryinsurance.com", tag: "Family-owned since 1970 · personal auto, home &amp; life" },
+  ],
+  "MO": [
+    { name: "Bargain Insurance Connection",   city: "Kansas City",       url: "https://www.bic-agent.com",         rating: 4.9, reviews: 129, source: "Google", tag: "Independent since 2007 · personal auto &amp; home · SR-22 · multi-carrier" },
+    { name: "Midwest Professional Insurance", city: "Fairway",           url: "https://www.mwpins.com",            rating: 4.9, reviews: 107, source: "Google", tag: "Independent since 2009 · Safeco &amp; multiple carriers · personal auto &amp; home" },
+    { name: "In the Game Insurance",          city: "N. Kansas City",    url: "https://www.inthegameinsurance.com", rating: 4.9, reviews: 49,  source: "Google", tag: "Family-owned local broker · personal auto, home, boat &amp; motorcycle" },
+  ],
+  "MS": [
+    { name: "R.W. Aiken Insurance Agency",       city: "Jackson",  url: "https://aikeninsure.com",  rating: 4.8, reviews: 28, source: "Google", tag: "Independent &amp; locally owned since 1950 · Safeco, Progressive, Hartford" },
+    { name: "The Policy Center",                 city: "Jackson",  url: "https://www.tpcins.com",    rating: 4.6, reviews: 57, source: "Google", tag: "Trusted Choice since 1986 · 30+ carriers · personal auto &amp; home" },
+    { name: "Insurance Protection Specialists",  city: "Flowood",  url: "https://www.ips-ms.com",    tag: "Trusted Choice · 30+ carriers · 50+ years combined experience · personal auto &amp; home" },
+  ],
+  "MT": [
+    { name: "Thurston Family Insurance",    city: "Billings", url: "https://thurstonfamilyinsurance.com", rating: 4.9, reviews: 153, source: "Google", tag: "Veteran-owned · founded 1982 · personal auto &amp; home" },
+    { name: "Merenz Insurance Agency",      city: "Billings", url: "https://merenzinsuranceagency.com",   rating: 5.0, reviews: 40,  source: "Google", tag: "Independent since 1995 · Travelers, Progressive &amp; more · personal auto &amp; home" },
+    { name: "Frontier Insurance Solutions", city: "Billings", url: "https://fismt.com",                   rating: 4.7, reviews: 48,  source: "Google", tag: "80+ carrier markets · personal auto &amp; home" },
+  ],
+  "NC": [
+    { name: "Spivey Insurance Group",      city: "Indian Trail", url: "https://spiveyinsurancegroup.com",         rating: 5.0, reviews: 980, source: "Google", tag: "Independent since 1989 · personal auto &amp; home · veteran-friendly" },
+    { name: "The Jordan Insurance Agency", city: "Charlotte",    url: "https://www.thejordaninsuranceagency.com", rating: 5.0, reviews: 147, source: "Google", tag: "Founded 2006 · licensed in 21 states · personal auto &amp; home" },
+    { name: "Summit Insurance Group",      city: "Huntersville", url: "https://sumins.com",                       rating: 4.9, reviews: 164, source: "Google", tag: "Veteran &amp; woman-owned · independent since 1995 · auto, home, RV" },
+  ],
+  "ND": [
+    { name: "Kramer Agency",  city: "Bismarck", url: "https://www.krameragency.com",  tag: "Independent 50+ years · personal auto &amp; home · A+ BBB" },
+    { name: "Steffes Agency", city: "Bismarck", url: "https://www.steffesagency.com", tag: "Independent agency · personal auto, home &amp; farm · multiple carriers" },
+  ],
+  "NE": [
+    { name: "United Insurance Agencies",  city: "Omaha", url: "https://www.uiagencies.com",        rating: 4.9, reviews: 58, source: "Google", tag: "Founded 1969 · personal auto &amp; home · NE &amp; IA licensed" },
+    { name: "Accredited Insurance Group", city: "Omaha", url: "https://www.accreditedins.net",     rating: 4.8, reviews: 18, source: "Google", tag: "Family-owned 30+ years · personal auto &amp; home · NE &amp; IA" },
+    { name: "Omaha Insurance Services",   city: "Omaha", url: "https://omahainsuranceservices.com", tag: "Independent since 1995 · personal auto, home &amp; life" },
+  ],
+  "NH": [
+    { name: "Fortified Insurance Agency", city: "Manchester", url: "https://www.fortifiedins.com", rating: 4.9, reviews: 169, source: "Google", tag: "Independent · Liberty Mutual, Progressive · personal auto &amp; home" },
+    { name: "Foy Insurance",              city: "Exeter",     url: "https://www.foyinsurance.com", rating: 4.6, reviews: 76,  source: "Google", tag: "Family-owned · multiple carriers · personal auto, home &amp; boat" },
+    { name: "Wieczorek Insurance",        city: "Manchester", url: "https://www.wizinsurance.com", rating: 5.0, reviews: 38,  source: "Google", tag: "50+ years in business · personal auto &amp; home" },
+  ],
+  "NJ": [
+    { name: "Hanson &amp; Ryan",    city: "Totowa",   url: "https://www.hansonryan.com",      tag: "Founded 1876 · 140+ years · personal auto &amp; home" },
+    { name: "DeStefano Associates", city: "Caldwell", url: "https://www.destefanoagency.com", rating: 4.6, reviews: 37, source: "Google", tag: "Founded 1961 · Plymouth Rock, Farmers, AmTrust · personal auto &amp; home" },
+    { name: "Jaymar Agency",        city: "Clifton",  url: "https://jaymaragency.com",        rating: 4.8, reviews: 23, source: "Google", tag: "Founded 1982 · bilingual · personal auto &amp; home" },
+  ],
+  "NM": [
+    { name: "Associated Insurance Professionals", city: "Albuquerque", url: "https://aip-inc.com",            rating: 4.7, reviews: 106, source: "Google", tag: "35+ years independent · personal auto &amp; home · multi-state" },
+    { name: "Sunset Insurance Corporation",       city: "Albuquerque", url: "https://abqsunsetinsurance.com", rating: 4.4, reviews: 85,  source: "Google", tag: "Founded 2009 · bilingual · personal auto &amp; home · Nationwide partner" },
+    { name: "Cohn Agency",                        city: "Albuquerque", url: "https://cohninsurance.com",      tag: "Founded 1986 · independent · personal auto, home &amp; specialty" },
+  ],
+  "NV": [
+    { name: "Superior Insurance",     city: "Las Vegas", url: "https://superiornv.com",          rating: 5.0, reviews: 1072, source: "Birdeye", tag: "10+ years · personal auto, home &amp; renters · 35+ carriers" },
+    { name: "All Kinds of Insurance", city: "Las Vegas", url: "https://allkindsofinsurance.com",  rating: 5.0, reviews: 507,  source: "Google",  tag: "Founded 2009 · 50+ carriers · personal auto &amp; home · Dave Ramsey ELP" },
+    { name: "360 Insurance",          city: "Las Vegas", url: "https://360insurance.com",         tag: "75-year Las Vegas roots · 50+ carriers · personal auto &amp; home" },
+  ],
+  "NY": [
+    { name: "K&amp;N Insurance Brokerage", city: "Queens",      url: "https://kninsurance.com",             rating: 5.0, reviews: 863, source: "Google", tag: "30+ years · personal auto &amp; home · Queens and Long Island" },
+    { name: "Vavas Insurance",             city: "Brooklyn",    url: "https://www.vavasinsurance.com",       rating: 4.8, reviews: 137, source: "Google", tag: "Personal auto, home, renters · Brooklyn, Queens, Staten Island" },
+    { name: "Haller-Zaremba Insurance",    city: "Long Island", url: "https://www.hzinsurance.com",         rating: 5.0, reviews: 54,  source: "Google", tag: "Family-owned 81+ years · personal auto &amp; home statewide" },
+  ],
+  "OH": [
+    { name: "Slyman Insurance Group",              city: "Columbus", url: "https://slymaninsurancegroup.com", rating: 5.0, reviews: 375, source: "Google",  tag: "50+ years · personal auto &amp; home · multi-location central Ohio" },
+    { name: "Affordable Insurance Agency of Ohio", city: "Columbus", url: "https://www.affordablemitch.com",  rating: 4.9, reviews: 429, source: "Google",  tag: "Family-owned since 1995 · personal auto, SR-22, home · multiple locations" },
+    { name: "Isner Insurance Associates",          city: "Columbus", url: "https://www.isnerinsurance.com",   rating: 4.9, reviews: 68,  source: "Birdeye", tag: "Independent since 1972 · 50+ year track record · personal auto &amp; home" },
+  ],
+  "OK": [
+    { name: "MWI Insurance Brokers",   city: "Newcastle",     url: "https://mwi-insurancebrokers.com",  rating: 4.9, reviews: 229, source: "Google", tag: "Independent agency · personal auto &amp; home · statewide Oklahoma" },
+    { name: "Cobble Insurance Agency", city: "Moore",         url: "https://cobbleinsurance.com",        rating: 4.8, reviews: 118, source: "Google", tag: "Independent since 2007 · Best in Moore 4× · personal auto, home &amp; RV" },
+    { name: "The Insurance Store",     city: "Oklahoma City", url: "https://www.theinsurancestore.co",   rating: 5.0, reviews: 140, source: "Google", tag: "Independent since 2010 · Oklahoma-rooted · personal auto &amp; home" },
+  ],
+  "OR": [
+    { name: "PRL Insurance",         city: "Portland",  url: "https://prlinsurance.com",        rating: 4.8, reviews: 48, source: "Google", tag: "Founded 1968 · Pacific Northwest independent · personal auto &amp; home" },
+    { name: "Bridge City Insurance", city: "Portland",  url: "https://bridgecityinsurance.com", rating: 5.0, reviews: 98, source: "Google", tag: "Expertise.com top-rated · personal auto &amp; home" },
+    { name: "JMI Insurance",         city: "Beaverton", url: "https://jmiinsurance.com",        tag: "Family-owned since 1991 · 3rd generation · personal auto &amp; home · OR/WA/CA" },
+  ],
+  "PA": [
+    { name: "Premier Group Insurance", city: "Philadelphia", url: "https://e-premier.com",            rating: 5.0, reviews: 361, source: "Google", tag: "Personal auto, home, flood · Philadelphia metro &amp; suburbs" },
+    { name: "Goebel Insurance Agency", city: "Philadelphia", url: "https://www.gogoebel.com",         rating: 4.9, reviews: 106, source: "Google", tag: "Independent since 2000 · re-shops rates for existing clients" },
+    { name: "Conrad Insurance",        city: "Wayne",        url: "https://www.conradinsurance.net",  rating: 5.0, reviews: 61,  source: "Google", tag: "24+ carriers · personal auto, home, umbrella · PA, NJ, DE" },
+  ],
+  "RI": [
+    { name: "Podmaska Insurance Agency",   city: "Providence", url: "https://podmaska.com",             rating: 4.9, reviews: 189, source: "Google", tag: "40+ years · independent · personal auto &amp; home" },
+    { name: "Gaulin Insurance Agency",     city: "Cranston",   url: "https://www.gaulininsurance.com", rating: 4.9, reviews: 64,  source: "Google", tag: "30+ years · CLCS/LUTCF certified · personal auto &amp; home" },
+    { name: "Farmington Insurance Agency", city: "Providence", url: "https://farmingtonins.com",        rating: 4.8, reviews: 17,  source: "Google", tag: "Founded 1964 · family-run · personal auto &amp; home" },
+  ],
+  "SC": [
+    { name: "Livingston Insurance Agency",  city: "West Columbia", url: "https://livingstoninsurancesc.com", rating: 5.0, reviews: 219, source: "Google", tag: "Family-owned since 1958 · A++ &amp; A+ rated carriers · personal auto &amp; home" },
+    { name: "Affordable Insurance Group",   city: "Columbia",      url: "https://www.affordableinsgrp.com",  rating: 4.6, reviews: 132, source: "Google", tag: "Independent since 1985 · dozens of carriers · personal auto &amp; home" },
+    { name: "Giles Independent Insurance", city: "Columbia",       url: "https://gilesbrothers.com",          rating: 4.7, reviews: 60,  source: "Google", tag: "Independent since 1965 · Hagerty-authorized · personal auto, home &amp; classic car" },
+  ],
+  "SD": [
+    { name: "Platinum Insurance Group",       city: "Sioux Falls", url: "https://www.platinuminsgrp.com",  rating: 4.9, reviews: 69, source: "Google", tag: "Founded 2014 · 15+ years staff experience · personal auto &amp; home" },
+    { name: "Kouri Insurance Agency",         city: "Sioux Falls", url: "https://kouriinsurance.com",      rating: 4.7, reviews: 59, source: "Google", tag: "Independent since 1977 · Trusted Choice member · personal auto &amp; home" },
+    { name: "Prins Insurance of Sioux Falls", city: "Sioux Falls", url: "https://www.prinsinsurance.com",  rating: 4.6, reviews: 42, source: "Google", tag: "Founded 1981 · personal auto, home &amp; life · 24/7 service" },
+  ],
+  "TN": [
+    { name: "HQ Insurance",             city: "Nashville",   url: "https://www.hqinsurance.com",           rating: 4.9, reviews: 51, source: "Google", tag: "Independent agency · Travelers &amp; multiple carriers · personal auto &amp; home" },
+    { name: "Cordell Insurance Agency", city: "Old Hickory", url: "https://www.cordellinsuranceagency.com", rating: 5.0, reviews: 79, source: "Google", tag: "100% independent since 2004 · personal auto, home &amp; flood · Nashville metro" },
+    { name: "Choice Insurance Agency",  city: "Nashville",   url: "https://www.choicetn.com",              rating: 4.9, reviews: 50, source: "Google", tag: "Independent agency · personal auto &amp; home · multi-carrier · Nashville area" },
+  ],
+  "TX": [
+    { name: "Texan Insurance",         city: "Houston", url: "https://www.texaninsurance.com",    rating: 4.8, reviews: 2781, source: "Google",  tag: "Family-owned since 1985 · 40+ carriers · personal auto &amp; home" },
+    { name: "The Vanguard Agency",     city: "Houston", url: "https://www.vanguardagencyllc.com", rating: 4.9, reviews: 245,  source: "Google",  tag: "Personal auto &amp; home · Mercury, Travelers · Trusted Choice" },
+    { name: "Baxter Insurance Agency", city: "Houston", url: "https://baxterinsuranceagency.com", rating: 5.0, reviews: 58,   source: "Birdeye", tag: "Family-owned since 1989 · personal auto &amp; home · greater Houston" },
+  ],
+  "UT": [
+    { name: "Archibald Insurance Agency", city: "Salt Lake City", url: "https://archibald-insurance.com", rating: 4.8, reviews: 367, source: "Google", tag: "Founded 1950 · 18 carriers · personal auto &amp; home specialist" },
+    { name: "ASA Insurance",              city: "Salt Lake City", url: "https://asainsure.com",           rating: 4.6, reviews: 152, source: "Google", tag: "Founded 1950 · one of Utah's largest independents · personal auto &amp; home" },
+    { name: "Miller Insurance Group",     city: "Salt Lake City", url: "https://migutah.com",             rating: 4.9, reviews: 92,  source: "Google", tag: "Independent · Nationwide, Travelers, Progressive · personal auto &amp; home" },
+  ],
+  "VA": [
+    { name: "Griffin Owens Insurance", city: "Falls Church",   url: "https://www.leavitt.com/griffinowens", rating: 4.9, reviews: 97, source: "Google", tag: "Founded 1981 · 100+ carriers · 15,000+ families served" },
+    { name: "WBA Insurance",           city: "N. Chesterfield", url: "https://www.wba-ins.com",             rating: 4.8, reviews: 85, source: "Google", tag: "Founded 1973 · serves VA/NC/MD · personal auto &amp; home" },
+    { name: "Able Insurance",          city: "Richmond",        url: "https://www.ableinsurance.net",        rating: 4.9, reviews: 55, source: "Google", tag: "30+ years experience · personal auto &amp; home specialist" },
+  ],
+  "VT": [
+    { name: "Crowley Insurance Agency", city: "Burlington",   url: "https://www.crowleyagency.com",      rating: 5.0, reviews: 85, source: "Google", tag: "Founded 1947 · family-owned · personal auto &amp; home" },
+    { name: "T.S. Peck Insurance",      city: "S. Burlington", url: "https://tspeck.com",                rating: 4.7, reviews: 25, source: "Google", tag: "Founded 1869 · one of Vermont's largest independents · personal auto &amp; home" },
+    { name: "Turnbaugh Insurance",      city: "Williston",    url: "https://www.turnbaughinsurance.com", rating: 5.0, reviews: 52, source: "Google", tag: "Family-owned since 1979 · personal auto &amp; home" },
+  ],
+  "WA": [
+    { name: "Mosaic Insurance Alliance", city: "Lynnwood", url: "https://mosaicia.com",           rating: 4.9, reviews: 329, source: "Google", tag: "Founded 2010 · Nationwide, Liberty Mutual, Progressive · personal auto &amp; home" },
+    { name: "ProStar Insurance",         city: "Bothell",   url: "https://prostarinsurance.com",   rating: 5.0, reviews: 137, source: "Google", tag: "Founded 2006 · Governor's Award winner · personal auto &amp; home" },
+    { name: "Magnolia Insurance Agency", city: "Seattle",   url: "https://magnolia-insurance.com", rating: 4.9, reviews: 55,  source: "Google", tag: "Founded 1954 · Seattle neighborhood independent · personal auto &amp; home" },
+  ],
+  "WI": [
+    { name: "Philleo Agency Insurance",   city: "Brookfield",  url: "https://philleo.com",                       rating: 4.9, reviews: 1230, source: "Google", tag: "Independent · personal auto &amp; home · Milwaukee metro" },
+    { name: "Couri Insurance Agency",     city: "Waukesha",    url: "https://couri.com",                         rating: 4.6, reviews: 141,  source: "Google", tag: "50+ years · 100+ carrier markets · personal auto &amp; home" },
+    { name: "Keener Insurance Solutions", city: "Germantown",  url: "https://www.keenerinsurancesolutions.com",  rating: 5.0, reviews: 89,   source: "Google", tag: "Founded 2012 · 20+ carriers · personal auto &amp; home" },
+  ],
+  "WV": [
+    { name: "White Insurance &amp; Associates", city: "Charleston", url: "https://www.wvwhiteinsurance.com", rating: 4.9, reviews: 128, source: "Google", tag: "110+ years combined experience · personal auto &amp; home" },
+    { name: "Capital Insurance Group",          city: "Charleston", url: "https://cigwv.com",                 rating: 4.8, reviews: 260, source: "Google", tag: "Dave Ramsey ELP · multiple carriers · personal auto &amp; home" },
+    { name: "Yeager Insurance",                 city: "Hurricane",  url: "https://www.yeagerinsurance.net",   rating: 4.9, reviews: 45,  source: "Google", tag: "Founded 1998 · Trusted Choice member · personal auto &amp; home" },
+  ],
+  "WY": [
+    { name: "Knifong Insurance Agency",       city: "Cheyenne", url: "https://www.knifonginsurance.com",           rating: 4.8, reviews: 44, source: "Google", tag: "Independent · Safeco, Progressive, Foremost · personal auto &amp; home" },
+    { name: "Rocky Mountain Capital Agency",  city: "Cheyenne", url: "https://www.rockymountaincapitalagency.com", rating: 4.9, reviews: 8,  source: "Google", tag: "Founded 1935 · staff averaging 20+ years experience · personal auto &amp; home" },
+    { name: "Elevate Insurance Agency",       city: "Cheyenne", url: "https://elevateinsurancewy.com",             tag: "Independent · personal auto, home &amp; life · WY, NE, CO &amp; UT licensed" },
   ],
 };
 
