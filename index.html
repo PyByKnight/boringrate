@@ -769,8 +769,16 @@
           <label>Vehicles</label>
           <div class="pill-row" data-q="vehicles" data-toggle>
             <button type="button" class="pill" data-v="1">1</button>
-            <button type="button" class="pill" data-v="2">2</button>
-            <button type="button" class="pill" data-v="3+">3+</button>
+            <button type="button" class="pill" data-v="2+">2+</button>
+          </div>
+        </div>
+        <div class="refine-q">
+          <label>Age range</label>
+          <div class="pill-row" data-q="age" data-toggle>
+            <button type="button" class="pill" data-v="18-24">18–24</button>
+            <button type="button" class="pill" data-v="25-34">25–34</button>
+            <button type="button" class="pill" data-v="35-54">35–54</button>
+            <button type="button" class="pill" data-v="55+">55+</button>
           </div>
         </div>
         <div class="refine-q">
@@ -802,15 +810,6 @@
               <option value="none">No insurance / lapsed</option>
               <option value="other">Other</option>
             </select>
-          </div>
-          <div class="refine-q">
-            <label>Age range</label>
-            <div class="pill-row" data-q="age" data-toggle>
-              <button type="button" class="pill" data-v="18-24">18–24</button>
-              <button type="button" class="pill" data-v="25-34">25–34</button>
-              <button type="button" class="pill" data-v="35-54">35–54</button>
-              <button type="button" class="pill" data-v="55+">55+</button>
-            </div>
           </div>
           <div class="refine-q">
             <label>Violations</label>
@@ -2240,7 +2239,7 @@ function estimatePremium(carrier, avg) {
   const s = carrier.sens;
   if (refinement.own === "own")  m *= (1 + s.own);
   if (refinement.own === "rent") m *= (1 + s.rent);
-  if (refinement.vehicles === "2" || refinement.vehicles === "3+") m *= (1 + s.multi);
+  if (refinement.vehicles === "2+") m *= (1 + s.multi);
   if (refinement.vehicles === "1") m *= (1 + s.single);
   if (refinement.age && s.age[refinement.age] !== undefined) m *= (1 + s.age[refinement.age]);
   if (!refinement.insured) { m *= (1 + s.lapsed); }
