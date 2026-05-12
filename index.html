@@ -353,6 +353,47 @@
   .rank-table-label .rank-label-naic { font-size: 10px; }
   .rank-list { background: var(--paper); border: 1px solid var(--rule); overflow: hidden; }
   .rank-list.with-header { border-top: none; }
+  .rank-and-agents { display: flex; gap: 16px; align-items: flex-start; }
+  .rank-and-agents .rank-list { flex: 1 1 0; min-width: 0; }
+  .agent-panel {
+    flex: 0 0 252px;
+    border: 1px solid var(--rule);
+    background: var(--paper-deep);
+    padding: 20px;
+  }
+  .agent-panel-title {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .agent-panel-sub {
+    font-size: 12px;
+    color: var(--ink-mute);
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+  .agent-card { padding: 12px 0; }
+  .agent-card + .agent-card { border-top: 1px solid var(--rule); }
+  .agent-card-name { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .agent-card-city { font-size: 11px; color: var(--ink-mute); font-family: var(--mono); margin-bottom: 4px; }
+  .agent-card-tag { font-size: 11px; color: var(--ink-soft); line-height: 1.45; margin-bottom: 7px; }
+  .agent-card-link {
+    display: inline-block;
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--accent);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .agent-card-link:hover { text-decoration: underline; }
+  @media (max-width: 680px) {
+    .rank-and-agents { flex-direction: column; }
+    .agent-panel { flex: 0 0 auto; width: 100%; box-sizing: border-box; }
+  }
   .rank-row {
     display: grid;
     grid-template-columns: 44px 1fr 32px 150px 110px;
@@ -804,7 +845,10 @@
       <span class="rank-label-naic">Price vs. median · Customer Satisfaction Rating</span>
     </div>
 
-    <div class="rank-list" id="rankList"></div>
+    <div class="rank-and-agents">
+      <div class="rank-list" id="rankList"></div>
+      <div class="agent-panel" id="agentPanel" style="display:none;"></div>
+    </div>
     <div class="rank-foot" id="rankFoot">
       Estimates reflect typical price positioning from public rate filings; quality marks reflect NAIC complaint indices for each carrier's flagship private-passenger-auto entity. Not a quote. <a href="methodology.html">How we rank →</a>
     </div>
@@ -1907,6 +1951,59 @@ const STATE_LOCAL_CARRIERS = {
   "WI": ["American Family",      "West Bend Mutual"]
 };
 
+const STATE_AGENTS = {
+  "CA": [
+    { name: "JSB Insurance Services",   city: "Los Angeles", url: "https://www.jsbinsurance.com",       tag: "#1 auto broker on Yelp · 400+ reviews · independent since 2006" },
+    { name: "Fuller Insurance Agency",  city: "Pasadena",    url: "https://www.fullerins.com",           tag: "Founded 1982 · 30+ carriers · 43 years serving Southern CA" },
+    { name: "Direct Quote Insurance",   city: "Los Angeles", url: "https://www.directquoteins.com",     tag: "Trusted Choice member · independent multi-carrier" },
+  ],
+  "TX": [
+    { name: "Texan Insurance",          city: "Houston",     url: "https://www.texaninsurance.com",     tag: "4.8★ · 2,800+ Google reviews · 40 carriers · family-owned since 1985" },
+    { name: "Baxter Insurance Agency",  city: "Houston",     url: "https://baxterinsuranceagency.com", tag: "Serving Texas since 1989 · 22 carriers · Trusted Choice" },
+    { name: "Berger Briggs Insurance",  city: "Houston",     url: "https://bergerbriggsinsurance.com", tag: "Founded 1937 · 80+ years · Big I Best Practices Agency" },
+  ],
+  "FL": [
+    { name: "Miami Insurance Brokers",        city: "Miami",       url: "https://www.mibrk.com",                     tag: "4.9★ · 516 Google reviews · 30+ years in business" },
+    { name: "Popular Insurance Agency",       city: "North Miami", url: "https://popularinsurancemiami.com",         tag: "40+ years serving South Florida · family-owned" },
+    { name: "Cornerstone Insurance Brokers",  city: "Miami",       url: "https://www.livecovered.com",               tag: "Trusted Choice · Progressive, Travelers, Mercury, Safeco" },
+  ],
+  "NY": [
+    { name: "Campbell Solberg Associates",  city: "New York",  url: "https://campbellsolberg.com",              tag: "Founded 1940 · 84 years · 7,500+ clients · Trusted Choice" },
+    { name: "North Star Insurance Agency",  city: "Brooklyn",  url: "https://www.ns-insurance.com",             tag: "Founded 1993 · serves NY, NJ, PA, MA · open Saturdays" },
+    { name: "New York Choice Insurance",    city: "New York",  url: "https://www.newyorkchoiceinsurance.com",   tag: "Independent multi-carrier · Trusted Choice network" },
+  ],
+  "PA": [
+    { name: "Trident Insurance Agency",   city: "Philadelphia", url: "https://www.tridentinsuranceagency.com",  tag: "Founded 1906 · 118 years · AIG, MetLife, Progressive" },
+    { name: "Freedom Insurance Group",    city: "Philadelphia", url: "https://freedom4insurance.com",           tag: "4.4★ Trustpilot · BBB Accredited · 15 carriers · Trusted Choice" },
+    { name: "McCollum Insurance Agency",  city: "Philadelphia", url: "https://www.mccolluminsuranceagency.com", tag: "BBB A+ · independent · serves all of PA and NJ" },
+  ],
+  "OH": [
+    { name: "Slyman Insurance Group",  city: "Columbus", url: "https://slymaninsurancegroup.com", tag: "5.0★ · 375 reviews · BBB A+ · 50+ years · 13 states" },
+    { name: "Dressel & Evans Agency",  city: "Columbus", url: "https://www.dresselevans.com",     tag: "Founded 1955 · 70+ years · BBB A+ Accredited" },
+    { name: "CoverLink Insurance",     city: "Columbus", url: "https://coverlink.com",            tag: "100-year Ohio legacy · Trusted Choice member" },
+  ],
+  "GA": [
+    { name: "Siegel Insurance",           city: "Atlanta",     url: "https://siegelinsurance.com",           tag: "Founded 1964 · Best of Atlanta 6 years running · IIABA Best Practices" },
+    { name: "Southern States Insurance",  city: "Alpharetta",  url: "https://southernstatesinsurance.com",   tag: "32 carriers · BBB A+ · one of the SE's largest independent agencies" },
+    { name: "Norton Agency",              city: "Gainesville", url: "https://nortoninsurance.com",           tag: "Founded 1928 · family-owned · Trusted Choice" },
+  ],
+  "IL": [
+    { name: "Salvador Insurance Agency",  city: "Chicago", url: "https://www.salvadorinsurance.com", tag: "4.9★ · 540 Google reviews · BBB A+ · 50+ years · 20 carriers" },
+    { name: "Lakeview Insurance Agency",  city: "Chicago", url: "https://lakeviewins.com",          tag: "Founded 1976 · 30 carriers · serves IL, IN, MI, WI" },
+    { name: "JMB Insurance Agency",       city: "Chicago", url: "https://www.jmbinsurance.com",     tag: "Trusted Choice member · independent multi-carrier" },
+  ],
+  "NC": [
+    { name: "Hemby Insurance &amp; Associates",  city: "Charlotte",    url: "https://www.hembyinsurance.com",  tag: "Founded 1948 · 27 carriers · 77 years serving Charlotte" },
+    { name: "Fogle Insurance Group",             city: "Huntersville", url: "https://foglegroup.com",          tag: "Founded 1983 · family-owned · Trusted Choice" },
+    { name: "Schramm, Tingen &amp; Associates",  city: "Raleigh",      url: "https://www.schrammtingen.com",  tag: "25+ years serving Raleigh · independent multi-carrier" },
+  ],
+  "MI": [
+    { name: "BHS Insurance",               city: "Grand Rapids", url: "https://bhsins.com",                  tag: "Founded 1939 · 43 carriers · BBB A+ · Big I Best Practices" },
+    { name: "Steenland Insurance Agency",  city: "Grand Rapids", url: "https://www.steenland.com",           tag: "Founded 1927 · 97 years · Auto-Owners, Progressive, Foremost" },
+    { name: "Juenemann Insurance Agency",  city: "Westland",     url: "https://www.juenemanninsurance.com",  tag: "Trusted Choice · Auto-Owners, Safeco, Indiana Insurance" },
+  ],
+};
+
 const refinement = { own: null, vehicles: null, curCarrier: "", age: null, insured: true, srRequired: false, shopPref: "web", coverage: "standard" };
 let stateData = null, lastOrder = [];
 
@@ -2036,6 +2133,26 @@ function renderRanking() {
     ? "Showing non-standard carriers — specialized for lapsed coverage, SR-22, or high-risk profiles. Estimates are directional. Not a quote. <a href='methodology.html'>How we rank →</a>"
     : "Estimates reflect typical price positioning from public rate filings; quality marks reflect NAIC complaint indices. Not a quote. <a href='methodology.html'>How we rank →</a>";
   document.getElementById("rankFoot").innerHTML = footNote;
+  renderAgentPanel();
+}
+
+function renderAgentPanel() {
+  const panel = document.getElementById("agentPanel");
+  const agents = stateData && STATE_AGENTS[stateData.code];
+  if (!agents) { panel.style.display = "none"; return; }
+  panel.innerHTML =
+    `<div class="agent-panel-title">Work with an independent agent near you</div>` +
+    `<div class="agent-panel-sub">They compare rates across 20+ companies for you — one conversation, multiple quotes.</div>` +
+    agents.map(a =>
+      `<div class="agent-card">` +
+        `<div class="agent-card-name">${a.name}</div>` +
+        `<div class="agent-card-city">${a.city}</div>` +
+        `<div class="agent-card-tag">${a.tag}</div>` +
+        `<a class="agent-card-link" href="${a.url}" target="_blank" rel="noopener noreferrer">Get quotes →</a>` +
+      `</div>`
+    ).join("") +
+    `<div style="margin-top:14px;font-size:10px;color:var(--ink-mute);font-family:var(--mono);">Independent agents are not paid by this site.</div>`;
+  panel.style.display = "block";
 }
 
 function lookupZip(zip) {
