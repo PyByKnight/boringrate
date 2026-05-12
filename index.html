@@ -1571,14 +1571,14 @@ const SHOP_MULT = {
 };
 
 const CARRIERS_STANDARD = [
-  { name: "USAA",           base: 0.72, tag: "Military & immediate family only",
-    sens: { own: -0.04, rent: 0.02, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.06, "55+": -0.10 }, multi: -0.05, single: 0.02, lapsed: 0.20, renewal: -0.03 } },
+  { name: "USAA",           base: 0.82, tag: "Military & immediate family only",
+    sens: { own: -0.04, rent: 0.02, age: { "18-24": 0.20, "25-34": 0.04, "35-54": -0.06, "55+": -0.10 }, multi: -0.03, single: 0.02, lapsed: 0.20, renewal: -0.03 } },
   { name: "GEICO",          base: 0.80, tag: "No agents — buy and manage online",
-    sens: { own: -0.05, rent: 0.02, age: { "18-24": 0.22, "25-34": 0.06, "35-54": -0.04, "55+": -0.08 }, multi: -0.07, single: 0.03, lapsed: 0.15, renewal: -0.02 } },
+    sens: { own: -0.05, rent: 0.02, age: { "18-24": 0.24, "25-34": 0.06, "35-54": -0.04, "55+": -0.08 }, multi: -0.05, single: 0.03, lapsed: 0.15, renewal: -0.02 } },
   { name: "State Farm",     base: 0.86, tag: "Large local agent network",
-    sens: { own: -0.08, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.02, "35-54": -0.05, "55+": -0.09 }, multi: -0.06, single: 0.02, lapsed: 0.18, renewal: -0.04 } },
+    sens: { own: -0.08, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.02, "35-54": -0.05, "55+": -0.09 }, multi: -0.12, single: 0.02, lapsed: 0.18, renewal: -0.05 } },
   { name: "Progressive",    base: 0.94, tag: "Rates vary widely by driver profile",
-    sens: { own: -0.03, rent: 0.01, age: { "18-24": 0.10, "25-34": 0.02, "35-54": 0.00, "55+": -0.04 }, multi: -0.04, single: 0.02, lapsed: 0.05, renewal: 0.05 } },
+    sens: { own: -0.03, rent: 0.01, age: { "18-24": 0.04, "25-34": 0.01, "35-54": 0.00, "55+": -0.04 }, multi: -0.04, single: 0.02, lapsed: 0.05, renewal: 0.05 } },
   { name: "Allstate",       base: 1.08, tag: "Strong bundling discounts",
     sens: { own: -0.10, rent: 0.04, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.04, "55+": -0.08 }, multi: -0.08, single: 0.03, lapsed: 0.16, renewal: 0.02 } },
   { name: "Liberty Mutual", base: 1.23, tag: "Broad coverage options",
@@ -1644,6 +1644,81 @@ const SHOP_MULT_NS = {
   "Bristol West": { web: 1.00, phone: 1.01, agent: 1.04 }
 };
 
+// Per-state carrier competitiveness adjustments (multiplied against national base).
+// Sources: market share filings, NAIC data, carrier press releases on market entry/exit.
+const STATE_CARRIER_ADJ = {
+  // Progressive home state + markets where they lead
+  "OH": { "Progressive": 0.82, "GEICO": 0.97, "USAA": 1.06, "State Farm": 0.97 },
+  "FL": { "Progressive": 0.84, "GEICO": 1.04, "USAA": 1.08, "State Farm": 1.10 },
+  "MI": { "Progressive": 0.80, "GEICO": 0.96, "USAA": 1.06, "State Farm": 0.96 },
+  "NV": { "Progressive": 0.86, "GEICO": 0.88, "USAA": 1.06 },
+  "AZ": { "Progressive": 0.88, "GEICO": 0.90, "USAA": 1.04 },
+  "TX": { "Progressive": 0.86, "GEICO": 0.90, "USAA": 0.97, "State Farm": 0.93 },
+  "LA": { "Progressive": 0.88, "GEICO": 0.90, "USAA": 1.08, "State Farm": 1.10 },
+
+  // CA — GEICO/SF pulled back; Progressive and Farmers still writing
+  "CA": { "Progressive": 0.84, "Farmers": 0.92, "USAA": 1.05, "GEICO": 1.10, "State Farm": 1.12 },
+
+  // GEICO corridor — DC, MD, NE seaboard
+  "DC": { "GEICO": 0.82, "USAA": 1.10 },
+  "MD": { "GEICO": 0.84, "USAA": 1.06 },
+  "DE": { "GEICO": 0.84, "USAA": 1.06 },
+  "NJ": { "GEICO": 0.85, "Progressive": 0.92, "USAA": 1.08 },
+  "NY": { "GEICO": 0.85, "Progressive": 0.91, "USAA": 1.06 },
+  "CT": { "GEICO": 0.86, "Progressive": 0.92, "USAA": 1.06 },
+  "RI": { "GEICO": 0.86, "Progressive": 0.92, "USAA": 1.06 },
+  "MA": { "GEICO": 0.87, "Progressive": 0.91, "USAA": 1.06 },
+  "NH": { "GEICO": 0.86, "USAA": 1.05 },
+  "VT": { "GEICO": 0.87, "USAA": 1.05 },
+  "ME": { "GEICO": 0.86, "USAA": 1.05 },
+  "PA": { "GEICO": 0.87, "State Farm": 0.90, "Progressive": 0.91, "USAA": 1.05 },
+
+  // VA — GEICO strong but USAA competitive (Pentagon/Quantico)
+  "VA": { "GEICO": 0.86, "USAA": 0.97 },
+
+  // CO — high military density, USAA wins
+  "CO": { "USAA": 0.92, "Progressive": 0.90, "GEICO": 0.96 },
+
+  // State Farm heartland — IL home state, upper midwest
+  "IL": { "State Farm": 0.82, "GEICO": 0.95, "USAA": 1.06 },
+  "IA": { "State Farm": 0.83, "GEICO": 0.96, "USAA": 1.06 },
+  "MN": { "State Farm": 0.84, "GEICO": 0.96, "USAA": 1.06 },
+  "WI": { "State Farm": 0.83, "GEICO": 0.96, "USAA": 1.06 },
+  "IN": { "State Farm": 0.84, "GEICO": 0.95, "USAA": 1.06 },
+  "MO": { "State Farm": 0.85, "GEICO": 0.95, "USAA": 1.05 },
+  "ND": { "State Farm": 0.84, "GEICO": 0.97, "USAA": 1.05 },
+  "SD": { "State Farm": 0.84, "GEICO": 0.97, "USAA": 1.05 },
+  "KS": { "State Farm": 0.84, "Farmers": 0.92, "USAA": 1.05 },
+  "NE": { "State Farm": 0.84, "Farmers": 0.93, "USAA": 1.05 },
+
+  // Southeast
+  "AL": { "State Farm": 0.86, "GEICO": 0.89, "USAA": 1.04 },
+  "MS": { "State Farm": 0.85, "GEICO": 0.91, "USAA": 1.05 },
+  "AR": { "State Farm": 0.85, "GEICO": 0.93, "USAA": 1.05 },
+  "TN": { "State Farm": 0.84, "GEICO": 0.92, "USAA": 1.04 },
+  "GA": { "GEICO": 0.88, "Progressive": 0.90, "State Farm": 0.90, "USAA": 1.02 },
+  "SC": { "State Farm": 0.85, "GEICO": 0.91, "USAA": 1.03 },
+  "NC": { "State Farm": 0.85, "GEICO": 0.91, "USAA": 1.03 },
+  "KY": { "GEICO": 0.88, "State Farm": 0.88, "Progressive": 0.90, "USAA": 1.04 },
+  "WV": { "GEICO": 0.88, "State Farm": 0.88, "USAA": 1.04 },
+  "OK": { "State Farm": 0.85, "Farmers": 0.91, "GEICO": 0.93, "USAA": 1.04 },
+
+  // Mountain west — Farmers strong, State Farm solid
+  "MT": { "State Farm": 0.85, "GEICO": 0.93, "USAA": 1.05 },
+  "ID": { "State Farm": 0.84, "Farmers": 0.90, "USAA": 1.05 },
+  "WY": { "State Farm": 0.85, "GEICO": 0.94, "USAA": 1.05 },
+  "UT": { "State Farm": 0.87, "GEICO": 0.90, "USAA": 1.04 },
+  "NM": { "State Farm": 0.88, "GEICO": 0.90, "USAA": 1.05 },
+
+  // Pacific northwest
+  "WA": { "State Farm": 0.88, "GEICO": 0.93, "USAA": 0.97 },
+  "OR": { "State Farm": 0.88, "GEICO": 0.91, "USAA": 1.04 },
+
+  // Alaska/Hawaii
+  "AK": { "GEICO": 0.92, "State Farm": 0.90, "USAA": 0.96 },
+  "HI": { "GEICO": 0.88, "State Farm": 0.90, "USAA": 0.98 }
+};
+
 const refinement = { own: null, vehicles: null, curCarrier: "", age: null, insured: true, srRequired: false, shopPref: "web", coverage: "standard" };
 let stateData = null, lastOrder = [];
 
@@ -1657,7 +1732,9 @@ function activeCarriers() {
 }
 
 function estimatePremium(carrier, avg) {
-  let m = carrier.base;
+  const stateAdj = stateData && STATE_CARRIER_ADJ[stateData.code];
+  const stateM = stateAdj ? (stateAdj[carrier.name] ?? 1.0) : 1.0;
+  let m = carrier.base * stateM;
   const s = carrier.sens;
   if (refinement.own === "own")  m *= (1 + s.own);
   if (refinement.own === "rent") m *= (1 + s.rent);
