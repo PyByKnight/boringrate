@@ -379,6 +379,8 @@
   .agent-card + .agent-card { border-top: 1px solid var(--rule); }
   .agent-card-name { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
   .agent-card-city { font-size: 11px; color: var(--ink-mute); font-family: var(--mono); margin-bottom: 4px; }
+  .agent-card-stars { font-size: 13px; color: #c8920a; letter-spacing: 1px; margin-bottom: 3px; }
+  .agent-card-stars span { font-size: 10px; color: var(--ink-mute); font-family: var(--mono); letter-spacing: 0; vertical-align: middle; margin-left: 3px; }
   .agent-card-tag { font-size: 11px; color: var(--ink-soft); line-height: 1.45; margin-bottom: 7px; }
   .agent-card-link {
     display: inline-block;
@@ -1958,14 +1960,14 @@ const STATE_AGENTS = {
     { name: "Direct Quote Insurance",   city: "Los Angeles", url: "https://www.directquoteins.com",     tag: "Trusted Choice member · independent multi-carrier" },
   ],
   "TX": [
-    { name: "Texan Insurance",          city: "Houston",     url: "https://www.texaninsurance.com",     tag: "4.8★ · 2,800+ Google reviews · 40 carriers · family-owned since 1985" },
-    { name: "Baxter Insurance Agency",  city: "Houston",     url: "https://baxterinsuranceagency.com", tag: "Serving Texas since 1989 · 22 carriers · Trusted Choice" },
-    { name: "Berger Briggs Insurance",  city: "Houston",     url: "https://bergerbriggsinsurance.com", tag: "Founded 1937 · 80+ years · Big I Best Practices Agency" },
+    { name: "Texan Insurance",          city: "Houston",  url: "https://www.texaninsurance.com",     rating: 4.8, reviews: 2800, source: "Google", tag: "40 carriers · family-owned since 1985" },
+    { name: "Baxter Insurance Agency",  city: "Houston",  url: "https://baxterinsuranceagency.com",  tag: "Serving Texas since 1989 · 22 carriers · Trusted Choice" },
+    { name: "Berger Briggs Insurance",  city: "Houston",  url: "https://bergerbriggsinsurance.com",  tag: "Founded 1937 · 80+ years · Big I Best Practices Agency" },
   ],
   "FL": [
-    { name: "Miami Insurance Brokers",        city: "Miami",       url: "https://www.mibrk.com",                     tag: "4.9★ · 516 Google reviews · 30+ years in business" },
-    { name: "Popular Insurance Agency",       city: "North Miami", url: "https://popularinsurancemiami.com",         tag: "40+ years serving South Florida · family-owned" },
-    { name: "Cornerstone Insurance Brokers",  city: "Miami",       url: "https://www.livecovered.com",               tag: "Trusted Choice · Progressive, Travelers, Mercury, Safeco" },
+    { name: "Miami Insurance Brokers",        city: "Miami",       url: "https://www.mibrk.com",               rating: 4.9, reviews: 516, source: "Google", tag: "30+ years in business" },
+    { name: "Popular Insurance Agency",       city: "North Miami", url: "https://popularinsurancemiami.com",   tag: "40+ years serving South Florida · family-owned" },
+    { name: "Cornerstone Insurance Brokers",  city: "Miami",       url: "https://www.livecovered.com",         tag: "Trusted Choice · Progressive, Travelers, Mercury, Safeco" },
   ],
   "NY": [
     { name: "Campbell Solberg Associates",  city: "New York",  url: "https://campbellsolberg.com",              tag: "Founded 1940 · 84 years · 7,500+ clients · Trusted Choice" },
@@ -1974,28 +1976,28 @@ const STATE_AGENTS = {
   ],
   "PA": [
     { name: "Trident Insurance Agency",   city: "Philadelphia", url: "https://www.tridentinsuranceagency.com",  tag: "Founded 1906 · 118 years · AIG, MetLife, Progressive" },
-    { name: "Freedom Insurance Group",    city: "Philadelphia", url: "https://freedom4insurance.com",           tag: "4.4★ Trustpilot · BBB Accredited · 15 carriers · Trusted Choice" },
+    { name: "Freedom Insurance Group",    city: "Philadelphia", url: "https://freedom4insurance.com",            rating: 4.4, source: "Trustpilot", tag: "BBB Accredited · 15 carriers · Trusted Choice" },
     { name: "McCollum Insurance Agency",  city: "Philadelphia", url: "https://www.mccolluminsuranceagency.com", tag: "BBB A+ · independent · serves all of PA and NJ" },
   ],
   "OH": [
-    { name: "Slyman Insurance Group",  city: "Columbus", url: "https://slymaninsurancegroup.com", tag: "5.0★ · 375 reviews · BBB A+ · 50+ years · 13 states" },
+    { name: "Slyman Insurance Group",  city: "Columbus", url: "https://slymaninsurancegroup.com", rating: 5.0, reviews: 375, source: "Google", tag: "BBB A+ · 50+ years · licensed in 13 states" },
     { name: "Dressel & Evans Agency",  city: "Columbus", url: "https://www.dresselevans.com",     tag: "Founded 1955 · 70+ years · BBB A+ Accredited" },
     { name: "CoverLink Insurance",     city: "Columbus", url: "https://coverlink.com",            tag: "100-year Ohio legacy · Trusted Choice member" },
   ],
   "GA": [
-    { name: "Siegel Insurance",           city: "Atlanta",     url: "https://siegelinsurance.com",           tag: "Founded 1964 · Best of Atlanta 6 years running · IIABA Best Practices" },
-    { name: "Southern States Insurance",  city: "Alpharetta",  url: "https://southernstatesinsurance.com",   tag: "32 carriers · BBB A+ · one of the SE's largest independent agencies" },
-    { name: "Norton Agency",              city: "Gainesville", url: "https://nortoninsurance.com",           tag: "Founded 1928 · family-owned · Trusted Choice" },
+    { name: "Siegel Insurance",           city: "Atlanta",     url: "https://siegelinsurance.com",         tag: "Founded 1964 · Best of Atlanta 6 years running · IIABA Best Practices" },
+    { name: "Southern States Insurance",  city: "Alpharetta",  url: "https://southernstatesinsurance.com", tag: "32 carriers · BBB A+ · one of the SE's largest independent agencies" },
+    { name: "Norton Agency",              city: "Gainesville", url: "https://nortoninsurance.com",         tag: "Founded 1928 · family-owned · Trusted Choice" },
   ],
   "IL": [
-    { name: "Salvador Insurance Agency",  city: "Chicago", url: "https://www.salvadorinsurance.com", tag: "4.9★ · 540 Google reviews · BBB A+ · 50+ years · 20 carriers" },
-    { name: "Lakeview Insurance Agency",  city: "Chicago", url: "https://lakeviewins.com",          tag: "Founded 1976 · 30 carriers · serves IL, IN, MI, WI" },
-    { name: "JMB Insurance Agency",       city: "Chicago", url: "https://www.jmbinsurance.com",     tag: "Trusted Choice member · independent multi-carrier" },
+    { name: "Salvador Insurance Agency",  city: "Chicago", url: "https://www.salvadorinsurance.com", rating: 4.9, reviews: 540, source: "Google", tag: "BBB A+ · 50+ years · 20 carriers" },
+    { name: "Lakeview Insurance Agency",  city: "Chicago", url: "https://lakeviewins.com",           tag: "Founded 1976 · 30 carriers · serves IL, IN, MI, WI" },
+    { name: "JMB Insurance Agency",       city: "Chicago", url: "https://www.jmbinsurance.com",      tag: "Trusted Choice member · independent multi-carrier" },
   ],
   "NC": [
-    { name: "Hemby Insurance &amp; Associates",  city: "Charlotte",    url: "https://www.hembyinsurance.com",  tag: "Founded 1948 · 27 carriers · 77 years serving Charlotte" },
-    { name: "Fogle Insurance Group",             city: "Huntersville", url: "https://foglegroup.com",          tag: "Founded 1983 · family-owned · Trusted Choice" },
-    { name: "Schramm, Tingen &amp; Associates",  city: "Raleigh",      url: "https://www.schrammtingen.com",  tag: "25+ years serving Raleigh · independent multi-carrier" },
+    { name: "Hemby Insurance &amp; Associates",  city: "Charlotte",    url: "https://www.hembyinsurance.com", tag: "Founded 1948 · 27 carriers · 77 years serving Charlotte" },
+    { name: "Fogle Insurance Group",             city: "Huntersville", url: "https://foglegroup.com",         tag: "Founded 1983 · family-owned · Trusted Choice" },
+    { name: "Schramm, Tingen &amp; Associates",  city: "Raleigh",      url: "https://www.schrammtingen.com", tag: "25+ years serving Raleigh · independent multi-carrier" },
   ],
   "MI": [
     { name: "BHS Insurance",               city: "Grand Rapids", url: "https://bhsins.com",                  tag: "Founded 1939 · 43 carriers · BBB A+ · Big I Best Practices" },
@@ -2136,6 +2138,14 @@ function renderRanking() {
   renderAgentPanel();
 }
 
+function agentStarHTML(a) {
+  if (!a.rating) return "";
+  const filled = Math.round(a.rating);
+  const stars = "★".repeat(filled) + "☆".repeat(5 - filled);
+  const reviewPart = a.reviews ? ` · ${a.reviews.toLocaleString()}+ reviews` : "";
+  return `<div class="agent-card-stars">${stars}<span>${a.rating.toFixed(1)}${reviewPart} · ${a.source || "Google"}</span></div>`;
+}
+
 function renderAgentPanel() {
   const panel = document.getElementById("agentPanel");
   const agents = stateData && STATE_AGENTS[stateData.code];
@@ -2147,6 +2157,7 @@ function renderAgentPanel() {
       `<div class="agent-card">` +
         `<div class="agent-card-name">${a.name}</div>` +
         `<div class="agent-card-city">${a.city}</div>` +
+        agentStarHTML(a) +
         `<div class="agent-card-tag">${a.tag}</div>` +
         `<a class="agent-card-link" href="${a.url}" target="_blank" rel="noopener noreferrer">Get quotes →</a>` +
       `</div>`
