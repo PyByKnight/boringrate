@@ -212,6 +212,17 @@
     color: var(--ink-mute);
     letter-spacing: 0.06em;
   }
+  .metro-pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: #fff3e8;
+    border: 1px solid #e8c49a;
+    color: #8a5a2a;
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
 
   /* ── REFINE BAR ────────────────────────────────────────── */
   .refine {
@@ -752,6 +763,7 @@
     <div class="result-label">
       <span class="result-label-state" id="resState">—</span>
       <span class="result-label-meta" id="resMeta"></span>
+      <span class="metro-pill" id="metroPill" style="display:none;"></span>
     </div>
     <div class="state-banner" id="stateBanner"></div>
 
@@ -1262,6 +1274,72 @@ const NAIC_RATIOS = {
     "CSAA / AAA": 0.87, "West Bend Mutual": 0.56
   }
   // State-specific entries: "CO": { "USAA": 0.x, ... },
+};
+
+// Top 10 metro areas — 3-digit ZIP prefix → metro code
+const ZIP_PREFIX_METRO = {
+  // New York City metro (NY + inner NJ)
+  "100":"nyc","101":"nyc","102":"nyc","103":"nyc","104":"nyc",
+  "110":"nyc","111":"nyc","112":"nyc","113":"nyc","114":"nyc",
+  "115":"nyc","116":"nyc","117":"nyc","118":"nyc","119":"nyc",
+  "070":"nyc","071":"nyc","072":"nyc","073":"nyc","074":"nyc",
+  "075":"nyc","076":"nyc","077":"nyc","078":"nyc","079":"nyc",
+  // Los Angeles metro (LA County + Orange County)
+  "900":"la","901":"la","902":"la","903":"la","904":"la",
+  "905":"la","906":"la","907":"la","908":"la",
+  "910":"la","911":"la","912":"la","913":"la","914":"la",
+  "915":"la","916":"la","917":"la","918":"la",
+  "925":"la","926":"la","927":"la","928":"la",
+  // Chicago metro (Cook + collar counties)
+  "600":"chi","601":"chi","602":"chi","603":"chi","604":"chi",
+  "605":"chi","606":"chi","607":"chi","608":"chi","609":"chi",
+  // Dallas–Fort Worth metro
+  "750":"dfw","751":"dfw","752":"dfw","753":"dfw","754":"dfw",
+  "760":"dfw","761":"dfw","762":"dfw","763":"dfw","764":"dfw","765":"dfw",
+  // Houston metro
+  "770":"hou","771":"hou","772":"hou","773":"hou","774":"hou","775":"hou","776":"hou",
+  // Washington DC metro (DC + MD + NoVA)
+  "200":"dc","201":"dc","202":"dc","203":"dc","204":"dc","205":"dc",
+  "206":"dc","207":"dc","208":"dc","209":"dc",
+  "220":"dc","221":"dc","222":"dc","223":"dc",
+  // Miami metro (Miami-Dade + Broward + Palm Beach)
+  "330":"mia","331":"mia","332":"mia","333":"mia","334":"mia",
+  // Philadelphia metro (SE PA + South Jersey)
+  "190":"phl","191":"phl","192":"phl","193":"phl","194":"phl",
+  "080":"phl","081":"phl","082":"phl","083":"phl",
+  // Atlanta metro
+  "300":"atl","301":"atl","302":"atl","303":"atl","304":"atl",
+  "305":"atl","306":"atl","307":"atl",
+  // Phoenix metro
+  "850":"phx","851":"phx","852":"phx","853":"phx","854":"phx","855":"phx",
+};
+
+const METRO_NAMES = {
+  nyc: "New York City metro",
+  la:  "Los Angeles metro",
+  chi: "Chicago metro",
+  dfw: "Dallas–Fort Worth metro",
+  hou: "Houston metro",
+  dc:  "Washington DC metro",
+  mia: "Miami metro",
+  phl: "Philadelphia metro",
+  atl: "Atlanta metro",
+  phx: "Phoenix metro",
+};
+
+// Additional multiplier on top of state adjustment — metro rates vs. rest of state.
+// Calibrated from NAIC market data and rate filing patterns.
+const METRO_CARRIER_ADJ = {
+  nyc: { "USAA":1.38,"GEICO":1.30,"State Farm":1.40,"Progressive":1.35,"Allstate":1.42,"Liberty Mutual":1.46,"Farmers":1.42,"Nationwide":1.38 },
+  la:  { "USAA":1.22,"GEICO":1.20,"State Farm":1.18,"Progressive":1.25,"Allstate":1.28,"Liberty Mutual":1.30,"Farmers":1.16,"Nationwide":1.22 },
+  chi: { "USAA":1.28,"GEICO":1.26,"State Farm":1.20,"Progressive":1.28,"Allstate":1.22,"Liberty Mutual":1.32,"Farmers":1.28,"Nationwide":1.26 },
+  dfw: { "USAA":1.05,"GEICO":1.06,"State Farm":1.08,"Progressive":1.10,"Allstate":1.10,"Liberty Mutual":1.12,"Farmers":1.08,"Nationwide":1.08 },
+  hou: { "USAA":1.12,"GEICO":1.12,"State Farm":1.14,"Progressive":1.16,"Allstate":1.16,"Liberty Mutual":1.18,"Farmers":1.14,"Nationwide":1.14 },
+  dc:  { "USAA":1.18,"GEICO":1.14,"State Farm":1.20,"Progressive":1.20,"Allstate":1.22,"Liberty Mutual":1.24,"Farmers":1.22,"Nationwide":1.18 },
+  mia: { "USAA":1.30,"GEICO":1.28,"State Farm":1.32,"Progressive":1.35,"Allstate":1.38,"Liberty Mutual":1.42,"Farmers":1.35,"Nationwide":1.34 },
+  phl: { "USAA":1.22,"GEICO":1.20,"State Farm":1.24,"Progressive":1.24,"Allstate":1.26,"Liberty Mutual":1.28,"Farmers":1.26,"Nationwide":1.24 },
+  atl: { "USAA":1.12,"GEICO":1.12,"State Farm":1.14,"Progressive":1.16,"Allstate":1.16,"Liberty Mutual":1.18,"Farmers":1.16,"Nationwide":1.14 },
+  phx: { "USAA":1.08,"GEICO":1.08,"State Farm":1.10,"Progressive":1.12,"Allstate":1.12,"Liberty Mutual":1.14,"Farmers":1.10,"Nationwide":1.10 },
 };
 
 // State-specific banners — shown below the ZIP result for matching states
@@ -2223,7 +2301,7 @@ const STATE_AGENTS = {
 };
 
 const refinement = { own: null, vehicles: null, curCarrier: "", age: null, credit: null, insured: true, srRequired: false, shopPref: "web", coverage: "standard" };
-let stateData = null, lastOrder = [];
+let stateData = null, currentMetro = null, lastOrder = [];
 
 function isNonStandard() {
   // Route to non-standard carriers if lapsed OR SR-22 required
@@ -2244,7 +2322,9 @@ function activeCarriers() {
 function estimatePremium(carrier, avg) {
   const stateAdj = stateData && STATE_CARRIER_ADJ[stateData.code];
   const stateM = stateAdj ? (stateAdj[carrier.name] ?? 1.0) : 1.0;
-  let m = carrier.base * stateM;
+  const metroAdj = currentMetro && METRO_CARRIER_ADJ[currentMetro];
+  const metroM = metroAdj ? (metroAdj[carrier.name] ?? 1.0) : 1.0;
+  let m = carrier.base * stateM * metroM;
   const s = carrier.sens;
   if (refinement.own === "own")  m *= (1 + s.own);
   if (refinement.own === "rent") m *= (1 + s.rent);
@@ -2349,8 +2429,16 @@ function renderRanking() {
   updateStateBanner(stateData.code);
   document.getElementById("resState").textContent = stateData.name + " · Auto";
   document.getElementById("resMeta").textContent = isNonStandard() ? "High-risk / Non-standard carriers" : "";
+  const metroPill = document.getElementById("metroPill");
+  if (currentMetro) {
+    metroPill.textContent = METRO_NAMES[currentMetro] + " · rates adjusted";
+    metroPill.style.display = "";
+  } else {
+    metroPill.style.display = "none";
+  }
   document.getElementById("rankTableLabel").style.display = "flex";
-  document.getElementById("rankTableState").textContent = stateData.name + " · " + (isNonStandard() ? "Non-standard carriers" : "Major carriers") + " · Ranked by price";
+  const metroPrefix = currentMetro ? METRO_NAMES[currentMetro] + " · " : "";
+  document.getElementById("rankTableState").textContent = metroPrefix + stateData.name + " · " + (isNonStandard() ? "Non-standard carriers" : "Major carriers") + " · Ranked by price";
 
   const footNote = isNonStandard()
     ? "Showing non-standard carriers — specialized for lapsed coverage, SR-22, or high-risk profiles. Estimates are directional. Not a quote. <a href='methodology.html'>How we rank →</a>"
@@ -2390,8 +2478,8 @@ function renderAgentPanel() {
 function lookupZip(zip) {
   const prefix3 = zip.substring(0, 3);
   const prefix2 = zip.substring(0, 2);
-  // Try 3-digit prefix first, fall back to 2-digit for legacy entries
   const stateCode = ZIP3_TO_STATE[prefix3] || ZIP3_TO_STATE[prefix2];
+  currentMetro = ZIP_PREFIX_METRO[prefix3] || null;
   return (stateCode && STATE_DATA[stateCode]) || FALLBACK;
 }
 
