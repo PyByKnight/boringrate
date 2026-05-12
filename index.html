@@ -1189,7 +1189,19 @@ const FALLBACK = { name: "Your state", avg: 2568, code: null };
 const NAIC_RATIOS = {
   "_national": {
     "USAA": 1.18, "GEICO": 0.69, "State Farm": 0.79, "Progressive": 0.71,
-    "Allstate": 1.10, "Liberty Mutual": 2.86, "Farmers": 0.86, "Nationwide": 0.63
+    "Allstate": 1.10, "Liberty Mutual": 2.86, "Farmers": 0.86, "Nationwide": 0.63,
+    "Erie Insurance": 0.58, "American Family": 0.76, "Amica Mutual": 0.50,
+    "Auto-Owners": 0.55, "PEMCO": 0.54, "NJM Insurance": 0.44,
+    "Mercury Insurance": 0.92, "Wawanesa": 0.61, "Shelter Insurance": 0.65,
+    "Kentucky Farm Bureau": 0.62, "NC Farm Bureau": 0.60, "Texas Farm Bureau": 0.58,
+    "Georgia Farm Bureau": 0.61, "Louisiana Farm Bureau": 0.65,
+    "Mississippi Farm Bureau": 0.64, "Tennessee Farm Bureau": 0.57,
+    "Alfa Insurance": 0.72, "NYCM Insurance": 0.65, "Westfield Insurance": 0.62,
+    "Country Financial": 0.67, "MAPFRE Insurance": 0.82, "Grinnell Mutual": 0.54,
+    "Indiana Farm Bureau": 0.63, "Virginia Farm Bureau": 0.61, "SC Farm Bureau": 0.63,
+    "Arkansas Farm Bureau": 0.66, "Oklahoma Farm Bureau": 0.65, "Kansas Farm Bureau": 0.64,
+    "Michigan Farm Bureau": 0.70, "Iowa Farm Bureau": 0.63, "Nodak Mutual": 0.58,
+    "CSAA / AAA": 0.87, "West Bend Mutual": 0.56
   }
   // State-specific entries: "CO": { "USAA": 0.x, ... },
 };
@@ -1617,7 +1629,40 @@ const CARRIER_LINKS = {
   "Farmers": "https://www.farmers.com", "Nationwide": "https://www.nationwide.com",
   "The General": "https://www.thegeneral.com", "Direct Auto": "https://www.directauto.com",
   "Safe Auto": "https://www.safeauto.com", "Dairyland": "https://www.dairylandauto.com",
-  "Kemper": "https://www.kemper.com", "Bristol West": "https://www.bristolwest.com"
+  "Kemper": "https://www.kemper.com", "Bristol West": "https://www.bristolwest.com",
+  "Erie Insurance": "https://www.erieinsurance.com",
+  "American Family": "https://www.amfam.com",
+  "Amica Mutual": "https://www.amica.com",
+  "Auto-Owners": "https://www.auto-owners.com",
+  "PEMCO": "https://www.pemco.com",
+  "NJM Insurance": "https://www.njm.com",
+  "Mercury Insurance": "https://www.mercuryinsurance.com",
+  "Wawanesa": "https://www.wawanesa.com",
+  "Shelter Insurance": "https://www.shelterinsurance.com",
+  "Kentucky Farm Bureau": "https://www.kyfb.com/insurance",
+  "NC Farm Bureau": "https://www.ncfbins.com",
+  "Texas Farm Bureau": "https://www.txfb-ins.com",
+  "Georgia Farm Bureau": "https://www.gfbins.com",
+  "Louisiana Farm Bureau": "https://www.lfb.org/insurance",
+  "Mississippi Farm Bureau": "https://www.msfbins.com",
+  "Tennessee Farm Bureau": "https://www.tnfb.com/insurance",
+  "Alfa Insurance": "https://www.alfainsurance.com",
+  "NYCM Insurance": "https://www.nycm.com",
+  "Westfield Insurance": "https://www.westfieldinsurance.com",
+  "Country Financial": "https://www.countryfinancial.com",
+  "MAPFRE Insurance": "https://www.mapfreinsurance.com",
+  "Grinnell Mutual": "https://www.grinnellmutual.com",
+  "Indiana Farm Bureau": "https://www.infarmbureau.org",
+  "Virginia Farm Bureau": "https://www.vafb.com",
+  "SC Farm Bureau": "https://www.scfbins.com",
+  "Arkansas Farm Bureau": "https://www.arfb.com/insurance",
+  "Oklahoma Farm Bureau": "https://www.okfb.org/insurance",
+  "Kansas Farm Bureau": "https://www.kfb.org/insurance",
+  "Michigan Farm Bureau": "https://www.michiganfarmbureau.com/insurance",
+  "Iowa Farm Bureau": "https://www.iowafarmbureau.com/insurance",
+  "Nodak Mutual": "https://www.nodakinsurance.com",
+  "CSAA / AAA": "https://www.csaa-insurance.aaa.com",
+  "West Bend Mutual": "https://www.thesilverlining.com"
 };
 
 // Coverage multipliers for non-standard carriers
@@ -1719,6 +1764,149 @@ const STATE_CARRIER_ADJ = {
   "HI": { "GEICO": 0.88, "State Farm": 0.90, "USAA": 0.98 }
 };
 
+// ── Local / regional carrier registry ───────────────────────
+// Bases are already state-appropriate — no STATE_CARRIER_ADJ applied.
+// Sources: J.D. Power regional rankings, NAIC market share, NerdWallet/Bankrate state guides.
+const LOCAL_CARRIER_DEFS = {
+  "Erie Insurance":         { base: 0.77, tag: "Erie, PA — Rate Lock®, J.D. Power #1 North Central & Mid-Atlantic",
+    sens: { own: -0.09, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.02, "35-54": -0.05, "55+": -0.10 }, multi: -0.12, single: 0.02, lapsed: 0.18, renewal: -0.08 } },
+  "American Family":        { base: 0.82, tag: "Madison, WI — Midwest specialist, bundling & telematics discounts",
+    sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.04, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Amica Mutual":           { base: 0.83, tag: "Lincoln, RI — J.D. Power New England #1 for 10+ consecutive years",
+    sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.04, "55+": -0.10 }, multi: -0.08, single: 0.02, lapsed: 0.25, renewal: -0.09 } },
+  "Auto-Owners":            { base: 0.79, tag: "Lansing, MI — agent-only, top satisfaction across Midwest & South",
+    sens: { own: -0.09, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
+  "PEMCO":                  { base: 0.78, tag: "Seattle, WA — Pacific Northwest specialist, very high loyalty scores",
+    sens: { own: -0.09, rent: 0.02, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.20, renewal: -0.08 } },
+  "NJM Insurance":          { base: 0.72, tag: "NJ-based — highest customer satisfaction rating in Mid-Atlantic",
+    sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.22, renewal: -0.08 } },
+  "Mercury Insurance":      { base: 0.82, tag: "Los Angeles, CA — competitive in CA, AZ, NV and beyond",
+    sens: { own: -0.06, rent: 0.02, age: { "18-24": 0.12, "25-34": 0.02, "35-54": -0.04, "55+": -0.08 }, multi: -0.07, single: 0.02, lapsed: 0.14, renewal: -0.03 } },
+  "Wawanesa":               { base: 0.78, tag: "CA-focused — J.D. Power #1 in California customer satisfaction",
+    sens: { own: -0.07, rent: 0.02, age: { "18-24": 0.14, "25-34": 0.02, "35-54": -0.04, "55+": -0.08 }, multi: -0.07, single: 0.02, lapsed: 0.16, renewal: -0.05 } },
+  "Shelter Insurance":      { base: 0.79, tag: "Columbia, MO — J.D. Power Central region leader",
+    sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.10, single: 0.02, lapsed: 0.18, renewal: -0.07 } },
+  "Kentucky Farm Bureau":   { base: 0.68, tag: "KY-only — largest KY carrier; minimum coverage often < half state avg",
+    sens: { own: -0.12, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "NC Farm Bureau":         { base: 0.76, tag: "NC-only — one of the largest NC carriers, competitive statewide",
+    sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Texas Farm Bureau":      { base: 0.70, tag: "TX-only — J.D. Power #1 in Texas, 11 years running",
+    sens: { own: -0.12, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Georgia Farm Bureau":    { base: 0.70, tag: "GA-only — avg 20% below state average per NerdWallet",
+    sens: { own: -0.12, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Louisiana Farm Bureau":  { base: 0.65, tag: "LA-only — dramatically below state average in nation's priciest market",
+    sens: { own: -0.12, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Mississippi Farm Bureau":{ base: 0.77, tag: "MS-only — strong rural network across the state",
+    sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Tennessee Farm Bureau":  { base: 0.71, tag: "TN-only — J.D. Power Southeast #1 for 11 consecutive years",
+    sens: { own: -0.12, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Alfa Insurance":         { base: 0.81, tag: "Montgomery, AL — regional specialist across AL, MS, GA, TN, VA",
+    sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
+  "NYCM Insurance":         { base: 0.78, tag: "NY-only — J.D. Power New York customer satisfaction leader",
+    sens: { own: -0.09, rent: 0.03, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.07 } },
+  "Westfield Insurance":    { base: 0.80, tag: "Medina, OH — Ohio-based regional specialist",
+    sens: { own: -0.09, rent: 0.03, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
+  "Country Financial":      { base: 0.83, tag: "Bloomington, IL — insurance and financial services, Midwest focus",
+    sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.20, "25-34": 0.04, "35-54": -0.06, "55+": -0.10 }, multi: -0.10, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
+  "MAPFRE Insurance":       { base: 0.81, tag: "Webster, MA — largest auto insurer in Massachusetts",
+    sens: { own: -0.07, rent: 0.02, age: { "18-24": 0.14, "25-34": 0.02, "35-54": -0.04, "55+": -0.09 }, multi: -0.07, single: 0.02, lapsed: 0.16, renewal: -0.05 } },
+  "Grinnell Mutual":        { base: 0.80, tag: "Grinnell, IA — farmer-focused, strong Midwest agent network",
+    sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.19, renewal: -0.07 } },
+  "Indiana Farm Bureau":    { base: 0.77, tag: "IN-focused — strong rural and suburban Indiana presence",
+    sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Virginia Farm Bureau":   { base: 0.80, tag: "VA-focused — competitive rates across Virginia",
+    sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "SC Farm Bureau":         { base: 0.78, tag: "SC-only — strong statewide presence",
+    sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Arkansas Farm Bureau":   { base: 0.80, tag: "AR-focused — strong rural network across Arkansas",
+    sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Oklahoma Farm Bureau":   { base: 0.79, tag: "OK-focused — competitive rates, strong Oklahoma presence",
+    sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Kansas Farm Bureau":     { base: 0.79, tag: "KS-focused — competitive Kansas rates",
+    sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Michigan Farm Bureau":   { base: 0.84, tag: "MI-focused — competitive option in Michigan's expensive market",
+    sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.20, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
+  "Iowa Farm Bureau":       { base: 0.79, tag: "IA-focused — FBL Financial, strong statewide Iowa presence",
+    sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+  "Nodak Mutual":           { base: 0.78, tag: "Fargo, ND — North Dakota's largest regional carrier",
+    sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.07 } },
+  "CSAA / AAA":             { base: 0.83, tag: "AAA member pricing, competitive across Western states",
+    sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.04, "55+": -0.09 }, multi: -0.08, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
+  "West Bend Mutual":       { base: 0.82, tag: "West Bend, WI — Wisconsin specialist, strong Midwest network",
+    sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.19, renewal: -0.07 } }
+};
+
+// Coverage multipliers for local carriers (most are agent-based conservatives)
+Object.assign(COVERAGE_MULT, Object.fromEntries(
+  Object.keys(LOCAL_CARRIER_DEFS).map(name => [name, { minimum: 0.76, standard: 1.00, premium: 1.22 }])
+));
+// Farm Bureaus and very conservative carriers are even cheaper on minimum coverage
+["Kentucky Farm Bureau","Tennessee Farm Bureau","Texas Farm Bureau","Georgia Farm Bureau",
+ "Louisiana Farm Bureau","NC Farm Bureau","Indiana Farm Bureau","Mississippi Farm Bureau",
+ "SC Farm Bureau","Arkansas Farm Bureau","Oklahoma Farm Bureau","Kansas Farm Bureau",
+ "Iowa Farm Bureau","Michigan Farm Bureau","Virginia Farm Bureau"].forEach(n => {
+  COVERAGE_MULT[n] = { minimum: 0.70, standard: 1.00, premium: 1.20 };
+});
+
+// Shop multipliers — most local carriers are agent-channel; web isn't their strength
+Object.assign(SHOP_MULT, Object.fromEntries(
+  Object.keys(LOCAL_CARRIER_DEFS).map(name => [name, { web: 1.02, phone: 1.00, agent: 0.98 }])
+));
+// Exceptions: carriers with strong web/direct channels
+["Mercury Insurance","Wawanesa","NJM Insurance"].forEach(n => {
+  SHOP_MULT[n] = { web: 1.00, phone: 1.00, agent: 1.01 };
+});
+
+// Which local carriers to show per state (up to 2)
+const STATE_LOCAL_CARRIERS = {
+  "AL": ["Alfa Insurance",       "Auto-Owners"],
+  "AZ": ["Mercury Insurance",    "CSAA / AAA"],
+  "AR": ["Shelter Insurance",    "Arkansas Farm Bureau"],
+  "CA": ["Wawanesa",             "Mercury Insurance"],
+  "CO": ["American Family",      "CSAA / AAA"],
+  "CT": ["Amica Mutual",         "NJM Insurance"],
+  "DC": ["Erie Insurance"],
+  "DE": ["Erie Insurance"],
+  "FL": ["Auto-Owners"],
+  "GA": ["Georgia Farm Bureau",  "Alfa Insurance"],
+  "ID": ["PEMCO",                "American Family"],
+  "IL": ["Erie Insurance",       "Country Financial"],
+  "IN": ["Indiana Farm Bureau",  "Erie Insurance"],
+  "IA": ["Shelter Insurance",    "Grinnell Mutual"],
+  "KS": ["Shelter Insurance",    "Kansas Farm Bureau"],
+  "KY": ["Kentucky Farm Bureau", "Auto-Owners"],
+  "LA": ["Louisiana Farm Bureau"],
+  "ME": ["Amica Mutual",         "MAPFRE Insurance"],
+  "MD": ["Erie Insurance",       "NJM Insurance"],
+  "MA": ["Amica Mutual",         "MAPFRE Insurance"],
+  "MI": ["Auto-Owners",          "Michigan Farm Bureau"],
+  "MN": ["Shelter Insurance",    "Auto-Owners"],
+  "MS": ["Mississippi Farm Bureau","Alfa Insurance"],
+  "MO": ["Shelter Insurance",    "Auto-Owners"],
+  "NE": ["Shelter Insurance",    "American Family"],
+  "NH": ["Amica Mutual",         "MAPFRE Insurance"],
+  "NJ": ["NJM Insurance",        "Erie Insurance"],
+  "NV": ["Mercury Insurance"],
+  "NY": ["NYCM Insurance",       "Erie Insurance"],
+  "NC": ["NC Farm Bureau",       "Auto-Owners"],
+  "ND": ["Nodak Mutual",         "Shelter Insurance"],
+  "OH": ["Erie Insurance",       "Westfield Insurance"],
+  "OK": ["Oklahoma Farm Bureau", "Shelter Insurance"],
+  "OR": ["PEMCO",                "Amica Mutual"],
+  "PA": ["Erie Insurance",       "NJM Insurance"],
+  "RI": ["Amica Mutual",         "MAPFRE Insurance"],
+  "SC": ["SC Farm Bureau",       "Auto-Owners"],
+  "SD": ["Shelter Insurance",    "American Family"],
+  "TN": ["Tennessee Farm Bureau","Auto-Owners"],
+  "TX": ["Texas Farm Bureau",    "Shelter Insurance"],
+  "UT": ["CSAA / AAA",           "American Family"],
+  "VT": ["Amica Mutual",         "MAPFRE Insurance"],
+  "VA": ["Erie Insurance",       "Virginia Farm Bureau"],
+  "WA": ["PEMCO",                "American Family"],
+  "WV": ["Erie Insurance",       "Auto-Owners"],
+  "WI": ["American Family",      "West Bend Mutual"]
+};
+
 const refinement = { own: null, vehicles: null, curCarrier: "", age: null, insured: true, srRequired: false, shopPref: "web", coverage: "standard" };
 let stateData = null, lastOrder = [];
 
@@ -1728,7 +1916,11 @@ function isNonStandard() {
 }
 
 function activeCarriers() {
-  return isNonStandard() ? CARRIERS_NONSTANDARD : CARRIERS_STANDARD;
+  const base = isNonStandard() ? CARRIERS_NONSTANDARD : CARRIERS_STANDARD;
+  if (isNonStandard() || !stateData) return base;
+  const localNames = STATE_LOCAL_CARRIERS[stateData.code] || [];
+  const locals = localNames.map(n => LOCAL_CARRIER_DEFS[n]).filter(Boolean);
+  return [...base, ...locals];
 }
 
 function estimatePremium(carrier, avg) {
@@ -1777,7 +1969,8 @@ function renderRanking() {
 
   const sp = ranked.map(r => r.price).slice().sort((a, b) => a - b);
   // Round median to whole number — prevents .5 deltas
-  const median = Math.round((sp[3] + sp[4]) / 2);
+  const mid = Math.floor(sp.length / 2);
+  const median = sp.length % 2 === 0 ? Math.round((sp[mid - 1] + sp[mid]) / 2) : sp[mid];
 
   const list = document.getElementById("rankList");
   list.innerHTML = "";
@@ -1789,7 +1982,7 @@ function renderRanking() {
   list.classList.toggle("with-header", showHeader);
 
   ranked.forEach((row, idx) => {
-    if (idx === 4) {
+    if (idx === mid) {
       const div = document.createElement("div");
       div.className = "median-divider";
       div.innerHTML = '<div></div><div class="median-dash"></div><div class="median-label">— median —</div>';
