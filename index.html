@@ -880,9 +880,8 @@
               <label>Comprehensive</label>
               <select id="covComp">
                 <option value="0">Skip</option>
-                <option value="1">$2,000 ded</option>
-                <option value="2">$1,000 ded</option>
-                <option value="3">$500 ded</option>
+                <option value="1">$1,000 ded</option>
+                <option value="2">$500 ded</option>
               </select>
             </div>
             <div class="refine-q">
@@ -2607,7 +2606,7 @@ function syncCoverageFromDetails() {
   const comp = refinement.covComp;
   let tier;
   if (l <= 0 && col === 0 && comp === 0) tier = "minimum";
-  else if (l >= 3 || (col >= 3 && comp >= 3)) tier = "premium";
+  else if (l >= 3 || (col >= 3 && comp >= 2)) tier = "premium";
   else tier = "standard";
   refinement.coverage = tier;
   document.querySelectorAll('.pill-row[data-q="coverage"] .pill').forEach(p => {
@@ -2636,11 +2635,14 @@ function loadCoverageFromStorage() {
       ["medpay", "covMedpay"],
       ["gap", "covGap"]
     ];
+    // Option-count caps: covComp has 3 opts (0-2), covMedpay has 3 opts (0-2)
+    const caps = { covComp: 2, covMedpay: 2 };
     map.forEach(([srcKey, refKey]) => {
       if (saved[srcKey] !== undefined) {
-        refinement[refKey] = saved[srcKey];
+        const val = caps[refKey] !== undefined ? Math.min(saved[srcKey], caps[refKey]) : saved[srcKey];
+        refinement[refKey] = val;
         const el = document.getElementById(refKey);
-        if (el) el.value = saved[srcKey];
+        if (el) el.value = val;
       }
     });
     syncCoverageFromDetails();
