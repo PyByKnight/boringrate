@@ -226,12 +226,45 @@
   .delta-num.zero  { color: var(--good); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; padding-top: 6px; line-height: 1.4; }
   .delta-sub { font-family: var(--mono); font-size: 10px; color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
 
+  /* Toggle switch */
+  .cov-toggle-row { margin: 14px 0 4px; }
+  .cov-toggle { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; }
+  .cov-toggle-track {
+    width: 40px; height: 22px; background: var(--rule); border-radius: 11px;
+    position: relative; transition: background 200ms; flex-shrink: 0;
+  }
+  .cov-toggle-track.on { background: var(--good); }
+  .cov-toggle-thumb {
+    position: absolute; top: 3px; left: 3px;
+    width: 16px; height: 16px; background: var(--paper); border-radius: 50%;
+    transition: left 200ms; box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  }
+  .cov-toggle-track.on .cov-toggle-thumb { left: 21px; }
+  .cov-toggle-label { font-family: var(--mono); font-size: 11px; color: var(--ink-soft); letter-spacing: 0.08em; text-transform: uppercase; }
+
   /* Coverage sliders */
-  .cov-slider-wrap { margin: 16px 0 6px; }
-  .cov-ticks { display: flex; justify-content: space-between; margin-top: 8px; font-family: var(--mono); font-size: 10px; color: var(--ink-mute); letter-spacing: 0.04em; }
-  .cov-tick-rec { color: var(--accent); font-weight: 600; }
-  .cov-tick-rec::after { content: ' ★'; font-size: 8px; }
-  .cov-cost { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.05em; margin-top: 6px; }
+  .cov-slider-body { margin-top: 12px; transition: opacity 150ms; }
+  .cov-slider-body.off { opacity: 0.28; pointer-events: none; }
+  .cov-slider-wrap { margin-bottom: 0; }
+  .slider-tick-marks-wrap { position: relative; height: 8px; margin: 3px 11px 0; }
+  .slider-tick-mark {
+    position: absolute; width: 1.5px; height: 7px;
+    background: var(--rule); top: 0; transform: translateX(-50%);
+  }
+  .slider-tick-mark.at-sel { background: var(--ink); height: 8px; }
+  .cov-ticks { position: relative; height: 32px; margin: 5px 11px 0; }
+  .cov-tick-item {
+    position: absolute; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 1px;
+  }
+  .cov-tick-label { font-family: var(--mono); font-size: 10px; color: var(--ink-mute); letter-spacing: 0.03em; white-space: nowrap; line-height: 1.3; }
+  .cov-tick-label.is-rec { color: var(--accent); }
+  .cov-tick-label.is-sel { color: var(--ink); font-weight: 600; }
+  .cov-tick-delta { font-family: var(--mono); font-size: 9px; letter-spacing: 0.02em; color: transparent; }
+  .cov-tick-delta.more { color: var(--accent); }
+  .cov-tick-delta.less { color: var(--good); }
+  .cov-tick-delta.at-sel { color: var(--ink-mute); }
+  .cov-cost { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.05em; margin-top: 10px; }
   .cov-learn-more { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--ink-mute); text-decoration: none; margin-left: 10px; white-space: nowrap; vertical-align: middle; }
   .cov-learn-more:hover { color: var(--accent); text-decoration: underline; }
   .guide-back-link { display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-mute); text-decoration: none; margin-top: 20px; padding: 6px 0; }
@@ -881,6 +914,14 @@ const GUIDE_IDS = {
   comprehensive: 'guide-comprehensive', umUim: 'guide-um',
   medpay: 'guide-medpay', gap: 'guide-gap'
 };
+// Coverages that can be toggled off (have a "Skip" option at index 0)
+const TOGGLE_TYPES = new Set(['collision', 'comprehensive', 'umUim', 'medpay', 'gap']);
+// Coverages that are just on/off with no slider level (binary or user-prefers-simple)
+const TOGGLE_ONLY  = new Set(['medpay', 'gap']);
+
+// Remember the last slider position so toggling back on restores it
+const lastNonSkip = {};
+TYPES.forEach(t => { lastNonSkip[t] = null; });
 
 function deltaHtmlFor(type, idx) {
   const d = optCost(type, idx) - optCost(type, recs[type]);
@@ -890,22 +931,93 @@ function deltaHtmlFor(type, idx) {
 }
 
 function costLineFor(type, idx) {
-  const cost = optCost(type, idx);
+  const cost  = optCost(type, idx);
   const label = CFG[type].opts[idx].label;
-  return cost > 0 ? label + ' · ~' + money(cost) + '/yr' : label + ' — not purchased';
+  return cost > 0 ? label + ' · ~' + money(cost) + '/yr' : 'Not included · $0/yr';
+}
+
+function buildSliderSection(type, selIdx) {
+  const cfg      = CFG[type];
+  const isToggle = TOGGLE_TYPES.has(type);
+  const sMin     = isToggle ? 1 : 0;          // slider min = first non-skip idx
+  const sMax     = cfg.opts.length - 1;        // slider max
+  const sVal     = Math.max(selIdx, sMin);     // clamp to visible range
+  const pct      = sMax > sMin ? ((sVal - sMin) / (sMax - sMin) * 100).toFixed(1) : 50;
+  const rec      = recs[type];
+  const nTicks   = sMax - sMin + 1;
+
+  // Tick marks (absolute positioned within margin: 0 11px container)
+  let marksHtml = '<div class="slider-tick-marks-wrap">';
+  for (let i = 0; i < nTicks; i++) {
+    const pctStr = nTicks > 1 ? (i / (nTicks - 1) * 100).toFixed(1) : '50';
+    const isSel  = (i + sMin) === sVal;
+    marksHtml += '<div class="slider-tick-mark' + (isSel ? ' at-sel' : '') + '" style="left:' + pctStr + '%"></div>';
+  }
+  marksHtml += '</div>';
+
+  // Tick labels with cost deltas (absolutely positioned, aligned with marks)
+  let ticksHtml = '';
+  const selCost = optCost(type, sVal);
+  for (let i = 0; i < nTicks; i++) {
+    const optIdx  = i + sMin;
+    const pctStr  = nTicks > 1 ? (i / (nTicks - 1) * 100).toFixed(1) : '50';
+    const isSel   = optIdx === sVal;
+    const isRec   = optIdx === rec;
+    const cost    = optCost(type, optIdx);
+    const diff    = cost - selCost;
+
+    const lblClass = 'cov-tick-label' + (isRec ? ' is-rec' : '') + (isSel ? ' is-sel' : '');
+    const lbl      = cfg.opts[optIdx].label + (isRec ? ' ★' : '');
+
+    let dClass, dText;
+    if (isSel)      { dClass = 'cov-tick-delta at-sel'; dText = '~' + money(cost) + '/yr'; }
+    else if (diff > 0) { dClass = 'cov-tick-delta more';   dText = '+' + money(diff); }
+    else if (diff < 0) { dClass = 'cov-tick-delta less';   dText = '-' + money(Math.abs(diff)); }
+    else               { dClass = 'cov-tick-delta';         dText = '—'; }
+
+    ticksHtml += '<div class="cov-tick-item" data-opt="' + optIdx + '" style="left:' + pctStr + '%">'
+      + '<span class="' + lblClass + '">' + lbl + '</span>'
+      + '<span class="' + dClass + '">' + dText + '</span>'
+      + '</div>';
+  }
+
+  return '<div class="cov-slider-body" id="slider-body-' + type + '">'
+    + '<div class="cov-slider-wrap">'
+    + '<input type="range" class="cov-range" data-type="' + type + '" min="' + sMin + '" max="' + sMax + '" step="1" value="' + sVal + '" style="--pct:' + pct + '%">'
+    + marksHtml
+    + '</div>'
+    + '<div class="cov-ticks" id="ticks-' + type + '">' + ticksHtml + '</div>'
+    + '</div>';
 }
 
 function renderCards() {
   document.getElementById('covCards').innerHTML = TYPES.map(type => {
-    const cfg = CFG[type];
-    const sel = sels[type];
-    const rec = recs[type];
-    const max = cfg.opts.length - 1;
-    const pct = max > 0 ? (sel / max * 100).toFixed(1) : 0;
+    const cfg        = CFG[type];
+    const sel        = sels[type];
+    const isToggle   = TOGGLE_TYPES.has(type);
+    const isToggleOnly = TOGGLE_ONLY.has(type);
+    const isOn       = !isToggle || sel > 0;
 
-    const ticksHtml = cfg.opts.map((opt, i) =>
-      '<span class="cov-tick' + (i === rec ? ' cov-tick-rec' : '') + '">' + opt.label + '</span>'
-    ).join('');
+    // Toggle switch HTML
+    let toggleHtml = '';
+    if (isToggle) {
+      toggleHtml = '<div class="cov-toggle-row">'
+        + '<label class="cov-toggle" data-type="' + type + '">'
+        + '<div class="cov-toggle-track' + (isOn ? ' on' : '') + '" id="toggle-track-' + type + '">'
+        + '<div class="cov-toggle-thumb"></div></div>'
+        + '<span class="cov-toggle-label" id="toggle-label-' + type + '">' + (isOn ? 'Included' : 'Not included') + '</span>'
+        + '</label></div>';
+    }
+
+    // Slider HTML (skipped for toggle-only types)
+    const sliderHtml = (!isToggleOnly)
+      ? buildSliderSection(type, isOn ? sel : (CFG[type].opts.length > 1 ? 1 : 0))
+      : '';
+
+    // Gray out slider when toggled off
+    if (!isToggleOnly && !isOn) {
+      // We'll apply .off class via JS after render to avoid re-building HTML
+    }
 
     return '<div class="cov-card">'
       + '<div class="cov-card-top"><div>'
@@ -914,23 +1026,131 @@ function renderCards() {
       + '</div><div class="delta-display" id="delta-' + type + '">' + deltaHtmlFor(type, sel) + '</div></div>'
       + '<div class="cov-card-tagline">' + cfg.tagline + '</div>'
       + '<div class="cov-card-desc">' + getDesc(type) + '</div>'
-      + '<div class="cov-slider-wrap">'
-      + '<input type="range" class="cov-range" data-type="' + type + '" min="0" max="' + max + '" step="1" value="' + sel + '" style="--pct:' + pct + '%">'
-      + '<div class="cov-ticks">' + ticksHtml + '</div>'
-      + '</div>'
+      + toggleHtml
+      + sliderHtml
       + '<div class="cov-cost" id="cost-' + type + '">' + costLineFor(type, sel) + '</div>'
       + '</div>';
   }).join('');
 
+  // Apply .off class to disabled sliders
+  TYPES.forEach(type => {
+    if (TOGGLE_TYPES.has(type) && !TOGGLE_ONLY.has(type) && sels[type] === 0) {
+      const body = document.getElementById('slider-body-' + type);
+      if (body) body.classList.add('off');
+    }
+  });
+
+  // Slider input listeners
   document.querySelectorAll('.cov-range').forEach(slider => {
     slider.addEventListener('input', e => {
-      const type = e.target.dataset.type;
-      const idx  = parseInt(e.target.value, 10);
-      const max  = parseInt(e.target.max, 10);
-      sels[type] = idx;
-      e.target.style.setProperty('--pct', (max > 0 ? idx / max * 100 : 0).toFixed(1) + '%');
+      const type   = e.target.dataset.type;
+      const idx    = parseInt(e.target.value, 10);
+      const sMin   = parseInt(e.target.min, 10);
+      const sMax   = parseInt(e.target.max, 10);
+      sels[type]   = idx;
+      lastNonSkip[type] = idx;
+      const pct = sMax > sMin ? ((idx - sMin) / (sMax - sMin) * 100).toFixed(1) : 50;
+      e.target.style.setProperty('--pct', pct + '%');
+      // Update tick marks highlight
+      e.target.closest('.cov-slider-wrap').querySelectorAll('.slider-tick-mark').forEach((m, i) => {
+        m.classList.toggle('at-sel', (i + sMin) === idx);
+      });
+      // Rebuild tick labels with new deltas
+      const nTicks = sMax - sMin + 1;
+      const selCost = optCost(type, idx);
+      let ticksHtml = '';
+      const rec = recs[type];
+      for (let i = 0; i < nTicks; i++) {
+        const optIdx = i + sMin;
+        const pctStr = nTicks > 1 ? (i / (nTicks - 1) * 100).toFixed(1) : '50';
+        const isSel  = optIdx === idx;
+        const isRec  = optIdx === rec;
+        const cost   = optCost(type, optIdx);
+        const diff   = cost - selCost;
+        const lblClass = 'cov-tick-label' + (isRec ? ' is-rec' : '') + (isSel ? ' is-sel' : '');
+        const lbl    = CFG[type].opts[optIdx].label + (isRec ? ' ★' : '');
+        let dClass, dText;
+        if (isSel)       { dClass = 'cov-tick-delta at-sel'; dText = '~' + money(cost) + '/yr'; }
+        else if (diff>0) { dClass = 'cov-tick-delta more';   dText = '+' + money(diff); }
+        else if (diff<0) { dClass = 'cov-tick-delta less';   dText = '-' + money(Math.abs(diff)); }
+        else             { dClass = 'cov-tick-delta';        dText = '—'; }
+        ticksHtml += '<div class="cov-tick-item" data-opt="' + optIdx + '" style="left:' + pctStr + '%">'
+          + '<span class="' + lblClass + '">' + lbl + '</span>'
+          + '<span class="' + dClass + '">' + dText + '</span>'
+          + '</div>';
+      }
+      document.getElementById('ticks-' + type).innerHTML = ticksHtml;
       document.getElementById('cost-' + type).textContent = costLineFor(type, idx);
       document.getElementById('delta-' + type).innerHTML  = deltaHtmlFor(type, idx);
+      try { localStorage.setItem('br_coverage', JSON.stringify(sels)); } catch(e2) {}
+      renderSummary();
+      updateCtaSummary();
+    });
+  });
+
+  // Toggle listeners
+  document.querySelectorAll('.cov-toggle').forEach(label => {
+    label.addEventListener('click', () => {
+      const type  = label.dataset.type;
+      const track = document.getElementById('toggle-track-' + type);
+      const wasOn = track.classList.contains('on');
+      const nowOn = !wasOn;
+
+      if (!nowOn) {
+        if (sels[type] > 0) lastNonSkip[type] = sels[type];
+        sels[type] = 0;
+      } else {
+        const rec = recs[type];
+        sels[type] = lastNonSkip[type] !== null ? lastNonSkip[type]
+          : (rec > 0 ? rec : 1);
+      }
+
+      track.classList.toggle('on', nowOn);
+      document.getElementById('toggle-label-' + type).textContent = nowOn ? 'Included' : 'Not included';
+      document.getElementById('cost-' + type).textContent = costLineFor(type, sels[type]);
+      document.getElementById('delta-' + type).innerHTML  = deltaHtmlFor(type, sels[type]);
+
+      if (!TOGGLE_ONLY.has(type)) {
+        const body = document.getElementById('slider-body-' + type);
+        body.classList.toggle('off', !nowOn);
+        if (nowOn) {
+          const slider = body.querySelector('.cov-range');
+          const sMin = parseInt(slider.min, 10);
+          const sMax = parseInt(slider.max, 10);
+          slider.value = sels[type];
+          const pct = sMax > sMin ? ((sels[type] - sMin) / (sMax - sMin) * 100).toFixed(1) : 50;
+          slider.style.setProperty('--pct', pct + '%');
+          // Update tick marks + labels for restored value
+          body.querySelectorAll('.slider-tick-mark').forEach((m, i) => {
+            m.classList.toggle('at-sel', (i + sMin) === sels[type]);
+          });
+          const nTicks = sMax - sMin + 1;
+          const selCost = optCost(type, sels[type]);
+          let ticksHtml = '';
+          const rec = recs[type];
+          for (let i = 0; i < nTicks; i++) {
+            const optIdx = i + sMin;
+            const pctStr = nTicks > 1 ? (i / (nTicks - 1) * 100).toFixed(1) : '50';
+            const isSel  = optIdx === sels[type];
+            const isRec  = optIdx === rec;
+            const cost   = optCost(type, optIdx);
+            const diff   = cost - selCost;
+            const lblClass = 'cov-tick-label' + (isRec ? ' is-rec' : '') + (isSel ? ' is-sel' : '');
+            const lbl    = CFG[type].opts[optIdx].label + (isRec ? ' ★' : '');
+            let dClass, dText;
+            if (isSel)       { dClass = 'cov-tick-delta at-sel'; dText = '~' + money(cost) + '/yr'; }
+            else if (diff>0) { dClass = 'cov-tick-delta more';   dText = '+' + money(diff); }
+            else if (diff<0) { dClass = 'cov-tick-delta less';   dText = '-' + money(Math.abs(diff)); }
+            else             { dClass = 'cov-tick-delta';        dText = '—'; }
+            ticksHtml += '<div class="cov-tick-item" data-opt="' + optIdx + '" style="left:' + pctStr + '%">'
+              + '<span class="' + lblClass + '">' + lbl + '</span>'
+              + '<span class="' + dClass + '">' + dText + '</span>'
+              + '</div>';
+          }
+          document.getElementById('ticks-' + type).innerHTML = ticksHtml;
+        }
+      }
+
       try { localStorage.setItem('br_coverage', JSON.stringify(sels)); } catch(e2) {}
       renderSummary();
       updateCtaSummary();
@@ -969,7 +1189,7 @@ document.getElementById('bottomZipInput').addEventListener('input', function() {
 
 function onProfileChange() {
   recs = computeRecs();
-  TYPES.forEach(t => { sels[t] = recs[t]; });
+  TYPES.forEach(t => { sels[t] = recs[t]; lastNonSkip[t] = recs[t] > 0 ? recs[t] : null; });
   renderSummary();
   renderCards();
   updateCtaSummary();
