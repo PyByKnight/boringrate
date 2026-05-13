@@ -182,6 +182,17 @@
     color: var(--ink-mute);
   }
   .promise-line span { color: var(--good); }
+  .coverage-nudge {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+  .coverage-nudge a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .coverage-nudge a:hover { text-decoration: underline; }
 
   /* ── RESULT BLOCK ───────────────────────────────────────── */
   .result { padding: 24px 0; border-bottom: 1px solid var(--rule); display: none; }
@@ -710,6 +721,7 @@
   <div class="wrap top-inner">
     <a href="index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
     <nav class="primary">
+      <a href="/coverage.html">Coverage Guide</a>
       <a href="#guides">Guides</a>
       <a href="methodology.html">Methodology</a>
       <a href="#about">About</a>
@@ -751,7 +763,8 @@
       <button type="submit" class="zip-btn">See rates</button>
     </form>
     <div id="profileRestored" class="profile-restored" style="display:none;">Welcome back — your last search is loaded.</div>
-    <div class="promise-line"><span>✓</span> No phone required &nbsp;·&nbsp; <span>✓</span> No information sold &nbsp;·&nbsp; <span>✓</span> 30 seconds</div>
+    <div class="promise-line">Instantly compare rates.</div>
+    <div class="coverage-nudge">Not sure what coverage you need? &nbsp;<a href="/coverage.html">Help me choose →</a></div>
   </div>
 </div>
 
@@ -848,7 +861,7 @@
             </div>
           </div>
           <div class="refine-q">
-            <label>Coverage</label>
+            <label>Coverage &nbsp;<a href="/coverage.html" style="font-size:11px;font-family:var(--mono);color:var(--accent);text-decoration:none;letter-spacing:0.06em;opacity:0.85;" title="What coverage do I need?">What do I need? →</a></label>
             <div class="pill-row" data-q="coverage">
               <button type="button" class="pill active" data-v="standard">Standard</button>
               <button type="button" class="pill" data-v="premium">Premium</button>
@@ -952,6 +965,12 @@
         <h3>Florida rates are dropping. If you're not shopping, you're leaving money on the table.</h3>
         <p>State Farm, AAA, Progressive, USAA, and Allstate have all filed decreases. Here's what the filings actually show — with direct links to each carrier.</p>
         <div class="byline">— BoringRate Editorial · May 2026</div>
+      </a>
+      <a href="/coverage.html" class="article-card">
+        <div class="tag">Tool · Coverage Guide</div>
+        <h3>What coverage do you actually need? Answer four questions and find out.</h3>
+        <p>Car value, net worth, loan status, health insurance — four inputs. One clear recommendation: what to buy, what to skip, and why.</p>
+        <div class="byline">— BoringRate Coverage Calculator</div>
       </a>
     </div>
   </div>
@@ -2541,9 +2560,17 @@ document.getElementById("zipInput").addEventListener("input", e => {
   e.target.value = e.target.value.replace(/\D/g, "").substring(0, 5);
 });
 // Auto-fire ZIP if arriving from article CTA (e.g. ?zip=80210)
+// Also accepts ?cov=minimum|standard|premium from coverage.html CTA
 (function() {
   const params = new URLSearchParams(window.location.search);
   const zip = (params.get("zip") || "").replace(/\D/g, "").substring(0, 5);
+  const cov = params.get("cov");
+  if (cov && ["minimum", "standard", "premium"].includes(cov)) {
+    refinement.coverage = cov;
+    document.querySelectorAll('.pill-row[data-q="coverage"] .pill').forEach(p => {
+      p.classList.toggle("active", p.dataset.v === cov);
+    });
+  }
   if (/^\d{5}$/.test(zip)) {
     document.getElementById("zipInput").value = zip;
     stateData = lookupZip(zip);
