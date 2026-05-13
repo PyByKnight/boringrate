@@ -877,13 +877,17 @@ function optCost(type, idx) {
   return Math.round(base * profile.stateMult);
 }
 
-const AVG_SENS = {
-  own:  0.04, rent:  -0.02, multi:  0.12, single: -0.04,
-  age:    { '18-24': 0.44, '25-34': 0.12, '35-54': 0.0, '55+': 0.06 },
-  credit: { excellent: -0.09, good: 0.0, fair: 0.20 }
-};
-// Median base rate across the 8 standard carriers (0.80–1.23 range)
-const MEDIAN_BASE = 0.965;
+// Same 8 carriers + sens values as index.html — used to compute exact median
+const CARRIER_BASES = [
+  { base: 0.82, sens: { own: -0.04, rent: 0.02, age: { "18-24": 0.20, "25-34": 0.04, "35-54": -0.06, "55+": -0.10 }, multi: -0.03, single: 0.02, credit: { excellent: -0.08, fair: 0.18 } } },
+  { base: 0.80, sens: { own: -0.05, rent: 0.02, age: { "18-24": 0.24, "25-34": 0.06, "35-54": -0.04, "55+": -0.08 }, multi: -0.05, single: 0.03, credit: { excellent: -0.14, fair: 0.28 } } },
+  { base: 0.86, sens: { own: -0.08, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.02, "35-54": -0.05, "55+": -0.09 }, multi: -0.12, single: 0.02, credit: { excellent: -0.10, fair: 0.22 } } },
+  { base: 0.94, sens: { own: -0.03, rent: 0.01, age: { "18-24": 0.04, "25-34": 0.01, "35-54":  0.00, "55+": -0.04 }, multi: -0.04, single: 0.02, credit: { excellent: -0.11, fair: 0.25 } } },
+  { base: 1.08, sens: { own: -0.10, rent: 0.04, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.04, "55+": -0.08 }, multi: -0.08, single: 0.03, credit: { excellent: -0.13, fair: 0.30 } } },
+  { base: 1.23, sens: { own: -0.06, rent: 0.03, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.03, "55+": -0.06 }, multi: -0.05, single: 0.02, credit: { excellent: -0.15, fair: 0.35 } } },
+  { base: 1.04, sens: { own: -0.07, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.03, "35-54": -0.04, "55+": -0.07 }, multi: -0.06, single: 0.02, credit: { excellent: -0.10, fair: 0.24 } } },
+  { base: 0.99, sens: { own: -0.08, rent: 0.03, age: { "18-24": 0.15, "25-34": 0.02, "35-54": -0.05, "55+": -0.08 }, multi: -0.06, single: 0.02, credit: { excellent: -0.14, fair: 0.28 } } }
+];
 
 function getCovMult(s) {
   // Exact tier anchors match COVERAGE_MULT in index.html
@@ -897,16 +901,19 @@ function getCovMult(s) {
 function estimateMedianRate(overrideSels) {
   const s = Object.assign({}, sels, overrideSels);
   const covMult = getCovMult(s);
-  // (avg / 2) × MEDIAN_BASE mirrors index.html's estimatePremium formula
-  let m = MEDIAN_BASE;
-  if (profile.own === 'own')  m *= (1 + AVG_SENS.own);
-  if (profile.own === 'rent') m *= (1 + AVG_SENS.rent);
-  if (profile.vehicles === '2+') m *= (1 + AVG_SENS.multi);
-  if (profile.vehicles === '1')  m *= (1 + AVG_SENS.single);
-  if (profile.age) m *= (1 + (AVG_SENS.age[profile.age] || 0));
-  if (profile.credit === 'excellent') m *= (1 + AVG_SENS.credit.excellent);
-  if (profile.credit === 'fair')      m *= (1 + AVG_SENS.credit.fair);
-  return Math.round((profile.stateMult * NATIONAL_AVG / 2) * m * covMult);
+  const prices = CARRIER_BASES.map(c => {
+    let m = 1.0;
+    if (profile.own === 'own')       m *= (1 + c.sens.own);
+    if (profile.own === 'rent')      m *= (1 + c.sens.rent);
+    if (profile.vehicles === '2+')   m *= (1 + c.sens.multi);
+    if (profile.vehicles === '1')    m *= (1 + c.sens.single);
+    if (profile.age)                 m *= (1 + (c.sens.age[profile.age] || 0));
+    if (profile.credit === 'excellent') m *= (1 + c.sens.credit.excellent);
+    if (profile.credit === 'fair')      m *= (1 + c.sens.credit.fair);
+    return (profile.stateMult * NATIONAL_AVG / 2) * c.base * m * covMult;
+  }).sort((a, b) => a - b);
+  const mid = Math.floor(prices.length / 2);
+  return Math.round((prices[mid - 1] + prices[mid]) / 2);
 }
 
 function totalEstimate(overrideSels) {
