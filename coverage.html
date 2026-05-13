@@ -226,39 +226,16 @@
   .delta-num.zero  { color: var(--good); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; padding-top: 6px; line-height: 1.4; }
   .delta-sub { font-family: var(--mono); font-size: 10px; color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
 
-  /* Option buttons with inline costs */
-  .cov-opts-wrap { overflow-x: auto; padding-bottom: 2px; margin: 14px 0 10px; -webkit-overflow-scrolling: touch; }
-  .cov-opts { display: flex; gap: 0; width: max-content; }
-  .cov-opt {
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    padding: 8px 14px 7px;
-    border: 1.5px solid var(--rule);
-    border-right-width: 0;
-    background: var(--paper);
-    color: var(--ink-mute);
-    cursor: pointer;
-    transition: all 100ms;
-    user-select: none;
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    min-width: 80px;
-  }
-  .cov-opt:last-child { border-right-width: 1.5px; }
-  .cov-opt:hover { background: var(--paper-deep); color: var(--ink); }
-  .cov-opt.active { background: var(--ink); border-color: var(--ink); color: var(--paper); z-index: 1; }
-  .cov-opt.active + .cov-opt { border-left-color: var(--ink); }
-  .opt-label { font-size: 12px; }
-  .opt-cost { font-size: 10px; color: var(--ink-mute); letter-spacing: 0.04em; }
-  .cov-opt.active .opt-cost { color: rgba(246,241,232,0.5); }
-  .rec-dot { display: inline-block; width: 4px; height: 4px; background: var(--accent); border-radius: 50%; margin-left: 4px; vertical-align: middle; margin-bottom: 1px; }
-  .cov-opt.active .rec-dot { background: rgba(246,241,232,0.6); }
-  .cov-cost { font-family: var(--mono); font-size: 12px; color: var(--ink-mute); letter-spacing: 0.05em; }
+  /* Coverage sliders */
+  .cov-slider-wrap { margin: 16px 0 6px; }
+  .cov-ticks { display: flex; justify-content: space-between; margin-top: 8px; font-family: var(--mono); font-size: 10px; color: var(--ink-mute); letter-spacing: 0.04em; }
+  .cov-tick-rec { color: var(--accent); font-weight: 600; }
+  .cov-tick-rec::after { content: ' ★'; font-size: 8px; }
+  .cov-cost { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.05em; margin-top: 6px; }
+  .cov-learn-more { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--ink-mute); text-decoration: none; margin-left: 10px; white-space: nowrap; vertical-align: middle; }
+  .cov-learn-more:hover { color: var(--accent); text-decoration: underline; }
+  .guide-back-link { display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-mute); text-decoration: none; margin-top: 20px; padding: 6px 0; }
+  .guide-back-link:hover { color: var(--accent); }
 
   /* ── Sticky floating total ── */
   .sticky-total {
@@ -496,7 +473,7 @@
       <h2 class="section-title">Every coverage type, <em>actually explained.</em></h2>
     </div>
 
-    <div class="coverage-type">
+    <div class="coverage-type" id="guide-liability">
       <div class="coverage-type-header">
         <h3 class="coverage-name">Liability</h3>
         <span class="coverage-tag req">Required in most states</span>
@@ -507,9 +484,10 @@
         <div class="callout"><p><strong>Why state minimums are often not enough:</strong> A serious accident can easily exceed $100k in medical bills alone. Damages beyond your limit come out of your pocket — your net worth is what's at risk.</p></div>
         <p>Rule of thumb: buy at least as much liability as your net worth. A personal umbrella policy ($1–2M for ~$200–400/year) stacked on top of high limits is often the most cost-efficient way to protect significant assets.</p>
       </div>
+      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
     </div>
 
-    <div class="coverage-type">
+    <div class="coverage-type" id="guide-collision">
       <div class="coverage-type-header">
         <h3 class="coverage-name">Collision</h3>
         <span class="coverage-tag lender">Required if you have a loan or lease</span>
@@ -519,9 +497,10 @@
         <p>The classic test: <strong>if your annual collision premium exceeds 10% of the car's current value, you may be over-insuring.</strong> On a $5,000 car paying $600/year, you'd need a claim every 8 years just to break even.</p>
         <div class="callout"><p>A higher deductible ($1,000 vs. $500) meaningfully lowers your premium. If you have savings to cover the deductible, it's almost always the right call.</p></div>
       </div>
+      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
     </div>
 
-    <div class="coverage-type">
+    <div class="coverage-type" id="guide-comprehensive">
       <div class="coverage-type-header">
         <h3 class="coverage-name">Comprehensive</h3>
         <span class="coverage-tag lender">Required if you have a loan or lease</span>
@@ -530,9 +509,10 @@
         <p>Comprehensive covers damage that isn't from a collision: <strong>theft, fire, flooding, hail, falling trees, hitting an animal.</strong></p>
         <p>Comprehensive is typically cheap relative to its benefit — often $100–250/year. The bar for skipping it is much higher than for collision. Even on an older car, if the annual premium is under $100, it's usually worth keeping.</p>
       </div>
+      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
     </div>
 
-    <div class="coverage-type">
+    <div class="coverage-type" id="guide-um">
       <div class="coverage-type-header">
         <h3 class="coverage-name">Uninsured / Underinsured Motorist</h3>
         <span class="coverage-tag req">Required in some states</span>
@@ -541,9 +521,10 @@
         <p>UM/UIM covers <strong>your injuries and vehicle damage when the at-fault driver has no insurance or not enough.</strong></p>
         <p>About 1 in 8 U.S. drivers is uninsured. In some states it's 1 in 4. Without UM/UIM, you're suing someone who has nothing and absorbing the loss yourself. At ~$85/year it's one of the best values in auto insurance.</p>
       </div>
+      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
     </div>
 
-    <div class="coverage-type">
+    <div class="coverage-type" id="guide-medpay">
       <div class="coverage-type-header">
         <h3 class="coverage-name">Medical Payments / PIP</h3>
         <span class="coverage-tag req">Required in no-fault states</span>
@@ -553,9 +534,10 @@
         <p>If you have health insurance, MedPay is largely redundant — but useful if your health plan has a high deductible, since MedPay has no deductible and pays first.</p>
         <div class="callout"><p>Without health insurance, MedPay is not optional. An ER visit after an accident can easily cost $20–50k.</p></div>
       </div>
+      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
     </div>
 
-    <div class="coverage-type">
+    <div class="coverage-type" id="guide-gap">
       <div class="coverage-type-header">
         <h3 class="coverage-name">Gap Insurance</h3>
         <span class="coverage-tag">Financed and leased vehicles only</span>
@@ -564,6 +546,7 @@
         <p>Gap covers the difference between <strong>what your insurer pays on a totaled car</strong> and <strong>what you still owe on the loan.</strong> New cars can depreciate 15–25% in year one — gap covers that shortfall.</p>
         <div class="callout"><p>Dealers charge $500–700 for gap rolled into the loan. Your insurer charges ~$35/year for the same coverage. Always buy it through the insurer.</p></div>
       </div>
+      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
     </div>
 
   </div>
@@ -893,52 +876,63 @@ function renderSummary() {
   }
 }
 
+const GUIDE_IDS = {
+  liability: 'guide-liability', collision: 'guide-collision',
+  comprehensive: 'guide-comprehensive', umUim: 'guide-um',
+  medpay: 'guide-medpay', gap: 'guide-gap'
+};
+
+function deltaHtmlFor(type, idx) {
+  const d = optCost(type, idx) - optCost(type, recs[type]);
+  if (d > 0) return '<div class="delta-num plus">+' + money(d) + '</div><div class="delta-sub">per year</div>';
+  if (d < 0) return '<div class="delta-num minus">-' + money(Math.abs(d)) + '</div><div class="delta-sub">per year</div>';
+  return '<div class="delta-num zero">✓ Rec</div>';
+}
+
+function costLineFor(type, idx) {
+  const cost = optCost(type, idx);
+  const label = CFG[type].opts[idx].label;
+  return cost > 0 ? label + ' · ~' + money(cost) + '/yr' : label + ' — not purchased';
+}
+
 function renderCards() {
   document.getElementById('covCards').innerHTML = TYPES.map(type => {
-    const cfg   = CFG[type];
-    const sel   = sels[type];
-    const rec   = recs[type];
-    const delta = optCost(type, sel) - optCost(type, rec);
-    const cost  = optCost(type, sel);
+    const cfg = CFG[type];
+    const sel = sels[type];
+    const rec = recs[type];
+    const max = cfg.opts.length - 1;
+    const pct = max > 0 ? (sel / max * 100).toFixed(1) : 0;
 
-    let deltaHtml;
-    if (delta > 0) {
-      deltaHtml = '<div class="delta-num plus">+' + money(delta) + '</div><div class="delta-sub">per year</div>';
-    } else if (delta < 0) {
-      deltaHtml = '<div class="delta-num minus">-' + money(Math.abs(delta)) + '</div><div class="delta-sub">per year</div>';
-    } else {
-      deltaHtml = '<div class="delta-num zero">✓ Rec</div>';
-    }
-
-    const optsHtml = cfg.opts.map((opt, i) => {
-      const isActive = i === sel;
-      const isRec    = i === rec;
-      const c        = optCost(type, i);
-      const costStr  = c > 0 ? '~' + money(c) : '—';
-      const dot      = isRec ? '<span class="rec-dot"></span>' : '';
-      return '<button class="cov-opt' + (isActive ? ' active' : '') + '" data-type="' + type + '" data-idx="' + i + '">'
-        + '<span class="opt-label">' + opt.label + dot + '</span>'
-        + '<span class="opt-cost">' + costStr + '</span>'
-        + '</button>';
-    }).join('');
+    const ticksHtml = cfg.opts.map((opt, i) =>
+      '<span class="cov-tick' + (i === rec ? ' cov-tick-rec' : '') + '">' + opt.label + '</span>'
+    ).join('');
 
     return '<div class="cov-card">'
       + '<div class="cov-card-top"><div>'
-      + '<div class="cov-card-name">' + cfg.name + '</div>'
-      + '</div><div class="delta-display">' + deltaHtml + '</div></div>'
+      + '<div class="cov-card-name">' + cfg.name
+      + ' <a href="#' + GUIDE_IDS[type] + '" class="cov-learn-more">Learn more ↓</a></div>'
+      + '</div><div class="delta-display" id="delta-' + type + '">' + deltaHtmlFor(type, sel) + '</div></div>'
       + '<div class="cov-card-tagline">' + cfg.tagline + '</div>'
       + '<div class="cov-card-desc">' + getDesc(type) + '</div>'
-      + '<div class="cov-opts-wrap"><div class="cov-opts">' + optsHtml + '</div></div>'
-      + '<div class="cov-cost">' + (cost > 0 ? '~' + money(cost) + '/yr selected' : 'Not purchased') + '</div>'
+      + '<div class="cov-slider-wrap">'
+      + '<input type="range" class="cov-range" data-type="' + type + '" min="0" max="' + max + '" step="1" value="' + sel + '" style="--pct:' + pct + '%">'
+      + '<div class="cov-ticks">' + ticksHtml + '</div>'
+      + '</div>'
+      + '<div class="cov-cost" id="cost-' + type + '">' + costLineFor(type, sel) + '</div>'
       + '</div>';
   }).join('');
 
-  document.querySelectorAll('.cov-opt').forEach(btn => {
-    btn.addEventListener('click', () => {
-      sels[btn.dataset.type] = parseInt(btn.dataset.idx, 10);
-      try { localStorage.setItem('br_coverage', JSON.stringify(sels)); } catch(e) {}
+  document.querySelectorAll('.cov-range').forEach(slider => {
+    slider.addEventListener('input', e => {
+      const type = e.target.dataset.type;
+      const idx  = parseInt(e.target.value, 10);
+      const max  = parseInt(e.target.max, 10);
+      sels[type] = idx;
+      e.target.style.setProperty('--pct', (max > 0 ? idx / max * 100 : 0).toFixed(1) + '%');
+      document.getElementById('cost-' + type).textContent = costLineFor(type, idx);
+      document.getElementById('delta-' + type).innerHTML  = deltaHtmlFor(type, idx);
+      try { localStorage.setItem('br_coverage', JSON.stringify(sels)); } catch(e2) {}
       renderSummary();
-      renderCards();
       updateCtaSummary();
     });
   });
