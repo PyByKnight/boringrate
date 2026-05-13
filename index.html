@@ -846,9 +846,10 @@
           <div class="refine-q">
             <label>Coverage tier &nbsp;<a href="/coverage.html" style="font-size:11px;font-family:var(--mono);color:var(--accent);text-decoration:none;letter-spacing:0.06em;opacity:0.85;" title="What coverage do I need?">Coverage guide →</a></label>
             <div class="pill-row" data-q="coverage">
+              <button type="button" class="pill" data-v="minimum">Minimum</button>
               <button type="button" class="pill active" data-v="standard">Standard</button>
               <button type="button" class="pill" data-v="premium">Premium</button>
-              <button type="button" class="pill" data-v="minimum">Minimum</button>
+              <button type="button" class="pill" data-v="personalized">Personalized</button>
             </div>
           </div>
         </div>
@@ -2363,6 +2364,11 @@ const STATE_AGENTS = {
 
 const refinement = { own: null, vehicles: null, curCarrier: "", age: null, credit: null, insured: true, srRequired: false, shopPref: "web", coverage: "standard",
   covLiability: 2, covCollision: 2, covComp: 2, covUmUim: 1, covMedpay: 0, covGap: 0 };
+const TIER_PRESETS = {
+  minimum:  { covLiability: 0, covCollision: 0, covComp: 0, covUmUim: 0, covMedpay: 0, covGap: 0 },
+  standard: { covLiability: 2, covCollision: 2, covComp: 1, covUmUim: 1, covMedpay: 0, covGap: 0 },
+  premium:  { covLiability: 3, covCollision: 3, covComp: 2, covUmUim: 2, covMedpay: 1, covGap: 0 }
+};
 let stateData = null, currentMetro = null, lastOrder = [];
 
 function isNonStandard() {
@@ -2405,7 +2411,18 @@ function estimatePremium(carrier, avg) {
   const covTable = isNS ? COVERAGE_MULT_NS : COVERAGE_MULT;
   const shopTable = isNS ? SHOP_MULT_NS : SHOP_MULT;
   const cov = covTable[carrier.name];
-  if (cov) m *= cov[refinement.coverage] || 1.0;
+  if (cov) {
+    if (refinement.coverage === "personalized") {
+      const minM = cov.minimum || 1.0;
+      const preM = cov.premium || 1.0;
+      const blend = (refinement.covLiability / 3 * 0.5) +
+                    (refinement.covCollision / 3 * 0.3) +
+                    (refinement.covComp / 2 * 0.2);
+      m *= minM + blend * (preM - minM);
+    } else {
+      m *= cov[refinement.coverage] || 1.0;
+    }
+  }
   const shop = shopTable[carrier.name];
   if (shop) m *= shop[refinement.shopPref] || 1.0;
   return Math.round((avg / 2) * m);
@@ -2576,6 +2593,7 @@ document.querySelectorAll("#refineBar .pill-row:not([data-toggle])").forEach(gro
     group.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
     e.target.classList.add("active");
     refinement[q] = e.target.dataset.v;
+    if (q === "coverage") applyTierPreset(e.target.dataset.v);
     // Reset rank order when switching driver type — prevents flash misfire
     if (q === "driverType") lastOrder = [];
     renderRanking();
@@ -2604,13 +2622,26 @@ function syncCoverageFromDetails() {
   const l = refinement.covLiability;
   const col = refinement.covCollision;
   const comp = refinement.covComp;
-  let tier;
-  if (l <= 0 && col === 0 && comp === 0) tier = "minimum";
-  else if (l >= 3 || (col >= 3 && comp >= 2)) tier = "premium";
-  else tier = "standard";
+  let tier = "personalized";
+  for (const [name, preset] of Object.entries(TIER_PRESETS)) {
+    if (preset.covLiability === l && preset.covCollision === col && preset.covComp === comp) {
+      tier = name;
+      break;
+    }
+  }
   refinement.coverage = tier;
   document.querySelectorAll('.pill-row[data-q="coverage"] .pill').forEach(p => {
     p.classList.toggle("active", p.dataset.v === tier);
+  });
+}
+
+function applyTierPreset(tier) {
+  const preset = TIER_PRESETS[tier];
+  if (!preset) return;
+  Object.entries(preset).forEach(([key, val]) => {
+    refinement[key] = val;
+    const el = document.getElementById(key);
+    if (el) el.value = val;
   });
 }
 
@@ -2654,13 +2685,14 @@ document.getElementById("zipInput").addEventListener("input", e => {
   e.target.value = e.target.value.replace(/\D/g, "").substring(0, 5);
 });
 // Auto-fire ZIP if arriving from article CTA (e.g. ?zip=80210)
-// Also accepts ?cov=minimum|standard|premium from coverage.html CTA
+// Also accepts ?cov=minimum|standard|premium|personalized from coverage.html CTA
 (function() {
   const params = new URLSearchParams(window.location.search);
   const zip = (params.get("zip") || "").replace(/\D/g, "").substring(0, 5);
   const cov = params.get("cov");
-  if (cov && ["minimum", "standard", "premium"].includes(cov)) {
+  if (cov && ["minimum", "standard", "premium", "personalized"].includes(cov)) {
     refinement.coverage = cov;
+    applyTierPreset(cov);
     document.querySelectorAll('.pill-row[data-q="coverage"] .pill').forEach(p => {
       p.classList.toggle("active", p.dataset.v === cov);
     });
