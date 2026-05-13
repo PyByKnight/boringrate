@@ -944,7 +944,7 @@ function deltaHtmlFor(type, idx) {
 }
 
 function costLineFor(type, idx) {
-  if (idx === 0) return 'Not included';
+  if (idx === 0 && TOGGLE_TYPES.has(type)) return 'Not included';
   const cost    = optCost(type, idx);
   const label   = CFG[type].opts[idx].label;
   const recIdx  = recs[type];
@@ -1053,7 +1053,7 @@ function renderCards() {
       + '</div><div class="delta-display" id="delta-' + type + '">' + deltaHtmlFor(type, sel) + '</div></div>'
       + '<div class="cov-card-tagline">' + cfg.tagline + '</div>'
       + '<div class="cov-expand">'
-      + '<button class="cov-expand-btn" data-type="' + type + '">▸ Details</button>'
+      + '<button class="cov-expand-btn" data-type="' + type + '">▸ Why this choice?</button>'
       + '<div class="cov-desc-body" id="desc-' + type + '" style="display:none">'
       + '<p>' + getDesc(type) + '</p>'
       + '<a href="#' + GUIDE_IDS[type] + '" class="cov-full-guide">Full guide ↓</a>'
@@ -1079,7 +1079,7 @@ function renderCards() {
       const body   = document.getElementById('desc-' + type);
       const isOpen = body.style.display !== 'none';
       body.style.display = isOpen ? 'none' : 'block';
-      btn.textContent = (isOpen ? '▸' : '▾') + ' Details';
+      btn.textContent = (isOpen ? '▸' : '▾') + ' Why this choice?';
     });
   });
 
