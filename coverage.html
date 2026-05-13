@@ -936,6 +936,7 @@ function renderCards() {
   document.querySelectorAll('.cov-opt').forEach(btn => {
     btn.addEventListener('click', () => {
       sels[btn.dataset.type] = parseInt(btn.dataset.idx, 10);
+      try { localStorage.setItem('br_coverage', JSON.stringify(sels)); } catch(e) {}
       renderSummary();
       renderCards();
       updateCtaSummary();

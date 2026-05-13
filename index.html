@@ -174,14 +174,6 @@
     transition: background 120ms, border-color 120ms;
   }
   .zip-btn:hover { background: var(--accent); border-color: var(--accent); }
-  .promise-line {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-  }
-  .promise-line span { color: var(--good); }
   .coverage-nudge {
     margin-top: 14px;
     font-size: 13px;
@@ -193,16 +185,6 @@
     font-weight: 600;
   }
   .coverage-nudge a:hover { text-decoration: underline; }
-  .zip-state-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--good);
-    margin-top: 8px;
-    display: none;
-  }
-
   /* ── RESULT BLOCK ───────────────────────────────────────── */
   .result { padding: 24px 0; border-bottom: 1px solid var(--rule); display: none; }
   .result.active { display: block; }
@@ -257,18 +239,6 @@
     gap: 24px;
     flex-wrap: wrap;
   }
-  .refine-section-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--ink);
-    font-weight: 600;
-    align-self: center;
-    white-space: nowrap;
-    padding-right: 8px;
-    border-right: 1px solid var(--rule);
-  }
   .refine-more-toggle {
     display: flex;
     align-items: center;
@@ -299,6 +269,19 @@
   }
   .refine-more-body.open { display: block; }
   .refine-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .refine-cov-section { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--rule); }
+  .refine-cov-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+  }
+  .refine-cov-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .refine-q label {
     display: block;
     font-family: var(--mono);
@@ -359,13 +342,6 @@
     font-weight: 600;
     white-space: nowrap;
   }
-  .boring-rank-rule {
-    font-family: var(--sans);
-    font-size: 12px;
-    color: var(--ink-mute);
-  }
-  .boring-rank-rule a { color: var(--accent); text-decoration: underline; }
-
   /* ── RANKING ──────────────────────────────────────────── */
   .rank-table-label {
     display: flex;
@@ -381,7 +357,6 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
-  .rank-table-label .rank-label-naic { font-size: 10px; }
   .rank-list { background: var(--paper); border: 1px solid var(--rule); overflow: hidden; }
   .rank-list.with-header { border-top: none; }
   .rank-and-agents { display: flex; gap: 16px; align-items: flex-start; }
@@ -717,6 +692,7 @@
     .refine-always { flex-direction: column; align-items: flex-start; }
     .refine-more-toggle { margin-left: 0; }
     .refine-grid { grid-template-columns: 1fr; }
+    .refine-cov-grid { grid-template-columns: 1fr 1fr; }
     .hero { padding: 36px 0 24px; }
     .result { padding: 28px 0; }
     .rank-row { padding: 12px 14px; gap: 8px; }
@@ -772,8 +748,6 @@
       <button type="submit" class="zip-btn">See rates</button>
     </form>
     <div id="profileRestored" class="profile-restored" style="display:none;">Welcome back — your last search is loaded.</div>
-    <div id="zipStateLabel" class="zip-state-label"></div>
-    <div class="promise-line">Instantly compare rates.</div>
     <div class="coverage-nudge">Not sure what coverage you need? &nbsp;<a href="/coverage.html">Help me choose →</a></div>
   </div>
 </div>
@@ -793,7 +767,6 @@
     <!-- Refine bar -->
     <div class="refine" id="refineBar">
       <div class="refine-always">
-        <span class="refine-section-label">Personalize your rate</span>
         <div class="refine-q">
           <label>Home</label>
           <div class="pill-row" data-q="own" data-toggle>
@@ -871,11 +844,69 @@
             </div>
           </div>
           <div class="refine-q">
-            <label>Coverage &nbsp;<a href="/coverage.html" style="font-size:11px;font-family:var(--mono);color:var(--accent);text-decoration:none;letter-spacing:0.06em;opacity:0.85;" title="What coverage do I need?">What do I need? →</a></label>
+            <label>Coverage tier &nbsp;<a href="/coverage.html" style="font-size:11px;font-family:var(--mono);color:var(--accent);text-decoration:none;letter-spacing:0.06em;opacity:0.85;" title="What coverage do I need?">Coverage guide →</a></label>
             <div class="pill-row" data-q="coverage">
               <button type="button" class="pill active" data-v="standard">Standard</button>
               <button type="button" class="pill" data-v="premium">Premium</button>
               <button type="button" class="pill" data-v="minimum">Minimum</button>
+            </div>
+          </div>
+        </div>
+        <div class="refine-cov-section">
+          <div class="refine-cov-header">
+            <span>Coverage detail</span>
+          </div>
+          <div class="refine-cov-grid">
+            <div class="refine-q">
+              <label>Liability</label>
+              <select id="covLiability">
+                <option value="0">25/50 (state min)</option>
+                <option value="1">50/100</option>
+                <option value="2">100/300</option>
+                <option value="3">250/500</option>
+                <option value="4">500/1000</option>
+              </select>
+            </div>
+            <div class="refine-q">
+              <label>Collision</label>
+              <select id="covCollision">
+                <option value="0">Skip</option>
+                <option value="1">$2,000 ded</option>
+                <option value="2">$1,000 ded</option>
+                <option value="3">$500 ded</option>
+              </select>
+            </div>
+            <div class="refine-q">
+              <label>Comprehensive</label>
+              <select id="covComp">
+                <option value="0">Skip</option>
+                <option value="1">$2,000 ded</option>
+                <option value="2">$1,000 ded</option>
+                <option value="3">$500 ded</option>
+              </select>
+            </div>
+            <div class="refine-q">
+              <label>Uninsured Motorist</label>
+              <select id="covUmUim">
+                <option value="0">Skip</option>
+                <option value="1">Basic</option>
+                <option value="2">Full</option>
+              </select>
+            </div>
+            <div class="refine-q">
+              <label>Medical / PIP</label>
+              <select id="covMedpay">
+                <option value="0">Skip</option>
+                <option value="1">Basic</option>
+                <option value="2">Full</option>
+              </select>
+            </div>
+            <div class="refine-q">
+              <label>Gap Insurance</label>
+              <select id="covGap">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
             </div>
           </div>
         </div>
@@ -885,13 +916,11 @@
     <!-- Boring Rank header — shown above table when qualifiers exist -->
     <div class="boring-rank-header" id="boringRankHeader">
       <div class="boring-rank-label">Boring Rank: Quote First</div>
-      <div class="boring-rank-rule"><a href="methodology.html">How we rank →</a></div>
     </div>
 
     <!-- Rank table label sits directly above the table -->
     <div class="rank-table-label" id="rankTableLabel" style="display:none;">
       <span id="rankTableState">—</span>
-      <span class="rank-label-naic">Price vs. median · Customer Satisfaction Rating</span>
     </div>
 
     <div class="rank-and-agents">
@@ -1551,7 +1580,6 @@ function loadProfile() {
     Object.assign(refinement, saved.refinement);
     document.getElementById("zipInput").value = saved.zip;
     stateData = lookupZip(saved.zip);
-    showZipStateLabel(stateData);
 
     document.querySelectorAll("#refineBar .pill-row").forEach(group => {
       const val = refinement[group.dataset.q];
@@ -1562,6 +1590,10 @@ function loadProfile() {
     document.getElementById("currentlyInsured").checked = refinement.insured;
     document.getElementById("srRequired").checked = refinement.srRequired;
     document.getElementById("curCarrier").value = refinement.curCarrier || "";
+    ["covLiability", "covCollision", "covComp", "covUmUim", "covMedpay", "covGap"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el && refinement[id] !== undefined) el.value = refinement[id];
+    });
 
     renderRanking();
     document.getElementById("result").classList.add("active");
@@ -2330,7 +2362,8 @@ const STATE_AGENTS = {
   ],
 };
 
-const refinement = { own: null, vehicles: null, curCarrier: "", age: null, credit: null, insured: true, srRequired: false, shopPref: "web", coverage: "standard" };
+const refinement = { own: null, vehicles: null, curCarrier: "", age: null, credit: null, insured: true, srRequired: false, shopPref: "web", coverage: "standard",
+  covLiability: 2, covCollision: 2, covComp: 2, covUmUim: 1, covMedpay: 0, covGap: 0 };
 let stateData = null, currentMetro = null, lastOrder = [];
 
 function isNonStandard() {
@@ -2417,7 +2450,7 @@ function renderRanking() {
     if (idx === mid) {
       const div = document.createElement("div");
       div.className = "median-divider";
-      div.innerHTML = '<div></div><div class="median-dash"></div><div class="median-label">— median —</div>';
+      div.innerHTML = '<div></div><div class="median-dash"></div><div class="median-label">— $' + median.toLocaleString() + '/yr median —</div>';
       list.appendChild(div);
     }
     const c = row.carrier;
@@ -2513,18 +2546,11 @@ function lookupZip(zip) {
   return (stateCode && STATE_DATA[stateCode]) || FALLBACK;
 }
 
-function showZipStateLabel(sd) {
-  const el = document.getElementById("zipStateLabel");
-  if (sd && sd.code) { el.textContent = sd.name; el.style.display = "block"; }
-  else { el.style.display = "none"; }
-}
-
 document.getElementById("zipForm").addEventListener("submit", e => {
   e.preventDefault();
   const zip = document.getElementById("zipInput").value.trim();
   if (!/^\d{5}$/.test(zip)) { document.getElementById("zipInput").focus(); return; }
   stateData = lookupZip(zip);
-  showZipStateLabel(stateData);
   lastOrder = [];
   renderRanking();
   document.getElementById("result").classList.add("active");
@@ -2574,6 +2600,54 @@ document.getElementById("curCarrier").addEventListener("change", e => {
   refinement.curCarrier = e.target.value;
   renderRanking();
 });
+
+function syncCoverageFromDetails() {
+  const l = refinement.covLiability;
+  const col = refinement.covCollision;
+  const comp = refinement.covComp;
+  let tier;
+  if (l <= 0 && col === 0 && comp === 0) tier = "minimum";
+  else if (l >= 3 || (col >= 3 && comp >= 3)) tier = "premium";
+  else tier = "standard";
+  refinement.coverage = tier;
+  document.querySelectorAll('.pill-row[data-q="coverage"] .pill').forEach(p => {
+    p.classList.toggle("active", p.dataset.v === tier);
+  });
+}
+
+["covLiability", "covCollision", "covComp", "covUmUim", "covMedpay", "covGap"].forEach(id => {
+  document.getElementById(id).addEventListener("change", e => {
+    refinement[id] = parseInt(e.target.value, 10);
+    syncCoverageFromDetails();
+    saveProfile();
+    renderRanking();
+  });
+});
+
+function loadCoverageFromStorage() {
+  try {
+    const saved = JSON.parse(localStorage.getItem("br_coverage"));
+    if (!saved) return;
+    const map = [
+      ["liability", "covLiability"],
+      ["collision", "covCollision"],
+      ["comprehensive", "covComp"],
+      ["umUim", "covUmUim"],
+      ["medpay", "covMedpay"],
+      ["gap", "covGap"]
+    ];
+    map.forEach(([srcKey, refKey]) => {
+      if (saved[srcKey] !== undefined) {
+        refinement[refKey] = saved[srcKey];
+        const el = document.getElementById(refKey);
+        if (el) el.value = saved[srcKey];
+      }
+    });
+    syncCoverageFromDetails();
+  } catch(e) {}
+}
+loadCoverageFromStorage();
+
 document.getElementById("zipInput").addEventListener("input", e => {
   e.target.value = e.target.value.replace(/\D/g, "").substring(0, 5);
 });
@@ -2592,7 +2666,6 @@ document.getElementById("zipInput").addEventListener("input", e => {
   if (/^\d{5}$/.test(zip)) {
     document.getElementById("zipInput").value = zip;
     stateData = lookupZip(zip);
-    showZipStateLabel(stateData);
     lastOrder = [];
     renderRanking();
     document.getElementById("result").classList.add("active");
