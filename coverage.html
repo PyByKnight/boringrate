@@ -50,7 +50,7 @@
   }
 
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
-  .wrap-narrow { max-width: 720px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+  .wrap-narrow { max-width: 740px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
 
   /* ── Header ── */
   header.top {
@@ -77,62 +77,134 @@
   .brand-mark { display: inline-block; width: 10px; height: 10px; background: var(--accent); border-radius: 2px; transform: translateY(-2px); }
   nav.primary { display: flex; gap: 28px; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
   nav.primary a { color: var(--ink-soft); text-decoration: none; text-transform: uppercase; transition: color 120ms; }
-  nav.primary a:hover { color: var(--accent); }
-  nav.primary a.active { color: var(--accent); }
+  nav.primary a:hover, nav.primary a.active { color: var(--accent); }
 
   /* ── Page header ── */
-  .page-header { padding: 56px 0 40px; border-bottom: 1px solid var(--rule); }
+  .page-header { padding: 52px 0 38px; border-bottom: 1px solid var(--rule); }
   .page-kicker {
     font-family: var(--mono);
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.16em;
     color: var(--accent);
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
   .page-kicker a { color: var(--accent); text-decoration: none; }
   .page-kicker a:hover { text-decoration: underline; }
   h1.page-title {
     font-family: var(--serif);
     font-weight: 500;
-    font-size: clamp(30px, 4vw, 50px);
+    font-size: clamp(28px, 4vw, 48px);
     line-height: 1.06;
     letter-spacing: -0.025em;
-    max-width: 620px;
-    margin-bottom: 18px;
+    max-width: 600px;
+    margin-bottom: 16px;
   }
   .page-dek {
     font-family: var(--serif);
-    font-size: 19px;
+    font-size: 18px;
     color: var(--ink-soft);
-    max-width: 560px;
+    max-width: 540px;
     line-height: 1.45;
     font-style: italic;
   }
 
-  /* ── Tool widget ── */
-  .tool-section { padding: 48px 0 0; }
-  .tool-widget {
+  /* ── Profile inputs ── */
+  .profile-section { padding: 40px 0 0; }
+  .profile-widget {
     background: var(--paper-deep);
     border: 1px solid var(--rule);
     padding: 28px 32px 32px;
+    margin-bottom: 32px;
   }
-  .tool-widget-label {
+  .profile-widget-label {
     font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--ink-mute);
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
-  .tool-q { margin-bottom: 22px; }
-  .tool-q:last-child { margin-bottom: 0; }
-  .tool-q-label {
+
+  /* Sliders */
+  .slider-q { margin-bottom: 28px; }
+  .slider-q-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+  .slider-q-label {
     font-size: 14px;
     font-weight: 600;
-    color: var(--ink);
     letter-spacing: -0.01em;
-    margin-bottom: 9px;
+    color: var(--ink);
+  }
+  .slider-q-value {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .slider-track-wrap { position: relative; padding: 4px 0; }
+  input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--ink) 0%, var(--ink) var(--pct, 25%), var(--rule) var(--pct, 25%), var(--rule) 100%);
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+    display: block;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    background: var(--ink);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 1.5px var(--ink);
+    transition: background 120ms;
+  }
+  input[type=range]:hover::-webkit-slider-thumb { background: var(--accent); box-shadow: 0 0 0 1.5px var(--accent); }
+  input[type=range]::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    background: var(--ink);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 1.5px var(--ink);
+  }
+  .slider-ticks {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-mute);
+    letter-spacing: 0.06em;
+  }
+
+  /* Profile pills (own/lease, health) */
+  .profile-pills-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .profile-pill-q { display: flex; flex-direction: column; gap: 9px; }
+  .profile-pill-label {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
   }
   .pill-row { display: flex; gap: 6px; flex-wrap: wrap; }
   .pill {
@@ -140,125 +212,169 @@
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.06em;
-    padding: 7px 14px;
+    padding: 7px 16px;
     border: 1.5px solid var(--rule);
     background: var(--paper);
     color: var(--ink-mute);
     cursor: pointer;
-    transition: border-color 120ms, color 120ms, background 120ms;
+    transition: all 120ms;
     user-select: none;
   }
   .pill:hover { border-color: var(--ink-soft); color: var(--ink); }
   .pill.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 
-  /* ── Recommendation panel ── */
-  .rec-panel {
-    border: 2px solid var(--ink);
-    margin-top: 24px;
-    margin-bottom: 72px;
-  }
-  .rec-panel-header {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 14px 24px;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 16px;
-  }
-  .rec-panel-title {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-  .rec-panel-sub {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(246,241,232,0.45);
-    white-space: nowrap;
-  }
-  .rec-pending {
-    padding: 36px 24px;
-    text-align: center;
-    color: var(--ink-mute);
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  .rec-item {
-    padding: 18px 24px;
-    border-bottom: 1px solid var(--rule);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 10px 20px;
-    align-items: start;
-  }
-  .rec-item:last-child { border-bottom: none; }
-  .rec-item-name {
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    margin-bottom: 4px;
-  }
-  .rec-item-sub {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--ink-mute);
-    letter-spacing: 0.06em;
-    margin-left: 8px;
-    font-weight: 400;
-  }
-  .rec-item-detail {
-    font-size: 14px;
-    color: var(--ink-soft);
-    line-height: 1.55;
-  }
-  .rec-badge {
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 9px;
-    white-space: nowrap;
-  }
-  .rec-badge.yes  { background: #d4edda; color: var(--good); }
-  .rec-badge.no   { background: var(--paper-deep); color: var(--ink-mute); border: 1px solid var(--rule); }
-  .rec-badge.maybe { background: #fef3cd; color: var(--warn); }
-  .rec-badge.required { background: #fde8e3; color: var(--accent); }
-
-  .rec-footer {
+  /* ── Summary bar ── */
+  .summary-bar {
+    border: 1px solid var(--rule);
     background: var(--paper-deep);
-    border-top: 1px solid var(--rule);
     padding: 16px 24px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 4px;
   }
-  .rec-footer-text { font-size: 13px; color: var(--ink-soft); }
-  .rec-cta-link {
+  .summary-total {
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+  .summary-total strong {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 17px;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .summary-delta {
+    font-family: var(--mono);
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent);
-    text-decoration: none;
-    padding: 9px 18px;
-    border: 1.5px solid var(--accent);
-    transition: all 120ms;
+    padding: 4px 10px;
+  }
+  .summary-delta.plus  { background: #fde8e3; color: var(--accent); }
+  .summary-delta.minus { background: #d4edda; color: var(--good); }
+  .summary-delta.at-rec { background: #d4edda; color: var(--good); }
+  .summary-note {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-mute);
+    letter-spacing: 0.06em;
+    width: 100%;
+  }
+  .summary-note a { color: var(--ink-mute); }
+  .summary-note a:hover { color: var(--accent); }
+
+  /* ── Coverage cards ── */
+  .cov-cards { margin-bottom: 72px; }
+  .cov-card {
+    border: 1px solid var(--rule);
+    border-top: none;
+    padding: 22px 24px 18px;
+    background: var(--paper);
+  }
+  .cov-card:first-child { border-top: 1px solid var(--rule); }
+
+  .cov-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .cov-card-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+  .cov-card-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 520px;
+  }
+
+  /* Delta display — the big number */
+  .delta-display {
+    flex-shrink: 0;
+    text-align: right;
+    min-width: 80px;
+  }
+  .delta-num {
+    font-family: var(--mono);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .delta-num.plus  { color: var(--accent); }
+  .delta-num.minus { color: var(--good); }
+  .delta-num.zero  { color: var(--good); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; padding-top: 6px; }
+  .delta-sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  /* Coverage option buttons */
+  .cov-opts-wrap { overflow-x: auto; padding-bottom: 2px; margin: 14px 0 10px; }
+  .cov-opts {
+    display: flex;
+    gap: 0;
+    width: max-content;
+  }
+  .cov-opt {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 8px 16px;
+    border: 1.5px solid var(--rule);
+    border-right-width: 0;
+    background: var(--paper);
+    color: var(--ink-mute);
+    cursor: pointer;
+    transition: all 100ms;
+    user-select: none;
+    position: relative;
     white-space: nowrap;
   }
-  .rec-cta-link:hover { background: var(--accent); color: var(--paper); }
+  .cov-opt:last-child { border-right-width: 1.5px; }
+  .cov-opt:hover { background: var(--paper-deep); color: var(--ink); }
+  .cov-opt.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+    z-index: 1;
+  }
+  .cov-opt.active + .cov-opt { border-left-color: var(--ink); }
+  .rec-dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-left: 5px;
+    vertical-align: middle;
+    margin-bottom: 1px;
+  }
+  .cov-opt.active .rec-dot { background: var(--paper); }
 
-  /* ── Coverage guide ── */
+  .cov-cost {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-mute);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── Guide sections ── */
   .guide-section { padding: 72px 0; border-top: 1px solid var(--rule); }
   .guide-head { margin-bottom: 52px; }
   .section-num {
@@ -271,21 +387,21 @@
   }
   h2.section-title {
     font-family: var(--serif);
-    font-size: clamp(24px, 3vw, 34px);
+    font-size: clamp(22px, 3vw, 32px);
     font-weight: 500;
     letter-spacing: -0.02em;
     line-height: 1.1;
     color: var(--ink);
-    max-width: 560px;
+    max-width: 540px;
   }
   h2.section-title em { font-style: italic; }
 
-  .coverage-type { margin-bottom: 52px; padding-bottom: 52px; border-bottom: 1px solid var(--rule); }
+  .coverage-type { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--rule); }
   .coverage-type:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
   .coverage-type-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
   h3.coverage-name {
     font-family: var(--serif);
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 600;
     letter-spacing: -0.015em;
     color: var(--ink);
@@ -301,7 +417,7 @@
     border: 1px solid var(--rule);
   }
   .coverage-tag.req { background: #fde8e3; color: var(--accent); border-color: #f5bfb3; }
-  .coverage-tag.lender { background: #fef3cd; color: var(--warn); border-color: #f5d76e; }
+  .coverage-tag.lender { background: #fef3cd; color: var(--warn); border-color: #f0d060; }
 
   .coverage-body p {
     font-size: 16px;
@@ -321,11 +437,11 @@
   }
   .coverage-body .callout p { font-size: 15px; margin-bottom: 0; line-height: 1.6; }
 
-  /* ── CTA section ── */
+  /* ── CTA ── */
   .cta-section {
     border-top: 2px solid var(--accent);
     background: var(--paper-deep);
-    padding: 56px 0;
+    padding: 52px 0;
   }
   .cta-inner {
     display: flex;
@@ -336,20 +452,20 @@
   }
   .cta-text h3 {
     font-family: var(--serif);
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 500;
     letter-spacing: -0.02em;
     line-height: 1.15;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
-  .cta-text p { font-size: 15px; color: var(--ink-soft); max-width: 460px; line-height: 1.5; }
+  .cta-text p { font-size: 15px; color: var(--ink-soft); max-width: 440px; line-height: 1.5; }
   .cta-btn {
     font-family: var(--sans);
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    padding: 15px 30px;
+    padding: 14px 28px;
     background: var(--accent);
     color: var(--paper);
     text-decoration: none;
@@ -361,13 +477,7 @@
 
   /* ── Footer ── */
   footer.site-foot { border-top: 1px solid var(--rule); padding: 32px 0; }
-  .foot-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
+  .foot-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
   .foot-copy { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.06em; }
   .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
   .foot-links a {
@@ -381,11 +491,11 @@
   .foot-links a:hover { color: var(--accent); }
 
   @media (max-width: 640px) {
-    .page-header { padding: 36px 0 28px; }
-    .tool-widget { padding: 20px 18px 24px; }
-    .rec-item { grid-template-columns: 1fr; gap: 8px; }
-    .rec-badge { width: fit-content; }
-    .rec-panel-header { flex-direction: column; gap: 4px; }
+    .page-header { padding: 32px 0 24px; }
+    .profile-widget { padding: 20px 18px 24px; }
+    .profile-pills-row { gap: 20px; }
+    .cov-card-top { flex-direction: row; }
+    .delta-num { font-size: 20px; }
     .cta-inner { flex-direction: column; }
     nav.primary { display: none; }
   }
@@ -410,68 +520,70 @@
   <div class="page-header">
     <div class="page-kicker"><a href="/">← BoringRate</a> &nbsp;·&nbsp; Coverage Guide</div>
     <h1 class="page-title">What car insurance coverage do you actually need?</h1>
-    <p class="page-dek">Most drivers are either over-insured or one serious accident away from financial exposure. Answer four questions — we'll tell you exactly what to buy.</p>
+    <p class="page-dek">Tell us about your car and finances — we'll show you what to buy, what to skip, and exactly how each choice affects your annual cost.</p>
   </div>
 </div>
 
-<section class="tool-section">
+<div class="profile-section">
   <div class="wrap-narrow">
 
-    <div class="tool-widget">
-      <div class="tool-widget-label">Coverage calculator</div>
+    <div class="profile-widget">
+      <div class="profile-widget-label">Your profile</div>
 
-      <div class="tool-q">
-        <div class="tool-q-label">What is your car worth?</div>
-        <div class="pill-row">
-          <button class="pill" data-q="carValue" data-v="low">Under $5k</button>
-          <button class="pill" data-q="carValue" data-v="mid">$5k – $15k</button>
-          <button class="pill" data-q="carValue" data-v="high">$15k – $30k</button>
-          <button class="pill" data-q="carValue" data-v="very-high">Over $30k</button>
+      <div class="slider-q">
+        <div class="slider-q-header">
+          <div class="slider-q-label">Car value</div>
+          <div class="slider-q-value" id="carValueDisplay">$20,000</div>
+        </div>
+        <div class="slider-track-wrap">
+          <input type="range" id="carValueSlider" min="0" max="14" step="1" value="3" />
+        </div>
+        <div class="slider-ticks">
+          <span>$5k</span><span>$20k</span><span>$40k</span><span>$55k</span><span>$75k+</span>
         </div>
       </div>
 
-      <div class="tool-q">
-        <div class="tool-q-label">What is your approximate net worth?</div>
-        <div class="pill-row">
-          <button class="pill" data-q="netWorth" data-v="low">Under $50k</button>
-          <button class="pill" data-q="netWorth" data-v="mid">$50k – $200k</button>
-          <button class="pill" data-q="netWorth" data-v="high">Over $200k</button>
+      <div class="slider-q">
+        <div class="slider-q-header">
+          <div class="slider-q-label">Net worth</div>
+          <div class="slider-q-value" id="netWorthDisplay">$200,000</div>
+        </div>
+        <div class="slider-track-wrap">
+          <input type="range" id="netWorthSlider" min="0" max="10" step="1" value="2" />
+        </div>
+        <div class="slider-ticks">
+          <span>&lt; $100k</span><span>$300k</span><span>$500k</span><span>$750k</span><span>$1M+</span>
         </div>
       </div>
 
-      <div class="tool-q">
-        <div class="tool-q-label">Do you have a car loan or lease?</div>
-        <div class="pill-row">
-          <button class="pill" data-q="hasLoan" data-v="yes">Yes</button>
-          <button class="pill" data-q="hasLoan" data-v="no">No — I own it outright</button>
+      <div class="profile-pills-row">
+        <div class="profile-pill-q">
+          <div class="profile-pill-label">Financing</div>
+          <div class="pill-row">
+            <button class="pill active" data-q="hasLoan" data-v="own">Own</button>
+            <button class="pill" data-q="hasLoan" data-v="lease">Lease / Loan</button>
+          </div>
         </div>
-      </div>
-
-      <div class="tool-q">
-        <div class="tool-q-label">Do you have health insurance?</div>
-        <div class="pill-row">
-          <button class="pill" data-q="hasHealth" data-v="yes">Yes</button>
-          <button class="pill" data-q="hasHealth" data-v="no">No</button>
+        <div class="profile-pill-q">
+          <div class="profile-pill-label">Health insurance</div>
+          <div class="pill-row">
+            <button class="pill active" data-q="hasHealth" data-v="yes">Yes</button>
+            <button class="pill" data-q="hasHealth" data-v="no">No</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="rec-panel" id="recPanel">
-      <div class="rec-panel-header">
-        <div class="rec-panel-title">Your coverage recommendation</div>
-        <div class="rec-panel-sub">Personalized · not a quote</div>
-      </div>
-      <div id="recBody">
-        <div class="rec-pending">Answer all four questions above →</div>
-      </div>
-      <div class="rec-footer">
-        <div class="rec-footer-text">Compare rates based on your coverage level</div>
-        <a href="/" class="rec-cta-link" id="recCtaLink">Compare rates →</a>
-      </div>
+    <div class="summary-bar" id="summaryBar">
+      <div class="summary-total">Estimated annual cost: <strong id="summaryTotal">—</strong></div>
+      <div id="summaryDelta"></div>
+      <div class="summary-note">Directional estimates — not a quote. Actual premiums vary by carrier, state, and driving history. <a href="/methodology.html">How we estimate →</a></div>
     </div>
+
+    <div class="cov-cards" id="covCards"></div>
 
   </div>
-</section>
+</div>
 
 <section class="guide-section">
   <div class="wrap-narrow">
@@ -487,11 +599,11 @@
       </div>
       <div class="coverage-body">
         <p>Liability pays for <strong>other people's injuries and property damage</strong> when you cause an accident. It does not cover your car or your own injuries.</p>
-        <p>It's expressed as three numbers. <strong>100/300/100</strong> means: up to $100k per injured person, $300k per accident total, and $100k for property damage. State minimums are typically far lower — often 25/50/25 or less.</p>
+        <p>It's expressed as three numbers. <strong>100/300/100</strong> means: up to $100k per injured person, $300k per accident total, $100k for property damage. State minimums are typically far lower — often 25/50/25 or less.</p>
         <div class="callout">
-          <p><strong>Why state minimums are often not enough:</strong> A serious accident with injuries can easily exceed $100k in medical bills alone. If damages exceed your coverage limit, you pay the difference personally. Your net worth is what's at risk.</p>
+          <p><strong>Why state minimums are often not enough:</strong> A serious accident can easily exceed $100k in medical bills alone. Damages beyond your limit come out of your pocket — your net worth is what's at risk.</p>
         </div>
-        <p>Rule of thumb: buy at least as much liability as your net worth. If you have significant assets, a $1–2M personal umbrella policy stacked on top of 250/500/250 limits is often the most cost-efficient way to protect them — often $200–400/year on its own.</p>
+        <p>Rule of thumb: buy at least as much liability as your net worth. If you have significant assets, a personal umbrella policy ($1–2M for ~$200–400/year) stacked on top of high limits is the most cost-efficient protection.</p>
       </div>
     </div>
 
@@ -502,11 +614,10 @@
       </div>
       <div class="coverage-body">
         <p>Collision pays to repair or replace <strong>your car</strong> when you hit something — another vehicle, a guardrail, a pothole. It applies regardless of fault.</p>
-        <p>Whether it's worth buying depends on your car's value. The classic test: <strong>if your annual collision premium exceeds 10% of your car's current market value, you may be over-insuring.</strong> On a $4,000 car paying $500/year for collision, you'd need to file a claim every 8 years just to break even — and deductibles eat further into the payout.</p>
+        <p>The classic test: <strong>if your annual collision premium exceeds 10% of the car's current value, you may be over-insuring.</strong> On a $5,000 car paying $600/year for collision, you'd need to file a claim every 8 years just to break even.</p>
         <div class="callout">
-          <p><strong>If you have a loan or lease:</strong> your lender requires collision. You don't have the option to drop it until you own the car outright.</p>
+          <p>A higher deductible ($1,000 vs. $500) meaningfully lowers your premium. If you have savings to cover the deductible, it's almost always the right call.</p>
         </div>
-        <p>When you do carry collision, a higher deductible ($1,000 instead of $500) meaningfully reduces your premium. If you have the savings to cover the deductible, it's almost always the right call.</p>
       </div>
     </div>
 
@@ -516,11 +627,8 @@
         <span class="coverage-tag lender">Required if you have a loan or lease</span>
       </div>
       <div class="coverage-body">
-        <p>Comprehensive covers damage that isn't from a collision: <strong>theft, fire, flooding, hail, falling trees, hitting an animal.</strong> It's the "everything else" policy.</p>
-        <p>Comprehensive is typically cheap relative to its benefit — often $100–200/year for most cars. The bar for skipping it is much higher than for collision. The main reason not to carry it: your car is worth so little that even a total loss payout wouldn't justify years of premiums.</p>
-        <div class="callout">
-          <p><strong>If you're on the fence:</strong> get the comprehensive-only premium from your insurer. If it's under $150/year on a car worth $5k+, keeping it is almost always the mathematically correct decision.</p>
-        </div>
+        <p>Comprehensive covers damage that isn't from a collision: <strong>theft, fire, flooding, hail, falling trees, hitting an animal.</strong></p>
+        <p>Comprehensive is cheap relative to its benefit — often $100–250/year. The bar for skipping it is much higher than for collision. Even on an older car, if the annual premium is under $100, it's usually worth keeping.</p>
       </div>
     </div>
 
@@ -530,9 +638,8 @@
         <span class="coverage-tag req">Required in some states</span>
       </div>
       <div class="coverage-body">
-        <p>UM/UIM covers <strong>your injuries and vehicle damage when the at-fault driver has no insurance, or not enough to cover your losses.</strong></p>
-        <p>About <strong>1 in 8 U.S. drivers is uninsured.</strong> In some states, it's closer to 1 in 4. If an uninsured driver totals your car and sends you to the hospital, without UM/UIM you're suing someone who has nothing — and absorbing the loss yourself.</p>
-        <p>This is one of the most underrated coverages available. It's typically cheap ($50–150/year) and fills a gap that your own liability policy does nothing about. Buy it at limits matching your liability coverage.</p>
+        <p>UM/UIM covers <strong>your injuries and vehicle damage when the at-fault driver has no insurance or not enough.</strong></p>
+        <p>About 1 in 8 U.S. drivers is uninsured. In some states it's 1 in 4. Without UM/UIM, you're suing someone who has nothing and absorbing the loss yourself. At ~$85/year, it's one of the best values in auto insurance.</p>
       </div>
     </div>
 
@@ -542,12 +649,9 @@
         <span class="coverage-tag req">Required in no-fault states</span>
       </div>
       <div class="coverage-body">
-        <p>MedPay and Personal Injury Protection (PIP) cover <strong>your own medical bills after an accident,</strong> regardless of who was at fault. PIP also covers lost wages and sometimes childcare in certain states.</p>
-        <p>If you have comprehensive health insurance, MedPay is largely redundant — your health plan already covers the same bills. The exception: MedPay has no deductible or co-pay, so on a high-deductible health plan it can still save you money on a small claim.</p>
-        <div class="callout">
-          <p><strong>If you're uninsured or underinsured on health:</strong> MedPay is not optional. An ER visit following an accident can run $20–50k. Without health insurance or PIP, you're paying that out-of-pocket.</p>
-        </div>
-        <p>If you live in a <strong>no-fault state</strong> (Florida, Michigan, New York, New Jersey, Pennsylvania, and several others), PIP is required by law and will be included in your policy automatically.</p>
+        <p>MedPay and PIP cover <strong>your own medical bills after an accident</strong>, regardless of fault. PIP also covers lost wages in some states.</p>
+        <p>If you have health insurance, MedPay is largely redundant — but useful if your health plan has a high deductible, since MedPay has no deductible and pays first.</p>
+        <div class="callout"><p>Without health insurance, MedPay is not optional. An ER visit after an accident can easily cost $20–50k.</p></div>
       </div>
     </div>
 
@@ -557,12 +661,8 @@
         <span class="coverage-tag">Financed and leased vehicles only</span>
       </div>
       <div class="coverage-body">
-        <p>Gap insurance pays the difference between <strong>what your insurer pays out on a totaled car</strong> and <strong>what you still owe on the loan or lease.</strong></p>
-        <p>New cars depreciate fast — often 15–25% in the first year. If you financed with a small down payment and your car is totaled in year one or two, you can easily owe $5–10k more than the car is currently worth. Gap covers that shortfall so you're not paying off a loan on a car you no longer own.</p>
-        <div class="callout">
-          <p><strong>When gap makes sense:</strong> you financed more than 80% of the purchase price, the car is under 3 years old, or you have a long loan term (72+ months). When it doesn't: large down payment, car holds its value well (trucks, some SUVs), or you've paid off most of the loan.</p>
-        </div>
-        <p>Dealers routinely pitch gap at the point of sale. It's almost always cheaper through your auto insurer ($20–40/year) than the dealer's version ($500–700 rolled into the loan at interest).</p>
+        <p>Gap covers the difference between <strong>what your insurer pays on a totaled car</strong> and <strong>what you still owe on the loan.</strong> New cars can depreciate 15–25% in year one — gap covers that shortfall.</p>
+        <div class="callout"><p>Dealers charge $500–700 for gap rolled into the loan. Your insurer charges ~$35/year for the same coverage. Always buy it through the insurer.</p></div>
       </div>
     </div>
 
@@ -594,120 +694,233 @@
 </footer>
 
 <script>
-const answers = { carValue: null, netWorth: null, hasLoan: null, hasHealth: null };
+const CAR_VALUE_STEPS  = [5000,10000,15000,20000,25000,30000,35000,40000,45000,50000,55000,60000,65000,70000,75000];
+const NET_WORTH_STEPS  = [0,100000,200000,300000,400000,500000,600000,700000,800000,900000,1000000];
 
-document.querySelectorAll('.tool-widget .pill').forEach(btn => {
+const profile = { carValue: 20000, netWorth: 200000, hasLoan: 'own', hasHealth: 'yes' };
+
+const TYPES = ['liability','collision','comprehensive','umUim','medpay','gap'];
+
+const CFG = {
+  liability: {
+    name: 'Liability',
+    opts: [
+      { label: '25/50',     sub: 'State min', cost: ()  => 340 },
+      { label: '50/100',    sub: null,        cost: ()  => 400 },
+      { label: '100/300',   sub: null,        cost: ()  => 475 },
+      { label: '250/500',   sub: null,        cost: ()  => 580 },
+      { label: '500/1000',  sub: null,        cost: ()  => 700 },
+    ],
+  },
+  collision: {
+    name: 'Collision',
+    opts: [
+      { label: 'Skip',       sub: null, cost: ()  => 0 },
+      { label: '$2,000 ded', sub: null, cost: (v) => Math.round(v * 0.018) },
+      { label: '$1,000 ded', sub: null, cost: (v) => Math.round(v * 0.026) },
+      { label: '$500 ded',   sub: null, cost: (v) => Math.round(v * 0.034) },
+    ],
+  },
+  comprehensive: {
+    name: 'Comprehensive',
+    opts: [
+      { label: 'Skip',       sub: null, cost: ()  => 0 },
+      { label: '$1,000 ded', sub: null, cost: (v) => Math.max(80,  Math.round(v * 0.007)) },
+      { label: '$500 ded',   sub: null, cost: (v) => Math.max(110, Math.round(v * 0.009)) },
+    ],
+  },
+  umUim: {
+    name: 'Uninsured Motorist',
+    opts: [
+      { label: 'Skip',        sub: null, cost: () => 0   },
+      { label: 'Standard',    sub: null, cost: () => 85  },
+      { label: 'High limits', sub: null, cost: () => 135 },
+    ],
+  },
+  medpay: {
+    name: 'Medical / PIP',
+    opts: [
+      { label: 'Skip',    sub: null, cost: () => 0  },
+      { label: '$2,500',  sub: null, cost: () => 30 },
+      { label: '$5,000',  sub: null, cost: () => 55 },
+      { label: '$10,000', sub: null, cost: () => 80 },
+    ],
+  },
+  gap: {
+    name: 'Gap Insurance',
+    opts: [
+      { label: 'Skip',    sub: null, cost: () => 0  },
+      { label: 'Add gap', sub: null, cost: () => 35 },
+    ],
+  },
+};
+
+let recs = {};
+let sels = {};
+
+function money(n) { return '$' + Math.round(n).toLocaleString(); }
+
+function optCost(type, idx) {
+  return CFG[type].opts[idx].cost(profile.carValue);
+}
+
+function computeRecs() {
+  const { carValue, netWorth, hasLoan, hasHealth } = profile;
+  let liability;
+  if      (netWorth >= 500000) liability = 4;
+  else if (netWorth >= 200000) liability = 3;
+  else if (netWorth >= 75000)  liability = 2;
+  else                          liability = 1;
+
+  let collision;
+  if      (hasLoan === 'lease') collision = 2;
+  else if (carValue < 8000)     collision = 0;
+  else                          collision = 2;
+
+  let comprehensive;
+  if      (hasLoan === 'lease') comprehensive = 2;
+  else if (carValue < 6000)     comprehensive = 0;
+  else                          comprehensive = 2;
+
+  const umUim   = 1;
+  const medpay  = hasHealth === 'no' ? 2 : 0;
+  const gap     = hasLoan === 'lease' ? 1 : 0;
+
+  return { liability, collision, comprehensive, umUim, medpay, gap };
+}
+
+function getDesc(type) {
+  const { carValue, netWorth, hasLoan, hasHealth } = profile;
+  switch (type) {
+    case 'liability':
+      if (netWorth >= 500000) return 'With over $500k in assets, you need high limits. A judgment exceeding your limit comes straight out of your pocket — consider an umbrella policy too.';
+      if (netWorth >= 200000) return 'Your net worth warrants 250/500. A serious accident with injuries can quickly exceed $100k in medical and legal costs.';
+      if (netWorth >= 75000)  return '100/300 is the standard recommendation. State minimums — often 25/50 — are rarely sufficient in a serious accident.';
+      return '50/100 provides a reasonable baseline at lower cost. Step up as your net worth grows.';
+    case 'collision':
+      if (hasLoan === 'lease') return 'Required by your lender. Choose a deductible you can comfortably cover out-of-pocket — a higher deductible lowers your premium.';
+      if (carValue < 8000)     return 'At this car value, annual collision premiums can approach 10%+ of the car\'s worth. Run the math: you may be better off self-insuring.';
+      return 'Worth carrying at this value. A $1,000 deductible is a good balance between premium savings and out-of-pocket risk.';
+    case 'comprehensive':
+      if (hasLoan === 'lease') return 'Required by your lender alongside collision. Covers theft, weather, fire, and other non-collision damage.';
+      if (carValue < 6000)     return 'Comprehensive is cheap — check the actual quote. If the premium is under $80/year, keeping it is likely worth it even at this car value.';
+      return 'Typically inexpensive relative to its benefit. At $500 deductible you\'re covered for theft, hail, flooding, and hitting an animal.';
+    case 'umUim':
+      return '1 in 8 U.S. drivers is uninsured. UM/UIM covers your injuries and vehicle when the at-fault driver can\'t pay. At ~$85/year, it\'s among the best values in auto insurance.';
+    case 'medpay':
+      if (hasHealth === 'no') return 'Without health insurance, MedPay is essential. An ER visit after an accident can cost $20–50k — this is your primary safety net.';
+      return 'Your health plan covers most accident injuries. MedPay adds a no-deductible first-payer layer — most useful if your health deductible is $2,000 or higher.';
+    case 'gap':
+      if (hasLoan === 'lease') return 'Gap covers what you owe vs. what the insurer pays on a total loss. Buy it through your insurer (~$35/yr) — not the dealer ($500+).';
+      return 'Gap only applies to financed or leased vehicles. Since you own outright, this coverage doesn\'t apply to you.';
+  }
+}
+
+function renderSummary() {
+  const totalSel = TYPES.reduce((s, t) => s + optCost(t, sels[t]), 0);
+  const totalRec = TYPES.reduce((s, t) => s + optCost(t, recs[t]), 0);
+  const delta    = totalSel - totalRec;
+
+  document.getElementById('summaryTotal').textContent = '~' + money(totalSel) + '/yr';
+
+  const deltaEl = document.getElementById('summaryDelta');
+  if (delta > 0)       deltaEl.innerHTML = `<span class="summary-delta plus">+${money(delta)}/yr vs. recommended</span>`;
+  else if (delta < 0)  deltaEl.innerHTML = `<span class="summary-delta minus">-${money(Math.abs(delta))}/yr vs. recommended</span>`;
+  else                 deltaEl.innerHTML = `<span class="summary-delta at-rec">✓ At recommended coverage</span>`;
+}
+
+function renderCards() {
+  document.getElementById('covCards').innerHTML = TYPES.map(type => {
+    const cfg  = CFG[type];
+    const sel  = sels[type];
+    const rec  = recs[type];
+    const delta = optCost(type, sel) - optCost(type, rec);
+    const cost  = optCost(type, sel);
+
+    let deltaHtml;
+    if (delta > 0) {
+      deltaHtml = `<div class="delta-num plus">+${money(delta)}</div><div class="delta-sub">per year</div>`;
+    } else if (delta < 0) {
+      deltaHtml = `<div class="delta-num minus">-${money(Math.abs(delta))}</div><div class="delta-sub">per year</div>`;
+    } else {
+      deltaHtml = `<div class="delta-num zero">✓ Rec</div>`;
+    }
+
+    const optsHtml = cfg.opts.map((opt, i) => {
+      const isActive = i === sel;
+      const isRec    = i === rec;
+      const dotHtml  = isRec ? '<span class="rec-dot"></span>' : '';
+      return `<button class="cov-opt${isActive ? ' active' : ''}" data-type="${type}" data-idx="${i}">${opt.label}${dotHtml}</button>`;
+    }).join('');
+
+    return `<div class="cov-card">
+      <div class="cov-card-top">
+        <div>
+          <div class="cov-card-name">${cfg.name}</div>
+          <div class="cov-card-desc">${getDesc(type)}</div>
+        </div>
+        <div class="delta-display">${deltaHtml}</div>
+      </div>
+      <div class="cov-opts-wrap"><div class="cov-opts">${optsHtml}</div></div>
+      <div class="cov-cost">${cost > 0 ? '~' + money(cost) + '/yr' : 'Not purchased'}</div>
+    </div>`;
+  }).join('');
+
+  document.querySelectorAll('.cov-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      sels[btn.dataset.type] = parseInt(btn.dataset.idx, 10);
+      renderSummary();
+      renderCards();
+    });
+  });
+}
+
+function onProfileChange() {
+  recs = computeRecs();
+  TYPES.forEach(t => { sels[t] = recs[t]; });
+  renderSummary();
+  renderCards();
+
+  const cov = (profile.carValue < 8000) ? 'minimum' : (profile.netWorth >= 200000 ? 'premium' : 'standard');
+  document.getElementById('ctaBtn').href = '/?cov=' + cov;
+}
+
+// Slider logic
+function updateTrack(input) {
+  const pct = ((+input.value - +input.min) / (+input.max - +input.min)) * 100;
+  input.style.setProperty('--pct', pct + '%');
+}
+
+document.getElementById('carValueSlider').addEventListener('input', function() {
+  profile.carValue = CAR_VALUE_STEPS[this.value];
+  const v = profile.carValue;
+  document.getElementById('carValueDisplay').textContent = v >= 75000 ? '$75,000+' : '$' + v.toLocaleString();
+  updateTrack(this);
+  onProfileChange();
+});
+
+document.getElementById('netWorthSlider').addEventListener('input', function() {
+  profile.netWorth = NET_WORTH_STEPS[this.value];
+  const v = profile.netWorth;
+  document.getElementById('netWorthDisplay').textContent = v === 0 ? '< $100,000' : (v >= 1000000 ? '$1,000,000+' : '$' + v.toLocaleString());
+  updateTrack(this);
+  onProfileChange();
+});
+
+document.querySelectorAll('[data-q]').forEach(btn => {
   btn.addEventListener('click', () => {
     const q = btn.dataset.q;
-    document.querySelectorAll('.pill[data-q="' + q + '"]').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('[data-q="' + q + '"]').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
-    answers[q] = btn.dataset.v;
-    renderRec();
+    profile[q] = btn.dataset.v;
+    onProfileChange();
   });
 });
 
-const BADGE = { yes: 'Recommended', no: 'Skip it', maybe: 'Consider it', required: 'Required' };
-
-function item(name, sub, status, detail) {
-  const subHtml = sub ? '<span class="rec-item-sub">' + sub + '</span>' : '';
-  return '<div class="rec-item">'
-    + '<div><div class="rec-item-name">' + name + subHtml + '</div>'
-    + '<div class="rec-item-detail">' + detail + '</div></div>'
-    + '<span class="rec-badge ' + status + '">' + BADGE[status] + '</span>'
-    + '</div>';
-}
-
-function buildRec() {
-  const { carValue, netWorth, hasLoan, hasHealth } = answers;
-  let html = '';
-
-  // Liability
-  if (netWorth === 'high') {
-    html += item('Liability', '250/500/250 or higher', 'yes',
-      'With significant assets to protect, state minimums leave you exposed. Consider adding a personal umbrella policy ($1–2M coverage for ~$200–400/year) on top of high limits.');
-  } else if (netWorth === 'mid') {
-    html += item('Liability', '100/300/100', 'yes',
-      'Standard recommendation for most drivers with assets. Covers serious accidents without leaving you personally liable for damages beyond your limit.');
-  } else {
-    html += item('Liability', '50/100/50 minimum', 'maybe',
-      'State minimums are legally sufficient and keep costs low. Step up as your net worth grows — or if you frequently drive in high-traffic areas.');
-  }
-
-  // Collision
-  if (hasLoan === 'yes') {
-    html += item('Collision', null, 'required',
-      'Your lender requires this. Dropping it would violate your loan or lease agreement. Reassess once you own the car outright based on its value at that time.');
-  } else if (carValue === 'low') {
-    html += item('Collision', null, 'no',
-      'At under $5k, you\'d likely pay more in premiums over time than you\'d collect. Bank the difference. If the car is totaled, the payout after your deductible would be minimal.');
-  } else if (carValue === 'mid') {
-    html += item('Collision', null, 'maybe',
-      'Compare: if your annual collision premium exceeds 10% of the car\'s current value, you\'re over-insuring. Otherwise keep it — and use a $1,000 deductible to reduce the premium.');
-  } else {
-    html += item('Collision', null, 'yes',
-      'Worth it. Repairing or replacing a $15k+ car out-of-pocket is a significant hit. Set a $1,000 deductible to keep the premium manageable.');
-  }
-
-  // Comprehensive
-  if (hasLoan === 'yes') {
-    html += item('Comprehensive', null, 'required',
-      'Required by your lender alongside collision. Once you own the car outright, keep it as long as the annual premium is under ~10% of the car\'s value.');
-  } else if (carValue === 'low') {
-    html += item('Comprehensive', null, 'maybe',
-      'Usually cheap ($80–150/year) relative to what it covers — theft, hail, flooding, fire. Check the actual premium: if it\'s under $100/year, it\'s worth keeping even on an older car.');
-  } else {
-    html += item('Comprehensive', null, 'yes',
-      'Cheap relative to its benefit. Covers theft, weather events, hitting an animal, falling objects. Hard to justify dropping on a car worth more than $5k.');
-  }
-
-  // Uninsured motorist — always recommended
-  html += item('Uninsured Motorist (UM/UIM)', null, 'yes',
-    '1 in 8 U.S. drivers is uninsured. UM/UIM covers your injuries and car when an at-fault driver can\'t pay. Typically $50–150/year — one of the best values in auto insurance.');
-
-  // Gap
-  if (hasLoan === 'yes') {
-    html += item('Gap Insurance', null, 'maybe',
-      'Worth it if the car is under 3 years old or you financed more than 80% of its value. Buy through your insurer (~$30/year), not the dealer ($500–700 rolled into the loan).');
-  } else {
-    html += item('Gap Insurance', null, 'no',
-      'You own the car outright — gap only applies to financed or leased vehicles.');
-  }
-
-  // MedPay / PIP
-  if (hasHealth === 'yes') {
-    html += item('Medical Payments (MedPay / PIP)', null, 'maybe',
-      'Your health plan likely covers the same bills. Consider MedPay only if your health deductible is $3k+ — it has no deductible and pays first, reducing your out-of-pocket on small claims.');
-  } else {
-    html += item('Medical Payments (MedPay / PIP)', null, 'yes',
-      'Without health insurance, this is essential. An ER visit after an accident can cost $20–50k. Also required by law if you live in a no-fault state.');
-  }
-
-  return html;
-}
-
-function coverageLevel() {
-  const v = answers.carValue;
-  if (v === 'low') return 'minimum';
-  if (v === 'very-high' || answers.netWorth === 'high') return 'premium';
-  return 'standard';
-}
-
-function renderRec() {
-  const recBody = document.getElementById('recBody');
-  const allAnswered = Object.values(answers).every(v => v !== null);
-
-  if (!allAnswered) {
-    recBody.innerHTML = '<div class="rec-pending">Answer all four questions above →</div>';
-    return;
-  }
-
-  recBody.innerHTML = buildRec();
-
-  const cov = coverageLevel();
-  const link = '/?' + 'cov=' + cov;
-  document.getElementById('recCtaLink').href = link;
-  document.getElementById('ctaBtn').href = link;
-}
+// Init
+updateTrack(document.getElementById('carValueSlider'));
+updateTrack(document.getElementById('netWorthSlider'));
+onProfileChange();
 </script>
 
 </body>
