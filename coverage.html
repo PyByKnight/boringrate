@@ -882,12 +882,16 @@ const AVG_SENS = {
   age:    { '18-24': 0.44, '25-34': 0.12, '35-54': 0.0, '55+': 0.06 },
   credit: { excellent: -0.09, good: 0.0, fair: 0.20 }
 };
+// Median base rate across the 8 standard carriers (0.80–1.23 range)
+const MEDIAN_BASE = 0.965;
 
 function estimateMedianRate(overrideSels) {
   const s = Object.assign({}, sels, overrideSels);
-  const blend = (s.liability / 4 * 0.5) + (s.collision / 3 * 0.3) + (s.comprehensive / 2 * 0.2);
+  // Normalize liability to 0–3 scale (matches index.html covLiability); 500/1000 option caps at 3
+  const blend = (Math.min(s.liability, 3) / 3 * 0.5) + (s.collision / 3 * 0.3) + (s.comprehensive / 2 * 0.2);
   const covMult = 0.70 + blend * 0.60;
-  let m = 1.0;
+  // (avg / 2) × MEDIAN_BASE mirrors index.html's estimatePremium formula
+  let m = MEDIAN_BASE;
   if (profile.own === 'own')  m *= (1 + AVG_SENS.own);
   if (profile.own === 'rent') m *= (1 + AVG_SENS.rent);
   if (profile.vehicles === '2+') m *= (1 + AVG_SENS.multi);
@@ -895,7 +899,7 @@ function estimateMedianRate(overrideSels) {
   if (profile.age) m *= (1 + (AVG_SENS.age[profile.age] || 0));
   if (profile.credit === 'excellent') m *= (1 + AVG_SENS.credit.excellent);
   if (profile.credit === 'fair')      m *= (1 + AVG_SENS.credit.fair);
-  return Math.round(profile.stateMult * NATIONAL_AVG * m * covMult);
+  return Math.round((profile.stateMult * NATIONAL_AVG / 2) * m * covMult);
 }
 
 function totalEstimate(overrideSels) {
