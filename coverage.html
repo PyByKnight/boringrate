@@ -885,11 +885,18 @@ const AVG_SENS = {
 // Median base rate across the 8 standard carriers (0.80–1.23 range)
 const MEDIAN_BASE = 0.965;
 
+function getCovMult(s) {
+  // Exact tier anchors match COVERAGE_MULT in index.html
+  if (s.liability === 0 && s.collision === 0 && s.comprehensive === 0) return 0.70;
+  if (s.liability === 2 && s.collision === 2 && s.comprehensive === 1) return 1.00;
+  if (s.liability === 3 && s.collision === 3 && s.comprehensive === 2) return 1.30;
+  const blend = (s.liability / 4 * 0.5) + (s.collision / 3 * 0.3) + (s.comprehensive / 2 * 0.2);
+  return 0.70 + blend * 0.60;
+}
+
 function estimateMedianRate(overrideSels) {
   const s = Object.assign({}, sels, overrideSels);
-  // Normalize liability to 0–3 scale (matches index.html covLiability); 500/1000 option caps at 3
-  const blend = (Math.min(s.liability, 3) / 3 * 0.5) + (s.collision / 3 * 0.3) + (s.comprehensive / 2 * 0.2);
-  const covMult = 0.70 + blend * 0.60;
+  const covMult = getCovMult(s);
   // (avg / 2) × MEDIAN_BASE mirrors index.html's estimatePremium formula
   let m = MEDIAN_BASE;
   if (profile.own === 'own')  m *= (1 + AVG_SENS.own);
@@ -1041,14 +1048,14 @@ function buildTicksHtml(type, selIdx) {
     const pctStr = nTicks > 1 ? (i / (nTicks - 1) * 100).toFixed(1) : '50';
     const isSel  = optIdx === selIdx;
     const isRec  = optIdx === rec;
-    const diff   = totalEstimate({[type]: optIdx}) - totalEstimate({[type]: selIdx});
+    const diff   = totalEstimate({[type]: optIdx}) - totalEstimate({[type]: rec});
     const lblClass = 'cov-tick-label' + (isRec ? ' is-rec' : '') + (isSel ? ' is-sel' : '');
     const lbl    = cfg.opts[optIdx].label + (isRec ? ' ★' : '');
     let dClass, dText;
-    if (isSel)       { dClass = 'cov-tick-delta';      dText = '·'; }   // invisible placeholder
-    else if (diff>0) { dClass = 'cov-tick-delta more'; dText = '+' + money(diff); }
-    else if (diff<0) { dClass = 'cov-tick-delta less'; dText = '-' + money(Math.abs(diff)); }
-    else             { dClass = 'cov-tick-delta';      dText = '—'; }
+    if (isRec)       { dClass = 'cov-tick-delta at-sel'; dText = '✓ rec'; }
+    else if (diff>0) { dClass = 'cov-tick-delta more';   dText = '+' + money(diff); }
+    else if (diff<0) { dClass = 'cov-tick-delta less';   dText = '-' + money(Math.abs(diff)); }
+    else             { dClass = 'cov-tick-delta';         dText = '—'; }
     html += '<div class="cov-tick-item" style="left:' + pctStr + '%">'
       + '<span class="' + lblClass + '">' + lbl + '</span>'
       + '<span class="' + dClass + '">' + dText + '</span>'

@@ -307,6 +307,19 @@
   }
   .pill:hover { border-color: var(--ink); color: var(--ink); }
   .pill.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .pill-guide {
+    border-color: var(--accent);
+    color: var(--accent);
+    text-decoration: underline;
+    margin-left: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    border-left: 2px solid var(--rule);
+    padding-left: 14px;
+  }
+  .pill-guide:hover { background: var(--accent); color: var(--paper); border-color: var(--accent); text-decoration: none; }
+  .pill-guide.active { background: var(--accent); color: var(--paper); border-color: var(--accent); text-decoration: none; }
   .refine-q select {
     width: 100%;
     font-family: var(--sans);
@@ -343,6 +356,14 @@
     font-weight: 600;
     white-space: nowrap;
   }
+  .boring-rank-cta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+    text-decoration: underline;
+    letter-spacing: 0.04em;
+  }
+  .boring-rank-cta:hover { color: var(--ink); }
   /* ── RANKING ──────────────────────────────────────────── */
   .rank-table-label {
     display: flex;
@@ -844,19 +865,18 @@
             </div>
           </div>
           <div class="refine-q">
-            <label>Coverage tier &nbsp;<a href="/coverage.html" style="font-size:11px;font-family:var(--mono);color:var(--accent);text-decoration:underline;letter-spacing:0.06em;opacity:0.85;" title="What coverage do I need?">Guide me through best selections →</a></label>
+            <label>Coverage tier &nbsp;<a href="/coverage.html" style="font-size:11px;font-family:var(--mono);color:var(--accent);text-decoration:underline;letter-spacing:0.06em;opacity:0.85;" title="What coverage do I need?">Guide Me →</a></label>
             <div class="pill-row" data-q="coverage">
               <button type="button" class="pill" data-v="minimum">Minimum</button>
               <button type="button" class="pill active" data-v="standard">Standard</button>
               <button type="button" class="pill" data-v="premium">Premium</button>
-              <button type="button" class="pill" data-v="personalized">Personalized</button>
+              <a href="/coverage.html" class="pill pill-guide" data-v="personalized">Guide Me: Personalized Coverage →</a>
             </div>
           </div>
         </div>
         <div class="refine-cov-section">
           <div class="refine-cov-header">
             <span>Coverage detail</span>
-            <a href="/coverage.html" style="font-size:11px;font-family:var(--mono);color:var(--accent);text-decoration:underline;letter-spacing:0.06em;opacity:0.85;" title="What coverage do I need?">Guide me through best selections →</a>
           </div>
           <div class="refine-cov-grid">
             <div class="refine-q">
@@ -917,6 +937,7 @@
     <!-- Boring Rank header — shown above table when qualifiers exist -->
     <div class="boring-rank-header" id="boringRankHeader">
       <div class="boring-rank-label">Boring Rank: Quote First</div>
+      <a href="/coverage.html" class="boring-rank-cta">Guide me through Personalized Coverages →</a>
     </div>
 
     <!-- Rank table label sits directly above the table -->
@@ -2416,7 +2437,7 @@ function estimatePremium(carrier, avg) {
     if (refinement.coverage === "personalized") {
       const minM = cov.minimum || 1.0;
       const preM = cov.premium || 1.0;
-      const blend = (refinement.covLiability / 3 * 0.5) +
+      const blend = (refinement.covLiability / 4 * 0.5) +
                     (refinement.covCollision / 3 * 0.3) +
                     (refinement.covComp / 2 * 0.2);
       m *= minM + blend * (preM - minM);
