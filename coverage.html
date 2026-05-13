@@ -528,11 +528,11 @@
     <div class="cov-cards" id="covCards"></div>
 
     <div class="bottom-cta" id="bottomCta">
-      <div class="bottom-cta-label">Ready to compare?</div>
+      <div class="bottom-cta-label">Compare personalized rates</div>
       <div class="bottom-cta-row">
         <div class="bottom-cta-text">
-          <h3>See who's cheapest<br>for your coverage profile.</h3>
-          <p>Carriers ranked by likely rate for your state, adjusted for your coverage level.</p>
+          <h3>See who's cheapest<br>for your profile.</h3>
+          <p>Carriers ranked by estimated rate for your state, age, vehicles, and coverage selections — all carried over automatically.</p>
           <div class="bottom-cta-selections" id="ctaSelectionsSummary"></div>
           <div class="bottom-zip-row">
             <input type="text" id="bottomZipInput" class="bottom-zip-input" maxlength="5" inputmode="numeric" placeholder="ZIP" />
@@ -1333,6 +1333,12 @@ function applyZip(zip) {
     hint.textContent = 'rates adjust by state';
     document.getElementById('stickyCompareLink').style.display = 'none';
   }
+  // Persist ZIP to br_profile so index.html loadProfile restores refinements
+  try {
+    const saved = JSON.parse(localStorage.getItem('br_profile')) || {};
+    saved.zip = zip;
+    localStorage.setItem('br_profile', JSON.stringify(saved));
+  } catch(e) {}
   // Sync bottom ZIP input
   const bz = document.getElementById('bottomZipInput');
   if (bz) bz.value = zip;

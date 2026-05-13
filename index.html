@@ -227,6 +227,31 @@
     border-radius: 2px;
   }
 
+  .generic-banner {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 8px 14px;
+    background: var(--paper-deep);
+    border: 1px solid var(--rule);
+    border-bottom: none;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+  }
+  .generic-banner.visible { display: flex; }
+  .generic-banner-cta {
+    color: var(--accent);
+    text-decoration: underline;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .generic-banner-cta:hover { opacity: 0.8; }
+
   /* ── REFINE BAR ────────────────────────────────────────── */
   .refine {
     background: var(--paper-deep);
@@ -784,6 +809,12 @@
       <span class="metro-pill" id="metroPill" style="display:none;"></span>
     </div>
     <div class="state-banner" id="stateBanner"></div>
+
+    <!-- Generic rates notice — shown when no profile refinements are active -->
+    <div class="generic-banner" id="genericBanner">
+      <span>Showing generic rates · no profile selected</span>
+      <a href="/coverage.html" class="generic-banner-cta">Personalize for You →</a>
+    </div>
 
     <!-- Refine bar -->
     <div class="refine" id="refineBar">
@@ -2541,6 +2572,9 @@ function renderRanking() {
   const metroPrefix = currentMetro ? METRO_NAMES[currentMetro] + " · " : "";
   document.getElementById("rankTableState").textContent = metroPrefix + stateData.name + " · " + (isNonStandard() ? "Non-standard carriers" : "Major carriers") + " · Ranked by price";
 
+  const isGeneric = !refinement.age && !refinement.vehicles && !refinement.own && !refinement.credit;
+  document.getElementById("genericBanner").classList.toggle("visible", isGeneric);
+
   const footNote = isNonStandard()
     ? "Showing non-standard carriers — specialized for lapsed coverage, SR-22, or high-risk profiles. Estimates are directional. Not a quote. <a href='methodology.html'>How we rank →</a>"
     : "Estimates reflect typical price positioning from public rate filings; quality marks reflect NAIC complaint indices. Not a quote. <a href='methodology.html'>How we rank →</a>";
@@ -2720,6 +2754,19 @@ document.getElementById("zipInput").addEventListener("input", e => {
     });
   }
   if (/^\d{5}$/.test(zip)) {
+    // Apply any saved refinements (age/vehicles/own/credit) from coverage.html profile
+    try {
+      const saved = JSON.parse(localStorage.getItem(PROFILE_KEY));
+      if (saved && saved.refinement) {
+        Object.assign(refinement, saved.refinement);
+        document.querySelectorAll("#refineBar .pill-row").forEach(group => {
+          const val = refinement[group.dataset.q];
+          group.querySelectorAll(".pill").forEach(p => {
+            p.classList.toggle("active", val != null && p.dataset.v === val);
+          });
+        });
+      }
+    } catch(e) {}
     document.getElementById("zipInput").value = zip;
     stateData = lookupZip(zip);
     lastOrder = [];
