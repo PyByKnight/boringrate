@@ -193,6 +193,15 @@
     font-weight: 600;
   }
   .coverage-nudge a:hover { text-decoration: underline; }
+  .zip-state-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--good);
+    margin-top: 8px;
+    display: none;
+  }
 
   /* ── RESULT BLOCK ───────────────────────────────────────── */
   .result { padding: 24px 0; border-bottom: 1px solid var(--rule); display: none; }
@@ -763,6 +772,7 @@
       <button type="submit" class="zip-btn">See rates</button>
     </form>
     <div id="profileRestored" class="profile-restored" style="display:none;">Welcome back — your last search is loaded.</div>
+    <div id="zipStateLabel" class="zip-state-label"></div>
     <div class="promise-line">Instantly compare rates.</div>
     <div class="coverage-nudge">Not sure what coverage you need? &nbsp;<a href="/coverage.html">Help me choose →</a></div>
   </div>
@@ -1541,6 +1551,7 @@ function loadProfile() {
     Object.assign(refinement, saved.refinement);
     document.getElementById("zipInput").value = saved.zip;
     stateData = lookupZip(saved.zip);
+    showZipStateLabel(stateData);
 
     document.querySelectorAll("#refineBar .pill-row").forEach(group => {
       const val = refinement[group.dataset.q];
@@ -2502,11 +2513,18 @@ function lookupZip(zip) {
   return (stateCode && STATE_DATA[stateCode]) || FALLBACK;
 }
 
+function showZipStateLabel(sd) {
+  const el = document.getElementById("zipStateLabel");
+  if (sd && sd.code) { el.textContent = sd.name; el.style.display = "block"; }
+  else { el.style.display = "none"; }
+}
+
 document.getElementById("zipForm").addEventListener("submit", e => {
   e.preventDefault();
   const zip = document.getElementById("zipInput").value.trim();
   if (!/^\d{5}$/.test(zip)) { document.getElementById("zipInput").focus(); return; }
   stateData = lookupZip(zip);
+  showZipStateLabel(stateData);
   lastOrder = [];
   renderRanking();
   document.getElementById("result").classList.add("active");
@@ -2574,6 +2592,7 @@ document.getElementById("zipInput").addEventListener("input", e => {
   if (/^\d{5}$/.test(zip)) {
     document.getElementById("zipInput").value = zip;
     stateData = lookupZip(zip);
+    showZipStateLabel(stateData);
     lastOrder = [];
     renderRanking();
     document.getElementById("result").classList.add("active");

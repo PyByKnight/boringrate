@@ -269,14 +269,25 @@
     background: var(--ink);
     color: var(--paper);
     padding: 16px 22px;
-    min-width: 190px;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 200ms, transform 200ms;
-    pointer-events: none;
+    min-width: 200px;
     box-shadow: 0 4px 24px rgba(22,21,18,0.18);
   }
-  .sticky-total.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .sticky-compare-link {
+    display: none;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--paper);
+    text-decoration: none;
+    opacity: 0.65;
+    margin-top: 10px;
+    border-top: 1px solid rgba(246,241,232,0.15);
+    padding-top: 10px;
+    transition: opacity 120ms;
+    white-space: nowrap;
+  }
+  .sticky-compare-link:hover { opacity: 1; }
   .sticky-total-label { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(246,241,232,0.4); margin-bottom: 5px; }
   .sticky-total-amount { font-family: var(--mono); font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
   .sticky-total-delta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; margin-top: 6px; }
@@ -286,16 +297,31 @@
 
   /* ── CTA at bottom ── */
   .bottom-cta {
-    border: 2px solid var(--ink);
-    padding: 28px 32px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px;
     margin-bottom: 72px;
-    background: var(--paper-deep);
   }
-  .bottom-cta-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-mute); margin-bottom: 14px; }
-  .bottom-cta-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-  .bottom-cta-text h3 { font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 6px; }
-  .bottom-cta-text p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
-  .bottom-cta-selections { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.05em; line-height: 1.8; margin-top: 14px; }
+  .bottom-cta-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(246,241,232,0.4); margin-bottom: 16px; }
+  .bottom-cta-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .bottom-cta-text h3 { font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 6px; color: var(--paper); }
+  .bottom-cta-text p { font-size: 14px; color: rgba(246,241,232,0.6); line-height: 1.5; }
+  .bottom-cta-selections { font-family: var(--mono); font-size: 11px; color: rgba(246,241,232,0.4); letter-spacing: 0.05em; line-height: 1.8; margin-top: 12px; }
+  .bottom-zip-row { display: flex; gap: 0; margin-top: 20px; align-items: stretch; flex-wrap: wrap; }
+  .bottom-zip-input {
+    font-family: var(--mono);
+    font-size: 16px;
+    letter-spacing: 0.14em;
+    padding: 11px 14px;
+    width: 110px;
+    border: 1.5px solid rgba(246,241,232,0.25);
+    background: rgba(246,241,232,0.07);
+    color: var(--paper);
+    outline: none;
+    transition: border-color 120ms;
+  }
+  .bottom-zip-input::placeholder { color: rgba(246,241,232,0.25); letter-spacing: 0.1em; }
+  .bottom-zip-input:focus { border-color: rgba(246,241,232,0.55); }
   .cta-btn {
     font-family: var(--sans);
     font-size: 13px;
@@ -445,14 +471,17 @@
     <div class="cov-cards" id="covCards"></div>
 
     <div class="bottom-cta" id="bottomCta">
-      <div class="bottom-cta-label">Ready to shop?</div>
+      <div class="bottom-cta-label">Ready to compare?</div>
       <div class="bottom-cta-row">
         <div class="bottom-cta-text">
-          <h3>Compare rates with<br>your coverage selections.</h3>
-          <p>Enter your ZIP on the main page to see which carriers are cheapest for your profile.</p>
+          <h3>See who's cheapest<br>for your coverage profile.</h3>
+          <p>Carriers ranked by likely rate for your state, adjusted for your coverage level.</p>
           <div class="bottom-cta-selections" id="ctaSelectionsSummary"></div>
+          <div class="bottom-zip-row">
+            <input type="text" id="bottomZipInput" class="bottom-zip-input" maxlength="5" inputmode="numeric" placeholder="ZIP" />
+            <a href="/" class="cta-btn" id="ctaBtn">Compare rates →</a>
+          </div>
         </div>
-        <a href="/" class="cta-btn" id="ctaBtn">Compare rates →</a>
       </div>
     </div>
 
@@ -569,6 +598,7 @@
   <div class="sticky-total-label">Est. annual cost</div>
   <div class="sticky-total-amount" id="stickyAmount">—</div>
   <div class="sticky-total-delta" id="stickyDelta"></div>
+  <a href="/" class="sticky-compare-link" id="stickyCompareLink">Compare rates →</a>
 </div>
 
 <script>
@@ -924,16 +954,23 @@ function updateCtaSummary() {
   const collLabel = CFG.collision.opts[sels.collision].label;
   const compLabel = CFG.comprehensive.opts[sels.comprehensive].label;
   const umLabel   = CFG.umUim.opts[sels.umUim].label;
-  const lines = [
-    'Liability: ' + liabLabel,
-    'Collision: ' + collLabel,
-    'Comprehensive: ' + compLabel,
-    'Uninsured motorist: ' + umLabel,
-  ];
-  document.getElementById('ctaSelectionsSummary').textContent = lines.join('  ·  ');
-  const cov = coverageTier();
-  document.getElementById('ctaBtn').href = '/?cov=' + cov;
+  document.getElementById('ctaSelectionsSummary').textContent =
+    'Liability: ' + liabLabel + '  ·  Collision: ' + collLabel + '  ·  Comp: ' + compLabel + '  ·  UM/UIM: ' + umLabel;
+  refreshCtaLink();
 }
+
+function refreshCtaLink() {
+  const bz  = document.getElementById('bottomZipInput');
+  const zip = (bz && /^\d{5}$/.test(bz.value)) ? bz.value : '';
+  const cov = coverageTier();
+  document.getElementById('ctaBtn').href = zip ? '/?zip=' + zip + '&cov=' + cov : '/?cov=' + cov;
+}
+
+// Bottom ZIP input updates the CTA link in real time
+document.getElementById('bottomZipInput').addEventListener('input', function() {
+  this.value = this.value.replace(/\D/g, '').substring(0, 5);
+  refreshCtaLink();
+});
 
 function onProfileChange() {
   recs = computeRecs();
@@ -978,12 +1015,21 @@ function applyZip(zip) {
     badge.textContent = state.name + ' · rates adjusted';
     badge.style.display = 'inline-block';
     hint.textContent = (state.avg > NATIONAL_AVG ? '↑' : '↓') + ' ' + state.name;
+    // Sticky compare link
+    const link = document.getElementById('stickyCompareLink');
+    link.href = '/?zip=' + zip;
+    link.textContent = 'Compare rates in ' + state.name + ' →';
+    link.style.display = 'block';
   } else {
     profile.stateMult = 1.0;
     profile.stateName = '';
     badge.style.display = 'none';
     hint.textContent = 'rates adjust by state';
+    document.getElementById('stickyCompareLink').style.display = 'none';
   }
+  // Sync bottom ZIP input
+  const bz = document.getElementById('bottomZipInput');
+  if (bz) bz.value = zip;
   onProfileChange();
 }
 
@@ -1013,13 +1059,6 @@ document.querySelectorAll('[data-q]').forEach(btn => {
     onProfileChange();
   });
 });
-
-// ── Sticky total (appears when summary bar scrolls out of view) ──
-const observer = new IntersectionObserver(
-  entries => document.getElementById('stickyTotal').classList.toggle('visible', !entries[0].isIntersecting),
-  { threshold: 0 }
-);
-observer.observe(document.getElementById('summaryBar'));
 
 // ── Init ─────────────────────────────────────────────────────
 updateTrack(document.getElementById('carValueSlider'));
