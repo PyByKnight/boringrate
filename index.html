@@ -85,6 +85,7 @@
   nav.primary { display: flex; gap: 28px; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
   nav.primary a { color: var(--ink-soft); text-decoration: none; text-transform: uppercase; transition: color 120ms; }
   nav.primary a:hover { color: var(--accent); }
+  nav.primary a.active { color: var(--ink); font-weight: 600; }
 
   /* ── HERO ────────────────────────────────────────────────── */
   .hero { padding: 56px 0 36px; text-align: center; border-bottom: 1px solid var(--rule); }
@@ -706,10 +707,9 @@
   <div class="wrap top-inner">
     <a href="index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
     <nav class="primary">
-      <a href="/coverage.html">Coverage Guide</a>
-      <a href="#guides">Guides</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="#about">About</a>
+      <a href="/" class="active">Rates</a>
+      <a href="/coverage.html">Coverage</a>
+      <a href="/methodology.html">Method</a>
     </nav>
     <div class="header-auth" id="headerAuth">
       <div id="headerAuthOut">
