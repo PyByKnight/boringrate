@@ -82,10 +82,14 @@
     border-radius: 2px;
     transform: translateY(-2px);
   }
-  nav.primary { display: flex; gap: 28px; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
-  nav.primary a { color: var(--ink-soft); text-decoration: none; text-transform: uppercase; transition: color 120ms; }
-  nav.primary a:hover { color: var(--accent); }
-  nav.primary a.active { color: var(--ink); font-weight: 600; }
+  nav.primary { display: flex; align-items: center; gap: 20px; }
+  .nav-tabs { display: flex; border: 1px solid var(--rule); }
+  .nav-tabs a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; padding: 6px 13px; border-right: 1px solid var(--rule); transition: all 120ms; white-space: nowrap; }
+  .nav-tabs a:last-child { border-right: none; }
+  .nav-tabs a.active { background: var(--ink); color: var(--paper); }
+  .nav-tabs a:not(.active):hover { color: var(--ink); background: var(--paper-deep); }
+  .nav-method { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; }
+  .nav-method:hover { color: var(--ink); }
 
   /* ── HERO ────────────────────────────────────────────────── */
   .hero { padding: 56px 0 36px; text-align: center; border-bottom: 1px solid var(--rule); }
@@ -227,30 +231,26 @@
     border-radius: 2px;
   }
 
-  .generic-banner {
+  .personalization-banner {
     display: none;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
     flex-wrap: wrap;
-    padding: 8px 14px;
+    padding: 8px 16px;
     background: var(--paper-deep);
     border: 1px solid var(--rule);
     border-bottom: none;
     font-family: var(--mono);
     font-size: 11px;
-    color: var(--ink-mute);
     letter-spacing: 0.05em;
-    margin-bottom: 0;
+    margin-top: 16px;
   }
-  .generic-banner.visible { display: flex; }
-  .generic-banner-cta {
-    color: var(--accent);
-    text-decoration: underline;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-  }
-  .generic-banner-cta:hover { opacity: 0.8; }
+  .personalization-banner.visible { display: flex; }
+  .personalization-banner.is-generic { color: var(--ink-mute); }
+  .personalization-banner.is-personalized { color: var(--ink-soft); }
+  .personalization-banner-cta { color: var(--accent); text-decoration: underline; letter-spacing: 0.04em; white-space: nowrap; flex-shrink: 0; }
+  .personalization-banner-cta:hover { opacity: 0.8; }
 
   /* ── REFINE BAR ────────────────────────────────────────── */
   .refine {
@@ -753,9 +753,11 @@
   <div class="wrap top-inner">
     <a href="index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
     <nav class="primary">
-      <a href="/" class="active">Rates</a>
-      <a href="/coverage.html">Coverage</a>
-      <a href="/methodology.html">Method</a>
+      <div class="nav-tabs">
+        <a href="/" class="active">Rate Comparison</a>
+        <a href="/coverage.html">Coverage Choices</a>
+      </div>
+      <a href="/methodology.html" class="nav-method">Method</a>
     </nav>
     <div class="header-auth" id="headerAuth">
       <div id="headerAuthOut">
@@ -809,12 +811,6 @@
       <span class="metro-pill" id="metroPill" style="display:none;"></span>
     </div>
     <div class="state-banner" id="stateBanner"></div>
-
-    <!-- Generic rates notice — shown when no profile refinements are active -->
-    <div class="generic-banner" id="genericBanner">
-      <span>Showing generic rates · no profile selected</span>
-      <a href="/coverage.html" class="generic-banner-cta">Personalize for You →</a>
-    </div>
 
     <!-- Refine bar -->
     <div class="refine" id="refineBar">
@@ -964,6 +960,9 @@
         </div>
       </div>
     </div>
+
+    <!-- Personalization status — always shown with results -->
+    <div class="personalization-banner" id="personalizationBanner"></div>
 
     <!-- Boring Rank header — shown above table when qualifiers exist -->
     <div class="boring-rank-header" id="boringRankHeader">
@@ -1625,29 +1624,37 @@ function saveProfile() {
   } catch(e) {}
 }
 
+function applyRefinementsToUI() {
+  document.querySelectorAll("#refineBar .pill-row").forEach(group => {
+    const val = refinement[group.dataset.q];
+    group.querySelectorAll(".pill").forEach(p => {
+      p.classList.toggle("active", val != null && p.dataset.v === val);
+    });
+  });
+  document.getElementById("currentlyInsured").checked = refinement.insured;
+  document.getElementById("srRequired").checked = refinement.srRequired;
+  document.getElementById("curCarrier").value = refinement.curCarrier || "";
+  ["covLiability", "covCollision", "covComp", "covUmUim", "covMedpay", "covGap"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && refinement[id] !== undefined) el.value = refinement[id];
+  });
+}
+
 function loadProfile() {
   try {
     const saved = JSON.parse(localStorage.getItem(PROFILE_KEY));
-    if (!saved || !/^\d{5}$/.test(saved.zip)) return;
+    if (!saved) return;
 
-    Object.assign(refinement, saved.refinement);
+    // Always restore refinements so they're ready when ZIP is entered
+    if (saved.refinement) {
+      Object.assign(refinement, saved.refinement);
+      applyRefinementsToUI();
+    }
+
+    if (!/^\d{5}$/.test(saved.zip)) return;
+
     document.getElementById("zipInput").value = saved.zip;
     stateData = lookupZip(saved.zip);
-
-    document.querySelectorAll("#refineBar .pill-row").forEach(group => {
-      const val = refinement[group.dataset.q];
-      group.querySelectorAll(".pill").forEach(p => {
-        p.classList.toggle("active", val != null && p.dataset.v === val);
-      });
-    });
-    document.getElementById("currentlyInsured").checked = refinement.insured;
-    document.getElementById("srRequired").checked = refinement.srRequired;
-    document.getElementById("curCarrier").value = refinement.curCarrier || "";
-    ["covLiability", "covCollision", "covComp", "covUmUim", "covMedpay", "covGap"].forEach(id => {
-      const el = document.getElementById(id);
-      if (el && refinement[id] !== undefined) el.value = refinement[id];
-    });
-
     renderRanking();
     document.getElementById("result").classList.add("active");
     const note = document.getElementById("profileRestored");
@@ -2573,7 +2580,22 @@ function renderRanking() {
   document.getElementById("rankTableState").textContent = metroPrefix + stateData.name + " · " + (isNonStandard() ? "Non-standard carriers" : "Major carriers") + " · Ranked by price";
 
   const isGeneric = !refinement.age && !refinement.vehicles && !refinement.own && !refinement.credit;
-  document.getElementById("genericBanner").classList.toggle("visible", isGeneric);
+  const pb = document.getElementById("personalizationBanner");
+  pb.classList.add("visible");
+  if (isGeneric) {
+    pb.className = "personalization-banner visible is-generic";
+    pb.innerHTML = '<span>Showing generic rates · no profile selected</span>'
+      + '<a href="/coverage.html" class="personalization-banner-cta">Personalize your coverage selections for more precise rates →</a>';
+  } else {
+    const parts = [];
+    if (refinement.age) parts.push(refinement.age);
+    if (refinement.vehicles) parts.push(refinement.vehicles + ' vehicle' + (refinement.vehicles === '2+' ? 's' : ''));
+    if (refinement.own) parts.push(refinement.own === 'own' ? 'homeowner' : 'renter');
+    if (refinement.credit) parts.push(refinement.credit + ' credit');
+    pb.className = "personalization-banner visible is-personalized";
+    pb.innerHTML = '<span>Rates personalized · ' + parts.join(' · ') + '</span>'
+      + '<a href="/coverage.html" class="personalization-banner-cta">Edit selections →</a>';
+  }
 
   const footNote = isNonStandard()
     ? "Showing non-standard carriers — specialized for lapsed coverage, SR-22, or high-risk profiles. Estimates are directional. Not a quote. <a href='methodology.html'>How we rank →</a>"
@@ -2706,6 +2728,14 @@ function applyTierPreset(tier) {
     refinement[id] = parseInt(e.target.value, 10);
     syncCoverageFromDetails();
     saveProfile();
+    // Sync to br_coverage so coverage.html picks up changes
+    try {
+      localStorage.setItem("br_coverage", JSON.stringify({
+        liability: refinement.covLiability, collision: refinement.covCollision,
+        comprehensive: refinement.covComp,  umUim: refinement.covUmUim,
+        medpay: refinement.covMedpay,       gap: refinement.covGap
+      }));
+    } catch(e2) {}
     renderRanking();
   });
 });
@@ -2746,27 +2776,22 @@ document.getElementById("zipInput").addEventListener("input", e => {
   const params = new URLSearchParams(window.location.search);
   const zip = (params.get("zip") || "").replace(/\D/g, "").substring(0, 5);
   const cov = params.get("cov");
-  if (cov && ["minimum", "standard", "premium", "personalized"].includes(cov)) {
-    refinement.coverage = cov;
-    applyTierPreset(cov);
-    document.querySelectorAll('.pill-row[data-q="coverage"] .pill').forEach(p => {
-      p.classList.toggle("active", p.dataset.v === cov);
-    });
-  }
   if (/^\d{5}$/.test(zip)) {
-    // Apply any saved refinements (age/vehicles/own/credit) from coverage.html profile
+    // Apply saved refinements first, then override with URL cov param if present
     try {
       const saved = JSON.parse(localStorage.getItem(PROFILE_KEY));
       if (saved && saved.refinement) {
         Object.assign(refinement, saved.refinement);
-        document.querySelectorAll("#refineBar .pill-row").forEach(group => {
-          const val = refinement[group.dataset.q];
-          group.querySelectorAll(".pill").forEach(p => {
-            p.classList.toggle("active", val != null && p.dataset.v === val);
-          });
-        });
+        applyRefinementsToUI();
       }
     } catch(e) {}
+    if (cov && ["minimum", "standard", "premium", "personalized"].includes(cov)) {
+      refinement.coverage = cov;
+      applyTierPreset(cov);
+      document.querySelectorAll('.pill-row[data-q="coverage"] .pill').forEach(p => {
+        p.classList.toggle("active", p.dataset.v === cov);
+      });
+    }
     document.getElementById("zipInput").value = zip;
     stateData = lookupZip(zip);
     lastOrder = [];

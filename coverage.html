@@ -75,9 +75,14 @@
     gap: 8px;
   }
   .brand-mark { display: inline-block; width: 10px; height: 10px; background: var(--accent); border-radius: 2px; transform: translateY(-2px); }
-  nav.primary { display: flex; gap: 28px; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
-  nav.primary a { color: var(--ink-soft); text-decoration: none; text-transform: uppercase; transition: color 120ms; }
-  nav.primary a:hover, nav.primary a.active { color: var(--accent); }
+  nav.primary { display: flex; align-items: center; gap: 20px; }
+  .nav-tabs { display: flex; border: 1px solid var(--rule); }
+  .nav-tabs a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; padding: 6px 13px; border-right: 1px solid var(--rule); transition: all 120ms; white-space: nowrap; }
+  .nav-tabs a:last-child { border-right: none; }
+  .nav-tabs a.active { background: var(--ink); color: var(--paper); }
+  .nav-tabs a:not(.active):hover { color: var(--ink); background: var(--paper-deep); }
+  .nav-method { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; }
+  .nav-method:hover { color: var(--ink); }
 
   /* ── Page header ── */
   .page-header { padding: 52px 0 38px; border-bottom: 1px solid var(--rule); }
@@ -302,19 +307,51 @@
   .sticky-compare-link {
     display: none;
     font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.08em;
+    font-size: 11px;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
+    font-weight: 600;
     color: var(--paper);
     text-decoration: none;
-    opacity: 0.65;
-    margin-top: 10px;
-    border-top: 1px solid rgba(246,241,232,0.15);
-    padding-top: 10px;
+    margin-top: 14px;
+    background: var(--accent);
+    padding: 10px 14px;
+    text-align: center;
+    transition: opacity 120ms;
+  }
+  .sticky-compare-link:hover { opacity: 0.85; }
+
+  /* ── CTA card at end of coverage cards ── */
+  .cov-cta-card {
+    border: 1px solid var(--rule);
+    border-top: 2px solid var(--ink);
+    background: var(--ink);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .cov-cta-left {}
+  .cov-cta-total-label { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(246,241,232,0.4); margin-bottom: 4px; }
+  .cov-cta-total-amt { font-family: var(--mono); font-size: 28px; font-weight: 600; letter-spacing: -0.02em; color: var(--paper); line-height: 1; }
+  .cov-cta-total-sub { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.35); margin-top: 4px; letter-spacing: 0.04em; }
+  .cov-cta-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: var(--accent);
+    color: var(--paper);
+    padding: 13px 22px;
+    text-decoration: none;
     transition: opacity 120ms;
     white-space: nowrap;
+    flex-shrink: 0;
   }
-  .sticky-compare-link:hover { opacity: 1; }
+  .cov-cta-btn:hover { opacity: 0.85; }
   .sticky-total-label { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(246,241,232,0.4); margin-bottom: 5px; }
   .sticky-total-amount { font-family: var(--mono); font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
   .sticky-total-delta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; margin-top: 6px; }
@@ -419,9 +456,11 @@
     <div class="top-inner">
       <a href="/" class="brand"><span class="brand-mark"></span>BoringRate</a>
       <nav class="primary">
-        <a href="/">Rates</a>
-        <a href="/coverage.html" class="active">Coverage</a>
-        <a href="/methodology.html">Method</a>
+        <div class="nav-tabs">
+          <a href="/">Rate Comparison</a>
+          <a href="/coverage.html" class="active">Coverage Choices</a>
+        </div>
+        <a href="/methodology.html" class="nav-method">Method</a>
       </nav>
     </div>
   </div>
@@ -983,6 +1022,7 @@ function renderSummary() {
   const amtText = '~' + money(totalSel) + '/yr';
   document.getElementById('summaryTotal').textContent = amtText;
   document.getElementById('stickyAmount').textContent = amtText;
+  refreshCovCtaCard();
 
   const deltaEl     = document.getElementById('summaryDelta');
   const stickyDelta = document.getElementById('stickyDelta');
@@ -1099,7 +1139,37 @@ function buildSliderSection(type, selIdx) {
     + '</div>';
 }
 
+function buildCtaCardHtml() {
+  const bz  = document.getElementById('bottomZipInput');
+  const zip = (bz && /^\d{5}$/.test(bz.value)) ? bz.value : '';
+  const cov = coverageTier();
+  const href = zip ? '/?zip=' + zip + '&cov=' + cov : '/?cov=' + cov;
+  const amt = '~' + money(totalEstimate()) + '/yr';
+  return '<div class="cov-cta-card" id="covCtaCard">'
+    + '<div class="cov-cta-left">'
+    + '<div class="cov-cta-total-label">Est. median annual premium</div>'
+    + '<div class="cov-cta-total-amt" id="covCtaAmt">' + amt + '</div>'
+    + '<div class="cov-cta-total-sub">for your coverage selections</div>'
+    + '</div>'
+    + '<a href="' + href + '" class="cov-cta-btn" id="covCtaBtn">Compare rates across carriers →</a>'
+    + '</div>';
+}
+
+function refreshCovCtaCard() {
+  const card = document.getElementById('covCtaCard');
+  if (!card) return;
+  const bz  = document.getElementById('bottomZipInput');
+  const zip = (bz && /^\d{5}$/.test(bz.value)) ? bz.value : '';
+  const cov = coverageTier();
+  const href = zip ? '/?zip=' + zip + '&cov=' + cov : '/?cov=' + cov;
+  const amtEl = document.getElementById('covCtaAmt');
+  if (amtEl) amtEl.textContent = '~' + money(totalEstimate()) + '/yr';
+  const btnEl = document.getElementById('covCtaBtn');
+  if (btnEl) btnEl.href = href;
+}
+
 function renderCards() {
+  const ctaCard = buildCtaCardHtml();
   document.getElementById('covCards').innerHTML = TYPES.map(type => {
     const cfg          = CFG[type];
     const sel          = sels[type];
@@ -1135,7 +1205,7 @@ function renderCards() {
       + sliderHtml
       + '<div class="cov-cost" id="cost-' + type + '">' + costLineFor(type, sel) + '</div>'
       + '</div>';
-  }).join('');
+  }).join('') + ctaCard;
 
   // Gray out sliders that are toggled off
   TYPES.forEach(type => {
@@ -1247,6 +1317,7 @@ function refreshCtaLink() {
   const zip = (bz && /^\d{5}$/.test(bz.value)) ? bz.value : '';
   const cov = coverageTier();
   document.getElementById('ctaBtn').href = zip ? '/?zip=' + zip + '&cov=' + cov : '/?cov=' + cov;
+  refreshCovCtaCard();
 }
 
 // Bottom ZIP input updates the CTA link in real time
