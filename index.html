@@ -712,6 +712,7 @@
   .state-teaser-hed { font-family: var(--serif); font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1.3; }
   .state-teaser-link { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--paper); background: var(--accent); text-decoration: none; padding: 9px 18px; white-space: nowrap; transition: background 120ms; flex-shrink: 0; }
   .state-teaser-link:hover { background: #8a1f0f; }
+  @media (max-width: 800px) {
     .refine-always { gap: 16px; }
     .refine-grid { grid-template-columns: 1fr 1fr; }
     .principles { grid-template-columns: 1fr; }
@@ -737,6 +738,7 @@
   }
   @media (max-width: 480px) {
     .nav-tabs { display: none; }
+    .personalization-banner-cta { display: none; }
     .refine-always { flex-direction: column; align-items: flex-start; }
     .refine-more-toggle { margin-left: 0; }
     .refine-grid { grid-template-columns: 1fr; }
