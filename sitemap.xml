@@ -66,4 +66,7 @@
   <url><loc>https://boringrate.com/article/carrier/progressive.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/state-farm.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/usaa.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/travelers.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/safeco.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/aaa.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

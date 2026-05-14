@@ -265,6 +265,7 @@
     gap: 24px;
     flex-wrap: wrap;
   }
+  .refine-pair { display: flex; align-items: flex-end; gap: 16px; }
   .refine-more-toggle {
     display: flex;
     align-items: center;
@@ -723,7 +724,7 @@
     .foot-grid { grid-template-columns: 1fr 1fr; }
     .nav-method { display: none; }
     .rank-row { grid-template-columns: 32px 1fr 28px auto; gap: 10px; padding: 14px 16px; align-items: center; }
-    .rank-cta { grid-column: 4; grid-row: 1 / 3; display: flex; align-items: center; padding-left: 6px; }
+    .rank-cta { grid-column: 4; grid-row: 1 / 3; display: flex; align-items: center; padding-left: 6px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
     .rank-name { font-size: 16px; }
     .rank-tag { font-size: 11px; }
     .rank-vs { grid-column: 2; grid-row: 2 / 3; text-align: left; font-size: 15px; margin-top: 4px; }
@@ -757,7 +758,18 @@
   .nav-mega-carriers a:last-child { border-bottom: none; }
   .nav-mega-carriers a:hover { color: var(--paper); }
   .nav-mega-tag { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.3); letter-spacing: 0.04em; }
-  @media (max-width: 800px) { .nav-mega { max-height: calc(100vh - 65px); overflow-y: auto; } .nav-mega-inner { grid-template-columns: 1fr; } .nav-mega-col + .nav-mega-col { border-left: none; border-top: 1px solid rgba(246,241,232,0.1); padding-left: 0; margin-top: 20px; padding-top: 20px; } .nav-mega-states { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 800px) {
+    .nav-mega { max-height: calc(100vh - 65px); overflow-y: auto; }
+    .nav-mega-inner { grid-template-columns: 1fr; padding: 0; }
+    .nav-mega-col { padding: 0; border-bottom: 1px solid rgba(246,241,232,0.1); }
+    .nav-mega-col + .nav-mega-col { border-left: none; margin-top: 0; padding-top: 0; }
+    .nav-mega-head { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; margin: 0; border-bottom: none; font-size: 11px; }
+    .nav-mega-col-arrow { font-size: 18px; color: rgba(246,241,232,0.4); transition: transform 200ms; display: inline-block; }
+    .nav-mega-col.open .nav-mega-col-arrow { transform: rotate(180deg); }
+    .nav-mega-col-body { display: none; padding: 0 20px 16px; }
+    .nav-mega-col.open .nav-mega-col-body { display: block; }
+    .nav-mega-states { grid-template-columns: repeat(3, 1fr); }
+  }
   @media (max-width: 480px) {
     .nav-tabs { display: none; }
     .personalization-banner-cta { display: none; }
@@ -867,7 +879,12 @@
   .compare-list.cons li::before { content: "✗"; position: absolute; left: 0; color: #e07060; font-size: 10px; top: 2px; }
   .compare-naic { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.3); margin-top: 8px; }
   @media (max-width: 800px) {
-    .rank-cb-label { display: none; }
+    .rank-cb-label { display: inline; }
+    .rank-cb { border: 1.5px solid var(--rule); border-radius: 5px; padding: 8px 10px; gap: 5px; }
+    .rank-cb.checked { background: var(--ink); border-color: var(--ink); }
+    .rank-cb.checked .rank-cb-label { color: var(--paper); }
+    .rank-cb.checked .rank-cb-box { background: transparent; border-color: rgba(246,241,232,0.4); color: var(--paper); }
+    .rank-cb-box { width: 13px; height: 13px; }
     .compare-cols { grid-template-columns: 1fr !important; }
     .compare-tray-inner { padding: 16px 16px 24px; }
     .compare-trigger { bottom: 16px; right: 16px; padding: 10px 14px; }
@@ -922,26 +939,33 @@
   <div class="nav-mega" id="navMega">
     <div class="nav-mega-inner">
       <div class="nav-mega-col">
-        <div class="nav-mega-head">State Research</div>
-        <div class="nav-mega-states">
-          <a href="/article/state/alabama.html">Alabama</a><a href="/article/state/alaska.html">Alaska</a><a href="/article/state/arizona.html">Arizona</a><a href="/article/state/arkansas.html">Arkansas</a><a href="/article/state/california.html">California</a><a href="/article/state/colorado.html">Colorado</a><a href="/article/state/connecticut.html">Connecticut</a><a href="/article/state/delaware.html">Delaware</a><a href="/article/state/florida.html">Florida</a><a href="/article/state/georgia.html">Georgia</a><a href="/article/state/hawaii.html">Hawaii</a><a href="/article/state/idaho.html">Idaho</a><a href="/article/state/illinois.html">Illinois</a><a href="/article/state/indiana.html">Indiana</a><a href="/article/state/iowa.html">Iowa</a><a href="/article/state/kansas.html">Kansas</a><a href="/article/state/kentucky.html">Kentucky</a><a href="/article/state/louisiana.html">Louisiana</a><a href="/article/state/maine.html">Maine</a><a href="/article/state/maryland.html">Maryland</a><a href="/article/state/massachusetts.html">Massachusetts</a><a href="/article/state/michigan.html">Michigan</a><a href="/article/state/minnesota.html">Minnesota</a><a href="/article/state/mississippi.html">Mississippi</a><a href="/article/state/missouri.html">Missouri</a><a href="/article/state/montana.html">Montana</a><a href="/article/state/nebraska.html">Nebraska</a><a href="/article/state/nevada.html">Nevada</a><a href="/article/state/new-hampshire.html">New Hampshire</a><a href="/article/state/new-jersey.html">New Jersey</a><a href="/article/state/new-mexico.html">New Mexico</a><a href="/article/state/new-york.html">New York</a><a href="/article/state/north-carolina.html">North Carolina</a><a href="/article/state/north-dakota.html">North Dakota</a><a href="/article/state/ohio.html">Ohio</a><a href="/article/state/oklahoma.html">Oklahoma</a><a href="/article/state/oregon.html">Oregon</a><a href="/article/state/pennsylvania.html">Pennsylvania</a><a href="/article/state/rhode-island.html">Rhode Island</a><a href="/article/state/south-carolina.html">South Carolina</a><a href="/article/state/south-dakota.html">South Dakota</a><a href="/article/state/tennessee.html">Tennessee</a><a href="/article/state/texas.html">Texas</a><a href="/article/state/utah.html">Utah</a><a href="/article/state/vermont.html">Vermont</a><a href="/article/state/virginia.html">Virginia</a><a href="/article/state/washington.html">Washington</a><a href="/article/state/washington-dc.html">Washington D.C.</a><a href="/article/state/west-virginia.html">West Virginia</a><a href="/article/state/wisconsin.html">Wisconsin</a><a href="/article/state/wyoming.html">Wyoming</a>
+        <div class="nav-mega-head" data-mega-toggle>State Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
+          <div class="nav-mega-states">
+            <a href="/article/state/alabama.html">Alabama</a><a href="/article/state/alaska.html">Alaska</a><a href="/article/state/arizona.html">Arizona</a><a href="/article/state/arkansas.html">Arkansas</a><a href="/article/state/california.html">California</a><a href="/article/state/colorado.html">Colorado</a><a href="/article/state/connecticut.html">Connecticut</a><a href="/article/state/delaware.html">Delaware</a><a href="/article/state/florida.html">Florida</a><a href="/article/state/georgia.html">Georgia</a><a href="/article/state/hawaii.html">Hawaii</a><a href="/article/state/idaho.html">Idaho</a><a href="/article/state/illinois.html">Illinois</a><a href="/article/state/indiana.html">Indiana</a><a href="/article/state/iowa.html">Iowa</a><a href="/article/state/kansas.html">Kansas</a><a href="/article/state/kentucky.html">Kentucky</a><a href="/article/state/louisiana.html">Louisiana</a><a href="/article/state/maine.html">Maine</a><a href="/article/state/maryland.html">Maryland</a><a href="/article/state/massachusetts.html">Massachusetts</a><a href="/article/state/michigan.html">Michigan</a><a href="/article/state/minnesota.html">Minnesota</a><a href="/article/state/mississippi.html">Mississippi</a><a href="/article/state/missouri.html">Missouri</a><a href="/article/state/montana.html">Montana</a><a href="/article/state/nebraska.html">Nebraska</a><a href="/article/state/nevada.html">Nevada</a><a href="/article/state/new-hampshire.html">New Hampshire</a><a href="/article/state/new-jersey.html">New Jersey</a><a href="/article/state/new-mexico.html">New Mexico</a><a href="/article/state/new-york.html">New York</a><a href="/article/state/north-carolina.html">North Carolina</a><a href="/article/state/north-dakota.html">North Dakota</a><a href="/article/state/ohio.html">Ohio</a><a href="/article/state/oklahoma.html">Oklahoma</a><a href="/article/state/oregon.html">Oregon</a><a href="/article/state/pennsylvania.html">Pennsylvania</a><a href="/article/state/rhode-island.html">Rhode Island</a><a href="/article/state/south-carolina.html">South Carolina</a><a href="/article/state/south-dakota.html">South Dakota</a><a href="/article/state/tennessee.html">Tennessee</a><a href="/article/state/texas.html">Texas</a><a href="/article/state/utah.html">Utah</a><a href="/article/state/vermont.html">Vermont</a><a href="/article/state/virginia.html">Virginia</a><a href="/article/state/washington.html">Washington</a><a href="/article/state/washington-dc.html">Washington D.C.</a><a href="/article/state/west-virginia.html">West Virginia</a><a href="/article/state/wisconsin.html">Wisconsin</a><a href="/article/state/wyoming.html">Wyoming</a>
+          </div>
         </div>
       </div>
       <div class="nav-mega-col">
-        <div class="nav-mega-head">Carrier Research</div>
-        <div class="nav-mega-carriers">
-          <a href="/article/carrier/usaa.html">USAA <span class="nav-mega-tag">Military &amp; family</span></a>
-          <a href="/article/carrier/geico.html">GEICO <span class="nav-mega-tag">Online shoppers</span></a>
-          <a href="/article/carrier/state-farm.html">State Farm <span class="nav-mega-tag">Local agents</span></a>
-          <a href="/article/carrier/progressive.html">Progressive <span class="nav-mega-tag">High-risk</span></a>
-          <a href="/article/carrier/allstate.html">Allstate <span class="nav-mega-tag">Accident forgiveness</span></a>
-          <a href="/article/carrier/liberty-mutual.html">Liberty Mutual <span class="nav-mega-tag">New car replacement</span></a>
-          <a href="/article/carrier/farmers.html">Farmers <span class="nav-mega-tag">Full-service agents</span></a>
-          <a href="/article/carrier/nationwide.html">Nationwide <span class="nav-mega-tag">Vanishing deductible</span></a>
-          <a href="/article/carrier/erie.html">Erie <span class="nav-mega-tag">Mid-Atlantic &amp; Midwest</span></a>
-          <a href="/article/carrier/american-family.html">American Family <span class="nav-mega-tag">Midwest families</span></a>
-          <a href="/article/carrier/amica.html">Amica <span class="nav-mega-tag">Claims service</span></a>
-          <a href="/article/carrier/auto-owners.html">Auto-Owners <span class="nav-mega-tag">26-state agent</span></a>
+        <div class="nav-mega-head" data-mega-toggle>Carrier Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
+          <div class="nav-mega-carriers">
+            <a href="/article/carrier/usaa.html">USAA <span class="nav-mega-tag">Military &amp; family</span></a>
+            <a href="/article/carrier/geico.html">GEICO <span class="nav-mega-tag">Online shoppers</span></a>
+            <a href="/article/carrier/state-farm.html">State Farm <span class="nav-mega-tag">Local agents</span></a>
+            <a href="/article/carrier/progressive.html">Progressive <span class="nav-mega-tag">High-risk</span></a>
+            <a href="/article/carrier/allstate.html">Allstate <span class="nav-mega-tag">Accident forgiveness</span></a>
+            <a href="/article/carrier/liberty-mutual.html">Liberty Mutual <span class="nav-mega-tag">New car replacement</span></a>
+            <a href="/article/carrier/farmers.html">Farmers <span class="nav-mega-tag">Full-service agents</span></a>
+            <a href="/article/carrier/nationwide.html">Nationwide <span class="nav-mega-tag">Vanishing deductible</span></a>
+            <a href="/article/carrier/erie.html">Erie <span class="nav-mega-tag">Mid-Atlantic &amp; Midwest</span></a>
+            <a href="/article/carrier/american-family.html">American Family <span class="nav-mega-tag">Midwest families</span></a>
+            <a href="/article/carrier/amica.html">Amica <span class="nav-mega-tag">Claims service</span></a>
+            <a href="/article/carrier/auto-owners.html">Auto-Owners <span class="nav-mega-tag">26-state agent</span></a>
+            <a href="/article/carrier/travelers.html">Travelers <span class="nav-mega-tag">Homeowner bundles</span></a>
+            <a href="/article/carrier/safeco.html">Safeco <span class="nav-mega-tag">Independent agents</span></a>
+            <a href="/article/carrier/aaa.html">AAA / CSAA <span class="nav-mega-tag">Members &amp; roadside</span></a>
+          </div>
         </div>
       </div>
     </div>
@@ -982,18 +1006,20 @@
     <!-- Refine bar -->
     <div class="refine" id="refineBar">
       <div class="refine-always">
-        <div class="refine-q">
-          <label>Home</label>
-          <div class="pill-row" data-q="own" data-toggle>
-            <button type="button" class="pill" data-v="own">Own</button>
-            <button type="button" class="pill" data-v="rent">Rent</button>
+        <div class="refine-pair">
+          <div class="refine-q">
+            <label>Home</label>
+            <div class="pill-row" data-q="own" data-toggle>
+              <button type="button" class="pill" data-v="own">Own</button>
+              <button type="button" class="pill" data-v="rent">Rent</button>
+            </div>
           </div>
-        </div>
-        <div class="refine-q">
-          <label>Vehicles</label>
-          <div class="pill-row" data-q="vehicles" data-toggle>
-            <button type="button" class="pill" data-v="1">1</button>
-            <button type="button" class="pill" data-v="2+">2+</button>
+          <div class="refine-q">
+            <label>Vehicles</label>
+            <div class="pill-row" data-q="vehicles" data-toggle>
+              <button type="button" class="pill" data-v="1">1</button>
+              <button type="button" class="pill" data-v="2+">2+</button>
+            </div>
           </div>
         </div>
         <div class="refine-q">
@@ -1013,13 +1039,6 @@
             <button type="button" class="pill" data-v="fair">Fair</button>
           </div>
         </div>
-        <div class="refine-q">
-          <label>Insurance status</label>
-          <div class="check-row">
-            <input type="checkbox" id="currentlyInsured" checked />
-            <span>Currently insured</span>
-          </div>
-        </div>
         <div class="refine-more-toggle" id="refineMoreToggle">
           <span class="refine-toggle-label">Edit Coverage Choices <span style="font-weight:400;opacity:0.6;">(Default Selected)</span></span>
           <span class="refine-more-arrow" id="refineMoreIcon">&#8964;</span>
@@ -1027,6 +1046,13 @@
       </div>
       <div class="refine-more-body" id="refineMoreBody">
         <div class="refine-grid">
+          <div class="refine-q">
+            <label>Insurance status</label>
+            <div class="check-row">
+              <input type="checkbox" id="currentlyInsured" checked />
+              <span>Currently insured</span>
+            </div>
+          </div>
           <div class="refine-q">
             <label>Current carrier</label>
             <select id="curCarrier">
@@ -1663,6 +1689,50 @@ const ZIP_PREFIX_METRO = {
   "370":"nas","371":"nas","372":"nas","373":"nas","374":"nas",
   // Milwaukee metro
   "530":"mke","531":"mke","532":"mke","534":"mke","535":"mke",
+  // Austin metro
+  "786":"aus","787":"aus",
+  // Raleigh-Durham metro
+  "275":"ral","276":"ral","277":"ral",
+  // Jacksonville metro
+  "320":"jax","321":"jax","322":"jax","323":"jax",
+  // Kansas City metro (MO + KS)
+  "640":"kc","641":"kc","660":"kc","661":"kc","662":"kc","664":"kc","665":"kc","666":"kc",
+  // Hartford metro
+  "060":"har","061":"har","062":"har","063":"har","064":"har","065":"har","066":"har",
+  // Louisville metro
+  "400":"lou","401":"lou","402":"lou","403":"lou","404":"lou",
+  // Memphis metro
+  "380":"mem","381":"mem","382":"mem","383":"mem","384":"mem",
+  // Buffalo metro
+  "140":"buf","141":"buf","142":"buf","143":"buf",
+  // Oklahoma City metro
+  "730":"okc","731":"okc","732":"okc","733":"okc","734":"okc","735":"okc",
+  // New Orleans metro
+  "700":"nor","701":"nor","702":"nor","703":"nor","704":"nor",
+  // Albuquerque metro
+  "870":"abq","871":"abq","872":"abq","873":"abq","874":"abq",
+  // Richmond metro
+  "230":"ric","231":"ric","232":"ric","233":"ric","234":"ric",
+  // Tucson metro
+  "856":"tuc","857":"tuc",
+  // El Paso metro
+  "799":"elp",
+  // Baton Rouge metro
+  "707":"bat","708":"bat","709":"bat",
+  // Fresno metro
+  "936":"fre","937":"fre","938":"fre","939":"fre",
+  // Omaha metro
+  "680":"oma","681":"oma","682":"oma","683":"oma","684":"oma","685":"oma",
+  // Tulsa metro
+  "740":"tul","741":"tul","742":"tul","743":"tul","744":"tul",
+  // Knoxville metro
+  "375":"knx","376":"knx","377":"knx","378":"knx","379":"knx",
+  // Bakersfield metro
+  "932":"bak","933":"bak","934":"bak","935":"bak",
+  // Honolulu metro
+  "967":"hon","968":"hon",
+  // Greenville-Spartanburg metro
+  "293":"grv","294":"grv","295":"grv","296":"grv",
 };
 
 const METRO_NAMES = {
@@ -1696,41 +1766,85 @@ const METRO_NAMES = {
   slc: "Salt Lake City metro",
   nas: "Nashville metro",
   mke: "Milwaukee metro",
+  aus: "Austin metro",
+  ral: "Raleigh-Durham metro",
+  jax: "Jacksonville metro",
+  kc:  "Kansas City metro",
+  har: "Hartford metro",
+  lou: "Louisville metro",
+  mem: "Memphis metro",
+  buf: "Buffalo metro",
+  okc: "Oklahoma City metro",
+  nor: "New Orleans metro",
+  abq: "Albuquerque metro",
+  ric: "Richmond metro",
+  tuc: "Tucson metro",
+  elp: "El Paso metro",
+  bat: "Baton Rouge metro",
+  fre: "Fresno metro",
+  oma: "Omaha metro",
+  tul: "Tulsa metro",
+  knx: "Knoxville metro",
+  bak: "Bakersfield metro",
+  hon: "Honolulu metro",
+  grv: "Greenville metro",
 };
 
 // Additional multiplier on top of state adjustment — metro rates vs. rest of state.
 // Calibrated from NAIC market data and rate filing patterns.
 const METRO_CARRIER_ADJ = {
-  nyc: { "USAA":1.38,"GEICO":1.30,"State Farm":1.40,"Progressive":1.35,"Allstate":1.42,"Liberty Mutual":1.46,"Farmers":1.42,"Nationwide":1.38 },
-  la:  { "USAA":1.22,"GEICO":1.20,"State Farm":1.18,"Progressive":1.25,"Allstate":1.28,"Liberty Mutual":1.30,"Farmers":1.16,"Nationwide":1.22 },
-  chi: { "USAA":1.28,"GEICO":1.26,"State Farm":1.20,"Progressive":1.28,"Allstate":1.22,"Liberty Mutual":1.32,"Farmers":1.28,"Nationwide":1.26 },
-  dfw: { "USAA":1.05,"GEICO":1.06,"State Farm":1.08,"Progressive":1.10,"Allstate":1.10,"Liberty Mutual":1.12,"Farmers":1.08,"Nationwide":1.08 },
-  hou: { "USAA":1.12,"GEICO":1.12,"State Farm":1.14,"Progressive":1.16,"Allstate":1.16,"Liberty Mutual":1.18,"Farmers":1.14,"Nationwide":1.14 },
-  dc:  { "USAA":1.18,"GEICO":1.14,"State Farm":1.20,"Progressive":1.20,"Allstate":1.22,"Liberty Mutual":1.24,"Farmers":1.22,"Nationwide":1.18 },
-  mia: { "USAA":1.30,"GEICO":1.28,"State Farm":1.32,"Progressive":1.35,"Allstate":1.38,"Liberty Mutual":1.42,"Farmers":1.35,"Nationwide":1.34 },
-  phl: { "USAA":1.22,"GEICO":1.20,"State Farm":1.24,"Progressive":1.24,"Allstate":1.26,"Liberty Mutual":1.28,"Farmers":1.26,"Nationwide":1.24 },
-  atl: { "USAA":1.12,"GEICO":1.12,"State Farm":1.14,"Progressive":1.16,"Allstate":1.16,"Liberty Mutual":1.18,"Farmers":1.16,"Nationwide":1.14 },
-  phx: { "USAA":1.08,"GEICO":1.08,"State Farm":1.10,"Progressive":1.12,"Allstate":1.12,"Liberty Mutual":1.14,"Farmers":1.10,"Nationwide":1.10 },
-  sea: { "GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.07,"Nationwide":1.05,"USAA":1.03 },
-  den: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.06,"Nationwide":1.04,"USAA":1.02 },
-  min: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.05,"Nationwide":1.03,"USAA":1.01 },
-  det: { "GEICO":1.18,"State Farm":1.20,"Progressive":1.15,"Allstate":1.22,"Liberty Mutual":1.25,"Farmers":1.16,"Nationwide":1.14,"USAA":1.12 },
-  tam: { "GEICO":1.07,"State Farm":1.09,"Progressive":1.08,"Allstate":1.11,"Liberty Mutual":1.13,"Farmers":1.08,"Nationwide":1.06,"USAA":1.05 },
-  clt: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"USAA":1.02 },
-  por: { "GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.07,"Nationwide":1.05,"USAA":1.03 },
-  stl: { "GEICO":1.05,"State Farm":1.07,"Progressive":1.06,"Allstate":1.09,"Liberty Mutual":1.11,"Farmers":1.07,"Nationwide":1.05,"USAA":1.03 },
-  san: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.04,"Nationwide":1.03,"USAA":1.01 },
-  sac: { "GEICO":1.06,"State Farm":1.08,"Progressive":1.07,"Allstate":1.10,"Liberty Mutual":1.12,"Farmers":1.09,"Nationwide":1.06,"USAA":1.04 },
-  bal: { "GEICO":1.08,"State Farm":1.10,"Progressive":1.09,"Allstate":1.12,"Liberty Mutual":1.14,"Farmers":1.09,"Nationwide":1.07,"USAA":1.05 },
-  ors: { "GEICO":1.06,"State Farm":1.08,"Progressive":1.07,"Allstate":1.10,"Liberty Mutual":1.12,"Farmers":1.08,"Nationwide":1.06,"USAA":1.04 },
-  cin: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"USAA":1.02 },
-  pit: { "GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.06,"Nationwide":1.05,"USAA":1.03 },
-  cle: { "GEICO":1.05,"State Farm":1.07,"Progressive":1.06,"Allstate":1.09,"Liberty Mutual":1.11,"Farmers":1.07,"Nationwide":1.06,"USAA":1.03 },
-  ind: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.04,"Nationwide":1.03,"USAA":1.01 },
-  col: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"USAA":1.02 },
-  slc: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.05,"Nationwide":1.03,"USAA":1.01 },
-  nas: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.06,"Nationwide":1.04,"USAA":1.02 },
-  mke: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"USAA":1.02 },
+  nyc: { "USAA":1.38,"GEICO":1.30,"State Farm":1.40,"Progressive":1.35,"Allstate":1.42,"Liberty Mutual":1.46,"Farmers":1.42,"Nationwide":1.38,"Erie Insurance":1.28,"American Family":1.32,"Amica Mutual":1.26,"Auto-Owners":1.30 },
+  la:  { "USAA":1.22,"GEICO":1.20,"State Farm":1.18,"Progressive":1.25,"Allstate":1.28,"Liberty Mutual":1.30,"Farmers":1.16,"Nationwide":1.22,"Erie Insurance":1.14,"American Family":1.18,"Amica Mutual":1.16,"Auto-Owners":1.16 },
+  chi: { "USAA":1.28,"GEICO":1.26,"State Farm":1.20,"Progressive":1.28,"Allstate":1.22,"Liberty Mutual":1.32,"Farmers":1.28,"Nationwide":1.26,"Erie Insurance":1.18,"American Family":1.22,"Amica Mutual":1.20,"Auto-Owners":1.20 },
+  dfw: { "USAA":1.05,"GEICO":1.06,"State Farm":1.08,"Progressive":1.10,"Allstate":1.10,"Liberty Mutual":1.12,"Farmers":1.08,"Nationwide":1.08,"Erie Insurance":1.04,"American Family":1.06,"Amica Mutual":1.05,"Auto-Owners":1.05 },
+  hou: { "USAA":1.12,"GEICO":1.12,"State Farm":1.14,"Progressive":1.16,"Allstate":1.16,"Liberty Mutual":1.18,"Farmers":1.14,"Nationwide":1.14,"Erie Insurance":1.08,"American Family":1.10,"Amica Mutual":1.10,"Auto-Owners":1.10 },
+  dc:  { "USAA":1.18,"GEICO":1.14,"State Farm":1.20,"Progressive":1.20,"Allstate":1.22,"Liberty Mutual":1.24,"Farmers":1.22,"Nationwide":1.18,"Erie Insurance":1.14,"American Family":1.15,"Amica Mutual":1.14,"Auto-Owners":1.15 },
+  mia: { "USAA":1.30,"GEICO":1.28,"State Farm":1.32,"Progressive":1.35,"Allstate":1.38,"Liberty Mutual":1.42,"Farmers":1.35,"Nationwide":1.34,"Erie Insurance":1.22,"American Family":1.24,"Amica Mutual":1.24,"Auto-Owners":1.24 },
+  phl: { "USAA":1.22,"GEICO":1.20,"State Farm":1.24,"Progressive":1.24,"Allstate":1.26,"Liberty Mutual":1.28,"Farmers":1.26,"Nationwide":1.24,"Erie Insurance":1.16,"American Family":1.18,"Amica Mutual":1.18,"Auto-Owners":1.18 },
+  atl: { "USAA":1.12,"GEICO":1.12,"State Farm":1.14,"Progressive":1.16,"Allstate":1.16,"Liberty Mutual":1.18,"Farmers":1.16,"Nationwide":1.14,"Erie Insurance":1.08,"American Family":1.10,"Amica Mutual":1.10,"Auto-Owners":1.10 },
+  phx: { "USAA":1.08,"GEICO":1.08,"State Farm":1.10,"Progressive":1.12,"Allstate":1.12,"Liberty Mutual":1.14,"Farmers":1.10,"Nationwide":1.10,"Erie Insurance":1.05,"American Family":1.08,"Amica Mutual":1.07,"Auto-Owners":1.07 },
+  sea: { "GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.07,"Nationwide":1.05,"USAA":1.03,"Erie Insurance":1.03,"American Family":1.05,"Amica Mutual":1.04,"Auto-Owners":1.04 },
+  den: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.06,"Nationwide":1.04,"USAA":1.02,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.03 },
+  min: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.05,"Nationwide":1.03,"USAA":1.01,"Erie Insurance":1.02,"American Family":1.03,"Amica Mutual":1.03,"Auto-Owners":1.02 },
+  det: { "GEICO":1.18,"State Farm":1.20,"Progressive":1.15,"Allstate":1.22,"Liberty Mutual":1.25,"Farmers":1.16,"Nationwide":1.14,"USAA":1.12,"Erie Insurance":1.12,"American Family":1.14,"Amica Mutual":1.14,"Auto-Owners":1.14 },
+  tam: { "GEICO":1.07,"State Farm":1.09,"Progressive":1.08,"Allstate":1.11,"Liberty Mutual":1.13,"Farmers":1.08,"Nationwide":1.06,"USAA":1.05,"Erie Insurance":1.05,"American Family":1.06,"Amica Mutual":1.06,"Auto-Owners":1.07 },
+  clt: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"USAA":1.02,"Erie Insurance":1.03,"American Family":1.03,"Amica Mutual":1.04,"Auto-Owners":1.03 },
+  por: { "GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.07,"Nationwide":1.05,"USAA":1.03,"Erie Insurance":1.03,"American Family":1.05,"Amica Mutual":1.04,"Auto-Owners":1.04 },
+  stl: { "GEICO":1.05,"State Farm":1.07,"Progressive":1.06,"Allstate":1.09,"Liberty Mutual":1.11,"Farmers":1.07,"Nationwide":1.05,"USAA":1.03,"Erie Insurance":1.05,"American Family":1.06,"Amica Mutual":1.05,"Auto-Owners":1.05 },
+  san: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.04,"Nationwide":1.03,"USAA":1.01,"Erie Insurance":1.01,"American Family":1.03,"Amica Mutual":1.02,"Auto-Owners":1.02 },
+  sac: { "GEICO":1.06,"State Farm":1.08,"Progressive":1.07,"Allstate":1.10,"Liberty Mutual":1.12,"Farmers":1.09,"Nationwide":1.06,"USAA":1.04,"Erie Insurance":1.03,"American Family":1.05,"Amica Mutual":1.05,"Auto-Owners":1.04 },
+  bal: { "GEICO":1.08,"State Farm":1.10,"Progressive":1.09,"Allstate":1.12,"Liberty Mutual":1.14,"Farmers":1.09,"Nationwide":1.07,"USAA":1.05,"Erie Insurance":1.08,"American Family":1.08,"Amica Mutual":1.08,"Auto-Owners":1.08 },
+  ors: { "GEICO":1.06,"State Farm":1.08,"Progressive":1.07,"Allstate":1.10,"Liberty Mutual":1.12,"Farmers":1.08,"Nationwide":1.06,"USAA":1.04,"Erie Insurance":1.04,"American Family":1.05,"Amica Mutual":1.05,"Auto-Owners":1.05 },
+  cin: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"USAA":1.02,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.03 },
+  pit: { "GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.06,"Nationwide":1.05,"USAA":1.03,"Erie Insurance":1.02,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.04 },
+  cle: { "GEICO":1.05,"State Farm":1.07,"Progressive":1.06,"Allstate":1.09,"Liberty Mutual":1.11,"Farmers":1.07,"Nationwide":1.06,"USAA":1.03,"Erie Insurance":1.04,"American Family":1.05,"Amica Mutual":1.05,"Auto-Owners":1.05 },
+  ind: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.04,"Nationwide":1.03,"USAA":1.01,"Erie Insurance":1.02,"American Family":1.03,"Amica Mutual":1.03,"Auto-Owners":1.02 },
+  col: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"USAA":1.02,"Erie Insurance":1.02,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.03 },
+  slc: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.05,"Nationwide":1.03,"USAA":1.01,"Erie Insurance":1.02,"American Family":1.03,"Amica Mutual":1.03,"Auto-Owners":1.03 },
+  nas: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.06,"Nationwide":1.04,"USAA":1.02,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.04 },
+  mke: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"USAA":1.02,"Erie Insurance":1.04,"American Family":1.05,"Amica Mutual":1.04,"Auto-Owners":1.04 },
+  aus: { "USAA":1.08,"GEICO":1.08,"State Farm":1.12,"Progressive":1.10,"Allstate":1.13,"Liberty Mutual":1.15,"Farmers":1.10,"Nationwide":1.10,"Erie Insurance":1.06,"American Family":1.08,"Amica Mutual":1.08,"Auto-Owners":1.07 },
+  ral: { "USAA":1.04,"GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.06,"Nationwide":1.05,"Erie Insurance":1.04,"American Family":1.04,"Amica Mutual":1.05,"Auto-Owners":1.04 },
+  jax: { "USAA":1.10,"GEICO":1.10,"State Farm":1.12,"Progressive":1.14,"Allstate":1.16,"Liberty Mutual":1.18,"Farmers":1.11,"Nationwide":1.10,"Erie Insurance":1.07,"American Family":1.08,"Amica Mutual":1.09,"Auto-Owners":1.10 },
+  kc:  { "USAA":1.05,"GEICO":1.05,"State Farm":1.07,"Progressive":1.06,"Allstate":1.09,"Liberty Mutual":1.11,"Farmers":1.07,"Nationwide":1.06,"Erie Insurance":1.04,"American Family":1.05,"Amica Mutual":1.05,"Auto-Owners":1.04 },
+  har: { "USAA":1.14,"GEICO":1.12,"State Farm":1.16,"Progressive":1.15,"Allstate":1.18,"Liberty Mutual":1.20,"Farmers":1.14,"Nationwide":1.13,"Erie Insurance":1.11,"American Family":1.12,"Amica Mutual":1.08,"Auto-Owners":1.12 },
+  lou: { "USAA":1.03,"GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.05,"Nationwide":1.04,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.03 },
+  mem: { "USAA":1.08,"GEICO":1.09,"State Farm":1.11,"Progressive":1.10,"Allstate":1.13,"Liberty Mutual":1.14,"Farmers":1.10,"Nationwide":1.09,"Erie Insurance":1.07,"American Family":1.08,"Amica Mutual":1.08,"Auto-Owners":1.07 },
+  buf: { "USAA":1.11,"GEICO":1.10,"State Farm":1.14,"Progressive":1.12,"Allstate":1.15,"Liberty Mutual":1.18,"Farmers":1.14,"Nationwide":1.12,"Erie Insurance":1.08,"American Family":1.10,"Amica Mutual":1.10,"Auto-Owners":1.09 },
+  okc: { "USAA":1.09,"GEICO":1.09,"State Farm":1.11,"Progressive":1.10,"Allstate":1.13,"Liberty Mutual":1.15,"Farmers":1.11,"Nationwide":1.10,"Erie Insurance":1.07,"American Family":1.09,"Amica Mutual":1.08,"Auto-Owners":1.08 },
+  nor: { "USAA":1.22,"GEICO":1.20,"State Farm":1.24,"Progressive":1.26,"Allstate":1.28,"Liberty Mutual":1.32,"Farmers":1.24,"Nationwide":1.22,"Erie Insurance":1.16,"American Family":1.18,"Amica Mutual":1.18,"Auto-Owners":1.18 },
+  abq: { "USAA":1.04,"GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.04 },
+  ric: { "USAA":1.05,"GEICO":1.05,"State Farm":1.07,"Progressive":1.06,"Allstate":1.09,"Liberty Mutual":1.11,"Farmers":1.07,"Nationwide":1.06,"Erie Insurance":1.04,"American Family":1.05,"Amica Mutual":1.05,"Auto-Owners":1.04 },
+  tuc: { "USAA":1.04,"GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.04 },
+  elp: { "USAA":1.04,"GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.04 },
+  bat: { "USAA":1.16,"GEICO":1.14,"State Farm":1.18,"Progressive":1.20,"Allstate":1.22,"Liberty Mutual":1.26,"Farmers":1.18,"Nationwide":1.16,"Erie Insurance":1.12,"American Family":1.14,"Amica Mutual":1.14,"Auto-Owners":1.13 },
+  fre: { "USAA":1.10,"GEICO":1.10,"State Farm":1.12,"Progressive":1.13,"Allstate":1.15,"Liberty Mutual":1.17,"Farmers":1.12,"Nationwide":1.11,"Erie Insurance":1.08,"American Family":1.09,"Amica Mutual":1.09,"Auto-Owners":1.08 },
+  oma: { "USAA":1.03,"GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"Erie Insurance":1.03,"American Family":1.03,"Amica Mutual":1.04,"Auto-Owners":1.03 },
+  tul: { "USAA":1.07,"GEICO":1.07,"State Farm":1.09,"Progressive":1.08,"Allstate":1.11,"Liberty Mutual":1.13,"Farmers":1.09,"Nationwide":1.08,"Erie Insurance":1.06,"American Family":1.07,"Amica Mutual":1.07,"Auto-Owners":1.06 },
+  knx: { "USAA":1.03,"GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"Erie Insurance":1.03,"American Family":1.03,"Amica Mutual":1.04,"Auto-Owners":1.03 },
+  bak: { "USAA":1.09,"GEICO":1.09,"State Farm":1.11,"Progressive":1.12,"Allstate":1.14,"Liberty Mutual":1.16,"Farmers":1.11,"Nationwide":1.10,"Erie Insurance":1.07,"American Family":1.08,"Amica Mutual":1.08,"Auto-Owners":1.07 },
+  hon: { "USAA":1.06,"GEICO":1.06,"State Farm":1.08,"Progressive":1.07,"Allstate":1.09,"Liberty Mutual":1.11,"Farmers":1.08,"Nationwide":1.07,"Erie Insurance":1.05,"American Family":1.05,"Amica Mutual":1.06,"Auto-Owners":1.05 },
+  grv: { "USAA":1.03,"GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.04 },
 };
 
 // State-specific banners — shown below the ZIP result for matching states
@@ -2217,6 +2331,9 @@ const CARRIER_RESEARCH_LINKS = {
   "American Family":  "/article/carrier/american-family.html",
   "Amica Mutual":     "/article/carrier/amica.html",
   "Auto-Owners":      "/article/carrier/auto-owners.html",
+  "Travelers":        "/article/carrier/travelers.html",
+  "Safeco":           "/article/carrier/safeco.html",
+  "AAA / CSAA":       "/article/carrier/aaa.html",
 };
 
 const CARRIER_CONS = {
@@ -3139,13 +3256,21 @@ document.getElementById("zipInput").addEventListener("input", e => {
     mega.classList.toggle("open", open);
     btn.classList.toggle("open", open);
     btn.setAttribute("aria-expanded", String(open));
+    if (!open) mega.querySelectorAll(".nav-mega-col").forEach(c => c.classList.remove("open"));
   });
   document.addEventListener("click", function(e) {
     if (!btn.contains(e.target) && !mega.contains(e.target)) {
       mega.classList.remove("open");
       btn.classList.remove("open");
       btn.setAttribute("aria-expanded", "false");
+      mega.querySelectorAll(".nav-mega-col").forEach(c => c.classList.remove("open"));
     }
+  });
+  mega.addEventListener("click", function(e) {
+    const head = e.target.closest("[data-mega-toggle]");
+    if (!head || window.innerWidth > 800) return;
+    e.stopPropagation();
+    head.closest(".nav-mega-col").classList.toggle("open");
   });
 })();
 
@@ -3231,12 +3356,14 @@ document.getElementById("rankList").addEventListener("click", function(e) {
   window.location.href = link.dataset.url;
 });
 
-// Checkbox clicks — delegated on rankList
+// Checkbox clicks — delegated on rankList; rank-cta div is the tap target on mobile
 document.getElementById("rankList").addEventListener("click", function(e) {
-  const cb = e.target.closest(".rank-cb");
-  if (!cb) return;
+  const cta = e.target.closest(".rank-cta");
+  if (!cta) return;
   e.preventDefault();
   e.stopPropagation();
+  const cb = cta.querySelector(".rank-cb");
+  if (!cb) return;
   const name = cb.dataset.name;
   if (compareSet.has(name)) {
     compareSet.delete(name);

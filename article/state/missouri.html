@@ -73,7 +73,7 @@
   .nav-mega-carriers a:last-child{border-bottom:none;}
   .nav-mega-carriers a:hover{color:var(--paper);}
   .nav-mega-tag{font-family:var(--mono);font-size:10px;color:rgba(246,241,232,0.3);letter-spacing:0.04em;}
-  @media(max-width:800px){.nav-mega-inner{grid-template-columns:1fr;}.nav-mega-col+.nav-mega-col{border-left:none;border-top:1px solid rgba(246,241,232,0.1);padding-left:0;margin-top:20px;padding-top:20px;}.nav-mega-states{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:800px){.nav-mega{max-height:calc(100vh - 65px);overflow-y:auto;}.nav-mega-inner{grid-template-columns:1fr;}.nav-mega-col{border-bottom:1px solid rgba(246,241,232,0.1);}.nav-mega-col+.nav-mega-col{border-left:none;padding-left:0;margin-top:0;padding-top:0;}.nav-mega-head{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;margin:0;border-bottom:none;font-size:11px;}.nav-mega-col-arrow{font-size:18px;color:rgba(246,241,232,0.4);transition:transform 200ms;display:inline-block;}.nav-mega-col.open .nav-mega-col-arrow{transform:rotate(180deg);}.nav-mega-col-body{display:none;padding:0 20px 16px;}.nav-mega-col.open .nav-mega-col-body{display:block;}.nav-mega-states{grid-template-columns:repeat(3,1fr);}}
   @media(max-width:480px){.nav-mega-states{grid-template-columns:repeat(2,1fr);}}
 </style>
 <script type="application/ld+json">
@@ -109,13 +109,16 @@
   <div class="nav-mega" id="navMega">
     <div class="nav-mega-inner">
       <div class="nav-mega-col">
-        <div class="nav-mega-head">State Research</div>
+        <div class="nav-mega-head" data-mega-toggle>State Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
         <div class="nav-mega-states">
           <a href="/article/state/alabama.html">Alabama</a><a href="/article/state/alaska.html">Alaska</a><a href="/article/state/arizona.html">Arizona</a><a href="/article/state/arkansas.html">Arkansas</a><a href="/article/state/california.html">California</a><a href="/article/state/colorado.html">Colorado</a><a href="/article/state/connecticut.html">Connecticut</a><a href="/article/state/delaware.html">Delaware</a><a href="/article/state/florida.html">Florida</a><a href="/article/state/georgia.html">Georgia</a><a href="/article/state/hawaii.html">Hawaii</a><a href="/article/state/idaho.html">Idaho</a><a href="/article/state/illinois.html">Illinois</a><a href="/article/state/indiana.html">Indiana</a><a href="/article/state/iowa.html">Iowa</a><a href="/article/state/kansas.html">Kansas</a><a href="/article/state/kentucky.html">Kentucky</a><a href="/article/state/louisiana.html">Louisiana</a><a href="/article/state/maine.html">Maine</a><a href="/article/state/maryland.html">Maryland</a><a href="/article/state/massachusetts.html">Massachusetts</a><a href="/article/state/michigan.html">Michigan</a><a href="/article/state/minnesota.html">Minnesota</a><a href="/article/state/mississippi.html">Mississippi</a><a href="/article/state/missouri.html">Missouri</a><a href="/article/state/montana.html">Montana</a><a href="/article/state/nebraska.html">Nebraska</a><a href="/article/state/nevada.html">Nevada</a><a href="/article/state/new-hampshire.html">New Hampshire</a><a href="/article/state/new-jersey.html">New Jersey</a><a href="/article/state/new-mexico.html">New Mexico</a><a href="/article/state/new-york.html">New York</a><a href="/article/state/north-carolina.html">North Carolina</a><a href="/article/state/north-dakota.html">North Dakota</a><a href="/article/state/ohio.html">Ohio</a><a href="/article/state/oklahoma.html">Oklahoma</a><a href="/article/state/oregon.html">Oregon</a><a href="/article/state/pennsylvania.html">Pennsylvania</a><a href="/article/state/rhode-island.html">Rhode Island</a><a href="/article/state/south-carolina.html">South Carolina</a><a href="/article/state/south-dakota.html">South Dakota</a><a href="/article/state/tennessee.html">Tennessee</a><a href="/article/state/texas.html">Texas</a><a href="/article/state/utah.html">Utah</a><a href="/article/state/vermont.html">Vermont</a><a href="/article/state/virginia.html">Virginia</a><a href="/article/state/washington.html">Washington</a><a href="/article/state/washington-dc.html">Washington D.C.</a><a href="/article/state/west-virginia.html">West Virginia</a><a href="/article/state/wisconsin.html">Wisconsin</a><a href="/article/state/wyoming.html">Wyoming</a>
         </div>
+        </div>
       </div>
       <div class="nav-mega-col">
-        <div class="nav-mega-head">Carrier Research</div>
+        <div class="nav-mega-head" data-mega-toggle>Carrier Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
         <div class="nav-mega-carriers">
           <a href="/article/carrier/usaa.html">USAA <span class="nav-mega-tag">Military &amp; family</span></a>
           <a href="/article/carrier/geico.html">GEICO <span class="nav-mega-tag">Online shoppers</span></a>
@@ -125,6 +128,14 @@
           <a href="/article/carrier/liberty-mutual.html">Liberty Mutual <span class="nav-mega-tag">New car replacement</span></a>
           <a href="/article/carrier/farmers.html">Farmers <span class="nav-mega-tag">Full-service agents</span></a>
           <a href="/article/carrier/nationwide.html">Nationwide <span class="nav-mega-tag">Vanishing deductible</span></a>
+          <a href="/article/carrier/erie.html">Erie <span class="nav-mega-tag">Mid-Atlantic &amp; Midwest</span></a>
+          <a href="/article/carrier/american-family.html">American Family <span class="nav-mega-tag">Midwest families</span></a>
+          <a href="/article/carrier/amica.html">Amica <span class="nav-mega-tag">Claims service</span></a>
+          <a href="/article/carrier/auto-owners.html">Auto-Owners <span class="nav-mega-tag">26-state agent</span></a>
+          <a href="/article/carrier/travelers.html">Travelers <span class="nav-mega-tag">Homeowner bundles</span></a>
+          <a href="/article/carrier/safeco.html">Safeco <span class="nav-mega-tag">Independent agents</span></a>
+          <a href="/article/carrier/aaa.html">AAA / CSAA <span class="nav-mega-tag">Members &amp; roadside</span></a>
+        </div>
         </div>
       </div>
     </div>
@@ -166,6 +177,11 @@
         <button type="submit" class="zip-embed-btn">Compare →</button>
       </form>
     </div>
+<h2>Frequently asked questions</h2>
+<div class="callout"><p><strong>What is the cheapest car insurance in Missouri?</strong><br>Shelter Insurance — headquartered in Columbia, Missouri — is a leading regional option with J.D. Power Central region recognition and strong pricing for Missouri drivers. State Farm and GEICO lead among national carriers. USAA is best for military and veterans. Auto-Owners Insurance is also competitive in Missouri. Enter your ZIP for current rates.</p></div>
+<div class="callout"><p><strong>What are Missouri's minimum auto insurance requirements?</strong><br>Missouri requires 25/50/25 liability coverage — $25,000 per person / $50,000 per accident bodily injury and $25,000 property damage. Uninsured motorist coverage of 25/50 is also required unless waived. Missouri is a tort state with no mandatory PIP. Missouri's minimums are reasonable for a Midwest state.</p></div>
+<div class="callout"><p><strong>Why are Missouri rates moderate despite severe weather risk?</strong><br>Missouri sits in a hail and tornado-prone corridor, but rates remain moderate because the state has a competitive carrier market, moderate population density outside of St. Louis and Kansas City, and relatively low litigation costs compared to states like Louisiana and Florida. Shelter Insurance's large Missouri presence also keeps national carriers priced competitively.</p></div>
+<div class="callout"><p><strong>Is Shelter Insurance only in Missouri?</strong><br>Shelter Insurance operates in 15 states primarily across the Midwest and South, headquartered in Columbia, Missouri. In Missouri, Shelter has one of the largest market shares of any carrier and routinely scores above-average in J.D. Power's Central region surveys. Shelter is agent-only — quotes require working with a Shelter agent. For Missouri drivers, comparing Shelter against State Farm and GEICO is worthwhile.</p></div>
     <div class="article-email">
       <strong>Get a Boring Reminder when Missouri rates move.</strong>
       <div class="sub">No spam. No phone. We will never sell your information.</div>
@@ -198,8 +214,9 @@ document.addEventListener('DOMContentLoaded',function(){
   var btn=document.getElementById('navHamburger');
   var mega=document.getElementById('navMega');
   if(!btn||!mega)return;
-  btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));});
-  document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
+  btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));if(!open)mega.querySelectorAll('.nav-mega-col').forEach(function(c){c.classList.remove('open');});});
+  document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');mega.querySelectorAll('.nav-mega-col').forEach(function(c){c.classList.remove('open');});}});
+  mega.addEventListener('click',function(e){var head=e.target.closest('[data-mega-toggle]');if(!head||window.innerWidth>800)return;e.stopPropagation();head.closest('.nav-mega-col').classList.toggle('open');});
 });
 </script>
 </body>

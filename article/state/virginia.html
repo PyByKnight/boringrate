@@ -104,7 +104,7 @@
   .nav-mega-carriers a:last-child{border-bottom:none;}
   .nav-mega-carriers a:hover{color:var(--paper);}
   .nav-mega-tag{font-family:var(--mono);font-size:10px;color:rgba(246,241,232,0.3);letter-spacing:0.04em;}
-  @media(max-width:800px){.nav-mega-inner{grid-template-columns:1fr;}.nav-mega-col+.nav-mega-col{border-left:none;border-top:1px solid rgba(246,241,232,0.1);padding-left:0;margin-top:20px;padding-top:20px;}.nav-mega-states{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:800px){.nav-mega{max-height:calc(100vh - 65px);overflow-y:auto;}.nav-mega-inner{grid-template-columns:1fr;}.nav-mega-col{border-bottom:1px solid rgba(246,241,232,0.1);}.nav-mega-col+.nav-mega-col{border-left:none;padding-left:0;margin-top:0;padding-top:0;}.nav-mega-head{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;margin:0;border-bottom:none;font-size:11px;}.nav-mega-col-arrow{font-size:18px;color:rgba(246,241,232,0.4);transition:transform 200ms;display:inline-block;}.nav-mega-col.open .nav-mega-col-arrow{transform:rotate(180deg);}.nav-mega-col-body{display:none;padding:0 20px 16px;}.nav-mega-col.open .nav-mega-col-body{display:block;}.nav-mega-states{grid-template-columns:repeat(3,1fr);}}
   @media(max-width:480px){.nav-mega-states{grid-template-columns:repeat(2,1fr);}}
 </style>
 <script type="application/ld+json">
@@ -140,13 +140,16 @@
   <div class="nav-mega" id="navMega">
     <div class="nav-mega-inner">
       <div class="nav-mega-col">
-        <div class="nav-mega-head">State Research</div>
+        <div class="nav-mega-head" data-mega-toggle>State Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
         <div class="nav-mega-states">
           <a href="/article/state/alabama.html">Alabama</a><a href="/article/state/alaska.html">Alaska</a><a href="/article/state/arizona.html">Arizona</a><a href="/article/state/arkansas.html">Arkansas</a><a href="/article/state/california.html">California</a><a href="/article/state/colorado.html">Colorado</a><a href="/article/state/connecticut.html">Connecticut</a><a href="/article/state/delaware.html">Delaware</a><a href="/article/state/florida.html">Florida</a><a href="/article/state/georgia.html">Georgia</a><a href="/article/state/hawaii.html">Hawaii</a><a href="/article/state/idaho.html">Idaho</a><a href="/article/state/illinois.html">Illinois</a><a href="/article/state/indiana.html">Indiana</a><a href="/article/state/iowa.html">Iowa</a><a href="/article/state/kansas.html">Kansas</a><a href="/article/state/kentucky.html">Kentucky</a><a href="/article/state/louisiana.html">Louisiana</a><a href="/article/state/maine.html">Maine</a><a href="/article/state/maryland.html">Maryland</a><a href="/article/state/massachusetts.html">Massachusetts</a><a href="/article/state/michigan.html">Michigan</a><a href="/article/state/minnesota.html">Minnesota</a><a href="/article/state/mississippi.html">Mississippi</a><a href="/article/state/missouri.html">Missouri</a><a href="/article/state/montana.html">Montana</a><a href="/article/state/nebraska.html">Nebraska</a><a href="/article/state/nevada.html">Nevada</a><a href="/article/state/new-hampshire.html">New Hampshire</a><a href="/article/state/new-jersey.html">New Jersey</a><a href="/article/state/new-mexico.html">New Mexico</a><a href="/article/state/new-york.html">New York</a><a href="/article/state/north-carolina.html">North Carolina</a><a href="/article/state/north-dakota.html">North Dakota</a><a href="/article/state/ohio.html">Ohio</a><a href="/article/state/oklahoma.html">Oklahoma</a><a href="/article/state/oregon.html">Oregon</a><a href="/article/state/pennsylvania.html">Pennsylvania</a><a href="/article/state/rhode-island.html">Rhode Island</a><a href="/article/state/south-carolina.html">South Carolina</a><a href="/article/state/south-dakota.html">South Dakota</a><a href="/article/state/tennessee.html">Tennessee</a><a href="/article/state/texas.html">Texas</a><a href="/article/state/utah.html">Utah</a><a href="/article/state/vermont.html">Vermont</a><a href="/article/state/virginia.html">Virginia</a><a href="/article/state/washington.html">Washington</a><a href="/article/state/washington-dc.html">Washington D.C.</a><a href="/article/state/west-virginia.html">West Virginia</a><a href="/article/state/wisconsin.html">Wisconsin</a><a href="/article/state/wyoming.html">Wyoming</a>
         </div>
+        </div>
       </div>
       <div class="nav-mega-col">
-        <div class="nav-mega-head">Carrier Research</div>
+        <div class="nav-mega-head" data-mega-toggle>Carrier Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
         <div class="nav-mega-carriers">
           <a href="/article/carrier/usaa.html">USAA <span class="nav-mega-tag">Military &amp; family</span></a>
           <a href="/article/carrier/geico.html">GEICO <span class="nav-mega-tag">Online shoppers</span></a>
@@ -156,6 +159,14 @@
           <a href="/article/carrier/liberty-mutual.html">Liberty Mutual <span class="nav-mega-tag">New car replacement</span></a>
           <a href="/article/carrier/farmers.html">Farmers <span class="nav-mega-tag">Full-service agents</span></a>
           <a href="/article/carrier/nationwide.html">Nationwide <span class="nav-mega-tag">Vanishing deductible</span></a>
+          <a href="/article/carrier/erie.html">Erie <span class="nav-mega-tag">Mid-Atlantic &amp; Midwest</span></a>
+          <a href="/article/carrier/american-family.html">American Family <span class="nav-mega-tag">Midwest families</span></a>
+          <a href="/article/carrier/amica.html">Amica <span class="nav-mega-tag">Claims service</span></a>
+          <a href="/article/carrier/auto-owners.html">Auto-Owners <span class="nav-mega-tag">26-state agent</span></a>
+          <a href="/article/carrier/travelers.html">Travelers <span class="nav-mega-tag">Homeowner bundles</span></a>
+          <a href="/article/carrier/safeco.html">Safeco <span class="nav-mega-tag">Independent agents</span></a>
+          <a href="/article/carrier/aaa.html">AAA / CSAA <span class="nav-mega-tag">Members &amp; roadside</span></a>
+        </div>
         </div>
       </div>
     </div>
@@ -197,6 +208,11 @@
         <button type="submit" class="zip-embed-btn">Compare →</button>
       </form>
     </div>
+    <h2>Frequently asked questions</h2>
+<div class="callout"><p><strong>What is the cheapest car insurance in Virginia?</strong><br>Erie Insurance is frequently the most competitive carrier in Virginia, particularly for homeowners and multi-policy households. GEICO and USAA (for military) lead among national carriers. Virginia Farm Bureau is a state-exclusive member-based option worth comparing. Northern Virginia (DC suburbs) runs 25-35% above the state average — rural and central Virginia are much cheaper. Enter your ZIP to compare.</p></div>
+<div class="callout"><p><strong>What are Virginia's minimum auto insurance requirements?</strong><br>Virginia requires 30/60/20 liability coverage — $30,000 per person / $60,000 per accident bodily injury and $20,000 property damage. Virginia has an unusual option: instead of buying insurance, drivers can pay a $500 "uninsured motor vehicle fee" to the state and legally drive uninsured. Most financial advisors strongly advise against this — the fee provides no coverage if you cause an accident.</p></div>
+<div class="callout"><p><strong>What is Virginia's uninsured motor vehicle fee option?</strong><br>Virginia allows drivers to pay $500/year to the state instead of buying insurance. This permits you to drive legally but provides zero coverage if you're at fault in an accident — you are personally liable for all damages. The $500 fee is not insurance and does not protect other drivers from your liability. This option is generally only practical for very low-value vehicles driven minimally.</p></div>
+<div class="callout"><p><strong>Why are Northern Virginia rates so much higher than the rest of the state?</strong><br>The I-95/I-66/Beltway corridor in Northern Virginia is among the most congested roads in the US. High traffic density, high accident frequency, high vehicle values (affluent suburbs), and proximity to DC all push rates up. Fairfax, Arlington, and Alexandria ZIP codes can be 2x the rate of rural Southwest Virginia. If you recently moved from NoVA to another part of the state, update your address — it should significantly lower your premium.</p></div>
     <div class="article-email">
       <strong>Get a Boring Reminder when Virginia rates move.</strong>
       <div class="sub">No spam. No phone. We will never sell your information.</div>
@@ -244,8 +260,9 @@ document.addEventListener('DOMContentLoaded',function(){
   var btn=document.getElementById('navHamburger');
   var mega=document.getElementById('navMega');
   if(!btn||!mega)return;
-  btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));});
-  document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
+  btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));if(!open)mega.querySelectorAll('.nav-mega-col').forEach(function(c){c.classList.remove('open');});});
+  document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');mega.querySelectorAll('.nav-mega-col').forEach(function(c){c.classList.remove('open');});}});
+  mega.addEventListener('click',function(e){var head=e.target.closest('[data-mega-toggle]');if(!head||window.innerWidth>800)return;e.stopPropagation();head.closest('.nav-mega-col').classList.toggle('open');});
 });
 </script>
 </body>
