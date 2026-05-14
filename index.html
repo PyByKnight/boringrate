@@ -771,18 +771,38 @@
   }
 
   /* ── Carrier compare ── */
-  .rank-compare {
-    font-family: var(--mono); font-size: 10px; text-transform: uppercase;
-    letter-spacing: 0.07em; color: var(--ink-mute);
-    background: none; border: 1px solid var(--rule);
-    border-radius: 4px; padding: 5px 9px; cursor: pointer;
-    transition: all 120ms; white-space: nowrap;
-    user-select: none;
+  .rank-cb {
+    display: inline-flex; align-items: center; gap: 6px;
+    cursor: pointer; user-select: none;
   }
-  .rank-compare:hover { color: var(--accent); border-color: var(--accent); }
-  .rank-compare.selected { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .rank-cb-box {
+    width: 15px; height: 15px; border: 1.5px solid var(--rule); border-radius: 3px;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: all 120ms; font-size: 10px; color: transparent; line-height: 1;
+  }
+  .rank-row:hover .rank-cb-box { border-color: var(--ink-soft); }
+  .rank-cb.checked .rank-cb-box { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .rank-cb-label {
+    font-family: var(--mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--ink-mute); transition: color 120ms;
+  }
+  .rank-cb.checked .rank-cb-label { color: var(--ink); }
   .rank-row.compare-selected { background: rgba(180,50,26,0.04); }
-  @media (max-width: 800px) { .rank-compare { display: none; } }
+
+  .compare-trigger {
+    position: fixed; bottom: 24px; right: 24px; z-index: 199;
+    background: var(--ink); color: var(--paper);
+    font-family: var(--mono); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.08em; padding: 11px 18px; border-radius: 8px;
+    cursor: pointer; border: none; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    display: none; align-items: center; gap: 10px; transition: background 120ms;
+  }
+  .compare-trigger.visible { display: flex; }
+  .compare-trigger:hover { background: #2d2520; }
+  .compare-trigger-count {
+    background: var(--accent); color: var(--paper);
+    border-radius: 10px; padding: 2px 7px; font-size: 10px; line-height: 1.5;
+  }
 
   .compare-tray {
     position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
@@ -803,14 +823,14 @@
     font-family: var(--mono); font-size: 11px; text-transform: uppercase;
     letter-spacing: 0.1em; color: rgba(246,241,232,0.4); margin: 0;
   }
-  .compare-close {
+  .compare-tray-btns { display: flex; gap: 8px; }
+  .compare-btn {
     background: none; border: 1px solid rgba(246,241,232,0.2);
     color: rgba(246,241,232,0.55); border-radius: 4px; cursor: pointer;
     font-size: 10px; font-family: var(--mono); letter-spacing: 0.08em;
-    text-transform: uppercase; padding: 5px 11px; line-height: 1;
-    transition: all 120ms;
+    text-transform: uppercase; padding: 5px 11px; line-height: 1; transition: all 120ms;
   }
-  .compare-close:hover { color: var(--paper); border-color: rgba(246,241,232,0.5); }
+  .compare-btn:hover { color: var(--paper); border-color: rgba(246,241,232,0.5); }
   .compare-cols { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); }
   .compare-cols[data-count="2"] { grid-template-columns: repeat(2, 1fr); }
   .compare-col {
@@ -844,9 +864,8 @@
   .compare-list.pros li::before { content: "✓"; position: absolute; left: 0; color: var(--good); font-size: 10px; top: 2px; }
   .compare-list.cons li::before { content: "✗"; position: absolute; left: 0; color: #e07060; font-size: 10px; top: 2px; }
   .compare-naic { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.3); margin-top: 8px; }
-  @media (max-width: 680px) {
-    .compare-cols, .compare-cols[data-count="2"] { grid-template-columns: 1fr; }
-    .compare-tray-inner { padding: 16px 16px 24px; }
+  @media (max-width: 800px) {
+    .rank-cb, .compare-trigger, .compare-tray { display: none !important; }
   }
 </style>
 </head>
@@ -1193,11 +1212,18 @@
   </div>
 </section>
 
+<button class="compare-trigger" id="compareTrigger">
+  <span id="compareTriggerLabel">Compare</span><span class="compare-trigger-count" id="compareTriggerCount">2</span>
+</button>
+
 <div class="compare-tray" id="compareTray" role="complementary" aria-label="Carrier comparison">
   <div class="compare-tray-inner">
     <div class="compare-tray-head">
-      <h4>Side-by-side comparison</h4>
-      <button class="compare-close" id="compareClear">Clear ✕</button>
+      <h4 id="compareTrayTitle">Side-by-side comparison</h4>
+      <div class="compare-tray-btns">
+        <button class="compare-btn" id="compareMinimize">▼ Minimize</button>
+        <button class="compare-btn" id="compareClear">Clear ✕</button>
+      </div>
     </div>
     <div class="compare-cols" id="compareCols"></div>
   </div>
@@ -2590,7 +2616,7 @@ const TIER_PRESETS = {
   standard: { covLiability: 2, covCollision: 2, covComp: 1, covUmUim: 1, covMedpay: 0, covGap: 0 },
   premium:  { covLiability: 3, covCollision: 3, covComp: 2, covUmUim: 2, covMedpay: 1, covGap: 0 }
 };
-let stateData = null, currentMetro = null, lastOrder = [], compareSet = new Set();
+let stateData = null, currentMetro = null, lastOrder = [], compareSet = new Set(), compareOpen = false;
 
 function isNonStandard() {
   // Route to non-standard carriers if lapsed OR SR-22 required
@@ -2705,7 +2731,7 @@ function renderRanking() {
     a.dataset.carrier = c.name;
     const bestForHtml = c.bestFor ? '<div class="rank-best">↗ ' + c.bestFor + '</div>' : '';
     const inCompare = compareSet.has(c.name);
-    const compareHtml = '<div class="rank-cta"><span class="rank-compare' + (inCompare ? ' selected' : '') + '" data-name="' + c.name + '">' + (inCompare ? '✓ Added' : '+ Compare') + '</span></div>';
+    const compareHtml = '<div class="rank-cta"><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
     a.innerHTML =
       '<div class="rank-num">' + num + '</div>' +
       '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div><div class="rank-tag">' + c.tag + '</div>' + bestForHtml + '</div>' +
@@ -3002,11 +3028,35 @@ document.getElementById("zipInput").addEventListener("input", e => {
 })();
 
 // ── Carrier compare tray ──────────────────────────────────────────
-function renderCompareTray() {
-  const tray = document.getElementById("compareTray");
-  const cols = document.getElementById("compareCols");
-  if (compareSet.size < 2) { tray.classList.remove("open"); return; }
+function renderCompareUI() {
+  const trigger = document.getElementById("compareTrigger");
+  const tray    = document.getElementById("compareTray");
+  const n = compareSet.size;
+
+  if (n < 2) {
+    compareOpen = false;
+    trigger.classList.remove("visible");
+    tray.classList.remove("open");
+    return;
+  }
+
+  // Trigger: always visible when 2-3 checked; label flips based on tray state
+  document.getElementById("compareTriggerCount").textContent = n;
+  document.getElementById("compareTriggerLabel").textContent = compareOpen ? "▼ Minimize" : "Compare";
+  trigger.classList.add("visible");
+
+  if (compareOpen) {
+    buildCompareCols();
+    document.getElementById("compareTrayTitle").textContent = "Comparing " + n + " carrier" + (n > 1 ? "s" : "");
+    tray.classList.add("open");
+  } else {
+    tray.classList.remove("open");
+  }
+}
+
+function buildCompareCols() {
   if (!stateData) return;
+  const cols = document.getElementById("compareCols");
 
   const all = activeCarriers()
     .map(c => ({ carrier: c, price: estimatePremium(c, stateData.avg), ratio: naicRatio(c.name, stateData.code) }))
@@ -3017,7 +3067,6 @@ function renderCompareTray() {
   const mid = Math.floor(sp.length / 2);
   const median = sp.length % 2 === 0 ? Math.round((sp[mid - 1] + sp[mid]) / 2) : sp[mid];
 
-  // Boring pick: lowest price among those with NAIC ratio < 1.5; else lowest price overall
   const pickIdx = (function() {
     const i = all.findIndex(r => r.ratio < 1.5);
     return i !== -1 ? i : 0;
@@ -3036,7 +3085,6 @@ function renderCompareTray() {
     if (c.bestFor) pros.push(c.bestFor);
     if (r.ratio < 0.8) pros.push("Strong complaint record (NAIC " + r.ratio.toFixed(2) + ")");
     else if (r.ratio < 1.0) pros.push("Fewer complaints than average (NAIC " + r.ratio.toFixed(2) + ")");
-
     const cons = CARRIER_CONS[c.name] || [];
 
     return '<div class="compare-col' + (isBest ? " best" : "") + '">' +
@@ -3050,17 +3098,15 @@ function renderCompareTray() {
       '<div class="compare-naic">NAIC complaint ratio: ' + r.ratio.toFixed(2) + '</div>' +
       '</div>';
   }).join('');
-
-  tray.classList.add("open");
 }
 
-// Compare button clicks — delegated on rankList
+// Checkbox clicks — delegated on rankList
 document.getElementById("rankList").addEventListener("click", function(e) {
-  const btn = e.target.closest(".rank-compare");
-  if (!btn) return;
+  const cb = e.target.closest(".rank-cb");
+  if (!cb) return;
   e.preventDefault();
   e.stopPropagation();
-  const name = btn.dataset.name;
+  const name = cb.dataset.name;
   if (compareSet.has(name)) {
     compareSet.delete(name);
   } else {
@@ -3068,13 +3114,27 @@ document.getElementById("rankList").addEventListener("click", function(e) {
     compareSet.add(name);
   }
   renderRanking();
-  renderCompareTray();
+  renderCompareUI();
 });
 
+// Floating trigger — opens or minimizes tray
+document.getElementById("compareTrigger").addEventListener("click", function() {
+  compareOpen = !compareOpen;
+  renderCompareUI();
+});
+
+// Minimize button inside tray
+document.getElementById("compareMinimize").addEventListener("click", function() {
+  compareOpen = false;
+  renderCompareUI();
+});
+
+// Clear — deselects all and closes everything
 document.getElementById("compareClear").addEventListener("click", function() {
   compareSet.clear();
+  compareOpen = false;
   renderRanking();
-  renderCompareTray();
+  renderCompareUI();
 });
 
 </script>
