@@ -471,6 +471,8 @@
   .rank-name { font-family: var(--serif); font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
   .rank-tag { font-size: 12px; color: var(--ink-mute); margin-top: 2px; font-family: var(--sans); }
   .rank-best { font-size: 10px; font-family: var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); margin-top: 4px; }
+  .rank-review-link { font-size: 10px; font-family: var(--mono); letter-spacing: 0.05em; color: var(--ink-mute); margin-top: 4px; display: inline-block; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--rule); transition: color 120ms; }
+  .rank-review-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
   .rank-mark {
     width: 24px; height: 24px;
@@ -720,8 +722,8 @@
     .below-head { grid-template-columns: 1fr; gap: 14px; }
     .foot-grid { grid-template-columns: 1fr 1fr; }
     .nav-method { display: none; }
-    .rank-row { grid-template-columns: 32px 1fr 28px; gap: 10px; padding: 14px 16px; align-items: center; }
-    .rank-row .rank-cta { display: none; }
+    .rank-row { grid-template-columns: 32px 1fr 28px auto; gap: 10px; padding: 14px 16px; align-items: center; }
+    .rank-cta { grid-column: 4; grid-row: 1 / 3; display: flex; align-items: center; padding-left: 6px; }
     .rank-name { font-size: 16px; }
     .rank-tag { font-size: 11px; }
     .rank-vs { grid-column: 2; grid-row: 2 / 3; text-align: left; font-size: 15px; margin-top: 4px; }
@@ -755,7 +757,7 @@
   .nav-mega-carriers a:last-child { border-bottom: none; }
   .nav-mega-carriers a:hover { color: var(--paper); }
   .nav-mega-tag { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.3); letter-spacing: 0.04em; }
-  @media (max-width: 800px) { .nav-mega-inner { grid-template-columns: 1fr; } .nav-mega-col + .nav-mega-col { border-left: none; border-top: 1px solid rgba(246,241,232,0.1); padding-left: 0; margin-top: 20px; padding-top: 20px; } .nav-mega-states { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 800px) { .nav-mega { max-height: calc(100vh - 65px); overflow-y: auto; } .nav-mega-inner { grid-template-columns: 1fr; } .nav-mega-col + .nav-mega-col { border-left: none; border-top: 1px solid rgba(246,241,232,0.1); padding-left: 0; margin-top: 20px; padding-top: 20px; } .nav-mega-states { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 480px) {
     .nav-tabs { display: none; }
     .personalization-banner-cta { display: none; }
@@ -865,7 +867,10 @@
   .compare-list.cons li::before { content: "✗"; position: absolute; left: 0; color: #e07060; font-size: 10px; top: 2px; }
   .compare-naic { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.3); margin-top: 8px; }
   @media (max-width: 800px) {
-    .rank-cb, .compare-trigger, .compare-tray { display: none !important; }
+    .rank-cb-label { display: none; }
+    .compare-cols { grid-template-columns: 1fr !important; }
+    .compare-tray-inner { padding: 16px 16px 24px; }
+    .compare-trigger { bottom: 16px; right: 16px; padding: 10px 14px; }
   }
 </style>
 <script type="application/ld+json">
@@ -2199,6 +2204,21 @@ const CARRIER_LINKS = {
   "West Bend Mutual": "https://www.thesilverlining.com"
 };
 
+const CARRIER_RESEARCH_LINKS = {
+  "USAA":           "/article/carrier/usaa.html",
+  "GEICO":          "/article/carrier/geico.html",
+  "State Farm":     "/article/carrier/state-farm.html",
+  "Progressive":    "/article/carrier/progressive.html",
+  "Allstate":       "/article/carrier/allstate.html",
+  "Liberty Mutual": "/article/carrier/liberty-mutual.html",
+  "Farmers":        "/article/carrier/farmers.html",
+  "Nationwide":     "/article/carrier/nationwide.html",
+  "Erie Insurance":   "/article/carrier/erie.html",
+  "American Family":  "/article/carrier/american-family.html",
+  "Amica Mutual":     "/article/carrier/amica.html",
+  "Auto-Owners":      "/article/carrier/auto-owners.html",
+};
+
 const CARRIER_CONS = {
   "USAA":          ["Eligibility limited to military, veterans & immediate family", "No local storefront agents"],
   "GEICO":         ["No local agents — all service by phone or app", "Credit score heavily impacts rate"],
@@ -2830,11 +2850,13 @@ function renderRanking() {
     a.rel = "noopener noreferrer";
     a.dataset.carrier = c.name;
     const bestForHtml = c.bestFor ? '<div class="rank-best">↗ ' + c.bestFor + '</div>' : '';
+    const researchUrl = CARRIER_RESEARCH_LINKS[c.name];
+    const researchHtml = researchUrl ? '<span class="rank-review-link" data-url="' + researchUrl + '">BoringRate review →</span>' : '';
     const inCompare = compareSet.has(c.name);
     const compareHtml = '<div class="rank-cta"><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
     a.innerHTML =
       '<div class="rank-num">' + num + '</div>' +
-      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div><div class="rank-tag">' + c.tag + '</div>' + bestForHtml + '</div>' +
+      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div><div class="rank-tag">' + c.tag + '</div>' + bestForHtml + researchHtml + '</div>' +
       markHtml +
       '<div class="rank-vs ' + delta.klass + '">' + delta.text + '<span class="vs-sub">' + delta.sub + '</span></div>' +
       compareHtml;
@@ -3199,6 +3221,15 @@ function buildCompareCols() {
       '</div>';
   }).join('');
 }
+
+// Research link — navigate to BoringRate carrier article (same tab)
+document.getElementById("rankList").addEventListener("click", function(e) {
+  const link = e.target.closest(".rank-review-link");
+  if (!link) return;
+  e.preventDefault();
+  e.stopPropagation();
+  window.location.href = link.dataset.url;
+});
 
 // Checkbox clicks — delegated on rankList
 document.getElementById("rankList").addEventListener("click", function(e) {
