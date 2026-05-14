@@ -63,7 +63,7 @@
     z-index: 50;
     backdrop-filter: blur(6px);
   }
-  .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative; }
   .brand {
     font-family: var(--serif);
     font-weight: 600;
@@ -82,7 +82,7 @@
     border-radius: 2px;
     transform: translateY(-2px);
   }
-  nav.primary { display: flex; align-items: center; gap: 20px; }
+  nav.primary { display: flex; align-items: center; gap: 20px; margin-left: auto; }
   .nav-tabs { display: flex; border: 1px solid var(--rule); }
   .nav-tabs a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; padding: 6px 13px; border-right: 1px solid var(--rule); transition: all 120ms; white-space: nowrap; }
   .nav-tabs a:last-child { border-right: none; }
@@ -753,13 +753,6 @@
 <header class="top">
   <div class="wrap top-inner">
     <a href="index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
-    <nav class="primary">
-      <div class="nav-tabs">
-        <a href="/" class="active">Rate Comparison</a>
-        <a href="/coverage.html">Coverage Choices</a>
-      </div>
-      <a href="/methodology.html" class="nav-method">Method</a>
-    </nav>
     <div class="header-auth" id="headerAuth">
       <div id="headerAuthOut">
         <button class="header-notify-btn" id="headerNotifyBtn">Notify me &#9662;</button>
@@ -779,6 +772,13 @@
         <button class="auth-btn-link" id="authSignOutBtn">Sign out</button>
       </div>
     </div>
+    <nav class="primary">
+      <div class="nav-tabs">
+        <a href="/" class="active">Rate Comparison</a>
+        <a href="/coverage.html">Coverage Choices</a>
+      </div>
+      <a href="/methodology.html" class="nav-method">Method</a>
+    </nav>
   </div>
 </header>
 
