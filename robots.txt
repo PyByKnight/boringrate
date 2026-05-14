@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://boringrate.com/sitemap.xml
