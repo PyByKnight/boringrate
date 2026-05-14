@@ -855,7 +855,7 @@
           </div>
         </div>
         <div class="refine-more-toggle" id="refineMoreToggle">
-          <span class="refine-toggle-label">Personalize for You</span>
+          <span class="refine-toggle-label">Edit Coverage Choices <span style="font-weight:400;opacity:0.6;">(Default Selected)</span></span>
           <span class="refine-more-arrow" id="refineMoreIcon">&#8964;</span>
         </div>
       </div>
@@ -2587,7 +2587,7 @@ function renderRanking() {
   const pbPct = pbScore * 25;
   const pb = document.getElementById("personalizationBanner");
   pb.className = "personalization-banner visible";
-  const covCta = '<a href="/coverage.html" class="personalization-banner-cta">Personalize Coverage Options →</a>';
+  const covCta = '<a href="/coverage.html" class="personalization-banner-cta">Learn More: The Right Coverage Choices For You →</a>';
   if (pbScore === 4) {
     pb.innerHTML = '<div class="pb-body">'
       + '<div class="pb-label">Rates Personalized to Your Selections</div>'
