@@ -718,7 +718,7 @@
     .articles { grid-template-columns: 1fr; }
     .below-head { grid-template-columns: 1fr; gap: 14px; }
     .foot-grid { grid-template-columns: 1fr 1fr; }
-    nav.primary { display: none; }
+    .nav-method { display: none; }
     .rank-row { grid-template-columns: 32px 1fr 28px; gap: 10px; padding: 14px 16px; align-items: center; }
     .rank-row .rank-cta { display: none; }
     .rank-name { font-size: 16px; }
@@ -736,6 +736,7 @@
     .email-input { min-width: 0; width: 100%; box-sizing: border-box; }
   }
   @media (max-width: 480px) {
+    .nav-tabs { display: none; }
     .refine-always { flex-direction: column; align-items: flex-start; }
     .refine-more-toggle { margin-left: 0; }
     .refine-grid { grid-template-columns: 1fr; }
@@ -2583,27 +2584,31 @@ function renderRanking() {
   if (refinement.vehicles) pbScore++;
   if (refinement.age)      pbScore++;
   if (refinement.credit)   pbScore++;
-  try { if (localStorage.getItem("br_coverage")) pbScore++; } catch(e2) {}
-  const pbPct = pbScore * 20;
+  const pbPct = pbScore * 25;
   const pb = document.getElementById("personalizationBanner");
   pb.className = "personalization-banner visible";
-  if (pbScore === 5) {
+  const covCta = '<a href="/coverage.html" class="personalization-banner-cta">Personalize Coverage Options →</a>';
+  if (pbScore === 4) {
     pb.innerHTML = '<div class="pb-body">'
       + '<div class="pb-label">Rates Personalized to Your Selections</div>'
       + '<div class="pb-track"><div class="pb-fill" style="width:100%"></div></div>'
+      + '<div class="pb-steps">All 4 selections complete</div>'
       + '</div>'
-      + '<a href="/coverage.html" class="personalization-banner-cta">Edit selections →</a>';
+      + covCta;
+  } else if (pbScore === 0) {
+    pb.innerHTML = '<div class="pb-body">'
+      + '<div class="pb-label">Showing Local Rates</div>'
+      + '<div class="pb-track"><div class="pb-fill" style="width:0%"></div></div>'
+      + '<div class="pb-steps">Add Home · Vehicles · Age · Credit for personalized rates (0 of 4)</div>'
+      + '</div>'
+      + covCta;
   } else {
-    const stepsLeft = 5 - pbScore;
-    const hint = pbScore === 0
-      ? 'Home · Vehicles · Age · Credit · Coverage guide'
-      : pbScore + ' of 5 complete · ' + stepsLeft + ' remaining';
     pb.innerHTML = '<div class="pb-body">'
       + '<div class="pb-label">Showing Local Rates</div>'
       + '<div class="pb-track"><div class="pb-fill" style="width:' + pbPct + '%"></div></div>'
-      + '<div class="pb-steps">' + hint + '</div>'
+      + '<div class="pb-steps">' + pbScore + ' of 4 selections complete — add more for personalized rates</div>'
       + '</div>'
-      + '<a href="/coverage.html" class="personalization-banner-cta">Personalize Choices for Precise Rates →</a>';
+      + covCta;
   }
 
   const footNote = isNonStandard()
