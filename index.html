@@ -235,21 +235,21 @@
     display: none;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
-    padding: 8px 16px;
+    padding: 10px 16px;
     background: var(--paper-deep);
     border: 1px solid var(--rule);
     border-bottom: none;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.05em;
     margin-top: 16px;
   }
   .personalization-banner.visible { display: flex; }
-  .personalization-banner.is-generic { color: var(--ink-mute); }
-  .personalization-banner.is-personalized { color: var(--ink-soft); }
-  .personalization-banner-cta { color: var(--accent); text-decoration: underline; letter-spacing: 0.04em; white-space: nowrap; flex-shrink: 0; }
+  .pb-body { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 180px; }
+  .pb-label { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-soft); }
+  .pb-track { height: 3px; background: var(--rule); width: 100%; max-width: 260px; }
+  .pb-fill { height: 100%; background: var(--accent); transition: width 350ms ease; }
+  .pb-steps { font-family: var(--mono); font-size: 10px; color: var(--ink-mute); letter-spacing: 0.04em; }
+  .personalization-banner-cta { font-family: var(--mono); font-size: 11px; color: var(--accent); text-decoration: underline; letter-spacing: 0.04em; white-space: nowrap; flex-shrink: 0; }
   .personalization-banner-cta:hover { opacity: 0.8; }
 
   /* ── REFINE BAR ────────────────────────────────────────── */
@@ -911,7 +911,7 @@
               <select id="covLiability">
                 <option value="0">25/50 (state min)</option>
                 <option value="1">50/100</option>
-                <option value="2">100/300</option>
+                <option value="2" selected>100/300</option>
                 <option value="3">250/500</option>
                 <option value="4">500/1000</option>
               </select>
@@ -921,7 +921,7 @@
               <select id="covCollision">
                 <option value="0">Skip</option>
                 <option value="1">$2,000 ded</option>
-                <option value="2">$1,000 ded</option>
+                <option value="2" selected>$1,000 ded</option>
                 <option value="3">$500 ded</option>
               </select>
             </div>
@@ -929,7 +929,7 @@
               <label>Comprehensive</label>
               <select id="covComp">
                 <option value="0">Skip</option>
-                <option value="1">$1,000 ded</option>
+                <option value="1" selected>$1,000 ded</option>
                 <option value="2">$500 ded</option>
               </select>
             </div>
@@ -2422,7 +2422,7 @@ const STATE_AGENTS = {
 };
 
 const refinement = { own: null, vehicles: null, curCarrier: "", age: null, credit: null, insured: true, srRequired: false, shopPref: "web", coverage: "standard",
-  covLiability: 2, covCollision: 2, covComp: 2, covUmUim: 1, covMedpay: 0, covGap: 0 };
+  covLiability: 2, covCollision: 2, covComp: 1, covUmUim: 1, covMedpay: 0, covGap: 0 };
 const TIER_PRESETS = {
   minimum:  { covLiability: 0, covCollision: 0, covComp: 0, covUmUim: 0, covMedpay: 0, covGap: 0 },
   standard: { covLiability: 2, covCollision: 2, covComp: 1, covUmUim: 1, covMedpay: 0, covGap: 0 },
@@ -2578,22 +2578,32 @@ function renderRanking() {
   const metroPrefix = currentMetro ? METRO_NAMES[currentMetro] + " · " : "";
   document.getElementById("rankTableState").textContent = metroPrefix + stateData.name + " · " + (isNonStandard() ? "Non-standard carriers" : "Major carriers") + " · Ranked by price";
 
-  const isGeneric = !refinement.age && !refinement.vehicles && !refinement.own && !refinement.credit;
+  let pbScore = 0;
+  if (refinement.own)      pbScore++;
+  if (refinement.vehicles) pbScore++;
+  if (refinement.age)      pbScore++;
+  if (refinement.credit)   pbScore++;
+  try { if (localStorage.getItem("br_coverage")) pbScore++; } catch(e2) {}
+  const pbPct = pbScore * 20;
   const pb = document.getElementById("personalizationBanner");
-  pb.classList.add("visible");
-  if (isGeneric) {
-    pb.className = "personalization-banner visible is-generic";
-    pb.innerHTML = '<span>Showing Local Rates</span>'
-      + '<a href="/coverage.html" class="personalization-banner-cta">Personalize Choices for Precise Rates →</a>';
-  } else {
-    const parts = [];
-    if (refinement.age) parts.push(refinement.age);
-    if (refinement.vehicles) parts.push(refinement.vehicles + ' vehicle' + (refinement.vehicles === '2+' ? 's' : ''));
-    if (refinement.own) parts.push(refinement.own === 'own' ? 'homeowner' : 'renter');
-    if (refinement.credit) parts.push(refinement.credit + ' credit');
-    pb.className = "personalization-banner visible is-personalized";
-    pb.innerHTML = '<span>Rates personalized · ' + parts.join(' · ') + '</span>'
+  pb.className = "personalization-banner visible";
+  if (pbScore === 5) {
+    pb.innerHTML = '<div class="pb-body">'
+      + '<div class="pb-label">Rates Personalized to Your Selections</div>'
+      + '<div class="pb-track"><div class="pb-fill" style="width:100%"></div></div>'
+      + '</div>'
       + '<a href="/coverage.html" class="personalization-banner-cta">Edit selections →</a>';
+  } else {
+    const stepsLeft = 5 - pbScore;
+    const hint = pbScore === 0
+      ? 'Home · Vehicles · Age · Credit · Coverage guide'
+      : pbScore + ' of 5 complete · ' + stepsLeft + ' remaining';
+    pb.innerHTML = '<div class="pb-body">'
+      + '<div class="pb-label">Showing Local Rates</div>'
+      + '<div class="pb-track"><div class="pb-fill" style="width:' + pbPct + '%"></div></div>'
+      + '<div class="pb-steps">' + hint + '</div>'
+      + '</div>'
+      + '<a href="/coverage.html" class="personalization-banner-cta">Personalize Choices for Precise Rates →</a>';
   }
 
   const footNote = isNonStandard()
