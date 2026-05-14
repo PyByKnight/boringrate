@@ -892,7 +892,7 @@
             </div>
           </div>
           <div class="refine-q">
-            <label>Coverage tier &nbsp;<a href="/coverage.html" style="font-size:11px;font-family:var(--mono);color:var(--accent);text-decoration:underline;letter-spacing:0.06em;opacity:0.85;" title="What coverage do I need?">Guide Me →</a></label>
+            <label>Coverage tier</label>
             <div class="pill-row" data-q="coverage">
               <button type="button" class="pill" data-v="minimum">Minimum</button>
               <button type="button" class="pill active" data-v="standard">Standard</button>
@@ -967,7 +967,6 @@
     <!-- Boring Rank header — shown above table when qualifiers exist -->
     <div class="boring-rank-header" id="boringRankHeader">
       <div class="boring-rank-label">Boring Rank: Quote First</div>
-      <a href="/coverage.html" class="boring-rank-cta">Guide me through Personalized Coverages →</a>
     </div>
 
     <!-- Rank table label sits directly above the table -->
@@ -2584,8 +2583,8 @@ function renderRanking() {
   pb.classList.add("visible");
   if (isGeneric) {
     pb.className = "personalization-banner visible is-generic";
-    pb.innerHTML = '<span>Showing generic rates · no profile selected</span>'
-      + '<a href="/coverage.html" class="personalization-banner-cta">Personalize your coverage selections for more precise rates →</a>';
+    pb.innerHTML = '<span>Showing Local Rates</span>'
+      + '<a href="/coverage.html" class="personalization-banner-cta">Personalize Choices for Precise Rates →</a>';
   } else {
     const parts = [];
     if (refinement.age) parts.push(refinement.age);
