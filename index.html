@@ -1598,6 +1598,46 @@ const ZIP_PREFIX_METRO = {
   "305":"atl","306":"atl","307":"atl",
   // Phoenix metro
   "850":"phx","851":"phx","852":"phx","853":"phx","854":"phx","855":"phx",
+  // Seattle metro
+  "980":"sea","981":"sea","982":"sea","983":"sea","984":"sea","985":"sea",
+  // Denver metro
+  "800":"den","801":"den","802":"den","803":"den","804":"den","805":"den","806":"den",
+  // Minneapolis–St. Paul
+  "550":"min","551":"min","553":"min","554":"min","555":"min","559":"min","560":"min",
+  // Detroit metro
+  "480":"det","481":"det","482":"det","483":"det","484":"det","485":"det","486":"det","488":"det",
+  // Tampa–St. Pete
+  "335":"tam","336":"tam","337":"tam","338":"tam",
+  // Charlotte metro
+  "280":"clt","281":"clt","282":"clt","283":"clt",
+  // Portland metro
+  "970":"por","971":"por","972":"por","973":"por","974":"por",
+  // St. Louis metro (MO side + IL side)
+  "630":"stl","631":"stl","632":"stl","633":"stl","634":"stl","620":"stl","621":"stl","622":"stl","618":"stl","619":"stl",
+  // San Antonio
+  "780":"san","781":"san","782":"san","783":"san","784":"san",
+  // Sacramento metro
+  "955":"sac","956":"sac","957":"sac","958":"sac","959":"sac",
+  // Baltimore metro
+  "210":"bal","211":"bal","212":"bal","214":"bal","215":"bal","216":"bal","217":"bal",
+  // Orlando metro
+  "327":"ors","328":"ors","329":"ors","347":"ors",
+  // Cincinnati metro
+  "410":"cin","411":"cin","450":"cin","451":"cin","452":"cin","453":"cin","454":"cin","456":"cin",
+  // Pittsburgh metro
+  "150":"pit","151":"pit","152":"pit","153":"pit","154":"pit","155":"pit","156":"pit",
+  // Cleveland metro
+  "440":"cle","441":"cle","442":"cle","443":"cle","444":"cle","445":"cle",
+  // Indianapolis metro
+  "460":"ind","461":"ind","462":"ind","463":"ind","464":"ind","465":"ind","466":"ind",
+  // Columbus metro
+  "430":"col","431":"col","432":"col","433":"col","434":"col","435":"col","436":"col","437":"col",
+  // Salt Lake City metro
+  "840":"slc","841":"slc","842":"slc","843":"slc","844":"slc",
+  // Nashville metro
+  "370":"nas","371":"nas","372":"nas","373":"nas","374":"nas",
+  // Milwaukee metro
+  "530":"mke","531":"mke","532":"mke","534":"mke","535":"mke",
 };
 
 const METRO_NAMES = {
@@ -1611,6 +1651,26 @@ const METRO_NAMES = {
   phl: "Philadelphia metro",
   atl: "Atlanta metro",
   phx: "Phoenix metro",
+  sea: "Seattle metro",
+  den: "Denver metro",
+  min: "Minneapolis–St. Paul metro",
+  det: "Detroit metro",
+  tam: "Tampa–St. Pete metro",
+  clt: "Charlotte metro",
+  por: "Portland metro",
+  stl: "St. Louis metro",
+  san: "San Antonio metro",
+  sac: "Sacramento metro",
+  bal: "Baltimore metro",
+  ors: "Orlando metro",
+  cin: "Cincinnati metro",
+  pit: "Pittsburgh metro",
+  cle: "Cleveland metro",
+  ind: "Indianapolis metro",
+  col: "Columbus metro",
+  slc: "Salt Lake City metro",
+  nas: "Nashville metro",
+  mke: "Milwaukee metro",
 };
 
 // Additional multiplier on top of state adjustment — metro rates vs. rest of state.
@@ -1626,6 +1686,26 @@ const METRO_CARRIER_ADJ = {
   phl: { "USAA":1.22,"GEICO":1.20,"State Farm":1.24,"Progressive":1.24,"Allstate":1.26,"Liberty Mutual":1.28,"Farmers":1.26,"Nationwide":1.24 },
   atl: { "USAA":1.12,"GEICO":1.12,"State Farm":1.14,"Progressive":1.16,"Allstate":1.16,"Liberty Mutual":1.18,"Farmers":1.16,"Nationwide":1.14 },
   phx: { "USAA":1.08,"GEICO":1.08,"State Farm":1.10,"Progressive":1.12,"Allstate":1.12,"Liberty Mutual":1.14,"Farmers":1.10,"Nationwide":1.10 },
+  sea: { "GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.07,"Nationwide":1.05,"USAA":1.03 },
+  den: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.06,"Nationwide":1.04,"USAA":1.02 },
+  min: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.05,"Nationwide":1.03,"USAA":1.01 },
+  det: { "GEICO":1.18,"State Farm":1.20,"Progressive":1.15,"Allstate":1.22,"Liberty Mutual":1.25,"Farmers":1.16,"Nationwide":1.14,"USAA":1.12 },
+  tam: { "GEICO":1.07,"State Farm":1.09,"Progressive":1.08,"Allstate":1.11,"Liberty Mutual":1.13,"Farmers":1.08,"Nationwide":1.06,"USAA":1.05 },
+  clt: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"USAA":1.02 },
+  por: { "GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.07,"Nationwide":1.05,"USAA":1.03 },
+  stl: { "GEICO":1.05,"State Farm":1.07,"Progressive":1.06,"Allstate":1.09,"Liberty Mutual":1.11,"Farmers":1.07,"Nationwide":1.05,"USAA":1.03 },
+  san: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.04,"Nationwide":1.03,"USAA":1.01 },
+  sac: { "GEICO":1.06,"State Farm":1.08,"Progressive":1.07,"Allstate":1.10,"Liberty Mutual":1.12,"Farmers":1.09,"Nationwide":1.06,"USAA":1.04 },
+  bal: { "GEICO":1.08,"State Farm":1.10,"Progressive":1.09,"Allstate":1.12,"Liberty Mutual":1.14,"Farmers":1.09,"Nationwide":1.07,"USAA":1.05 },
+  ors: { "GEICO":1.06,"State Farm":1.08,"Progressive":1.07,"Allstate":1.10,"Liberty Mutual":1.12,"Farmers":1.08,"Nationwide":1.06,"USAA":1.04 },
+  cin: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"USAA":1.02 },
+  pit: { "GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.06,"Nationwide":1.05,"USAA":1.03 },
+  cle: { "GEICO":1.05,"State Farm":1.07,"Progressive":1.06,"Allstate":1.09,"Liberty Mutual":1.11,"Farmers":1.07,"Nationwide":1.06,"USAA":1.03 },
+  ind: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.04,"Nationwide":1.03,"USAA":1.01 },
+  col: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"USAA":1.02 },
+  slc: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.05,"Nationwide":1.03,"USAA":1.01 },
+  nas: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.06,"Nationwide":1.04,"USAA":1.02 },
+  mke: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"USAA":1.02 },
 };
 
 // State-specific banners — shown below the ZIP result for matching states
