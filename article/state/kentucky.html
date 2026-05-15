@@ -106,6 +106,11 @@
   .nav-mega-tag{font-family:var(--mono);font-size:10px;color:rgba(246,241,232,0.3);letter-spacing:0.04em;}
   @media(max-width:800px){.nav-mega{max-height:calc(100vh - 65px);overflow-y:auto;}.nav-mega-inner{grid-template-columns:1fr;}.nav-mega-col{border-bottom:1px solid rgba(246,241,232,0.1);}.nav-mega-col+.nav-mega-col{border-left:none;padding-left:0;margin-top:0;padding-top:0;}.nav-mega-head{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;margin:0;border-bottom:none;font-size:11px;}.nav-mega-col-arrow{font-size:18px;color:rgba(246,241,232,0.4);transition:transform 200ms;display:inline-block;}.nav-mega-col.open .nav-mega-col-arrow{transform:rotate(180deg);}.nav-mega-col-body{display:none;padding:0 20px 16px;}.nav-mega-col.open .nav-mega-col-body{display:block;}.nav-mega-states{grid-template-columns:repeat(3,1fr);}}
   @media(max-width:480px){.nav-mega-states{grid-template-columns:repeat(2,1fr);}}
+  .tldr-card{border-left:3px solid var(--accent);padding:20px 24px;margin:0 0 32px;background:var(--paper-deep);max-width:660px;}
+  .tldr-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  .tldr-list{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;}
+  .tldr-list li{font-size:16px;line-height:1.5;color:var(--ink-soft);padding-left:18px;position:relative;}
+  .tldr-list li::before{content:"→";position:absolute;left:0;color:var(--accent);font-size:13px;line-height:1.75;}
 </style>
 <script type="application/ld+json">
 {
@@ -194,6 +199,17 @@
     <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; May 2026</div>
   </div>
   <div class="article-body">
+    <div class="tldr-card">
+      <div class="tldr-label">TLDR</div>
+      <ul class="tldr-list">
+        <li>Kentucky averages around $2,756/year — elevated by the no-fault PIP system and high litigation rates</li>
+        <li>Rates rose +34% since 2023 — one of the steeper increases among Midwestern and Appalachian states</li>
+        <li>Kentucky Farm Bureau is the dominant local carrier — pricing ~27% below the state average for standard profiles</li>
+        <li>Louisville and Lexington metros run significantly above the state average</li>
+        <li>Shopping every 12–18 months in Kentucky can save $400–$700/year — carriers shift pricing frequently here</li>
+      </ul>
+    </div>
+
     <p>Kentucky drivers pay <strong>$2,756 per year on average for full coverage</strong> — about 10% above the national average of roughly $2,500. For a state that's mostly rural with lower-than-average traffic, that premium level might seem surprising. The explanation lies primarily in Kentucky's no-fault insurance system and the persistently high rate of uninsured drivers on state roads.</p>
     <p>Under Kentucky's no-fault system, your own insurance pays for your medical expenses after an accident regardless of who caused it — up to your Personal Injury Protection (PIP) limits. This mandatory PIP coverage adds cost to every policy, and it increases the total claims burden across the market. Carriers price that systemic cost into every premium in the state, not just those in high-traffic areas.</p>
     <h2>Uninsured drivers and the Louisville effect</h2>

@@ -99,6 +99,11 @@
   .nav-mega-tag{font-family:var(--mono);font-size:10px;color:rgba(246,241,232,0.3);letter-spacing:0.04em;}
   @media(max-width:800px){.nav-mega{max-height:calc(100vh - 65px);overflow-y:auto;}.nav-mega-inner{grid-template-columns:1fr;}.nav-mega-col{border-bottom:1px solid rgba(246,241,232,0.1);}.nav-mega-col+.nav-mega-col{border-left:none;padding-left:0;margin-top:0;padding-top:0;}.nav-mega-head{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;margin:0;border-bottom:none;font-size:11px;}.nav-mega-col-arrow{font-size:18px;color:rgba(246,241,232,0.4);transition:transform 200ms;display:inline-block;}.nav-mega-col.open .nav-mega-col-arrow{transform:rotate(180deg);}.nav-mega-col-body{display:none;padding:0 20px 16px;}.nav-mega-col.open .nav-mega-col-body{display:block;}.nav-mega-states{grid-template-columns:repeat(3,1fr);}}
   @media(max-width:480px){.nav-mega-states{grid-template-columns:repeat(2,1fr);}}
+  .tldr-card{border-left:3px solid var(--accent);padding:20px 24px;margin:0 0 32px;background:var(--paper-deep);max-width:660px;}
+  .tldr-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  .tldr-list{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;}
+  .tldr-list li{font-size:16px;line-height:1.5;color:var(--ink-soft);padding-left:18px;position:relative;}
+  .tldr-list li::before{content:"→";position:absolute;left:0;color:var(--accent);font-size:13px;line-height:1.75;}
 </style>
 <script type="application/ld+json">
 {
@@ -187,6 +192,17 @@
     <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; May 2026</div>
   </div>
   <div class="article-body">
+    <div class="tldr-card">
+      <div class="tldr-label">TLDR</div>
+      <ul class="tldr-list">
+        <li>Montana averages around $2,268/year — moderate overall, but rising from wildlife and winter driving costs</li>
+        <li>Rates rose +16% since 2023 — rural geography inflates repair costs due to limited shop density</li>
+        <li>Wildlife collisions (deer, elk, moose) drive comprehensive claims at rates far above most states</li>
+        <li>State Farm and GEICO are the primary options; fewer national carriers actively compete in Montana</li>
+        <li>Full coverage is particularly important here — wildlife-related damage is near-certain over any multi-year period</li>
+      </ul>
+    </div>
+
     <p>Montana is a mid-priced state for auto insurance, with a statewide average of <strong>$2,268 per year for full coverage</strong>. That's roughly in line with the national average of ~$2,500, but averages mask a wide range. Urban drivers in Billings and Missoula pay meaningfully more than rural drivers on the high plains, where low traffic density and few uninsured drivers keep costs down.</p>
     <p>Weather risk is the primary rate driver in Montana. Severe hail, ice, and deer collisions — Montana has one of the highest deer strike rates in the country — push comprehensive claims higher than the state's relatively low accident rates would suggest. Carriers price these risks into premiums across the state, even in areas with light traffic.</p>
     <h2>How to find the best rate in Montana</h2>

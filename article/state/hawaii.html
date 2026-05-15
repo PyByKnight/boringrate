@@ -106,6 +106,11 @@
   .nav-mega-tag{font-family:var(--mono);font-size:10px;color:rgba(246,241,232,0.3);letter-spacing:0.04em;}
   @media(max-width:800px){.nav-mega{max-height:calc(100vh - 65px);overflow-y:auto;}.nav-mega-inner{grid-template-columns:1fr;}.nav-mega-col{border-bottom:1px solid rgba(246,241,232,0.1);}.nav-mega-col+.nav-mega-col{border-left:none;padding-left:0;margin-top:0;padding-top:0;}.nav-mega-head{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;margin:0;border-bottom:none;font-size:11px;}.nav-mega-col-arrow{font-size:18px;color:rgba(246,241,232,0.4);transition:transform 200ms;display:inline-block;}.nav-mega-col.open .nav-mega-col-arrow{transform:rotate(180deg);}.nav-mega-col-body{display:none;padding:0 20px 16px;}.nav-mega-col.open .nav-mega-col-body{display:block;}.nav-mega-states{grid-template-columns:repeat(3,1fr);}}
   @media(max-width:480px){.nav-mega-states{grid-template-columns:repeat(2,1fr);}}
+  .tldr-card{border-left:3px solid var(--accent);padding:20px 24px;margin:0 0 32px;background:var(--paper-deep);max-width:660px;}
+  .tldr-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  .tldr-list{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;}
+  .tldr-list li{font-size:16px;line-height:1.5;color:var(--ink-soft);padding-left:18px;position:relative;}
+  .tldr-list li::before{content:"→";position:absolute;left:0;color:var(--accent);font-size:13px;line-height:1.75;}
 </style>
 <script type="application/ld+json">
 {
@@ -194,6 +199,17 @@
     <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; May 2026</div>
   </div>
   <div class="article-body">
+    <div class="tldr-card">
+      <div class="tldr-label">TLDR</div>
+      <ul class="tldr-list">
+        <li>Hawaii averages around $1,446/year — among the lowest full-coverage rates in the country</li>
+        <li>The no-fault PIP system keeps minimum rates low; major carriers compete for a relatively small market</li>
+        <li>Hawaii prohibits using credit scores in underwriting — rates reflect driving history more than financial profile</li>
+        <li>State Farm dominates market share; GEICO and Progressive are the primary alternatives</li>
+        <li>Low accident frequency and no freeway driving keep Hawaii structurally affordable compared to mainland states</li>
+      </ul>
+    </div>
+
     <p>For a state famous for high costs of living, Hawaii stands out as a genuine bargain for auto insurance. <strong>The state average is $1,446 per year for full coverage</strong> — nearly 42% below the national average of $2,500. That's not an accident. It's the direct result of deliberate regulatory policy.</p>
     <p>Hawaii operates under one of the most tightly regulated insurance markets in the country. The Hawaii Insurance Division actively controls rate increases, requires prior approval for premium changes, and enforces a no-fault insurance system that limits personal injury litigation. The result is a market where rates are stable, predictable, and low by national standards.</p>
     <h2>Hawaii's no-fault system: the key to low rates</h2>

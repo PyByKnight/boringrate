@@ -106,6 +106,11 @@
   .nav-mega-tag{font-family:var(--mono);font-size:10px;color:rgba(246,241,232,0.3);letter-spacing:0.04em;}
   @media(max-width:800px){.nav-mega{max-height:calc(100vh - 65px);overflow-y:auto;}.nav-mega-inner{grid-template-columns:1fr;}.nav-mega-col{border-bottom:1px solid rgba(246,241,232,0.1);}.nav-mega-col+.nav-mega-col{border-left:none;padding-left:0;margin-top:0;padding-top:0;}.nav-mega-head{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;margin:0;border-bottom:none;font-size:11px;}.nav-mega-col-arrow{font-size:18px;color:rgba(246,241,232,0.4);transition:transform 200ms;display:inline-block;}.nav-mega-col.open .nav-mega-col-arrow{transform:rotate(180deg);}.nav-mega-col-body{display:none;padding:0 20px 16px;}.nav-mega-col.open .nav-mega-col-body{display:block;}.nav-mega-states{grid-template-columns:repeat(3,1fr);}}
   @media(max-width:480px){.nav-mega-states{grid-template-columns:repeat(2,1fr);}}
+  .tldr-card{border-left:3px solid var(--accent);padding:20px 24px;margin:0 0 32px;background:var(--paper-deep);max-width:660px;}
+  .tldr-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  .tldr-list{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;}
+  .tldr-list li{font-size:16px;line-height:1.5;color:var(--ink-soft);padding-left:18px;position:relative;}
+  .tldr-list li::before{content:"→";position:absolute;left:0;color:var(--accent);font-size:13px;line-height:1.75;}
 </style>
 <script type="application/ld+json">
 {
@@ -194,6 +199,17 @@
     <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; May 2026</div>
   </div>
   <div class="article-body">
+    <div class="tldr-card">
+      <div class="tldr-label">TLDR</div>
+      <ul class="tldr-list">
+        <li>Louisiana averages around $4,612/year — the second-most expensive auto insurance market in the US</li>
+        <li>Rates rose +45% since 2023 — one of the fastest-rising markets in the country</li>
+        <li>Louisiana Farm Bureau cuts ~30% off the state average — the largest Farm Bureau discount we track nationwide</li>
+        <li>High litigation costs, hurricane risk, and a ~14% uninsured driver rate all contribute to the pricing</li>
+        <li>Shopping aggressively in Louisiana is essential — the spread between carriers can exceed $2,000/year</li>
+      </ul>
+    </div>
+
     <p>Louisiana holds the unwelcome distinction of having <strong>the highest average auto insurance premiums in the United States at $4,612 per year for full coverage</strong>. That's nearly 85% above the national average of roughly $2,500. For most Louisiana households, auto insurance is among the largest recurring expenses — and it's been that way for decades. The state has ranked first or second in the country for insurance costs almost continuously for twenty years.</p>
     <p>The root causes are structural, not cosmetic. Louisiana has one of the most plaintiff-friendly legal environments in the country for personal injury cases. Large jury verdicts — sometimes called "nuclear verdicts" when they reach tens of millions of dollars — are more common in Louisiana courts than almost anywhere else. Every carrier doing business in the state prices that litigation risk into every policy it writes. Add one of the nation's highest uninsured motorist rates (estimated at 12–15%), dense urban traffic in New Orleans and Baton Rouge, and a persistent insurance fraud problem, and the cost drivers compound on each other.</p>
     <h2>New Orleans is a market unto itself</h2>

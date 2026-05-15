@@ -106,6 +106,11 @@
   .nav-mega-tag{font-family:var(--mono);font-size:10px;color:rgba(246,241,232,0.3);letter-spacing:0.04em;}
   @media(max-width:800px){.nav-mega{max-height:calc(100vh - 65px);overflow-y:auto;}.nav-mega-inner{grid-template-columns:1fr;}.nav-mega-col{border-bottom:1px solid rgba(246,241,232,0.1);}.nav-mega-col+.nav-mega-col{border-left:none;padding-left:0;margin-top:0;padding-top:0;}.nav-mega-head{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;margin:0;border-bottom:none;font-size:11px;}.nav-mega-col-arrow{font-size:18px;color:rgba(246,241,232,0.4);transition:transform 200ms;display:inline-block;}.nav-mega-col.open .nav-mega-col-arrow{transform:rotate(180deg);}.nav-mega-col-body{display:none;padding:0 20px 16px;}.nav-mega-col.open .nav-mega-col-body{display:block;}.nav-mega-states{grid-template-columns:repeat(3,1fr);}}
   @media(max-width:480px){.nav-mega-states{grid-template-columns:repeat(2,1fr);}}
+  .tldr-card{border-left:3px solid var(--accent);padding:20px 24px;margin:0 0 32px;background:var(--paper-deep);max-width:660px;}
+  .tldr-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  .tldr-list{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;}
+  .tldr-list li{font-size:16px;line-height:1.5;color:var(--ink-soft);padding-left:18px;position:relative;}
+  .tldr-list li::before{content:"→";position:absolute;left:0;color:var(--accent);font-size:13px;line-height:1.75;}
 </style>
 <script type="application/ld+json">
 {
@@ -194,6 +199,17 @@
     <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; May 2026</div>
   </div>
   <div class="article-body">
+    <div class="tldr-card">
+      <div class="tldr-label">TLDR</div>
+      <ul class="tldr-list">
+        <li>Maine averages around $1,468/year — among the cheapest states in the country for full coverage</li>
+        <li>Low population density, minimal congestion, and low theft rates keep structural costs down</li>
+        <li>Rates rose +45% since 2023 — even historically affordable markets have absorbed significant national cost trends</li>
+        <li>State Farm and USAA are the top competitors; MAPFRE has a presence in northern New England</li>
+        <li>Maine's low rates make minimum coverage less of a compromise than in high-cost states — but full coverage is still worth considering</li>
+      </ul>
+    </div>
+
     <p>Maine is one of the best states in the country for auto insurance affordability. <strong>The state average is $1,468 per year for full coverage</strong> — nearly $1,000 below the national average of roughly $2,500. Maine has consistently ranked in the bottom five states for insurance costs for years, and the structural reasons for that are unlikely to change anytime soon.</p>
     <p>The primary driver of Maine's low rates is simple: the state has one of the lowest population densities east of the Mississippi. With fewer than 1.4 million residents spread across a large geography, traffic volumes on most Maine roads are modest. Lower traffic means fewer accidents, fewer claims, and lower carrier losses — savings that flow back to policyholders in the form of lower premiums. Maine also has one of the lowest rates of uninsured drivers in the country, which keeps uninsured motorist coverage costs down for everyone.</p>
     <h2>What does add cost in Maine</h2>
