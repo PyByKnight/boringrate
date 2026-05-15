@@ -2456,6 +2456,54 @@ const CARRIER_CONS = {
   "Nationwide":    ["Fewer local agents in some states", "Above-average pricing in most markets"]
 };
 
+// Attributes used to generate contextual pros/cons in the compare tray
+const CARRIER_ATTRS = {
+  // Standard nationals
+  "USAA":             { agents:false, restricted:true,  restrictedNote:"Military, veterans, and immediate family only",    renewalCreep:false, creditSensitive:false, stateLimit:false, national:true,  mutual:false },
+  "GEICO":            { agents:false, restricted:false,                                                                     renewalCreep:false, creditSensitive:true,  stateLimit:false, national:true,  mutual:false },
+  "State Farm":       { agents:true,  restricted:false,                                                                     renewalCreep:false, creditSensitive:false, stateLimit:false, national:true,  mutual:false },
+  "Progressive":      { agents:false, restricted:false,                                                                     renewalCreep:true,  creditSensitive:true,  stateLimit:false, national:true,  mutual:false },
+  "Allstate":         { agents:true,  restricted:false,                                                                     renewalCreep:false, creditSensitive:true,  stateLimit:false, national:true,  mutual:false },
+  "Liberty Mutual":   { agents:true,  restricted:false,                                                                     renewalCreep:true,  creditSensitive:true,  stateLimit:false, national:true,  mutual:false },
+  "Farmers":          { agents:true,  restricted:false,                                                                     renewalCreep:false, creditSensitive:false, stateLimit:false, national:true,  mutual:false },
+  "Nationwide":       { agents:true,  restricted:false,                                                                     renewalCreep:false, creditSensitive:false, stateLimit:false, national:true,  mutual:false },
+  // Regional / local carriers
+  "Erie Insurance":   { agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"12 states — Mid-Atlantic and Midwest only",     national:false, mutual:false },
+  "American Family":  { agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"19 states — Midwest and Mountain West",           national:false, mutual:false },
+  "Amica Mutual":     { agents:false, restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:false,                                                                   national:false, mutual:true  },
+  "Auto-Owners":      { agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"26 states — Midwest and South",                  national:false, mutual:false },
+  "PEMCO":            { agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"Washington and Oregon only",                     national:false, mutual:true  },
+  "NJM Insurance":    { agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"New Jersey and Pennsylvania only",               national:false, mutual:false },
+  "Mercury Insurance":{ agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"11 states — primarily Western US",               national:false, mutual:false },
+  "Wawanesa":         { agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"California and Oregon only",                     national:false, mutual:true  },
+  "Shelter Insurance":{ agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"15 states — Midwest and South",                  national:false, mutual:false },
+  "Alfa Insurance":   { agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"Southeast states only",                         national:false, mutual:false },
+  "NYCM Insurance":   { agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"New York state only",                           national:false, mutual:false },
+  "Westfield Insurance":{ agents:true,restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"Midwest and Mid-Atlantic",                       national:false, mutual:true  },
+  "Country Financial":{ agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"19 Midwest and Plains states",                   national:false, mutual:false },
+  "MAPFRE Insurance": { agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"Massachusetts and 8 other states",               national:false, mutual:false },
+  "Grinnell Mutual":  { agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"Iowa and Midwest farming states",                national:false, mutual:true  },
+  "Nodak Mutual":     { agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"North and South Dakota only",                   national:false, mutual:true  },
+  "West Bend Mutual": { agents:true,  restricted:false, renewalCreep:false, creditSensitive:false, stateLimit:true,  stateLimitNote:"Wisconsin and neighboring Midwest states",       national:false, mutual:true  },
+  "CSAA / AAA":       { agents:true,  restricted:true,  restrictedNote:"Requires AAA membership (~$50-80/yr)",        renewalCreep:false, creditSensitive:false, stateLimit:true, stateLimitNote:"Western states only",          national:false, mutual:false },
+  // Farm Bureaus — all state-exclusive and require membership
+  "Kentucky Farm Bureau":   { agents:true, restricted:true, restrictedNote:"Requires KY Farm Bureau membership", stateLimit:true, stateLimitNote:"Kentucky only",       national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "NC Farm Bureau":         { agents:true, restricted:true, restrictedNote:"Requires NC Farm Bureau membership", stateLimit:true, stateLimitNote:"North Carolina only",  national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "Texas Farm Bureau":      { agents:true, restricted:true, restrictedNote:"Requires TX Farm Bureau membership", stateLimit:true, stateLimitNote:"Texas only",           national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "Georgia Farm Bureau":    { agents:true, restricted:true, restrictedNote:"Requires GA Farm Bureau membership", stateLimit:true, stateLimitNote:"Georgia only",         national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "Louisiana Farm Bureau":  { agents:true, restricted:true, restrictedNote:"Requires LA Farm Bureau membership", stateLimit:true, stateLimitNote:"Louisiana only",       national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "Mississippi Farm Bureau":{ agents:true, restricted:true, restrictedNote:"Requires MS Farm Bureau membership", stateLimit:true, stateLimitNote:"Mississippi only",     national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "Tennessee Farm Bureau":  { agents:true, restricted:true, restrictedNote:"Requires TN Farm Bureau membership", stateLimit:true, stateLimitNote:"Tennessee only",       national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "Indiana Farm Bureau":    { agents:true, restricted:true, restrictedNote:"Requires IN Farm Bureau membership", stateLimit:true, stateLimitNote:"Indiana only",         national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "Virginia Farm Bureau":   { agents:true, restricted:true, restrictedNote:"Requires VA Farm Bureau membership", stateLimit:true, stateLimitNote:"Virginia only",        national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "SC Farm Bureau":         { agents:true, restricted:true, restrictedNote:"Requires SC Farm Bureau membership", stateLimit:true, stateLimitNote:"South Carolina only",  national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "Arkansas Farm Bureau":   { agents:true, restricted:true, restrictedNote:"Requires AR Farm Bureau membership", stateLimit:true, stateLimitNote:"Arkansas only",        national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "Oklahoma Farm Bureau":   { agents:true, restricted:true, restrictedNote:"Requires OK Farm Bureau membership", stateLimit:true, stateLimitNote:"Oklahoma only",        national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "Kansas Farm Bureau":     { agents:true, restricted:true, restrictedNote:"Requires KS Farm Bureau membership", stateLimit:true, stateLimitNote:"Kansas only",          national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "Michigan Farm Bureau":   { agents:true, restricted:true, restrictedNote:"Requires MI Farm Bureau membership", stateLimit:true, stateLimitNote:"Michigan only",        national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+  "Iowa Farm Bureau":       { agents:true, restricted:true, restrictedNote:"Requires IA Farm Bureau membership", stateLimit:true, stateLimitNote:"Iowa only",            national:false, mutual:false, renewalCreep:false, creditSensitive:false },
+};
+
 // Coverage multipliers for non-standard carriers
 const COVERAGE_MULT_NS = {
   "GEICO":        { minimum: 0.70, standard: 1.00, premium: 1.28 },
@@ -3445,20 +3493,101 @@ function buildCompareCols() {
     return i !== -1 ? i : 0;
   })();
 
+  // Precompute context across the full comparison set
+  const minRatio    = Math.min(...all.map(r => r.ratio));
+  const maxRatio    = Math.max(...all.map(r => r.ratio));
+  const allAgents   = all.every(r => (CARRIER_ATTRS[r.carrier.name] || {}).agents);
+  const anyNational = all.some(r =>  (CARRIER_ATTRS[r.carrier.name] || {}).national);
+  const allMutual   = all.every(r => (CARRIER_ATTRS[r.carrier.name] || {}).mutual);
+  const mixedCredit = all.some(r => (CARRIER_ATTRS[r.carrier.name] || {}).creditSensitive) &&
+                      all.some(r => !(CARRIER_ATTRS[r.carrier.name] || {}).creditSensitive);
+
   cols.setAttribute("data-count", all.length);
   cols.innerHTML = all.map((r, i) => {
     const c = r.carrier;
+    const attrs = CARRIER_ATTRS[c.name] || {};
     const delta = r.price - median;
     const absDelta = Math.abs(Math.round(delta));
     const deltaLabel = (delta > 0 ? "+" : "−") + "$" + absDelta.toLocaleString() + "/yr vs. median";
     const deltaClass = delta <= 0 ? "under" : "over";
     const isBest = i === pickIdx;
-
     const hero = CARRIER_HERO[c.name];
+
     const pros = [];
-    if (r.ratio < 0.8) pros.push(ratioLabel(r.ratio) + " claims record — " + ratioPhrase(r.ratio));
-    else if (r.ratio < 1.0) pros.push(ratioPhrase(r.ratio));
-    const cons = CARRIER_CONS[c.name] || [];
+    const cons = [];
+
+    // ── Price vs. the other selected carriers ──────────────────────
+    if (all.length === 2) {
+      const other = all[i === 0 ? 1 : 0];
+      const diff = Math.abs(Math.round(r.price - other.price));
+      if (r.price <= other.price) {
+        pros.push("$" + diff.toLocaleString() + "/yr cheaper than " + other.carrier.name);
+      } else {
+        cons.push("$" + diff.toLocaleString() + "/yr more than " + other.carrier.name);
+      }
+    } else {
+      const cheapest = all[0];
+      const priciest = all[all.length - 1];
+      if (i === 0) {
+        const gap = Math.abs(Math.round(r.price - all[1].price));
+        pros.push("Lowest price here — $" + gap.toLocaleString() + "/yr less than " + all[1].carrier.name);
+      } else if (i === all.length - 1) {
+        const gap = Math.abs(Math.round(r.price - cheapest.price));
+        cons.push("Most expensive here — $" + gap.toLocaleString() + "/yr more than " + cheapest.carrier.name);
+      } else {
+        const gapUp   = Math.abs(Math.round(r.price - cheapest.price));
+        const gapDown = Math.abs(Math.round(priciest.price - r.price));
+        cons.push("$" + gapUp.toLocaleString() + "/yr more than " + cheapest.carrier.name +
+                  ", $" + gapDown.toLocaleString() + "/yr less than " + priciest.carrier.name);
+      }
+    }
+
+    // ── Claims record vs. the other selected carriers ──────────────
+    if (maxRatio - minRatio >= 0.15) {
+      const isUniqueBest  = Math.abs(r.ratio - minRatio) < 0.005 && all.filter(x => Math.abs(x.ratio - minRatio) < 0.005).length === 1;
+      const isUniqueWorst = Math.abs(r.ratio - maxRatio) < 0.005 && all.filter(x => Math.abs(x.ratio - maxRatio) < 0.005).length === 1;
+      if (isUniqueBest) {
+        const worst = all.reduce((a, b) => a.ratio > b.ratio ? a : b);
+        pros.push("Best claims record here — " + r.ratio.toFixed(2) + " NAIC ratio vs. " + worst.ratio.toFixed(2) + " for " + worst.carrier.name);
+      } else if (isUniqueWorst) {
+        const best = all.reduce((a, b) => a.ratio < b.ratio ? a : b);
+        cons.push("Most complaints here — " + r.ratio.toFixed(2) + " NAIC ratio vs. " + best.ratio.toFixed(2) + " for " + best.carrier.name);
+      }
+    }
+
+    // ── Agent availability (only shown when the set is mixed) ───────
+    if (!allAgents) {
+      if (attrs.agents) {
+        pros.push("Local agents for quotes, claims, and policy changes");
+      } else {
+        cons.push("No local agents — all service by phone or app");
+      }
+    }
+
+    // ── Mutual / policyholder-owned (only when set is mixed) ────────
+    if (attrs.mutual && !allMutual) {
+      pros.push("Member-owned — profits stay in the organization, not with shareholders");
+    }
+
+    // ── Eligibility / membership restriction ────────────────────────
+    if (attrs.restricted) {
+      cons.push(attrs.restrictedNote || "Eligibility restricted — membership required");
+    }
+
+    // ── Renewal rate creep ──────────────────────────────────────────
+    if (attrs.renewalCreep) {
+      cons.push("Rates often increase at renewal for existing customers");
+    }
+
+    // ── Credit sensitivity (only when set is mixed) ──────────────────
+    if (attrs.creditSensitive && mixedCredit) {
+      cons.push("Credit score has a high impact on your quoted rate");
+    }
+
+    // ── Geographic availability (only when comparing against nationals)
+    if (attrs.stateLimit && anyNational) {
+      cons.push("Limited availability — " + (attrs.stateLimitNote || "not available in all states"));
+    }
 
     return '<div class="compare-col' + (isBest ? " best" : "") + '">' +
       (isBest ? '<div class="compare-boring-pick">Boring pick</div>' : '') +
