@@ -229,6 +229,7 @@
   </div>
 </footer>
 <script>
+(function(){try{var p=JSON.parse(localStorage.getItem("br_profile"));if(p&&p.zip){document.getElementById("zipBarInput").value=p.zip;var btn=document.querySelector(".zip-bar-btn");if(btn)btn.textContent="Return to Rates →";}}catch(e){}})();
 document.getElementById("zipBarForm").addEventListener("submit",e=>{e.preventDefault();const zip=document.getElementById("zipBarInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("zipBarInput").focus();return;}window.location.href="../../index.html?zip="+zip;});
 document.getElementById("zipBarInput").addEventListener("input",e=>{e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
 document.getElementById("embedZipForm").addEventListener("submit",e=>{e.preventDefault();const zip=document.getElementById("embedZipInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("embedZipInput").focus();return;}window.location.href="../../index.html?zip="+zip;});

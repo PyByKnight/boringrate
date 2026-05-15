@@ -113,6 +113,7 @@
   h1.hero-h em { font-style: italic; color: var(--accent); }
   h1.hero-h .hero-sub { display: block; font-size: 0.45em; font-weight: 400; letter-spacing: 0; margin-top: 0.3em; color: var(--ink-mute); font-style: italic; }
   .profile-restored { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); margin-top: 10px; letter-spacing: 0.05em; }
+  .zip-privacy { font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em; color: var(--ink-mute); margin-top: 10px; opacity: 0.7; }
   .auth-toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; padding: 14px 24px; z-index: 999; white-space: nowrap; opacity: 0; transition: opacity 300ms; pointer-events: none; }
   .auth-toast.show { opacity: 1; }
   .auth-or { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
@@ -1017,8 +1018,9 @@
       <input class="zip-input" id="zipInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />
       <button type="submit" class="zip-btn">See rates</button>
     </form>
+    <div class="zip-privacy">No phone or email required &nbsp;·&nbsp; No spam &nbsp;·&nbsp; We never sell your data.</div>
     <div id="profileRestored" class="profile-restored" style="display:none;">Welcome back — your last search is loaded.</div>
-    <div class="coverage-nudge">Not sure what coverage you need? &nbsp;<a href="/coverage.html">Help me choose →</a></div>
+    <div class="coverage-nudge">Not sure what coverage you need? &nbsp;<a href="/coverage.html">Coverage Calculator →</a></div>
   </div>
 </div>
 

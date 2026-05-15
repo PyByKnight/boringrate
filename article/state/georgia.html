@@ -239,6 +239,7 @@
   </div>
 </footer>
 <script>
+(function(){try{var p=JSON.parse(localStorage.getItem("br_profile"));if(p&&p.zip){document.getElementById("zipBarInput").value=p.zip;var btn=document.querySelector(".zip-bar-btn");if(btn)btn.textContent="Return to Rates →";}}catch(e){}})();
 document.getElementById("zipBarForm").addEventListener("submit",e=>{
   e.preventDefault();
   const zip=document.getElementById("zipBarInput").value.trim();
