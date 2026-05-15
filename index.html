@@ -2689,6 +2689,9 @@ const STATE_AGENTS = {
     { name: "MIS Insurance Services",         city: "Los Angeles", url: "https://www.mis-insurance.com",    rating: 4.9, reviews: 3000, source: "Google", tag: "78+ carriers · bilingual service · personal auto &amp; home specialist" },
     { name: "Fusco Orsini &amp; Associates",  city: "San Diego",   url: "https://www.foagency.com",         rating: 5.0, reviews: 425,  source: "Google", tag: "Founded 2010 · licensed in 31 states · personal auto, home, umbrella" },
     { name: "Peninsula General Insurance",     city: "Torrance",    url: "https://www.peninsulageneral.com", rating: 4.9, reviews: 227,  source: "Google", tag: "Founded 1986 · Mercury, Safeco, Progressive · South Bay &amp; LA" },
+    { name: "Heffernan Insurance Brokers",     city: "Walnut Creek", url: "https://www.heffins.com",         tag: "Founded 1988 · one of California's largest independent brokers · personal auto, home &amp; commercial" },
+    { name: "Freeway Insurance",               city: "Burbank",     url: "https://www.freewayinsurance.com", tag: "200+ locations statewide · bilingual · personal auto, SR-22 &amp; home" },
+    { name: "Pacific Premier Insurance",       city: "Irvine",      url: "https://www.pacpremins.com",       tag: "Independent broker · Orange County &amp; statewide · personal auto &amp; home" },
   ],
   "CO": [
     { name: "Denver Insurance LLC",          city: "Denver",     url: "https://denverinsuranceteam.com",  rating: 5.0, reviews: 278, source: "Google", tag: "Founded 2015 · shops 33 carriers · personal auto &amp; home, fee-free" },
@@ -2714,6 +2717,9 @@ const STATE_AGENTS = {
     { name: "Miami Insurance Brokers",      city: "Miami",        url: "https://www.mibrk.com",           rating: 4.9, reviews: 516,   source: "Google", tag: "30+ years in business · bilingual · personal auto specialist" },
     { name: "Florida One Insurance Agency", city: "Miami Lakes",  url: "https://floridaoneinsurance.com",  rating: 4.9, reviews: 25540, source: "Google", tag: "40+ carriers · bilingual · personal auto, home, SR-22 · statewide" },
     { name: "Augustyniak Insurance Group",  city: "Jacksonville", url: "https://www.weshopinsurance.com",  rating: 4.9, reviews: 2250,  source: "Google", tag: "80+ carriers · ThreeBestRated Jacksonville #1, 12 years running" },
+    { name: "Brown &amp; Brown Insurance",  city: "Daytona Beach", url: "https://www.bbinsurance.com",     tag: "Founded 1939 · one of Florida's largest independents · personal auto, home &amp; commercial" },
+    { name: "Brightway Insurance",          city: "Jacksonville", url: "https://www.brightway.com",        tag: "100+ FL locations · franchise network · personal auto, home &amp; life" },
+    { name: "GreatFlorida Insurance",       city: "Sunrise",      url: "https://www.greatflorida.com",     tag: "100+ FL locations · personal auto, home, SR-22 · statewide independent network" },
   ],
   "GA": [
     { name: "Dickerson Agency",          city: "Kennesaw",   url: "https://www.dickersonagency.com",      rating: 5.0, reviews: 149, source: "Google", tag: "30+ years · 20+ A-rated carriers · personal auto, home, umbrella" },
@@ -2880,9 +2886,12 @@ const STATE_AGENTS = {
     { name: "Choice Insurance Agency",  city: "Nashville",   url: "https://www.choicetn.com",              rating: 4.9, reviews: 50, source: "Google", tag: "Independent agency · personal auto &amp; home · multi-carrier · Nashville area" },
   ],
   "TX": [
-    { name: "Texan Insurance",         city: "Houston", url: "https://www.texaninsurance.com",    rating: 4.8, reviews: 2781, source: "Google",  tag: "Family-owned since 1985 · 40+ carriers · personal auto &amp; home" },
-    { name: "The Vanguard Agency",     city: "Houston", url: "https://www.vanguardagencyllc.com", rating: 4.9, reviews: 245,  source: "Google",  tag: "Personal auto &amp; home · Mercury, Travelers · Trusted Choice" },
-    { name: "Baxter Insurance Agency", city: "Houston", url: "https://baxterinsuranceagency.com", rating: 5.0, reviews: 58,   source: "Birdeye", tag: "Family-owned since 1989 · personal auto &amp; home · greater Houston" },
+    { name: "Texan Insurance",         city: "Houston",     url: "https://www.texaninsurance.com",    rating: 4.8, reviews: 2781, source: "Google",  tag: "Family-owned since 1985 · 40+ carriers · personal auto &amp; home" },
+    { name: "The Vanguard Agency",     city: "Houston",     url: "https://www.vanguardagencyllc.com", rating: 4.9, reviews: 245,  source: "Google",  tag: "Personal auto &amp; home · Mercury, Travelers · Trusted Choice" },
+    { name: "Baxter Insurance Agency", city: "Houston",     url: "https://baxterinsuranceagency.com", rating: 5.0, reviews: 58,   source: "Birdeye", tag: "Family-owned since 1989 · personal auto &amp; home · greater Houston" },
+    { name: "Higginbotham",            city: "Fort Worth",  url: "https://higginbotham.net",          tag: "Founded 1948 · one of Texas's largest independent agencies · personal auto, home &amp; commercial" },
+    { name: "Goosehead Insurance",     city: "Southlake",   url: "https://www.goosehead.com",         tag: "Founded in TX · 150+ carrier relationships · personal auto &amp; home statewide" },
+    { name: "IPA Insurance Group",     city: "Dallas",      url: "https://ipainsgroup.com",           tag: "Independent · Dallas-Fort Worth · personal auto, home &amp; commercial" },
   ],
   "UT": [
     { name: "Archibald Insurance Agency", city: "Salt Lake City", url: "https://archibald-insurance.com", rating: 4.8, reviews: 367, source: "Google", tag: "Founded 1950 · 18 carriers · personal auto &amp; home specialist" },
@@ -3123,10 +3132,20 @@ function agentStarHTML(a) {
   return `<div class="agent-card-stars">${stars}<span>${a.rating.toFixed(1)}${reviewPart} · ${a.source || "Google"}</span></div>`;
 }
 
+function shuffleAgents(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 function renderAgentPanel() {
   const panel = document.getElementById("agentPanel");
-  const agents = stateData && STATE_AGENTS[stateData.code];
-  if (!agents) { panel.style.display = "none"; return; }
+  const pool = stateData && STATE_AGENTS[stateData.code];
+  if (!pool) { panel.style.display = "none"; return; }
+  const agents = shuffleAgents(pool).slice(0, 3);
   panel.innerHTML =
     `<div class="agent-panel-title">Work with an independent agent near you</div>` +
     `<div class="agent-panel-sub">They compare rates across 20+ companies for you — one conversation, multiple quotes.</div>` +
@@ -3138,8 +3157,7 @@ function renderAgentPanel() {
         `<div class="agent-card-tag">${a.tag}</div>` +
         `<a class="agent-card-link" href="${a.url}" target="_blank" rel="noopener noreferrer">Get quotes →</a>` +
       `</div>`
-    ).join("") +
-    `<div style="margin-top:14px;font-size:10px;color:var(--ink-mute);font-family:var(--mono);">Independent agents are not paid by this site.</div>`;
+    ).join("");
   panel.style.display = "block";
 }
 
