@@ -472,6 +472,8 @@
   .rank-name { font-family: var(--serif); font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
   .rank-tag { font-size: 12px; color: var(--ink-mute); margin-top: 2px; font-family: var(--sans); }
   .rank-best { font-size: 10px; font-family: var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); margin-top: 4px; }
+  .rank-hero { font-size: 12px; font-family: var(--sans); color: var(--ink-soft); margin-top: 5px; line-height: 1.35; }
+  .rank-hero-label { font-weight: 600; color: var(--ink); }
   .rank-review-link { font-size: 10px; font-family: var(--mono); letter-spacing: 0.05em; color: var(--ink-mute); margin-top: 4px; display: inline-block; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--rule); transition: color 120ms; }
   .rank-review-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
@@ -782,6 +784,9 @@
     .result { padding: 28px 0; }
     .rank-row { padding: 12px 14px; gap: 8px; }
     .rank-name { font-size: 15px; }
+    .rank-hero-line { display: none; }
+    .rank-hero { font-size: 10px; font-family: var(--mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); }
+    .rank-hero-label { font-weight: 500; }
   }
 
   /* ── Carrier compare ── */
@@ -859,6 +864,9 @@
     letter-spacing: 0.1em; background: var(--accent); color: var(--paper);
     padding: 3px 8px; border-radius: 3px;
   }
+  .compare-hero { background: rgba(246,241,232,0.07); border-left: 2px solid var(--good); padding: 8px 10px; margin-bottom: 14px; border-radius: 0 3px 3px 0; }
+  .compare-hero-label { display: block; font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em; color: #7bc47a; margin-bottom: 3px; }
+  .compare-hero-line { font-family: var(--sans); font-size: 12px; color: rgba(246,241,232,0.85); line-height: 1.4; }
   .compare-name { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 2px; }
   .compare-tag { font-family: var(--sans); font-size: 11px; color: rgba(246,241,232,0.4); margin-bottom: 12px; }
   .compare-price { font-family: var(--mono); font-size: 26px; font-weight: 600; line-height: 1; }
@@ -2206,11 +2214,21 @@ function naicRatio(name, code) {
 }
 function qualityMark(r) { return r < 1.0 ? "star" : r > 2.0 ? "flag" : "none"; }
 function ratioPhrase(r) {
-  if (r < 0.7)  return "Notably fewer regulator-filed complaints than expected for a carrier of this size.";
-  if (r < 1.0)  return "Fewer regulator-filed complaints than expected for a carrier of this size.";
-  if (r <= 1.5) return "About average — complaints roughly proportional to market share.";
-  if (r <= 2.0) return "Somewhat more complaints than expected for a carrier of this size.";
-  return "Notably more regulator-filed complaints than expected for a carrier of this size.";
+  const pct = Math.round(Math.abs(1 - r) * 100);
+  if (r < 0.6)  return "Claims handled right — " + pct + "% fewer disputes than the average carrier.";
+  if (r < 0.8)  return "Fewer claims fights than most — " + pct + "% below the industry average.";
+  if (r < 1.0)  return "Slightly better than average — fewer claim disputes than a typical carrier.";
+  if (r <= 1.2) return "About industry average — disputes roughly proportional to market share.";
+  if (r <= 1.5) return "More complaints than average — " + pct + "% above typical.";
+  return "Significantly more complaints than average — " + pct + "% above typical.";
+}
+function ratioLabel(r) {
+  if (r < 0.6)  return "Excellent";
+  if (r < 0.8)  return "Good";
+  if (r < 1.0)  return "Above avg";
+  if (r <= 1.2) return "Average";
+  if (r <= 1.5) return "Below avg";
+  return "Poor";
 }
 
 const COVERAGE_MULT = {
@@ -2334,6 +2352,24 @@ const CARRIER_RESEARCH_LINKS = {
   "Travelers":        "/article/carrier/travelers.html",
   "Safeco":           "/article/carrier/safeco.html",
   "AAA / CSAA":       "/article/carrier/aaa.html",
+};
+
+const CARRIER_HERO = {
+  "USAA":            { label: "Fewest Disputes",       line: "50% fewer claims fights than the industry average. Military families get treated right." },
+  "GEICO":           { label: "Lowest Price",           line: "Typically 15–20% cheaper than average for clean-record drivers. Best starting point for price." },
+  "State Farm":      { label: "19,000+ Local Agents",   line: "A real person near you — not a chatbot — handles your claim and picks up the phone." },
+  "Progressive":     { label: "Covers High-Risk",       line: "DUI? Lapse? SR-22? Progressive accepts profiles that most carriers flat-out decline." },
+  "Allstate":        { label: "Accident Forgiveness",   line: "One accident won't raise your rate. Most carriers charge extra for this — Allstate includes it." },
+  "Liberty Mutual":  { label: "New Car Replacement",    line: "Totaled in year one? They replace it brand new — not market value, not depreciated book value." },
+  "Farmers":         { label: "Rideshare Coverage",     line: "Full protection while driving Uber or Lyft — no gap between personal and rideshare coverage." },
+  "Nationwide":      { label: "Vanishing Deductible",   line: "$100 off your deductible every claim-free year. Keep it long enough and it hits zero." },
+  "Erie Insurance":  { label: "Rate Lock",              line: "Rates up 50%+ across the country since 2019. Erie locks yours — renewal won't change it." },
+  "American Family": { label: "Young Driver Discount",  line: "KnowYourDrive can cut a teen's rate by up to 40%. Biggest lever for new or young drivers." },
+  "Amica Mutual":    { label: "Dividend Policy",        line: "Policyholders get back up to 20% of their premium at year end. You're a member, not just a customer." },
+  "Auto-Owners":     { label: "Cleanest Claims Record", line: "Fewest complaint filings of any multi-state carrier. Disputes resolved faster, fewer fights." },
+  "Travelers":       { label: "Bundle Discount",        line: "Add home to auto and save 10–15%. One of the strongest multi-policy discounts available." },
+  "Safeco":          { label: "RightTrack — No Risk",   line: "Safe drivers save 8–15%. A bad score won't raise your rate — all savings, no penalty." },
+  "AAA / CSAA":      { label: "Roadside Included",      line: "Insurance + emergency roadside in one membership. One call, one company, one bill." },
 };
 
 const CARRIER_CONS = {
@@ -2956,7 +2992,7 @@ function renderRanking() {
     const c = row.carrier;
     const num = String(idx + 1).padStart(2, "0");
     const delta = formatDelta(row.price - median);
-    const tip = "3-yr complaint ratio: " + row.ratio.toFixed(2) + ". " + ratioPhrase(row.ratio);
+    const tip = ratioLabel(row.ratio) + " claims record — " + ratioPhrase(row.ratio);
     const markHtml = row.mark === "none"
       ? '<div class="rank-mark none" data-tip="' + tip + '" tabindex="0"></div>'
       : '<div class="rank-mark ' + row.mark + '" data-tip="' + tip + '" tabindex="0">' + markSvg(row.mark) + '</div>';
@@ -2966,14 +3002,15 @@ function renderRanking() {
     a.target = "_blank";
     a.rel = "noopener noreferrer";
     a.dataset.carrier = c.name;
-    const bestForHtml = c.bestFor ? '<div class="rank-best">↗ ' + c.bestFor + '</div>' : '';
+    const hero = CARRIER_HERO[c.name];
+    const heroHtml = hero ? '<div class="rank-hero"><span class="rank-hero-label">' + hero.label + '</span> — ' + hero.line + '</div>' : '';
     const researchUrl = CARRIER_RESEARCH_LINKS[c.name];
     const researchHtml = researchUrl ? '<span class="rank-review-link" data-url="' + researchUrl + '">BoringRate review →</span>' : '';
     const inCompare = compareSet.has(c.name);
     const compareHtml = '<div class="rank-cta"><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
     a.innerHTML =
       '<div class="rank-num">' + num + '</div>' +
-      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div><div class="rank-tag">' + c.tag + '</div>' + bestForHtml + researchHtml + '</div>' +
+      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div><div class="rank-tag">' + c.tag + '</div>' + heroHtml + researchHtml + '</div>' +
       markHtml +
       '<div class="rank-vs ' + delta.klass + '">' + delta.text + '<span class="vs-sub">' + delta.sub + '</span></div>' +
       compareHtml;
@@ -3328,21 +3365,22 @@ function buildCompareCols() {
     const deltaClass = delta <= 0 ? "under" : "over";
     const isBest = i === pickIdx;
 
+    const hero = CARRIER_HERO[c.name];
     const pros = [];
-    if (c.bestFor) pros.push(c.bestFor);
-    if (r.ratio < 0.8) pros.push("Strong complaint record (NAIC " + r.ratio.toFixed(2) + ")");
-    else if (r.ratio < 1.0) pros.push("Fewer complaints than average (NAIC " + r.ratio.toFixed(2) + ")");
+    if (r.ratio < 0.8) pros.push(ratioLabel(r.ratio) + " claims record — " + ratioPhrase(r.ratio));
+    else if (r.ratio < 1.0) pros.push(ratioPhrase(r.ratio));
     const cons = CARRIER_CONS[c.name] || [];
 
     return '<div class="compare-col' + (isBest ? " best" : "") + '">' +
       (isBest ? '<div class="compare-boring-pick">Boring pick</div>' : '') +
+      (hero ? '<div class="compare-hero"><span class="compare-hero-label">' + hero.label + '</span><span class="compare-hero-line">' + hero.line + '</span></div>' : '') +
       '<div class="compare-name">' + c.name + '</div>' +
       '<div class="compare-tag">' + c.tag + '</div>' +
       '<div class="compare-price">$' + Math.round(r.price).toLocaleString() + '<span class="compare-price-yr">/yr</span></div>' +
       '<div class="compare-delta ' + deltaClass + '">' + deltaLabel + '</div>' +
       (pros.length ? '<div class="compare-section-label">Strengths</div><ul class="compare-list pros">' + pros.map(p => '<li>' + p + '</li>').join('') + '</ul>' : '') +
       (cons.length ? '<div class="compare-section-label">Watch out for</div><ul class="compare-list cons">' + cons.map(x => '<li>' + x + '</li>').join('') + '</ul>' : '') +
-      '<div class="compare-naic">NAIC complaint ratio: ' + r.ratio.toFixed(2) + '</div>' +
+      '<div class="compare-naic">Claims: ' + ratioLabel(r.ratio) + ' · ' + ratioPhrase(r.ratio) + '</div>' +
       '</div>';
   }).join('');
 }
