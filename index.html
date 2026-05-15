@@ -441,6 +441,15 @@
     letter-spacing: 0.06em;
   }
   .agent-card-link:hover { text-decoration: underline; }
+  .agent-card-hidden { display: none; }
+  .agent-show-more {
+    display: block; width: 100%; margin-top: 10px; padding: 9px 0;
+    background: none; border: 1px solid var(--rule); border-radius: 2px;
+    font-family: var(--mono); font-size: 11px; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer;
+    transition: background 150ms;
+  }
+  .agent-show-more:hover { background: var(--paper-deep); }
   @media (max-width: 800px) {
     .rank-and-agents { flex-direction: column; align-items: stretch; }
     .rank-and-agents .rank-list { flex: none; }
@@ -1824,6 +1833,30 @@ const ZIP_PREFIX_METRO = {
   "780":"san","781":"san","782":"san","783":"san","784":"san",
   // Columbus OH outer — Hilliard / Reynoldsburg / Grove City
   "430":"col","431":"col","432":"col","433":"col","434":"col","435":"col","436":"col","437":"col","438":"col","439":"col",
+  // Albany NY
+  "120":"alb","121":"alb","122":"alb",
+  // Rochester NY
+  "144":"roc","145":"roc","146":"roc",
+  // Syracuse NY
+  "130":"syr","131":"syr","132":"syr",
+  // Birmingham AL
+  "350":"bir","351":"bir","352":"bir",
+  // Boise ID
+  "836":"boi","837":"boi",
+  // Little Rock AR
+  "720":"lrk","721":"lrk","722":"lrk",
+  // Columbia SC
+  "290":"csc","291":"csc","292":"csc",
+  // Greensboro–Winston-Salem NC
+  "271":"gso","272":"gso",
+  // Des Moines IA
+  "500":"dsm","501":"dsm","502":"dsm",
+  // Wichita KS
+  "670":"ict","671":"ict","672":"ict",
+  // Madison WI
+  "537":"mad",
+  // Spokane WA
+  "990":"spo","991":"spo","992":"spo",
 };
 
 const METRO_NAMES = {
@@ -1883,6 +1916,18 @@ const METRO_NAMES = {
   sjv: "San Jose / Silicon Valley metro",
   sdg: "San Diego metro",
   nfk: "Norfolk / Virginia Beach metro",
+  alb: "Albany metro",
+  roc: "Rochester metro",
+  syr: "Syracuse metro",
+  bir: "Birmingham metro",
+  boi: "Boise metro",
+  lrk: "Little Rock metro",
+  csc: "Columbia metro",
+  gso: "Greensboro–Winston-Salem metro",
+  dsm: "Des Moines metro",
+  ict: "Wichita metro",
+  mad: "Madison metro",
+  spo: "Spokane metro",
 };
 
 // Additional multiplier on top of state adjustment — metro rates vs. rest of state.
@@ -1944,6 +1989,18 @@ const METRO_CARRIER_ADJ = {
   sjv: { "USAA":1.18,"GEICO":1.16,"State Farm":1.14,"Progressive":1.20,"Allstate":1.22,"Liberty Mutual":1.24,"Farmers":1.14,"Nationwide":1.16,"Erie Insurance":1.10,"American Family":1.12,"Amica Mutual":1.12,"Auto-Owners":1.12 },
   sdg: { "USAA":1.12,"GEICO":1.10,"State Farm":1.08,"Progressive":1.14,"Allstate":1.16,"Liberty Mutual":1.18,"Farmers":1.10,"Nationwide":1.11,"Erie Insurance":1.07,"American Family":1.09,"Amica Mutual":1.09,"Auto-Owners":1.08 },
   nfk: { "USAA":1.08,"GEICO":1.08,"State Farm":1.10,"Progressive":1.10,"Allstate":1.12,"Liberty Mutual":1.14,"Farmers":1.10,"Nationwide":1.08,"Erie Insurance":1.06,"American Family":1.07,"Amica Mutual":1.07,"Auto-Owners":1.07 },
+  alb: { "USAA":1.12,"GEICO":1.10,"State Farm":1.14,"Progressive":1.13,"Allstate":1.16,"Liberty Mutual":1.18,"Farmers":1.12,"Nationwide":1.11,"Erie Insurance":1.08,"American Family":1.10,"Amica Mutual":1.10,"Auto-Owners":1.09 },
+  roc: { "USAA":1.10,"GEICO":1.09,"State Farm":1.12,"Progressive":1.11,"Allstate":1.14,"Liberty Mutual":1.16,"Farmers":1.11,"Nationwide":1.10,"Erie Insurance":1.07,"American Family":1.09,"Amica Mutual":1.09,"Auto-Owners":1.08 },
+  syr: { "USAA":1.11,"GEICO":1.10,"State Farm":1.13,"Progressive":1.12,"Allstate":1.15,"Liberty Mutual":1.17,"Farmers":1.11,"Nationwide":1.10,"Erie Insurance":1.08,"American Family":1.09,"Amica Mutual":1.09,"Auto-Owners":1.08 },
+  bir: { "USAA":1.10,"GEICO":1.10,"State Farm":1.12,"Progressive":1.11,"Allstate":1.14,"Liberty Mutual":1.16,"Farmers":1.11,"Nationwide":1.10,"Erie Insurance":1.07,"American Family":1.09,"Amica Mutual":1.09,"Auto-Owners":1.08 },
+  boi: { "USAA":1.03,"GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.06,"Nationwide":1.04,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.03 },
+  lrk: { "USAA":1.06,"GEICO":1.06,"State Farm":1.08,"Progressive":1.07,"Allstate":1.10,"Liberty Mutual":1.12,"Farmers":1.08,"Nationwide":1.07,"Erie Insurance":1.05,"American Family":1.06,"Amica Mutual":1.06,"Auto-Owners":1.05 },
+  csc: { "USAA":1.05,"GEICO":1.05,"State Farm":1.07,"Progressive":1.06,"Allstate":1.09,"Liberty Mutual":1.11,"Farmers":1.07,"Nationwide":1.06,"Erie Insurance":1.04,"American Family":1.05,"Amica Mutual":1.05,"Auto-Owners":1.04 },
+  gso: { "USAA":1.04,"GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.06,"Nationwide":1.05,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.03 },
+  dsm: { "USAA":1.03,"GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"Erie Insurance":1.03,"American Family":1.03,"Amica Mutual":1.04,"Auto-Owners":1.03 },
+  ict: { "USAA":1.05,"GEICO":1.05,"State Farm":1.07,"Progressive":1.06,"Allstate":1.09,"Liberty Mutual":1.11,"Farmers":1.07,"Nationwide":1.06,"Erie Insurance":1.04,"American Family":1.05,"Amica Mutual":1.05,"Auto-Owners":1.04 },
+  mad: { "USAA":1.03,"GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.03 },
+  spo: { "USAA":1.04,"GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.07,"Nationwide":1.05,"Erie Insurance":1.03,"American Family":1.05,"Amica Mutual":1.04,"Auto-Owners":1.04 },
 };
 
 // State-specific banners — shown below the ZIP result for matching states
@@ -3687,6 +3744,204 @@ const METRO_AGENTS = {
     { name: "Answer Financial",              city: "Hartford, CT",    url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · CT" },
     { name: "TWFG Insurance",                city: "Glastonbury, CT", url: "https://www.twfg.com",                 tag: "East Hartford suburbs · personal auto &amp; home · Connecticut independent network" },
   ],
+  // ── Buffalo metro ────────────────────────────────────────────────────
+  "buf": [
+    { name: "Haller-Zaremba Insurance",    city: "Buffalo, NY",    url: "https://www.hzinsurance.com",          rating: 5.0, reviews: 54,  source: "Google",  tag: "Family-owned 81+ years · personal auto &amp; home · Western NY" },
+    { name: "Goosehead Insurance",         city: "Buffalo, NY",    url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Buffalo metro" },
+    { name: "TWFG Insurance",              city: "Cheektowaga, NY",url: "https://www.twfg.com",                  tag: "Western NY independent network · personal auto &amp; home · Buffalo area" },
+    { name: "Erie Insurance Agents",       city: "Buffalo, NY",    url: "https://www.erieinsurance.com",         tag: "Erie Insurance independent agents · rate-lock coverage · Buffalo &amp; Western NY" },
+    { name: "Answer Financial",            city: "Buffalo, NY",    url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NY" },
+    { name: "K&amp;N Insurance Brokerage", city: "Rochester, NY",  url: "https://kninsurance.com",              rating: 5.0, reviews: 863, source: "Google",  tag: "30+ years · personal auto &amp; home · Upstate NY" },
+  ],
+  // ── Albuquerque metro ────────────────────────────────────────────────
+  "abq": [
+    { name: "Associated Insurance Professionals", city: "Albuquerque, NM", url: "https://aip-inc.com",          rating: 4.7, reviews: 106, source: "Google",  tag: "35+ years independent · personal auto &amp; home · multi-state" },
+    { name: "Sunset Insurance Corporation",       city: "Albuquerque, NM", url: "https://abqsunsetinsurance.com",rating: 4.4, reviews: 85,  source: "Google",  tag: "Founded 2009 · bilingual · personal auto &amp; home · Nationwide partner" },
+    { name: "Cohn Agency",                        city: "Albuquerque, NM", url: "https://cohninsurance.com",     tag: "Founded 1986 · independent · personal auto, home &amp; specialty" },
+    { name: "Goosehead Insurance",                city: "Albuquerque, NM", url: "https://www.goosehead.com",     tag: "National independent · 150+ carriers · personal auto &amp; home · ABQ metro" },
+    { name: "TWFG Insurance",                     city: "Rio Rancho, NM",  url: "https://www.twfg.com",          tag: "New Mexico independent network · personal auto &amp; home · Albuquerque area" },
+    { name: "Answer Financial",                   city: "Albuquerque, NM", url: "https://www.answerfinancial.com",tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NM" },
+  ],
+  // ── Tucson metro ─────────────────────────────────────────────────────
+  "tuc": [
+    { name: "Greene Insurance Group",      city: "Tucson, AZ",     url: "https://greeneinsurancegroup.com",     tag: "Family-owned since 1962 · 12+ carriers · personal auto &amp; home · AZ statewide" },
+    { name: "Goosehead Insurance",         city: "Tucson, AZ",     url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Tucson metro" },
+    { name: "TWFG Insurance",              city: "Marana, AZ",     url: "https://www.twfg.com",                  tag: "Northwest Tucson · personal auto &amp; home · Arizona independent network" },
+    { name: "Answer Financial",            city: "Tucson, AZ",     url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · AZ" },
+    { name: "Coriano Insurance Agency",    city: "Tucson, AZ",     url: "https://ciaaz.com",                     tag: "Family-owned · 60+ carriers · Safeco, Progressive, Travelers · personal auto" },
+    { name: "Insurance of State 48",       city: "Tucson, AZ",     url: "https://insuranceofstate48.us",         rating: 4.9, reviews: 39, source: "Google", tag: "Independent · personal auto, home &amp; motorcycle · AZ multi-carrier" },
+  ],
+  // ── Tulsa metro ──────────────────────────────────────────────────────
+  "tul": [
+    { name: "MWI Insurance Brokers",       city: "Tulsa, OK",      url: "https://mwi-insurancebrokers.com",     rating: 4.9, reviews: 229, source: "Google",  tag: "Independent agency · personal auto &amp; home · statewide Oklahoma" },
+    { name: "The Insurance Store",         city: "Tulsa, OK",      url: "https://www.theinsurancestore.co",     rating: 5.0, reviews: 140, source: "Google",  tag: "Independent since 2010 · Oklahoma-rooted · personal auto &amp; home" },
+    { name: "Shelter Insurance Agents",    city: "Tulsa, OK",      url: "https://www.shelterinsurance.com",     tag: "J.D. Power Central #1 · personal auto &amp; home · Tulsa metro agents" },
+    { name: "Goosehead Insurance",         city: "Broken Arrow, OK",url: "https://www.goosehead.com",           tag: "National independent · 150+ carriers · personal auto &amp; home · Tulsa metro" },
+    { name: "TWFG Insurance",              city: "Tulsa, OK",      url: "https://www.twfg.com",                  tag: "Eastern Oklahoma independent network · personal auto &amp; home" },
+    { name: "Answer Financial",            city: "Tulsa, OK",      url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · OK" },
+  ],
+  // ── Fresno metro ─────────────────────────────────────────────────────
+  "fre": [
+    { name: "Freeway Insurance",           city: "Fresno, CA",     url: "https://www.freewayinsurance.com",     tag: "200+ CA locations · bilingual · personal auto, SR-22 &amp; home · Central Valley" },
+    { name: "Heffernan Insurance Brokers", city: "Fresno, CA",     url: "https://www.heffins.com",              tag: "Founded 1988 · one of CA's largest independent brokers · Central Valley" },
+    { name: "Answer Financial",            city: "Fresno, CA",     url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · CA" },
+    { name: "Goosehead Insurance",         city: "Clovis, CA",     url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Fresno area" },
+    { name: "MIS Insurance Services",      city: "Fresno, CA",     url: "https://www.mis-insurance.com",        rating: 4.9, reviews: 3000, source: "Google", tag: "78+ carriers · bilingual service · personal auto &amp; home · CA statewide" },
+    { name: "Pacific Premier Insurance",   city: "Fresno, CA",     url: "https://www.pacpremins.com",           tag: "Independent broker · Central Valley &amp; statewide · personal auto &amp; home" },
+  ],
+  // ── Bakersfield metro ────────────────────────────────────────────────
+  "bak": [
+    { name: "Freeway Insurance",           city: "Bakersfield, CA",url: "https://www.freewayinsurance.com",     tag: "200+ CA locations · bilingual · personal auto, SR-22 &amp; home · Kern County" },
+    { name: "Answer Financial",            city: "Bakersfield, CA",url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · CA" },
+    { name: "Goosehead Insurance",         city: "Bakersfield, CA",url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Bakersfield" },
+    { name: "MIS Insurance Services",      city: "Bakersfield, CA",url: "https://www.mis-insurance.com",        rating: 4.9, reviews: 3000, source: "Google", tag: "78+ carriers · bilingual service · personal auto &amp; home · CA statewide" },
+    { name: "Pacific Premier Insurance",   city: "Bakersfield, CA",url: "https://www.pacpremins.com",           tag: "Independent broker · Kern County &amp; statewide · personal auto &amp; home" },
+    { name: "TWFG Insurance",              city: "Bakersfield, CA",url: "https://www.twfg.com",                  tag: "Central California independent network · personal auto &amp; home" },
+  ],
+  // ── Baton Rouge metro ────────────────────────────────────────────────
+  "bat": [
+    { name: "Foundation Insurance Group",  city: "Baton Rouge, LA",url: "https://www.foundationinsgroup.com",   rating: 4.9, reviews: 37, source: "Google",  tag: "Locally owned independent · personal auto &amp; home · Louisiana" },
+    { name: "Dan Burghardt Insurance",     city: "Baton Rouge, LA",url: "https://dbiagency.com",                tag: "Founded 1984 · 50+ A-rated carriers · personal auto &amp; home · Louisiana" },
+    { name: "Goosehead Insurance",         city: "Baton Rouge, LA",url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Baton Rouge" },
+    { name: "TWFG Insurance",              city: "Denham Springs, LA",url: "https://www.twfg.com",              tag: "East Baton Rouge Parish independent network · personal auto, home &amp; flood" },
+    { name: "Answer Financial",            city: "Baton Rouge, LA",url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; flood · LA" },
+    { name: "TWFG Insurance – Rick Rogers",city: "Baton Rouge, LA",url: "https://www.rickyrogers.com",          rating: 4.8, reviews: 44, source: "Google",  tag: "Independent agency · personal auto &amp; home · multi-carrier · BBB A+" },
+  ],
+  // ── El Paso metro ────────────────────────────────────────────────────
+  "elp": [
+    { name: "TWFG Insurance Services",     city: "El Paso, TX",    url: "https://www.twfg.com",                 tag: "Texas-based network · 400+ agents statewide · personal auto &amp; home · El Paso" },
+    { name: "Goosehead Insurance",         city: "El Paso, TX",    url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · El Paso metro" },
+    { name: "Texan Insurance",             city: "El Paso, TX",    url: "https://www.texaninsurance.com",        rating: 4.8, reviews: 2781, source: "Google", tag: "Family-owned since 1985 · 40+ carriers · personal auto &amp; home · TX statewide" },
+    { name: "Higginbotham",                city: "El Paso, TX",    url: "https://higginbotham.net",              tag: "Founded 1948 · one of TX's largest independents · El Paso &amp; statewide" },
+    { name: "Answer Financial",            city: "El Paso, TX",    url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · TX" },
+    { name: "Freeway Insurance",           city: "El Paso, TX",    url: "https://www.freewayinsurance.com",      tag: "Multiple TX locations · bilingual · personal auto, SR-22 &amp; home · border region" },
+  ],
+  // ── Honolulu metro ───────────────────────────────────────────────────
+  "hon": [
+    { name: "Carr's Insurance Agency",     city: "Honolulu, HI",   url: "https://carrsinsuranceagency.com",     rating: 4.8, reviews: 90, source: "Google",  tag: "Founded 1990 · personal auto, home, boat &amp; motorcycle · all major islands" },
+    { name: "Insurance Associates Inc.",   city: "Honolulu, HI",   url: "https://insuringhawaii.com",           tag: "Founded 1969 · IIABA member · personal auto, home &amp; condo" },
+    { name: "John H Connors Insurance",    city: "Honolulu, HI",   url: "https://connorshawaii.com",            rating: 4.8, reviews: 21, source: "Google",  tag: "Decades of experience · personal auto &amp; home · independent multi-carrier" },
+    { name: "Goosehead Insurance",         city: "Honolulu, HI",   url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Oahu" },
+    { name: "Answer Financial",            city: "Honolulu, HI",   url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · HI" },
+    { name: "TWFG Insurance",              city: "Kailua, HI",     url: "https://www.twfg.com",                  tag: "Hawaii independent network · personal auto &amp; home · Oahu &amp; neighbor islands" },
+  ],
+  // ── Norfolk / Virginia Beach metro ───────────────────────────────────
+  "nfk": [
+    { name: "WBA Insurance",               city: "Virginia Beach, VA",url: "https://www.wba-ins.com",           rating: 4.8, reviews: 85, source: "Google",  tag: "Founded 1973 · serves VA/NC/MD · personal auto &amp; home" },
+    { name: "Able Insurance",              city: "Norfolk, VA",    url: "https://www.ableinsurance.net",         rating: 4.9, reviews: 55, source: "Google",  tag: "30+ years experience · personal auto &amp; home · Hampton Roads" },
+    { name: "Goosehead Insurance",         city: "Chesapeake, VA", url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Hampton Roads" },
+    { name: "TWFG Insurance",              city: "Virginia Beach, VA",url: "https://www.twfg.com",               tag: "Hampton Roads independent network · personal auto, home &amp; flood" },
+    { name: "Erie Insurance Agents",       city: "Norfolk, VA",    url: "https://www.erieinsurance.com",         tag: "Erie Insurance independent agents · rate-lock coverage · Hampton Roads area" },
+    { name: "Answer Financial",            city: "Virginia Beach, VA",url: "https://www.answerfinancial.com",    tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · VA" },
+  ],
+  // ── Albany metro (new) ───────────────────────────────────────────────
+  "alb": [
+    { name: "Goosehead Insurance",         city: "Albany, NY",     url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Capital Region" },
+    { name: "TWFG Insurance",              city: "Clifton Park, NY",url: "https://www.twfg.com",                 tag: "Saratoga &amp; Albany County independent network · personal auto &amp; home" },
+    { name: "Erie Insurance Agents",       city: "Albany, NY",     url: "https://www.erieinsurance.com",         tag: "Erie Insurance independent agents · rate-lock coverage · Upstate NY" },
+    { name: "Answer Financial",            city: "Albany, NY",     url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NY" },
+    { name: "Haller-Zaremba Insurance",    city: "Albany, NY",     url: "https://www.hzinsurance.com",           rating: 5.0, reviews: 54, source: "Google", tag: "Family-owned 81+ years · personal auto &amp; home · statewide NY" },
+    { name: "K&amp;N Insurance Brokerage", city: "Albany, NY",     url: "https://kninsurance.com",              rating: 5.0, reviews: 863, source: "Google", tag: "30+ years · personal auto &amp; home · NY statewide" },
+  ],
+  // ── Rochester metro (new) ────────────────────────────────────────────
+  "roc": [
+    { name: "Erie Insurance Agents",       city: "Rochester, NY",  url: "https://www.erieinsurance.com",         tag: "Erie Insurance independent agents · rate-lock coverage · Rochester &amp; Western NY" },
+    { name: "Goosehead Insurance",         city: "Webster, NY",    url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Rochester metro" },
+    { name: "TWFG Insurance",              city: "Rochester, NY",  url: "https://www.twfg.com",                  tag: "Finger Lakes independent network · personal auto &amp; home · Rochester area" },
+    { name: "Haller-Zaremba Insurance",    city: "Rochester, NY",  url: "https://www.hzinsurance.com",           rating: 5.0, reviews: 54, source: "Google", tag: "Family-owned 81+ years · personal auto &amp; home · statewide NY" },
+    { name: "Answer Financial",            city: "Rochester, NY",  url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NY" },
+    { name: "K&amp;N Insurance Brokerage", city: "Rochester, NY",  url: "https://kninsurance.com",              rating: 5.0, reviews: 863, source: "Google", tag: "30+ years · personal auto &amp; home · NY statewide" },
+  ],
+  // ── Syracuse metro (new) ─────────────────────────────────────────────
+  "syr": [
+    { name: "Erie Insurance Agents",       city: "Syracuse, NY",   url: "https://www.erieinsurance.com",         tag: "Erie Insurance independent agents · rate-lock coverage · Central NY" },
+    { name: "Goosehead Insurance",         city: "Syracuse, NY",   url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Central NY" },
+    { name: "TWFG Insurance",              city: "Oswego, NY",     url: "https://www.twfg.com",                  tag: "Central New York independent network · personal auto &amp; home" },
+    { name: "Haller-Zaremba Insurance",    city: "Syracuse, NY",   url: "https://www.hzinsurance.com",           rating: 5.0, reviews: 54, source: "Google", tag: "Family-owned 81+ years · personal auto &amp; home · statewide NY" },
+    { name: "Answer Financial",            city: "Syracuse, NY",   url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NY" },
+    { name: "K&amp;N Insurance Brokerage", city: "Syracuse, NY",   url: "https://kninsurance.com",              rating: 5.0, reviews: 863, source: "Google", tag: "30+ years · personal auto &amp; home · NY statewide" },
+  ],
+  // ── Birmingham metro (new) ───────────────────────────────────────────
+  "bir": [
+    { name: "PAC Insurance Agency",        city: "Birmingham, AL", url: "https://www.pacinsuranceagency.com",   rating: 4.4, reviews: 104, source: "Google", tag: "Founded 1981 · largest personal lines agency in Alabama · auto &amp; home" },
+    { name: "Guide Insurance Agency",      city: "Birmingham, AL", url: "https://www.guideinsuranceagency.com", rating: 4.8, reviews: 113, source: "Google", tag: "Independent &amp; locally owned · multiple carriers · personal auto &amp; home" },
+    { name: "Altasurance",                 city: "Birmingham, AL", url: "https://www.altasurance.com",          rating: 4.7, reviews: 75,  source: "Birdeye",tag: "AIIA member since 2009 · Auto-Owners &amp; multiple carriers · personal auto" },
+    { name: "Goosehead Insurance",         city: "Hoover, AL",     url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Birmingham metro" },
+    { name: "TWFG Insurance",              city: "Vestavia Hills, AL",url: "https://www.twfg.com",               tag: "Jefferson County independent network · personal auto &amp; home" },
+    { name: "Answer Financial",            city: "Birmingham, AL", url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · AL" },
+  ],
+  // ── Boise metro (new) ────────────────────────────────────────────────
+  "boi": [
+    { name: "Hartley Insurance",           city: "Boise, ID",      url: "https://hartleyonline.com",             rating: 4.9, reviews: 135, source: "Google", tag: "Founded 1982 · personal auto, home &amp; RV · locally owned independent" },
+    { name: "Insurance4Idaho",             city: "Meridian, ID",   url: "https://insurance4idaho.com",           rating: 4.9, reviews: 175, source: "Google", tag: "Founded 2005 · Progressive, Safeco, Travelers &amp; more · personal auto &amp; home" },
+    { name: "Mustard Seed Insurance",      city: "Meridian, ID",   url: "https://mseedfinancial.com",            rating: 4.9, reviews: 118, source: "Google", tag: "Independent · multi-state · personal auto, home &amp; umbrella" },
+    { name: "Goosehead Insurance",         city: "Eagle, ID",      url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Treasure Valley" },
+    { name: "TWFG Insurance",              city: "Nampa, ID",      url: "https://www.twfg.com",                  tag: "Canyon County independent network · personal auto &amp; home · Boise metro" },
+    { name: "Answer Financial",            city: "Boise, ID",      url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · ID" },
+  ],
+  // ── Little Rock metro (new) ──────────────────────────────────────────
+  "lrk": [
+    { name: "Berryhill Insurance Group",   city: "Little Rock, AR",url: "https://berryhillinsurance.com",        rating: 5.0, reviews: 35, source: "Google", tag: "Independent family agency · serves all of Arkansas · personal auto &amp; home" },
+    { name: "All American Insurance",      city: "Little Rock, AR",url: "https://www.all-americanins.com",       rating: 4.5, reviews: 45, source: "Google", tag: "Independent since 1986 · multiple Arkansas locations · personal auto &amp; home" },
+    { name: "Donnell Insurance Agency",    city: "Little Rock, AR",url: "https://donnellinsuranceagency.com",    rating: 4.8, reviews: 17, source: "Google", tag: "Family-owned since 1982 · Nationwide, Progressive, Safeco · personal auto &amp; home" },
+    { name: "Goosehead Insurance",         city: "Little Rock, AR",url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Central AR" },
+    { name: "TWFG Insurance",              city: "North Little Rock, AR",url: "https://www.twfg.com",            tag: "Pulaski County independent network · personal auto &amp; home" },
+    { name: "Answer Financial",            city: "Little Rock, AR",url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · AR" },
+  ],
+  // ── Columbia SC metro (new) ──────────────────────────────────────────
+  "csc": [
+    { name: "Livingston Insurance Agency", city: "Columbia, SC",   url: "https://livingstoninsurancesc.com",     rating: 5.0, reviews: 219, source: "Google", tag: "Family-owned since 1958 · A++ &amp; A+ rated carriers · personal auto &amp; home" },
+    { name: "Affordable Insurance Group",  city: "Columbia, SC",   url: "https://www.affordableinsgrp.com",      rating: 4.6, reviews: 132, source: "Google", tag: "Independent since 1985 · dozens of carriers · personal auto &amp; home" },
+    { name: "Giles Independent Insurance", city: "Columbia, SC",   url: "https://gilesbrothers.com",             rating: 4.7, reviews: 60,  source: "Google", tag: "Independent since 1965 · Hagerty-authorized · personal auto, home &amp; classic car" },
+    { name: "Goosehead Insurance",         city: "Lexington, SC",  url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Columbia metro" },
+    { name: "TWFG Insurance",              city: "Irmo, SC",       url: "https://www.twfg.com",                  tag: "Lexington County independent network · personal auto &amp; home · Columbia area" },
+    { name: "Answer Financial",            city: "Columbia, SC",   url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · SC" },
+  ],
+  // ── Greensboro / Winston-Salem (Triad) metro (new) ───────────────────
+  "gso": [
+    { name: "Spivey Insurance Group",      city: "Greensboro, NC", url: "https://spiveyinsurancegroup.com",      rating: 5.0, reviews: 980, source: "Google", tag: "Independent since 1989 · personal auto &amp; home · serves full NC" },
+    { name: "The Jordan Insurance Agency", city: "Winston-Salem, NC",url: "https://www.thejordaninsuranceagency.com",rating: 5.0, reviews: 147, source: "Google", tag: "Founded 2006 · licensed in 21 states · personal auto &amp; home" },
+    { name: "Goosehead Insurance",         city: "Greensboro, NC", url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Triad" },
+    { name: "TWFG Insurance",              city: "High Point, NC", url: "https://www.twfg.com",                  tag: "Guilford County independent network · personal auto &amp; home · Triad area" },
+    { name: "Answer Financial",            city: "Greensboro, NC", url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NC" },
+    { name: "Summit Insurance Group",      city: "Huntersville, NC",url: "https://sumins.com",                   rating: 4.9, reviews: 164, source: "Google", tag: "Veteran &amp; woman-owned · independent since 1995 · auto, home, RV · NC" },
+  ],
+  // ── Des Moines metro (new) ───────────────────────────────────────────
+  "dsm": [
+    { name: "Absolute Insurance Agency",   city: "Clive, IA",      url: "https://insaia.com",                   rating: 4.9, reviews: 210, source: "Google", tag: "Licensed in 18 states · personal auto, home &amp; life · multiple carriers" },
+    { name: "Ligouri Insurance",           city: "Des Moines, IA", url: "https://ligouri-insurance.com",         rating: 4.6, reviews: 144, source: "Google", tag: "70+ years combined experience · personal auto &amp; home" },
+    { name: "Mauro Insurance",             city: "Des Moines, IA", url: "https://www.mauroinsurance.net",        tag: "Family-owned since 1964 · personal auto, home &amp; life" },
+    { name: "Goosehead Insurance",         city: "West Des Moines, IA",url: "https://www.goosehead.com",         tag: "National independent · 150+ carriers · personal auto &amp; home · Des Moines metro" },
+    { name: "TWFG Insurance",              city: "Ankeny, IA",     url: "https://www.twfg.com",                  tag: "Polk County independent network · personal auto &amp; home · Central Iowa" },
+    { name: "Answer Financial",            city: "Des Moines, IA", url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · IA" },
+  ],
+  // ── Wichita metro (new) ──────────────────────────────────────────────
+  "ict": [
+    { name: "Steve Pore Insurance Agency", city: "Wichita, KS",    url: "https://stevepore.com",                 rating: 5.0, reviews: 52, source: "Google",  tag: "27+ carriers · personal auto &amp; home · Wichita area" },
+    { name: "M &amp; M Insurance Associates", city: "Wichita, KS", url: "https://m-minsurance.com",              rating: 4.4, reviews: 64, source: "Google",  tag: "Founded 1966 · personal auto, home &amp; life" },
+    { name: "Miller Insurance Agency",     city: "Newton, KS",     url: "https://www.millerinsagency.com",       rating: 4.9, reviews: 35, source: "Google",  tag: "Founded 1978 · Farmers Alliance, Progressive &amp; more · personal auto &amp; home" },
+    { name: "Goosehead Insurance",         city: "Wichita, KS",    url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Wichita metro" },
+    { name: "TWFG Insurance",              city: "Derby, KS",      url: "https://www.twfg.com",                  tag: "South Wichita suburbs · personal auto &amp; home · Kansas independent network" },
+    { name: "Answer Financial",            city: "Wichita, KS",    url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · KS" },
+  ],
+  // ── Madison metro (new) ──────────────────────────────────────────────
+  "mad": [
+    { name: "Philleo Agency Insurance",    city: "Madison, WI",    url: "https://philleo.com",                   rating: 4.9, reviews: 1230, source: "Google", tag: "Independent · personal auto &amp; home · Wisconsin statewide" },
+    { name: "Couri Insurance Agency",      city: "Madison, WI",    url: "https://couri.com",                     rating: 4.6, reviews: 141, source: "Google",  tag: "50+ years · 100+ carrier markets · personal auto &amp; home · WI" },
+    { name: "Goosehead Insurance",         city: "Madison, WI",    url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Madison metro" },
+    { name: "TWFG Insurance",              city: "Fitchburg, WI",  url: "https://www.twfg.com",                  tag: "South Madison suburbs · personal auto &amp; home · Wisconsin independent network" },
+    { name: "Answer Financial",            city: "Madison, WI",    url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · WI" },
+    { name: "Keener Insurance Solutions",  city: "Madison, WI",    url: "https://www.keenerinsurancesolutions.com", rating: 5.0, reviews: 89, source: "Google", tag: "Founded 2012 · 20+ carriers · personal auto &amp; home · Wisconsin" },
+  ],
+  // ── Spokane metro (new) ──────────────────────────────────────────────
+  "spo": [
+    { name: "Mosaic Insurance Alliance",   city: "Spokane, WA",    url: "https://mosaicia.com",                  rating: 4.9, reviews: 329, source: "Google", tag: "Founded 2010 · Nationwide, Liberty Mutual, Progressive · personal auto &amp; home" },
+    { name: "JMI Insurance",               city: "Spokane, WA",    url: "https://jmiinsurance.com",              tag: "Family-owned since 1991 · 3rd generation · personal auto &amp; home · Eastern WA" },
+    { name: "PEMCO Insurance",             city: "Spokane, WA",    url: "https://www.pemco.com",                 tag: "Member-owned since 1949 · WA &amp; OR · personal auto &amp; home specialist" },
+    { name: "Goosehead Insurance",         city: "Spokane Valley, WA",url: "https://www.goosehead.com",          tag: "National independent · 150+ carriers · personal auto &amp; home · Spokane metro" },
+    { name: "TWFG Insurance",              city: "Spokane, WA",    url: "https://www.twfg.com",                  tag: "Eastern Washington independent network · personal auto &amp; home" },
+    { name: "Answer Financial",            city: "Spokane, WA",    url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · WA" },
+  ],
   // ── Greenville-Spartanburg metro ─────────────────────────────────────
   "grv": [
     { name: "Livingston Insurance Agency",   city: "West Columbia, SC",url: "https://livingstoninsurancesc.com",   rating: 5.0, reviews: 219,   source: "Google",  tag: "Family-owned since 1958 · A++ &amp; A+ rated carriers · personal auto &amp; home" },
@@ -3915,20 +4170,22 @@ function renderAgentPanel() {
   const statePool = stateData && STATE_AGENTS[stateData.code];
   const pool = metroPool || statePool;
   if (!pool) { panel.style.display = "none"; return; }
-  const agents = shuffleAgents(pool).slice(0, 6);
+  const agents = shuffleAgents(pool).slice(0, 9);
   const locationLabel = (metroPool && METRO_NAMES[currentMetro]) ? METRO_NAMES[currentMetro] : "your area";
+  const hasMore = agents.length > 3;
   panel.innerHTML =
     `<div class="agent-panel-title">Independent agents in ${locationLabel}</div>` +
     `<div class="agent-panel-sub">They compare rates across 20+ companies for you — one conversation, multiple quotes.</div>` +
-    agents.map(a =>
-      `<div class="agent-card">` +
+    agents.map((a, i) =>
+      `<div class="agent-card${i >= 3 ? ' agent-card-hidden' : ''}">` +
         `<div class="agent-card-name">${a.name}</div>` +
         `<div class="agent-card-city">${a.city}</div>` +
         agentStarHTML(a) +
         `<div class="agent-card-tag">${a.tag}</div>` +
         `<a class="agent-card-link" href="${a.url}" target="_blank" rel="noopener noreferrer">Get quotes →</a>` +
       `</div>`
-    ).join("");
+    ).join("") +
+    (hasMore ? `<button class="agent-show-more" onclick="this.closest('.agent-panel').querySelectorAll('.agent-card-hidden').forEach(el=>el.classList.remove('agent-card-hidden'));this.remove()">Show ${agents.length - 3} more agents</button>` : '');
   panel.style.display = "block";
 }
 
