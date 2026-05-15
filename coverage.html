@@ -221,6 +221,7 @@
   .cov-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 4px; }
   .cov-card-name { font-family: var(--serif); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
   .cov-card-tagline { font-size: 13px; color: var(--ink-mute); font-style: italic; margin-bottom: 7px; }
+  .cov-rate-note { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
   .cov-card-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.55; max-width: 520px; }
 
   /* Delta badge — fixed height, no layout shift */
@@ -1239,11 +1240,13 @@ function renderCards() {
     const sliderHtml = isToggleOnly ? ''
       : buildSliderSection(type, isOn ? sel : (cfg.opts.length > 1 ? 1 : 0));
 
+    const isFirst = type === 'liability';
     return '<div class="cov-card">'
       + '<div class="cov-card-top"><div>'
       + '<div class="cov-card-name">' + cfg.name + '</div>'
       + '</div><div class="delta-display" id="delta-' + type + '">' + deltaHtmlFor(type, sel) + '</div></div>'
       + '<div class="cov-card-tagline">' + cfg.tagline + '</div>'
+      + (isFirst ? '<div class="cov-rate-note">Slide the bar below to see how your coverage level affects your estimated rate.</div>' : '')
       + '<div class="cov-expand">'
       + '<button class="cov-expand-btn" data-type="' + type + '">▸ Why this choice?</button>'
       + '<div class="cov-desc-body" id="desc-' + type + '" style="display:none">'
