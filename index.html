@@ -1070,66 +1070,19 @@
         </div>
       </div>
       <div class="refine-more-body" id="refineMoreBody">
-        <div class="refine-grid">
-          <div class="refine-q">
-            <label>Credit</label>
-            <div class="pill-row" data-q="credit" data-toggle>
-              <button type="button" class="pill" data-v="excellent">Excellent</button>
-              <button type="button" class="pill" data-v="good">Good</button>
-              <button type="button" class="pill" data-v="fair">Fair</button>
-            </div>
+        <!-- Coverage tier + detail at top -->
+        <div class="refine-cov-section" style="margin-top:0;padding-top:0;border-top:none;">
+          <div class="refine-cov-header">
+            <span>Coverage detail</span>
+            <a href="/coverage.html" style="font-size:11px;font-family:var(--mono);color:var(--accent);text-decoration:underline;letter-spacing:0.04em;">Learn More: The Right Coverage Choices For You →</a>
           </div>
-          <div class="refine-q">
-            <label>Insurance status</label>
-            <div class="check-row">
-              <input type="checkbox" id="currentlyInsured" checked />
-              <span>Currently insured</span>
-            </div>
-          </div>
-          <div class="refine-q">
-            <label>Current carrier</label>
-            <select id="curCarrier">
-              <option value="">Skip</option>
-              <option value="USAA">USAA</option>
-              <option value="GEICO">GEICO</option>
-              <option value="State Farm">State Farm</option>
-              <option value="Progressive">Progressive</option>
-              <option value="Allstate">Allstate</option>
-              <option value="Liberty Mutual">Liberty Mutual</option>
-              <option value="Farmers">Farmers</option>
-              <option value="Nationwide">Nationwide</option>
-              <option value="none">No insurance / lapsed</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="refine-q">
-            <label>Violations</label>
-            <div class="check-row">
-              <input type="checkbox" id="srRequired" />
-              <span>Suspended license / SR-22</span>
-            </div>
-          </div>
-          <div class="refine-q">
-            <label>Shopping preference</label>
-            <div class="pill-row" data-q="shopPref">
-              <button type="button" class="pill active" data-v="web">Web</button>
-              <button type="button" class="pill" data-v="phone">Phone</button>
-              <button type="button" class="pill" data-v="agent">Agent</button>
-            </div>
-          </div>
-          <div class="refine-q">
+          <div class="refine-q" style="margin-bottom:12px;">
             <label>Coverage tier</label>
             <div class="pill-row" data-q="coverage">
               <button type="button" class="pill" data-v="minimum">Minimum</button>
               <button type="button" class="pill active" data-v="standard">Standard</button>
               <button type="button" class="pill" data-v="premium">Premium</button>
             </div>
-          </div>
-        </div>
-        <div class="refine-cov-section">
-          <div class="refine-cov-header">
-            <span>Coverage detail</span>
-            <a href="/coverage.html" style="font-size:11px;font-family:var(--mono);color:var(--accent);text-decoration:underline;letter-spacing:0.04em;">Learn More: The Right Coverage Choices For You →</a>
           </div>
           <div class="refine-cov-grid">
             <div class="refine-q">
@@ -1181,6 +1134,62 @@
                 <option value="0">No</option>
                 <option value="1">Yes</option>
               </select>
+            </div>
+          </div>
+        </div>
+        <!-- Profile / risk options below -->
+        <div class="refine-grid" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);">
+          <div class="refine-q">
+            <label>Credit</label>
+            <div class="pill-row" data-q="credit" data-toggle>
+              <button type="button" class="pill" data-v="excellent">Excellent</button>
+              <button type="button" class="pill" data-v="good">Good</button>
+              <button type="button" class="pill" data-v="fair">Fair</button>
+            </div>
+          </div>
+          <div class="refine-q">
+            <label>Insurance status</label>
+            <div class="check-row">
+              <input type="checkbox" id="currentlyInsured" checked />
+              <span>Currently insured</span>
+            </div>
+          </div>
+          <div class="refine-q">
+            <label>Young drivers</label>
+            <div class="check-row">
+              <input type="checkbox" id="youngDriver" />
+              <span>Driver under 25 on policy</span>
+            </div>
+          </div>
+          <div class="refine-q">
+            <label>Current carrier</label>
+            <select id="curCarrier">
+              <option value="">Skip</option>
+              <option value="USAA">USAA</option>
+              <option value="GEICO">GEICO</option>
+              <option value="State Farm">State Farm</option>
+              <option value="Progressive">Progressive</option>
+              <option value="Allstate">Allstate</option>
+              <option value="Liberty Mutual">Liberty Mutual</option>
+              <option value="Farmers">Farmers</option>
+              <option value="Nationwide">Nationwide</option>
+              <option value="none">No insurance / lapsed</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="refine-q">
+            <label>Shopping preference</label>
+            <div class="pill-row" data-q="shopPref">
+              <button type="button" class="pill active" data-v="web">Web</button>
+              <button type="button" class="pill" data-v="phone">Phone</button>
+              <button type="button" class="pill" data-v="agent">Agent</button>
+            </div>
+          </div>
+          <div class="refine-q">
+            <label>Violations</label>
+            <div class="check-row">
+              <input type="checkbox" id="srRequired" />
+              <span>Suspended license / SR-22</span>
             </div>
           </div>
         </div>
@@ -2061,6 +2070,7 @@ function applyRefinementsToUI() {
   });
   document.getElementById("currentlyInsured").checked = refinement.insured;
   document.getElementById("srRequired").checked = refinement.srRequired;
+  document.getElementById("youngDriver").checked = refinement.youngDriver || false;
   document.getElementById("curCarrier").value = refinement.curCarrier || "";
   ["covLiability", "covCollision", "covComp", "covUmUim", "covMedpay", "covGap"].forEach(id => {
     const el = document.getElementById(id);
@@ -2280,21 +2290,24 @@ const SHOP_MULT = {
 
 const CARRIERS_STANDARD = [
   { name: "USAA",           base: 0.82, tag: "Military & immediate family only",        bestFor: "Military & veterans",
-    sens: { own: -0.04, rent: 0.02, age: { "18-24": 0.20, "25-34": 0.04, "35-54": -0.06, "55+": -0.10 }, multi: -0.03, single: 0.02, lapsed: 0.20, renewal: -0.03, credit: { excellent: -0.08, fair: 0.18 } } },
+    sens: { own: -0.04, rent: 0.02, age: { "18-24": 0.20, "25-34": 0.04, "35-54": -0.06, "55+": -0.10 }, youngDriver: 0.18, multi: -0.03, single: 0.02, lapsed: 0.20, renewal: -0.03, credit: { excellent: -0.08, fair: 0.18 } } },
   { name: "GEICO",          base: 0.80, tag: "No agents — buy and manage online",       bestFor: "Online shoppers",
-    sens: { own: -0.05, rent: 0.02, age: { "18-24": 0.24, "25-34": 0.06, "35-54": -0.04, "55+": -0.08 }, multi: -0.05, single: 0.03, lapsed: 0.15, renewal: -0.02, credit: { excellent: -0.14, fair: 0.28 } } },
+    youngDriverTag: "DriveEasy telematics can offset young driver costs",
+    sens: { own: -0.05, rent: 0.02, age: { "18-24": 0.24, "25-34": 0.06, "35-54": -0.04, "55+": -0.08 }, youngDriver: 0.22, multi: -0.05, single: 0.03, lapsed: 0.15, renewal: -0.02, credit: { excellent: -0.14, fair: 0.28 } } },
   { name: "State Farm",     base: 0.86, tag: "Large local agent network",               bestFor: "Local agent service",
-    sens: { own: -0.08, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.02, "35-54": -0.05, "55+": -0.09 }, multi: -0.12, single: 0.02, lapsed: 0.18, renewal: -0.05, credit: { excellent: -0.10, fair: 0.22 } } },
+    youngDriverTag: "Steer Clear® program · good student discount available",
+    sens: { own: -0.08, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.02, "35-54": -0.05, "55+": -0.09 }, youngDriver: 0.14, multi: -0.12, single: 0.02, lapsed: 0.18, renewal: -0.05, credit: { excellent: -0.10, fair: 0.22 } } },
   { name: "Progressive",    base: 0.94, tag: "Rates vary widely by driver profile",     bestFor: "High-risk & SR-22",
-    sens: { own: -0.03, rent: 0.01, age: { "18-24": 0.04, "25-34": 0.01, "35-54": 0.00, "55+": -0.04 }, multi: -0.04, single: 0.02, lapsed: 0.05, renewal: 0.05, credit: { excellent: -0.11, fair: 0.25 } } },
+    youngDriverTag: "Lowest under-25 surcharge in class · Snapshot telematics",
+    sens: { own: -0.03, rent: 0.01, age: { "18-24": 0.04, "25-34": 0.01, "35-54": 0.00, "55+": -0.04 }, youngDriver: 0.05, multi: -0.04, single: 0.02, lapsed: 0.05, renewal: 0.05, credit: { excellent: -0.11, fair: 0.25 } } },
   { name: "Allstate",       base: 1.08, tag: "Strong bundling discounts",               bestFor: "Accident forgiveness",
-    sens: { own: -0.10, rent: 0.04, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.04, "55+": -0.08 }, multi: -0.08, single: 0.03, lapsed: 0.16, renewal: 0.02, credit: { excellent: -0.13, fair: 0.30 } } },
+    sens: { own: -0.10, rent: 0.04, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.04, "55+": -0.08 }, youngDriver: 0.18, multi: -0.08, single: 0.03, lapsed: 0.16, renewal: 0.02, credit: { excellent: -0.13, fair: 0.30 } } },
   { name: "Liberty Mutual", base: 1.23, tag: "Broad coverage options",                  bestFor: "New car replacement",
-    sens: { own: -0.06, rent: 0.03, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.03, "55+": -0.06 }, multi: -0.05, single: 0.02, lapsed: 0.20, renewal: 0.04, credit: { excellent: -0.15, fair: 0.35 } } },
+    sens: { own: -0.06, rent: 0.03, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.03, "55+": -0.06 }, youngDriver: 0.20, multi: -0.05, single: 0.02, lapsed: 0.20, renewal: 0.04, credit: { excellent: -0.15, fair: 0.35 } } },
   { name: "Farmers",        base: 1.04, tag: "Strong local agent network",              bestFor: "Full-service agents",
-    sens: { own: -0.07, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.03, "35-54": -0.04, "55+": -0.07 }, multi: -0.06, single: 0.02, lapsed: 0.14, renewal: 0.01, credit: { excellent: -0.10, fair: 0.24 } } },
+    sens: { own: -0.07, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.03, "35-54": -0.04, "55+": -0.07 }, youngDriver: 0.16, multi: -0.06, single: 0.02, lapsed: 0.14, renewal: 0.01, credit: { excellent: -0.10, fair: 0.24 } } },
   { name: "Nationwide",     base: 0.99, tag: "Strong bundling discounts",               bestFor: "Vanishing deductible",
-    sens: { own: -0.08, rent: 0.03, age: { "18-24": 0.15, "25-34": 0.02, "35-54": -0.05, "55+": -0.08 }, multi: -0.06, single: 0.02, lapsed: 0.15, renewal: -0.01, credit: { excellent: -0.14, fair: 0.28 } } }
+    sens: { own: -0.08, rent: 0.03, age: { "18-24": 0.15, "25-34": 0.02, "35-54": -0.05, "55+": -0.08 }, youngDriver: 0.15, multi: -0.06, single: 0.02, lapsed: 0.15, renewal: -0.01, credit: { excellent: -0.14, fair: 0.28 } } }
 ];
 
 // Non-standard carriers — high-risk / SR-22 market
@@ -2381,7 +2394,7 @@ const CARRIER_RESEARCH_LINKS = {
 
 const CARRIER_HERO = {
   "USAA":            { label: "Fewest Disputes",       line: "50% fewer claims fights than the industry average. Military families get treated right." },
-  "GEICO":           { label: "Lowest Price",           line: "Typically 15–20% cheaper than average for clean-record drivers. Best starting point for price." },
+  "GEICO":           { label: "Low Prices",              line: "Typically 15–20% cheaper than average for clean-record drivers. Best starting point for price." },
   "State Farm":      { label: "19,000+ Local Agents",   line: "A real person near you — not a chatbot — handles your claim and picks up the phone." },
   "Progressive":     { label: "Covers High-Risk",       line: "DUI? Lapse? SR-22? Progressive accepts profiles that most carriers flat-out decline." },
   "Allstate":        { label: "Accident Forgiveness",   line: "One accident won't raise your rate. Most carriers charge extra for this — Allstate includes it." },
@@ -2512,13 +2525,14 @@ const STATE_CARRIER_ADJ = {
 // Sources: J.D. Power regional rankings, NAIC market share, NerdWallet/Bankrate state guides.
 const LOCAL_CARRIER_DEFS = {
   "Erie Insurance":         { base: 0.77, tag: "Rate Lock® feature · J.D. Power #1 North Central & Mid-Atlantic",
-    sens: { own: -0.09, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.02, "35-54": -0.05, "55+": -0.10 }, multi: -0.12, single: 0.02, lapsed: 0.18, renewal: -0.08 } },
+    sens: { own: -0.09, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.02, "35-54": -0.05, "55+": -0.10 }, youngDriver: 0.16, multi: -0.12, single: 0.02, lapsed: 0.18, renewal: -0.08 } },
   "American Family":        { base: 0.82, tag: "Midwest specialist · bundling & telematics discounts",
-    sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.04, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
+    youngDriverTag: "KnowYourDrive telematics · Teen Safe Driver program",
+    sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.04, "55+": -0.10 }, youngDriver: 0.13, multi: -0.09, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
   "Amica Mutual":           { base: 0.83, tag: "J.D. Power New England #1 for 10+ consecutive years",
-    sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.04, "55+": -0.10 }, multi: -0.08, single: 0.02, lapsed: 0.25, renewal: -0.09 } },
+    sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.04, "55+": -0.10 }, youngDriver: 0.19, multi: -0.08, single: 0.02, lapsed: 0.25, renewal: -0.09 } },
   "Auto-Owners":            { base: 0.79, tag: "Agent-only · top satisfaction scores across Midwest & South",
-    sens: { own: -0.09, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
+    sens: { own: -0.09, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, youngDriver: 0.16, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
   "PEMCO":                  { base: 0.78, tag: "Pacific Northwest specialist · very high loyalty scores",
     sens: { own: -0.09, rent: 0.02, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.20, renewal: -0.08 } },
   "NJM Insurance":          { base: 0.72, tag: "Highest customer satisfaction in the Mid-Atlantic",
@@ -2574,7 +2588,7 @@ const LOCAL_CARRIER_DEFS = {
   "Nodak Mutual":           { base: 0.78, tag: "North Dakota's largest regional carrier",
     sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.07 } },
   "CSAA / AAA":             { base: 0.83, tag: "AAA member pricing, competitive across Western states",
-    sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.04, "55+": -0.09 }, multi: -0.08, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
+    sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.04, "55+": -0.09 }, youngDriver: 0.17, multi: -0.08, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
   "West Bend Mutual":       { base: 0.82, tag: "Wisconsin specialist · strong Midwest network",
     sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.19, renewal: -0.07 } }
 };
@@ -2907,7 +2921,7 @@ const STATE_AGENTS = {
   ],
 };
 
-const refinement = { own: null, vehicles: null, curCarrier: "", age: null, credit: null, insured: true, srRequired: false, shopPref: "web", coverage: "standard",
+const refinement = { own: null, vehicles: null, curCarrier: "", age: null, credit: null, insured: true, srRequired: false, youngDriver: false, shopPref: "web", coverage: "standard",
   covLiability: 2, covCollision: 2, covComp: 1, covUmUim: 1, covMedpay: 0, covGap: 0 };
 const TIER_PRESETS = {
   minimum:  { covLiability: 0, covCollision: 0, covComp: 0, covUmUim: 0, covMedpay: 0, covGap: 0 },
@@ -2944,6 +2958,7 @@ function estimatePremium(carrier, avg) {
   if (refinement.vehicles === "2+") m *= (1 + s.multi);
   if (refinement.vehicles === "1") m *= (1 + s.single);
   if (refinement.age && s.age[refinement.age] !== undefined) m *= (1 + s.age[refinement.age]);
+  if (refinement.youngDriver && s.youngDriver !== undefined) m *= (1 + s.youngDriver);
   if (refinement.credit && s.credit) {
     if (refinement.credit === "excellent") m *= (1 + s.credit.excellent);
     else if (refinement.credit === "fair")  m *= (1 + s.credit.fair);
@@ -3041,13 +3056,14 @@ function renderRanking() {
     a.dataset.carrier = c.name;
     const hero = CARRIER_HERO[c.name];
     const heroHtml = hero ? '<div class="rank-hero"><span class="rank-hero-label">' + hero.label + '</span><span class="rank-hero-line"> — ' + hero.line + '</span></div>' : '';
+    const displayTag = (refinement.youngDriver && c.youngDriverTag) ? c.youngDriverTag : c.tag;
     const researchUrl = CARRIER_RESEARCH_LINKS[c.name];
     const researchHtml = researchUrl ? '<span class="rank-review-link" data-url="' + researchUrl + '">BoringRate review →</span>' : '';
     const inCompare = compareSet.has(c.name);
     const compareHtml = '<div class="rank-cta"><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
     a.innerHTML =
       '<div class="rank-num">' + num + '</div>' +
-      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div><div class="rank-tag">' + c.tag + '</div>' + heroHtml + researchHtml + '</div>' +
+      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div><div class="rank-tag">' + displayTag + '</div>' + heroHtml + researchHtml + '</div>' +
       markHtml +
       '<div class="rank-vs ' + delta.klass + '">' + delta.text + '<span class="vs-sub">' + delta.sub + '</span></div>' +
       compareHtml;
@@ -3179,6 +3195,10 @@ document.getElementById("srRequired").addEventListener("change", e => {
   const wasNS = isNonStandard();
   refinement.srRequired = e.target.checked;
   if (wasNS !== isNonStandard()) lastOrder = [];
+  renderRanking();
+});
+document.getElementById("youngDriver").addEventListener("change", e => {
+  refinement.youngDriver = e.target.checked;
   renderRanking();
 });
 document.getElementById("curCarrier").addEventListener("change", e => {
