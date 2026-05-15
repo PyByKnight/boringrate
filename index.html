@@ -2445,15 +2445,195 @@ const CARRIER_HERO = {
   "Country Financial":     { label: "Insurance + Finance",    line: "One agent for auto, home, retirement, and investments. The Midwest's full-service alternative to carrier-hopping." },
 };
 
-const CARRIER_CONS = {
-  "USAA":          ["Eligibility limited to military, veterans & immediate family", "No local storefront agents"],
-  "GEICO":         ["No local agents — all service by phone or app", "Credit score heavily impacts rate"],
-  "State Farm":    ["Higher base rate than GEICO and USAA", "Rate varies significantly by state filing"],
-  "Progressive":   ["Renewal rate creep — premiums often rise at renewal", "Wide quote variance by driver profile"],
-  "Allstate":      ["Above-average pricing in most states", "High surcharge for fair or poor credit"],
-  "Liberty Mutual":["Highest complaint ratio of major national carriers (2.86)", "Priciest major carrier in most markets"],
-  "Farmers":       ["Above-average pricing vs. national average", "Limited self-service digital tools"],
-  "Nationwide":    ["Fewer local agents in some states", "Above-average pricing in most markets"]
+const CARRIER_INSIGHTS = {
+  "USAA": {
+    pros: ["50% fewer complaints than the industry average — claims handled right", "Military-specific discounts: deployment, storage on base, garaging on base", "Consistently top-rated for claims satisfaction — personal handling, fewer disputes"],
+    cons: ["Membership required — military, veterans, and immediate family only", "No local storefront agents anywhere in the country", "Not competitive for non-standard or recently-lapsed drivers"]
+  },
+  "GEICO": {
+    pros: ["Typically 15–20% cheaper than average for clean-record, good-credit drivers", "Strong digital experience — app, online claims, 24/7 support", "Accepts most standard driver profiles without heavy surcharges"],
+    cons: ["No local agents — all service by phone or app", "Credit score has one of the highest impacts on rate among major carriers", "Limited flexibility on coverage edge cases vs. agent-based carriers"]
+  },
+  "State Farm": {
+    pros: ["19,000+ local agents — a real person handles your policy, claims, and questions", "Drive Safe & Save telematics can reduce premium up to 30%", "Steer Clear® program and good student discount for young drivers"],
+    cons: ["Base rates typically higher than GEICO and USAA for clean records", "Rate varies significantly by state filing — shop before assuming", "Claims satisfaction scores vary widely by region"]
+  },
+  "Progressive": {
+    pros: ["Accepts high-risk profiles — DUI, lapse, SR-22 — that most carriers decline", "Snapshot telematics rewards safe drivers up to 30% off", "Name Your Price tool helps budget-focused shoppers find a starting point"],
+    cons: ["Renewal rates often creep up — premiums rise for long-term customers", "Wide quote variance by driver profile — a good price now may not hold", "Customer service rated below average among major national carriers"]
+  },
+  "Allstate": {
+    pros: ["Accident forgiveness included — first at-fault won't raise your rate", "Drivewise safe-driver app can earn meaningful premium discounts", "Strong local agent network for hands-on claims and policy service"],
+    cons: ["Above-average pricing in most states — premium for the brand", "High rate surcharge for fair or poor credit scores", "Claims complaint ratio above the national average"]
+  },
+  "Liberty Mutual": {
+    pros: ["New car replacement — totaled in year one means a brand-new vehicle, not book value", "Better Car Replacement for vehicles over one year old — one model year newer, 15K fewer miles", "Broad multi-policy bundle discount when adding home or renters"],
+    cons: ["Highest complaint ratio among major national carriers (2.86 NAIC)", "Priciest major carrier in most markets — you pay for the coverage perks", "Rate increases common at renewal for existing customers"]
+  },
+  "Farmers": {
+    pros: ["Full rideshare gap coverage for Uber and Lyft drivers — no coverage hole", "Broad discount catalog — good student, Signal app, occupation-based, multi-policy", "Experienced local agents in most markets for in-person service"],
+    cons: ["Above-average pricing vs. national average across most driver profiles", "Claims app and digital tools rated below major competitors", "Less competitive for non-standard or recently-lapsed drivers"]
+  },
+  "Nationwide": {
+    pros: ["Vanishing Deductible — $100 off every year, can eventually reach $0", "SmartRide safe-driver program with up to 40% discount", "On Your Side Review — annual coverage check with a dedicated agent"],
+    cons: ["Above-average pricing in most markets vs. GEICO and USAA", "Fewer local agents in some states — availability varies", "Rate varies considerably by state filing"]
+  },
+  "Erie Insurance": {
+    pros: ["Rate Lock — your premium won't change at renewal unless you change your coverage", "Low complaint ratio — among the most trusted regional carriers in the country", "Local agents in 12 states with personalized, relationship-based service"],
+    cons: ["Only 12 states — Mid-Atlantic and Midwest; unavailable to most shoppers", "Limited digital self-service tools compared to national carriers", "No standalone mobile app for claims filing"]
+  },
+  "American Family": {
+    pros: ["KnowYourDrive telematics can cut a teen driver's rate by up to 40%", "Strong multi-policy bundle discounts for home and auto together", "Local agents across 19 Midwest and Mountain West states"],
+    cons: ["Available in 19 states only — not a national option", "Rates above average for non-bundled standalone auto policies", "Claims service quality varies notably by region"]
+  },
+  "Amica Mutual": {
+    pros: ["Dividend policy — policyholders receive up to 20% of annual premium back", "Lowest NAIC complaint ratio of any carrier we track — fewest disputes", "Exceptional claims satisfaction scores, consistently top-ranked"],
+    cons: ["No local agents — direct service only, by phone", "Dividend policy carries higher upfront premium than standard policies", "Quote process slower than direct-to-consumer competitors"]
+  },
+  "Auto-Owners": {
+    pros: ["Cleanest claims record of any multi-state carrier we track", "Agent-only model — every interaction is with a real person, no phone trees", "Competitive pricing for preferred drivers (clean record, good credit)"],
+    cons: ["Agent-only quoting — no online option, must contact an agent to start", "Available in 26 states — Midwest and South only", "Less competitive for non-standard or high-risk driver profiles"]
+  },
+  "PEMCO": {
+    pros: ["Member-owned since 1949 — profits stay in the organization, not shareholders", "Top customer satisfaction scores in Washington and Oregon", "Competitive long-term pricing for loyal policyholders"],
+    cons: ["Washington and Oregon only", "Smaller agent network than national competitors", "Limited brand recognition — harder to comparison-shop"]
+  },
+  "NJM Insurance": {
+    pros: ["0.38 NAIC complaint ratio — 2nd-fewest disputes of any carrier we track", "Competitive pricing in the tight New Jersey and Pennsylvania markets", "Strong claims handling reputation — disputes resolved faster than average"],
+    cons: ["New Jersey and Pennsylvania only", "No online quoting — agent or phone required to get started", "Coverage options more limited than large national carriers"]
+  },
+  "Mercury Insurance": {
+    pros: ["15% below the California state average — one of CA's most competitive carriers", "One of California's largest insurers — deep market expertise and stability", "Competitive across 11 states primarily in the Western US"],
+    cons: ["Limited to 11 states — primarily Western US markets", "Complaint ratio moderate — not as clean as top regional leaders", "Less brand support and local presence in states outside California"]
+  },
+  "Wawanesa": {
+    pros: ["J.D. Power #1 in California — top satisfaction score in the country's most competitive market", "0.45 NAIC complaint ratio — among the lowest for any California carrier", "Competitive pricing for preferred drivers in California and Oregon"],
+    cons: ["California and Oregon only — not a national option", "Lower brand awareness makes it harder to find and get a quote", "Agent-heavy model with limited online self-service"]
+  },
+  "Shelter Insurance": {
+    pros: ["J.D. Power Central region #1 in customer satisfaction", "Captive local agents — a single agent handles your full relationship", "Competitive pricing across 15 Midwest and Southern states"],
+    cons: ["15 states — Midwest and South only", "Agent-only quoting — no online option", "Less competitive for high-risk or non-standard driver profiles"]
+  },
+  "Alfa Insurance": {
+    pros: ["Deep Southeast expertise — agents understand regional storm, flood, and rural risks", "Strong bundling strength across AL, GA, MS, TN and surrounding states", "Exclusive agent model — one person handles all your coverage"],
+    cons: ["Southeast states only — limited geographic footprint", "Less competitive in urban markets compared to national carriers", "Limited telematics or safe-driver discount programs"]
+  },
+  "NYCM Insurance": {
+    pros: ["J.D. Power #1 in New York — sustained satisfaction record since 1899", "18% below the New York state average — competitive in one of the priciest markets", "Deep expertise in New York's complex insurance regulations"],
+    cons: ["New York state only", "Limited digital self-service and online tools", "Agent-only model — must work through a local agent to quote or service"]
+  },
+  "Westfield Insurance": {
+    pros: ["Member-owned mutual — profits reinvested for policyholders", "Strong bundling discounts for home and auto across Midwest and Mid-Atlantic", "Local agents with personal, relationship-based service"],
+    cons: ["Midwest and Mid-Atlantic only — limited geographic footprint", "Less competitive for standalone auto without a home bundle", "Smaller agent network in some states"]
+  },
+  "Country Financial": {
+    pros: ["One agent for auto, home, retirement, and investments — full financial picture", "Strong multi-line discount opportunities — bundling is a real advantage", "Deep Midwest roots with a long track record of community-based service"],
+    cons: ["19 Midwest and Plains states only", "Auto pricing may not compete with direct carriers on a standalone basis", "Agent-only model — no self-service portal or online quoting"]
+  },
+  "MAPFRE Insurance": {
+    pros: ["Massachusetts's largest auto insurer by market share — regulatory expertise", "0.58 NAIC complaint ratio — strong for a large carrier in a tough market", "Deep experience navigating Massachusetts's unique insurance regulations"],
+    cons: ["Primary strength is Massachusetts — less competitive outside core markets", "Limited telematics or discount program offerings vs. nationals", "Less competitive in states outside core markets"]
+  },
+  "Grinnell Mutual": {
+    pros: ["Member-owned mutual — profits stay in the organization", "Deep expertise in Iowa and Midwest farming and rural risks", "Local agents with strong agricultural and rural community knowledge"],
+    cons: ["Iowa and Midwest farming states only", "Less competitive for urban or suburban driver profiles", "Limited digital tools and online self-service"]
+  },
+  "Nodak Mutual": {
+    pros: ["Member-owned mutual — policyholder interests first", "Competitive pricing in North and South Dakota's rural markets", "Local agents with deep knowledge of Dakotas-specific risks"],
+    cons: ["North and South Dakota only", "Very small footprint — limited comparison options outside the Dakotas", "Limited coverage options vs. larger regional or national carriers"]
+  },
+  "West Bend Mutual": {
+    pros: ["Member-owned mutual — profits reinvested for policyholders", "Competitive for Wisconsin and neighboring Midwest markets", "Strong bundling options and local agent relationships"],
+    cons: ["Wisconsin and neighboring Midwest states only", "Less competitive for standalone auto without a home bundle", "Limited digital self-service options"]
+  },
+  "CSAA / AAA": {
+    pros: ["Emergency roadside included with your insurance membership — one call, one company", "AAA membership discounts extend beyond auto — travel, hotels, services, and more", "Strong regional reputation and claims infrastructure in Western states"],
+    cons: ["Requires AAA membership (~$50–80/yr additional annual cost)", "Western states only — not available nationwide", "Rate competitiveness varies significantly by county"]
+  },
+  "Texas Farm Bureau": {
+    pros: ["J.D. Power #1 in Texas for 11 consecutive years — most sustained satisfaction record in the state", "Pricing 25% below the Texas state average — among the deepest discounts we track", "County agents handle every claim personally — no call center runaround"],
+    cons: ["Texas only — not available outside the state", "Requires TX Farm Bureau membership to purchase a policy", "Agent-only model — no online quoting or self-service portal"]
+  },
+  "Georgia Farm Bureau": {
+    pros: ["20% below the Georgia state average — among the most competitive statewide", "Local county agents throughout Georgia for personal claims handling", "Strong reputation for rural and agricultural coverage in the state"],
+    cons: ["Georgia only", "Requires GA Farm Bureau membership", "Agent-only model — no online quoting"]
+  },
+  "Tennessee Farm Bureau": {
+    pros: ["J.D. Power Southeast #1 for 11 consecutive years", "Pricing below the Tennessee state average", "Local agents who understand Tennessee's storm and weather exposure"],
+    cons: ["Tennessee only", "Requires TN Farm Bureau membership", "Agent-only model — no online self-service portal"]
+  },
+  "NC Farm Bureau": {
+    pros: ["County agents in all 100 North Carolina counties — unmatched local access", "20% below the North Carolina state average", "Specializes in NC's unique coastal storm and hurricane exposure"],
+    cons: ["North Carolina only", "Requires NC Farm Bureau membership", "No online quoting or policy self-service"]
+  },
+  "Kentucky Farm Bureau": {
+    pros: ["27% below the Kentucky state average — deepest discount carrier in the state", "Local agents across all Kentucky counties", "Strong claims handling record in Kentucky's rural markets"],
+    cons: ["Kentucky only", "Requires KY Farm Bureau membership", "Agent-only model — no online self-service"]
+  },
+  "Louisiana Farm Bureau": {
+    pros: ["30% below the Louisiana state average — biggest Farm Bureau discount we track", "Competitive pricing in the nation's 2nd-most expensive insurance market", "Local agents experienced with Louisiana's high-risk coastal and flood exposure"],
+    cons: ["Louisiana only", "Requires LA Farm Bureau membership", "Agent-only quoting — no online option"]
+  },
+  "Mississippi Farm Bureau": {
+    pros: ["Competitive pricing well below the Mississippi state average", "Local county agents throughout Mississippi", "Strong rural and agricultural coverage expertise in the state"],
+    cons: ["Mississippi only", "Requires MS Farm Bureau membership", "No online quoting or self-service portal"]
+  },
+  "Indiana Farm Bureau": {
+    pros: ["Competitive pricing below the Indiana state average", "Local agents in all Indiana counties", "Strong rural and agricultural coverage expertise in Indiana"],
+    cons: ["Indiana only", "Requires IN Farm Bureau membership", "Agent-only model — no online quoting"]
+  },
+  "Virginia Farm Bureau": {
+    pros: ["Competitive pricing below the Virginia state average", "Local agents throughout Virginia — personal, community-based service", "Strong claims handling in Virginia's rural and suburban markets"],
+    cons: ["Virginia only", "Requires VA Farm Bureau membership", "Agent-only model — no online self-service"]
+  },
+  "SC Farm Bureau": {
+    pros: ["Competitive pricing below the South Carolina state average", "County agents across South Carolina for personal service", "Experienced with South Carolina's coastal and storm exposure"],
+    cons: ["South Carolina only", "Requires SC Farm Bureau membership", "No online quoting or self-service portal"]
+  },
+  "Arkansas Farm Bureau": {
+    pros: ["Competitive pricing below the Arkansas state average", "Local agents throughout Arkansas", "Strong rural and agricultural coverage expertise"],
+    cons: ["Arkansas only", "Requires AR Farm Bureau membership", "Agent-only model"]
+  },
+  "Oklahoma Farm Bureau": {
+    pros: ["Competitive pricing below the Oklahoma state average", "Local county agents across Oklahoma", "Experienced with Oklahoma's unique severe weather and tornado exposure"],
+    cons: ["Oklahoma only", "Requires OK Farm Bureau membership", "No online quoting or self-service portal"]
+  },
+  "Kansas Farm Bureau": {
+    pros: ["Competitive pricing below the Kansas state average", "Local agents throughout Kansas", "Strong expertise in Kansas's rural and agricultural risks"],
+    cons: ["Kansas only", "Requires KS Farm Bureau membership", "Agent-only model"]
+  },
+  "Michigan Farm Bureau": {
+    pros: ["Competitive pricing in Michigan's high-cost insurance market", "Local agents throughout Michigan", "Experienced with Michigan's unique no-fault insurance system"],
+    cons: ["Michigan only", "Requires MI Farm Bureau membership", "Agent-only model — no online self-service"]
+  },
+  "Iowa Farm Bureau": {
+    pros: ["Competitive pricing below the Iowa state average", "Local agents throughout Iowa", "Strong rural and agricultural coverage expertise"],
+    cons: ["Iowa only", "Requires IA Farm Bureau membership", "Agent-only model"]
+  },
+  "The General": {
+    pros: ["Accepts all risk profiles — DUI, multiple at-faults, major violations", "Same-day coverage available — no waiting period", "No credit check required — approved for most applicants"],
+    cons: ["Highest rates in any comparison — non-standard market pricing", "Very limited coverage options — primarily state minimum", "Customer service rated well below national average"]
+  },
+  "Direct Auto": {
+    pros: ["450+ physical locations — walk-in quoting and service available", "Flexible payment options including weekly or biweekly billing", "Accepts most high-risk profiles without requiring SR-22 separately"],
+    cons: ["High rates typical of the non-standard market", "Coverage options limited compared to standard carriers", "Billing and renewal complaints above average"]
+  },
+  "Safe Auto": {
+    pros: ["State minimum specialist — lowest possible coverage and lowest entry barrier", "Easy phone and online quoting for high-risk drivers", "Available in most states for minimum-coverage needs"],
+    cons: ["State minimum only — not appropriate for drivers with assets to protect", "Very high rates for any coverage above minimum", "Limited claims service infrastructure"]
+  },
+  "Dairyland": {
+    pros: ["SR-22 and FR-44 specialist — fast filing in 38 states", "Accepts most non-standard profiles including major violations", "Motorcycle coverage available alongside auto — convenient for multi-vehicle"],
+    cons: ["Non-standard market rates — significantly higher than standard carriers", "Limited discount programs for improving drivers", "Customer satisfaction below average"]
+  },
+  "Kemper": {
+    pros: ["Dedicated non-standard division with deep high-risk underwriting experience", "Available in most states for non-standard driver profiles", "Covers a broad range of vehicle types including classic and specialty"],
+    cons: ["Non-standard market pricing — high rates across the board", "NAIC complaint ratio above average", "Limited self-service options and digital tools"]
+  },
+  "Bristol West": {
+    pros: ["Farmers subsidiary — backed by a major carrier's claims and service infrastructure", "Widely available in most states for non-standard profiles", "Can transition to Farmers standard policy as your driving record improves"],
+    cons: ["Non-standard market rates — higher than standard carriers", "Limited coverage options beyond basic liability", "Digital tools and app experience are limited"]
+  }
 };
 
 // Attributes used to generate contextual pros/cons in the compare tray
@@ -3493,19 +3673,9 @@ function buildCompareCols() {
     return i !== -1 ? i : 0;
   })();
 
-  // Precompute context across the full comparison set
-  const minRatio    = Math.min(...all.map(r => r.ratio));
-  const maxRatio    = Math.max(...all.map(r => r.ratio));
-  const allAgents   = all.every(r => (CARRIER_ATTRS[r.carrier.name] || {}).agents);
-  const anyNational = all.some(r =>  (CARRIER_ATTRS[r.carrier.name] || {}).national);
-  const allMutual   = all.every(r => (CARRIER_ATTRS[r.carrier.name] || {}).mutual);
-  const mixedCredit = all.some(r => (CARRIER_ATTRS[r.carrier.name] || {}).creditSensitive) &&
-                      all.some(r => !(CARRIER_ATTRS[r.carrier.name] || {}).creditSensitive);
-
   cols.setAttribute("data-count", all.length);
   cols.innerHTML = all.map((r, i) => {
     const c = r.carrier;
-    const attrs = CARRIER_ATTRS[c.name] || {};
     const delta = r.price - median;
     const absDelta = Math.abs(Math.round(delta));
     const deltaLabel = (delta > 0 ? "+" : "−") + "$" + absDelta.toLocaleString() + "/yr vs. median";
@@ -3513,89 +3683,17 @@ function buildCompareCols() {
     const isBest = i === pickIdx;
     const hero = CARRIER_HERO[c.name];
 
-    const pros = [];
-    const cons = [];
-
-    // ── Price vs. the other selected carriers ──────────────────────
-    if (all.length === 2) {
-      const other = all[i === 0 ? 1 : 0];
-      const diff = Math.abs(Math.round(r.price - other.price));
-      if (r.price <= other.price) {
-        pros.push("$" + diff.toLocaleString() + "/yr cheaper than " + other.carrier.name);
-      } else {
-        cons.push("$" + diff.toLocaleString() + "/yr more than " + other.carrier.name);
-      }
-    } else {
-      const cheapest = all[0];
-      const priciest = all[all.length - 1];
-      if (i === 0) {
-        const gap = Math.abs(Math.round(r.price - all[1].price));
-        pros.push("Lowest price here — $" + gap.toLocaleString() + "/yr less than " + all[1].carrier.name);
-      } else if (i === all.length - 1) {
-        const gap = Math.abs(Math.round(r.price - cheapest.price));
-        cons.push("Most expensive here — $" + gap.toLocaleString() + "/yr more than " + cheapest.carrier.name);
-      } else {
-        const gapUp   = Math.abs(Math.round(r.price - cheapest.price));
-        const gapDown = Math.abs(Math.round(priciest.price - r.price));
-        cons.push("$" + gapUp.toLocaleString() + "/yr more than " + cheapest.carrier.name +
-                  ", $" + gapDown.toLocaleString() + "/yr less than " + priciest.carrier.name);
-      }
-    }
-
-    // ── Claims record vs. the other selected carriers ──────────────
-    if (maxRatio - minRatio >= 0.15) {
-      const isUniqueBest  = Math.abs(r.ratio - minRatio) < 0.005 && all.filter(x => Math.abs(x.ratio - minRatio) < 0.005).length === 1;
-      const isUniqueWorst = Math.abs(r.ratio - maxRatio) < 0.005 && all.filter(x => Math.abs(x.ratio - maxRatio) < 0.005).length === 1;
-      if (isUniqueBest) {
-        const worst = all.reduce((a, b) => a.ratio > b.ratio ? a : b);
-        pros.push("Best claims record here — " + r.ratio.toFixed(2) + " NAIC ratio vs. " + worst.ratio.toFixed(2) + " for " + worst.carrier.name);
-      } else if (isUniqueWorst) {
-        const best = all.reduce((a, b) => a.ratio < b.ratio ? a : b);
-        cons.push("Most complaints here — " + r.ratio.toFixed(2) + " NAIC ratio vs. " + best.ratio.toFixed(2) + " for " + best.carrier.name);
-      }
-    }
-
-    // ── Agent availability (only shown when the set is mixed) ───────
-    if (!allAgents) {
-      if (attrs.agents) {
-        pros.push("Local agents for quotes, claims, and policy changes");
-      } else {
-        cons.push("No local agents — all service by phone or app");
-      }
-    }
-
-    // ── Mutual / policyholder-owned (only when set is mixed) ────────
-    if (attrs.mutual && !allMutual) {
-      pros.push("Member-owned — profits stay in the organization, not with shareholders");
-    }
-
-    // ── Eligibility / membership restriction ────────────────────────
-    if (attrs.restricted) {
-      cons.push(attrs.restrictedNote || "Eligibility restricted — membership required");
-    }
-
-    // ── Renewal rate creep ──────────────────────────────────────────
-    if (attrs.renewalCreep) {
-      cons.push("Rates often increase at renewal for existing customers");
-    }
-
-    // ── Credit sensitivity (only when set is mixed) ──────────────────
-    if (attrs.creditSensitive && mixedCredit) {
-      cons.push("Credit score has a high impact on your quoted rate");
-    }
-
-    // ── Geographic availability (only when comparing against nationals)
-    if (attrs.stateLimit && anyNational) {
-      cons.push("Limited availability — " + (attrs.stateLimitNote || "not available in all states"));
-    }
+    const insights = CARRIER_INSIGHTS[c.name] || { pros: [], cons: [] };
+    const pros = insights.pros;
+    const cons = insights.cons;
 
     return '<div class="compare-col' + (isBest ? " best" : "") + '">' +
       (isBest ? '<div class="compare-boring-pick">Boring pick</div>' : '') +
-      (hero ? '<div class="compare-hero"><span class="compare-hero-label">' + hero.label + '</span><span class="compare-hero-line">' + hero.line + '</span></div>' : '') +
       '<div class="compare-name">' + c.name + '</div>' +
       '<div class="compare-tag">' + c.tag + '</div>' +
       '<div class="compare-price">$' + Math.round(r.price).toLocaleString() + '<span class="compare-price-yr">/yr</span></div>' +
       '<div class="compare-delta ' + deltaClass + '">' + deltaLabel + '</div>' +
+      (hero ? '<div class="compare-hero"><span class="compare-hero-label">' + hero.label + '</span><span class="compare-hero-line">' + hero.line + '</span></div>' : '') +
       (pros.length ? '<div class="compare-section-label">Strengths</div><ul class="compare-list pros">' + pros.map(p => '<li>' + p + '</li>').join('') + '</ul>' : '') +
       (cons.length ? '<div class="compare-section-label">Watch out for</div><ul class="compare-list cons">' + cons.map(x => '<li>' + x + '</li>').join('') + '</ul>' : '') +
       '<div class="compare-naic">Claims: ' + ratioLabel(r.ratio) + ' · ' + ratioPhrase(r.ratio) + '</div>' +
