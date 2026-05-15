@@ -96,6 +96,11 @@
   @media(max-width:900px){nav.primary{display:none;}.foot-grid{grid-template-columns:1fr 1fr;}.zip-bar-slogan{display:none;}.zip-bar-inner{justify-content:flex-end;}}
   @media(max-width:800px){.nav-mega{max-height:calc(100vh - 65px);overflow-y:auto;}.nav-mega-inner{grid-template-columns:1fr;}.nav-mega-col{border-bottom:1px solid rgba(246,241,232,0.1);}.nav-mega-col+.nav-mega-col{border-left:none;padding-left:0;margin-top:0;padding-top:0;}.nav-mega-head{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;margin:0;border-bottom:none;font-size:11px;}.nav-mega-col-arrow{font-size:18px;color:rgba(246,241,232,0.4);transition:transform 200ms;display:inline-block;}.nav-mega-col.open .nav-mega-col-arrow{transform:rotate(180deg);}.nav-mega-col-body{display:none;padding:0 20px 16px;}.nav-mega-col.open .nav-mega-col-body{display:block;}.nav-mega-states{grid-template-columns:repeat(3,1fr);}}
   @media(max-width:480px){.article-header{padding:24px 0 20px;}.article-body{padding:28px 0 48px;}.article-body p{font-size:16px;}.zip-bar{top:57px;}.zip-embed{padding:22px 18px;}.nav-mega-states{grid-template-columns:repeat(2,1fr);}}
+  .tldr-card{border-left:3px solid var(--accent);padding:20px 24px;margin:0 0 32px;background:var(--paper-deep);max-width:660px;}
+  .tldr-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  .tldr-list{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;}
+  .tldr-list li{font-size:16px;line-height:1.5;color:var(--ink-soft);padding-left:18px;position:relative;}
+  .tldr-list li::before{content:"→";position:absolute;left:0;color:var(--accent);font-size:13px;line-height:1.75;}
 </style>
 <script type="application/ld+json">
 {
@@ -149,6 +154,16 @@
     <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; May 2026</div>
   </div>
   <div class="article-body">
+    <div class="tldr-card">
+      <div class="tldr-label">5-second read</div>
+      <ul class="tldr-list">
+    <li>Prices ~6% below national average — but rewards shopping, not loyalty</li>
+    <li>Lowest young-driver surcharge of any major carrier: +4% vs. +22% at GEICO</li>
+    <li>Best lapsed-coverage penalty in class: +5% vs. +15–20% at most competitors</li>
+    <li>Go-to carrier for SR-22 and FR-44 filings — same-day processing in most states</li>
+    <li>Renewal creep is real: rates drift ~+5% per renewal — re-quote every year</li>
+      </ul>
+    </div>
     <p>Progressive is the third-largest auto insurer in the United States and has built its identity around accepting risk profiles that other carriers shy away from. It prices roughly <strong>6% below the national average</strong>, but the more important number is how that changes depending on who you are. Progressive has the lowest young-driver surcharge (+4%) and lowest lapsed-coverage penalty (+5%) of any major carrier — by a significant margin. That's not an accident. It's a deliberate market position.</p>
     <p>Progressive also operates the most widely used SR-22 and FR-44 filing service of any major carrier, with same-day filing available in most states. For drivers who need to prove financial responsibility after a DUI, at-fault accident, or license suspension, Progressive is usually the first call.</p>
     <h2>Where Progressive stands out</h2>

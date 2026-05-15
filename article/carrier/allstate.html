@@ -96,6 +96,11 @@
   @media(max-width:900px){nav.primary{display:none;}.foot-grid{grid-template-columns:1fr 1fr;}.zip-bar-slogan{display:none;}.zip-bar-inner{justify-content:flex-end;}}
   @media(max-width:800px){.nav-mega{max-height:calc(100vh - 65px);overflow-y:auto;}.nav-mega-inner{grid-template-columns:1fr;}.nav-mega-col{border-bottom:1px solid rgba(246,241,232,0.1);}.nav-mega-col+.nav-mega-col{border-left:none;padding-left:0;margin-top:0;padding-top:0;}.nav-mega-head{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;margin:0;border-bottom:none;font-size:11px;}.nav-mega-col-arrow{font-size:18px;color:rgba(246,241,232,0.4);transition:transform 200ms;display:inline-block;}.nav-mega-col.open .nav-mega-col-arrow{transform:rotate(180deg);}.nav-mega-col-body{display:none;padding:0 20px 16px;}.nav-mega-col.open .nav-mega-col-body{display:block;}.nav-mega-states{grid-template-columns:repeat(3,1fr);}}
   @media(max-width:480px){.article-header{padding:24px 0 20px;}.article-body{padding:28px 0 48px;}.article-body p{font-size:16px;}.zip-bar{top:57px;}.zip-embed{padding:22px 18px;}.nav-mega-states{grid-template-columns:repeat(2,1fr);}}
+  .tldr-card{border-left:3px solid var(--accent);padding:20px 24px;margin:0 0 32px;background:var(--paper-deep);max-width:660px;}
+  .tldr-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  .tldr-list{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;}
+  .tldr-list li{font-size:16px;line-height:1.5;color:var(--ink-soft);padding-left:18px;position:relative;}
+  .tldr-list li::before{content:"→";position:absolute;left:0;color:var(--accent);font-size:13px;line-height:1.75;}
 </style>
 <script type="application/ld+json">
 {
@@ -149,6 +154,16 @@
     <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; May 2026</div>
   </div>
   <div class="article-body">
+    <div class="tldr-card">
+      <div class="tldr-label">5-second read</div>
+      <ul class="tldr-list">
+    <li>Prices typically 4–5% above national average — mid-tier pricing, not the cheapest</li>
+    <li>Accident Forgiveness protects your rate after one at-fault accident</li>
+    <li>Milewise pay-per-mile is among the best in class for low-mileage drivers</li>
+    <li>NAIC complaint ratio 1.02 — essentially at industry average; neither exceptional nor poor</li>
+    <li>Credit sensitivity is high: poor credit can add 40%+ vs. excellent credit</li>
+      </ul>
+    </div>
     <p>Allstate is the fourth-largest auto insurer in the United States and prices roughly <strong>8% above the national average</strong> — more expensive than GEICO, State Farm, USAA, Progressive, and Nationwide, but cheaper than Liberty Mutual. It competes primarily on product features and agent availability rather than headline price, with Accident Forgiveness as its clearest differentiator.</p>
     <p>The agent model gives Allstate a service profile similar to State Farm and Farmers — local agents who can handle multiple policy types and provide continuity across renewals. Unlike State Farm agents (captive), some Allstate agents are independent or work within Allstate's exclusive agent structure, which varies by market.</p>
     <h2>Who benefits from Allstate</h2>
