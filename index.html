@@ -457,7 +457,7 @@
   }
   .rank-row {
     display: grid;
-    grid-template-columns: 44px 1fr 32px 150px 110px;
+    grid-template-columns: 44px 1fr 32px auto;
     align-items: center;
     gap: 12px;
     padding: 18px 22px;
@@ -523,18 +523,21 @@
     text-transform: uppercase;
     margin-top: 2px;
   }
-  .rank-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
-  .rank-quote {
+  .rank-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+  .rank-quote-cta {
     font-family: var(--mono);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: var(--accent);
-    border: 1px solid rgba(180,50,26,0.35);
-    border-radius: 3px;
-    padding: 3px 8px;
-    white-space: nowrap;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 6px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
   }
+  .rank-quote-cta.under { color: var(--good); border-color: rgba(47,107,58,0.30); }
+  .rank-quote-cta.over  { color: var(--bad);  border-color: rgba(180,50,26,0.30); }
+  .qcta-save   { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; }
+  .qcta-action { font-size: 9px; text-transform: uppercase; letter-spacing: 0.07em; opacity: 0.8; white-space: nowrap; }
 
   .rank-cov-nudge {
     background: var(--ink); color: var(--paper);
@@ -756,7 +759,7 @@
     .rank-mark svg { width: 14px; height: 14px; }
     .rank-vs { grid-column: 4; grid-row: 1; text-align: right; font-size: 14px; margin-top: 0; align-self: end; }
     .rank-vs .vs-sub { font-size: 9px; }
-    .rank-cta { grid-column: 4; grid-row: 2; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .rank-cta { grid-column: 4; grid-row: 1 / 3; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 10px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
     .rank-name { font-size: 16px; }
     .rank-tag { font-size: 11px; }
     .median-divider { grid-template-columns: 32px 1fr auto; padding: 6px 16px; font-size: 10px; }
@@ -4313,12 +4316,11 @@ function renderRanking() {
     const researchUrl = CARRIER_RESEARCH_LINKS[c.name];
     const researchHtml = researchUrl ? '<span class="rank-review-link" data-url="' + researchUrl + '">BoringRate review →</span>' : '';
     const inCompare = compareSet.has(c.name);
-    const compareHtml = '<div class="rank-cta"><div class="rank-quote">Get&nbsp;Quote&nbsp;→</div><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
+    const compareHtml = '<div class="rank-cta"><div class="rank-quote-cta ' + delta.klass + '"><span class="qcta-save">' + delta.text + '</span><span class="qcta-action">Get Quote →</span></div><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
     a.innerHTML =
       '<div class="rank-num">' + num + '</div>' +
       '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div>' + heroHtml + researchHtml + '</div>' +
       markHtml +
-      '<div class="rank-vs ' + delta.klass + '">' + delta.text + '<span class="vs-sub">' + delta.sub + '</span></div>' +
       compareHtml;
     list.appendChild(a);
   });
@@ -4342,7 +4344,7 @@ function renderRanking() {
   document.getElementById("resMeta").textContent = isNonStandard() ? "Non-standard carriers" : "";
   document.getElementById("metroPill").style.display = "none";
   document.getElementById("rankTableLabel").style.display = "flex";
-  document.getElementById("rankTableState").textContent = locationLabel + (isNonStandard() ? " · Non-standard" : "");
+  document.getElementById("rankTableState").textContent = locationLabel + (isNonStandard() ? " · Non-standard" : " · Savings vs. Median");
 
   let pbScore = 0;
   if (refinement.coverage) pbScore++;
@@ -4696,7 +4698,7 @@ document.getElementById("rankList").addEventListener("click", function(e) {
 document.getElementById("rankList").addEventListener("click", function(e) {
   const cta = e.target.closest(".rank-cta");
   if (!cta) return;
-  if (e.target.closest(".rank-quote")) return;
+  if (e.target.closest(".rank-quote-cta")) return;
   e.preventDefault();
   e.stopPropagation();
   const cb = cta.querySelector(".rank-cb");
