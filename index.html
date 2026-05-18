@@ -4314,7 +4314,7 @@ function renderRanking() {
     const hero = CARRIER_HERO[c.name];
     const heroHtml = hero ? '<div class="rank-hero"><span class="rank-hero-label">' + hero.label + '</span></div>' : '';
     const researchUrl = CARRIER_RESEARCH_LINKS[c.name];
-    const researchHtml = researchUrl ? '<span class="rank-review-link" data-url="' + researchUrl + '">BoringRate review →</span>' : '';
+    const researchHtml = researchUrl ? '<span class="rank-review-link" data-url="' + researchUrl + '">BoringRate Research →</span>' : '';
     const inCompare = compareSet.has(c.name);
     const compareHtml = '<div class="rank-cta"><div class="rank-quote-cta ' + delta.klass + '"><span class="qcta-save">' + delta.text + '</span><span class="qcta-action">Get Quote →</span></div><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
     a.innerHTML =
