@@ -1678,8 +1678,8 @@ const ZIP_PREFIX_METRO = {
   "900":"la","901":"la","902":"la","903":"la","904":"la",
   "905":"la","906":"la","907":"la","908":"la",
   "910":"la","911":"la","912":"la","913":"la","914":"la",
-  "915":"la","916":"la","917":"la","918":"la",
-  "925":"la","926":"la","927":"la","928":"la",
+  "915":"la","916":"la",
+  "925":"la","926":"la","927":"la",
   // Chicago metro (Cook + collar counties)
   "600":"chi","601":"chi","602":"chi","603":"chi","604":"chi",
   "605":"chi","606":"chi","607":"chi","608":"chi","609":"chi",
@@ -1791,7 +1791,7 @@ const ZIP_PREFIX_METRO = {
   // San Jose / Silicon Valley metro (new)
   "950":"sjv","951":"sjv","952":"sjv","953":"sjv","954":"sjv",
   // San Diego metro (new)
-  "919":"sdg","920":"sdg","921":"sdg","922":"sdg",
+  "919":"sdg","920":"sdg","922":"sdg",
   // Norfolk / Virginia Beach metro (new)
   "234":"nfk","235":"nfk","236":"nfk","237":"nfk","238":"nfk",
   // NYC outer suburbs — Westchester / Rockland County NY
@@ -1857,6 +1857,8 @@ const ZIP_PREFIX_METRO = {
   "537":"mad",
   // Spokane WA
   "990":"spo","991":"spo","992":"spo",
+  // Riverside / Inland Empire CA
+  "917":"riv","918":"riv","921":"riv","923":"riv","924":"riv","928":"riv",
 };
 
 const METRO_NAMES = {
@@ -1928,6 +1930,7 @@ const METRO_NAMES = {
   ict: "Wichita metro",
   mad: "Madison metro",
   spo: "Spokane metro",
+  riv: "Riverside / Inland Empire metro",
 };
 
 // Additional multiplier on top of state adjustment — metro rates vs. rest of state.
@@ -2001,6 +2004,7 @@ const METRO_CARRIER_ADJ = {
   ict: { "USAA":1.05,"GEICO":1.05,"State Farm":1.07,"Progressive":1.06,"Allstate":1.09,"Liberty Mutual":1.11,"Farmers":1.07,"Nationwide":1.06,"Erie Insurance":1.04,"American Family":1.05,"Amica Mutual":1.05,"Auto-Owners":1.04 },
   mad: { "USAA":1.03,"GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.03 },
   spo: { "USAA":1.04,"GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.07,"Nationwide":1.05,"Erie Insurance":1.03,"American Family":1.05,"Amica Mutual":1.04,"Auto-Owners":1.04 },
+  riv: { "USAA":1.20,"GEICO":1.18,"State Farm":1.16,"Progressive":1.24,"Allstate":1.26,"Liberty Mutual":1.28,"Farmers":1.14,"Nationwide":1.18,"Erie Insurance":1.12,"American Family":1.15,"Amica Mutual":1.14,"Auto-Owners":1.14 },
 };
 
 // State-specific banners — shown below the ZIP result for matching states
@@ -3346,6 +3350,7 @@ const METRO_AGENTS = {
     { name: "Jaymar Agency",                 city: "Clifton, NJ",     url: "https://jaymaragency.com",             rating: 4.8, reviews: 23,    source: "Google",  tag: "Founded 1982 · bilingual · personal auto &amp; home · North Jersey" },
     { name: "Goosehead Insurance",           city: "New York, NY",    url: "https://www.goosehead.com",            tag: "National independent network · 150+ carriers · personal auto &amp; home · NYC metro" },
     { name: "Answer Financial",              city: "New York, NY",    url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NY/NJ" },
+    { name: "Policygenius",              city: "New York, NY",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · NY/NJ" },
   ],
   // ── Los Angeles metro ────────────────────────────────────────────────
   "la": [
@@ -3356,6 +3361,8 @@ const METRO_AGENTS = {
     { name: "Answer Financial",              city: "Encino, CA",      url: "https://www.answerfinancial.com",      tag: "Independent broker · 40+ carriers · personal auto, home &amp; renters · SoCal" },
     { name: "Fusco Orsini &amp; Associates", city: "San Diego, CA",   url: "https://www.foagency.com",             rating: 5.0, reviews: 425,   source: "Google",  tag: "Founded 2010 · licensed in 31 states · personal auto, home, umbrella · Southern CA" },
     { name: "Goosehead Insurance",           city: "Los Angeles, CA", url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · LA metro" },
+    { name: "TWFG Insurance",             city: "Oxnard, CA",  url: "https://www.twfg.com",             tag: "Oxnard / Ventura County · personal auto &amp; home · independent agent network" },
+    { name: "Policygenius",              city: "Los Angeles, CA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · CA" },
   ],
   // ── Chicago metro ────────────────────────────────────────────────────
   "chi": [
@@ -3365,6 +3372,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Chicago, IL",     url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Chicagoland" },
     { name: "Freeway Insurance",             city: "Chicago, IL",     url: "https://www.freewayinsurance.com",     tag: "200+ IL locations · bilingual · personal auto, SR-22 &amp; home · Chicago" },
     { name: "Answer Financial",              city: "Chicago, IL",     url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · IL" },
+    { name: "TWFG Insurance",             city: "Naperville, IL",  url: "https://www.twfg.com",             tag: "Naperville / DuPage County · personal auto &amp; home · independent agent network" },
+    { name: "Brightway Insurance",        city: "Chicago, IL",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Chicago metro" },
+    { name: "Policygenius",              city: "Chicago, IL",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · IL" },
   ],
   // ── Dallas–Fort Worth metro ──────────────────────────────────────────
   "dfw": [
@@ -3374,6 +3384,9 @@ const METRO_AGENTS = {
     { name: "TWFG Insurance Services",       city: "Fort Worth, TX",  url: "https://www.twfg.com",                 tag: "Texas-based network · 400+ agents statewide · personal auto &amp; home · DFW" },
     { name: "Integrity Insurance Group",     city: "Plano, TX",       url: "https://integrityinsurancegroup.com",  tag: "North DFW suburbs · independent · personal auto, home &amp; commercial · multi-carrier" },
     { name: "TGS Insurance Agency",          city: "Dallas, TX",      url: "https://tgsinsurance.com",             tag: "Dallas-based independent · personal auto, home &amp; life · multi-carrier" },
+    { name: "Answer Financial",           city: "Dallas, TX",  url: "https://www.answerfinancial.com",  tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · TX" },
+    { name: "Texan Insurance",              city: "Fort Worth, TX",  url: "https://texaninsurance.com",       tag: "Fort Worth independent · personal auto &amp; home · TX specialist" },
+    { name: "Brightway Insurance",        city: "Southlake, TX",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Southlake / North Fort Worth" },
   ],
   // ── Houston metro ────────────────────────────────────────────────────
   "hou": [
@@ -3383,6 +3396,9 @@ const METRO_AGENTS = {
     { name: "TWFG Insurance Services",       city: "The Woodlands, TX", url: "https://www.twfg.com",              tag: "Texas-based network · 400+ agents statewide · personal auto &amp; home" },
     { name: "Goosehead Insurance",           city: "Houston, TX",     url: "https://www.goosehead.com",            tag: "TX-founded · 150+ carrier relationships · personal auto &amp; home · Houston" },
     { name: "Higginbotham",                  city: "Houston, TX",     url: "https://higginbotham.net",             tag: "Founded 1948 · one of Texas's largest independents · Houston &amp; statewide" },
+    { name: "Answer Financial",           city: "Houston, TX",  url: "https://www.answerfinancial.com",  tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · TX" },
+    { name: "Brightway Insurance",        city: "Katy, TX",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Katy / West Houston" },
+    { name: "Policygenius",              city: "Houston, TX",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · TX" },
   ],
   // ── Washington DC metro ──────────────────────────────────────────────
   "dc": [
@@ -3392,6 +3408,9 @@ const METRO_AGENTS = {
     { name: "Baltimore Insurance Network",  city: "Rockville, MD",   url: "https://baltimoreinsurancenetwork.com",rating: 4.9, reviews: 322,   source: "Google",  tag: "Founded 2011 · 15+ carriers · personal auto &amp; home · DC/MD suburbs" },
     { name: "Simmerer Insurance",            city: "Laurel, MD",      url: "https://www.simmererinsurance.com",    rating: 4.9, reviews: 190,   source: "Google",  tag: "Independent · customized personal auto &amp; home · MD/DC corridor" },
     { name: "WBA Insurance",                 city: "N. Chesterfield, VA", url: "https://www.wba-ins.com",          rating: 4.8, reviews: 85,    source: "Google",  tag: "Founded 1973 · serves VA/NC/MD · personal auto &amp; home" },
+    { name: "Goosehead Insurance",        city: "Arlington, VA",  url: "https://www.goosehead.com",        tag: "National independent network · 150+ carriers · personal auto &amp; home · Arlington VA / DC metro" },
+    { name: "Answer Financial",           city: "Washington, DC",  url: "https://www.answerfinancial.com",  tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · DC/MD/VA" },
+    { name: "TWFG Insurance",             city: "Tysons, VA",  url: "https://www.twfg.com",             tag: "Tysons / Fairfax County · personal auto &amp; home · independent agent network" },
   ],
   // ── Miami metro ──────────────────────────────────────────────────────
   "mia": [
@@ -3401,6 +3420,9 @@ const METRO_AGENTS = {
     { name: "Brightway Insurance",           city: "Pembroke Pines, FL", url: "https://www.brightway.com",         tag: "National independent network · 20+ carriers · personal auto &amp; home · S. FL" },
     { name: "Goosehead Insurance",           city: "Boca Raton, FL",  url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · South Florida" },
     { name: "TWFG Insurance",                city: "Fort Lauderdale, FL", url: "https://www.twfg.com",             tag: "South Florida independent network · personal auto, home &amp; flood · multi-carrier" },
+    { name: "Answer Financial",           city: "Miami, FL",  url: "https://www.answerfinancial.com",  tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · FL" },
+    { name: "Brown &amp; Brown Insurance", city: "Deerfield Beach, FL", url: "https://www.bbinsurance.com",      tag: "National brokerage · personal auto &amp; commercial · FL" },
+    { name: "Policygenius",              city: "Miami, FL",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · FL" },
   ],
   // ── Philadelphia metro ───────────────────────────────────────────────
   "phl": [
@@ -3410,6 +3432,9 @@ const METRO_AGENTS = {
     { name: "Hanson &amp; Ryan",             city: "Totowa, NJ",      url: "https://www.hansonryan.com",           tag: "Founded 1876 · 140+ years · personal auto &amp; home · South Jersey/Philly" },
     { name: "DeStefano Associates",          city: "Caldwell, NJ",    url: "https://www.destefanoagency.com",      rating: 4.6, reviews: 37,    source: "Google",  tag: "Founded 1961 · Plymouth Rock, Farmers, AmTrust · NJ/PA metro" },
     { name: "Goosehead Insurance",           city: "Cherry Hill, NJ", url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Philly metro" },
+    { name: "TWFG Insurance",             city: "Cherry Hill, NJ",  url: "https://www.twfg.com",             tag: "Cherry Hill / South Jersey · personal auto &amp; home · independent agent network" },
+    { name: "Answer Financial",           city: "Philadelphia, PA",  url: "https://www.answerfinancial.com",  tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · PA/NJ" },
+    { name: "Brightway Insurance",        city: "Mount Laurel, NJ",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Mount Laurel / Burlington County NJ" },
   ],
   // ── Atlanta metro ────────────────────────────────────────────────────
   "atl": [
@@ -3419,6 +3444,9 @@ const METRO_AGENTS = {
     { name: "TWFG Insurance",                city: "Marietta, GA",    url: "https://www.twfg.com",                 tag: "Georgia independent network · personal auto, home &amp; commercial · multi-carrier" },
     { name: "Brightway Insurance",           city: "Roswell, GA",     url: "https://www.brightway.com",            tag: "Independent network · 20+ carriers · personal auto &amp; home · Atlanta suburbs" },
     { name: "Answer Financial",              city: "Atlanta, GA",     url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · GA" },
+    { name: "Freeway Insurance",          city: "Atlanta, GA",  url: "https://www.freewayinsurance.com", tag: "Non-standard &amp; standard · 20+ carriers · personal auto &amp; home · GA" },
+    { name: "Policygenius",              city: "Atlanta, GA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · GA" },
+    { name: "SmartFinancial",             city: "Atlanta, GA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · GA" },
   ],
   // ── Phoenix metro ────────────────────────────────────────────────────
   "phx": [
@@ -3428,6 +3456,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Scottsdale, AZ",  url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Phoenix metro" },
     { name: "TWFG Insurance",                city: "Mesa, AZ",        url: "https://www.twfg.com",                 tag: "Arizona independent network · personal auto &amp; home · East Valley" },
     { name: "Answer Financial",              city: "Phoenix, AZ",     url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · AZ" },
+    { name: "Freeway Insurance",          city: "Phoenix, AZ",  url: "https://www.freewayinsurance.com", tag: "Non-standard &amp; standard · 20+ carriers · personal auto &amp; home · AZ" },
+    { name: "Brightway Insurance",        city: "Tempe, AZ",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Tempe / East Valley" },
+    { name: "Policygenius",              city: "Phoenix, AZ",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · AZ" },
   ],
   // ── Seattle metro ────────────────────────────────────────────────────
   "sea": [
@@ -3437,6 +3468,9 @@ const METRO_AGENTS = {
     { name: "JMI Insurance",                 city: "Beaverton, OR",   url: "https://jmiinsurance.com",             tag: "Family-owned since 1991 · 3rd generation · personal auto &amp; home · OR/WA/CA" },
     { name: "Goosehead Insurance",           city: "Bellevue, WA",    url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Seattle metro" },
     { name: "PEMCO Insurance",               city: "Seattle, WA",     url: "https://www.pemco.com",                tag: "Member-owned since 1949 · WA &amp; OR · personal auto &amp; home specialist" },
+    { name: "TWFG Insurance",             city: "Renton, WA",  url: "https://www.twfg.com",             tag: "Renton / King County South · personal auto &amp; home · independent agent network" },
+    { name: "Answer Financial",           city: "Seattle, WA",  url: "https://www.answerfinancial.com",  tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · WA" },
+    { name: "Policygenius",              city: "Seattle, WA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · WA" },
   ],
   // ── Denver metro ─────────────────────────────────────────────────────
   "den": [
@@ -3446,6 +3480,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Denver, CO",      url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Denver metro" },
     { name: "Answer Financial",              city: "Denver, CO",      url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · CO" },
     { name: "TWFG Insurance",                city: "Aurora, CO",      url: "https://www.twfg.com",                 tag: "Colorado independent network · personal auto &amp; home · Denver metro" },
+    { name: "Brightway Insurance",        city: "Lakewood, CO",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Lakewood / Jefferson County" },
+    { name: "Policygenius",              city: "Denver, CO",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · CO" },
+    { name: "SmartFinancial",             city: "Denver, CO",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · CO" },
   ],
   // ── Minneapolis–St. Paul metro ───────────────────────────────────────
   "min": [
@@ -3455,6 +3492,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Minnetonka, MN",  url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Twin Cities" },
     { name: "Answer Financial",              city: "Minneapolis, MN", url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · MN" },
     { name: "TWFG Insurance",                city: "Burnsville, MN",  url: "https://www.twfg.com",                 tag: "Minnesota independent network · personal auto &amp; home · Twin Cities metro" },
+    { name: "Policygenius",              city: "Minneapolis, MN",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · MN" },
+    { name: "SmartFinancial",             city: "Minneapolis, MN",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · MN" },
+    { name: "Brightway Insurance",        city: "Bloomington, MN",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Bloomington / South Metro MN" },
   ],
   // ── Detroit metro ────────────────────────────────────────────────────
   "det": [
@@ -3464,6 +3504,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Troy, MI",        url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Metro Detroit" },
     { name: "Answer Financial",              city: "Detroit, MI",     url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · MI" },
     { name: "TWFG Insurance",                city: "Sterling Heights, MI", url: "https://www.twfg.com",            tag: "Michigan independent network · personal auto &amp; home · Detroit metro" },
+    { name: "Policygenius",              city: "Detroit, MI",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · MI" },
+    { name: "SmartFinancial",             city: "Detroit, MI",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · MI" },
+    { name: "Brightway Insurance",        city: "Novi, MI",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Novi / Oakland County" },
   ],
   // ── Tampa–St. Pete metro ─────────────────────────────────────────────
   "tam": [
@@ -3473,6 +3516,9 @@ const METRO_AGENTS = {
     { name: "Brightway Insurance",           city: "Tampa, FL",       url: "https://www.brightway.com",            tag: "Independent network · 20+ carriers · personal auto &amp; home · Tampa Bay" },
     { name: "Goosehead Insurance",           city: "St. Petersburg, FL", url: "https://www.goosehead.com",         tag: "National independent · 150+ carriers · personal auto &amp; home · Tampa Bay" },
     { name: "TWFG Insurance",                city: "Brandon, FL",     url: "https://www.twfg.com",                 tag: "Florida Gulf Coast independent network · personal auto, home &amp; flood" },
+    { name: "Answer Financial",           city: "Tampa, FL",  url: "https://www.answerfinancial.com",  tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · FL" },
+    { name: "Brown &amp; Brown Insurance", city: "Tampa, FL", url: "https://www.bbinsurance.com",      tag: "National brokerage · personal auto &amp; commercial · FL" },
+    { name: "Policygenius",              city: "Tampa, FL",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · FL" },
   ],
   // ── Charlotte metro ──────────────────────────────────────────────────
   "clt": [
@@ -3482,6 +3528,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Charlotte, NC",   url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Charlotte metro" },
     { name: "TWFG Insurance",                city: "Concord, NC",     url: "https://www.twfg.com",                 tag: "Cabarrus County independent network · personal auto &amp; home · Charlotte suburbs" },
     { name: "Answer Financial",              city: "Charlotte, NC",   url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NC" },
+    { name: "Freeway Insurance",          city: "Charlotte, NC",  url: "https://www.freewayinsurance.com", tag: "Non-standard &amp; standard · 20+ carriers · personal auto &amp; home · NC" },
+    { name: "Policygenius",              city: "Charlotte, NC",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · NC" },
+    { name: "SmartFinancial",             city: "Charlotte, NC",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · NC" },
   ],
   // ── Portland metro ───────────────────────────────────────────────────
   "por": [
@@ -3491,6 +3540,9 @@ const METRO_AGENTS = {
     { name: "PEMCO Insurance",               city: "Portland, OR",    url: "https://www.pemco.com",                tag: "Member-owned since 1949 · WA &amp; OR · personal auto &amp; home specialist" },
     { name: "Goosehead Insurance",           city: "Lake Oswego, OR", url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Portland metro" },
     { name: "Answer Financial",              city: "Portland, OR",    url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · OR" },
+    { name: "TWFG Insurance",             city: "Beaverton, OR",  url: "https://www.twfg.com",             tag: "Beaverton / Washington County OR · personal auto &amp; home · independent agent network" },
+    { name: "Policygenius",              city: "Portland, OR",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · OR" },
+    { name: "SmartFinancial",             city: "Portland, OR",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · OR" },
   ],
   // ── St. Louis metro ──────────────────────────────────────────────────
   "stl": [
@@ -3500,6 +3552,9 @@ const METRO_AGENTS = {
     { name: "TWFG Insurance",                city: "Chesterfield, MO",url: "https://www.twfg.com",                 tag: "Missouri independent network · personal auto &amp; home · West County St. Louis" },
     { name: "Bargain Insurance Connection",  city: "St. Louis, MO",   url: "https://www.bic-agent.com",            rating: 4.9, reviews: 129,   source: "Google",  tag: "Independent · personal auto &amp; home · SR-22 · statewide MO" },
     { name: "Answer Financial",              city: "St. Louis, MO",   url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · MO" },
+    { name: "Policygenius",              city: "St. Louis, MO",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · MO/IL" },
+    { name: "SmartFinancial",             city: "St. Louis, MO",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · MO/IL" },
+    { name: "Brightway Insurance",        city: "O'Fallon, MO",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · O'Fallon / St. Charles County" },
   ],
   // ── San Antonio metro ────────────────────────────────────────────────
   "san": [
@@ -3509,6 +3564,9 @@ const METRO_AGENTS = {
     { name: "Texan Insurance",               city: "San Antonio, TX", url: "https://www.texaninsurance.com",       rating: 4.8, reviews: 2781,  source: "Google",  tag: "Family-owned since 1985 · 40+ carriers · personal auto &amp; home · TX statewide" },
     { name: "Answer Financial",              city: "San Antonio, TX", url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · TX" },
     { name: "Brightway Insurance",           city: "San Antonio, TX", url: "https://www.brightway.com",            tag: "Independent network · 20+ carriers · personal auto &amp; home · San Antonio" },
+    { name: "IPA Insurance Group",          city: "San Antonio, TX", url: "https://ipainsurancegroup.com",   tag: "San Antonio independent · personal auto &amp; home · TX specialist" },
+    { name: "Policygenius",              city: "San Antonio, TX",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · TX" },
+    { name: "SmartFinancial",             city: "San Antonio, TX",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · TX" },
   ],
   // ── Sacramento metro ─────────────────────────────────────────────────
   "sac": [
@@ -3518,6 +3576,9 @@ const METRO_AGENTS = {
     { name: "Pacific Premier Insurance",     city: "Sacramento, CA",  url: "https://www.pacpremins.com",           tag: "Independent broker · Sacramento area &amp; statewide · personal auto &amp; home" },
     { name: "Goosehead Insurance",           city: "Elk Grove, CA",   url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Sacramento area" },
     { name: "MIS Insurance Services",        city: "Sacramento, CA",  url: "https://www.mis-insurance.com",        rating: 4.9, reviews: 3000,  source: "Google",  tag: "78+ carriers · bilingual service · personal auto &amp; home · CA statewide" },
+    { name: "TWFG Insurance",             city: "Elk Grove, CA",  url: "https://www.twfg.com",             tag: "Elk Grove / Sacramento South · personal auto &amp; home · independent agent network" },
+    { name: "Policygenius",              city: "Sacramento, CA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · CA" },
+    { name: "SmartFinancial",             city: "Sacramento, CA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · CA" },
   ],
   // ── Baltimore metro ──────────────────────────────────────────────────
   "bal": [
@@ -3527,6 +3588,9 @@ const METRO_AGENTS = {
     { name: "Bridge First Insurance",        city: "Towson, MD",      url: "https://www.bridgefirstinsurance.com", rating: 4.9, reviews: 375,   source: "Google",  tag: "20+ carriers · personal auto &amp; home · Baltimore/DC corridor" },
     { name: "Goosehead Insurance",           city: "Annapolis, MD",   url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Baltimore metro" },
     { name: "Answer Financial",              city: "Baltimore, MD",   url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · MD" },
+    { name: "TWFG Insurance",             city: "Towson, MD",  url: "https://www.twfg.com",             tag: "Towson / Baltimore County · personal auto &amp; home · independent agent network" },
+    { name: "Goosehead Insurance",        city: "Baltimore, MD",  url: "https://www.goosehead.com",        tag: "National independent network · 150+ carriers · personal auto &amp; home · Baltimore metro" },
+    { name: "Policygenius",              city: "Baltimore, MD",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · MD" },
   ],
   // ── Orlando metro ────────────────────────────────────────────────────
   "ors": [
@@ -3536,6 +3600,9 @@ const METRO_AGENTS = {
     { name: "Brown &amp; Brown Insurance",   city: "Daytona Beach, FL",url: "https://www.bbinsurance.com",         tag: "Founded 1939 · one of FL's largest independents · personal auto, home &amp; commercial" },
     { name: "Goosehead Insurance",           city: "Altamonte Springs, FL", url: "https://www.goosehead.com",      tag: "National independent · 150+ carriers · personal auto &amp; home · Orlando metro" },
     { name: "TWFG Insurance",                city: "Kissimmee, FL",   url: "https://www.twfg.com",                 tag: "Central Florida independent network · personal auto, home &amp; flood" },
+    { name: "Brown &amp; Brown Insurance", city: "Orlando, FL", url: "https://www.bbinsurance.com",      tag: "National brokerage · personal auto &amp; commercial · FL" },
+    { name: "Answer Financial",           city: "Orlando, FL",  url: "https://www.answerfinancial.com",  tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · FL" },
+    { name: "Policygenius",              city: "Orlando, FL",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · FL" },
   ],
   // ── Nashville metro ──────────────────────────────────────────────────
   "nas": [
@@ -3545,6 +3612,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Franklin, TN",    url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Nashville metro" },
     { name: "TWFG Insurance",                city: "Brentwood, TN",   url: "https://www.twfg.com",                 tag: "Tennessee independent network · personal auto &amp; home · Nashville suburbs" },
     { name: "Answer Financial",              city: "Nashville, TN",   url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · TN" },
+    { name: "Brightway Insurance",        city: "Murfreesboro, TN",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Murfreesboro / Middle TN" },
+    { name: "Policygenius",              city: "Nashville, TN",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · TN" },
+    { name: "SmartFinancial",             city: "Nashville, TN",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · TN" },
   ],
   // ── Austin metro ─────────────────────────────────────────────────────
   "aus": [
@@ -3554,6 +3624,9 @@ const METRO_AGENTS = {
     { name: "Texan Insurance",               city: "Austin, TX",      url: "https://www.texaninsurance.com",       rating: 4.8, reviews: 2781,  source: "Google",  tag: "Family-owned since 1985 · 40+ carriers · personal auto &amp; home · TX statewide" },
     { name: "Answer Financial",              city: "Austin, TX",      url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · TX" },
     { name: "Brightway Insurance",           city: "Cedar Park, TX",  url: "https://www.brightway.com",            tag: "Independent network · 20+ carriers · personal auto &amp; home · Austin metro" },
+    { name: "IPA Insurance Group",          city: "Austin, TX",      url: "https://ipainsurancegroup.com",   tag: "Austin area independent · personal auto &amp; home · TX specialist" },
+    { name: "Policygenius",              city: "Austin, TX",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · TX" },
+    { name: "SmartFinancial",             city: "Austin, TX",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · TX" },
   ],
   // ── Raleigh-Durham metro ─────────────────────────────────────────────
   "ral": [
@@ -3563,6 +3636,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Cary, NC",        url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Triangle" },
     { name: "TWFG Insurance",                city: "Durham, NC",      url: "https://www.twfg.com",                 tag: "NC independent network · personal auto &amp; home · Raleigh-Durham metro" },
     { name: "Answer Financial",              city: "Raleigh, NC",     url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NC" },
+    { name: "Brightway Insurance",        city: "Morrisville, NC",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Morrisville / Research Triangle" },
+    { name: "Policygenius",              city: "Raleigh, NC",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · NC" },
+    { name: "SmartFinancial",             city: "Raleigh, NC",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · NC" },
   ],
   // ── Las Vegas metro (new) ────────────────────────────────────────────
   "lvg": [
@@ -3572,6 +3648,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Henderson, NV",   url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Las Vegas metro" },
     { name: "Answer Financial",              city: "Las Vegas, NV",   url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NV" },
     { name: "TWFG Insurance",                city: "North Las Vegas, NV", url: "https://www.twfg.com",             tag: "Nevada independent network · personal auto, home &amp; commercial" },
+    { name: "Policygenius",              city: "Las Vegas, NV",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · NV" },
+    { name: "SmartFinancial",             city: "Las Vegas, NV",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · NV" },
+    { name: "Freeway Insurance",          city: "Las Vegas, NV",  url: "https://www.freewayinsurance.com", tag: "Non-standard &amp; standard · 20+ carriers · personal auto &amp; home · NV" },
   ],
   // ── San Jose / Silicon Valley metro (new) ───────────────────────────
   "sjv": [
@@ -3581,6 +3660,9 @@ const METRO_AGENTS = {
     { name: "Pacific Premier Insurance",     city: "Sunnyvale, CA",   url: "https://www.pacpremins.com",           tag: "Independent broker · Silicon Valley &amp; statewide · personal auto &amp; home" },
     { name: "Goosehead Insurance",           city: "San Jose, CA",    url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Silicon Valley" },
     { name: "MIS Insurance Services",        city: "San Jose, CA",    url: "https://www.mis-insurance.com",        rating: 4.9, reviews: 3000,  source: "Google",  tag: "78+ carriers · bilingual service · personal auto &amp; home · CA statewide" },
+    { name: "TWFG Insurance",             city: "San Jose, CA",  url: "https://www.twfg.com",             tag: "San Jose / Silicon Valley · personal auto &amp; home · independent agent network" },
+    { name: "Policygenius",              city: "San Jose, CA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · CA" },
+    { name: "SmartFinancial",             city: "San Jose, CA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · CA" },
   ],
   // ── San Diego metro (new) ────────────────────────────────────────────
   "sdg": [
@@ -3590,6 +3672,9 @@ const METRO_AGENTS = {
     { name: "Answer Financial",              city: "San Diego, CA",   url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · SD" },
     { name: "Goosehead Insurance",           city: "La Jolla, CA",    url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · San Diego" },
     { name: "MIS Insurance Services",        city: "San Diego, CA",   url: "https://www.mis-insurance.com",        rating: 4.9, reviews: 3000,  source: "Google",  tag: "78+ carriers · bilingual service · personal auto &amp; home · SoCal" },
+    { name: "TWFG Insurance",             city: "El Cajon, CA",  url: "https://www.twfg.com",             tag: "El Cajon / East San Diego County · personal auto &amp; home · independent agent network" },
+    { name: "Policygenius",              city: "San Diego, CA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · CA" },
+    { name: "SmartFinancial",             city: "San Diego, CA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · CA" },
   ],
   // ── Salt Lake City metro ─────────────────────────────────────────────
   "slc": [
@@ -3599,6 +3684,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "South Jordan, UT",url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · SLC metro" },
     { name: "Answer Financial",              city: "Salt Lake City, UT", url: "https://www.answerfinancial.com",  tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · UT" },
     { name: "TWFG Insurance",                city: "Draper, UT",      url: "https://www.twfg.com",                 tag: "Utah independent network · personal auto &amp; home · South Valley" },
+    { name: "Policygenius",              city: "Salt Lake City, UT",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · UT" },
+    { name: "SmartFinancial",             city: "Salt Lake City, UT",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · UT" },
+    { name: "Brightway Insurance",        city: "Murray, UT",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Murray / Salt Lake County" },
   ],
   // ── Kansas City metro ────────────────────────────────────────────────
   "kc": [
@@ -3608,6 +3696,9 @@ const METRO_AGENTS = {
     { name: "Shelter Insurance Agents",      city: "Overland Park, KS", url: "https://www.shelterinsurance.com",   tag: "J.D. Power Central #1 · personal auto &amp; home · Kansas City metro agents" },
     { name: "Goosehead Insurance",           city: "Leawood, KS",     url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · KC metro" },
     { name: "Answer Financial",              city: "Kansas City, MO", url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · MO/KS" },
+    { name: "TWFG Insurance",             city: "Lenexa, KS",  url: "https://www.twfg.com",             tag: "Lenexa / Johnson County KS · personal auto &amp; home · independent agent network" },
+    { name: "Policygenius",              city: "Kansas City, MO",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · MO/KS" },
+    { name: "SmartFinancial",             city: "Kansas City, MO",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · MO/KS" },
   ],
   // ── Cincinnati metro ─────────────────────────────────────────────────
   "cin": [
@@ -3617,6 +3708,9 @@ const METRO_AGENTS = {
     { name: "Shelter Insurance Agents",      city: "Florence, KY",    url: "https://www.shelterinsurance.com",     tag: "J.D. Power Central #1 · personal auto &amp; home · Tri-State metro agents" },
     { name: "TWFG Insurance",                city: "Mason, OH",       url: "https://www.twfg.com",                 tag: "Ohio independent network · personal auto &amp; home · Cincinnati suburbs" },
     { name: "Answer Financial",              city: "Cincinnati, OH",  url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · OH/KY" },
+    { name: "Policygenius",              city: "Cincinnati, OH",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · OH/KY" },
+    { name: "SmartFinancial",             city: "Cincinnati, OH",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · OH/KY" },
+    { name: "Brightway Insurance",        city: "West Chester, OH",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · West Chester / Butler County" },
   ],
   // ── Pittsburgh metro ─────────────────────────────────────────────────
   "pit": [
@@ -3626,6 +3720,9 @@ const METRO_AGENTS = {
     { name: "TWFG Insurance",                city: "Wexford, PA",     url: "https://www.twfg.com",                 tag: "North Pittsburgh suburbs · personal auto &amp; home · PA independent network" },
     { name: "Answer Financial",              city: "Pittsburgh, PA",  url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · PA" },
     { name: "Conrad Insurance",              city: "Wayne, PA",       url: "https://www.conradinsurance.net",      rating: 5.0, reviews: 61,    source: "Google",  tag: "24+ carriers · personal auto, home, umbrella · PA, NJ, DE" },
+    { name: "Policygenius",              city: "Pittsburgh, PA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · PA" },
+    { name: "SmartFinancial",             city: "Pittsburgh, PA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · PA" },
+    { name: "Brightway Insurance",        city: "Pittsburgh, PA",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Pittsburgh metro" },
   ],
   // ── Cleveland metro ──────────────────────────────────────────────────
   "cle": [
@@ -3635,6 +3732,9 @@ const METRO_AGENTS = {
     { name: "TWFG Insurance",                city: "Strongsville, OH",url: "https://www.twfg.com",                 tag: "South Cleveland suburbs · personal auto &amp; home · Ohio independent network" },
     { name: "Answer Financial",              city: "Cleveland, OH",   url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · OH" },
     { name: "Isner Insurance Associates",    city: "Columbus, OH",    url: "https://www.isnerinsurance.com",       rating: 4.9, reviews: 68,    source: "Birdeye", tag: "Independent since 1972 · 50+ year track record · personal auto &amp; home · OH" },
+    { name: "Policygenius",              city: "Cleveland, OH",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · OH" },
+    { name: "SmartFinancial",             city: "Cleveland, OH",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · OH" },
+    { name: "Brightway Insurance",        city: "Solon, OH",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Solon / Cuyahoga County East" },
   ],
   // ── Indianapolis metro ───────────────────────────────────────────────
   "ind": [
@@ -3644,6 +3744,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Fishers, IN",     url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Indianapolis metro" },
     { name: "Answer Financial",              city: "Indianapolis, IN",url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · IN" },
     { name: "TWFG Insurance",                city: "Greenwood, IN",   url: "https://www.twfg.com",                 tag: "South Indy suburbs · personal auto &amp; home · Indiana independent network" },
+    { name: "Policygenius",              city: "Indianapolis, IN",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · IN" },
+    { name: "SmartFinancial",             city: "Indianapolis, IN",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · IN" },
+    { name: "Brightway Insurance",        city: "Noblesville, IN",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Noblesville / Hamilton County" },
   ],
   // ── Columbus OH metro ────────────────────────────────────────────────
   "col": [
@@ -3653,6 +3756,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Dublin, OH",      url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Columbus metro" },
     { name: "TWFG Insurance",                city: "Westerville, OH", url: "https://www.twfg.com",                 tag: "Northeast Columbus suburbs · personal auto &amp; home · Ohio independent network" },
     { name: "Answer Financial",              city: "Columbus, OH",    url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · OH" },
+    { name: "Policygenius",              city: "Columbus, OH",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · OH" },
+    { name: "SmartFinancial",             city: "Columbus, OH",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · OH" },
+    { name: "Brightway Insurance",        city: "Westerville, OH",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Westerville / Columbus North" },
   ],
   // ── Milwaukee metro ──────────────────────────────────────────────────
   "mke": [
@@ -3662,6 +3768,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Menomonee Falls, WI", url: "https://www.goosehead.com",        tag: "National independent · 150+ carriers · personal auto &amp; home · Milwaukee metro" },
     { name: "Answer Financial",              city: "Milwaukee, WI",   url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · WI" },
     { name: "TWFG Insurance",                city: "Oak Creek, WI",   url: "https://www.twfg.com",                 tag: "South Milwaukee suburbs · personal auto &amp; home · Wisconsin independent network" },
+    { name: "Policygenius",              city: "Milwaukee, WI",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · WI" },
+    { name: "SmartFinancial",             city: "Milwaukee, WI",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · WI" },
+    { name: "Brightway Insurance",        city: "Wauwatosa, WI",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Wauwatosa / Milwaukee metro" },
   ],
   // ── Jacksonville metro ───────────────────────────────────────────────
   "jax": [
@@ -3671,6 +3780,9 @@ const METRO_AGENTS = {
     { name: "GreatFlorida Insurance",        city: "Jacksonville, FL",url: "https://www.greatflorida.com",         tag: "100+ FL locations · personal auto, home, SR-22 · Northeast FL network" },
     { name: "Goosehead Insurance",           city: "Ponte Vedra Beach, FL", url: "https://www.goosehead.com",      tag: "National independent · 150+ carriers · personal auto &amp; home · Jacksonville metro" },
     { name: "Brown &amp; Brown Insurance",   city: "Jacksonville, FL",url: "https://www.bbinsurance.com",          tag: "Founded 1939 · one of FL's largest independents · personal auto, home &amp; commercial" },
+    { name: "Answer Financial",           city: "Jacksonville, FL",  url: "https://www.answerfinancial.com",  tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · FL" },
+    { name: "TWFG Insurance",             city: "Fleming Island, FL",  url: "https://www.twfg.com",             tag: "Fleming Island / Clay County FL · personal auto &amp; home · independent agent network" },
+    { name: "Policygenius",              city: "Jacksonville, FL",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · FL" },
   ],
   // ── Memphis metro ────────────────────────────────────────────────────
   "mem": [
@@ -3680,6 +3792,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Germantown, TN",  url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Memphis metro" },
     { name: "TWFG Insurance",                city: "Collierville, TN",url: "https://www.twfg.com",                 tag: "East Memphis suburbs · personal auto &amp; home · TN/MS independent network" },
     { name: "Answer Financial",              city: "Memphis, TN",     url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · TN" },
+    { name: "Policygenius",              city: "Memphis, TN",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · TN" },
+    { name: "SmartFinancial",             city: "Memphis, TN",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · TN" },
+    { name: "Brightway Insurance",        city: "Germantown, TN",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Germantown / Shelby County East" },
   ],
   // ── Richmond metro ───────────────────────────────────────────────────
   "ric": [
@@ -3689,6 +3804,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Glen Allen, VA",  url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Richmond metro" },
     { name: "TWFG Insurance",                city: "Midlothian, VA",  url: "https://www.twfg.com",                 tag: "Chesterfield County · personal auto &amp; home · VA independent network" },
     { name: "Answer Financial",              city: "Richmond, VA",    url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · VA" },
+    { name: "Policygenius",              city: "Richmond, VA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · VA" },
+    { name: "SmartFinancial",             city: "Richmond, VA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · VA" },
+    { name: "Brightway Insurance",        city: "Richmond, VA",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Richmond metro" },
   ],
   // ── Oklahoma City metro ──────────────────────────────────────────────
   "okc": [
@@ -3698,6 +3816,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Edmond, OK",      url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · OKC metro" },
     { name: "TWFG Insurance",                city: "Norman, OK",      url: "https://www.twfg.com",                 tag: "South OKC metro · personal auto &amp; home · Oklahoma independent network" },
     { name: "Answer Financial",              city: "Oklahoma City, OK", url: "https://www.answerfinancial.com",    tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · OK" },
+    { name: "Policygenius",              city: "Oklahoma City, OK",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · OK" },
+    { name: "SmartFinancial",             city: "Oklahoma City, OK",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · OK" },
+    { name: "Brightway Insurance",        city: "Edmond, OK",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Edmond / Oklahoma City North" },
   ],
   // ── Omaha metro ──────────────────────────────────────────────────────
   "oma": [
@@ -3707,6 +3828,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Papillion, NE",   url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Omaha metro" },
     { name: "Absolute Insurance Agency",     city: "Council Bluffs, IA", url: "https://insaia.com",               rating: 4.9, reviews: 210,   source: "Google",  tag: "Licensed in 18 states · personal auto, home &amp; life · multiple carriers" },
     { name: "Answer Financial",              city: "Omaha, NE",       url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NE" },
+    { name: "Policygenius",              city: "Omaha, NE",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · NE" },
+    { name: "SmartFinancial",             city: "Omaha, NE",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · NE" },
+    { name: "Brightway Insurance",        city: "Omaha, NE",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Omaha metro" },
   ],
   // ── New Orleans metro ────────────────────────────────────────────────
   "nor": [
@@ -3716,6 +3840,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Metairie, LA",    url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Greater New Orleans" },
     { name: "TWFG Insurance",                city: "Covington, LA",   url: "https://www.twfg.com",                 tag: "Northshore Louisiana independent network · personal auto, home &amp; flood" },
     { name: "Answer Financial",              city: "New Orleans, LA", url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; flood · LA" },
+    { name: "Policygenius",              city: "New Orleans, LA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · LA" },
+    { name: "SmartFinancial",             city: "New Orleans, LA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · LA" },
+    { name: "Brightway Insurance",        city: "Metairie, LA",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Metairie / Jefferson Parish" },
   ],
   // ── Louisville metro ─────────────────────────────────────────────────
   "lou": [
@@ -3725,6 +3852,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Louisville, KY",  url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Louisville metro" },
     { name: "TWFG Insurance",                city: "Jeffersontown, KY", url: "https://www.twfg.com",               tag: "East Louisville suburbs · personal auto &amp; home · KY independent network" },
     { name: "Answer Financial",              city: "Louisville, KY",  url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · KY" },
+    { name: "Policygenius",              city: "Louisville, KY",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · KY" },
+    { name: "SmartFinancial",             city: "Louisville, KY",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · KY" },
+    { name: "Brightway Insurance",        city: "Louisville, KY",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Louisville metro" },
   ],
   // ── Knoxville metro ──────────────────────────────────────────────────
   "knx": [
@@ -3734,6 +3864,9 @@ const METRO_AGENTS = {
     { name: "TWFG Insurance",                city: "Maryville, TN",   url: "https://www.twfg.com",                 tag: "Blount County · personal auto &amp; home · East Tennessee independent network" },
     { name: "Answer Financial",              city: "Knoxville, TN",   url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · TN" },
     { name: "Choice Insurance Agency",       city: "Knoxville, TN",   url: "https://www.choicetn.com",             rating: 4.9, reviews: 50,    source: "Google",  tag: "Independent agency · personal auto &amp; home · multi-carrier · East TN" },
+    { name: "Policygenius",              city: "Knoxville, TN",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · TN" },
+    { name: "SmartFinancial",             city: "Knoxville, TN",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · TN" },
+    { name: "Brightway Insurance",        city: "Knoxville, TN",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Knoxville metro" },
   ],
   // ── Hartford metro ───────────────────────────────────────────────────
   "har": [
@@ -3743,6 +3876,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",           city: "Hartford, CT",    url: "https://www.goosehead.com",            tag: "National independent · 150+ carriers · personal auto &amp; home · Hartford metro" },
     { name: "Answer Financial",              city: "Hartford, CT",    url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · CT" },
     { name: "TWFG Insurance",                city: "Glastonbury, CT", url: "https://www.twfg.com",                 tag: "East Hartford suburbs · personal auto &amp; home · Connecticut independent network" },
+    { name: "Policygenius",              city: "Hartford, CT",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · CT" },
+    { name: "SmartFinancial",             city: "Hartford, CT",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · CT" },
+    { name: "Brightway Insurance",        city: "Stamford, CT",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Stamford / Fairfield County" },
   ],
   // ── Buffalo metro ────────────────────────────────────────────────────
   "buf": [
@@ -3752,6 +3888,9 @@ const METRO_AGENTS = {
     { name: "Erie Insurance Agents",       city: "Buffalo, NY",    url: "https://www.erieinsurance.com",         tag: "Erie Insurance independent agents · rate-lock coverage · Buffalo &amp; Western NY" },
     { name: "Answer Financial",            city: "Buffalo, NY",    url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NY" },
     { name: "K&amp;N Insurance Brokerage", city: "Rochester, NY",  url: "https://kninsurance.com",              rating: 5.0, reviews: 863, source: "Google",  tag: "30+ years · personal auto &amp; home · Upstate NY" },
+    { name: "Policygenius",              city: "Buffalo, NY",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · NY" },
+    { name: "SmartFinancial",             city: "Buffalo, NY",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · NY" },
+    { name: "Brightway Insurance",        city: "Williamsville, NY",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Williamsville / Erie County NY" },
   ],
   // ── Albuquerque metro ────────────────────────────────────────────────
   "abq": [
@@ -3761,6 +3900,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",                city: "Albuquerque, NM", url: "https://www.goosehead.com",     tag: "National independent · 150+ carriers · personal auto &amp; home · ABQ metro" },
     { name: "TWFG Insurance",                     city: "Rio Rancho, NM",  url: "https://www.twfg.com",          tag: "New Mexico independent network · personal auto &amp; home · Albuquerque area" },
     { name: "Answer Financial",                   city: "Albuquerque, NM", url: "https://www.answerfinancial.com",tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NM" },
+    { name: "Policygenius",              city: "Albuquerque, NM",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · NM" },
+    { name: "SmartFinancial",             city: "Albuquerque, NM",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · NM" },
+    { name: "Brightway Insurance",        city: "Rio Rancho, NM",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Rio Rancho / Sandoval County" },
   ],
   // ── Tucson metro ─────────────────────────────────────────────────────
   "tuc": [
@@ -3770,6 +3912,9 @@ const METRO_AGENTS = {
     { name: "Answer Financial",            city: "Tucson, AZ",     url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · AZ" },
     { name: "Coriano Insurance Agency",    city: "Tucson, AZ",     url: "https://ciaaz.com",                     tag: "Family-owned · 60+ carriers · Safeco, Progressive, Travelers · personal auto" },
     { name: "Insurance of State 48",       city: "Tucson, AZ",     url: "https://insuranceofstate48.us",         rating: 4.9, reviews: 39, source: "Google", tag: "Independent · personal auto, home &amp; motorcycle · AZ multi-carrier" },
+    { name: "Policygenius",              city: "Tucson, AZ",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · AZ" },
+    { name: "SmartFinancial",             city: "Tucson, AZ",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · AZ" },
+    { name: "Brightway Insurance",        city: "Marana, AZ",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Marana / Northwest Tucson" },
   ],
   // ── Tulsa metro ──────────────────────────────────────────────────────
   "tul": [
@@ -3779,6 +3924,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",         city: "Broken Arrow, OK",url: "https://www.goosehead.com",           tag: "National independent · 150+ carriers · personal auto &amp; home · Tulsa metro" },
     { name: "TWFG Insurance",              city: "Tulsa, OK",      url: "https://www.twfg.com",                  tag: "Eastern Oklahoma independent network · personal auto &amp; home" },
     { name: "Answer Financial",            city: "Tulsa, OK",      url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · OK" },
+    { name: "Policygenius",              city: "Tulsa, OK",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · OK" },
+    { name: "SmartFinancial",             city: "Tulsa, OK",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · OK" },
+    { name: "Brightway Insurance",        city: "Broken Arrow, OK",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Broken Arrow / Tulsa East" },
   ],
   // ── Fresno metro ─────────────────────────────────────────────────────
   "fre": [
@@ -3788,6 +3936,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",         city: "Clovis, CA",     url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Fresno area" },
     { name: "MIS Insurance Services",      city: "Fresno, CA",     url: "https://www.mis-insurance.com",        rating: 4.9, reviews: 3000, source: "Google", tag: "78+ carriers · bilingual service · personal auto &amp; home · CA statewide" },
     { name: "Pacific Premier Insurance",   city: "Fresno, CA",     url: "https://www.pacpremins.com",           tag: "Independent broker · Central Valley &amp; statewide · personal auto &amp; home" },
+    { name: "TWFG Insurance",             city: "Fresno, CA",  url: "https://www.twfg.com",             tag: "Fresno / Central Valley · personal auto &amp; home · independent agent network" },
+    { name: "Policygenius",              city: "Fresno, CA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · CA" },
+    { name: "SmartFinancial",             city: "Fresno, CA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · CA" },
   ],
   // ── Bakersfield metro ────────────────────────────────────────────────
   "bak": [
@@ -3797,6 +3948,9 @@ const METRO_AGENTS = {
     { name: "MIS Insurance Services",      city: "Bakersfield, CA",url: "https://www.mis-insurance.com",        rating: 4.9, reviews: 3000, source: "Google", tag: "78+ carriers · bilingual service · personal auto &amp; home · CA statewide" },
     { name: "Pacific Premier Insurance",   city: "Bakersfield, CA",url: "https://www.pacpremins.com",           tag: "Independent broker · Kern County &amp; statewide · personal auto &amp; home" },
     { name: "TWFG Insurance",              city: "Bakersfield, CA",url: "https://www.twfg.com",                  tag: "Central California independent network · personal auto &amp; home" },
+    { name: "Heffernan Insurance Brokers",  city: "Bakersfield, CA", url: "https://www.heffins.com",          tag: "California independent brokerage · personal auto &amp; home · Central Valley specialist" },
+    { name: "Policygenius",              city: "Bakersfield, CA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · CA" },
+    { name: "SmartFinancial",             city: "Bakersfield, CA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · CA" },
   ],
   // ── Baton Rouge metro ────────────────────────────────────────────────
   "bat": [
@@ -3806,6 +3960,9 @@ const METRO_AGENTS = {
     { name: "TWFG Insurance",              city: "Denham Springs, LA",url: "https://www.twfg.com",              tag: "East Baton Rouge Parish independent network · personal auto, home &amp; flood" },
     { name: "Answer Financial",            city: "Baton Rouge, LA",url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; flood · LA" },
     { name: "TWFG Insurance – Rick Rogers",city: "Baton Rouge, LA",url: "https://www.rickyrogers.com",          rating: 4.8, reviews: 44, source: "Google",  tag: "Independent agency · personal auto &amp; home · multi-carrier · BBB A+" },
+    { name: "Policygenius",              city: "Baton Rouge, LA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · LA" },
+    { name: "SmartFinancial",             city: "Baton Rouge, LA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · LA" },
+    { name: "Brightway Insurance",        city: "Prairieville, LA",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Prairieville / Ascension Parish" },
   ],
   // ── El Paso metro ────────────────────────────────────────────────────
   "elp": [
@@ -3815,6 +3972,9 @@ const METRO_AGENTS = {
     { name: "Higginbotham",                city: "El Paso, TX",    url: "https://higginbotham.net",              tag: "Founded 1948 · one of TX's largest independents · El Paso &amp; statewide" },
     { name: "Answer Financial",            city: "El Paso, TX",    url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · TX" },
     { name: "Freeway Insurance",           city: "El Paso, TX",    url: "https://www.freewayinsurance.com",      tag: "Multiple TX locations · bilingual · personal auto, SR-22 &amp; home · border region" },
+    { name: "Policygenius",              city: "El Paso, TX",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · TX" },
+    { name: "SmartFinancial",             city: "El Paso, TX",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · TX" },
+    { name: "Brightway Insurance",        city: "El Paso, TX",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · El Paso metro" },
   ],
   // ── Honolulu metro ───────────────────────────────────────────────────
   "hon": [
@@ -3824,6 +3984,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",         city: "Honolulu, HI",   url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Oahu" },
     { name: "Answer Financial",            city: "Honolulu, HI",   url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · HI" },
     { name: "TWFG Insurance",              city: "Kailua, HI",     url: "https://www.twfg.com",                  tag: "Hawaii independent network · personal auto &amp; home · Oahu &amp; neighbor islands" },
+    { name: "Policygenius",              city: "Honolulu, HI",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · HI" },
+    { name: "SmartFinancial",             city: "Honolulu, HI",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · HI" },
+    { name: "Brightway Insurance",        city: "Honolulu, HI",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Honolulu metro" },
   ],
   // ── Norfolk / Virginia Beach metro ───────────────────────────────────
   "nfk": [
@@ -3833,6 +3996,9 @@ const METRO_AGENTS = {
     { name: "TWFG Insurance",              city: "Virginia Beach, VA",url: "https://www.twfg.com",               tag: "Hampton Roads independent network · personal auto, home &amp; flood" },
     { name: "Erie Insurance Agents",       city: "Norfolk, VA",    url: "https://www.erieinsurance.com",         tag: "Erie Insurance independent agents · rate-lock coverage · Hampton Roads area" },
     { name: "Answer Financial",            city: "Virginia Beach, VA",url: "https://www.answerfinancial.com",    tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · VA" },
+    { name: "Policygenius",              city: "Norfolk, VA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · VA" },
+    { name: "SmartFinancial",             city: "Norfolk, VA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · VA" },
+    { name: "Brightway Insurance",        city: "Chesapeake, VA",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Chesapeake / Hampton Roads VA" },
   ],
   // ── Albany metro (new) ───────────────────────────────────────────────
   "alb": [
@@ -3842,6 +4008,9 @@ const METRO_AGENTS = {
     { name: "Answer Financial",            city: "Albany, NY",     url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NY" },
     { name: "Haller-Zaremba Insurance",    city: "Albany, NY",     url: "https://www.hzinsurance.com",           rating: 5.0, reviews: 54, source: "Google", tag: "Family-owned 81+ years · personal auto &amp; home · statewide NY" },
     { name: "K&amp;N Insurance Brokerage", city: "Albany, NY",     url: "https://kninsurance.com",              rating: 5.0, reviews: 863, source: "Google", tag: "30+ years · personal auto &amp; home · NY statewide" },
+    { name: "Policygenius",              city: "Albany, NY",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · NY" },
+    { name: "SmartFinancial",             city: "Albany, NY",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · NY" },
+    { name: "Brightway Insurance",        city: "Saratoga Springs, NY",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Saratoga Springs / Capital Region NY" },
   ],
   // ── Rochester metro (new) ────────────────────────────────────────────
   "roc": [
@@ -3851,6 +4020,9 @@ const METRO_AGENTS = {
     { name: "Haller-Zaremba Insurance",    city: "Rochester, NY",  url: "https://www.hzinsurance.com",           rating: 5.0, reviews: 54, source: "Google", tag: "Family-owned 81+ years · personal auto &amp; home · statewide NY" },
     { name: "Answer Financial",            city: "Rochester, NY",  url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NY" },
     { name: "K&amp;N Insurance Brokerage", city: "Rochester, NY",  url: "https://kninsurance.com",              rating: 5.0, reviews: 863, source: "Google", tag: "30+ years · personal auto &amp; home · NY statewide" },
+    { name: "Policygenius",              city: "Rochester, NY",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · NY" },
+    { name: "SmartFinancial",             city: "Rochester, NY",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · NY" },
+    { name: "Brightway Insurance",        city: "Penfield, NY",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Penfield / Monroe County East" },
   ],
   // ── Syracuse metro (new) ─────────────────────────────────────────────
   "syr": [
@@ -3860,6 +4032,9 @@ const METRO_AGENTS = {
     { name: "Haller-Zaremba Insurance",    city: "Syracuse, NY",   url: "https://www.hzinsurance.com",           rating: 5.0, reviews: 54, source: "Google", tag: "Family-owned 81+ years · personal auto &amp; home · statewide NY" },
     { name: "Answer Financial",            city: "Syracuse, NY",   url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NY" },
     { name: "K&amp;N Insurance Brokerage", city: "Syracuse, NY",   url: "https://kninsurance.com",              rating: 5.0, reviews: 863, source: "Google", tag: "30+ years · personal auto &amp; home · NY statewide" },
+    { name: "Policygenius",              city: "Syracuse, NY",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · NY" },
+    { name: "SmartFinancial",             city: "Syracuse, NY",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · NY" },
+    { name: "Brightway Insurance",        city: "Dewitt, NY",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · DeWitt / Onondaga County East" },
   ],
   // ── Birmingham metro (new) ───────────────────────────────────────────
   "bir": [
@@ -3869,6 +4044,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",         city: "Hoover, AL",     url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Birmingham metro" },
     { name: "TWFG Insurance",              city: "Vestavia Hills, AL",url: "https://www.twfg.com",               tag: "Jefferson County independent network · personal auto &amp; home" },
     { name: "Answer Financial",            city: "Birmingham, AL", url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · AL" },
+    { name: "Policygenius",              city: "Birmingham, AL",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · AL" },
+    { name: "SmartFinancial",             city: "Birmingham, AL",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · AL" },
+    { name: "Brightway Insurance",        city: "Hoover, AL",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Hoover / Jefferson County South AL" },
   ],
   // ── Boise metro (new) ────────────────────────────────────────────────
   "boi": [
@@ -3878,6 +4056,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",         city: "Eagle, ID",      url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Treasure Valley" },
     { name: "TWFG Insurance",              city: "Nampa, ID",      url: "https://www.twfg.com",                  tag: "Canyon County independent network · personal auto &amp; home · Boise metro" },
     { name: "Answer Financial",            city: "Boise, ID",      url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · ID" },
+    { name: "Policygenius",              city: "Boise, ID",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · ID" },
+    { name: "SmartFinancial",             city: "Boise, ID",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · ID" },
+    { name: "ProStar Insurance",            city: "Post Falls, ID",  url: "https://prostarinsurance.com",     tag: "Post Falls / North Idaho independent · personal auto &amp; home · ID/WA border" },
   ],
   // ── Little Rock metro (new) ──────────────────────────────────────────
   "lrk": [
@@ -3887,6 +4068,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",         city: "Little Rock, AR",url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Central AR" },
     { name: "TWFG Insurance",              city: "North Little Rock, AR",url: "https://www.twfg.com",            tag: "Pulaski County independent network · personal auto &amp; home" },
     { name: "Answer Financial",            city: "Little Rock, AR",url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · AR" },
+    { name: "Policygenius",              city: "Little Rock, AR",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · AR" },
+    { name: "SmartFinancial",             city: "Little Rock, AR",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · AR" },
+    { name: "Brightway Insurance",        city: "Little Rock, AR",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Little Rock metro" },
   ],
   // ── Columbia SC metro (new) ──────────────────────────────────────────
   "csc": [
@@ -3896,6 +4080,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",         city: "Lexington, SC",  url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Columbia metro" },
     { name: "TWFG Insurance",              city: "Irmo, SC",       url: "https://www.twfg.com",                  tag: "Lexington County independent network · personal auto &amp; home · Columbia area" },
     { name: "Answer Financial",            city: "Columbia, SC",   url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · SC" },
+    { name: "Policygenius",              city: "Columbia, SC",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · SC" },
+    { name: "SmartFinancial",             city: "Columbia, SC",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · SC" },
+    { name: "Brightway Insurance",        city: "Columbia, SC",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Columbia metro" },
   ],
   // ── Greensboro / Winston-Salem (Triad) metro (new) ───────────────────
   "gso": [
@@ -3905,6 +4092,9 @@ const METRO_AGENTS = {
     { name: "TWFG Insurance",              city: "High Point, NC", url: "https://www.twfg.com",                  tag: "Guilford County independent network · personal auto &amp; home · Triad area" },
     { name: "Answer Financial",            city: "Greensboro, NC", url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · NC" },
     { name: "Summit Insurance Group",      city: "Huntersville, NC",url: "https://sumins.com",                   rating: 4.9, reviews: 164, source: "Google", tag: "Veteran &amp; woman-owned · independent since 1995 · auto, home, RV · NC" },
+    { name: "Policygenius",              city: "Greensboro, NC",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · NC" },
+    { name: "SmartFinancial",             city: "Greensboro, NC",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · NC" },
+    { name: "Brightway Insurance",        city: "High Point, NC",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · High Point / Piedmont Triad NC" },
   ],
   // ── Des Moines metro (new) ───────────────────────────────────────────
   "dsm": [
@@ -3914,6 +4104,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",         city: "West Des Moines, IA",url: "https://www.goosehead.com",         tag: "National independent · 150+ carriers · personal auto &amp; home · Des Moines metro" },
     { name: "TWFG Insurance",              city: "Ankeny, IA",     url: "https://www.twfg.com",                  tag: "Polk County independent network · personal auto &amp; home · Central Iowa" },
     { name: "Answer Financial",            city: "Des Moines, IA", url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · IA" },
+    { name: "Policygenius",              city: "Des Moines, IA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · IA" },
+    { name: "SmartFinancial",             city: "Des Moines, IA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · IA" },
+    { name: "Brightway Insurance",        city: "West Des Moines, IA",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · West Des Moines / Polk County IA" },
   ],
   // ── Wichita metro (new) ──────────────────────────────────────────────
   "ict": [
@@ -3923,6 +4116,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",         city: "Wichita, KS",    url: "https://www.goosehead.com",             tag: "National independent · 150+ carriers · personal auto &amp; home · Wichita metro" },
     { name: "TWFG Insurance",              city: "Derby, KS",      url: "https://www.twfg.com",                  tag: "South Wichita suburbs · personal auto &amp; home · Kansas independent network" },
     { name: "Answer Financial",            city: "Wichita, KS",    url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · KS" },
+    { name: "Policygenius",              city: "Wichita, KS",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · KS" },
+    { name: "SmartFinancial",             city: "Wichita, KS",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · KS" },
+    { name: "Brightway Insurance",        city: "Wichita, KS",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Wichita metro" },
   ],
   // ── Madison metro (new) ──────────────────────────────────────────────
   "mad": [
@@ -3932,6 +4128,9 @@ const METRO_AGENTS = {
     { name: "TWFG Insurance",              city: "Fitchburg, WI",  url: "https://www.twfg.com",                  tag: "South Madison suburbs · personal auto &amp; home · Wisconsin independent network" },
     { name: "Answer Financial",            city: "Madison, WI",    url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · WI" },
     { name: "Keener Insurance Solutions",  city: "Madison, WI",    url: "https://www.keenerinsurancesolutions.com", rating: 5.0, reviews: 89, source: "Google", tag: "Founded 2012 · 20+ carriers · personal auto &amp; home · Wisconsin" },
+    { name: "Policygenius",              city: "Madison, WI",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · WI" },
+    { name: "SmartFinancial",             city: "Madison, WI",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · WI" },
+    { name: "Brightway Insurance",        city: "Sun Prairie, WI",  url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Sun Prairie / Dane County East" },
   ],
   // ── Spokane metro (new) ──────────────────────────────────────────────
   "spo": [
@@ -3941,6 +4140,9 @@ const METRO_AGENTS = {
     { name: "Goosehead Insurance",         city: "Spokane Valley, WA",url: "https://www.goosehead.com",          tag: "National independent · 150+ carriers · personal auto &amp; home · Spokane metro" },
     { name: "TWFG Insurance",              city: "Spokane, WA",    url: "https://www.twfg.com",                  tag: "Eastern Washington independent network · personal auto &amp; home" },
     { name: "Answer Financial",            city: "Spokane, WA",    url: "https://www.answerfinancial.com",       tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · WA" },
+    { name: "Policygenius",              city: "Spokane, WA",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · WA" },
+    { name: "SmartFinancial",             city: "Spokane, WA",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · WA" },
+    { name: "ProStar Insurance",            city: "Spokane Valley, WA", url: "https://prostarinsurance.com",  tag: "Spokane Valley independent · personal auto &amp; home · Eastern WA specialist" },
   ],
   // ── Greenville-Spartanburg metro ─────────────────────────────────────
   "grv": [
@@ -3950,6 +4152,21 @@ const METRO_AGENTS = {
     { name: "TWFG Insurance",                city: "Spartanburg, SC", url: "https://www.twfg.com",                 tag: "Spartanburg County · personal auto &amp; home · SC independent network" },
     { name: "Answer Financial",              city: "Greenville, SC",  url: "https://www.answerfinancial.com",      tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · SC" },
     { name: "Brightway Insurance",           city: "Greenville, SC",  url: "https://www.brightway.com",            tag: "Independent network · 20+ carriers · personal auto &amp; home · Upstate SC" },
+    { name: "Policygenius",              city: "Greenville, SC",  url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · SC" },
+    { name: "SmartFinancial",             city: "Greenville, SC",  url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · SC" },
+    { name: "Giles Independent Insurance",  city: "Anderson, SC",    url: "https://gilesinsurance.com",       tag: "Anderson County independent · personal auto &amp; home · Upstate SC specialist" },
+  ],
+  // ── Riverside / Inland Empire metro ─────────────────────────────────────
+  "riv": [
+    { name: "Freeway Insurance",          city: "Riverside, CA",   url: "https://www.freewayinsurance.com", tag: "Non-standard &amp; standard · 20+ carriers · personal auto &amp; home · Inland Empire" },
+    { name: "MIS Insurance",              city: "Ontario, CA",     url: "https://misinsurance.com",         tag: "Ontario / San Bernardino County · personal auto &amp; home · IE independent" },
+    { name: "Pacific Premier Insurance",  city: "Riverside, CA",   url: "https://www.pacificpremierins.com",tag: "Riverside County independent · personal auto, home &amp; business · IE specialist" },
+    { name: "TWFG Insurance",             city: "Riverside, CA",   url: "https://www.twfg.com",             tag: "Riverside / Inland Empire · personal auto &amp; home · independent agent network" },
+    { name: "Goosehead Insurance",        city: "Riverside, CA",   url: "https://www.goosehead.com",        tag: "National independent network · 150+ carriers · personal auto &amp; home · IE metro" },
+    { name: "Answer Financial",           city: "Riverside, CA",   url: "https://www.answerfinancial.com",  tag: "Online independent broker · 40+ carriers · personal auto, home &amp; renters · CA" },
+    { name: "Policygenius",               city: "Riverside, CA",   url: "https://www.policygenius.com",     tag: "NYC-based online broker · 30+ carriers · personal auto, home &amp; renters · CA" },
+    { name: "SmartFinancial",             city: "Riverside, CA",   url: "https://smartfinancial.com",       tag: "Matches shoppers with local independent agents · 200+ partners · personal auto &amp; home · CA" },
+    { name: "Brightway Insurance",        city: "Temecula, CA",    url: "https://www.brightway.com",        tag: "National independent network · 20+ carriers · personal auto &amp; home · Temecula / SW Riverside County" },
   ],
 };
 
