@@ -523,17 +523,18 @@
     text-transform: uppercase;
     margin-top: 2px;
   }
-  .rank-cta { text-align: right; }
-  .rank-cta-inner {
+  .rank-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .rank-quote {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--ink-mute);
-    border-bottom: 1px solid transparent;
-    transition: color 120ms, border-color 120ms;
+    letter-spacing: 0.07em;
+    color: var(--accent);
+    border: 1px solid rgba(180,50,26,0.35);
+    border-radius: 3px;
+    padding: 3px 8px;
+    white-space: nowrap;
   }
-  .rank-row:hover .rank-cta-inner { color: var(--accent); border-bottom-color: var(--accent); }
 
   .rank-cov-nudge {
     background: var(--ink); color: var(--paper);
@@ -755,7 +756,7 @@
     .rank-mark svg { width: 14px; height: 14px; }
     .rank-vs { grid-column: 4; grid-row: 1; text-align: right; font-size: 14px; margin-top: 0; align-self: end; }
     .rank-vs .vs-sub { font-size: 9px; }
-    .rank-cta { grid-column: 4; grid-row: 2; display: flex; align-items: flex-start; justify-content: flex-end; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .rank-cta { grid-column: 4; grid-row: 2; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
     .rank-name { font-size: 16px; }
     .rank-tag { font-size: 11px; }
     .median-divider { grid-template-columns: 32px 1fr auto; padding: 6px 16px; font-size: 10px; }
@@ -4308,15 +4309,14 @@ function renderRanking() {
     a.rel = "noopener noreferrer";
     a.dataset.carrier = c.name;
     const hero = CARRIER_HERO[c.name];
-    const heroHtml = hero ? '<div class="rank-hero"><span class="rank-hero-label">' + hero.label + '</span><span class="rank-hero-line"> — ' + hero.line + '</span></div>' : '';
-    const displayTag = (refinement.youngDriver && c.youngDriverTag) ? c.youngDriverTag : c.tag;
+    const heroHtml = hero ? '<div class="rank-hero"><span class="rank-hero-label">' + hero.label + '</span></div>' : '';
     const researchUrl = CARRIER_RESEARCH_LINKS[c.name];
     const researchHtml = researchUrl ? '<span class="rank-review-link" data-url="' + researchUrl + '">BoringRate review →</span>' : '';
     const inCompare = compareSet.has(c.name);
-    const compareHtml = '<div class="rank-cta"><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
+    const compareHtml = '<div class="rank-cta"><div class="rank-quote">Get&nbsp;Quote&nbsp;→</div><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
     a.innerHTML =
       '<div class="rank-num">' + num + '</div>' +
-      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div><div class="rank-tag">' + displayTag + '</div>' + heroHtml + researchHtml + '</div>' +
+      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div>' + heroHtml + researchHtml + '</div>' +
       markHtml +
       '<div class="rank-vs ' + delta.klass + '">' + delta.text + '<span class="vs-sub">' + delta.sub + '</span></div>' +
       compareHtml;
@@ -4696,6 +4696,7 @@ document.getElementById("rankList").addEventListener("click", function(e) {
 document.getElementById("rankList").addEventListener("click", function(e) {
   const cta = e.target.closest(".rank-cta");
   if (!cta) return;
+  if (e.target.closest(".rank-quote")) return;
   e.preventDefault();
   e.stopPropagation();
   const cb = cta.querySelector(".rank-cb");
