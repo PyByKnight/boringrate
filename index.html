@@ -1948,6 +1948,29 @@ const METRO_NAMES = {
   riv: "Riverside / Inland Empire metro",
 };
 
+// Short display labels for the rate-alert banner tag — airport codes where
+// recognizable, otherwise city name (with state for ambiguous metros).
+const METRO_ABBR = {
+  nyc: "NYC",          la:  "LA",           chi: "Chicago",      dfw: "DFW",
+  hou: "Houston",      dc:  "DC",           mia: "Miami",        phl: "Philly",
+  atl: "ATL",          phx: "PHX",          sea: "Seattle",      den: "Denver",
+  min: "MSP",          det: "Detroit",      tam: "Tampa",        clt: "Charlotte",
+  por: "Portland",     stl: "St. Louis",    san: "San Antonio",  sac: "Sacramento",
+  bal: "Baltimore",    ors: "Orlando",      cin: "Cincinnati",   pit: "Pittsburgh",
+  cle: "Cleveland",    ind: "Indy",         col: "Columbus",     slc: "Salt Lake",
+  nas: "Nashville",    mke: "Milwaukee",    aus: "Austin",       ral: "Raleigh",
+  jax: "Jacksonville", kc:  "KC",           har: "Hartford",     lou: "Louisville",
+  mem: "Memphis",      buf: "Buffalo",      okc: "OKC",          nor: "New Orleans",
+  abq: "ABQ",          ric: "Richmond",     tuc: "Tucson",       elp: "El Paso",
+  bat: "Baton Rouge",  fre: "Fresno",       oma: "Omaha",        tul: "Tulsa",
+  knx: "Knoxville",   bak: "Bakersfield",  hon: "Honolulu",     grv: "Greenville",
+  lvg: "Las Vegas",    sjv: "San Jose",     sdg: "San Diego",    nfk: "Norfolk",
+  alb: "Albany",       roc: "Rochester",    syr: "Syracuse",     bir: "Birmingham",
+  boi: "Boise",        lrk: "Little Rock",  csc: "Columbia, SC", gso: "Greensboro",
+  dsm: "Des Moines",   ict: "Wichita",      mad: "Madison",      spo: "Spokane",
+  riv: "Inland Empire",
+};
+
 // Additional multiplier on top of state adjustment — metro rates vs. rest of state.
 // Calibrated from NAIC market data and rate filing patterns.
 const METRO_CARRIER_ADJ = {
@@ -2157,9 +2180,10 @@ function updateStateBanner(stateCode) {
     const color = metroBanner.trend === "down" ? "var(--good)" : metroBanner.trend === "up" ? "var(--accent)" : "var(--ink-soft)";
     const arrow = metroBanner.trend === "down" ? "↓" : metroBanner.trend === "up" ? "↑" : "→";
     const metroLabel = METRO_NAMES[currentMetro] || currentMetro;
+    const metroAbbr = METRO_ABBR[currentMetro] || metroLabel.replace(/ metro$/i, '');
     bannerEl.innerHTML =
       '<div class="state-banner-inner">' +
-      '<span class="state-banner-tag" style="background:' + color + '">' + arrow + ' ' + metroLabel + ' Metro Rate Alert</span>' +
+      '<span class="state-banner-tag" style="background:' + color + '">' + arrow + ' ' + metroAbbr + ' rates</span>' +
       '<span class="state-banner-pct">' + (metroBanner.pct || '') + '</span>' +
       '<span class="state-banner-text">' + metroBanner.text + '</span>' +
       '<a class="state-banner-link" href="' + metroBanner.url + '">Read more →</a>' +
@@ -2168,7 +2192,7 @@ function updateStateBanner(stateCode) {
     teaserEl.innerHTML =
       '<div class="state-teaser">' +
       '<div class="state-teaser-text">' +
-      '<div class="state-teaser-label">' + metroLabel + ' Rate Report · BoringRate Editorial</div>' +
+      '<div class="state-teaser-label">' + metroAbbr + ' Rate Report · BoringRate Editorial</div>' +
       '<div class="state-teaser-hed">' + metroBanner.text + '</div>' +
       '</div>' +
       '<a class="state-teaser-link" href="' + metroBanner.url + '">Read the full report →</a>' +
