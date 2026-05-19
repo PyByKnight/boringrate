@@ -940,13 +940,15 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "BoringRate Auto Insurance Rate Comparison",
+  "@type": "WebSite",
+  "name": "BoringRate",
   "url": "https://boringrate.com",
-  "description": "Compare auto insurance rates by state. See which carriers are cheapest for your profile in 30 seconds.",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "Web",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  "description": "Compare auto insurance rates by state and metro area. See which carriers are cheapest for your profile — no calls, no spam.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://boringrate.com/?zip={zip_code}",
+    "query-input": "required name=zip_code"
+  }
 }
 </script>
 </head>
