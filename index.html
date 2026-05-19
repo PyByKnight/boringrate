@@ -782,7 +782,7 @@
   .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .nav-mega { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--ink); color: var(--paper); border-top: 2px solid var(--accent); z-index: 200; box-shadow: 0 8px 32px rgba(0,0,0,0.18); }
   .nav-mega.open { display: block; }
-  .nav-mega-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0; padding: 28px; max-width: 1180px; margin: 0 auto; }
+  .nav-mega-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 0; padding: 28px; max-width: 1180px; margin: 0 auto; }
   .nav-mega-col + .nav-mega-col { border-left: 1px solid rgba(246,241,232,0.1); padding-left: 28px; }
   .nav-mega-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(246,241,232,0.35); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid rgba(246,241,232,0.1); }
   .nav-mega-states { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px 0; }
@@ -795,6 +795,9 @@
   .nav-mega-tag { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.3); letter-spacing: 0.04em; }
   .nav-mega-head-link { display: block; text-decoration: none; color: inherit; transition: color 120ms; }
   .nav-mega-head-link:hover { color: var(--paper); }
+  .nav-mega-metros { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px 0; }
+  .nav-mega-metros a { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.65); text-decoration: none; padding: 3px 0; transition: color 120ms; letter-spacing: 0.02em; }
+  .nav-mega-metros a:hover { color: var(--paper); }
   @media (max-width: 800px) {
     .nav-mega { max-height: calc(100vh - 65px); overflow-y: auto; }
     .nav-mega-inner { grid-template-columns: 1fr; padding: 0; }
@@ -1009,6 +1012,14 @@
             <a href="/article/carrier/travelers.html">Travelers <span class="nav-mega-tag">Homeowner bundles</span></a>
             <a href="/article/carrier/safeco.html">Safeco <span class="nav-mega-tag">Independent agents</span></a>
             <a href="/article/carrier/aaa.html">AAA / CSAA <span class="nav-mega-tag">Members &amp; roadside</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-mega-col">
+        <div class="nav-mega-head" data-mega-toggle>Metro Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
+          <div class="nav-mega-metros">
+            <a href="/article/metro/new-york-city.html">New York City</a><a href="/article/metro/los-angeles.html">Los Angeles</a><a href="/article/metro/chicago.html">Chicago</a><a href="/article/metro/dallas-fort-worth.html">Dallas-Ft. Worth</a><a href="/article/metro/houston.html">Houston</a><a href="/article/metro/washington-dc.html">Washington DC</a><a href="/article/metro/miami.html">Miami</a><a href="/article/metro/philadelphia.html">Philadelphia</a><a href="/article/metro/atlanta.html">Atlanta</a><a href="/article/metro/phoenix.html">Phoenix</a><a href="/article/metro/seattle.html">Seattle</a><a href="/article/metro/denver.html">Denver</a><a href="/article/metro/minneapolis-st-paul.html">Minneapolis</a><a href="/article/metro/detroit.html">Detroit</a><a href="/article/metro/tampa.html">Tampa</a><a href="/article/metro/charlotte.html">Charlotte</a><a href="/article/metro/portland.html">Portland</a><a href="/article/metro/st-louis.html">St. Louis</a><a href="/article/metro/san-antonio.html">San Antonio</a><a href="/article/metro/sacramento.html">Sacramento</a><a href="/article/metro/baltimore.html">Baltimore</a><a href="/article/metro/orlando.html">Orlando</a><a href="/article/metro/las-vegas.html">Las Vegas</a><a href="/article/metro/san-jose.html">San Jose</a><a href="/article/metro/san-diego.html">San Diego</a><a href="/article/metro/nashville.html">Nashville</a><a href="/article/metro/austin.html">Austin</a><a href="/article/metro/raleigh-durham.html">Raleigh-Durham</a><a href="/article/metro/indianapolis.html">Indianapolis</a><a href="/article/metro/columbus.html">Columbus</a>
           </div>
         </div>
       </div>
@@ -2148,7 +2159,7 @@ function updateStateBanner(stateCode) {
     const metroLabel = METRO_NAMES[currentMetro] || currentMetro;
     bannerEl.innerHTML =
       '<div class="state-banner-inner">' +
-      '<span class="state-banner-tag" style="background:' + color + '">' + arrow + ' Metro Rate Alert</span>' +
+      '<span class="state-banner-tag" style="background:' + color + '">' + arrow + ' ' + metroLabel + ' Metro Rate Alert</span>' +
       '<span class="state-banner-pct">' + (metroBanner.pct || '') + '</span>' +
       '<span class="state-banner-text">' + metroBanner.text + '</span>' +
       '<a class="state-banner-link" href="' + metroBanner.url + '">Read more →</a>' +
@@ -2625,6 +2636,12 @@ const CARRIER_RESEARCH_LINKS = {
   "NYCM Insurance":        "/article/carrier/nycm.html",
   "Alfa Insurance":        "/article/carrier/alfa.html",
   "Country Financial":     "/article/carrier/country-financial.html",
+  "The General":           "/article/carrier/the-general.html",
+  "Direct Auto":           "/article/carrier/direct-auto.html",
+  "Safe Auto":             "/article/carrier/safe-auto.html",
+  "Dairyland":             "/article/carrier/dairyland.html",
+  "Kemper":                "/article/carrier/kemper.html",
+  "Bristol West":          "/article/carrier/bristol-west.html",
 };
 
 const CARRIER_HERO = {
@@ -2827,6 +2844,12 @@ const CARRIER_HERO = {
   "NYCM Insurance":    { label: "J.D. Power #1 — New York", line: "New York's top-rated carrier since 1899. Competitive pricing in one of the priciest markets." },
   "Alfa Insurance":    { label: "Southeast Specialist",     line: "Deep rural roots, exclusive agents, and bundling strength across AL, GA, MS, TN and surrounding states." },
   "Country Financial": { label: "Insurance + Finance",      line: "One agent for auto, home, retirement, and investments. The Midwest's full-service alternative to carrier-hopping." },
+  "The General":   { label: "No Prior Coverage Required",       line: "No exam, no prior insurance needed. Accepts DUI, multiple at-faults, and major violations most carriers decline outright." },
+  "Direct Auto":   { label: "Walk-In Service at 450+ Locations", line: "Physical offices across the Southeast and Midwest — quote, pay, and manage in person or online. Flexible weekly billing available." },
+  "Safe Auto":     { label: "State Minimum Specialist",          line: "Built for drivers who need legal coverage at the lowest possible entry cost. Online and phone quoting with fast approval." },
+  "Dairyland":     { label: "SR-22 & FR-44 Same-Day Filing",     line: "Files SR-22 and FR-44 in 38 states, fast. Specialists in getting lapsed or high-risk drivers back on the road legally." },
+  "Kemper":        { label: "Dedicated Non-Standard Division",   line: "Kemper's non-standard unit is purpose-built for high-risk underwriting — broad vehicle eligibility, available in most states." },
+  "Bristol West":  { label: "Path Back to Standard Rates",       line: "A Farmers subsidiary for non-standard drivers. Clean up your record and Farmers can convert you to a standard policy." },
 };
 
 function getCarrierHero(name) {
