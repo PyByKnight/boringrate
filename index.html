@@ -2669,151 +2669,131 @@ const CARRIER_RESEARCH_LINKS = {
 };
 
 const CARRIER_HERO = {
+  // ── National carriers ──────────────────────────────────────────────────
+  // Override philosophy: each profile category (young driver, excellent credit,
+  // fair credit, bundle, senior) shows a label on at most 3 carriers that
+  // genuinely win that segment. Everyone else falls back to their default
+  // differentiator so no category looks repetitive.
   "USAA": {
     default: { label: "Fewest Disputes", line: "50% fewer claims fights than the industry average. Military families get treated right." },
     overrides: [
-      { when: r => r.youngDriver || r.age === "18-24", label: "Young Military Driver Savings", line: "USAA prices young drivers below most competitors — especially strong for active duty, veterans, and dependents." },
-      { when: r => r.credit === "excellent", label: "Excellent Credit Reward", line: "USAA rewards excellent credit + clean record aggressively. Few carriers match this combination on price." },
-      { when: r => r.credit === "fair", label: "Credit Has Less Impact", line: "USAA weights driving record heavily over credit — fairer for drivers rebuilding their score." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Military Young Driver Savings", line: "USAA prices young military drivers below most competitors — especially strong for active duty, veterans, and their dependents." },
+      { when: r => r.credit === "excellent", label: "Excellent Credit + Clean Record", line: "USAA rewards excellent credit and a clean driving record aggressively. Few carriers match this combination on price." },
+      { when: r => r.credit === "fair", label: "Driving Record Outweighs Credit", line: "USAA weights your driving history more heavily than your credit score — fairer for drivers rebuilding their score." },
       { when: r => r.own === "own", label: "Auto + Home Bundle", line: "USAA's multi-policy discount is among the best for military members — one company covers both." },
-      { when: r => r.age === "55+", label: "Veterans & Military Rates", line: "USAA's senior and veteran members consistently see among the best combined rates of any major carrier." },
+      { when: r => r.age === "55+", label: "Veterans & Senior Member Rates", line: "USAA's senior and veteran members consistently see among the best combined rates of any major carrier." },
     ]
   },
   "GEICO": {
     default: { label: "Fast Online Quotes", line: "GEICO's digital experience is best-in-class — quote, bind, and manage claims without ever calling anyone." },
     overrides: [
-      { when: r => r.credit === "excellent", label: "Best Rates for Excellent Credit", line: "GEICO's algorithm rewards excellent credit more than most carriers. Your best shot at the lowest starting number." },
-      { when: r => r.credit === "fair", label: "High Credit Surcharge", line: "GEICO applies one of the steepest credit penalties of any major carrier. Fair credit drivers typically pay 40–60% more than excellent credit." },
-      { when: r => r.youngDriver || r.age === "18-24", label: "High Surcharge for Young Drivers", line: "GEICO surcharges young and inexperienced drivers aggressively. Other carriers are often cheaper for under-25 profiles." },
-      { when: r => r.own === "own", label: "Bundle Saves 10–15%", line: "Adding home to your auto policy earns a meaningful multi-policy discount. Worth running the combined quote." },
+      { when: r => r.credit === "excellent", label: "Best Rates for Excellent Credit", line: "GEICO's pricing algorithm rewards excellent credit more aggressively than most carriers. Best shot at the lowest starting number for clean profiles." },
+      { when: r => r.credit === "fair", label: "High Credit Surcharge", line: "GEICO applies one of the steepest credit penalties of any major carrier. Fair-credit drivers typically pay 40–60% more than excellent-credit profiles." },
       { when: r => r.age === "55+", label: "Mature Driver Discount", line: "GEICO offers a mature driver credit for 55+ drivers who complete an approved defensive driving course." },
     ]
   },
   "State Farm": {
     default: { label: "19,000+ Local Agents", line: "A real person near you — not a chatbot — handles your claim and picks up the phone." },
     overrides: [
-      { when: r => r.youngDriver || r.age === "18-24", label: "Steer Clear® for Under-25", line: "State Farm's Steer Clear program can meaningfully cut rates for drivers under 25 — one of the better dedicated young-driver programs available." },
-      { when: r => r.credit === "excellent", label: "Drive Safe & Save up to 30%", line: "Excellent credit + Drive Safe & Save telematics stacks into one of State Farm's strongest pricing packages." },
-      { when: r => r.credit === "fair", label: "Moderate Credit Penalty", line: "State Farm uses credit in most states, but the adjustment is more moderate than GEICO or Allstate for fair scores." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Competitive Under-25 Rates", line: "State Farm's local agents and Steer Clear program give under-25 drivers some of the more competitive pricing among major carriers." },
+      { when: r => r.credit === "fair", label: "Moderate Credit Adjustment", line: "State Farm's credit penalty is more measured than GEICO or Allstate — a better starting point for drivers rebuilding credit." },
       { when: r => r.own === "own", label: "Auto + Home Bundle: up to 25%", line: "State Farm's multi-policy discount can reach 25% — one of the stronger bundling incentives among major carriers." },
-      { when: r => r.age === "55+", label: "Senior Driver Discount", line: "State Farm offers accident prevention course discounts and dedicated senior pricing in most states." },
+      { when: r => r.age === "55+", label: "Senior Driver Discount", line: "State Farm offers accident prevention course credits and dedicated senior pricing in most states." },
     ]
   },
   "Progressive": {
     default: { label: "Snapshot® Telematics Savings", line: "Safe drivers save up to 30% through Snapshot. Your starting quote isn't your final rate — driving behavior can lower it." },
     overrides: [
       { when: r => r.srRequired || !r.insured, label: "Accepts SR-22 & Non-Standard", line: "Progressive is the clearest national option for SR-22 filings, lapses, or DUI histories. Most carriers won't quote this profile." },
-      { when: r => r.credit === "fair", label: "Accepts All Credit Profiles", line: "Progressive's credit penalty is lower than GEICO and Allstate. Better starting point for drivers with fair or rebuilding credit." },
-      { when: r => r.youngDriver || r.age === "18-24", label: "Moderate Young Driver Surcharge", line: "Progressive's young driver pricing is middle-of-pack — not the cheapest, but not the harshest either. Snapshot can help offset it." },
-      { when: r => r.credit === "excellent", label: "Snapshot® Rewards Safe Drivers", line: "Excellent credit + Snapshot telematics is where Progressive gets most competitive for clean-record drivers." },
-      { when: r => r.own === "own", label: "Bundle via Homesite®", line: "Progressive bundles home through Homesite — discount available, though not as strong as dedicated home carriers like Travelers." },
+      { when: r => r.credit === "fair", label: "Lower Credit Penalty Than Most", line: "Progressive's credit penalty is lower than GEICO and Allstate. A better starting point for drivers with fair or rebuilding credit." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Snapshot® Can Lower Your Starting Rate", line: "Progressive's young driver pricing is mid-market, but Snapshot telematics can cut it meaningfully for safe drivers." },
     ]
   },
   "Allstate": {
     default: { label: "Accident Forgiveness", line: "One accident won't raise your rate. Most carriers charge extra for this — Allstate includes it." },
     overrides: [
       { when: r => r.credit === "fair", label: "High Credit Surcharge", line: "Allstate applies a steep penalty for fair credit — one of the largest credit-based adjustments of any major carrier." },
-      { when: r => r.youngDriver || r.age === "18-24", label: "Teen Smart® Program", line: "Allstate has a dedicated young driver program, but base rates for under-25 profiles are above the market average." },
-      { when: r => r.credit === "excellent", label: "Drivewise® Rewards Good Drivers", line: "Excellent credit + Drivewise safe-driver app stacks into some of Allstate's most competitive pricing." },
       { when: r => r.own === "own", label: "Bundle Discount: up to 20%", line: "Allstate's auto + home bundle is competitive — and one agent handles both policies." },
-      { when: r => r.age === "55+", label: "Senior Discount Available", line: "Allstate offers mature driver discounts for drivers 55+ in most states." },
+      { when: r => r.age === "55+", label: "Mature Driver Discount", line: "Allstate offers mature driver discounts for 55+ drivers in most states." },
     ]
   },
   "Liberty Mutual": {
     default: { label: "New Car Replacement", line: "Totaled in year one? They replace it brand new — not market value, not depreciated book value." },
     overrides: [
       { when: r => r.own === "own", label: "Strong Multi-Policy Discount", line: "Liberty Mutual's auto + home bundle is one of the larger percentage discounts among national carriers." },
-      { when: r => r.youngDriver || r.age === "18-24", label: "High Young Driver Surcharge", line: "Liberty Mutual applies among the highest surcharges for young and inexperienced drivers. Compare other carriers first." },
-      { when: r => r.credit === "fair", label: "High Rate for Fair Credit", line: "Liberty Mutual's fair-credit adjustment is one of the steepest in the industry. Excellent-credit drivers get substantially better pricing." },
-      { when: r => r.credit === "excellent", label: "RightTrack® Safe Driver Savings", line: "Excellent credit + RightTrack telematics is the combination that gets Liberty Mutual to its most competitive rates." },
+      { when: r => r.credit === "fair", label: "High Rate for Fair Credit", line: "Liberty Mutual's fair-credit adjustment is one of the steepest in the industry. Excellent-credit drivers get substantially better pricing here." },
     ]
   },
   "Farmers": {
-    default: { label: "Local Agents Nationwide", line: "Experienced local agents in most markets for in-person service — coverage questions answered, not just quoted." },
+    default: { label: "Local Agents Nationwide", line: "Experienced local agents in most markets — coverage questions answered by someone who knows your area." },
     overrides: [
       { when: r => r.own === "own", label: "Multi-Policy Bundle: 10–20%", line: "Farmers offers a strong multi-policy discount — and your auto + home agent is the same person, in the same office." },
-      { when: r => r.youngDriver || r.age === "18-24", label: "Good Student Discount", line: "Full-time students with a B average or better qualify for Farmers' good student discount — one of the more accessible reductions for young drivers." },
-      { when: r => r.credit === "excellent", label: "Signal® Rewards Safe Drivers", line: "Farmers Signal telematics rewards safe driving behavior — particularly effective combined with excellent credit." },
-      { when: r => r.credit === "fair", label: "Credit Penalty Above Average", line: "Farmers applies a meaningful credit penalty for fair scores. Other carriers may price this profile more favorably." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Good Student Discount Available", line: "Full-time students with a B average or better qualify for Farmers' good student discount — one of the more accessible reductions for under-25 drivers." },
     ]
   },
   "Nationwide": {
     default: { label: "Vanishing Deductible", line: "$100 off your deductible every claim-free year. Keep it long enough and it hits zero." },
     overrides: [
-      { when: r => r.youngDriver || r.age === "18-24", label: "SmartRide® for Young Drivers", line: "Nationwide's SmartRide telematics is one of the better ways for young drivers to demonstrate safe habits and earn back premium." },
-      { when: r => r.own === "own", label: "SmartRide® + Bundle Savings", line: "Nationwide's multi-policy discount combined with SmartRide safe-driver savings stacks meaningfully for homeowners." },
-      { when: r => r.credit === "excellent", label: "SmartRide® — Up to 40% Off", line: "Excellent credit + SmartRide telematics is where Nationwide gets most competitive. The 40% ceiling is real for the right profile." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "SmartRide® for New Drivers", line: "Nationwide's SmartRide lets new drivers demonstrate safe habits and earn meaningful premium reductions — a real path to lower rates." },
       { when: r => r.credit === "fair", label: "Moderate Credit Penalty", line: "Nationwide's credit adjustment is moderate — not as steep as Allstate or GEICO for fair scores." },
+      { when: r => r.own === "own", label: "Vanishing Deductible + Bundle", line: "Nationwide's multi-policy discount stacks with their vanishing deductible benefit — two compounding long-term savings." },
     ]
   },
   "Erie Insurance": {
     default: { label: "Rate Lock Guarantee", line: "Rates up 50%+ across the country since 2019. Erie locks yours — renewal won't change unless you change your coverage." },
     overrides: [
-      { when: r => r.own === "own", label: "ErieSecure® Home Bundle", line: "Erie's auto + home bundle is strong, and a local agent handles both. Rate Lock applies to the home policy too." },
-      { when: r => r.youngDriver || r.age === "18-24", label: "Young Driver Discount Available", line: "Erie offers specific discounts for young drivers and can be competitive for under-25 profiles where available." },
-      { when: r => r.credit === "fair", label: "Rate Lock = Price Stability", line: "With Erie's Rate Lock, your renewal doesn't change — valuable for fair-credit drivers who want predictable pricing." },
+      { when: r => r.own === "own", label: "ErieSecure® Bundle + Rate Lock", line: "Erie's auto + home bundle is strong, and Rate Lock applies to both policies — predictable pricing across everything you cover." },
+      { when: r => r.credit === "fair", label: "Rate Lock = Predictable Pricing", line: "Erie's Rate Lock keeps your renewal flat regardless of credit score movement — valuable for drivers who want pricing stability." },
       { when: r => r.age === "55+", label: "Senior Discount + Rate Lock", line: "Erie's senior discount combined with Rate Lock is compelling for older drivers wanting both savings and price stability." },
     ]
   },
   "American Family": {
     default: { label: "KnowYourDrive® Telematics", line: "KnowYourDrive can reduce your rate by up to 40%. One of the highest telematics savings ceilings available." },
     overrides: [
-      { when: r => r.youngDriver || r.age === "18-24", label: "Up to 40% Off for Under-25", line: "American Family's KnowYourDrive telematics is the single biggest lever for young drivers — 40% reduction for safe behavior is achievable." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Up to 40% Off for Safe Young Drivers", line: "American Family's KnowYourDrive telematics is the single biggest lever for under-25 drivers — 40% reduction for safe behavior is achievable." },
       { when: r => r.own === "own", label: "Multi-Policy Bundle: 15–23%", line: "American Family's auto + home discount is among the stronger offerings from regional carriers." },
-      { when: r => r.credit === "excellent", label: "KnowYourDrive® Rewards", line: "Excellent credit + KnowYourDrive telematics stacks into American Family's most competitive pricing tier." },
-      { when: r => r.credit === "fair", label: "Moderate Credit Penalty", line: "American Family's credit adjustment is moderate compared to GEICO or Allstate for fair scores." },
     ]
   },
   "Amica Mutual": {
     default: { label: "Dividend Policy — Up to 20% Back", line: "Policyholders get up to 20% of premium back at year end. You're a member, not just a customer." },
     overrides: [
-      { when: r => r.own === "own", label: "Auto + Home + Dividend", line: "Amica's home + auto bundle plus the annual dividend is a compelling combination for long-term policyholders." },
-      { when: r => r.youngDriver || r.age === "18-24", label: "Lower Surcharge for Young Drivers", line: "Amica applies a relatively moderate young driver surcharge. The dividend policy also partially offsets the added premium." },
-      { when: r => r.credit === "excellent", label: "Lowest Complaint Ratio + Best Rates", line: "Amica has the lowest NAIC complaint ratio we track. Excellent credit gets their most competitive pricing on top of that." },
-      { when: r => r.credit === "fair", label: "Credit Has Lower Impact", line: "Amica's credit weighting is more moderate than most competitors — fair-credit drivers may find it more competitive here." },
+      { when: r => r.credit === "excellent", label: "Fewest Complaints + Competitive Pricing", line: "Amica has the lowest NAIC complaint ratio we track. Excellent credit gets their most competitive pricing on top of that." },
+      { when: r => r.own === "own", label: "Auto + Home + Annual Dividend", line: "Amica's home + auto bundle plus the annual dividend is a compelling combination for long-term policyholders." },
+      { when: r => r.credit === "fair", label: "Lower Credit Impact Than Most", line: "Amica's credit weighting is more moderate than most competitors — fair-credit drivers may find it more competitive here." },
     ]
   },
   "Auto-Owners": {
     default: { label: "Cleanest Claims Record", line: "Fewest complaint filings of any multi-state carrier. Disputes resolved faster, fewer fights." },
     overrides: [
       { when: r => r.own === "own", label: "Multi-Policy Bundle Savings", line: "Auto-Owners writes both auto and home through the same independent agent network — bundle discounts are strong." },
-      { when: r => r.youngDriver || r.age === "18-24", label: "Young Driver Discount Available", line: "Auto-Owners offers young driver and good student discounts through their independent agent network." },
-      { when: r => r.credit === "excellent", label: "Rewards Clean Low-Risk Profiles", line: "Auto-Owners prices clean-record, excellent-credit drivers very competitively — their best rates go to the lowest-risk profiles." },
+      { when: r => r.credit === "excellent", label: "Best Rates for Low-Risk Profiles", line: "Auto-Owners prices clean-record, excellent-credit drivers very competitively — their best rates go to the lowest-risk profiles." },
     ]
   },
   "Travelers": {
     default: { label: "IntelliDrive® Telematics", line: "Safe drivers save 10–20%. IntelliDrive has no downside risk — a bad score won't increase your base rate." },
     overrides: [
       { when: r => r.own === "own", label: "Bundle Saves up to 15%", line: "Travelers is one of the better carriers for auto + home bundles — meaningful discount and a single insurer for both." },
-      { when: r => r.youngDriver || r.age === "18-24", label: "High Surcharge for Under-25", line: "Travelers rates young drivers above the market average. Compare other carriers before committing to this one." },
-      { when: r => r.credit === "excellent", label: "IntelliDrive® + Excellent Credit", line: "IntelliDrive telematics + excellent credit is where Travelers gets most competitive for clean-record drivers." },
       { when: r => r.credit === "fair", label: "Credit Penalty Above Average", line: "Travelers applies a meaningful credit penalty for fair scores — worth comparing against carriers with lower credit sensitivity." },
     ]
   },
   "Safeco": {
     default: { label: "RightTrack® — Upside Only", line: "Safe drivers save 8–15%. A bad score won't raise your rate — all savings, no penalty." },
     overrides: [
-      { when: r => r.own === "own", label: "Multi-Policy Bundle Savings", line: "Safeco writes home, renters, and auto — bundle discount available through the same independent agent." },
-      { when: r => r.youngDriver || r.age === "18-24", label: "High Surcharge for Under-25", line: "Safeco surcharges young drivers significantly. RightTrack can help offset some of it, but other carriers may quote lower." },
-      { when: r => r.credit === "excellent", label: "RightTrack® Rewards Safe Drivers", line: "Excellent credit + RightTrack is where Safeco gets most competitive for clean-record drivers." },
-      { when: r => r.credit === "fair", label: "High Credit Sensitivity", line: "Safeco has above-average credit sensitivity. Fair-credit drivers may find better starting points at Progressive or USAA." },
+      { when: r => r.own === "own", label: "Bundle via Independent Agents", line: "Safeco writes home, renters, and auto through the same independent agent — one relationship, bundle discount included." },
     ]
   },
   "AAA / CSAA": {
     default: { label: "Roadside + Insurance — One Bill", line: "Insurance + emergency roadside in one membership. One call, one company, one bill." },
     overrides: [
-      { when: r => r.own === "own", label: "Member Auto + Home Bundle", line: "AAA members can bundle auto and home insurance with their roadside membership — one company, meaningful discount." },
-      { when: r => r.youngDriver || r.age === "18-24", label: "Young Driver Discount for Members", line: "AAA members under 25 qualify for specific young driver discounts — worth comparing against non-member carrier rates." },
-      { when: r => r.age === "55+", label: "Senior Member Discount", line: "AAA's senior pricing is one of the stronger available — especially for members with long AAA history." },
-      { when: r => r.credit === "excellent", label: "Rewards Member Loyalty", line: "Long-standing AAA members with excellent credit typically see the best combination of pricing and service." },
+      { when: r => r.age === "55+", label: "Best Senior Rates + Roadside", line: "AAA's senior pricing is among the strongest available — especially for long-standing members who already carry roadside coverage." },
+      { when: r => r.own === "own", label: "Member Auto + Home Bundle", line: "AAA members can bundle auto and home with their roadside membership — one company, one meaningful discount." },
     ]
   },
   "CSAA / AAA": {
     default: { label: "Roadside + Insurance — One Bill", line: "Insurance + emergency roadside in one membership. One call, one company, one bill." },
     overrides: [
+      { when: r => r.age === "55+", label: "Best Senior Rates + Roadside", line: "AAA's senior pricing is among the strongest available — especially for long-standing members." },
       { when: r => r.own === "own", label: "Member Auto + Home Bundle", line: "AAA members can bundle auto and home with roadside membership — one company, meaningful discount." },
-      { when: r => r.youngDriver || r.age === "18-24", label: "Young Driver Discount for Members", line: "AAA members under 25 qualify for specific young driver discounts." },
-      { when: r => r.age === "55+", label: "Senior Member Discount", line: "AAA's senior pricing is strong, especially for long-standing members." },
     ]
   },
   "Texas Farm Bureau": {
