@@ -2066,9 +2066,105 @@ const STATE_BANNERS = {
   "WY": { text: "Wyoming is one of the cheapest states in the country — but wildlife risk is real.", url: "article/state/wyoming.html", trend: "stable", pct: "↓ −30% in '25" }
 };
 
+const METRO_BANNERS = {
+  nyc: { text: "New York City rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/new-york-city.html", trend: "up", pct: "+96%" },
+  la: { text: "Los Angeles rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/los-angeles.html", trend: "up", pct: "+83%" },
+  chi: { text: "Chicago rates are above the national average — see who's competing hardest in your ZIP.", url: "article/metro/chicago.html", trend: "up", pct: "+12%" },
+  dfw: { text: "Dallas-Fort Worth rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/dallas-fort-worth.html", trend: "up", pct: "+42%" },
+  hou: { text: "Houston rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/houston.html", trend: "up", pct: "+46%" },
+  dc: { text: "Washington DC rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/washington-dc.html", trend: "up", pct: "+71%" },
+  mia: { text: "Miami rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/miami.html", trend: "up", pct: "+162%" },
+  phl: { text: "Philadelphia rates are above the national average — the right carrier makes a real difference here.", url: "article/metro/philadelphia.html", trend: "up", pct: "+25%" },
+  atl: { text: "Atlanta rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/atlanta.html", trend: "up", pct: "+50%" },
+  phx: { text: "Phoenix rates are above the national average — the right carrier makes a real difference here.", url: "article/metro/phoenix.html", trend: "up", pct: "+17%" },
+  sea: { text: "Seattle is near the national average — but rate spreads are wide. Shopping still saves hundreds.", url: "article/metro/seattle.html", trend: "stable", pct: "+0%" },
+  den: { text: "Denver is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/denver.html", trend: "down", pct: "−25%" },
+  min: { text: "Minneapolis-St. Paul is near the national average — but rate spreads are wide. Shopping still saves hundreds.", url: "article/metro/minneapolis-st-paul.html", trend: "stable", pct: "−4%" },
+  det: { text: "Detroit rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/detroit.html", trend: "up", pct: "+129%" },
+  tam: { text: "Tampa rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/tampa.html", trend: "up", pct: "+117%" },
+  clt: { text: "Charlotte is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/charlotte.html", trend: "down", pct: "−21%" },
+  por: { text: "Portland is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/portland.html", trend: "down", pct: "−12%" },
+  stl: { text: "St. Louis rates are above the national average — the right carrier makes a real difference here.", url: "article/metro/st-louis.html", trend: "up", pct: "+17%" },
+  san: { text: "San Antonio rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/san-antonio.html", trend: "up", pct: "+33%" },
+  sac: { text: "Sacramento rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/sacramento.html", trend: "up", pct: "+62%" },
+  bal: { text: "Baltimore rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/baltimore.html", trend: "up", pct: "+33%" },
+  ors: { text: "Orlando rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/orlando.html", trend: "up", pct: "+117%" },
+  cin: { text: "Cincinnati is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/cincinnati.html", trend: "down", pct: "−25%" },
+  pit: { text: "Pittsburgh rates are above the national average — see who's competing hardest in your ZIP.", url: "article/metro/pittsburgh.html", trend: "up", pct: "+8%" },
+  cle: { text: "Cleveland is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/cleveland.html", trend: "down", pct: "−25%" },
+  ind: { text: "Indianapolis is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/indianapolis.html", trend: "down", pct: "−21%" },
+  col: { text: "Columbus is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/columbus.html", trend: "down", pct: "−25%" },
+  slc: { text: "Salt Lake City rates are above the national average — see who's competing hardest in your ZIP.", url: "article/metro/salt-lake-city.html", trend: "up", pct: "+8%" },
+  nas: { text: "Nashville is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/nashville.html", trend: "down", pct: "−8%" },
+  mke: { text: "Milwaukee is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/milwaukee.html", trend: "down", pct: "−25%" },
+  aus: { text: "Austin rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/austin.html", trend: "up", pct: "+42%" },
+  ral: { text: "Raleigh-Durham is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/raleigh-durham.html", trend: "down", pct: "−21%" },
+  jax: { text: "Jacksonville rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/jacksonville.html", trend: "up", pct: "+125%" },
+  kc: { text: "Kansas City rates are above the national average — the right carrier makes a real difference here.", url: "article/metro/kansas-city.html", trend: "up", pct: "+17%" },
+  har: { text: "Hartford rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/hartford.html", trend: "up", pct: "+50%" },
+  lou: { text: "Louisville rates are above the national average — the right carrier makes a real difference here.", url: "article/metro/louisville.html", trend: "up", pct: "+21%" },
+  mem: { text: "Memphis is near the national average — but rate spreads are wide. Shopping still saves hundreds.", url: "article/metro/memphis.html", trend: "stable", pct: "−4%" },
+  buf: { text: "Buffalo rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/buffalo.html", trend: "up", pct: "+62%" },
+  okc: { text: "Oklahoma City rates are above the national average — the right carrier makes a real difference here.", url: "article/metro/oklahoma-city.html", trend: "up", pct: "+21%" },
+  nor: { text: "New Orleans rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/new-orleans.html", trend: "up", pct: "+133%" },
+  abq: { text: "Albuquerque is near the national average — but rate spreads are wide. Shopping still saves hundreds.", url: "article/metro/albuquerque.html", trend: "stable", pct: "+0%" },
+  ric: { text: "Richmond is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/richmond.html", trend: "down", pct: "−17%" },
+  tuc: { text: "Tucson rates are above the national average — see who's competing hardest in your ZIP.", url: "article/metro/tucson.html", trend: "up", pct: "+12%" },
+  elp: { text: "El Paso rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/el-paso.html", trend: "up", pct: "+38%" },
+  bat: { text: "Baton Rouge rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/baton-rouge.html", trend: "up", pct: "+125%" },
+  fre: { text: "Fresno rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/fresno.html", trend: "up", pct: "+71%" },
+  oma: { text: "Omaha is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/omaha.html", trend: "down", pct: "−12%" },
+  tul: { text: "Tulsa rates are above the national average — the right carrier makes a real difference here.", url: "article/metro/tulsa.html", trend: "up", pct: "+21%" },
+  knx: { text: "Knoxville is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/knoxville.html", trend: "down", pct: "−8%" },
+  bak: { text: "Bakersfield rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/bakersfield.html", trend: "up", pct: "+67%" },
+  hon: { text: "Honolulu is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/honolulu.html", trend: "down", pct: "−38%" },
+  grv: { text: "Greenville-Spartanburg rates are above the national average — see who's competing hardest in your ZIP.", url: "article/metro/greenville-spartanburg.html", trend: "up", pct: "+12%" },
+  lvg: { text: "Las Vegas rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/las-vegas.html", trend: "up", pct: "+83%" },
+  sjv: { text: "San Jose rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/san-jose.html", trend: "up", pct: "+75%" },
+  sdg: { text: "San Diego rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/san-diego.html", trend: "up", pct: "+71%" },
+  nfk: { text: "Norfolk is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/norfolk.html", trend: "down", pct: "−12%" },
+  alb: { text: "Albany rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/albany.html", trend: "up", pct: "+62%" },
+  roc: { text: "Rochester rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/rochester.html", trend: "up", pct: "+58%" },
+  syr: { text: "Syracuse rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/syracuse.html", trend: "up", pct: "+62%" },
+  bir: { text: "Birmingham rates are above the national average — see who's competing hardest in your ZIP.", url: "article/metro/birmingham.html", trend: "up", pct: "+12%" },
+  boi: { text: "Boise is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/boise.html", trend: "down", pct: "−29%" },
+  lrk: { text: "Little Rock is near the national average — but rate spreads are wide. Shopping still saves hundreds.", url: "article/metro/little-rock.html", trend: "stable", pct: "+4%" },
+  csc: { text: "Columbia rates are above the national average — see who's competing hardest in your ZIP.", url: "article/metro/columbia-sc.html", trend: "up", pct: "+12%" },
+  gso: { text: "Greensboro is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/greensboro.html", trend: "down", pct: "−21%" },
+  dsm: { text: "Des Moines is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/des-moines.html", trend: "down", pct: "−29%" },
+  ict: { text: "Wichita is near the national average — but rate spreads are wide. Shopping still saves hundreds.", url: "article/metro/wichita.html", trend: "stable", pct: "−4%" },
+  mad: { text: "Madison is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/madison.html", trend: "down", pct: "−25%" },
+  spo: { text: "Spokane is near the national average — but rate spreads are wide. Shopping still saves hundreds.", url: "article/metro/spokane.html", trend: "stable", pct: "+0%" },
+  riv: { text: "Riverside rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/riverside-inland-empire.html", trend: "up", pct: "+79%" },
+};
+
 function updateStateBanner(stateCode) {
   const bannerEl = document.getElementById("stateBanner");
   const teaserEl = document.getElementById("stateArticleTeaser");
+  const metroBanner = currentMetro && METRO_BANNERS && METRO_BANNERS[currentMetro];
+  if (metroBanner) {
+    const color = metroBanner.trend === "down" ? "var(--good)" : metroBanner.trend === "up" ? "var(--accent)" : "var(--ink-soft)";
+    const arrow = metroBanner.trend === "down" ? "↓" : metroBanner.trend === "up" ? "↑" : "→";
+    const metroLabel = METRO_NAMES[currentMetro] || currentMetro;
+    bannerEl.innerHTML =
+      '<div class="state-banner-inner">' +
+      '<span class="state-banner-tag" style="background:' + color + '">' + arrow + ' Metro Rate Alert</span>' +
+      '<span class="state-banner-pct">' + (metroBanner.pct || '') + '</span>' +
+      '<span class="state-banner-text">' + metroBanner.text + '</span>' +
+      '<a class="state-banner-link" href="' + metroBanner.url + '">Read more →</a>' +
+      '</div>';
+    bannerEl.style.display = "block";
+    teaserEl.innerHTML =
+      '<div class="state-teaser">' +
+      '<div class="state-teaser-text">' +
+      '<div class="state-teaser-label">' + metroLabel + ' Rate Report · BoringRate Editorial</div>' +
+      '<div class="state-teaser-hed">' + metroBanner.text + '</div>' +
+      '</div>' +
+      '<a class="state-teaser-link" href="' + metroBanner.url + '">Read the full report →</a>' +
+      '</div>';
+    teaserEl.style.display = "block";
+    return;
+  }
   const banner = stateCode && STATE_BANNERS[stateCode];
   if (!banner) {
     bannerEl.style.display = "none";
