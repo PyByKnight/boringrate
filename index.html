@@ -2628,38 +2628,221 @@ const CARRIER_RESEARCH_LINKS = {
 };
 
 const CARRIER_HERO = {
-  "USAA":            { label: "Fewest Disputes",       line: "50% fewer claims fights than the industry average. Military families get treated right." },
-  "GEICO":           { label: "Low Prices",              line: "Typically 15–20% cheaper than average for clean-record drivers. Best starting point for price." },
-  "State Farm":      { label: "19,000+ Local Agents",   line: "A real person near you — not a chatbot — handles your claim and picks up the phone." },
-  "Progressive":     { label: "Covers High-Risk",       line: "DUI? Lapse? SR-22? Progressive accepts profiles that most carriers flat-out decline." },
-  "Allstate":        { label: "Accident Forgiveness",   line: "One accident won't raise your rate. Most carriers charge extra for this — Allstate includes it." },
-  "Liberty Mutual":  { label: "New Car Replacement",    line: "Totaled in year one? They replace it brand new — not market value, not depreciated book value." },
-  "Farmers":         { label: "Rideshare Coverage",     line: "Full protection while driving Uber or Lyft — no gap between personal and rideshare coverage." },
-  "Nationwide":      { label: "Vanishing Deductible",   line: "$100 off your deductible every claim-free year. Keep it long enough and it hits zero." },
-  "Erie Insurance":  { label: "Rate Lock",              line: "Rates up 50%+ across the country since 2019. Erie locks yours — renewal won't change it." },
-  "American Family": { label: "Young Driver Discount",  line: "KnowYourDrive can cut a teen's rate by up to 40%. Biggest lever for new or young drivers." },
-  "Amica Mutual":    { label: "Dividend Policy",        line: "Policyholders get back up to 20% of their premium at year end. You're a member, not just a customer." },
-  "Auto-Owners":     { label: "Cleanest Claims Record", line: "Fewest complaint filings of any multi-state carrier. Disputes resolved faster, fewer fights." },
-  "Travelers":       { label: "Bundle Discount",        line: "Add home to auto and save 10–15%. One of the strongest multi-policy discounts available." },
-  "Safeco":          { label: "RightTrack — No Risk",   line: "Safe drivers save 8–15%. A bad score won't raise your rate — all savings, no penalty." },
-  "AAA / CSAA":      { label: "Roadside Included",      line: "Insurance + emergency roadside in one membership. One call, one company, one bill." },
-  "CSAA / AAA":      { label: "Roadside Included",      line: "Insurance + emergency roadside in one membership. One call, one company, one bill." },
-  "Texas Farm Bureau":     { label: "J.D. Power #1 — 11 Yrs", line: "No carrier in Texas has matched TFB's satisfaction record. And it prices 25% below the state average." },
-  "Georgia Farm Bureau":   { label: "20% Below GA Average",   line: "Georgia's lowest-cost standard carrier. Local county agents handle every claim personally." },
-  "Tennessee Farm Bureau": { label: "J.D. Power SE #1",       line: "11 consecutive years at #1 in the Southeast. The most sustained satisfaction record of any regional carrier." },
-  "NC Farm Bureau":        { label: "20% Below NC Average",   line: "County agents in all 100 NC counties. Local expertise in a state with heavy storm exposure." },
-  "Kentucky Farm Bureau":  { label: "27% Below KY Average",   line: "Kentucky's deepest discount carrier. Minimum coverage pricing is consistently the lowest in the state." },
-  "Louisiana Farm Bureau": { label: "30% Below LA Average",   line: "In the nation's 2nd-most expensive market, LFB cuts 30% off the average. The biggest Farm Bureau discount we track." },
-  "PEMCO":                 { label: "Mutual Ownership",       line: "Member-owned since 1949. Profits stay in the organization — reflected in your rate, not shareholder returns." },
-  "NJM Insurance":         { label: "2nd-Fewest Complaints",  line: "0.38 NAIC ratio — only Amica is lower. 62% fewer disputes than the industry average." },
-  "Wawanesa":              { label: "J.D. Power #1 — CA",     line: "Top satisfaction score in California's most competitive market. 0.45 complaint ratio backs it up." },
-  "Mercury Insurance":     { label: "15% Below CA Average",   line: "One of California's largest auto insurers. Competitive pricing across 11 states." },
-  "Shelter Insurance":     { label: "J.D. Power Central #1",  line: "15 states, captive local agents, and the Central region's top satisfaction score. Erie's peer in the Midwest." },
-  "MAPFRE Insurance":      { label: "MA's Largest Insurer",   line: "Massachusetts's dominant carrier by market share — 0.58 complaint ratio in one of the country's toughest markets." },
-  "NYCM Insurance":        { label: "J.D. Power #1 — NY",     line: "New York's top-rated carrier since 1899. 18% below the state average in one of the priciest markets." },
-  "Alfa Insurance":        { label: "Southeast Specialist",   line: "Deep rural roots, exclusive agents, and bundling strength across AL, GA, MS, TN and surrounding states." },
-  "Country Financial":     { label: "Insurance + Finance",    line: "One agent for auto, home, retirement, and investments. The Midwest's full-service alternative to carrier-hopping." },
+  "USAA": {
+    default: { label: "Fewest Disputes", line: "50% fewer claims fights than the industry average. Military families get treated right." },
+    overrides: [
+      { when: r => r.youngDriver || r.age === "18-24", label: "Young Military Driver Savings", line: "USAA prices young drivers below most competitors — especially strong for active duty, veterans, and dependents." },
+      { when: r => r.credit === "excellent", label: "Excellent Credit Reward", line: "USAA rewards excellent credit + clean record aggressively. Few carriers match this combination on price." },
+      { when: r => r.credit === "fair", label: "Credit Has Less Impact", line: "USAA weights driving record heavily over credit — fairer for drivers rebuilding their score." },
+      { when: r => r.own === "own", label: "Auto + Home Bundle", line: "USAA's multi-policy discount is among the best for military members — one company covers both." },
+      { when: r => r.age === "55+", label: "Veterans & Military Rates", line: "USAA's senior and veteran members consistently see among the best combined rates of any major carrier." },
+    ]
+  },
+  "GEICO": {
+    default: { label: "Fast Online Quotes", line: "GEICO's digital experience is best-in-class — quote, bind, and manage claims without ever calling anyone." },
+    overrides: [
+      { when: r => r.credit === "excellent", label: "Best Rates for Excellent Credit", line: "GEICO's algorithm rewards excellent credit more than most carriers. Your best shot at the lowest starting number." },
+      { when: r => r.credit === "fair", label: "High Credit Surcharge", line: "GEICO applies one of the steepest credit penalties of any major carrier. Fair credit drivers typically pay 40–60% more than excellent credit." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "High Surcharge for Young Drivers", line: "GEICO surcharges young and inexperienced drivers aggressively. Other carriers are often cheaper for under-25 profiles." },
+      { when: r => r.own === "own", label: "Bundle Saves 10–15%", line: "Adding home to your auto policy earns a meaningful multi-policy discount. Worth running the combined quote." },
+      { when: r => r.age === "55+", label: "Mature Driver Discount", line: "GEICO offers a mature driver credit for 55+ drivers who complete an approved defensive driving course." },
+    ]
+  },
+  "State Farm": {
+    default: { label: "19,000+ Local Agents", line: "A real person near you — not a chatbot — handles your claim and picks up the phone." },
+    overrides: [
+      { when: r => r.youngDriver || r.age === "18-24", label: "Steer Clear® for Under-25", line: "State Farm's Steer Clear program can meaningfully cut rates for drivers under 25 — one of the better dedicated young-driver programs available." },
+      { when: r => r.credit === "excellent", label: "Drive Safe & Save up to 30%", line: "Excellent credit + Drive Safe & Save telematics stacks into one of State Farm's strongest pricing packages." },
+      { when: r => r.credit === "fair", label: "Moderate Credit Penalty", line: "State Farm uses credit in most states, but the adjustment is more moderate than GEICO or Allstate for fair scores." },
+      { when: r => r.own === "own", label: "Auto + Home Bundle: up to 25%", line: "State Farm's multi-policy discount can reach 25% — one of the stronger bundling incentives among major carriers." },
+      { when: r => r.age === "55+", label: "Senior Driver Discount", line: "State Farm offers accident prevention course discounts and dedicated senior pricing in most states." },
+    ]
+  },
+  "Progressive": {
+    default: { label: "Snapshot® Telematics Savings", line: "Safe drivers save up to 30% through Snapshot. Your starting quote isn't your final rate — driving behavior can lower it." },
+    overrides: [
+      { when: r => r.srRequired || !r.insured, label: "Accepts SR-22 & Non-Standard", line: "Progressive is the clearest national option for SR-22 filings, lapses, or DUI histories. Most carriers won't quote this profile." },
+      { when: r => r.credit === "fair", label: "Accepts All Credit Profiles", line: "Progressive's credit penalty is lower than GEICO and Allstate. Better starting point for drivers with fair or rebuilding credit." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Moderate Young Driver Surcharge", line: "Progressive's young driver pricing is middle-of-pack — not the cheapest, but not the harshest either. Snapshot can help offset it." },
+      { when: r => r.credit === "excellent", label: "Snapshot® Rewards Safe Drivers", line: "Excellent credit + Snapshot telematics is where Progressive gets most competitive for clean-record drivers." },
+      { when: r => r.own === "own", label: "Bundle via Homesite®", line: "Progressive bundles home through Homesite — discount available, though not as strong as dedicated home carriers like Travelers." },
+    ]
+  },
+  "Allstate": {
+    default: { label: "Accident Forgiveness", line: "One accident won't raise your rate. Most carriers charge extra for this — Allstate includes it." },
+    overrides: [
+      { when: r => r.credit === "fair", label: "High Credit Surcharge", line: "Allstate applies a steep penalty for fair credit — one of the largest credit-based adjustments of any major carrier." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Teen Smart® Program", line: "Allstate has a dedicated young driver program, but base rates for under-25 profiles are above the market average." },
+      { when: r => r.credit === "excellent", label: "Drivewise® Rewards Good Drivers", line: "Excellent credit + Drivewise safe-driver app stacks into some of Allstate's most competitive pricing." },
+      { when: r => r.own === "own", label: "Bundle Discount: up to 20%", line: "Allstate's auto + home bundle is competitive — and one agent handles both policies." },
+      { when: r => r.age === "55+", label: "Senior Discount Available", line: "Allstate offers mature driver discounts for drivers 55+ in most states." },
+    ]
+  },
+  "Liberty Mutual": {
+    default: { label: "New Car Replacement", line: "Totaled in year one? They replace it brand new — not market value, not depreciated book value." },
+    overrides: [
+      { when: r => r.own === "own", label: "Strong Multi-Policy Discount", line: "Liberty Mutual's auto + home bundle is one of the larger percentage discounts among national carriers." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "High Young Driver Surcharge", line: "Liberty Mutual applies among the highest surcharges for young and inexperienced drivers. Compare other carriers first." },
+      { when: r => r.credit === "fair", label: "High Rate for Fair Credit", line: "Liberty Mutual's fair-credit adjustment is one of the steepest in the industry. Excellent-credit drivers get substantially better pricing." },
+      { when: r => r.credit === "excellent", label: "RightTrack® Safe Driver Savings", line: "Excellent credit + RightTrack telematics is the combination that gets Liberty Mutual to its most competitive rates." },
+    ]
+  },
+  "Farmers": {
+    default: { label: "Local Agents Nationwide", line: "Experienced local agents in most markets for in-person service — coverage questions answered, not just quoted." },
+    overrides: [
+      { when: r => r.own === "own", label: "Multi-Policy Bundle: 10–20%", line: "Farmers offers a strong multi-policy discount — and your auto + home agent is the same person, in the same office." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Good Student Discount", line: "Full-time students with a B average or better qualify for Farmers' good student discount — one of the more accessible reductions for young drivers." },
+      { when: r => r.credit === "excellent", label: "Signal® Rewards Safe Drivers", line: "Farmers Signal telematics rewards safe driving behavior — particularly effective combined with excellent credit." },
+      { when: r => r.credit === "fair", label: "Credit Penalty Above Average", line: "Farmers applies a meaningful credit penalty for fair scores. Other carriers may price this profile more favorably." },
+    ]
+  },
+  "Nationwide": {
+    default: { label: "Vanishing Deductible", line: "$100 off your deductible every claim-free year. Keep it long enough and it hits zero." },
+    overrides: [
+      { when: r => r.youngDriver || r.age === "18-24", label: "SmartRide® for Young Drivers", line: "Nationwide's SmartRide telematics is one of the better ways for young drivers to demonstrate safe habits and earn back premium." },
+      { when: r => r.own === "own", label: "SmartRide® + Bundle Savings", line: "Nationwide's multi-policy discount combined with SmartRide safe-driver savings stacks meaningfully for homeowners." },
+      { when: r => r.credit === "excellent", label: "SmartRide® — Up to 40% Off", line: "Excellent credit + SmartRide telematics is where Nationwide gets most competitive. The 40% ceiling is real for the right profile." },
+      { when: r => r.credit === "fair", label: "Moderate Credit Penalty", line: "Nationwide's credit adjustment is moderate — not as steep as Allstate or GEICO for fair scores." },
+    ]
+  },
+  "Erie Insurance": {
+    default: { label: "Rate Lock Guarantee", line: "Rates up 50%+ across the country since 2019. Erie locks yours — renewal won't change unless you change your coverage." },
+    overrides: [
+      { when: r => r.own === "own", label: "ErieSecure® Home Bundle", line: "Erie's auto + home bundle is strong, and a local agent handles both. Rate Lock applies to the home policy too." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Young Driver Discount Available", line: "Erie offers specific discounts for young drivers and can be competitive for under-25 profiles where available." },
+      { when: r => r.credit === "fair", label: "Rate Lock = Price Stability", line: "With Erie's Rate Lock, your renewal doesn't change — valuable for fair-credit drivers who want predictable pricing." },
+      { when: r => r.age === "55+", label: "Senior Discount + Rate Lock", line: "Erie's senior discount combined with Rate Lock is compelling for older drivers wanting both savings and price stability." },
+    ]
+  },
+  "American Family": {
+    default: { label: "KnowYourDrive® Telematics", line: "KnowYourDrive can reduce your rate by up to 40%. One of the highest telematics savings ceilings available." },
+    overrides: [
+      { when: r => r.youngDriver || r.age === "18-24", label: "Up to 40% Off for Under-25", line: "American Family's KnowYourDrive telematics is the single biggest lever for young drivers — 40% reduction for safe behavior is achievable." },
+      { when: r => r.own === "own", label: "Multi-Policy Bundle: 15–23%", line: "American Family's auto + home discount is among the stronger offerings from regional carriers." },
+      { when: r => r.credit === "excellent", label: "KnowYourDrive® Rewards", line: "Excellent credit + KnowYourDrive telematics stacks into American Family's most competitive pricing tier." },
+      { when: r => r.credit === "fair", label: "Moderate Credit Penalty", line: "American Family's credit adjustment is moderate compared to GEICO or Allstate for fair scores." },
+    ]
+  },
+  "Amica Mutual": {
+    default: { label: "Dividend Policy — Up to 20% Back", line: "Policyholders get up to 20% of premium back at year end. You're a member, not just a customer." },
+    overrides: [
+      { when: r => r.own === "own", label: "Auto + Home + Dividend", line: "Amica's home + auto bundle plus the annual dividend is a compelling combination for long-term policyholders." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Lower Surcharge for Young Drivers", line: "Amica applies a relatively moderate young driver surcharge. The dividend policy also partially offsets the added premium." },
+      { when: r => r.credit === "excellent", label: "Lowest Complaint Ratio + Best Rates", line: "Amica has the lowest NAIC complaint ratio we track. Excellent credit gets their most competitive pricing on top of that." },
+      { when: r => r.credit === "fair", label: "Credit Has Lower Impact", line: "Amica's credit weighting is more moderate than most competitors — fair-credit drivers may find it more competitive here." },
+    ]
+  },
+  "Auto-Owners": {
+    default: { label: "Cleanest Claims Record", line: "Fewest complaint filings of any multi-state carrier. Disputes resolved faster, fewer fights." },
+    overrides: [
+      { when: r => r.own === "own", label: "Multi-Policy Bundle Savings", line: "Auto-Owners writes both auto and home through the same independent agent network — bundle discounts are strong." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Young Driver Discount Available", line: "Auto-Owners offers young driver and good student discounts through their independent agent network." },
+      { when: r => r.credit === "excellent", label: "Rewards Clean Low-Risk Profiles", line: "Auto-Owners prices clean-record, excellent-credit drivers very competitively — their best rates go to the lowest-risk profiles." },
+    ]
+  },
+  "Travelers": {
+    default: { label: "IntelliDrive® Telematics", line: "Safe drivers save 10–20%. IntelliDrive has no downside risk — a bad score won't increase your base rate." },
+    overrides: [
+      { when: r => r.own === "own", label: "Bundle Saves up to 15%", line: "Travelers is one of the better carriers for auto + home bundles — meaningful discount and a single insurer for both." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "High Surcharge for Under-25", line: "Travelers rates young drivers above the market average. Compare other carriers before committing to this one." },
+      { when: r => r.credit === "excellent", label: "IntelliDrive® + Excellent Credit", line: "IntelliDrive telematics + excellent credit is where Travelers gets most competitive for clean-record drivers." },
+      { when: r => r.credit === "fair", label: "Credit Penalty Above Average", line: "Travelers applies a meaningful credit penalty for fair scores — worth comparing against carriers with lower credit sensitivity." },
+    ]
+  },
+  "Safeco": {
+    default: { label: "RightTrack® — Upside Only", line: "Safe drivers save 8–15%. A bad score won't raise your rate — all savings, no penalty." },
+    overrides: [
+      { when: r => r.own === "own", label: "Multi-Policy Bundle Savings", line: "Safeco writes home, renters, and auto — bundle discount available through the same independent agent." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "High Surcharge for Under-25", line: "Safeco surcharges young drivers significantly. RightTrack can help offset some of it, but other carriers may quote lower." },
+      { when: r => r.credit === "excellent", label: "RightTrack® Rewards Safe Drivers", line: "Excellent credit + RightTrack is where Safeco gets most competitive for clean-record drivers." },
+      { when: r => r.credit === "fair", label: "High Credit Sensitivity", line: "Safeco has above-average credit sensitivity. Fair-credit drivers may find better starting points at Progressive or USAA." },
+    ]
+  },
+  "AAA / CSAA": {
+    default: { label: "Roadside + Insurance — One Bill", line: "Insurance + emergency roadside in one membership. One call, one company, one bill." },
+    overrides: [
+      { when: r => r.own === "own", label: "Member Auto + Home Bundle", line: "AAA members can bundle auto and home insurance with their roadside membership — one company, meaningful discount." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Young Driver Discount for Members", line: "AAA members under 25 qualify for specific young driver discounts — worth comparing against non-member carrier rates." },
+      { when: r => r.age === "55+", label: "Senior Member Discount", line: "AAA's senior pricing is one of the stronger available — especially for members with long AAA history." },
+      { when: r => r.credit === "excellent", label: "Rewards Member Loyalty", line: "Long-standing AAA members with excellent credit typically see the best combination of pricing and service." },
+    ]
+  },
+  "CSAA / AAA": {
+    default: { label: "Roadside + Insurance — One Bill", line: "Insurance + emergency roadside in one membership. One call, one company, one bill." },
+    overrides: [
+      { when: r => r.own === "own", label: "Member Auto + Home Bundle", line: "AAA members can bundle auto and home with roadside membership — one company, meaningful discount." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Young Driver Discount for Members", line: "AAA members under 25 qualify for specific young driver discounts." },
+      { when: r => r.age === "55+", label: "Senior Member Discount", line: "AAA's senior pricing is strong, especially for long-standing members." },
+    ]
+  },
+  "Texas Farm Bureau": {
+    default: { label: "Local County Agents — TX Only", line: "TFB operates through local county offices statewide — personal service with 11 consecutive J.D. Power #1 rankings in Texas." },
+    overrides: [
+      { when: r => r.own === "own", label: "Auto + Farm + Home Bundle", line: "TFB bundles auto, home, and farm policies through local county agents — comprehensive coverage, one relationship." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Local Agent for Young Drivers", line: "TFB's local county agents work with young drivers personally — not a national call center." },
+    ]
+  },
+  "Georgia Farm Bureau": {
+    default: { label: "Local County Agents — GA Only", line: "Georgia Farm Bureau operates through county offices statewide — a local agent handles every claim personally." },
+    overrides: [
+      { when: r => r.own === "own", label: "Auto + Farm + Home Bundle", line: "GFB bundles auto, home, and farm policies through local county agents — broad coverage, personal service." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Local Agent for Young Drivers", line: "Local county agents work with young drivers directly — personal policy management, not a call center." },
+    ]
+  },
+  "Tennessee Farm Bureau": {
+    default: { label: "J.D. Power Southeast #1", line: "11 consecutive years at #1 in the Southeast. The most sustained satisfaction record of any regional carrier." },
+    overrides: [
+      { when: r => r.own === "own", label: "Auto + Home Bundle — TN Only", line: "Tennessee Farm Bureau bundles auto and home through local agents — top satisfaction record applies to both." },
+    ]
+  },
+  "NC Farm Bureau": {
+    default: { label: "100 County Offices — NC Only", line: "Farm Bureau offices in all 100 NC counties. Local expertise from agents who know their market." },
+    overrides: [
+      { when: r => r.own === "own", label: "Auto + Home Bundle — NC Only", line: "NC Farm Bureau bundles auto and home through local county agents — strong regional track record." },
+    ]
+  },
+  "Kentucky Farm Bureau": {
+    default: { label: "Local Kentucky Agents", line: "Kentucky Farm Bureau covers all 120 counties through local agents — personal service, not a call center." },
+    overrides: [
+      { when: r => r.own === "own", label: "Auto + Home Bundle — KY Only", line: "KFB bundles auto and home through local county agents across Kentucky." },
+    ]
+  },
+  "Louisiana Farm Bureau": {
+    default: { label: "Local Parish Agents — LA Only", line: "Louisiana Farm Bureau operates through parish offices statewide — personal service in one of the country's most expensive markets." },
+    overrides: [
+      { when: r => r.own === "own", label: "Auto + Farm + Home Bundle", line: "LFB bundles auto, home, and farm through local parish agents — comprehensive coverage, personal service." },
+    ]
+  },
+  "PEMCO": {
+    default: { label: "Pacific NW Member-Owned", line: "Member-owned since 1949. Profits stay in the organization — reflected in your rate, not shareholder returns." },
+    overrides: [
+      { when: r => r.own === "own", label: "Strong Bundle Discount", line: "PEMCO's multi-policy discount is meaningful for Pacific Northwest homeowners — auto + home through one member-owned carrier." },
+    ]
+  },
+  "NJM Insurance":     { label: "2nd-Fewest Complaints",    line: "0.38 NAIC ratio — only Amica is lower. 62% fewer disputes than the industry average." },
+  "Wawanesa":          { label: "J.D. Power #1 — CA",       line: "Top satisfaction score in California's most competitive market. 0.45 complaint ratio backs it up." },
+  "Mercury Insurance": { label: "California Specialist",     line: "One of California's largest auto insurers — deep state expertise and competitive pricing across 11 states." },
+  "Shelter Insurance": { label: "J.D. Power Central #1",    line: "15 states, captive local agents, and the Central region's top satisfaction score. Erie's peer in the Midwest." },
+  "MAPFRE Insurance":  { label: "MA's Largest Insurer",     line: "Massachusetts's dominant carrier by market share — 0.58 complaint ratio in one of the country's toughest markets." },
+  "NYCM Insurance":    { label: "J.D. Power #1 — New York", line: "New York's top-rated carrier since 1899. Competitive pricing in one of the priciest markets." },
+  "Alfa Insurance":    { label: "Southeast Specialist",     line: "Deep rural roots, exclusive agents, and bundling strength across AL, GA, MS, TN and surrounding states." },
+  "Country Financial": { label: "Insurance + Finance",      line: "One agent for auto, home, retirement, and investments. The Midwest's full-service alternative to carrier-hopping." },
 };
+
+function getCarrierHero(name) {
+  var def = CARRIER_HERO[name];
+  if (!def) return null;
+  if (def.default) {
+    if (def.overrides) {
+      for (var i = 0; i < def.overrides.length; i++) {
+        var ov = def.overrides[i];
+        if (ov.when(refinement)) return { label: ov.label, line: ov.line || def.default.line };
+      }
+    }
+    return def.default;
+  }
+  return def; // flat shape (NJM, Wawanesa, etc.)
+}
 
 const CARRIER_INSIGHTS = {
   "USAA": {
@@ -4407,7 +4590,7 @@ function renderRanking() {
     a.target = "_blank";
     a.rel = "noopener noreferrer";
     a.dataset.carrier = c.name;
-    const hero = CARRIER_HERO[c.name];
+    const hero = getCarrierHero(c.name);
     const heroHtml = hero ? '<div class="rank-hero"><span class="rank-hero-label">' + hero.label + '</span></div>' : '';
     const researchUrl = CARRIER_RESEARCH_LINKS[c.name];
     const researchHtml = researchUrl ? '<span class="rank-review-link" data-url="' + researchUrl + '">BoringRate Research</span>' : '';
@@ -4761,7 +4944,7 @@ function buildCompareCols() {
     const deltaLabel = (delta > 0 ? "+" : "−") + "$" + absDelta.toLocaleString() + "/yr vs. median";
     const deltaClass = delta <= 0 ? "under" : "over";
     const isBest = i === pickIdx;
-    const hero = CARRIER_HERO[c.name];
+    const hero = getCarrierHero(c.name);
 
     const insights = CARRIER_INSIGHTS[c.name] || { pros: [], cons: [] };
     const pros = insights.pros;
