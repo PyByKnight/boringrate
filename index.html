@@ -1876,6 +1876,30 @@ const ZIP_PREFIX_METRO = {
   "990":"spo","991":"spo","992":"spo",
   // Riverside / Inland Empire CA
   "917":"riv","918":"riv","921":"riv","923":"riv","924":"riv","928":"riv",
+  // Boston metro MA
+  "017":"bos","018":"bos","019":"bos","020":"bos","021":"bos","022":"bos","023":"bos","024":"bos","025":"bos","026":"bos","027":"bos",
+  // Providence metro RI
+  "028":"prv","029":"prv",
+  // Anchorage metro AK
+  "995":"anc","996":"anc","997":"anc","998":"anc","999":"anc",
+  // Wilmington metro DE
+  "197":"wil","198":"wil","199":"wil",
+  // Fargo metro ND
+  "580":"far","581":"far","582":"far","583":"far","584":"far","585":"far","586":"far","587":"far","588":"far",
+  // Jackson MS metro
+  "390":"jkn","391":"jkn","392":"jkn","393":"jkn","394":"jkn","395":"jkn","396":"jkn","397":"jkn","398":"jkn",
+  // Charleston WV metro
+  "247":"cwv","248":"cwv","249":"cwv","250":"cwv","251":"cwv","252":"cwv","253":"cwv","254":"cwv","255":"cwv","256":"cwv","257":"cwv","258":"cwv",
+  // Billings MT metro
+  "590":"bil","591":"bil","592":"bil","593":"bil","594":"bil","595":"bil","596":"bil","597":"bil","598":"bil","599":"bil",
+  // Manchester NH metro
+  "030":"mnh","031":"mnh","032":"mnh","033":"mnh","034":"mnh","035":"mnh","036":"mnh","037":"mnh","038":"mnh","039":"mnh",
+  // Burlington VT metro
+  "050":"bvt","051":"bvt","052":"bvt","053":"bvt","054":"bvt","055":"bvt","056":"bvt","057":"bvt","058":"bvt","059":"bvt",
+  // Cheyenne WY metro
+  "820":"cwy","821":"cwy","822":"cwy","823":"cwy","824":"cwy","825":"cwy","826":"cwy","827":"cwy","828":"cwy","829":"cwy","830":"cwy","831":"cwy",
+  // Sioux Falls SD metro
+  "570":"sfd","571":"sfd","572":"sfd","573":"sfd","574":"sfd","575":"sfd","576":"sfd","577":"sfd",
 };
 
 const METRO_NAMES = {
@@ -1948,6 +1972,18 @@ const METRO_NAMES = {
   mad: "Madison metro",
   spo: "Spokane metro",
   riv: "Riverside / Inland Empire metro",
+  bos: "Boston metro",
+  prv: "Providence metro",
+  anc: "Anchorage metro",
+  wil: "Wilmington metro",
+  far: "Fargo metro",
+  jkn: "Jackson, MS metro",
+  cwv: "Charleston, WV metro",
+  bil: "Billings metro",
+  mnh: "Manchester metro",
+  bvt: "Burlington metro",
+  cwy: "Cheyenne metro",
+  sfd: "Sioux Falls metro",
 };
 
 // Short display labels for the rate-alert banner tag — airport codes where
@@ -1971,6 +2007,9 @@ const METRO_ABBR = {
   boi: "Boise",        lrk: "Little Rock",  csc: "Columbia, SC", gso: "Greensboro",
   dsm: "Des Moines",   ict: "Wichita",      mad: "Madison",      spo: "Spokane",
   riv: "Inland Empire",
+  bos: "Boston",       prv: "Providence",   anc: "Anchorage",    wil: "Wilmington",
+  far: "Fargo",        jkn: "Jackson, MS",  cwv: "Charleston, WV", bil: "Billings",
+  mnh: "Manchester, NH", bvt: "Burlington, VT", cwy: "Cheyenne",  sfd: "Sioux Falls",
 };
 
 // Additional multiplier on top of state adjustment — metro rates vs. rest of state.
@@ -2045,6 +2084,18 @@ const METRO_CARRIER_ADJ = {
   mad: { "USAA":1.03,"GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.05,"Nationwide":1.04,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.03 },
   spo: { "USAA":1.04,"GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.07,"Nationwide":1.05,"Erie Insurance":1.03,"American Family":1.05,"Amica Mutual":1.04,"Auto-Owners":1.04 },
   riv: { "USAA":1.20,"GEICO":1.18,"State Farm":1.16,"Progressive":1.24,"Allstate":1.26,"Liberty Mutual":1.28,"Farmers":1.14,"Nationwide":1.18,"Erie Insurance":1.12,"American Family":1.15,"Amica Mutual":1.14,"Auto-Owners":1.14 },
+  bos: { "USAA":1.08,"GEICO":1.06,"State Farm":1.12,"Progressive":1.10,"Allstate":1.14,"Liberty Mutual":1.16,"Farmers":1.12,"Nationwide":1.10,"Erie Insurance":1.07,"American Family":1.09,"Amica Mutual":1.04,"Auto-Owners":1.08 },
+  prv: { "USAA":1.00,"GEICO":0.98,"State Farm":1.04,"Progressive":1.02,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.02,"Nationwide":1.01,"Erie Insurance":0.98,"American Family":0.99,"Amica Mutual":0.96,"Auto-Owners":0.99 },
+  anc: { "USAA":1.00,"GEICO":0.98,"State Farm":1.04,"Progressive":1.02,"Allstate":1.06,"Liberty Mutual":1.09,"Farmers":1.02,"Nationwide":1.01,"Erie Insurance":0.98,"American Family":1.00,"Amica Mutual":0.97,"Auto-Owners":0.98 },
+  wil: { "USAA":1.04,"GEICO":1.02,"State Farm":1.07,"Progressive":1.05,"Allstate":1.09,"Liberty Mutual":1.12,"Farmers":1.07,"Nationwide":1.05,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.02,"Auto-Owners":1.03 },
+  far: { "USAA":1.00,"GEICO":0.98,"State Farm":1.04,"Progressive":1.02,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.02,"Nationwide":1.01,"Erie Insurance":0.98,"American Family":1.00,"Amica Mutual":0.97,"Auto-Owners":0.98 },
+  jkn: { "USAA":1.04,"GEICO":1.03,"State Farm":1.07,"Progressive":1.06,"Allstate":1.09,"Liberty Mutual":1.12,"Farmers":1.07,"Nationwide":1.06,"Erie Insurance":1.02,"American Family":1.04,"Amica Mutual":1.02,"Auto-Owners":1.03 },
+  cwv: { "USAA":1.01,"GEICO":0.99,"State Farm":1.04,"Progressive":1.02,"Allstate":1.07,"Liberty Mutual":1.10,"Farmers":1.03,"Nationwide":1.02,"Erie Insurance":0.97,"American Family":1.01,"Amica Mutual":0.98,"Auto-Owners":0.99 },
+  bil: { "USAA":1.01,"GEICO":0.99,"State Farm":1.03,"Progressive":1.01,"Allstate":1.06,"Liberty Mutual":1.09,"Farmers":1.03,"Nationwide":1.01,"Erie Insurance":0.98,"American Family":1.01,"Amica Mutual":0.98,"Auto-Owners":0.99 },
+  mnh: { "USAA":1.01,"GEICO":0.97,"State Farm":1.03,"Progressive":1.01,"Allstate":1.05,"Liberty Mutual":1.08,"Farmers":1.02,"Nationwide":1.01,"Erie Insurance":0.97,"American Family":0.99,"Amica Mutual":0.95,"Auto-Owners":0.98 },
+  bvt: { "USAA":1.01,"GEICO":0.97,"State Farm":1.03,"Progressive":1.00,"Allstate":1.05,"Liberty Mutual":1.08,"Farmers":1.01,"Nationwide":1.00,"Erie Insurance":0.97,"American Family":0.99,"Amica Mutual":0.95,"Auto-Owners":0.97 },
+  cwy: { "USAA":1.01,"GEICO":0.99,"State Farm":1.03,"Progressive":1.02,"Allstate":1.06,"Liberty Mutual":1.09,"Farmers":1.03,"Nationwide":1.02,"Erie Insurance":0.98,"American Family":1.01,"Amica Mutual":0.98,"Auto-Owners":0.99 },
+  sfd: { "USAA":1.00,"GEICO":0.98,"State Farm":1.03,"Progressive":1.01,"Allstate":1.05,"Liberty Mutual":1.08,"Farmers":1.02,"Nationwide":1.01,"Erie Insurance":0.98,"American Family":1.00,"Amica Mutual":0.97,"Auto-Owners":0.98 },
 };
 
 // State-specific banners — shown below the ZIP result for matching states
@@ -2172,6 +2223,18 @@ const METRO_BANNERS = {
   mad: { text: "Madison is one of the more affordable major metros — see who's cheapest in your ZIP.", url: "article/metro/madison.html", trend: "down", pct: "−25%" },
   spo: { text: "Spokane is near the national average — but rate spreads are wide. Shopping still saves hundreds.", url: "article/metro/spokane.html", trend: "stable", pct: "+0%" },
   riv: { text: "Riverside rates are among the highest in the country — shopping aggressively here can save $500+/year.", url: "article/metro/riverside-inland-empire.html", trend: "up", pct: "+79%" },
+  bos: { text: "Boston is below the national average — but rate spreads are wide. Shopping still saves hundreds.", url: "article/metro/boston.html", trend: "down", pct: "−8%" },
+  prv: { text: "Providence is below the national average — see who's competing hardest in your ZIP.", url: "article/metro/providence.html", trend: "down", pct: "−8%" },
+  anc: { text: "Anchorage is one of the more affordable metros — see which carriers compete hardest here.", url: "article/metro/anchorage.html", trend: "down", pct: "−21%" },
+  wil: { text: "Wilmington is near the national average — the right carrier makes a real difference here.", url: "article/metro/wilmington-de.html", trend: "stable", pct: "−4%" },
+  far: { text: "Fargo is one of the most affordable metros in the country — see who's cheapest in your ZIP.", url: "article/metro/fargo.html", trend: "down", pct: "−38%" },
+  jkn: { text: "Jackson, MS is below the national average — see which carriers are most competitive here.", url: "article/metro/jackson-ms.html", trend: "down", pct: "−8%" },
+  cwv: { text: "Charleston, WV is one of the more affordable metros — see who's cheapest in your ZIP.", url: "article/metro/charleston-wv.html", trend: "down", pct: "−21%" },
+  bil: { text: "Billings is one of the more affordable metros — see who's competing hardest in your ZIP.", url: "article/metro/billings.html", trend: "down", pct: "−25%" },
+  mnh: { text: "Manchester, NH is one of the most affordable metros in the country — see who's cheapest.", url: "article/metro/manchester-nh.html", trend: "down", pct: "−38%" },
+  bvt: { text: "Burlington, VT is one of the most affordable metros in the country — see who's cheapest.", url: "article/metro/burlington-vt.html", trend: "down", pct: "−38%" },
+  cwy: { text: "Cheyenne is one of the more affordable metros — see which carriers compete hardest here.", url: "article/metro/cheyenne.html", trend: "down", pct: "−29%" },
+  sfd: { text: "Sioux Falls is one of the more affordable metros — see who's cheapest in your ZIP.", url: "article/metro/sioux-falls.html", trend: "down", pct: "−25%" },
 };
 
 function updateStateBanner(stateCode) {
