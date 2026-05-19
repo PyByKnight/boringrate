@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="canonical" href="https://boringrate.com/article/sr22-insurance.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What is SR-22 insurance and how much does it cost? — BoringRate</title>
+<meta name="description" content="SR-22 is not insurance — it's a filing. Here's what triggers it, what it actually costs, how long you're stuck with it, and how to minimize the damage." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="BoringRate" />
+<meta property="og:url" content="https://boringrate.com/article/sr22-insurance.html" />
+<meta property="og:title" content="What is SR-22 insurance and how much does it cost? — BoringRate" />
+<meta property="og:description" content="SR-22 is not insurance — it's a filing. Here's what triggers it, what it actually costs, how long you're stuck with it, and how to minimize the damage." />
+<meta property="og:image" content="https://boringrate.com/og-default.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink: #161512;
+    --ink-soft: #3a3631;
+    --ink-mute: #6b665e;
+    --paper: #f6f1e8;
+    --paper-deep: #ece5d6;
+    --rule: #d8d0bd;
+    --accent: #b4321a;
+    --good: #2f6b3a;
+    --serif: 'Fraunces', 'Georgia', serif;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; font-size: 17px; -webkit-font-smoothing: antialiased; }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.06 0 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.55;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+  .wrap-narrow { max-width: 720px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+
+  header.top { border-bottom: 1px solid var(--rule); padding: 18px 0; background: var(--paper); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(6px); }
+  .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 26px; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; display: flex; align-items: baseline; gap: 8px; }
+  .brand-mark { display: inline-block; width: 10px; height: 10px; background: var(--accent); border-radius: 2px; transform: translateY(-2px); }
+  nav.primary { display: flex; gap: 28px; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
+  nav.primary a { color: var(--ink-soft); text-decoration: none; text-transform: uppercase; transition: color 120ms; }
+  nav.primary a:hover { color: var(--accent); }
+
+  .article-header { padding: 56px 0 40px; border-bottom: 1px solid var(--rule); }
+  .article-kicker { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 18px; }
+  .article-kicker a { color: var(--accent); text-decoration: none; }
+  .article-kicker a:hover { text-decoration: underline; }
+  h1.article-title { font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.05; letter-spacing: -0.025em; max-width: 680px; margin-bottom: 20px; }
+  .article-dek { font-family: var(--serif); font-size: 20px; color: var(--ink-soft); max-width: 600px; line-height: 1.45; margin-bottom: 24px; font-style: italic; }
+  .article-byline { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .article-body { padding: 48px 0 64px; }
+  .article-body p { font-size: 18px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 24px; max-width: 660px; }
+  .article-body p strong { color: var(--ink); font-weight: 600; }
+  .article-body p a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .article-body p a:hover { border-color: var(--accent); }
+  .article-body h2 { font-family: var(--serif); font-size: 26px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.15; margin: 40px 0 14px; color: var(--ink); max-width: 660px; }
+
+  .callout { border-left: 3px solid var(--rule); padding: 18px 22px; margin: 32px 0; background: var(--paper-deep); max-width: 660px; }
+  .callout p { font-size: 16px !important; margin-bottom: 0 !important; color: var(--ink-soft); }
+
+  .article-email { background: var(--paper-deep); border: 1px solid var(--rule); padding: 28px 32px; margin: 48px 0 0; max-width: 660px; }
+  .article-email strong { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: -0.01em; display: block; margin-bottom: 6px; }
+  .article-email .sub { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 18px; line-height: 1.55; }
+  .email-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .email-input { flex: 1; min-width: 200px; font-family: var(--sans); font-size: 14px; padding: 11px 14px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); outline: none; transition: border-color 120ms; }
+  .email-input:focus { border-color: var(--ink); }
+  .email-btn { font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 11px 22px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); cursor: pointer; white-space: nowrap; transition: background 120ms, border-color 120ms; }
+  .email-btn:hover { background: var(--accent); border-color: var(--accent); }
+  .email-thanks { font-family: var(--mono); font-size: 12px; color: var(--good); letter-spacing: 0.08em; text-transform: uppercase; display: none; margin-top: 12px; }
+
+  .zip-bar { position: sticky; top: 61px; z-index: 40; background: var(--paper); border-bottom: 2px solid var(--accent); padding: 10px 0; backdrop-filter: blur(6px); }
+  .zip-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .zip-bar-slogan { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--ink-soft); letter-spacing: -0.01em; white-space: nowrap; }
+  .zip-bar-slogan strong { font-style: normal; font-weight: 600; color: var(--ink); }
+  .zip-bar-form { display: flex; gap: 0; align-items: stretch; flex-shrink: 0; }
+  .zip-bar-input { font-family: var(--mono); font-size: 16px; letter-spacing: 0.14em; text-align: center; padding: 9px 14px; width: 110px; border: 2px solid var(--ink); border-right: none; background: var(--paper); color: var(--ink); outline: none; transition: border-color 120ms; }
+  .zip-bar-input::placeholder { color: var(--ink-mute); letter-spacing: 0.1em; }
+  .zip-bar-input:focus { border-color: var(--accent); }
+  .zip-bar-btn { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; padding: 9px 18px; border: 2px solid var(--accent); background: var(--accent); color: var(--paper); cursor: pointer; white-space: nowrap; transition: background 120ms, border-color 120ms; }
+  .zip-bar-btn:hover { background: #8a1f0f; border-color: #8a1f0f; }
+
+  footer { padding: 56px 0 36px; background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  footer .brand { color: var(--paper); }
+  footer p { font-size: 14px; color: rgba(246,241,232,0.7); margin-top: 12px; max-width: 320px; line-height: 1.55; }
+  .foot-col h5 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; color: rgba(246,241,232,0.5); }
+  .foot-col a { display: block; color: var(--paper); text-decoration: none; font-size: 14px; margin-bottom: 8px; opacity: 0.85; transition: opacity 120ms; }
+  .foot-col a:hover { opacity: 1; color: #f0a89a; }
+  .legal { font-size: 11px; color: rgba(246,241,232,0.5); border-top: 1px solid rgba(246,241,232,0.15); padding-top: 22px; line-height: 1.6; font-family: var(--mono); letter-spacing: 0.04em; }
+
+  @media (max-width: 900px) {
+    nav.primary { display: none; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .zip-bar-slogan { display: none; }
+    .zip-bar-inner { justify-content: flex-end; }
+  }
+  @media (max-width: 480px) {
+    .article-header { padding: 36px 0 28px; }
+    .article-body { padding: 32px 0 48px; }
+    .article-body p { font-size: 16px; }
+    .zip-bar { top: 57px; }
+    .zip-bar-input { width: 90px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <a href="../index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
+    <nav class="primary">
+      <a href="../index.html#guides">Guides</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="zip-bar">
+  <div class="wrap">
+    <div class="zip-bar-inner">
+      <div class="zip-bar-slogan"><strong>Boring Research.</strong> Easy Decision. — Enter your ZIP to compare rates.</div>
+      <form class="zip-bar-form" id="zipBarForm" autocomplete="off">
+        <input class="zip-bar-input" id="zipBarInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />
+        <button type="submit" class="zip-bar-btn">Compare →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="wrap-narrow">
+  <div class="article-header">
+    <div class="article-kicker"><a href="../index.html#guides">Guide</a> &nbsp;·&nbsp; 5 min read</div>
+    <h1 class="article-title">What is SR-22 insurance and how much does it cost?</h1>
+    <p class="article-dek">SR-22 is not insurance — it's a filing. Here's what triggers it, what it actually costs, how long you're stuck with it, and how to minimize the damage.</p>
+    <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; May 2026</div>
+  </div>
+
+  <div class="article-body">
+
+    <p>If you've been told you need an SR-22, the first thing to understand is what it actually is. An SR-22 is a certificate of financial responsibility — a document your insurance carrier files with your state's DMV to prove you carry the minimum required coverage. It's not a type of insurance. It doesn't change your coverage. It's administrative proof that you're insured, filed electronically by your carrier on your behalf.</p>
+
+    <h2>What triggers an SR-22 requirement?</h2>
+    <p>States require SR-22 filings after serious driving violations or license-related events. The most common triggers: <strong>DUI or DWI conviction</strong>, <strong>driving without insurance</strong>, <strong>at-fault accident while uninsured</strong>, <strong>reckless driving</strong>, <strong>license suspension or revocation</strong>, and accumulation of too many points on your driving record in a short window. Your state court or DMV will notify you of the requirement — you won't discover it by accident.</p>
+
+    <div class="callout">
+      <p><strong>Florida and Virginia use FR-44 instead of SR-22.</strong> The FR-44 works the same way but requires higher liability limits than the state minimum — typically double. If you need an FR-44, your coverage costs will be higher than a standard SR-22 situation.</p>
+    </div>
+
+    <h2>What does an SR-22 actually cost?</h2>
+    <p>The filing itself costs $15–$35 as a one-time fee. That part is cheap. The expensive part is what happens to your underlying insurance rate. Because SR-22 requirements mark you as a high-risk driver, carriers will re-rate your policy — often dramatically. A DUI, for example, can increase your premium by 70–150% in the first policy period after conviction. That rate increase persists for years, typically until the conviction ages off your driving record (3–5 years in most states, 10 years for DUI in some).</p>
+    <p>Some carriers will non-renew your policy entirely when an SR-22 is required. If that happens, you'll need to find a carrier that writes non-standard or high-risk policies. Progressive, Dairyland, The General, Safe Auto, and Bristol West all regularly write SR-22 policies — they specialize in this market. Enter your ZIP above to see current quotes in your area.</p>
+
+    <h2>How long do you need to maintain it?</h2>
+    <p>Most states require SR-22 filing for <strong>three years</strong> from the date of the triggering event — not from the date of conviction, which can be months later. During this period, your carrier is required to notify the state if your policy lapses or is cancelled. If that happens, your license can be suspended again automatically. Continuous, uninterrupted coverage is not optional during this window.</p>
+    <p>The clock resets if you let coverage lapse. A 30-day gap in coverage two years into a three-year requirement doesn't mean you served two years — in many states it means you start over. This is the most common and most costly SR-22 mistake.</p>
+
+    <h2>Can you get SR-22 without a car?</h2>
+    <p>Yes. If you need to maintain a license but don't own a vehicle, you can get a non-owner SR-22 policy. This covers you when driving vehicles you don't own — rentals, borrowed cars, carshare vehicles. It's significantly cheaper than a standard policy because it excludes the vehicle itself, but it satisfies the state's filing requirement. Most carriers that write SR-22 policies also offer non-owner versions.</p>
+
+    <h2>How to minimize the cost.</h2>
+    <p>Shop aggressively and shop again every renewal. The spread between the most and least expensive carrier for high-risk drivers is wider than for standard drivers — carriers price SR-22 risk very differently. A carrier that's expensive in year one of your SR-22 requirement may become more competitive in year two as your profile ages. Also: take any available defensive driving course if your state allows it to reduce points — fewer points means faster recovery on your underlying rate even while the SR-22 requirement is active.</p>
+    <p>Once the SR-22 period ends, contact your carrier immediately to confirm the filing is no longer required, and shop the market again. You'll likely find meaningfully lower rates once the high-risk designation is removed from your record. <a href="../coverage.html">Use the coverage tool</a> to confirm you're carrying the right levels — over-insuring a high-risk driver is expensive, and under-insuring creates legal exposure.</p>
+
+    <div class="article-email">
+      <strong>We'll notify you when SR-22 carrier rates shift in your state.</strong>
+      <div class="sub">No spam. No phone. We will never sell your information.</div>
+      <div class="email-row" id="articleEmailForm">
+        <input class="email-input" id="articleEmailInput" type="email" placeholder="your@email.com" aria-label="Email address" />
+        <button type="button" class="email-btn" id="articleEmailBtn">Notify me</button>
+      </div>
+      <div class="email-thanks" id="articleEmailThanks">✓ You're on the list.</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand"><span class="brand-mark"></span>BoringRate</div>
+        <p>Independent insurance research. Boring on purpose. We publish what carriers don't advertise so shoppers can stop overpaying.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Research</h5>
+        <a href="../index.html">Auto rankings</a>
+        <a href="../index.html#guides">By state</a>
+        <a href="../index.html#guides">By carrier</a>
+        <a href="../methodology.html">Methodology</a>
+      </div>
+      <div class="foot-col">
+        <h5>Tools</h5>
+        <a href="../coverage.html">Coverage calculator</a>
+      </div>
+      <div class="foot-col">
+        <h5>Subscribe</h5>
+        <a href="#">Rate change alerts</a>
+      </div>
+    </div>
+    <div class="legal">
+      © 2026 BORINGRATE. NOT AN INSURANCE PRODUCER. NOT A LICENSED AGENT. NO COMMISSIONED RELATIONSHIPS WITH ANY CARRIER LISTED ABOVE. ESTIMATES ARE EDITORIAL OPINION BASED ON PUBLIC DATA AND ARE NOT QUOTES. SHOP AT YOUR OWN DISCRETION.
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("zipBarForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const zip = document.getElementById("zipBarInput").value.trim();
+  if (!/^\d{5}$/.test(zip)) { document.getElementById("zipBarInput").focus(); return; }
+  window.location.href = "../index.html?zip=" + zip;
+});
+document.getElementById("zipBarInput").addEventListener("input", e => {
+  e.target.value = e.target.value.replace(/\D/g, "").substring(0, 5);
+});
+document.getElementById("articleEmailBtn").addEventListener("click", () => {
+  const email = document.getElementById("articleEmailInput").value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById("articleEmailInput").focus(); return; }
+  document.getElementById("articleEmailForm").style.display = "none";
+  document.getElementById("articleEmailThanks").style.display = "block";
+});
+</script>
+
+</body>
+</html>
