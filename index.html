@@ -1900,6 +1900,10 @@ const ZIP_PREFIX_METRO = {
   "820":"cwy","821":"cwy","822":"cwy","823":"cwy","824":"cwy","825":"cwy","826":"cwy","827":"cwy","828":"cwy","829":"cwy","830":"cwy","831":"cwy",
   // Sioux Falls SD metro
   "570":"sfd","571":"sfd","572":"sfd","573":"sfd","574":"sfd","575":"sfd","576":"sfd","577":"sfd",
+  // Portland ME metro
+  "040":"pme","041":"pme","042":"pme","043":"pme","044":"pme","045":"pme","046":"pme","047":"pme","048":"pme","049":"pme",
+  // New Jersey (south/central) metro
+  "084":"nwj","085":"nwj","086":"nwj","087":"nwj","088":"nwj","089":"nwj",
 };
 
 const METRO_NAMES = {
@@ -1984,6 +1988,8 @@ const METRO_NAMES = {
   bvt: "Burlington metro",
   cwy: "Cheyenne metro",
   sfd: "Sioux Falls metro",
+  pme: "Portland metro",
+  nwj: "New Jersey metro",
 };
 
 // Short display labels for the rate-alert banner tag — airport codes where
@@ -2010,6 +2016,7 @@ const METRO_ABBR = {
   bos: "Boston",       prv: "Providence",   anc: "Anchorage",    wil: "Wilmington",
   far: "Fargo",        jkn: "Jackson, MS",  cwv: "Charleston, WV", bil: "Billings",
   mnh: "Manchester, NH", bvt: "Burlington, VT", cwy: "Cheyenne",  sfd: "Sioux Falls",
+  pme: "Portland, ME",   nwj: "New Jersey",
 };
 
 // Additional multiplier on top of state adjustment — metro rates vs. rest of state.
@@ -2096,6 +2103,8 @@ const METRO_CARRIER_ADJ = {
   bvt: { "USAA":1.01,"GEICO":0.97,"State Farm":1.03,"Progressive":1.00,"Allstate":1.05,"Liberty Mutual":1.08,"Farmers":1.01,"Nationwide":1.00,"Erie Insurance":0.97,"American Family":0.99,"Amica Mutual":0.95,"Auto-Owners":0.97 },
   cwy: { "USAA":1.01,"GEICO":0.99,"State Farm":1.03,"Progressive":1.02,"Allstate":1.06,"Liberty Mutual":1.09,"Farmers":1.03,"Nationwide":1.02,"Erie Insurance":0.98,"American Family":1.01,"Amica Mutual":0.98,"Auto-Owners":0.99 },
   sfd: { "USAA":1.00,"GEICO":0.98,"State Farm":1.03,"Progressive":1.01,"Allstate":1.05,"Liberty Mutual":1.08,"Farmers":1.02,"Nationwide":1.01,"Erie Insurance":0.98,"American Family":1.00,"Amica Mutual":0.97,"Auto-Owners":0.98 },
+  pme: { "USAA":1.01,"GEICO":0.99,"State Farm":1.03,"Progressive":1.02,"Allstate":1.06,"Liberty Mutual":1.09,"Farmers":1.02,"Nationwide":1.01,"Erie Insurance":0.98,"American Family":1.00,"Amica Mutual":0.97,"Auto-Owners":0.99 },
+  nwj: { "USAA":1.08,"GEICO":1.06,"State Farm":1.12,"Progressive":1.14,"Allstate":1.16,"Liberty Mutual":1.20,"Farmers":1.10,"Nationwide":1.10,"Erie Insurance":1.04,"American Family":1.06,"Amica Mutual":1.05,"Auto-Owners":1.06 },
 };
 
 // State-specific banners — shown below the ZIP result for matching states
@@ -2235,6 +2244,8 @@ const METRO_BANNERS = {
   bvt: { text: "Burlington, VT is one of the most affordable metros in the country — see who's cheapest.", url: "article/metro/burlington-vt.html", trend: "down", pct: "−38%" },
   cwy: { text: "Cheyenne is one of the more affordable metros — see which carriers compete hardest here.", url: "article/metro/cheyenne.html", trend: "down", pct: "−29%" },
   sfd: { text: "Sioux Falls is one of the more affordable metros — see who's cheapest in your ZIP.", url: "article/metro/sioux-falls.html", trend: "down", pct: "−25%" },
+  pme: { text: "Portland, ME is one of the most affordable metros in the country — see who's cheapest.", url: "article/metro/portland-me.html", trend: "down", pct: "−38%" },
+  nwj: { text: "New Jersey rates run 58% above the national average — compare carriers to find savings.", url: "article/metro/new-jersey.html", trend: "up", pct: "+58%" },
 };
 
 function updateStateBanner(stateCode) {
