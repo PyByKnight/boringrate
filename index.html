@@ -2935,7 +2935,7 @@ const CARRIER_HERO = {
   "Root Insurance": {
     default: { label: "Priced on How You Drive", line: "Root uses your phone to score your driving habits. Safe drivers typically pay 20–50% less than traditional carriers — credit score barely factors in." },
     overrides: [
-      { when: r => r.youngDriver || r.age === "18-24", label: "Good Driving Beats Your Age", line: "Root is one of the few carriers where being young doesn't automatically cost you — it prices on behavior, not demographics. Safe young drivers often see their best rate here." },
+      { when: r => r.youngDriver || r.age === "18-24", label: "Telematics pricing: your habits set your rate", line: "Root is one of the few carriers where being young doesn't automatically cost you — it prices on behavior, not demographics. Safe young drivers often see their best rate here." },
       { when: r => r.credit === "fair", label: "Credit Has Minimal Impact", line: "Root weights driving behavior over credit history more than any major carrier. Fair-credit drivers who drive safely often find Root unbeatable on price." },
       { when: r => r.credit === "excellent", label: "Drive Safe, Save More", line: "Root rewards the same behavior that earns excellent credit — discipline and consistency. Safe excellent-credit drivers often rank Root among their top 3." },
     ]
