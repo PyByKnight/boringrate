@@ -90,20 +90,47 @@
     border-radius: 2px;
     transform: translateY(-2px);
   }
-  nav.primary {
-    display: flex;
-    gap: 28px;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
+  nav.primary { display: flex; align-items: center; gap: 8px; }
+  .nav-tabs { display: flex; gap: 4px; }
+  .nav-tabs a { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; color: var(--ink-mute); text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: background 120ms, color 120ms; }
+  .nav-tabs a:hover { background: var(--paper-deep); color: var(--ink); }
+  .nav-tabs a.active { background: var(--ink); color: var(--paper); }
+  .nav-hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px 6px; margin-left: 4px; }
+  .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--ink); transition: transform 200ms, opacity 200ms; transform-origin: center; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mega { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--ink); color: var(--paper); border-top: 2px solid var(--accent); z-index: 200; box-shadow: 0 8px 32px rgba(0,0,0,0.18); }
+  .nav-mega.open { display: block; }
+  .nav-mega-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 0; padding: 28px; max-width: 1180px; margin: 0 auto; }
+  .nav-mega-col + .nav-mega-col { border-left: 1px solid rgba(246,241,232,0.1); padding-left: 28px; }
+  .nav-mega-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(246,241,232,0.35); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid rgba(246,241,232,0.1); }
+  .nav-mega-states { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px 0; }
+  .nav-mega-states a { font-family: var(--mono); font-size: 11px; color: rgba(246,241,232,0.65); text-decoration: none; padding: 3px 0; transition: color 120ms; letter-spacing: 0.02em; }
+  .nav-mega-states a:hover { color: var(--paper); }
+  .nav-mega-carriers { display: flex; flex-direction: column; }
+  .nav-mega-carriers a { font-family: var(--sans); font-size: 14px; font-weight: 500; color: rgba(246,241,232,0.8); text-decoration: none; padding: 8px 0; border-bottom: 1px solid rgba(246,241,232,0.08); display: flex; justify-content: space-between; align-items: center; transition: color 120ms; }
+  .nav-mega-carriers a:last-child { border-bottom: none; }
+  .nav-mega-carriers a:hover { color: var(--paper); }
+  .nav-mega-tag { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.3); letter-spacing: 0.04em; }
+  .nav-mega-head-link { display: block; text-decoration: none; color: inherit; transition: color 120ms; }
+  .nav-mega-head-link:hover { color: var(--paper); }
+  .nav-mega-metros { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px 0; }
+  .nav-mega-metros a { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.65); text-decoration: none; padding: 3px 0; transition: color 120ms; letter-spacing: 0.02em; }
+  .nav-mega-metros a:hover { color: var(--paper); }
+  @media (max-width: 800px) {
+    .nav-mega { max-height: calc(100vh - 65px); overflow-y: auto; }
+    .nav-mega-inner { grid-template-columns: 1fr; padding: 0; }
+    .nav-mega-col { padding: 0; border-bottom: 1px solid rgba(246,241,232,0.1); }
+    .nav-mega-col + .nav-mega-col { border-left: none; margin-top: 0; padding-top: 0; }
+    .nav-mega-head { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; margin: 0; border-bottom: none; font-size: 11px; }
+    .nav-mega-col-arrow { font-size: 18px; color: rgba(246,241,232,0.4); transition: transform 200ms; display: inline-block; }
+    .nav-mega-col.open .nav-mega-col-arrow { transform: rotate(180deg); }
+    .nav-mega-col-body { display: none; padding: 0 20px 16px; }
+    .nav-mega-col.open .nav-mega-col-body { display: block; }
+    .nav-mega-states { grid-template-columns: repeat(3, 1fr); }
   }
-  nav.primary a {
-    color: var(--ink-soft);
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 120ms;
-  }
-  nav.primary a:hover { color: var(--accent); }
+  @media (max-width: 480px) { .nav-tabs { display: none; } .nav-mega-states { grid-template-columns: repeat(2, 1fr); } }
 
   /* Article frame */
   article.method {
@@ -300,8 +327,6 @@
 
   @media (max-width: 640px) {
     .wrap { padding: 0 20px; }
-    nav.primary { gap: 16px; font-size: 12px; }
-    nav.primary a:not(:first-child):not(:last-child) { display: none; }
     .prose p { font-size: 16px; }
     article.method { padding: 36px 0 64px; }
   }
@@ -311,13 +336,74 @@
 
 <header class="top">
   <div class="wrap-wide top-inner">
-    <a href="index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
+    <a href="/" class="brand"><span class="brand-mark"></span>BoringRate</a>
     <nav class="primary">
-      <a href="index.html">Rankings</a>
-      <a href="index.html#about">About</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="index.html#guides">Guides</a>
+      <div class="nav-tabs">
+        <a href="/">Rate Comparison</a>
+        <a href="/coverage.html">Coverage Calculator</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Browse site" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
+  </div>
+  <div class="nav-mega" id="navMega">
+    <div class="nav-mega-inner">
+      <div class="nav-mega-col">
+        <div class="nav-mega-head" data-mega-toggle>State Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
+          <div class="nav-mega-states">
+            <a href="/article/state/alabama.html">Alabama</a><a href="/article/state/alaska.html">Alaska</a><a href="/article/state/arizona.html">Arizona</a><a href="/article/state/arkansas.html">Arkansas</a><a href="/article/state/california.html">California</a><a href="/article/state/colorado.html">Colorado</a><a href="/article/state/connecticut.html">Connecticut</a><a href="/article/state/delaware.html">Delaware</a><a href="/article/state/florida.html">Florida</a><a href="/article/state/georgia.html">Georgia</a><a href="/article/state/hawaii.html">Hawaii</a><a href="/article/state/idaho.html">Idaho</a><a href="/article/state/illinois.html">Illinois</a><a href="/article/state/indiana.html">Indiana</a><a href="/article/state/iowa.html">Iowa</a><a href="/article/state/kansas.html">Kansas</a><a href="/article/state/kentucky.html">Kentucky</a><a href="/article/state/louisiana.html">Louisiana</a><a href="/article/state/maine.html">Maine</a><a href="/article/state/maryland.html">Maryland</a><a href="/article/state/massachusetts.html">Massachusetts</a><a href="/article/state/michigan.html">Michigan</a><a href="/article/state/minnesota.html">Minnesota</a><a href="/article/state/mississippi.html">Mississippi</a><a href="/article/state/missouri.html">Missouri</a><a href="/article/state/montana.html">Montana</a><a href="/article/state/nebraska.html">Nebraska</a><a href="/article/state/nevada.html">Nevada</a><a href="/article/state/new-hampshire.html">New Hampshire</a><a href="/article/state/new-jersey.html">New Jersey</a><a href="/article/state/new-mexico.html">New Mexico</a><a href="/article/state/new-york.html">New York</a><a href="/article/state/north-carolina.html">North Carolina</a><a href="/article/state/north-dakota.html">North Dakota</a><a href="/article/state/ohio.html">Ohio</a><a href="/article/state/oklahoma.html">Oklahoma</a><a href="/article/state/oregon.html">Oregon</a><a href="/article/state/pennsylvania.html">Pennsylvania</a><a href="/article/state/rhode-island.html">Rhode Island</a><a href="/article/state/south-carolina.html">South Carolina</a><a href="/article/state/south-dakota.html">South Dakota</a><a href="/article/state/tennessee.html">Tennessee</a><a href="/article/state/texas.html">Texas</a><a href="/article/state/utah.html">Utah</a><a href="/article/state/vermont.html">Vermont</a><a href="/article/state/virginia.html">Virginia</a><a href="/article/state/washington.html">Washington</a><a href="/article/state/washington-dc.html">Washington D.C.</a><a href="/article/state/west-virginia.html">West Virginia</a><a href="/article/state/wisconsin.html">Wisconsin</a><a href="/article/state/wyoming.html">Wyoming</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-mega-col">
+        <div class="nav-mega-head" data-mega-toggle>Carrier Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
+          <div class="nav-mega-carriers">
+            <a href="/article/carrier/usaa.html">USAA <span class="nav-mega-tag">Military &amp; family</span></a>
+            <a href="/article/carrier/geico.html">GEICO <span class="nav-mega-tag">Online shoppers</span></a>
+            <a href="/article/carrier/state-farm.html">State Farm <span class="nav-mega-tag">Local agents</span></a>
+            <a href="/article/carrier/progressive.html">Progressive <span class="nav-mega-tag">High-risk</span></a>
+            <a href="/article/carrier/allstate.html">Allstate <span class="nav-mega-tag">Accident forgiveness</span></a>
+            <a href="/article/carrier/liberty-mutual.html">Liberty Mutual <span class="nav-mega-tag">New car replacement</span></a>
+            <a href="/article/carrier/farmers.html">Farmers <span class="nav-mega-tag">Full-service agents</span></a>
+            <a href="/article/carrier/nationwide.html">Nationwide <span class="nav-mega-tag">Vanishing deductible</span></a>
+            <a href="/article/carrier/erie.html">Erie <span class="nav-mega-tag">Mid-Atlantic &amp; Midwest</span></a>
+            <a href="/article/carrier/american-family.html">American Family <span class="nav-mega-tag">Midwest families</span></a>
+            <a href="/article/carrier/amica.html">Amica <span class="nav-mega-tag">Claims service</span></a>
+            <a href="/article/carrier/auto-owners.html">Auto-Owners <span class="nav-mega-tag">26-state agent</span></a>
+            <a href="/article/carrier/travelers.html">Travelers <span class="nav-mega-tag">Homeowner bundles</span></a>
+            <a href="/article/carrier/safeco.html">Safeco <span class="nav-mega-tag">Independent agents</span></a>
+            <a href="/article/carrier/aaa.html">AAA / CSAA <span class="nav-mega-tag">Members &amp; roadside</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-mega-col">
+        <div class="nav-mega-head" data-mega-toggle>Metro Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
+          <div class="nav-mega-metros">
+            <a href="/article/metro/new-york-city.html">New York City</a><a href="/article/metro/los-angeles.html">Los Angeles</a><a href="/article/metro/chicago.html">Chicago</a><a href="/article/metro/dallas-fort-worth.html">Dallas-Ft. Worth</a><a href="/article/metro/houston.html">Houston</a><a href="/article/metro/washington-dc.html">Washington DC</a><a href="/article/metro/miami.html">Miami</a><a href="/article/metro/philadelphia.html">Philadelphia</a><a href="/article/metro/atlanta.html">Atlanta</a><a href="/article/metro/phoenix.html">Phoenix</a><a href="/article/metro/seattle.html">Seattle</a><a href="/article/metro/denver.html">Denver</a><a href="/article/metro/minneapolis-st-paul.html">Minneapolis</a><a href="/article/metro/detroit.html">Detroit</a><a href="/article/metro/tampa.html">Tampa</a><a href="/article/metro/charlotte.html">Charlotte</a><a href="/article/metro/portland.html">Portland</a><a href="/article/metro/st-louis.html">St. Louis</a><a href="/article/metro/san-antonio.html">San Antonio</a><a href="/article/metro/sacramento.html">Sacramento</a><a href="/article/metro/baltimore.html">Baltimore</a><a href="/article/metro/orlando.html">Orlando</a><a href="/article/metro/las-vegas.html">Las Vegas</a><a href="/article/metro/san-jose.html">San Jose</a><a href="/article/metro/san-diego.html">San Diego</a><a href="/article/metro/nashville.html">Nashville</a><a href="/article/metro/austin.html">Austin</a><a href="/article/metro/raleigh-durham.html">Raleigh-Durham</a><a href="/article/metro/indianapolis.html">Indianapolis</a><a href="/article/metro/columbus.html">Columbus</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-mega-col">
+        <div class="nav-mega-head" data-mega-toggle>Guides <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
+        <div class="nav-mega-carriers">
+          <a href="/article/young-drivers.html">Young drivers</a>
+          <a href="/article/credit-score-insurance.html">Credit &amp; rates</a>
+          <a href="/article/sr22-insurance.html">SR-22 explained</a>
+          <a href="/article/coverage-guide.html">Coverage guide</a>
+          <a href="/article/premium-went-up.html">Why did my rate go up?</a>
+          <a href="/article/shopping-strategy.html">Shopping strategy</a>
+          <a href="/article/florida-rates-dropping.html">Florida rates</a>
+          <a href="/article/index.html">All guides →</a>
+        </div>
+        </div>
+      </div>
+      <div class="nav-mega-col">
+        <a class="nav-mega-head nav-mega-head-link" href="/coverage.html">Coverage Calculator</a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -509,5 +595,34 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  const btn = document.getElementById("navHamburger");
+  const mega = document.getElementById("navMega");
+  if (!btn || !mega) return;
+  btn.addEventListener("click", function(e) {
+    e.stopPropagation();
+    const open = !mega.classList.contains("open");
+    mega.classList.toggle("open", open);
+    btn.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", String(open));
+    if (!open) mega.querySelectorAll(".nav-mega-col").forEach(c => c.classList.remove("open"));
+  });
+  document.addEventListener("click", function(e) {
+    if (!btn.contains(e.target) && !mega.contains(e.target)) {
+      mega.classList.remove("open");
+      btn.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      mega.querySelectorAll(".nav-mega-col").forEach(c => c.classList.remove("open"));
+    }
+  });
+  mega.addEventListener("click", function(e) {
+    const head = e.target.closest("[data-mega-toggle]");
+    if (!head || window.innerWidth > 800) return;
+    e.stopPropagation();
+    head.closest(".nav-mega-col").classList.toggle("open");
+  });
+})();
+</script>
 </body>
 </html>
