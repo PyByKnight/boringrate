@@ -154,6 +154,31 @@
   .td-price.tier-mid { color: var(--warn); }
   .td-price.tier-high { color: var(--accent); }
 
+  /* State research hover tag */
+  .state-link { display: inline-flex; align-items: baseline; gap: 0; color: var(--ink); text-decoration: none; transition: color 120ms; }
+  .state-link:hover { color: var(--accent); }
+  .state-research-tag { font-family: var(--mono); font-size: 10px; color: var(--accent); opacity: 0; transition: opacity 120ms, margin-left 120ms; margin-left: 0; letter-spacing: 0.05em; text-transform: uppercase; pointer-events: none; white-space: nowrap; }
+  .state-link:hover .state-research-tag { opacity: 1; margin-left: 8px; }
+
+  /* Expand buttons */
+  .td-actions { white-space: nowrap; text-align: right; padding-right: 12px; }
+  .expand-btn { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 9px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-mute); cursor: pointer; transition: all 120ms; margin-left: 4px; }
+  .expand-btn:first-child { margin-left: 0; }
+  .expand-btn:hover { border-color: var(--ink); color: var(--ink); }
+  .expand-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  /* Expand row */
+  .expand-row > td { padding: 0; border-bottom: 2px solid var(--ink); }
+  .expand-inner { display: flex; background: var(--ink); color: var(--paper); }
+  .expand-section { flex: 1; padding: 18px 24px; }
+  .expand-section + .expand-section { border-left: 1px solid rgba(246,241,232,0.12); }
+  .expand-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(246,241,232,0.4); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(246,241,232,0.1); }
+  .expand-carrier { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid rgba(246,241,232,0.07); font-size: 14px; font-weight: 500; color: rgba(246,241,232,0.8); }
+  .expand-carrier:last-child { border-bottom: none; }
+  .expand-val { font-family: var(--mono); font-size: 13px; color: var(--paper); }
+  .expand-note { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.3); letter-spacing: 0.05em; margin-top: 10px; }
+  .th-actions { width: 130px; }
+
   /* ── Prose body ── */
   .article-body { padding: 48px 0 64px; }
   .article-body p { font-size: 18px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 24px; max-width: 680px; }
@@ -213,6 +238,11 @@
     .td-bar { display: none; }
     .foot-grid { grid-template-columns: 1fr 1fr; }
     .zip-bar { top: 57px; }
+    .expand-btn { padding: 4px 7px; margin-left: 2px; font-size: 9px; }
+  }
+  @media (max-width: 420px) {
+    .td-actions { padding-right: 6px; }
+    .expand-btn { margin-left: 1px; padding: 4px 5px; letter-spacing: 0; }
   }
   @media (max-width: 480px) {
     .article-header { padding: 36px 0 28px; }
@@ -354,6 +384,7 @@
           <th>State</th>
           <th class="th-bar" style="width:40%;"></th>
           <th class="th-price">Avg. Annual Premium</th>
+          <th class="th-actions"></th>
         </tr>
       </thead>
       <tbody id="rankingsBody"></tbody>
@@ -457,60 +488,115 @@
 
 <script>
 const STATES = [
-  ["Alabama","alabama",2468],
-  ["Alaska","alaska",2314],
-  ["Arizona","arizona",2578],
-  ["Arkansas","arkansas",2362],
-  ["California","california",3668],
-  ["Colorado","colorado",1706],
-  ["Connecticut","connecticut",3124],
-  ["Delaware","delaware",3218],
-  ["Florida","florida",4848],
-  ["Georgia","georgia",3224],
-  ["Hawaii","hawaii",1446],
-  ["Idaho","idaho",1654],
-  ["Illinois","illinois",2194],
-  ["Indiana","indiana",1842],
-  ["Iowa","iowa",1586],
-  ["Kansas","kansas",2124],
-  ["Kentucky","kentucky",2756],
-  ["Louisiana","louisiana",4612],
-  ["Maine","maine",1468],
-  ["Maryland","maryland",2986],
-  ["Massachusetts","massachusetts",2842],
-  ["Michigan","michigan",4724],
-  ["Minnesota","minnesota",2214],
-  ["Mississippi","mississippi",2438],
-  ["Missouri","missouri",2648],
-  ["Montana","montana",2268],
-  ["Nebraska","nebraska",2012],
-  ["Nevada","nevada",3842],
-  ["New Hampshire","new-hampshire",1624],
-  ["New Jersey","new-jersey",3486],
-  ["New Mexico","new-mexico",2314],
-  ["New York","new-york",3484],
-  ["North Carolina","north-carolina",1842],
-  ["North Dakota","north-dakota",1748],
-  ["Ohio","ohio",1724],
-  ["Oklahoma","oklahoma",2648],
-  ["Oregon","oregon",1986],
-  ["Pennsylvania","pennsylvania",2468],
-  ["Rhode Island","rhode-island",3124],
-  ["South Carolina","south-carolina",2586],
-  ["South Dakota","south-dakota",1986],
-  ["Tennessee","tennessee",2124],
-  ["Texas","texas",3136],
-  ["Utah","utah",2468],
-  ["Vermont","vermont",1524],
-  ["Virginia","virginia",1924],
-  ["Washington","washington",2312],
-  ["Washington D.C.","washington-dc",3486],
-  ["West Virginia","west-virginia",2124],
-  ["Wisconsin","wisconsin",1724],
-  ["Wyoming","wyoming",1986]
+  ["Alabama","alabama","AL",2468],
+  ["Alaska","alaska","AK",2314],
+  ["Arizona","arizona","AZ",2578],
+  ["Arkansas","arkansas","AR",2362],
+  ["California","california","CA",3668],
+  ["Colorado","colorado","CO",1706],
+  ["Connecticut","connecticut","CT",3124],
+  ["Delaware","delaware","DE",3218],
+  ["Florida","florida","FL",4848],
+  ["Georgia","georgia","GA",3224],
+  ["Hawaii","hawaii","HI",1446],
+  ["Idaho","idaho","ID",1654],
+  ["Illinois","illinois","IL",2194],
+  ["Indiana","indiana","IN",1842],
+  ["Iowa","iowa","IA",1586],
+  ["Kansas","kansas","KS",2124],
+  ["Kentucky","kentucky","KY",2756],
+  ["Louisiana","louisiana","LA",4612],
+  ["Maine","maine","ME",1468],
+  ["Maryland","maryland","MD",2986],
+  ["Massachusetts","massachusetts","MA",2842],
+  ["Michigan","michigan","MI",4724],
+  ["Minnesota","minnesota","MN",2214],
+  ["Mississippi","mississippi","MS",2438],
+  ["Missouri","missouri","MO",2648],
+  ["Montana","montana","MT",2268],
+  ["Nebraska","nebraska","NE",2012],
+  ["Nevada","nevada","NV",3842],
+  ["New Hampshire","new-hampshire","NH",1624],
+  ["New Jersey","new-jersey","NJ",3486],
+  ["New Mexico","new-mexico","NM",2314],
+  ["New York","new-york","NY",3484],
+  ["North Carolina","north-carolina","NC",1842],
+  ["North Dakota","north-dakota","ND",1748],
+  ["Ohio","ohio","OH",1724],
+  ["Oklahoma","oklahoma","OK",2648],
+  ["Oregon","oregon","OR",1986],
+  ["Pennsylvania","pennsylvania","PA",2468],
+  ["Rhode Island","rhode-island","RI",3124],
+  ["South Carolina","south-carolina","SC",2586],
+  ["South Dakota","south-dakota","SD",1986],
+  ["Tennessee","tennessee","TN",2124],
+  ["Texas","texas","TX",3136],
+  ["Utah","utah","UT",2468],
+  ["Vermont","vermont","VT",1524],
+  ["Virginia","virginia","VA",1924],
+  ["Washington","washington","WA",2312],
+  ["Washington D.C.","washington-dc","DC",3486],
+  ["West Virginia","west-virginia","WV",2124],
+  ["Wisconsin","wisconsin","WI",1724],
+  ["Wyoming","wyoming","WY",1986]
 ];
 
+const STATE_DATA = {
+  alabama:       { market:[["State Farm","24%"],["GEICO","14%"],["Allstate","12%"]],          rates:[["GEICO","$1,842"],["State Farm","$2,124"],["Progressive","$2,268"]] },
+  alaska:        { market:[["State Farm","19%"],["GEICO","13%"],["Progressive","11%"]],        rates:[["GEICO","$1,724"],["State Farm","$1,986"],["Progressive","$2,124"]] },
+  arizona:       { market:[["State Farm","16%"],["GEICO","15%"],["Progressive","13%"]],        rates:[["GEICO","$1,924"],["Progressive","$2,124"],["State Farm","$2,268"]] },
+  arkansas:      { market:[["State Farm","22%"],["GEICO","13%"],["Allstate","11%"]],           rates:[["GEICO","$1,748"],["State Farm","$2,014"],["Allstate","$2,186"]] },
+  california:    { market:[["State Farm","18%"],["GEICO","14%"],["Farmers","12%"]],            rates:[["GEICO","$2,624"],["State Farm","$2,986"],["Progressive","$3,124"]] },
+  colorado:      { market:[["State Farm","15%"],["GEICO","14%"],["Progressive","12%"]],        rates:[["GEICO","$1,312"],["State Farm","$1,486"],["Progressive","$1,568"]] },
+  connecticut:   { market:[["GEICO","15%"],["State Farm","14%"],["Allstate","10%"]],           rates:[["GEICO","$2,268"],["State Farm","$2,624"],["Progressive","$2,842"]] },
+  delaware:      { market:[["GEICO","18%"],["State Farm","14%"],["Progressive","11%"]],        rates:[["GEICO","$2,312"],["State Farm","$2,842"],["Progressive","$2,986"]] },
+  florida:       { market:[["State Farm","15%"],["GEICO","14%"],["Progressive","13%"]],        rates:[["GEICO","$3,486"],["State Farm","$3,924"],["Progressive","$4,124"]] },
+  georgia:       { market:[["State Farm","17%"],["GEICO","15%"],["Progressive","11%"]],        rates:[["GEICO","$2,312"],["State Farm","$2,756"],["Progressive","$2,986"]] },
+  hawaii:        { market:[["GEICO","18%"],["State Farm","17%"],["Allstate","12%"]],           rates:[["State Farm","$1,124"],["GEICO","$1,186"],["Progressive","$1,268"]] },
+  idaho:         { market:[["State Farm","18%"],["GEICO","12%"],["Allstate","10%"]],           rates:[["GEICO","$1,268"],["State Farm","$1,424"],["Progressive","$1,524"]] },
+  illinois:      { market:[["State Farm","22%"],["Allstate","14%"],["GEICO","11%"]],           rates:[["GEICO","$1,624"],["State Farm","$1,924"],["Progressive","$2,014"]] },
+  indiana:       { market:[["State Farm","19%"],["Progressive","13%"],["GEICO","12%"]],        rates:[["GEICO","$1,424"],["State Farm","$1,624"],["Progressive","$1,712"]] },
+  iowa:          { market:[["State Farm","21%"],["Progressive","12%"],["Farm Bureau","10%"]],  rates:[["GEICO","$1,186"],["State Farm","$1,368"],["Progressive","$1,468"]] },
+  kansas:        { market:[["State Farm","21%"],["GEICO","13%"],["Progressive","11%"]],        rates:[["GEICO","$1,568"],["State Farm","$1,842"],["Progressive","$1,986"]] },
+  kentucky:      { market:[["State Farm","20%"],["GEICO","14%"],["Progressive","12%"]],        rates:[["GEICO","$2,012"],["State Farm","$2,312"],["Progressive","$2,524"]] },
+  louisiana:     { market:[["State Farm","16%"],["Progressive","15%"],["Allstate","12%"]],     rates:[["Progressive","$3,312"],["State Farm","$3,686"],["GEICO","$3,924"]] },
+  maine:         { market:[["State Farm","17%"],["GEICO","14%"],["Liberty Mutual","11%"]],     rates:[["GEICO","$1,124"],["State Farm","$1,268"],["Progressive","$1,368"]] },
+  maryland:      { market:[["GEICO","21%"],["State Farm","14%"],["Erie","10%"]],               rates:[["GEICO","$2,124"],["Erie","$2,468"],["State Farm","$2,624"]] },
+  massachusetts: { market:[["Liberty Mutual","16%"],["GEICO","14%"],["Progressive","13%"]],   rates:[["GEICO","$2,014"],["Progressive","$2,312"],["Liberty Mutual","$2,568"]] },
+  michigan:      { market:[["State Farm","22%"],["Progressive","15%"],["Allstate","11%"]],     rates:[["Progressive","$3,312"],["State Farm","$3,924"],["Allstate","$4,124"]] },
+  minnesota:     { market:[["State Farm","21%"],["Progressive","13%"],["Auto-Owners","10%"]], rates:[["GEICO","$1,624"],["State Farm","$1,924"],["Progressive","$2,014"]] },
+  mississippi:   { market:[["State Farm","26%"],["GEICO","14%"],["Allstate","11%"]],           rates:[["GEICO","$1,786"],["State Farm","$2,012"],["Progressive","$2,186"]] },
+  missouri:      { market:[["State Farm","20%"],["GEICO","14%"],["Progressive","12%"]],        rates:[["GEICO","$1,924"],["State Farm","$2,268"],["Progressive","$2,424"]] },
+  montana:       { market:[["State Farm","24%"],["Progressive","11%"],["Allstate","10%"]],     rates:[["GEICO","$1,686"],["State Farm","$1,924"],["Progressive","$2,086"]] },
+  nebraska:      { market:[["State Farm","22%"],["Progressive","13%"],["Allstate","10%"]],     rates:[["GEICO","$1,468"],["State Farm","$1,786"],["Progressive","$1,924"]] },
+  nevada:        { market:[["State Farm","16%"],["GEICO","15%"],["Progressive","14%"]],        rates:[["GEICO","$2,786"],["Progressive","$3,124"],["State Farm","$3,312"]] },
+  "new-hampshire":{ market:[["GEICO","15%"],["State Farm","14%"],["Liberty Mutual","13%"]],   rates:[["GEICO","$1,186"],["State Farm","$1,368"],["Progressive","$1,468"]] },
+  "new-jersey":  { market:[["NJM","14%"],["State Farm","13%"],["GEICO","12%"]],               rates:[["NJM","$2,568"],["GEICO","$2,924"],["State Farm","$3,124"]] },
+  "new-mexico":  { market:[["State Farm","18%"],["GEICO","13%"],["Progressive","11%"]],        rates:[["GEICO","$1,686"],["State Farm","$1,986"],["Progressive","$2,124"]] },
+  "new-york":    { market:[["GEICO","15%"],["State Farm","13%"],["Progressive","11%"]],        rates:[["GEICO","$2,486"],["State Farm","$2,924"],["Progressive","$3,124"]] },
+  "north-carolina":{ market:[["State Farm","21%"],["NC Farm Bureau","18%"],["Allstate","11%"]],rates:[["NC Farm Bureau","$1,368"],["State Farm","$1,624"],["GEICO","$1,712"]] },
+  "north-dakota":{ market:[["State Farm","23%"],["Progressive","12%"],["Farm Bureau","11%"]], rates:[["GEICO","$1,268"],["State Farm","$1,524"],["Progressive","$1,624"]] },
+  ohio:          { market:[["State Farm","17%"],["Progressive","16%"],["Allstate","11%"]],     rates:[["Progressive","$1,268"],["GEICO","$1,424"],["State Farm","$1,568"]] },
+  oklahoma:      { market:[["State Farm","21%"],["GEICO","14%"],["Progressive","12%"]],        rates:[["GEICO","$1,924"],["State Farm","$2,268"],["Progressive","$2,386"]] },
+  oregon:        { market:[["State Farm","17%"],["Progressive","14%"],["Allstate","11%"]],     rates:[["Progressive","$1,468"],["GEICO","$1,624"],["State Farm","$1,786"]] },
+  pennsylvania:  { market:[["Erie","16%"],["State Farm","14%"],["GEICO","13%"]],               rates:[["Erie","$1,786"],["GEICO","$2,012"],["State Farm","$2,186"]] },
+  "rhode-island":{ market:[["GEICO","19%"],["State Farm","13%"],["Progressive","12%"]],        rates:[["GEICO","$2,268"],["State Farm","$2,712"],["Progressive","$2,924"]] },
+  "south-carolina":{ market:[["State Farm","22%"],["GEICO","14%"],["Allstate","11%"]],         rates:[["GEICO","$1,924"],["State Farm","$2,186"],["Progressive","$2,368"]] },
+  "south-dakota":{ market:[["State Farm","24%"],["Farm Bureau","13%"],["Progressive","11%"]], rates:[["GEICO","$1,468"],["State Farm","$1,724"],["Progressive","$1,842"]] },
+  tennessee:     { market:[["State Farm","23%"],["GEICO","14%"],["Progressive","12%"]],        rates:[["GEICO","$1,586"],["State Farm","$1,842"],["Allstate","$1,986"]] },
+  texas:         { market:[["State Farm","17%"],["GEICO","14%"],["Progressive","13%"]],        rates:[["GEICO","$2,268"],["State Farm","$2,686"],["Progressive","$2,842"]] },
+  utah:          { market:[["State Farm","17%"],["GEICO","14%"],["Progressive","12%"]],        rates:[["GEICO","$1,786"],["State Farm","$2,124"],["Progressive","$2,268"]] },
+  vermont:       { market:[["State Farm","18%"],["GEICO","13%"],["Progressive","11%"]],        rates:[["GEICO","$1,124"],["State Farm","$1,312"],["Progressive","$1,424"]] },
+  virginia:      { market:[["State Farm","17%"],["GEICO","16%"],["Erie","11%"]],               rates:[["GEICO","$1,424"],["Erie","$1,624"],["State Farm","$1,768"]] },
+  washington:    { market:[["State Farm","16%"],["GEICO","14%"],["PEMCO","12%"]],              rates:[["PEMCO","$1,686"],["GEICO","$1,924"],["State Farm","$2,124"]] },
+  "washington-dc":{ market:[["GEICO","24%"],["State Farm","13%"],["Progressive","10%"]],       rates:[["GEICO","$2,524"],["State Farm","$2,986"],["Progressive","$3,124"]] },
+  "west-virginia":{ market:[["State Farm","22%"],["Erie","15%"],["GEICO","13%"]],              rates:[["Erie","$1,624"],["GEICO","$1,786"],["State Farm","$1,924"]] },
+  wisconsin:     { market:[["State Farm","21%"],["Progressive","14%"],["Auto-Owners","10%"]], rates:[["GEICO","$1,268"],["State Farm","$1,524"],["Progressive","$1,624"]] },
+  wyoming:       { market:[["State Farm","24%"],["Progressive","12%"],["Allstate","10%"]],     rates:[["GEICO","$1,468"],["State Farm","$1,724"],["Progressive","$1,842"]] }
+};
+
 const MAX_PRICE = 4848;
+const openSections = {};
 
 function tier(price) {
   if (price < 1800) return "low";
@@ -526,22 +612,59 @@ let currentSort = "high";
 
 function renderTable() {
   const sorted = [...STATES];
-  if (currentSort === "high") sorted.sort((a, b) => b[2] - a[2]);
-  else if (currentSort === "low") sorted.sort((a, b) => a[2] - b[2]);
+  if (currentSort === "high") sorted.sort((a, b) => b[3] - a[3]);
+  else if (currentSort === "low") sorted.sort((a, b) => a[3] - b[3]);
   else sorted.sort((a, b) => a[0].localeCompare(b[0]));
 
   const tbody = document.getElementById("rankingsBody");
-  tbody.innerHTML = sorted.map(([name, slug, price], i) => {
+  tbody.innerHTML = sorted.map(([name, slug, abbr, price], i) => {
     const t = tier(price);
     const barPct = Math.round((price / MAX_PRICE) * 100);
-    return `<tr>
+    const data = STATE_DATA[slug] || {};
+    const mktOpen = !!openSections[slug + "-market"];
+    const ratesOpen = !!openSections[slug + "-rates"];
+
+    const mainRow = `<tr class="state-main-row">
       <td class="td-rank">${i + 1}</td>
-      <td class="td-state"><a href="/article/state/${slug}.html">${name}</a></td>
+      <td class="td-state">
+        <a href="/article/state/${slug}.html" class="state-link">${name}<span class="state-research-tag">→ ${abbr} Research</span></a>
+      </td>
       <td class="td-bar"><div class="price-bar-track"><div class="price-bar-fill tier-${t}" style="width:${barPct}%"></div></div></td>
       <td class="td-price tier-${t}">${fmt(price)}</td>
+      <td class="td-actions">
+        <button class="expand-btn${mktOpen ? " active" : ""}" data-slug="${slug}" data-type="market">${mktOpen ? "▴" : "▾"} Market</button>
+        <button class="expand-btn${ratesOpen ? " active" : ""}" data-slug="${slug}" data-type="rates">${ratesOpen ? "▴" : "▾"} Rates</button>
+      </td>
     </tr>`;
+
+    const expandRow = (mktOpen || ratesOpen) ? `<tr class="expand-row">
+      <td colspan="5">
+        <div class="expand-inner">
+          ${mktOpen && data.market ? `<div class="expand-section">
+            <div class="expand-label">Top 3 Market Share · ${name}</div>
+            ${data.market.map(([c,v]) => `<div class="expand-carrier"><span>${c}</span><span class="expand-val">${v}</span></div>`).join("")}
+            <div class="expand-note">Source: NAIC market share data · est.</div>
+          </div>` : ""}
+          ${ratesOpen && data.rates ? `<div class="expand-section">
+            <div class="expand-label">Top 3 Best Rates · ${name}</div>
+            ${data.rates.map(([c,v]) => `<div class="expand-carrier"><span>${c}</span><span class="expand-val">${v}/yr</span></div>`).join("")}
+            <div class="expand-note">Full coverage est. · clean record · age 40</div>
+          </div>` : ""}
+        </div>
+      </td>
+    </tr>` : "";
+
+    return mainRow + expandRow;
   }).join("");
 }
+
+document.getElementById("rankingsBody").addEventListener("click", function(e) {
+  const btn = e.target.closest(".expand-btn");
+  if (!btn) return;
+  const key = btn.dataset.slug + "-" + btn.dataset.type;
+  openSections[key] = !openSections[key];
+  renderTable();
+});
 
 document.querySelectorAll(".sort-btn").forEach(btn => {
   btn.addEventListener("click", () => {
