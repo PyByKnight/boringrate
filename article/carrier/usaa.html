@@ -253,8 +253,40 @@ document.getElementById("zipBarForm").addEventListener("submit",function(e){e.pr
 document.getElementById("zipBarInput").addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
 document.getElementById("embedZipForm").addEventListener("submit",function(e){e.preventDefault();var zip=document.getElementById("embedZipInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("embedZipInput").focus();return;}window.location.href="/?zip="+zip;});
 document.getElementById("embedZipInput").addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
-document.getElementById("articleEmailBtn").addEventListener("click",function(){var email=document.getElementById("articleEmailInput").value.trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){document.getElementById("articleEmailInput").focus();return;}document.getElementById("articleEmailForm").style.display="none";document.getElementById("articleEmailThanks").style.display="block";});
+
 (function(){var btn=document.getElementById('navHamburger');var mega=document.getElementById('navMega');if(!btn||!mega)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));if(!open)mega.querySelectorAll('.nav-mega-col').forEach(function(c){c.classList.remove('open');});});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');mega.querySelectorAll('.nav-mega-col').forEach(function(c){c.classList.remove('open');});}});mega.addEventListener('click',function(e){var head=e.target.closest('[data-mega-toggle]');if(!head||window.innerWidth>800)return;e.stopPropagation();head.closest('.nav-mega-col').classList.toggle('open');});})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function(){
+  var _sb=supabase.createClient("https://uayypfeqltlrxkdqgvcz.supabase.co","sb_publishable_gAKR-IoPDphx8Zp0GlVt7Q_JeYKeU5f");
+  var btn=document.getElementById("articleEmailBtn");
+  if(!btn)return;
+  btn.addEventListener("click",async function(){
+    var email=document.getElementById("articleEmailInput").value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){document.getElementById("articleEmailInput").focus();return;}
+    var src=window.location.pathname.replace(/\/article\//,'').replace(/\.html$/,'').replace('/','_');
+    btn.textContent="Sending…";btn.disabled=true;
+    var r=await _sb.auth.signInWithOtp({email,options:{emailRedirectTo:window.location.href,data:{source:src}}});
+    if(!r.error){
+      document.getElementById("articleEmailForm").style.display="none";
+      var t=document.getElementById("articleEmailThanks");
+      t.textContent="✓ Check your inbox — click the link to confirm.";
+      t.style.display="block";
+    } else{btn.textContent="Notify me";btn.disabled=false;}
+  });
+  _sb.auth.onAuthStateChange(async function(event,session){
+    if(event==="SIGNED_IN"&&session&&session.user){
+      var src=window.location.pathname.replace(/\/article\//,'').replace(/\.html$/,'').replace('/','_');
+      var stored=JSON.parse(localStorage.getItem("br_profile")||"{}");
+      await _sb.from("profiles").upsert({id:session.user.id,source:src,zip:stored.zip||null,updated_at:new Date().toISOString()});
+      var t=document.getElementById("articleEmailThanks");
+      if(t){t.textContent="✓ You’re confirmed — we’ll notify you when rates change.";t.style.display="block";}
+      var f=document.getElementById("articleEmailForm");
+      if(f)f.style.display="none";
+    }
+  });
+})();
 </script>
 </body>
 </html>

@@ -322,22 +322,6 @@ document.getElementById("embedZipForm").addEventListener("submit",e=>{
   window.location.href="../../index.html?zip="+zip;
 });
 (function(){
-  const btn=document.getElementById("articleEmailBtn");
-  const inp=document.getElementById("articleEmailInput");
-  const thanks=document.getElementById("articleEmailThanks");
-  if(!btn)return;
-  btn.addEventListener("click",async()=>{
-    const email=inp.value.trim();
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){inp.focus();return;}
-    btn.disabled=true;btn.textContent="Sending...";
-    try{
-      const r=await fetch("https://boringrate.com/api/subscribe",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email,source:"billings-metro"})});
-      if(r.ok){document.getElementById("articleEmailForm").style.display="none";thanks.style.display="block";}
-      else{btn.disabled=false;btn.textContent="Notify me";}
-    }catch{btn.disabled=false;btn.textContent="Notify me";}
-  });
-}());
-(function(){
   const ham=document.getElementById("navHamburger");
   const mega=document.getElementById("navMega");
   if(!ham||!mega)return;
@@ -346,6 +330,38 @@ document.getElementById("embedZipForm").addEventListener("submit",e=>{
     h.addEventListener("click",()=>{h.closest(".nav-mega-col").classList.toggle("open");});
   });
 }());
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function(){
+  var _sb=supabase.createClient("https://uayypfeqltlrxkdqgvcz.supabase.co","sb_publishable_gAKR-IoPDphx8Zp0GlVt7Q_JeYKeU5f");
+  var btn=document.getElementById("articleEmailBtn");
+  if(!btn)return;
+  btn.addEventListener("click",async function(){
+    var email=document.getElementById("articleEmailInput").value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){document.getElementById("articleEmailInput").focus();return;}
+    var src=window.location.pathname.replace(/\/article\//,'').replace(/\.html$/,'').replace('/','_');
+    btn.textContent="Sending…";btn.disabled=true;
+    var r=await _sb.auth.signInWithOtp({email,options:{emailRedirectTo:window.location.href,data:{source:src}}});
+    if(!r.error){
+      document.getElementById("articleEmailForm").style.display="none";
+      var t=document.getElementById("articleEmailThanks");
+      t.textContent="✓ Check your inbox — click the link to confirm.";
+      t.style.display="block";
+    } else{btn.textContent="Notify me";btn.disabled=false;}
+  });
+  _sb.auth.onAuthStateChange(async function(event,session){
+    if(event==="SIGNED_IN"&&session&&session.user){
+      var src=window.location.pathname.replace(/\/article\//,'').replace(/\.html$/,'').replace('/','_');
+      var stored=JSON.parse(localStorage.getItem("br_profile")||"{}");
+      await _sb.from("profiles").upsert({id:session.user.id,source:src,zip:stored.zip||null,updated_at:new Date().toISOString()});
+      var t=document.getElementById("articleEmailThanks");
+      if(t){t.textContent="✓ You’re confirmed — we’ll notify you when rates change.";t.style.display="block";}
+      var f=document.getElementById("articleEmailForm");
+      if(f)f.style.display="none";
+    }
+  });
+})();
 </script>
 </body>
 </html>
