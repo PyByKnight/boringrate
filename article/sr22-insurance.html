@@ -295,6 +295,21 @@
           <option>Amica</option>
           <option>Other</option>
         </select>
+        <select class="email-select email-month" id="articleEmailMonth" aria-label="Renewal month (optional)">
+          <option value="">Renewal month (optional)</option>
+          <option>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+        </select>
         <button type="button" class="email-btn" id="articleEmailBtn">Notify me</button>
       </div>
       <div class="email-thanks" id="articleEmailThanks">✓ You're on the list.</div>
@@ -384,10 +399,11 @@ document.getElementById("zipBarInput").addEventListener("input", e => {
     var email=document.getElementById("articleEmailInput").value.trim();
     var zip=document.getElementById("articleEmailZip").value.trim();
     var carrier=document.getElementById("articleEmailCarrier").value;
+    var renewal=document.getElementById("articleEmailMonth").value;
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){document.getElementById("articleEmailInput").focus();return;}
     if(!/^\d{5}$/.test(zip)){document.getElementById("articleEmailZip").focus();return;}
     var src=window.location.pathname.replace(/\/article\//,'').replace(/\.html$/,'').replace('/','_');
-    localStorage.setItem("br_notify",JSON.stringify({zip,carrier,source:src}));
+    localStorage.setItem("br_notify",JSON.stringify({zip,carrier,renewal,source:src}));
     btn.textContent="Sending…";btn.disabled=true;
     var r=await _sb.auth.signInWithOtp({email,options:{emailRedirectTo:window.location.href,data:{source:src}}});
     if(!r.error){
@@ -402,7 +418,7 @@ document.getElementById("zipBarInput").addEventListener("input", e => {
       var stored=JSON.parse(localStorage.getItem("br_notify")||"{}");
       var profile=JSON.parse(localStorage.getItem("br_profile")||"{}");
       var src=stored.source||window.location.pathname.replace(/\/article\//,'').replace(/\.html$/,'').replace('/','_');
-      await _sb.from("profiles").upsert({id:session.user.id,source:src,zip:stored.zip||profile.zip||null,carrier:stored.carrier||null,updated_at:new Date().toISOString()});
+      await _sb.from("profiles").upsert({id:session.user.id,source:src,zip:stored.zip||profile.zip||null,carrier:stored.carrier||null,renewal_month:stored.renewal||null,updated_at:new Date().toISOString()});
       var t=document.getElementById("articleEmailThanks");
       if(t){t.textContent="✓ You're confirmed — we'll notify you when rates change.";t.style.display="block";}
       var f=document.getElementById("articleEmailForm");
