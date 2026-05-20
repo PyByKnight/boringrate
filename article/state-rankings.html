@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="canonical" href="https://boringrate.com/article/state-rankings.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Car Insurance Rates by State: 2026 Rankings — BoringRate</title>
+<meta name="description" content="All 51 states ranked by average annual car insurance premium. Sort by price or alphabetically, then click any state for a full breakdown of carriers and rates." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="BoringRate" />
+<meta property="og:url" content="https://boringrate.com/article/state-rankings.html" />
+<meta property="og:title" content="Car Insurance Rates by State: 2026 Rankings" />
+<meta property="og:description" content="All 51 states ranked by average annual car insurance premium. Sort by price or alphabetically, then click any state for a full breakdown." />
+<meta property="og:image" content="https://boringrate.com/og-default.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink: #161512;
+    --ink-soft: #3a3631;
+    --ink-mute: #6b665e;
+    --paper: #f6f1e8;
+    --paper-deep: #ece5d6;
+    --rule: #d8d0bd;
+    --accent: #b4321a;
+    --accent-deep: #8a1f0f;
+    --good: #2f6b3a;
+    --warn: #b8810a;
+    --serif: 'Fraunces', 'Georgia', serif;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { overflow-x: hidden; font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; font-size: 17px; -webkit-font-smoothing: antialiased; }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.06 0 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.55;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+  .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+
+  /* ── Nav ── */
+  header.top { border-bottom: 1px solid var(--rule); padding: 18px 0; background: var(--paper); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(6px); }
+  .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 26px; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; display: flex; align-items: baseline; gap: 8px; }
+  .brand-mark { display: inline-block; width: 10px; height: 10px; background: var(--accent); border-radius: 2px; transform: translateY(-2px); }
+  nav.primary { display: flex; align-items: center; gap: 8px; }
+  .nav-tabs { display: flex; border: 1px solid var(--rule); }
+  .nav-tabs a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; padding: 6px 13px; border-right: 1px solid var(--rule); transition: all 120ms; white-space: nowrap; }
+  .nav-tabs a:last-child { border-right: none; }
+  .nav-hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px 6px; margin-left: auto; }
+  .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--ink); transition: transform 200ms, opacity 200ms; transform-origin: center; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mega { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--ink); color: var(--paper); border-top: 2px solid var(--accent); z-index: 200; box-shadow: 0 8px 32px rgba(0,0,0,0.18); }
+  .nav-mega.open { display: block; }
+  .nav-mega-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 0; padding: 28px; max-width: 1180px; margin: 0 auto; }
+  .nav-mega-col + .nav-mega-col { border-left: 1px solid rgba(246,241,232,0.1); padding-left: 28px; }
+  .nav-mega-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(246,241,232,0.35); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid rgba(246,241,232,0.1); }
+  .nav-mega-head-link { display: block; text-decoration: none; color: inherit; transition: color 120ms; }
+  .nav-mega-head-link:hover { color: var(--paper); }
+  .nav-mega-states { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px 0; }
+  .nav-mega-states a { font-family: var(--mono); font-size: 11px; color: rgba(246,241,232,0.65); text-decoration: none; padding: 3px 0; transition: color 120ms; letter-spacing: 0.02em; }
+  .nav-mega-states a:hover { color: var(--paper); }
+  .nav-mega-carriers { display: flex; flex-direction: column; }
+  .nav-mega-carriers a { font-family: var(--sans); font-size: 14px; font-weight: 500; color: rgba(246,241,232,0.8); text-decoration: none; padding: 8px 0; border-bottom: 1px solid rgba(246,241,232,0.08); display: flex; justify-content: space-between; align-items: center; transition: color 120ms; }
+  .nav-mega-carriers a:last-child { border-bottom: none; }
+  .nav-mega-carriers a:hover { color: var(--paper); }
+  .nav-mega-tag { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.3); letter-spacing: 0.04em; }
+  .nav-mega-metros { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px 0; }
+  .nav-mega-metros a { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.65); text-decoration: none; padding: 3px 0; transition: color 120ms; letter-spacing: 0.02em; }
+  .nav-mega-metros a:hover { color: var(--paper); }
+  @media (max-width: 900px) {
+    .nav-tabs { display: none; }
+    .nav-method { display: none; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .zip-bar-slogan { display: none; }
+    .zip-bar-inner { justify-content: flex-end; }
+  }
+  @media (max-width: 800px) {
+    .nav-mega { max-height: calc(100vh - 65px); overflow-y: auto; }
+    .nav-mega-inner { grid-template-columns: 1fr; padding: 0; }
+    .nav-mega-col { padding: 0; border-bottom: 1px solid rgba(246,241,232,0.1); }
+    .nav-mega-col + .nav-mega-col { border-left: none; margin-top: 0; padding-top: 0; }
+    .nav-mega-head { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; margin: 0; border-bottom: none; font-size: 11px; }
+    .nav-mega-col-arrow { font-size: 18px; color: rgba(246,241,232,0.4); transition: transform 200ms; display: inline-block; }
+    .nav-mega-col.open .nav-mega-col-arrow { transform: rotate(180deg); }
+    .nav-mega-col-body { display: none; padding: 0 20px 16px; }
+    .nav-mega-col.open .nav-mega-col-body { display: block; }
+    .nav-mega-states { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 480px) { .nav-tabs { display: none; } .nav-mega-states { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ── Article header ── */
+  .article-header { padding: 56px 0 40px; border-bottom: 1px solid var(--rule); }
+  .article-kicker { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 18px; }
+  .article-kicker a { color: var(--accent); text-decoration: none; }
+  .article-kicker a:hover { text-decoration: underline; }
+  h1.article-title { font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 4.5vw, 54px); line-height: 1.05; letter-spacing: -0.025em; max-width: 760px; margin-bottom: 20px; }
+  .article-dek { font-family: var(--serif); font-size: 20px; color: var(--ink-soft); max-width: 640px; line-height: 1.45; margin-bottom: 24px; font-style: italic; }
+  .article-byline { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── Summary stat cards ── */
+  .stat-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 40px 0; }
+  .stat-card { background: var(--paper); padding: 24px 28px; }
+  .stat-card-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-mute); margin-bottom: 8px; }
+  .stat-card-val { font-family: var(--serif); font-size: 32px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; margin-bottom: 4px; }
+  .stat-card-val.good { color: var(--good); }
+  .stat-card-val.bad { color: var(--accent); }
+  .stat-card-sub { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
+
+  /* ── Sort controls ── */
+  .sort-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+  .sort-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); white-space: nowrap; }
+  .sort-btn { font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; padding: 7px 14px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-soft); cursor: pointer; transition: all 120ms; white-space: nowrap; }
+  .sort-btn:hover { border-color: var(--ink); color: var(--ink); }
+  .sort-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  /* ── Rankings table ── */
+  .rankings-wrap { border: 1px solid var(--rule); overflow: hidden; margin-bottom: 48px; }
+  .rankings-table { width: 100%; border-collapse: collapse; }
+  .rankings-table thead th { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-mute); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--rule); background: var(--paper-deep); white-space: nowrap; }
+  .rankings-table thead th.th-rank { width: 48px; text-align: center; }
+  .rankings-table thead th.th-price { text-align: right; }
+  .rankings-table tbody tr { border-bottom: 1px solid var(--rule); transition: background 80ms; }
+  .rankings-table tbody tr:last-child { border-bottom: none; }
+  .rankings-table tbody tr:hover { background: var(--paper-deep); }
+  .rankings-table td { padding: 13px 16px; vertical-align: middle; }
+  .td-rank { font-family: var(--mono); font-size: 12px; color: var(--ink-mute); text-align: center; width: 48px; }
+  .td-state a { font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; }
+  .td-state a:hover { color: var(--accent); }
+  .td-bar { width: 40%; padding-right: 0; }
+  .price-bar-track { height: 6px; background: var(--paper-deep); border-radius: 3px; overflow: hidden; border: 1px solid var(--rule); }
+  .price-bar-fill { height: 100%; border-radius: 3px; transition: width 300ms ease; }
+  .price-bar-fill.tier-low { background: var(--good); }
+  .price-bar-fill.tier-mid { background: var(--warn); }
+  .price-bar-fill.tier-high { background: var(--accent); }
+  .td-price { font-family: var(--mono); font-size: 14px; font-weight: 500; text-align: right; white-space: nowrap; }
+  .td-price.tier-low { color: var(--good); }
+  .td-price.tier-mid { color: var(--warn); }
+  .td-price.tier-high { color: var(--accent); }
+
+  /* ── Prose body ── */
+  .article-body { padding: 48px 0 64px; }
+  .article-body p { font-size: 18px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 24px; max-width: 680px; }
+  .article-body p strong { color: var(--ink); font-weight: 600; }
+  .article-body p a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .article-body p a:hover { border-color: var(--accent); }
+  .article-body h2 { font-family: var(--serif); font-size: 26px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.15; margin: 48px 0 14px; color: var(--ink); max-width: 680px; }
+
+  /* ── Coverage CTA ── */
+  .tool-cta { background: var(--ink); color: var(--paper); padding: 32px 36px; margin: 40px 0; max-width: 680px; }
+  .tool-cta h3 { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
+  .tool-cta p { font-size: 15px; color: rgba(246,241,232,0.75); margin-bottom: 20px; max-width: none; line-height: 1.5; }
+  .tool-cta a { display: inline-block; font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 24px; background: var(--accent); color: var(--paper); text-decoration: none; transition: background 120ms; }
+  .tool-cta a:hover { background: var(--accent-deep); }
+
+  /* ── ZIP bar ── */
+  .zip-bar { position: sticky; top: 61px; z-index: 40; background: var(--paper); border-bottom: 2px solid var(--accent); padding: 10px 0; backdrop-filter: blur(6px); }
+  .zip-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .zip-bar-slogan { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--ink-soft); letter-spacing: -0.01em; white-space: nowrap; }
+  .zip-bar-slogan strong { font-style: normal; font-weight: 600; color: var(--ink); }
+  .zip-bar-form { display: flex; gap: 0; align-items: stretch; flex-shrink: 0; }
+  .zip-bar-input { font-family: var(--mono); font-size: 16px; letter-spacing: 0.14em; text-align: center; padding: 9px 14px; width: 110px; border: 2px solid var(--ink); border-right: none; background: var(--paper); color: var(--ink); outline: none; transition: border-color 120ms; }
+  .zip-bar-input::placeholder { color: var(--ink-mute); letter-spacing: 0.1em; }
+  .zip-bar-input:focus { border-color: var(--accent); }
+  .zip-bar-btn { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; padding: 9px 18px; border: 2px solid var(--accent); background: var(--accent); color: var(--paper); cursor: pointer; white-space: nowrap; transition: background 120ms, border-color 120ms; }
+  .zip-bar-btn:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+
+  /* ── Related + Email ── */
+  .related-articles { margin: 48px 0 0; max-width: 680px; border-top: 1px solid var(--rule); padding-top: 32px; }
+  .related-articles h3 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 20px; }
+  .related-list { display: flex; flex-direction: column; gap: 16px; }
+  .related-item a { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink); text-decoration: none; display: block; margin-bottom: 4px; line-height: 1.3; }
+  .related-item a:hover { color: var(--accent); }
+  .related-item span { font-family: var(--sans); font-size: 14px; color: var(--ink-mute); }
+  .article-email { background: var(--paper-deep); border: 1px solid var(--rule); padding: 28px 32px; margin: 48px 0 0; max-width: 680px; }
+  .article-email strong { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: -0.01em; display: block; margin-bottom: 6px; }
+  .article-email .sub { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 18px; line-height: 1.55; }
+  .email-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .email-input { flex: 1; min-width: 200px; font-family: var(--sans); font-size: 14px; padding: 11px 14px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); outline: none; transition: border-color 120ms; }
+  .email-input:focus { border-color: var(--ink); }
+  .email-btn { font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 11px 22px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); cursor: pointer; white-space: nowrap; transition: background 120ms, border-color 120ms; }
+  .email-btn:hover { background: var(--accent); border-color: var(--accent); }
+  .email-thanks { font-family: var(--mono); font-size: 12px; color: var(--good); letter-spacing: 0.08em; text-transform: uppercase; display: none; margin-top: 12px; }
+
+  /* ── Footer ── */
+  footer { padding: 56px 0 36px; background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  footer .brand { color: var(--paper); }
+  footer p { font-size: 14px; color: rgba(246,241,232,0.7); margin-top: 12px; max-width: 320px; line-height: 1.55; }
+  .foot-col h5 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; color: rgba(246,241,232,0.5); }
+  .foot-col a { display: block; color: var(--paper); text-decoration: none; font-size: 14px; margin-bottom: 8px; opacity: 0.85; transition: opacity 120ms; }
+  .foot-col a:hover { opacity: 1; color: #f0a89a; }
+  .legal { font-size: 11px; color: rgba(246,241,232,0.5); border-top: 1px solid rgba(246,241,232,0.15); padding-top: 22px; line-height: 1.6; font-family: var(--mono); letter-spacing: 0.04em; }
+
+  @media (max-width: 720px) {
+    .stat-cards { grid-template-columns: 1fr; }
+    .td-bar { display: none; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .zip-bar { top: 57px; }
+  }
+  @media (max-width: 480px) {
+    .article-header { padding: 36px 0 28px; }
+    .article-body { padding: 32px 0 48px; }
+    .article-body p { font-size: 16px; }
+    .tool-cta { padding: 24px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <a href="/index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
+    <nav class="primary">
+      <div class="nav-tabs">
+        <a href="/index.html">Rate Comparison</a>
+        <a href="/coverage.html">Coverage Choices</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Browse site" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+  <div class="nav-mega" id="navMega">
+    <div class="nav-mega-inner">
+      <div class="nav-mega-col">
+        <div class="nav-mega-head" data-mega-toggle>State Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
+          <div class="nav-mega-states">
+            <a href="/article/state/alabama.html">Alabama</a><a href="/article/state/alaska.html">Alaska</a><a href="/article/state/arizona.html">Arizona</a><a href="/article/state/arkansas.html">Arkansas</a><a href="/article/state/california.html">California</a><a href="/article/state/colorado.html">Colorado</a><a href="/article/state/connecticut.html">Connecticut</a><a href="/article/state/delaware.html">Delaware</a><a href="/article/state/florida.html">Florida</a><a href="/article/state/georgia.html">Georgia</a><a href="/article/state/hawaii.html">Hawaii</a><a href="/article/state/idaho.html">Idaho</a><a href="/article/state/illinois.html">Illinois</a><a href="/article/state/indiana.html">Indiana</a><a href="/article/state/iowa.html">Iowa</a><a href="/article/state/kansas.html">Kansas</a><a href="/article/state/kentucky.html">Kentucky</a><a href="/article/state/louisiana.html">Louisiana</a><a href="/article/state/maine.html">Maine</a><a href="/article/state/maryland.html">Maryland</a><a href="/article/state/massachusetts.html">Massachusetts</a><a href="/article/state/michigan.html">Michigan</a><a href="/article/state/minnesota.html">Minnesota</a><a href="/article/state/mississippi.html">Mississippi</a><a href="/article/state/missouri.html">Missouri</a><a href="/article/state/montana.html">Montana</a><a href="/article/state/nebraska.html">Nebraska</a><a href="/article/state/nevada.html">Nevada</a><a href="/article/state/new-hampshire.html">New Hampshire</a><a href="/article/state/new-jersey.html">New Jersey</a><a href="/article/state/new-mexico.html">New Mexico</a><a href="/article/state/new-york.html">New York</a><a href="/article/state/north-carolina.html">North Carolina</a><a href="/article/state/north-dakota.html">North Dakota</a><a href="/article/state/ohio.html">Ohio</a><a href="/article/state/oklahoma.html">Oklahoma</a><a href="/article/state/oregon.html">Oregon</a><a href="/article/state/pennsylvania.html">Pennsylvania</a><a href="/article/state/rhode-island.html">Rhode Island</a><a href="/article/state/south-carolina.html">South Carolina</a><a href="/article/state/south-dakota.html">South Dakota</a><a href="/article/state/tennessee.html">Tennessee</a><a href="/article/state/texas.html">Texas</a><a href="/article/state/utah.html">Utah</a><a href="/article/state/vermont.html">Vermont</a><a href="/article/state/virginia.html">Virginia</a><a href="/article/state/washington.html">Washington</a><a href="/article/state/washington-dc.html">Washington D.C.</a><a href="/article/state/west-virginia.html">West Virginia</a><a href="/article/state/wisconsin.html">Wisconsin</a><a href="/article/state/wyoming.html">Wyoming</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-mega-col">
+        <div class="nav-mega-head" data-mega-toggle>Carrier Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
+          <div class="nav-mega-carriers">
+            <a href="/article/carrier/usaa.html">USAA <span class="nav-mega-tag">Military &amp; family</span></a>
+            <a href="/article/carrier/geico.html">GEICO <span class="nav-mega-tag">Online shoppers</span></a>
+            <a href="/article/carrier/state-farm.html">State Farm <span class="nav-mega-tag">Local agents</span></a>
+            <a href="/article/carrier/progressive.html">Progressive <span class="nav-mega-tag">High-risk</span></a>
+            <a href="/article/carrier/allstate.html">Allstate <span class="nav-mega-tag">Accident forgiveness</span></a>
+            <a href="/article/carrier/liberty-mutual.html">Liberty Mutual <span class="nav-mega-tag">New car replacement</span></a>
+            <a href="/article/carrier/farmers.html">Farmers <span class="nav-mega-tag">Full-service agents</span></a>
+            <a href="/article/carrier/nationwide.html">Nationwide <span class="nav-mega-tag">Vanishing deductible</span></a>
+            <a href="/article/carrier/erie.html">Erie <span class="nav-mega-tag">Mid-Atlantic &amp; Midwest</span></a>
+            <a href="/article/carrier/american-family.html">American Family <span class="nav-mega-tag">Midwest families</span></a>
+            <a href="/article/carrier/amica.html">Amica <span class="nav-mega-tag">Claims service</span></a>
+            <a href="/article/carrier/auto-owners.html">Auto-Owners <span class="nav-mega-tag">26-state agent</span></a>
+            <a href="/article/carrier/travelers.html">Travelers <span class="nav-mega-tag">Homeowner bundles</span></a>
+            <a href="/article/carrier/safeco.html">Safeco <span class="nav-mega-tag">Independent agents</span></a>
+            <a href="/article/carrier/aaa.html">AAA / CSAA <span class="nav-mega-tag">Members &amp; roadside</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-mega-col">
+        <div class="nav-mega-head" data-mega-toggle>Metro Research <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
+          <div class="nav-mega-metros">
+            <a href="/article/metro/new-york-city.html">New York City</a><a href="/article/metro/los-angeles.html">Los Angeles</a><a href="/article/metro/chicago.html">Chicago</a><a href="/article/metro/dallas-fort-worth.html">Dallas-Ft. Worth</a><a href="/article/metro/houston.html">Houston</a><a href="/article/metro/washington-dc.html">Washington DC</a><a href="/article/metro/miami.html">Miami</a><a href="/article/metro/philadelphia.html">Philadelphia</a><a href="/article/metro/atlanta.html">Atlanta</a><a href="/article/metro/phoenix.html">Phoenix</a><a href="/article/metro/seattle.html">Seattle</a><a href="/article/metro/denver.html">Denver</a><a href="/article/metro/minneapolis-st-paul.html">Minneapolis</a><a href="/article/metro/detroit.html">Detroit</a><a href="/article/metro/tampa.html">Tampa</a><a href="/article/metro/charlotte.html">Charlotte</a><a href="/article/metro/portland.html">Portland</a><a href="/article/metro/st-louis.html">St. Louis</a><a href="/article/metro/san-antonio.html">San Antonio</a><a href="/article/metro/sacramento.html">Sacramento</a><a href="/article/metro/baltimore.html">Baltimore</a><a href="/article/metro/orlando.html">Orlando</a><a href="/article/metro/las-vegas.html">Las Vegas</a><a href="/article/metro/san-jose.html">San Jose</a><a href="/article/metro/san-diego.html">San Diego</a><a href="/article/metro/nashville.html">Nashville</a><a href="/article/metro/austin.html">Austin</a><a href="/article/metro/raleigh-durham.html">Raleigh-Durham</a><a href="/article/metro/indianapolis.html">Indianapolis</a><a href="/article/metro/columbus.html">Columbus</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-mega-col">
+        <div class="nav-mega-head" data-mega-toggle>Guides <span class="nav-mega-col-arrow">&#8964;</span></div>
+        <div class="nav-mega-col-body">
+          <div class="nav-mega-carriers">
+            <a href="/article/state-rankings.html">Rates by state</a>
+            <a href="/article/young-drivers.html">Young drivers</a>
+            <a href="/article/credit-score-insurance.html">Credit &amp; rates</a>
+            <a href="/article/sr22-insurance.html">SR-22 explained</a>
+            <a href="/article/coverage-guide.html">Coverage guide</a>
+            <a href="/article/premium-went-up.html">Why did my rate go up?</a>
+            <a href="/article/shopping-strategy.html">Shopping strategy</a>
+            <a href="/article/florida-rates-dropping.html">Florida rates</a>
+            <a href="/article/index.html">All guides →</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-mega-col">
+        <a class="nav-mega-head nav-mega-head-link" href="/coverage.html">Coverage Calculator</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="zip-bar">
+  <div class="wrap">
+    <div class="zip-bar-inner">
+      <div class="zip-bar-slogan"><strong>See your state's real rates.</strong> Enter ZIP to compare carriers side by side.</div>
+      <form class="zip-bar-form" id="zipBarForm" autocomplete="off">
+        <input class="zip-bar-input" id="zipBarInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />
+        <button type="submit" class="zip-bar-btn">Compare →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="wrap-narrow">
+  <div class="article-header">
+    <div class="article-kicker"><a href="/article/index.html">BoringRate Research</a> &nbsp;·&nbsp; State Data</div>
+    <h1 class="article-title">Car Insurance Rates by State: 2026 Rankings</h1>
+    <p class="article-dek">Every state ranked by average annual full-coverage premium. Florida costs more than 3× what Hawaii does — here's the full picture.</p>
+    <div class="article-byline">Updated May 2026 &nbsp;·&nbsp; Public rate data &nbsp;·&nbsp; Full coverage benchmark</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="stat-cards">
+    <div class="stat-card">
+      <div class="stat-card-label">Most expensive state</div>
+      <div class="stat-card-val bad">$4,848</div>
+      <div class="stat-card-sub">Florida — avg. annual full coverage</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-label">National average</div>
+      <div class="stat-card-val">$2,529</div>
+      <div class="stat-card-sub">Across all 51 states + D.C.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-label">Cheapest state</div>
+      <div class="stat-card-val good">$1,446</div>
+      <div class="stat-card-sub">Hawaii — avg. annual full coverage</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="sort-row">
+    <span class="sort-label">Sort:</span>
+    <button class="sort-btn active" data-sort="high">Most Expensive First</button>
+    <button class="sort-btn" data-sort="low">Cheapest First</button>
+    <button class="sort-btn" data-sort="az">A – Z</button>
+  </div>
+  <div class="rankings-wrap">
+    <table class="rankings-table">
+      <thead>
+        <tr>
+          <th class="th-rank">#</th>
+          <th>State</th>
+          <th class="th-bar" style="width:40%;"></th>
+          <th class="th-price">Avg. Annual Premium</th>
+        </tr>
+      </thead>
+      <tbody id="rankingsBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="wrap-narrow">
+  <div class="article-body">
+
+    <h2>Why rates vary so much by state</h2>
+
+    <p>The gap between Hawaii ($1,446/year) and Florida ($4,848/year) isn't random — it reflects how differently states regulate insurance, how often accidents and severe weather occur, and how litigious local court systems are. Every variable that affects an insurer's expected payout is built into the price you see.</p>
+
+    <p><strong>State regulation is the biggest lever.</strong> Hawaii is one of only three states that prohibits credit scoring and also limits what insurers can charge based on age. That removes two factors that typically inflate premiums, which is the main reason it sits at the bottom of the rankings despite being an island state with limited competition.</p>
+
+    <p><strong>Litigation climate drives Florida, Michigan, and Louisiana.</strong> These three states consistently rank in the top five most expensive because each has a legal or regulatory environment that increases what insurers pay out on claims. Florida had a well-documented attorney fee abuse problem that drove carriers out of the market. Michigan until recently required unlimited personal injury protection. Louisiana has among the highest bodily injury claim costs in the country. High claim costs flow directly into premiums.</p>
+
+    <p><strong>Urban density amplifies everything.</strong> States with one dominant metro — Nevada (Las Vegas), New York, Delaware — tend to have higher statewide averages than their geography would otherwise suggest, because most of their insured population lives in a high-theft, high-accident corridor. The state average masks the difference between rural and urban ZIP codes, which can be 40–80% even within a single state.</p>
+
+    <p><strong>Weather matters, but not as much as you'd think.</strong> Hail and tornado corridors in Kansas, Oklahoma, and Nebraska push comprehensive coverage costs up, but these states are still mid-table because bodily injury claims — not vehicle damage — drive the biggest rate differences.</p>
+
+    <div class="tool-cta">
+      <h3>Not sure what coverage you actually need?</h3>
+      <p>Most drivers either over-insure or leave themselves exposed. The Coverage Calculator walks you through your specific situation — car value, finances, driver profile — and tells you exactly what to buy and what to skip.</p>
+      <a href="/coverage.html">Use the Coverage Calculator →</a>
+    </div>
+
+    <h2>How to use this data</h2>
+
+    <p>The averages above are statewide full-coverage benchmarks — they reflect what a typical driver pays across all carriers in that state. Your actual rate depends on your ZIP code, driving record, vehicle, and which carrier you choose. Within any state, rates between carriers can vary by 50–100% for the same driver.</p>
+
+    <p>Click any state name in the table to see a full breakdown of which carriers are cheapest in that state, what drives local pricing, and who the best options are for different driver profiles. Enter your ZIP code in the bar at the top to see personalized rate comparisons for your specific location.</p>
+
+    <div class="related-articles">
+      <h3>More from BoringRate</h3>
+      <div class="related-list">
+        <div class="related-item">
+          <a href="/article/credit-score-insurance.html">Does your credit score affect your car insurance rate?</a>
+          <span>In most states, yes — significantly. Here's what the research shows.</span>
+        </div>
+        <div class="related-item">
+          <a href="/article/shopping-strategy.html">The right way to shop for car insurance</a>
+          <span>When to switch, how to compare quotes, and what traps to avoid.</span>
+        </div>
+        <div class="related-item">
+          <a href="/article/premium-went-up.html">Why did my car insurance go up?</a>
+          <span>The seven most common reasons — and which ones you can actually fix.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-email" id="articleEmailForm">
+      <strong>Rate alerts, no spam.</strong>
+      <div class="sub">We track when state averages shift. Get notified when your state moves.</div>
+      <div class="email-row">
+        <input class="email-input" id="articleEmailInput" type="email" placeholder="your@email.com" autocomplete="email" />
+        <button class="email-btn" id="articleEmailBtn">Notify me</button>
+      </div>
+      <div class="email-thanks" id="articleEmailThanks">You're on the list.</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="/index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
+        <p>Independent insurance research. Boring on purpose. We publish what carriers don't advertise so shoppers can stop overpaying.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Research</h5>
+        <a href="/index.html">Rate Comparison</a>
+        <a href="/article/state-rankings.html">Rates by State</a>
+        <a href="/article/index.html">All Guides</a>
+        <a href="/coverage.html">Coverage Calculator</a>
+        <a href="/methodology.html">Methodology</a>
+      </div>
+      <div class="foot-col">
+        <h5>Top States</h5>
+        <a href="/article/state/florida.html">Florida</a>
+        <a href="/article/state/california.html">California</a>
+        <a href="/article/state/texas.html">Texas</a>
+        <a href="/article/state/new-york.html">New York</a>
+        <a href="/article/state/michigan.html">Michigan</a>
+      </div>
+      <div class="foot-col">
+        <h5>Top Carriers</h5>
+        <a href="/article/carrier/geico.html">GEICO</a>
+        <a href="/article/carrier/state-farm.html">State Farm</a>
+        <a href="/article/carrier/progressive.html">Progressive</a>
+        <a href="/article/carrier/usaa.html">USAA</a>
+        <a href="/article/carrier/allstate.html">Allstate</a>
+      </div>
+    </div>
+    <div class="legal">© 2026 BORINGRATE. NOT AN INSURANCE PRODUCER. NOT A LICENSED AGENT. NO COMMISSIONED RELATIONSHIPS WITH ANY CARRIER LISTED. AVERAGES ARE EDITORIAL ESTIMATES BASED ON PUBLIC RATE DATA AND ARE NOT QUOTES. RATES VARY BY DRIVER PROFILE, ZIP CODE, AND CARRIER.</div>
+  </div>
+</footer>
+
+<script>
+const STATES = [
+  ["Alabama","alabama",2468],
+  ["Alaska","alaska",2314],
+  ["Arizona","arizona",2578],
+  ["Arkansas","arkansas",2362],
+  ["California","california",3668],
+  ["Colorado","colorado",1706],
+  ["Connecticut","connecticut",3124],
+  ["Delaware","delaware",3218],
+  ["Florida","florida",4848],
+  ["Georgia","georgia",3224],
+  ["Hawaii","hawaii",1446],
+  ["Idaho","idaho",1654],
+  ["Illinois","illinois",2194],
+  ["Indiana","indiana",1842],
+  ["Iowa","iowa",1586],
+  ["Kansas","kansas",2124],
+  ["Kentucky","kentucky",2756],
+  ["Louisiana","louisiana",4612],
+  ["Maine","maine",1468],
+  ["Maryland","maryland",2986],
+  ["Massachusetts","massachusetts",2842],
+  ["Michigan","michigan",4724],
+  ["Minnesota","minnesota",2214],
+  ["Mississippi","mississippi",2438],
+  ["Missouri","missouri",2648],
+  ["Montana","montana",2268],
+  ["Nebraska","nebraska",2012],
+  ["Nevada","nevada",3842],
+  ["New Hampshire","new-hampshire",1624],
+  ["New Jersey","new-jersey",3486],
+  ["New Mexico","new-mexico",2314],
+  ["New York","new-york",3484],
+  ["North Carolina","north-carolina",1842],
+  ["North Dakota","north-dakota",1748],
+  ["Ohio","ohio",1724],
+  ["Oklahoma","oklahoma",2648],
+  ["Oregon","oregon",1986],
+  ["Pennsylvania","pennsylvania",2468],
+  ["Rhode Island","rhode-island",3124],
+  ["South Carolina","south-carolina",2586],
+  ["South Dakota","south-dakota",1986],
+  ["Tennessee","tennessee",2124],
+  ["Texas","texas",3136],
+  ["Utah","utah",2468],
+  ["Vermont","vermont",1524],
+  ["Virginia","virginia",1924],
+  ["Washington","washington",2312],
+  ["Washington D.C.","washington-dc",3486],
+  ["West Virginia","west-virginia",2124],
+  ["Wisconsin","wisconsin",1724],
+  ["Wyoming","wyoming",1986]
+];
+
+const MAX_PRICE = 4848;
+
+function tier(price) {
+  if (price < 1800) return "low";
+  if (price < 2800) return "mid";
+  return "high";
+}
+
+function fmt(price) {
+  return "$" + price.toLocaleString();
+}
+
+let currentSort = "high";
+
+function renderTable() {
+  const sorted = [...STATES];
+  if (currentSort === "high") sorted.sort((a, b) => b[2] - a[2]);
+  else if (currentSort === "low") sorted.sort((a, b) => a[2] - b[2]);
+  else sorted.sort((a, b) => a[0].localeCompare(b[0]));
+
+  const tbody = document.getElementById("rankingsBody");
+  tbody.innerHTML = sorted.map(([name, slug, price], i) => {
+    const t = tier(price);
+    const barPct = Math.round((price / MAX_PRICE) * 100);
+    return `<tr>
+      <td class="td-rank">${i + 1}</td>
+      <td class="td-state"><a href="/article/state/${slug}.html">${name}</a></td>
+      <td class="td-bar"><div class="price-bar-track"><div class="price-bar-fill tier-${t}" style="width:${barPct}%"></div></div></td>
+      <td class="td-price tier-${t}">${fmt(price)}</td>
+    </tr>`;
+  }).join("");
+}
+
+document.querySelectorAll(".sort-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".sort-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentSort = btn.dataset.sort;
+    renderTable();
+  });
+});
+
+renderTable();
+
+// ZIP bar
+document.getElementById("zipBarForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const zip = document.getElementById("zipBarInput").value.trim();
+  if (!/^\d{5}$/.test(zip)) { document.getElementById("zipBarInput").focus(); return; }
+  window.location.href = "/index.html?zip=" + zip;
+});
+document.getElementById("zipBarInput").addEventListener("input", e => {
+  e.target.value = e.target.value.replace(/\D/g, "").substring(0, 5);
+});
+
+// Email
+document.getElementById("articleEmailBtn").addEventListener("click", () => {
+  const email = document.getElementById("articleEmailInput").value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById("articleEmailInput").focus(); return; }
+  document.getElementById("articleEmailForm").style.display = "none";
+  document.getElementById("articleEmailThanks").style.display = "block";
+});
+
+// Hamburger
+(function(){
+  const btn = document.getElementById("navHamburger");
+  const mega = document.getElementById("navMega");
+  if (!btn || !mega) return;
+  btn.addEventListener("click", function(e) {
+    e.stopPropagation();
+    const open = !mega.classList.contains("open");
+    mega.classList.toggle("open", open);
+    btn.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", String(open));
+    if (!open) mega.querySelectorAll(".nav-mega-col").forEach(c => c.classList.remove("open"));
+  });
+  document.addEventListener("click", function(e) {
+    if (!btn.contains(e.target) && !mega.contains(e.target)) {
+      mega.classList.remove("open");
+      btn.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      mega.querySelectorAll(".nav-mega-col").forEach(c => c.classList.remove("open"));
+    }
+  });
+  mega.addEventListener("click", function(e) {
+    const head = e.target.closest("[data-mega-toggle]");
+    if (!head || window.innerWidth > 800) return;
+    e.stopPropagation();
+    head.closest(".nav-mega-col").classList.toggle("open");
+  });
+})();
+</script>
+
+</body>
+</html>
