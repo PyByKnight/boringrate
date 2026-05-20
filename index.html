@@ -649,6 +649,8 @@
   .email-select { flex: 1 1 200px; font-family: var(--sans); font-size: 14px; padding: 11px 14px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); outline: none; cursor: pointer; appearance: none; }
   .email-select:focus { border-color: var(--ink); }
   .email-month { flex: 0 1 180px; }
+  .profile-confirmed { font-family: var(--mono); font-size: 12px; color: var(--good); letter-spacing: 0.06em; text-transform: uppercase; }
+  .profile-details { font-family: var(--mono); font-size: 12px; color: var(--ink-mute); letter-spacing: 0.04em; margin-top: 4px; }
   .email-btn {
     font-family: var(--sans);
     font-size: 13px;
@@ -1007,6 +1009,7 @@
       </div>
       <div id="headerAuthIn" style="display:none;" class="header-auth-in">
         <span id="authUserEmail" class="header-auth-email"></span>
+        <a href="#emailSignedIn" class="auth-btn-link" id="headerEditProfileBtn" onclick="document.getElementById('editProfileBtn').click();this.blur();">Edit profile</a>
         <button class="auth-btn-link" id="authSignOutBtn">Sign out</button>
       </div>
     </div>
@@ -1322,7 +1325,28 @@
       </div>
       <div class="email-thanks" id="emailThanks" style="display:none;">&#10003; Check your email — magic link sent.</div>
       <div class="email-signed-in" id="emailSignedIn" style="display:none;">
-        &#10003; You'll be notified at <strong id="emailSignedInUser"></strong>
+        <div id="profileView">
+          <div class="profile-confirmed">&#10003; Subscribed &nbsp;&mdash;&nbsp; <strong id="emailSignedInUser"></strong></div>
+          <div class="profile-details" id="profileDetails"></div>
+          <button class="auth-btn-link" id="editProfileBtn" style="margin-top:8px;">Edit profile</button>
+        </div>
+        <div id="profileEdit" style="display:none;margin-top:12px;">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <input class="email-input email-zip" id="editZipInput" type="text" inputmode="numeric" placeholder="ZIP code" maxlength="5" aria-label="ZIP code" />
+            <select class="email-select" id="editCarrierInput" aria-label="Current carrier">
+              <option value="">Current carrier (optional)</option>
+              <option>State Farm</option><option>GEICO</option><option>Progressive</option><option>Allstate</option><option>USAA</option><option>Liberty Mutual</option><option>Farmers</option><option>Travelers</option><option>Nationwide</option><option>American Family</option><option>Erie</option><option>Root Insurance</option><option>Safeco</option><option>The Hartford</option><option>Amica</option><option>Other</option>
+            </select>
+            <select class="email-select email-month" id="editMonthInput" aria-label="Renewal month">
+              <option value="">Renewal month (optional)</option>
+              <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
+            </select>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;margin-top:10px;">
+            <button class="email-btn" id="saveProfileBtn">Save</button>
+            <button class="auth-btn-link" id="cancelEditBtn">Cancel</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2550,8 +2574,38 @@ async function loadFromSupabase() {
     const { data } = await sb.from("profiles").select("*").eq("id", currentUser.id).single();
     if (!data) return false;
     localStorage.setItem(PROFILE_KEY, JSON.stringify({ zip: data.zip, refinement: data.refinements }));
+    if (data.zip || data.carrier || data.renewal_month) {
+      const existing = JSON.parse(localStorage.getItem("br_notify") || "{}");
+      localStorage.setItem("br_notify", JSON.stringify({
+        zip: data.zip || existing.zip || null,
+        carrier: data.carrier || existing.carrier || null,
+        renewal: data.renewal_month || existing.renewal || null,
+        source: existing.source || null
+      }));
+    }
     return true;
   } catch(e) { return false; }
+}
+
+function renderProfileDetails() {
+  const notify = JSON.parse(localStorage.getItem("br_notify") || "{}");
+  const profile = JSON.parse(localStorage.getItem(PROFILE_KEY) || "{}");
+  const zip = notify.zip || profile.zip || null;
+  const carrier = notify.carrier || null;
+  const renewal = notify.renewal || null;
+  const parts = [];
+  if (zip) parts.push("ZIP " + zip);
+  if (carrier) parts.push(carrier);
+  if (renewal) parts.push("renews " + renewal);
+  const el = document.getElementById("profileDetails");
+  if (el) el.textContent = parts.length ? parts.join(" · ") : "No profile info yet";
+  // Pre-fill edit form
+  const zi = document.getElementById("editZipInput");
+  const ci = document.getElementById("editCarrierInput");
+  const mi = document.getElementById("editMonthInput");
+  if (zi) zi.value = zip || "";
+  if (ci) ci.value = carrier || "";
+  if (mi) mi.value = renewal || "";
 }
 
 function updateAuthUI(user) {
@@ -2568,6 +2622,7 @@ function updateAuthUI(user) {
       emailSignedIn.style.display = "block";
       document.getElementById("emailSignedInUser").textContent = user.email;
     }
+    renderProfileDetails();
   } else {
     headerOut.style.display = "block";
     headerIn.style.display = "none";
@@ -2655,6 +2710,32 @@ document.getElementById("emailBtn").addEventListener("click", async () => {
     document.getElementById("emailForm").style.display = "none";
     document.getElementById("emailThanks").style.display = "block";
   }
+});
+
+// Profile edit / save
+document.getElementById("editProfileBtn").addEventListener("click", () => {
+  document.getElementById("profileView").style.display = "none";
+  document.getElementById("profileEdit").style.display = "block";
+});
+document.getElementById("cancelEditBtn").addEventListener("click", () => {
+  document.getElementById("profileEdit").style.display = "none";
+  document.getElementById("profileView").style.display = "block";
+});
+document.getElementById("editZipInput").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, "").substring(0, 5); });
+document.getElementById("saveProfileBtn").addEventListener("click", async () => {
+  const zip = document.getElementById("editZipInput").value.trim();
+  const carrier = document.getElementById("editCarrierInput").value;
+  const renewal = document.getElementById("editMonthInput").value;
+  if (!/^\d{5}$/.test(zip)) { document.getElementById("editZipInput").focus(); return; }
+  const existing = JSON.parse(localStorage.getItem("br_notify") || "{}");
+  localStorage.setItem("br_notify", JSON.stringify({ ...existing, zip, carrier, renewal }));
+  const profileSaved = JSON.parse(localStorage.getItem(PROFILE_KEY) || "{}");
+  localStorage.setItem(PROFILE_KEY, JSON.stringify({ ...profileSaved, zip }));
+  await syncToSupabase();
+  renderProfileDetails();
+  document.getElementById("profileEdit").style.display = "none";
+  document.getElementById("profileView").style.display = "block";
+  showToast("✓ Profile updated.");
 });
 
 // ── Refine bar toggle ───────────────────────────────────────
