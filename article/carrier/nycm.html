@@ -93,6 +93,9 @@
   .email-row{display:flex;gap:8px;flex-wrap:wrap;}
   .email-input{flex:1;min-width:200px;font-family:var(--sans);font-size:14px;padding:11px 14px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);outline:none;transition:border-color 120ms;}
   .email-input:focus{border-color:var(--ink);}
+  .email-zip{flex:0 0 90px;min-width:80px;}
+  .email-select{flex:1 1 200px;font-family:var(--sans);font-size:14px;padding:11px 14px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);outline:none;cursor:pointer;appearance:none;}
+  .email-select:focus{border-color:var(--ink);}
   .email-btn{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:11px 22px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;transition:background 120ms;}
   .email-btn:hover{background:var(--accent);border-color:var(--accent);}
   .email-thanks{font-family:var(--mono);font-size:12px;color:var(--good);letter-spacing:0.08em;text-transform:uppercase;display:none;margin-top:12px;}
@@ -226,9 +229,29 @@
 <div class="internal-links internal-links-metro"><a href="../../article/metro/new-york-city.html">New York City →</a><a href="../../article/metro/albany.html">Albany →</a><a href="../../article/metro/buffalo.html">Buffalo →</a><a href="../../article/metro/rochester.html">Rochester →</a><a href="../../article/metro/syracuse.html">Syracuse →</a></div>
 <div class="article-email">
       <strong>Get notified when NYCM Insurance rates change.</strong>
-      <div class="sub">No spam. No phone. We will never sell your information.</div>
+      <div class="sub">We'll notify you when your carrier is raising rates. We never spam or sell your information.</div>
       <div class="email-row" id="articleEmailForm">
         <input class="email-input" id="articleEmailInput" type="email" placeholder="your@email.com" aria-label="Email address" />
+        <input class="email-input email-zip" id="articleEmailZip" type="text" inputmode="numeric" placeholder="ZIP code" maxlength="5" aria-label="ZIP code" />
+        <select class="email-select" id="articleEmailCarrier" aria-label="Current carrier (optional)">
+          <option value="">Current carrier (optional)</option>
+          <option>State Farm</option>
+          <option>GEICO</option>
+          <option>Progressive</option>
+          <option>Allstate</option>
+          <option>USAA</option>
+          <option>Liberty Mutual</option>
+          <option>Farmers</option>
+          <option>Travelers</option>
+          <option>Nationwide</option>
+          <option>American Family</option>
+          <option>Erie</option>
+          <option>Root Insurance</option>
+          <option>Safeco</option>
+          <option>The Hartford</option>
+          <option>Amica</option>
+          <option>Other</option>
+        </select>
         <button type="button" class="email-btn" id="articleEmailBtn">Notify me</button>
       </div>
       <div class="email-thanks" id="articleEmailThanks">&#10003; You&#39;re on the list.</div>
@@ -261,10 +284,15 @@ document.getElementById("embedZipInput").addEventListener("input",function(e){e.
   var _sb=supabase.createClient("https://uayypfeqltlrxkdqgvcz.supabase.co","sb_publishable_gAKR-IoPDphx8Zp0GlVt7Q_JeYKeU5f");
   var btn=document.getElementById("articleEmailBtn");
   if(!btn)return;
+  document.getElementById("articleEmailZip").addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
   btn.addEventListener("click",async function(){
     var email=document.getElementById("articleEmailInput").value.trim();
+    var zip=document.getElementById("articleEmailZip").value.trim();
+    var carrier=document.getElementById("articleEmailCarrier").value;
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){document.getElementById("articleEmailInput").focus();return;}
+    if(!/^\d{5}$/.test(zip)){document.getElementById("articleEmailZip").focus();return;}
     var src=window.location.pathname.replace(/\/article\//,'').replace(/\.html$/,'').replace('/','_');
+    localStorage.setItem("br_notify",JSON.stringify({zip,carrier,source:src}));
     btn.textContent="Sending…";btn.disabled=true;
     var r=await _sb.auth.signInWithOtp({email,options:{emailRedirectTo:window.location.href,data:{source:src}}});
     if(!r.error){
@@ -276,11 +304,12 @@ document.getElementById("embedZipInput").addEventListener("input",function(e){e.
   });
   _sb.auth.onAuthStateChange(async function(event,session){
     if(event==="SIGNED_IN"&&session&&session.user){
-      var src=window.location.pathname.replace(/\/article\//,'').replace(/\.html$/,'').replace('/','_');
-      var stored=JSON.parse(localStorage.getItem("br_profile")||"{}");
-      await _sb.from("profiles").upsert({id:session.user.id,source:src,zip:stored.zip||null,updated_at:new Date().toISOString()});
+      var stored=JSON.parse(localStorage.getItem("br_notify")||"{}");
+      var profile=JSON.parse(localStorage.getItem("br_profile")||"{}");
+      var src=stored.source||window.location.pathname.replace(/\/article\//,'').replace(/\.html$/,'').replace('/','_');
+      await _sb.from("profiles").upsert({id:session.user.id,source:src,zip:stored.zip||profile.zip||null,carrier:stored.carrier||null,updated_at:new Date().toISOString()});
       var t=document.getElementById("articleEmailThanks");
-      if(t){t.textContent="✓ You’re confirmed — we’ll notify you when rates change.";t.style.display="block";}
+      if(t){t.textContent="✓ You're confirmed — we'll notify you when rates change.";t.style.display="block";}
       var f=document.getElementById("articleEmailForm");
       if(f)f.style.display="none";
     }
