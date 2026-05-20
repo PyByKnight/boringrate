@@ -457,6 +457,14 @@
     transition: background 150ms;
   }
   .agent-show-more:hover { background: var(--paper-deep); }
+  .rank-show-more {
+    display: block; width: 100%; padding: 13px 0; margin-top: 0;
+    background: none; border: 1px solid var(--rule); border-top: none;
+    font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
+    text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer;
+    text-align: center; transition: background 120ms, color 120ms;
+  }
+  .rank-show-more:hover { background: var(--paper-deep); color: var(--ink); }
   @media (max-width: 800px) {
     .rank-and-agents { flex-direction: column; align-items: stretch; }
     .rank-and-agents .rank-list { flex: none; }
@@ -4280,7 +4288,7 @@ const TIER_PRESETS = {
   standard: { covLiability: 2, covCollision: 2, covComp: 1, covUmUim: 1, covMedpay: 0, covGap: 0 },
   premium:  { covLiability: 3, covCollision: 3, covComp: 2, covUmUim: 2, covMedpay: 1, covGap: 0 }
 };
-let stateData = null, currentMetro = null, lastOrder = [], compareSet = new Set(), compareOpen = false;
+let stateData = null, currentMetro = null, lastOrder = [], compareSet = new Set(), compareOpen = false, showAllCarriers = false;
 
 function isNonStandard() {
   // Route to non-standard carriers if lapsed OR SR-22 required
@@ -4375,8 +4383,8 @@ function renderRanking() {
   list.classList.toggle("with-header", showHeader);
 
   ranked.forEach((row, idx) => {
-    if (idx === mid) {
-      if (!isNonStandard() && ranked.length >= 5) {
+    if (idx === 5 && ranked.length > 5) {
+      if (!isNonStandard()) {
         const nudge = document.createElement("div");
         nudge.className = "rank-cov-nudge";
         const hasCustomCov = refinement.coverage !== "standard";
@@ -4397,6 +4405,7 @@ function renderRanking() {
       div.innerHTML = '<div></div><div class="median-dash"></div><div class="median-label">— $' + median.toLocaleString() + '/yr median —</div>';
       list.appendChild(div);
     }
+    if (idx >= 10 && !showAllCarriers) return;
     const c = row.carrier;
     const num = String(idx + 1).padStart(2, "0");
     const delta = formatDelta(row.price - median);
@@ -4423,6 +4432,13 @@ function renderRanking() {
       compareHtml;
     list.appendChild(a);
   });
+  if (ranked.length > 10 && !showAllCarriers) {
+    const btn = document.createElement("button");
+    btn.className = "rank-show-more";
+    btn.textContent = "Show all " + ranked.length + " carriers →";
+    btn.addEventListener("click", function() { showAllCarriers = true; renderRanking(); });
+    list.appendChild(btn);
+  }
 
   const newOrder = ranked.map(r => r.carrier.name);
   if (lastOrder.length) {
@@ -4520,7 +4536,7 @@ document.getElementById("zipForm").addEventListener("submit", e => {
   const zip = document.getElementById("zipInput").value.trim();
   if (!/^\d{5}$/.test(zip)) { document.getElementById("zipInput").focus(); return; }
   stateData = lookupZip(zip);
-  lastOrder = [];
+  lastOrder = []; showAllCarriers = false;
   renderRanking();
   document.getElementById("result").classList.add("active");
   document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -4673,7 +4689,7 @@ document.getElementById("zipInput").addEventListener("input", e => {
     }
     document.getElementById("zipInput").value = zip;
     stateData = lookupZip(zip);
-    lastOrder = [];
+    lastOrder = []; showAllCarriers = false;
     renderRanking();
     document.getElementById("result").classList.add("active");
     setTimeout(() => {
