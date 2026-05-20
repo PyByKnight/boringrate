@@ -4368,10 +4368,10 @@ function renderRanking() {
     return { carrier: c, price: estimatePremium(c, stateData.avg), ratio, mark: qualityMark(ratio) };
   }).sort((a, b) => a.price - b.price);
 
-  const sp = ranked.map(r => r.price).slice().sort((a, b) => a - b);
-  // Round median to whole number — prevents .5 deltas
-  const mid = Math.floor(sp.length / 2);
-  const median = sp.length % 2 === 0 ? Math.round((sp[mid - 1] + sp[mid]) / 2) : sp[mid];
+  const top10 = ranked.slice(0, 10).map(r => r.price).sort((a, b) => a - b);
+  // Median computed from top 10 only — reflects what users see by default
+  const mid = Math.floor(top10.length / 2);
+  const median = top10.length % 2 === 0 ? Math.round((top10[mid - 1] + top10[mid]) / 2) : top10[mid];
 
   const list = document.getElementById("rankList");
   list.innerHTML = "";
@@ -4432,11 +4432,16 @@ function renderRanking() {
       compareHtml;
     list.appendChild(a);
   });
-  if (ranked.length > 10 && !showAllCarriers) {
+  if (ranked.length > 10) {
     const btn = document.createElement("button");
     btn.className = "rank-show-more";
-    btn.textContent = "Show all " + ranked.length + " carriers →";
-    btn.addEventListener("click", function() { showAllCarriers = true; renderRanking(); });
+    if (showAllCarriers) {
+      btn.textContent = "Collapse to top 10";
+      btn.addEventListener("click", function() { showAllCarriers = false; renderRanking(); });
+    } else {
+      btn.textContent = "Show all carriers";
+      btn.addEventListener("click", function() { showAllCarriers = true; renderRanking(); });
+    }
     list.appendChild(btn);
   }
 
