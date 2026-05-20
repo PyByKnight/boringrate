@@ -342,6 +342,33 @@ document.getElementById("articleEmailBtn").addEventListener("click", () => {
   document.getElementById("articleEmailForm").style.display = "none";
   document.getElementById("articleEmailThanks").style.display = "block";
 });
+(function(){
+  const btn = document.getElementById("navHamburger");
+  const mega = document.getElementById("navMega");
+  if (!btn || !mega) return;
+  btn.addEventListener("click", function(e) {
+    e.stopPropagation();
+    const open = !mega.classList.contains("open");
+    mega.classList.toggle("open", open);
+    btn.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", String(open));
+    if (!open) mega.querySelectorAll(".nav-mega-col").forEach(c => c.classList.remove("open"));
+  });
+  document.addEventListener("click", function(e) {
+    if (!btn.contains(e.target) && !mega.contains(e.target)) {
+      mega.classList.remove("open");
+      btn.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      mega.querySelectorAll(".nav-mega-col").forEach(c => c.classList.remove("open"));
+    }
+  });
+  mega.addEventListener("click", function(e) {
+    const head = e.target.closest("[data-mega-toggle]");
+    if (!head || window.innerWidth > 800) return;
+    e.stopPropagation();
+    head.closest(".nav-mega-col").classList.toggle("open");
+  });
+})();
 </script>
 
 </body>
