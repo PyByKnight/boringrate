@@ -130,6 +130,9 @@
   .auth-btn-ghost:hover { border-color: var(--ink); }
   .auth-email-input { font-family: var(--sans); font-size: 13px; padding: 5px 10px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); outline: none; flex: 1; min-width: 0; }
   .auth-email-input:focus { border-color: var(--ink); }
+  .auth-zip-input { flex: 0 0 68px; min-width: 0; text-align: center; letter-spacing: 0.06em; }
+  .auth-select { width: 100%; font-family: var(--sans); font-size: 12px; padding: 6px 8px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); outline: none; margin-top: 6px; cursor: pointer; appearance: none; }
+  .auth-select:focus { border-color: var(--ink); }
   .auth-btn-link { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); background: none; border: none; cursor: pointer; text-decoration: underline; padding: 0; }
   .header-auth { position: relative; }
   .header-notify-btn { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--ink); background: none; border: 1px solid var(--ink); padding: 6px 12px; cursor: pointer; white-space: nowrap; }
@@ -642,6 +645,10 @@
     transition: border-color 120ms;
   }
   .email-input:focus { border-color: var(--ink); }
+  .email-zip { flex: 0 0 90px; min-width: 80px; }
+  .email-select { flex: 1 1 200px; font-family: var(--sans); font-size: 14px; padding: 11px 14px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); outline: none; cursor: pointer; appearance: none; }
+  .email-select:focus { border-color: var(--ink); }
+  .email-month { flex: 0 1 180px; }
   .email-btn {
     font-family: var(--sans);
     font-size: 13px;
@@ -984,8 +991,17 @@
           <div class="header-panel-or">or enter your email</div>
           <div class="header-panel-row">
             <input type="email" class="auth-email-input" id="authEmailInput" placeholder="your@email.com" />
-            <button class="auth-btn auth-btn-ghost" id="authMagicBtn">Send link</button>
+            <input type="text" class="auth-email-input auth-zip-input" id="authZipInput" placeholder="ZIP" maxlength="5" inputmode="numeric" aria-label="ZIP code" />
           </div>
+          <select class="auth-select" id="authCarrierInput" aria-label="Current carrier (optional)">
+            <option value="">Current carrier (optional)</option>
+            <option>State Farm</option><option>GEICO</option><option>Progressive</option><option>Allstate</option><option>USAA</option><option>Liberty Mutual</option><option>Farmers</option><option>Travelers</option><option>Nationwide</option><option>American Family</option><option>Erie</option><option>Root Insurance</option><option>Safeco</option><option>The Hartford</option><option>Amica</option><option>Other</option>
+          </select>
+          <select class="auth-select" id="authMonthInput" aria-label="Renewal month (optional)">
+            <option value="">Renewal month (optional)</option>
+            <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
+          </select>
+          <button class="auth-btn auth-btn-ghost" id="authMagicBtn" style="margin-top:8px;width:100%;">Send link</button>
           <div id="authMagicSent" style="display:none;" class="header-panel-sent">&#10003; Check your email — magic link sent.</div>
         </div>
       </div>
@@ -1287,12 +1303,21 @@
     <div class="email-capture">
       <div class="email-capture-text">
         <strong>Notify me when my rates change.</strong>
-        <p>We'll alert you when rates shift in your state.<br>No spam. No phone. We will never sell your information.</p>
+        <p>We'll notify you when your carrier is raising rates. We never spam or sell your information.</p>
       </div>
       <div class="email-form" id="emailForm">
         <button type="button" class="email-btn" id="emailGoogleBtn">Continue with Google</button>
         <span class="auth-or">or</span>
         <input class="email-input" id="emailInput" type="email" placeholder="your@email.com" aria-label="Email address" />
+        <input class="email-input email-zip" id="emailZipInput" type="text" inputmode="numeric" placeholder="ZIP code" maxlength="5" aria-label="ZIP code" />
+        <select class="email-select" id="emailCarrierInput" aria-label="Current carrier (optional)">
+          <option value="">Current carrier (optional)</option>
+          <option>State Farm</option><option>GEICO</option><option>Progressive</option><option>Allstate</option><option>USAA</option><option>Liberty Mutual</option><option>Farmers</option><option>Travelers</option><option>Nationwide</option><option>American Family</option><option>Erie</option><option>Root Insurance</option><option>Safeco</option><option>The Hartford</option><option>Amica</option><option>Other</option>
+        </select>
+        <select class="email-select email-month" id="emailMonthInput" aria-label="Renewal month (optional)">
+          <option value="">Renewal month (optional)</option>
+          <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
+        </select>
         <button type="button" class="email-btn email-btn-ghost" id="emailBtn">Send link</button>
       </div>
       <div class="email-thanks" id="emailThanks" style="display:none;">&#10003; Check your email — magic link sent.</div>
@@ -2506,11 +2531,14 @@ async function syncToSupabase() {
   if (!currentUser) return;
   try {
     const saved = JSON.parse(localStorage.getItem(PROFILE_KEY));
-    if (!saved) return;
+    const notify = JSON.parse(localStorage.getItem("br_notify") || "{}");
+    if (!saved && !notify.zip) return;
     await sb.from("profiles").upsert({
       id: currentUser.id,
-      zip: saved.zip,
-      refinements: saved.refinement,
+      zip: saved?.zip || notify.zip || null,
+      refinements: saved?.refinement || null,
+      carrier: notify.carrier || null,
+      renewal_month: notify.renewal || null,
       updated_at: new Date().toISOString()
     });
   } catch(e) {}
@@ -2591,13 +2619,17 @@ document.addEventListener("click", e => {
 document.getElementById("authGoogleBtn").addEventListener("click", () => {
   sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: window.location.origin } });
 });
+document.getElementById("authZipInput").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, "").substring(0, 5); });
 document.getElementById("authMagicBtn").addEventListener("click", async () => {
   const email = document.getElementById("authEmailInput").value.trim();
-  if (!email) return;
+  const zip = document.getElementById("authZipInput").value.trim();
+  const carrier = document.getElementById("authCarrierInput").value;
+  const renewal = document.getElementById("authMonthInput").value;
+  if (!email) { document.getElementById("authEmailInput").focus(); return; }
+  if (!/^\d{5}$/.test(zip)) { document.getElementById("authZipInput").focus(); return; }
+  localStorage.setItem("br_notify", JSON.stringify({ zip, carrier, renewal, source: "index" }));
   const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
   if (!error) {
-    document.getElementById("authEmailInput").style.display = "none";
-    document.getElementById("authMagicBtn").style.display = "none";
     document.getElementById("authMagicSent").style.display = "block";
   }
 });
@@ -2609,9 +2641,15 @@ document.getElementById("authSignOutBtn").addEventListener("click", async () => 
 document.getElementById("emailGoogleBtn").addEventListener("click", () => {
   sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: window.location.origin } });
 });
+document.getElementById("emailZipInput").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, "").substring(0, 5); });
 document.getElementById("emailBtn").addEventListener("click", async () => {
   const email = document.getElementById("emailInput").value.trim();
+  const zip = document.getElementById("emailZipInput").value.trim();
+  const carrier = document.getElementById("emailCarrierInput").value;
+  const renewal = document.getElementById("emailMonthInput").value;
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById("emailInput").focus(); return; }
+  if (!/^\d{5}$/.test(zip)) { document.getElementById("emailZipInput").focus(); return; }
+  localStorage.setItem("br_notify", JSON.stringify({ zip, carrier, renewal, source: "index" }));
   const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
   if (!error) {
     document.getElementById("emailForm").style.display = "none";
