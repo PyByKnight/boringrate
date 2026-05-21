@@ -175,6 +175,11 @@
   .pb-clear-btn:hover{border-color:var(--accent);color:var(--accent);}
   .pb-pills.has-selection .pb-pill:not(.active){opacity:0.3;color:var(--ink-mute);}
   .pb-standalone-actions{display:flex;gap:12px;flex-wrap:wrap;max-width:660px;margin:0 0 36px;}
+  .cmp-table th.pb-col-winner{color:#1a7a3c;position:relative;}
+  .cmp-table th.pb-col-winner::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#1a7a3c;}
+  .pb-best-badge{display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.04em;color:#1a7a3c;font-weight:400;margin-top:3px;}
+  .cmp-table .pb-muted{opacity:0.22;transition:opacity 150ms;}
+  .pb-bottom-close{margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);text-align:right;}
 </style>
 <script type="application/ld+json">
 {
@@ -290,7 +295,7 @@
       </div>
       <div class="pb-summary-right">
         <button type="button" class="pb-summary-toggle" id="pbCustomizeBtn">Customize for your profile &#9662;</button>
-        <button type="button" class="pb-clear-btn" id="pbClearBtn" style="display:none;">Clear</button>
+        <button type="button" class="pb-clear-btn" id="pbClearBtn" style="display:none;">Clear profile</button>
       </div>
     </div>
     <div class="profile-builder" id="profileBuilder" style="display:none;">
@@ -372,16 +377,12 @@
         <div class="pb-result-detail" id="pbDetail"></div>
         <div id="pbShoppingNote" class="pb-shopping-note" style="display:none;"></div>
       </div>
+      <div class="pb-bottom-close">
+        <button type="button" class="pb-summary-toggle open" id="pbCloseBottom">Hide profile &#9650;</button>
+      </div>
     </div>
 
     
-    <div class="cmp-verdict">
-      <div class="cmp-verdict-label">Overall verdict</div>
-      <div class="cmp-verdict-score">GEICO wins 5–3 categories</div>
-      <div class="cmp-verdict-sub">GEICO leads on more rate factors. Allstate may still win for specific profiles — see the table below.</div>
-    </div>
-
-    <h2>Side-by-side comparison</h2>
     <table class="cmp-table">
       <thead>
         <tr><th>Feature</th><th>GEICO</th><th>Allstate</th><th>Winner</th></tr>

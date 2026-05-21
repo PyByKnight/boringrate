@@ -22,6 +22,7 @@
   var aWinThemes = [], bWinThemes = [];
   var telA = '', telB = '', buyA = '', buyB = '';
   var tableRows = [];
+  var avgAnnualRow = null, avgOrigA = '', avgOrigB = '';
 
   tbl.querySelectorAll('tbody tr').forEach(function (row) {
     var cells = row.querySelectorAll('td');
@@ -41,6 +42,9 @@
     var theme = null;
     if (lbl.includes('avg annual')) {
       d.a.base = num(vA); d.b.base = num(vB);
+      avgAnnualRow = { row: row, cells: cells };
+      avgOrigA = cells[1].textContent;
+      avgOrigB = cells[2].textContent;
       theme = 'overall base rates';
     } else if (lbl.includes('excellent') && lbl.includes('credit')) {
       d.a.cExc = pct(vA); d.b.cExc = pct(vB);
@@ -73,7 +77,7 @@
     }
   });
 
-  // ─── Smart verdict tagline ─────────────────────────────────────────────────
+  // ─── Smart verdict tagline (updates .cmp-verdict-sub if still present) ──────
 
   function applyCarrierContext(carrier, themes, telInfo) {
     if (carrier.toLowerCase().includes('root')) {
@@ -117,7 +121,6 @@
   function calcRate(carrier, opts) {
     var r = carrier.base;
     if (!r) return null;
-    // Only apply adjustments for options the user actually selected (null = skip)
     if (opts.credit === 'excellent' && carrier.cExc != null) r *= (1 + carrier.cExc);
     else if (opts.credit === 'fair' && carrier.cFair != null) r *= (1 + carrier.cFair);
     else if (opts.credit === 'poor' && carrier.cFair != null) r *= (1 + carrier.cFair * 1.5);
@@ -141,7 +144,7 @@
   function getOpts() {
     function pill(name) {
       var el = document.querySelector('[data-pb="' + name + '"] .pb-pill.active');
-      return el ? el.dataset.v : null; // null = not selected
+      return el ? el.dataset.v : null;
     }
     function chk(id) { var el = document.getElementById(id); return el ? el.checked : false; }
     return {
@@ -161,20 +164,22 @@
     return !!(opts.credit || opts.age || opts.home || opts.youngDriver || opts.lapse || opts.suspended);
   }
 
-  // ─── Table row highlighting ────────────────────────────────────────────────
+  // ─── Table row muting ──────────────────────────────────────────────────────
 
-  function highlightRows(opts) {
+  function muteRows(opts) {
+    var active = hasProfile(opts);
     tableRows.forEach(function (item) {
       var lbl = item.lbl;
-      var rel = false;
-      if (opts.credit === 'excellent' && lbl.includes('excellent')) rel = true;
-      if ((opts.credit === 'fair' || opts.credit === 'poor') && (lbl.includes('fair') || lbl.includes('poor'))) rel = true;
-      if ((opts.age === 'young' || opts.youngDriver) && (lbl.includes('young') || (lbl.includes('18') && lbl.includes('24')))) rel = true;
-      if (opts.age === 'senior' && lbl.includes('55')) rel = true;
-      if (opts.home === 'own' && (lbl.includes('homeowner') || lbl.includes('multi') || lbl.includes('bundle'))) rel = true;
-      if (opts.lapse && (lbl.includes('lapse') || (lbl.includes('gap') && lbl.includes('coverage')))) rel = true;
-      if (opts.shopping !== 'any' && opts.shopping && (lbl.includes('how to buy') || (lbl.includes('buy') && lbl.length < 20))) rel = true;
-      item.row.classList.toggle('pb-relevant', rel);
+      var muted = false;
+      if (active) {
+        if (opts.credit === 'excellent' && (lbl.includes('fair') || lbl.includes('poor'))) muted = true;
+        if ((opts.credit === 'fair' || opts.credit === 'poor') && lbl.includes('excellent')) muted = true;
+        if ((opts.age === 'young' || opts.youngDriver) && (lbl.includes('55') || lbl.includes('senior'))) muted = true;
+        if (opts.age === 'senior' && (lbl.includes('young') || (lbl.includes('18') && lbl.includes('24')))) muted = true;
+        if (opts.home === 'rent' && (lbl.includes('homeowner') || (lbl.includes('bundle') && lbl.includes('home')))) muted = true;
+        if (opts.lapse === false && !opts.lapse && lbl.includes('lapse')) muted = false; // lapse rows never muted unless explicitly clean
+      }
+      item.row.classList.toggle('pb-muted', muted);
     });
   }
 
@@ -195,13 +200,55 @@
     noteEl.style.display = note ? 'block' : 'none';
   }
 
+  // ─── Winner column highlight ───────────────────────────────────────────────
+
+  var thA = ths[1] || null;
+  var thB = ths[2] || null;
+
+  function updateWinnerColumn(rA, rB, profiled) {
+    if (!thA || !thB || !rA || !rB) return;
+    var aWins = rA <= rB;
+    thA.classList.toggle('pb-col-winner', aWins);
+    thB.classList.toggle('pb-col-winner', !aWins);
+    var badge = profiled ? 'Best for your profile' : 'Best price';
+    var winTh = aWins ? thA : thB;
+    var loseTh = aWins ? thB : thA;
+    var wBadge = winTh.querySelector('.pb-best-badge');
+    var lBadge = loseTh.querySelector('.pb-best-badge');
+    if (!wBadge) {
+      wBadge = document.createElement('span');
+      wBadge.className = 'pb-best-badge';
+      winTh.appendChild(wBadge);
+    }
+    wBadge.textContent = badge;
+    if (lBadge) lBadge.remove();
+  }
+
+  // ─── Update avg annual row in table ───────────────────────────────────────
+
+  function updateAvgRow(rA, rB, profiled) {
+    if (!avgAnnualRow) return;
+    var cells = avgAnnualRow.cells;
+    if (profiled && rA && rB) {
+      if (cells[1]) cells[1].textContent = '$' + rA.toLocaleString();
+      if (cells[2]) cells[2].textContent = '$' + rB.toLocaleString();
+      avgAnnualRow.row.classList.toggle('row-win-a', rA <= rB);
+      avgAnnualRow.row.classList.toggle('row-win-b', rB < rA);
+    } else {
+      if (cells[1]) cells[1].textContent = avgOrigA;
+      if (cells[2]) cells[2].textContent = avgOrigB;
+      avgAnnualRow.row.classList.toggle('row-win-a', (d.a.base || 0) <= (d.b.base || 0));
+      avgAnnualRow.row.classList.toggle('row-win-b', (d.b.base || 0) < (d.a.base || 0));
+    }
+  }
+
   // ─── Update summary bar + form result ─────────────────────────────────────
 
   function updateResult() {
     var opts = getOpts();
     var profiled = hasProfile(opts);
 
-    highlightRows(opts);
+    muteRows(opts);
     checkShoppingConflict(opts);
 
     var rA = calcRate(d.a, opts);
@@ -212,6 +259,12 @@
     if (rA <= rB) { winner = cA; loser = cB; wRate = rA; lRate = rB; }
     else { winner = cB; loser = cA; wRate = rB; lRate = rA; }
     var save = lRate - wRate;
+
+    updateAvgRow(rA, rB, profiled);
+    updateWinnerColumn(rA, rB, profiled);
+
+    // ── Clear button visibility ────────────────────────────────────────────
+    if (clearBtn) clearBtn.style.display = profiled ? 'inline-block' : 'none';
 
     // ── Summary bar (always visible) ──────────────────────────────────────
     var labelEl = document.getElementById('pbSummaryLabel');
@@ -240,9 +293,6 @@
         detailEl.style.color = '';
       }
     }
-
-    // ── Clear button visibility ────────────────────────────────────────────
-    if (clearBtn) clearBtn.style.display = profiled ? 'inline-block' : 'none';
 
     // ── CTA link ───────────────────────────────────────────────────────────
     var cta = document.getElementById('pbCta');
@@ -273,10 +323,11 @@
       if (zipEl && p.zip) zipEl.value = p.zip;
       ['credit', 'age', 'home', 'coverage'].forEach(function (key) {
         if (!p[key]) return;
-        var btn = document.querySelector('[data-pb="' + key + '"] [data-v="' + p[key] + '"]');
-        if (!btn) return;
         var grp = document.querySelector('[data-pb="' + key + '"]');
-        if (grp) { grp.querySelectorAll('.pb-pill').forEach(function (b) { b.classList.remove('active'); }); grp.classList.add('has-selection'); }
+        var btn = grp ? grp.querySelector('[data-v="' + p[key] + '"]') : null;
+        if (!btn) return;
+        grp.querySelectorAll('.pb-pill').forEach(function (b) { b.classList.remove('active'); });
+        grp.classList.add('has-selection');
         btn.classList.add('active');
       });
       if (p.carrier) { var sel = document.getElementById('pbCarrier'); if (sel) sel.value = p.carrier; }
@@ -284,16 +335,43 @@
     } catch (e) { return false; }
   }
 
+  // ─── Clear button ─────────────────────────────────────────────────────────
+
+  var clearBtn = document.getElementById('pbClearBtn');
+
+  function clearProfile() {
+    document.querySelectorAll('[data-pb] .pb-pill').forEach(function (b) { b.classList.remove('active'); });
+    document.querySelectorAll('[data-pb]').forEach(function (g) { g.classList.remove('has-selection'); });
+    ['pbYoungDriver', 'pbLapsed', 'pbSuspended'].forEach(function (id) {
+      var el = document.getElementById(id); if (el) el.checked = false;
+    });
+    var zipEl2 = document.getElementById('pbZip'); if (zipEl2) zipEl2.value = '';
+    var carSel2 = document.getElementById('pbCarrier'); if (carSel2) carSel2.value = '';
+    try { localStorage.removeItem('br_profile'); } catch (e) {}
+    if (clearBtn) clearBtn.style.display = 'none';
+    // Restore table state
+    if (avgAnnualRow) {
+      var cells = avgAnnualRow.cells;
+      if (cells[1]) cells[1].textContent = avgOrigA;
+      if (cells[2]) cells[2].textContent = avgOrigB;
+    }
+    tableRows.forEach(function (item) { item.row.classList.remove('pb-muted'); });
+    updateResult();
+  }
+
+  if (clearBtn) clearBtn.addEventListener('click', clearProfile);
+
   // ─── Toggle open/close ────────────────────────────────────────────────────
 
   var builderEl = document.getElementById('profileBuilder');
   var customizeBtn = document.getElementById('pbCustomizeBtn');
+  var closeBottomBtn = document.getElementById('pbCloseBottom');
 
   function openBuilder() {
     if (!builderEl) return;
     builderEl.style.display = 'block';
     if (customizeBtn) {
-      customizeBtn.textContent = 'Hide ▲';
+      customizeBtn.textContent = 'Hide profile ▲';
       customizeBtn.classList.add('open');
     }
   }
@@ -313,25 +391,7 @@
       isOpen ? closeBuilder() : openBuilder();
     });
   }
-
-  // ─── Clear button ─────────────────────────────────────────────────────────
-
-  var clearBtn = document.getElementById('pbClearBtn');
-
-  function clearProfile() {
-    document.querySelectorAll('[data-pb] .pb-pill').forEach(function (b) { b.classList.remove('active'); });
-    document.querySelectorAll('[data-pb]').forEach(function (g) { g.classList.remove('has-selection'); });
-    ['pbYoungDriver', 'pbLapsed', 'pbSuspended'].forEach(function (id) {
-      var el = document.getElementById(id); if (el) el.checked = false;
-    });
-    var zipEl2 = document.getElementById('pbZip'); if (zipEl2) zipEl2.value = '';
-    var carSel2 = document.getElementById('pbCarrier'); if (carSel2) carSel2.value = '';
-    try { localStorage.removeItem('br_profile'); } catch (e) {}
-    if (clearBtn) clearBtn.style.display = 'none';
-    updateResult();
-  }
-
-  if (clearBtn) clearBtn.addEventListener('click', clearProfile);
+  if (closeBottomBtn) closeBottomBtn.addEventListener('click', closeBuilder);
 
   // ─── Wire events ──────────────────────────────────────────────────────────
 
@@ -361,16 +421,14 @@
 
   // ─── Init ─────────────────────────────────────────────────────────────────
 
-  // Always start with no active pills — clear any defaults baked into HTML
   document.querySelectorAll('[data-pb] .pb-pill').forEach(function (b) { b.classList.remove('active'); });
 
   var hadSaved = loadSaved();
 
-  // If user has a prior saved profile, open the form and show their results
   if (hadSaved && hasProfile(getOpts())) {
     openBuilder();
   }
 
-  updateResult(); // sets summary bar to "General rates" (or profile if restored)
+  updateResult();
 
 })();
