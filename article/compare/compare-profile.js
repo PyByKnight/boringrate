@@ -371,7 +371,7 @@
     if (!builderEl) return;
     builderEl.style.display = 'block';
     if (customizeBtn) {
-      customizeBtn.textContent = 'Hide profile ▲';
+      customizeBtn.textContent = 'Hide ▲';
       customizeBtn.classList.add('open');
     }
   }
