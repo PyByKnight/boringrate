@@ -132,6 +132,20 @@
   .carrier-link-bar a:hover{border-color:var(--accent);}
   @media(max-width:600px){.profile-grid{grid-template-columns:1fr;}.cmp-table{font-size:13px;}.cmp-table td,.cmp-table th{padding:8px 8px;}}
 
+  .hub-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);text-decoration:none;margin-bottom:20px;}
+  .hub-back:hover{color:var(--ink);}
+  .hub-back::before{content:"←";margin-right:2px;}
+  .profile-builder{border:1px solid var(--rule);padding:22px 24px;max-width:660px;margin:0 0 36px;background:var(--paper-deep);}
+  .pb-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+  .pb-row-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);min-width:72px;flex-shrink:0;}
+  .pb-pills{display:flex;gap:6px;flex-wrap:wrap;}
+  .pb-pill{font-family:var(--mono);font-size:11px;letter-spacing:0.05em;padding:5px 12px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft);cursor:pointer;transition:all 120ms;border-radius:2px;}
+  .pb-pill.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .pb-result{margin-top:18px;padding-top:18px;border-top:1px solid var(--rule);}
+  .pb-result-winner{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:-0.02em;margin-bottom:4px;}
+  .pb-result-detail{font-family:var(--mono);font-size:11px;color:var(--ink-mute);letter-spacing:0.04em;line-height:1.6;margin-bottom:16px;}
+  .pb-cta{display:inline-block;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:10px 20px;background:var(--ink);color:var(--paper);text-decoration:none;transition:background 120ms;}
+  .pb-cta:hover{background:var(--accent);}
 </style>
 <script type="application/ld+json">
 {
@@ -231,7 +245,7 @@
 </div>
 <div class="wrap-narrow">
   <div class="article-header">
-    <div class="article-kicker"><a href="/">Rate Comparison</a> &nbsp;&middot;&nbsp; Carrier Compare &nbsp;&middot;&nbsp; 3 min read</div>
+    <div class="article-kicker"><a href="/">Rate Comparison</a> &nbsp;&middot;&nbsp; <a href="/article/compare/index.html">Carrier Compare</a> &nbsp;&middot;&nbsp; 3 min read</div>
     <h1 class="article-title">GEICO vs. Nationwide (2026)</h1>
     <p class="article-dek">Which is cheaper &mdash; and who wins for your driver profile? Side-by-side on price, complaints, credit, and more.</p>
     <div class="article-byline">BoringRate Editorial &nbsp;&middot;&nbsp; May 2026</div>
@@ -264,33 +278,45 @@
       </tbody>
     </table>
 
-    <h2>Who wins by driver profile</h2>
-    <div class="profile-grid">
-      <div class="profile-card">
-  <div class="profile-card-label">Good credit · clean record</div>
-  <div class="profile-card-winner">GEICO</div>
-  <div class="profile-card-detail">saves ~$277/yr</div>
-</div>
-      <div class="profile-card">
-  <div class="profile-card-label">Fair / poor credit</div>
-  <div class="profile-card-winner">GEICO</div>
-  <div class="profile-card-detail">saves ~$413/yr</div>
-</div>
-      <div class="profile-card">
-  <div class="profile-card-label">Young driver · 18–24</div>
-  <div class="profile-card-winner">GEICO</div>
-  <div class="profile-card-detail">saves ~$214/yr</div>
-</div>
-      <div class="profile-card">
-  <div class="profile-card-label">Drivers 55+</div>
-  <div class="profile-card-winner">GEICO</div>
-  <div class="profile-card-detail">saves ~$256/yr</div>
-</div>
-      <div class="profile-card">
-  <div class="profile-card-label">Homeowner bundle</div>
-  <div class="profile-card-winner">GEICO</div>
-  <div class="profile-card-detail">saves ~$196/yr</div>
-</div>
+        <a href="/article/compare/index.html" class="hub-back">Compare hub</a>
+    <h2>Who wins for your profile?</h2>
+    <div class="profile-builder" id="profileBuilder">
+      <div class="pb-row">
+        <div class="pb-row-label">Credit</div>
+        <div class="pb-pills" data-pb="credit">
+          <button type="button" class="pb-pill" data-v="excellent">Excellent</button>
+          <button type="button" class="pb-pill active" data-v="good">Good</button>
+          <button type="button" class="pb-pill" data-v="fair">Fair</button>
+          <button type="button" class="pb-pill" data-v="poor">Poor</button>
+        </div>
+      </div>
+      <div class="pb-row">
+        <div class="pb-row-label">Age</div>
+        <div class="pb-pills" data-pb="age">
+          <button type="button" class="pb-pill" data-v="young">18&ndash;24</button>
+          <button type="button" class="pb-pill active" data-v="mid">25&ndash;54</button>
+          <button type="button" class="pb-pill" data-v="senior">55+</button>
+        </div>
+      </div>
+      <div class="pb-row">
+        <div class="pb-row-label">Home</div>
+        <div class="pb-pills" data-pb="home">
+          <button type="button" class="pb-pill active" data-v="rent">Rent</button>
+          <button type="button" class="pb-pill" data-v="own">Own</button>
+        </div>
+      </div>
+      <div class="pb-row">
+        <div class="pb-row-label">Lapsed?</div>
+        <div class="pb-pills" data-pb="lapse">
+          <button type="button" class="pb-pill active" data-v="no">No gap</button>
+          <button type="button" class="pb-pill" data-v="yes">Had a gap</button>
+        </div>
+      </div>
+      <div class="pb-result" id="pbResult">
+        <div class="pb-result-winner" id="pbWinner"></div>
+        <div class="pb-result-detail" id="pbDetail"></div>
+        <a href="/" class="pb-cta" id="pbCta">View all carrier rates &rarr;</a>
+      </div>
     </div>
 
     <div class="zip-embed">
