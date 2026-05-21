@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="canonical" href="https://boringrate.com/article/market-share.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Car Insurance Market Share by Carrier: 2026 Rankings — BoringRate</title>
+<meta name="description" content="Which carriers control the most of the U.S. auto insurance market? National market share rankings by premium volume, with state-by-state breakdowns and concentration analysis." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="BoringRate" />
+<meta property="og:url" content="https://boringrate.com/article/market-share.html" />
+<meta property="og:title" content="Car Insurance Market Share by Carrier: 2026 Rankings" />
+<meta property="og:description" content="State Farm, Progressive, and GEICO together control nearly half the U.S. auto market. Full national rankings by premium volume and market share." />
+<meta property="og:image" content="https://boringrate.com/og-default.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink: #161512;
+    --ink-soft: #3a3631;
+    --ink-mute: #6b665e;
+    --paper: #f6f1e8;
+    --paper-deep: #ece5d6;
+    --rule: #d8d0bd;
+    --accent: #b4321a;
+    --accent-deep: #8a1f0f;
+    --good: #2f6b3a;
+    --warn: #b8810a;
+    --serif: 'Fraunces', 'Georgia', serif;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { overflow-x: hidden; font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; font-size: 17px; -webkit-font-smoothing: antialiased; }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.06 0 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.55;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+  .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+
+  /* Nav */
+  header.top { border-bottom: 1px solid var(--rule); padding: 18px 0; background: var(--paper); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(6px); }
+  .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 26px; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; display: flex; align-items: baseline; gap: 8px; }
+  .brand-mark { display: inline-block; width: 10px; height: 10px; background: var(--accent); border-radius: 2px; transform: translateY(-2px); }
+  nav.primary { display: flex; align-items: center; gap: 8px; }
+  .nav-tabs { display: flex; border: 1px solid var(--rule); }
+  .nav-tabs a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; padding: 6px 13px; border-right: 1px solid var(--rule); transition: all 120ms; white-space: nowrap; }
+  .nav-tabs a:last-child { border-right: none; }
+  .nav-hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px 6px; margin-left: auto; }
+  .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--ink); transition: transform 200ms, opacity 200ms; transform-origin: center; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mega { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--ink); color: var(--paper); border-top: 2px solid var(--accent); z-index: 200; box-shadow: 0 8px 32px rgba(0,0,0,0.18); }
+  .nav-mega.open { display: block; }
+
+  @media (max-width: 900px) {
+    .nav-tabs { display: none; }
+    .nav-mega { max-height: calc(100vh - 65px); overflow-y: auto; }
+  }
+
+  /* Page hero */
+  .article-hero { padding: 52px 0 40px; border-bottom: 1px solid var(--rule); }
+  .article-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 16px; }
+  .article-title { font-family: var(--serif); font-size: clamp(28px, 4vw, 42px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); margin-bottom: 16px; }
+  .article-dek { font-size: 18px; color: var(--ink-soft); max-width: 640px; line-height: 1.55; margin-bottom: 32px; }
+  .article-meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mute); }
+
+  .stat-cards { display: flex; gap: 16px; flex-wrap: wrap; margin: 32px 0 0; }
+  .stat-card { flex: 1; min-width: 160px; background: var(--paper-deep); border: 1px solid var(--rule); padding: 18px 20px; }
+  .stat-card-num { font-family: var(--serif); font-size: 32px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1; margin-bottom: 6px; }
+  .stat-card-sub { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); }
+
+  /* Table */
+  .rankings-section { padding: 44px 0 0; }
+  .sort-bar { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; align-items: center; }
+  .sort-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin-right: 4px; }
+  .sort-btn { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; background: none; border: 1px solid var(--rule); color: var(--ink-soft); padding: 5px 12px; cursor: pointer; transition: all 100ms; }
+  .sort-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .rankings-wrap { border: 1px solid var(--rule); overflow: hidden; margin-bottom: 48px; }
+  .rankings-table { width: 100%; border-collapse: collapse; }
+  .rankings-table thead th { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-mute); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--rule); background: var(--paper-deep); white-space: nowrap; }
+  .rankings-table thead th.th-rank { width: 48px; text-align: center; }
+  .rankings-table thead th.th-num { text-align: right; }
+  .rankings-table tbody tr { border-bottom: 1px solid var(--rule); transition: background 80ms; }
+  .rankings-table tbody tr:last-child { border-bottom: none; }
+  .rankings-table tbody tr:hover { background: var(--paper-deep); }
+  .rankings-table td { padding: 13px 16px; vertical-align: middle; }
+  .td-rank { font-family: var(--mono); font-size: 12px; color: var(--ink-mute); text-align: center; }
+  .td-carrier a { font-family: var(--sans); font-weight: 500; color: var(--ink); text-decoration: none; }
+  .td-carrier a:hover { color: var(--accent); }
+  .td-carrier .carrier-tag { display: block; font-family: var(--mono); font-size: 10px; color: var(--ink-mute); letter-spacing: 0.04em; margin-top: 2px; }
+  .td-num { font-family: var(--mono); font-size: 13px; text-align: right; color: var(--ink-soft); }
+  .td-bar { width: 160px; padding-right: 20px; }
+  .bar-wrap { background: var(--paper-deep); height: 8px; border-radius: 1px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--accent); border-radius: 1px; transition: width 300ms; }
+  .td-type { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: var(--ink-mute); white-space: nowrap; }
+
+  /* Article body */
+  .article-body { padding: 44px 0; }
+  .article-body h2 { font-family: var(--serif); font-size: 24px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); margin: 40px 0 14px; }
+  .article-body h2:first-child { margin-top: 0; }
+  .article-body p { color: var(--ink-soft); margin-bottom: 18px; line-height: 1.7; }
+  .article-body p strong { color: var(--ink); }
+  .article-body p:last-child { margin-bottom: 0; }
+
+  .tool-cta { background: var(--paper-deep); border: 1px solid var(--rule); border-left: 3px solid var(--accent); padding: 22px 24px; margin: 36px 0; }
+  .tool-cta h3 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
+  .tool-cta p { font-size: 15px; color: var(--ink-soft); margin-bottom: 14px; }
+  .tool-cta a { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--accent); text-decoration: none; font-weight: 500; }
+  .tool-cta a:hover { text-decoration: underline; }
+
+  .related-articles { border-top: 1px solid var(--rule); margin-top: 44px; padding-top: 32px; }
+  .related-articles h3 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 20px; }
+  .related-list { display: flex; flex-direction: column; gap: 16px; }
+  .related-item a { font-family: var(--serif); font-size: 17px; font-weight: 500; color: var(--ink); text-decoration: none; display: block; margin-bottom: 4px; }
+  .related-item a:hover { color: var(--accent); }
+  .related-item span { font-size: 14px; color: var(--ink-mute); }
+
+  .article-email { background: var(--ink); color: var(--paper); padding: 28px 32px; margin-top: 44px; }
+  .article-email strong { font-family: var(--serif); font-size: 20px; font-weight: 600; display: block; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .article-email .sub { font-size: 14px; color: rgba(246,241,232,0.65); margin-bottom: 18px; }
+  .email-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .email-input { font-family: var(--mono); font-size: 13px; background: rgba(246,241,232,0.08); border: 1px solid rgba(246,241,232,0.2); color: var(--paper); padding: 10px 14px; flex: 1; min-width: 200px; }
+  .email-input::placeholder { color: rgba(246,241,232,0.35); }
+  .email-btn { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; background: var(--accent); border: none; color: var(--paper); padding: 10px 20px; cursor: pointer; white-space: nowrap; }
+  .email-thanks { font-family: var(--mono); font-size: 13px; color: rgba(246,241,232,0.8); display: none; margin-top: 12px; }
+
+  /* Footer */
+  footer { background: var(--ink); color: rgba(246,241,232,0.7); padding: 48px 0 32px; margin-top: 0; position: relative; z-index: 2; }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  footer .brand { color: var(--paper); font-size: 22px; margin-bottom: 12px; display: inline-flex; }
+  footer p { font-size: 13px; line-height: 1.6; color: rgba(246,241,232,0.5); }
+  .foot-col h5 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(246,241,232,0.4); margin-bottom: 14px; }
+  .foot-col a { display: block; font-size: 13px; color: rgba(246,241,232,0.65); text-decoration: none; margin-bottom: 8px; transition: color 120ms; }
+  .foot-col a:hover { color: var(--paper); }
+  .legal { font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em; color: rgba(246,241,232,0.25); border-top: 1px solid rgba(246,241,232,0.1); padding-top: 24px; line-height: 1.7; }
+
+  @media (max-width: 900px) {
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .td-bar { display: none; }
+  }
+  @media (max-width: 600px) {
+    .foot-grid { grid-template-columns: 1fr; }
+    .stat-cards { flex-direction: column; }
+    .td-type { display: none; }
+  }
+  .nav-mega-inner{display:block;padding:24px 28px;max-width:1180px;margin:0 auto;}
+  .nav-section{margin-bottom:22px;}
+  .nav-section:last-child{margin-bottom:0;}
+  .nav-section-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(246,241,232,0.35);margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid rgba(246,241,232,0.12);}
+  .nav-tools{display:flex;gap:2px;flex-wrap:wrap;}
+  .nav-tool{display:flex;flex-direction:column;gap:3px;padding:11px 14px;text-decoration:none;color:var(--paper);flex:1;min-width:150px;background:rgba(246,241,232,0.04);border:1px solid rgba(246,241,232,0.08);transition:background 120ms;}
+  .nav-tool:hover{background:rgba(246,241,232,0.1);}
+  .nav-tool-name{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--paper);}
+  .nav-tool-desc{font-family:var(--mono);font-size:10px;color:rgba(246,241,232,0.38);letter-spacing:0.03em;}
+  .nav-res-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px;}
+  .nav-res-tab{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;background:none;border:1px solid rgba(246,241,232,0.15);color:rgba(246,241,232,0.5);padding:6px 12px;cursor:pointer;transition:all 120ms;}
+  .nav-res-tab:hover,.nav-res-tab.active{color:var(--paper);border-color:rgba(246,241,232,0.4);background:rgba(246,241,232,0.08);}
+  .nav-res-panel{display:none;}
+  .nav-res-panel.active{display:block;}
+  .nav-res-metros{display:grid;grid-template-columns:repeat(7,1fr);gap:1px 0;}
+  .nav-res-metros a{font-family:var(--mono);font-size:11px;color:rgba(246,241,232,0.65);text-decoration:none;padding:3px 0;transition:color 120ms;letter-spacing:0.02em;}
+  .nav-res-metros a:hover{color:var(--paper);}
+  .nav-res-subhead{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(246,241,232,0.3);margin:0 0 6px;}
+  .nav-res-carriers{display:grid;grid-template-columns:repeat(4,1fr);gap:0 16px;}
+  .nav-res-carriers a{font-family:var(--sans);font-size:12px;color:rgba(246,241,232,0.72);text-decoration:none;padding:5px 0;border-bottom:1px solid rgba(246,241,232,0.06);display:flex;justify-content:space-between;transition:color 120ms;}
+  .nav-res-carriers a:hover{color:var(--paper);}
+  .nav-res-guides a{display:block;font-family:var(--sans);font-size:13px;color:rgba(246,241,232,0.75);text-decoration:none;padding:7px 0;border-bottom:1px solid rgba(246,241,232,0.08);transition:color 120ms;}
+  .nav-res-guides a:last-child{border-bottom:none;}
+  .nav-res-guides a:hover{color:var(--paper);}
+  @media(max-width:900px){
+    .nav-mega-inner{padding:0;}
+    .nav-section{margin:0;border-bottom:1px solid rgba(246,241,232,0.12);}
+    .nav-section-label{padding:14px 20px;margin:0;border-bottom:none;}
+    .nav-tools{flex-direction:column;gap:0;}
+    .nav-tool{border:none;border-bottom:1px solid rgba(246,241,232,0.06);min-width:0;padding:12px 20px;}
+    .nav-res-tabs{flex-direction:column;gap:0;margin:0;padding:0 20px 10px;}
+    .nav-res-tab{border:none;border-bottom:1px solid rgba(246,241,232,0.08);text-align:left;padding:12px 0;}
+    .nav-res-panel{padding:0 20px 14px;}
+    .nav-mega-states{grid-template-columns:repeat(3,1fr);}
+    .nav-res-metros{grid-template-columns:repeat(2,1fr);}
+    .nav-res-carriers{grid-template-columns:1fr 1fr;gap:0 10px;}
+  }
+  @media(max-width:480px){
+    .nav-mega-states{grid-template-columns:repeat(2,1fr);}
+    .nav-res-metros{grid-template-columns:repeat(2,1fr);}
+    .nav-res-carriers{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-inner">
+      <a href="/" class="brand"><span class="brand-mark"></span>BoringRate</a>
+      <nav class="primary">
+        <div class="nav-tabs">
+          <a href="/">Rates</a>
+          <a href="/coverage.html">Coverage</a>
+          <a href="/article/compare/index.html">Compare</a>
+          <a href="/article/">Guides</a>
+        </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Browse site" aria-expanded="false"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </div>
+  <div class="nav-mega" id="navMega"><div class="nav-mega-inner"><div class="nav-section"><p class="nav-section-label">Tools</p><div class="nav-tools"><a href="/" class="nav-tool"><span class="nav-tool-name">Rate Comparison</span><span class="nav-tool-desc">Rank every carrier for your ZIP</span></a><a href="/coverage.html" class="nav-tool"><span class="nav-tool-name">Coverage Calculator</span><span class="nav-tool-desc">Find the right coverage level</span></a><a href="/article/compare/index.html" class="nav-tool"><span class="nav-tool-name">Carrier Comparison</span><span class="nav-tool-desc">Head-to-head any two carriers</span></a></div></div><div class="nav-section"><p class="nav-section-label">Research</p><div class="nav-res-tabs"><button type="button" class="nav-res-tab active" data-panel="res-state">State</button><button type="button" class="nav-res-tab" data-panel="res-metro">Metro</button><button type="button" class="nav-res-tab" data-panel="res-carrier">Carrier</button><button type="button" class="nav-res-tab" data-panel="res-market">Market Share</button><button type="button" class="nav-res-tab" data-panel="res-guides">Guides</button></div><div class="nav-res-panels"><div class="nav-res-panel active" id="res-state"><div class="nav-mega-states"><a href="/article/state/alabama.html">Alabama</a><a href="/article/state/alaska.html">Alaska</a><a href="/article/state/arizona.html">Arizona</a><a href="/article/state/arkansas.html">Arkansas</a><a href="/article/state/california.html">California</a><a href="/article/state/colorado.html">Colorado</a><a href="/article/state/connecticut.html">Connecticut</a><a href="/article/state/delaware.html">Delaware</a><a href="/article/state/florida.html">Florida</a><a href="/article/state/georgia.html">Georgia</a><a href="/article/state/hawaii.html">Hawaii</a><a href="/article/state/idaho.html">Idaho</a><a href="/article/state/illinois.html">Illinois</a><a href="/article/state/indiana.html">Indiana</a><a href="/article/state/iowa.html">Iowa</a><a href="/article/state/kansas.html">Kansas</a><a href="/article/state/kentucky.html">Kentucky</a><a href="/article/state/louisiana.html">Louisiana</a><a href="/article/state/maine.html">Maine</a><a href="/article/state/maryland.html">Maryland</a><a href="/article/state/massachusetts.html">Massachusetts</a><a href="/article/state/michigan.html">Michigan</a><a href="/article/state/minnesota.html">Minnesota</a><a href="/article/state/mississippi.html">Mississippi</a><a href="/article/state/missouri.html">Missouri</a><a href="/article/state/montana.html">Montana</a><a href="/article/state/nebraska.html">Nebraska</a><a href="/article/state/nevada.html">Nevada</a><a href="/article/state/new-hampshire.html">New Hampshire</a><a href="/article/state/new-jersey.html">New Jersey</a><a href="/article/state/new-mexico.html">New Mexico</a><a href="/article/state/new-york.html">New York</a><a href="/article/state/north-carolina.html">North Carolina</a><a href="/article/state/north-dakota.html">North Dakota</a><a href="/article/state/ohio.html">Ohio</a><a href="/article/state/oklahoma.html">Oklahoma</a><a href="/article/state/oregon.html">Oregon</a><a href="/article/state/pennsylvania.html">Pennsylvania</a><a href="/article/state/rhode-island.html">Rhode Island</a><a href="/article/state/south-carolina.html">South Carolina</a><a href="/article/state/south-dakota.html">South Dakota</a><a href="/article/state/tennessee.html">Tennessee</a><a href="/article/state/texas.html">Texas</a><a href="/article/state/utah.html">Utah</a><a href="/article/state/vermont.html">Vermont</a><a href="/article/state/virginia.html">Virginia</a><a href="/article/state/washington.html">Washington</a><a href="/article/state/washington-dc.html">Washington D.C.</a><a href="/article/state/west-virginia.html">West Virginia</a><a href="/article/state/wisconsin.html">Wisconsin</a><a href="/article/state/wyoming.html">Wyoming</a></div></div><div class="nav-res-panel" id="res-metro"><div class="nav-res-metros"><a href="/article/metro/albany.html">Albany</a><a href="/article/metro/albuquerque.html">Albuquerque</a><a href="/article/metro/anchorage.html">Anchorage</a><a href="/article/metro/atlanta.html">Atlanta</a><a href="/article/metro/austin.html">Austin</a><a href="/article/metro/bakersfield.html">Bakersfield</a><a href="/article/metro/baltimore.html">Baltimore</a><a href="/article/metro/baton-rouge.html">Baton Rouge</a><a href="/article/metro/billings.html">Billings</a><a href="/article/metro/birmingham.html">Birmingham</a><a href="/article/metro/boise.html">Boise</a><a href="/article/metro/boston.html">Boston</a><a href="/article/metro/buffalo.html">Buffalo</a><a href="/article/metro/burlington-vt.html">Burlington, VT</a><a href="/article/metro/charleston-wv.html">Charleston, WV</a><a href="/article/metro/charlotte.html">Charlotte</a><a href="/article/metro/cheyenne.html">Cheyenne</a><a href="/article/metro/chicago.html">Chicago</a><a href="/article/metro/cincinnati.html">Cincinnati</a><a href="/article/metro/cleveland.html">Cleveland</a><a href="/article/metro/columbia-sc.html">Columbia, SC</a><a href="/article/metro/columbus.html">Columbus</a><a href="/article/metro/dallas-fort-worth.html">Dallas–Ft. Worth</a><a href="/article/metro/denver.html">Denver</a><a href="/article/metro/des-moines.html">Des Moines</a><a href="/article/metro/detroit.html">Detroit</a><a href="/article/metro/el-paso.html">El Paso</a><a href="/article/metro/fargo.html">Fargo</a><a href="/article/metro/fresno.html">Fresno</a><a href="/article/metro/greensboro.html">Greensboro</a><a href="/article/metro/greenville-spartanburg.html">Greenville, SC</a><a href="/article/metro/hartford.html">Hartford</a><a href="/article/metro/honolulu.html">Honolulu</a><a href="/article/metro/houston.html">Houston</a><a href="/article/metro/indianapolis.html">Indianapolis</a><a href="/article/metro/jackson-ms.html">Jackson, MS</a><a href="/article/metro/jacksonville.html">Jacksonville</a><a href="/article/metro/kansas-city.html">Kansas City</a><a href="/article/metro/knoxville.html">Knoxville</a><a href="/article/metro/las-vegas.html">Las Vegas</a><a href="/article/metro/little-rock.html">Little Rock</a><a href="/article/metro/los-angeles.html">Los Angeles</a><a href="/article/metro/louisville.html">Louisville</a><a href="/article/metro/madison.html">Madison</a><a href="/article/metro/manchester-nh.html">Manchester, NH</a><a href="/article/metro/memphis.html">Memphis</a><a href="/article/metro/miami.html">Miami</a><a href="/article/metro/milwaukee.html">Milwaukee</a><a href="/article/metro/minneapolis-st-paul.html">Minneapolis–St. Paul</a><a href="/article/metro/nashville.html">Nashville</a><a href="/article/metro/new-jersey.html">New Jersey</a><a href="/article/metro/new-orleans.html">New Orleans</a><a href="/article/metro/new-york-city.html">New York City</a><a href="/article/metro/norfolk.html">Norfolk</a><a href="/article/metro/oklahoma-city.html">Oklahoma City</a><a href="/article/metro/omaha.html">Omaha</a><a href="/article/metro/orlando.html">Orlando</a><a href="/article/metro/philadelphia.html">Philadelphia</a><a href="/article/metro/phoenix.html">Phoenix</a><a href="/article/metro/pittsburgh.html">Pittsburgh</a><a href="/article/metro/portland.html">Portland</a><a href="/article/metro/portland-me.html">Portland, ME</a><a href="/article/metro/providence.html">Providence</a><a href="/article/metro/raleigh-durham.html">Raleigh–Durham</a><a href="/article/metro/richmond.html">Richmond</a><a href="/article/metro/riverside-inland-empire.html">Riverside–IE</a><a href="/article/metro/rochester.html">Rochester</a><a href="/article/metro/sacramento.html">Sacramento</a><a href="/article/metro/salt-lake-city.html">Salt Lake City</a><a href="/article/metro/san-antonio.html">San Antonio</a><a href="/article/metro/san-diego.html">San Diego</a><a href="/article/metro/san-jose.html">San Jose</a><a href="/article/metro/seattle.html">Seattle</a><a href="/article/metro/sioux-falls.html">Sioux Falls</a><a href="/article/metro/spokane.html">Spokane</a><a href="/article/metro/st-louis.html">St. Louis</a><a href="/article/metro/syracuse.html">Syracuse</a><a href="/article/metro/tampa.html">Tampa</a><a href="/article/metro/tucson.html">Tucson</a><a href="/article/metro/tulsa.html">Tulsa</a><a href="/article/metro/washington-dc.html">Washington, D.C.</a><a href="/article/metro/wichita.html">Wichita</a><a href="/article/metro/wilmington-de.html">Wilmington, DE</a></div></div><div class="nav-res-panel" id="res-carrier"><p class="nav-res-subhead">National carriers</p><div class="nav-res-carriers"><a href="/article/carrier/usaa.html">USAA <span class="nav-mega-tag">Military &amp; family</span></a><a href="/article/carrier/geico.html">GEICO <span class="nav-mega-tag">Online shoppers</span></a><a href="/article/carrier/state-farm.html">State Farm <span class="nav-mega-tag">Local agents</span></a><a href="/article/carrier/progressive.html">Progressive <span class="nav-mega-tag">High-risk &amp; incidents</span></a><a href="/article/carrier/allstate.html">Allstate <span class="nav-mega-tag">Accident forgiveness</span></a><a href="/article/carrier/liberty-mutual.html">Liberty Mutual <span class="nav-mega-tag">New car replacement</span></a><a href="/article/carrier/farmers.html">Farmers <span class="nav-mega-tag">Full-service agents</span></a><a href="/article/carrier/nationwide.html">Nationwide <span class="nav-mega-tag">Vanishing deductible</span></a><a href="/article/carrier/erie.html">Erie <span class="nav-mega-tag">Mid-Atlantic &amp; Midwest</span></a><a href="/article/carrier/american-family.html">American Family <span class="nav-mega-tag">Midwest families</span></a><a href="/article/carrier/amica.html">Amica <span class="nav-mega-tag">Claims service</span></a><a href="/article/carrier/auto-owners.html">Auto-Owners <span class="nav-mega-tag">26-state agent</span></a><a href="/article/carrier/travelers.html">Travelers <span class="nav-mega-tag">Homeowner bundles</span></a><a href="/article/carrier/safeco.html">Safeco <span class="nav-mega-tag">Independent agents</span></a><a href="/article/carrier/the-hartford.html">The Hartford <span class="nav-mega-tag">AARP &amp; 50+ drivers</span></a><a href="/article/carrier/root-insurance.html">Root Insurance <span class="nav-mega-tag">Telematics · safe drivers</span></a><a href="/article/carrier/aaa.html">AAA / CSAA <span class="nav-mega-tag">Members &amp; roadside</span></a></div><p class="nav-res-subhead" style="margin-top:14px;">Regional &amp; local</p><div class="nav-res-carriers"><a href="/article/carrier/texas-farm-bureau.html">Texas Farm Bureau <span class="nav-mega-tag">Texas only</span></a><a href="/article/carrier/georgia-farm-bureau.html">Georgia Farm Bureau <span class="nav-mega-tag">Georgia only</span></a><a href="/article/carrier/tennessee-farm-bureau.html">Tennessee Farm Bureau <span class="nav-mega-tag">Tennessee only</span></a><a href="/article/carrier/nc-farm-bureau.html">NC Farm Bureau <span class="nav-mega-tag">North Carolina</span></a><a href="/article/carrier/kentucky-farm-bureau.html">Kentucky Farm Bureau <span class="nav-mega-tag">Kentucky only</span></a><a href="/article/carrier/louisiana-farm-bureau.html">Louisiana Farm Bureau <span class="nav-mega-tag">Louisiana only</span></a><a href="/article/carrier/pemco.html">PEMCO <span class="nav-mega-tag">WA &amp; OR</span></a><a href="/article/carrier/njm.html">NJM Insurance <span class="nav-mega-tag">NJ / CT / PA</span></a><a href="/article/carrier/wawanesa.html">Wawanesa <span class="nav-mega-tag">California only</span></a><a href="/article/carrier/mercury.html">Mercury Insurance <span class="nav-mega-tag">CA &amp; 10 states</span></a><a href="/article/carrier/shelter.html">Shelter Insurance <span class="nav-mega-tag">15-state Central</span></a><a href="/article/carrier/mapfre.html">MAPFRE Insurance <span class="nav-mega-tag">Massachusetts</span></a><a href="/article/carrier/nycm.html">NYCM Insurance <span class="nav-mega-tag">New York only</span></a><a href="/article/carrier/alfa.html">Alfa Insurance <span class="nav-mega-tag">Southeast</span></a><a href="/article/carrier/country-financial.html">Country Financial <span class="nav-mega-tag">Midwest</span></a></div></div><div class="nav-res-panel" id="res-market"><p class="nav-res-subhead">Rankings &amp; data</p><div class="nav-res-guides"><a href="/article/market-share.html">National Carrier Market Share — who controls the U.S. market</a><a href="/article/state-rankings.html">State-by-State Rate Rankings — avg. premium + top carriers per state</a></div></div><div class="nav-res-panel nav-res-guides" id="res-guides"><a href="/article/coverage-guide.html">Coverage Guide — How Much Do You Actually Need?</a><a href="/article/credit-score-insurance.html">Credit Score &amp; Car Insurance — What's the Link?</a><a href="/article/premium-went-up.html">Why Your Premium Went Up (And What To Do)</a><a href="/article/shopping-strategy.html">Car Insurance Shopping Strategy</a><a href="/article/sr22-insurance.html">SR-22 Insurance Explained</a><a href="/article/young-drivers.html">Young Driver Insurance Guide</a><a href="/article/state-rankings.html">State-by-State Rate Rankings</a><a href="/article/florida-rates-dropping.html">Florida Rates — What's Changing in 2026</a></div></div></div></div></div>
+</header>
+
+<div class="wrap">
+  <div class="article-hero">
+    <div class="article-kicker">Market Share · 2026 Data</div>
+    <h1 class="article-title">Who Controls U.S. Car Insurance?</h1>
+    <p class="article-dek">State Farm, Progressive, and GEICO together hold nearly half the market. Here's the full picture — national rankings by premium volume, concentration analysis, and what it means for your rates.</p>
+    <div class="article-meta">Source: NAIC 2024 market share data &nbsp;·&nbsp; Private passenger auto, direct premiums written</div>
+
+    <div class="stat-cards">
+      <div class="stat-card">
+        <div class="stat-card-num">$370B+</div>
+        <div class="stat-card-sub">U.S. auto insurance market (2024 est.)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-num">18.3%</div>
+        <div class="stat-card-sub">State Farm — largest single carrier</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-num">62%</div>
+        <div class="stat-card-sub">Top 5 carriers combined share</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-num">900+</div>
+        <div class="stat-card-sub">Active carriers nationwide</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rankings-section">
+    <div class="sort-bar">
+      <span class="sort-label">Sort:</span>
+      <button class="sort-btn active" id="sortShare">Market Share</button>
+      <button class="sort-btn" id="sortPremium">Premium Volume</button>
+      <button class="sort-btn" id="sortName">A–Z</button>
+    </div>
+
+    <div class="rankings-wrap">
+      <table class="rankings-table">
+        <thead>
+          <tr>
+            <th class="th-rank">#</th>
+            <th>Carrier</th>
+            <th class="th-num">Market Share</th>
+            <th class="td-bar"></th>
+            <th class="th-num">Est. Premiums</th>
+            <th>States</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody id="rankingsBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="wrap-narrow">
+  <div class="article-body">
+
+    <h2>How concentrated is the U.S. auto market?</h2>
+
+    <p>The top 10 carriers account for roughly 75% of all U.S. private passenger auto premiums. That's a highly concentrated market by most standards, but competition is still fierce — the top carriers compete intensely on price, especially in the direct-to-consumer and online channels where GEICO and Progressive built their franchises.</p>
+
+    <p><strong>State Farm's dominance is structural, not transactional.</strong> State Farm's 18% share is built on 19,000+ exclusive agents who are deeply embedded in local communities. That distribution moat is nearly impossible to replicate quickly, which is why its share has remained remarkably stable for decades despite heavy advertising spending from GEICO and Progressive. But State Farm is often not the cheapest option — its scale comes from breadth, not lowest price.</p>
+
+    <p><strong>Progressive overtook GEICO to become the #2 carrier.</strong> Progressive surpassed GEICO in written premiums in 2023, driven by aggressive growth in the high-risk segment (SR-22, prior incidents) and telematics. Progressive's Snapshot program gave it early data advantages that competitors are still catching up to. GEICO meanwhile pulled back on growth after years of unprofitable underwriting, which explains the share gap you see today.</p>
+
+    <p><strong>USAA is an outlier.</strong> USAA's 6%+ national share is extraordinary given that it serves only active military, veterans, and their immediate families. Among that eligible population, USAA's penetration is extremely high — it's typically the cheapest option for military households by a meaningful margin, and its claims satisfaction scores are consistently the best in the industry.</p>
+
+    <p><strong>The "others" category matters more than the number suggests.</strong> The remaining ~25% of the market is split among hundreds of regional carriers — Farm Bureau networks, state-specific writers like NJM, Wawanesa, and MAPFRE, and specialty carriers. In many states, a regional carrier beats all national carriers on price for clean-record drivers. Market share data at the national level masks this: being #12 nationally can mean being #1 in your state.</p>
+
+    <div class="tool-cta">
+      <h3>See which carrier is cheapest for your ZIP</h3>
+      <p>National market share tells you who's biggest, not who's cheapest for you. Enter your ZIP to rank all carriers for your specific location and driver profile.</p>
+      <a href="/">Compare rates for my ZIP →</a>
+    </div>
+
+    <h2>Why market share doesn't determine your rate</h2>
+
+    <p>Size and price don't move together in auto insurance. State Farm is the largest carrier in the country and frequently one of the more expensive options for drivers with clean records. USAA is among the cheapest nationally but serves fewer than 15% of households. Root Insurance — too small to appear in national market share data — can be significantly cheaper for low-mileage, safe drivers in states where it operates.</p>
+
+    <p><strong>The biggest driver of your rate is not carrier size — it's carrier underwriting philosophy.</strong> Each carrier has proprietary models that price risk differently. A driver with one at-fault accident in the last three years might be priced competitively at Progressive (which specializes in higher-risk drivers) and punished heavily at Amica (which optimizes for clean-record preferred customers). This mismatch is why the same driver can see rate differences of 40–80% between carriers, and why shopping at every renewal matters more than loyalty to a large brand.</p>
+
+    <p><strong>Market concentration creates inertia, not value.</strong> The high share of the top 5 carriers partly reflects inertia — customers don't switch often enough. Studies consistently show that drivers who haven't shopped in 3+ years are paying 20–35% more than they would if they compared today. The biggest carriers benefit from that inertia more than the smallest ones, because their brands are familiar enough that consumers assume they already have a good deal.</p>
+
+    <div class="related-articles">
+      <h3>More from BoringRate</h3>
+      <div class="related-list">
+        <div class="related-item">
+          <a href="/article/state-rankings.html">Car insurance rates by state: 2026 rankings</a>
+          <span>Every state ranked by average annual premium, with per-state carrier market share panels.</span>
+        </div>
+        <div class="related-item">
+          <a href="/article/shopping-strategy.html">The right way to shop for car insurance</a>
+          <span>When to switch, how to compare quotes, and which traps to avoid.</span>
+        </div>
+        <div class="related-item">
+          <a href="/article/premium-went-up.html">Why did my car insurance go up?</a>
+          <span>Seven reasons rates rise — and which ones you can actually fix.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-email" id="articleEmailForm">
+      <strong>Rate alerts, no spam.</strong>
+      <div class="sub">We'll notify you when your carrier is raising rates. We never spam or sell your information.</div>
+      <div class="email-row">
+        <input class="email-input" id="articleEmailInput" type="email" placeholder="your@email.com" autocomplete="email" />
+        <button class="email-btn" id="articleEmailBtn">Notify me</button>
+      </div>
+      <div class="email-thanks" id="articleEmailThanks">You're on the list.</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="/" class="brand"><span class="brand-mark"></span>BoringRate</a>
+        <p>Independent insurance research. Boring on purpose. We publish what carriers don't advertise so shoppers can stop overpaying.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Market Data</h5>
+        <a href="/article/market-share.html">National Market Share</a>
+        <a href="/article/state-rankings.html">Rates by State</a>
+        <a href="/article/index.html">All Guides</a>
+        <a href="/methodology.html">Methodology</a>
+      </div>
+      <div class="foot-col">
+        <h5>Top Carriers</h5>
+        <a href="/article/carrier/state-farm.html">State Farm</a>
+        <a href="/article/carrier/progressive.html">Progressive</a>
+        <a href="/article/carrier/geico.html">GEICO</a>
+        <a href="/article/carrier/allstate.html">Allstate</a>
+        <a href="/article/carrier/usaa.html">USAA</a>
+      </div>
+      <div class="foot-col">
+        <h5>Tools</h5>
+        <a href="/">Rate Comparison</a>
+        <a href="/coverage.html">Coverage Calculator</a>
+        <a href="/article/compare/index.html">Compare Carriers</a>
+      </div>
+    </div>
+    <div class="legal">© 2026 BoringRate &nbsp;·&nbsp; Not an insurer &nbsp;·&nbsp; Not a licensed agent &nbsp;·&nbsp; Market share figures are derived from NAIC annual statement data and are estimates. Individual carrier rankings may differ by reporting period or inclusion criteria.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var DATA = [
+    {name:'State Farm',        slug:'state-farm',        share:18.3, premium:68.1, states:50, type:'National'},
+    {name:'Progressive',       slug:'progressive',       share:15.8, premium:58.7, states:50, type:'National'},
+    {name:'GEICO',             slug:'geico',             share:13.5, premium:50.2, states:50, type:'National · Berkshire'},
+    {name:'Allstate',          slug:'allstate',          share:9.7,  premium:36.0, states:50, type:'National'},
+    {name:'USAA',              slug:'usaa',              share:6.2,  premium:23.1, states:50, type:'Military only'},
+    {name:'Liberty Mutual',    slug:'liberty-mutual',    share:4.6,  premium:17.1, states:50, type:'National · incl. Safeco'},
+    {name:'Farmers',           slug:'farmers',           share:3.9,  premium:14.5, states:44, type:'National'},
+    {name:'Travelers',         slug:'travelers',         share:2.1,  premium:7.8,  states:42, type:'National'},
+    {name:'Nationwide',        slug:'nationwide',        share:1.9,  premium:7.1,  states:46, type:'National'},
+    {name:'American Family',   slug:'american-family',   share:1.8,  premium:6.7,  states:19, type:'Regional · Midwest'},
+    {name:'Erie',              slug:'erie',              share:1.5,  premium:5.6,  states:12, type:'Regional · Mid-Atlantic'},
+    {name:'AAA / CSAA',        slug:'aaa',               share:1.3,  premium:4.8,  states:23, type:'Members only'},
+    {name:'Auto-Owners',       slug:'auto-owners',       share:1.2,  premium:4.5,  states:26, type:'Regional · agent'},
+    {name:'The Hartford',      slug:'the-hartford',      share:0.9,  premium:3.3,  states:50, type:'National · AARP'},
+    {name:'Amica',             slug:'amica',             share:0.5,  premium:1.9,  states:50, type:'Direct'},
+    {name:'All others',        slug:null,                share:16.8, premium:62.5, states:null, type:'Regional &amp; specialty'},
+  ];
+
+  var sorted = DATA.slice();
+  var currentSort = 'share';
+
+  function render() {
+    var tbody = document.getElementById('rankingsBody');
+    if (!tbody) return;
+    var maxShare = DATA[0].share; // State Farm is always largest
+    tbody.innerHTML = '';
+    var rank = 1;
+    sorted.forEach(function(d) {
+      var tr = document.createElement('tr');
+      var barPct = Math.round((d.share / maxShare) * 100);
+      var carrierCell = d.slug
+        ? '<a href="/article/carrier/' + d.slug + '.html">' + d.name + '</a>'
+        : '<span style="color:var(--ink-soft)">' + d.name + '</span>';
+      tr.innerHTML = '<td class="td-rank">' + (d.slug ? rank++ : '—') + '</td>'
+        + '<td class="td-carrier">' + carrierCell + '</td>'
+        + '<td class="td-num">' + d.share.toFixed(1) + '%</td>'
+        + '<td class="td-bar"><div class="bar-wrap"><div class="bar-fill" style="width:' + barPct + '%"></div></div></td>'
+        + '<td class="td-num">$' + d.premium.toFixed(1) + 'B</td>'
+        + '<td class="td-num">' + (d.states ? d.states : '—') + '</td>'
+        + '<td class="td-type">' + d.type + '</td>';
+      tbody.appendChild(tr);
+    });
+  }
+
+  document.getElementById('sortShare').addEventListener('click', function() {
+    sorted = DATA.slice().sort(function(a,b){return b.share - a.share;});
+    setActive(this); render();
+  });
+  document.getElementById('sortPremium').addEventListener('click', function() {
+    sorted = DATA.slice().sort(function(a,b){return b.premium - a.premium;});
+    setActive(this); render();
+  });
+  document.getElementById('sortName').addEventListener('click', function() {
+    sorted = DATA.slice().sort(function(a,b){return a.name.localeCompare(b.name);});
+    setActive(this); render();
+  });
+
+  function setActive(btn) {
+    document.querySelectorAll('.sort-btn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+  }
+
+  render();
+})();
+</script>
+
+<script>(function(){var btn=document.getElementById('navHamburger');var mega=document.getElementById('navMega');if(!btn||!mega)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});mega.addEventListener('click',function(e){var tab=e.target.closest('.nav-res-tab');if(!tab)return;e.stopPropagation();var pid=tab.dataset.panel;var isActive=tab.classList.contains('active');mega.querySelectorAll('.nav-res-tab').forEach(function(t){t.classList.remove('active');});mega.querySelectorAll('.nav-res-panel').forEach(function(p){p.classList.remove('active');});if(!isActive&&pid){tab.classList.add('active');var panel=document.getElementById(pid);if(panel)panel.classList.add('active');}});})();</script>
+
+</body>
+</html>

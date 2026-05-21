@@ -158,7 +158,8 @@ def build_nav_mega():
         '<button type="button" class="nav-res-tab active" data-panel="res-state">State</button>'
         '<button type="button" class="nav-res-tab" data-panel="res-metro">Metro</button>'
         '<button type="button" class="nav-res-tab" data-panel="res-carrier">Carrier</button>'
-        '<button type="button" class="nav-res-tab" data-panel="res-guides">Insurance Guides</button>'
+        '<button type="button" class="nav-res-tab" data-panel="res-market">Market Share</button>'
+        '<button type="button" class="nav-res-tab" data-panel="res-guides">Guides</button>'
         '</div>'
         '<div class="nav-res-panels">'
 
@@ -168,6 +169,13 @@ def build_nav_mega():
         f'<p class="nav-res-subhead">National carriers</p><div class="nav-res-carriers">{nat_links}</div>'
         f'<p class="nav-res-subhead" style="margin-top:14px;">Regional &amp; local</p><div class="nav-res-carriers">{loc_links}</div>'
         f'</div>'
+        '<div class="nav-res-panel" id="res-market">'
+        '<p class="nav-res-subhead">Rankings &amp; data</p>'
+        '<div class="nav-res-guides">'
+        '<a href="/article/market-share.html">National Carrier Market Share — who controls the U.S. market</a>'
+        '<a href="/article/state-rankings.html">State-by-State Rate Rankings — avg. premium + top carriers per state</a>'
+        '</div>'
+        '</div>'
         f'<div class="nav-res-panel nav-res-guides" id="res-guides">{guide_links}</div>'
 
         '</div>'  # nav-res-panels
