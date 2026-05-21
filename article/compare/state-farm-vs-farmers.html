@@ -180,6 +180,13 @@
   .pb-best-badge{display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.04em;color:#1a7a3c;font-weight:400;margin-top:3px;}
   .cmp-table .pb-muted{opacity:0.22;transition:opacity 150ms;}
   .pb-bottom-close{margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);text-align:right;}
+  .pb-why{display:flex;gap:40px;flex-wrap:wrap;margin:40px 0 32px;padding-top:32px;border-top:1px solid var(--rule);}
+  .pb-why-col{flex:1;min-width:240px;}
+  .pb-why-kicker{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 6px;}
+  .pb-why-name{font-family:var(--serif);font-size:20px;font-weight:500;margin:0 0 14px;color:var(--ink);letter-spacing:-0.01em;}
+  .pb-why-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .pb-why-item{font-size:13px;line-height:1.55;color:var(--ink-soft);padding-left:18px;position:relative;}
+  .pb-why-item::before{content:'—';position:absolute;left:0;color:var(--accent);}
 </style>
 <script type="application/ld+json">
 {
@@ -405,16 +412,6 @@
         <div class="pb-standalone-actions">
       <a href="/" class="pb-cta" id="pbCta">Compare all carriers for your profile &rarr;</a>
       <a href="/article/compare/index.html" class="pb-cta pb-cta-alt">Return to Compare Hub &rarr;</a>
-    </div>
-
-    <div class="zip-embed">
-      <div class="zip-embed-label">See who ranks cheapest for your ZIP</div>
-      <h3>Compare State Farm, Farmers, and <em>all carriers in your area.</em></h3>
-      <div class="zip-embed-sub">Enter your ZIP &mdash; rankings update instantly for your location.<br>No phone. No spam. No selling your information.</div>
-      <form class="zip-embed-form" id="embedZipForm" autocomplete="off">
-        <input class="zip-embed-input" id="embedZipInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />
-        <button type="submit" class="zip-embed-btn">Compare &rarr;</button>
-      </form>
     </div>
 
     <h2>About State Farm</h2>

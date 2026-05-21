@@ -449,6 +449,101 @@
   var carSel = document.getElementById('pbCarrier');
   if (carSel) carSel.addEventListener('change', updateResult);
 
+  // ─── Why you might choose ─────────────────────────────────────────────────
+
+  var CARRIER_WHY = {
+    'GEICO': [
+      'Lowest base rates among major national carriers — particularly strong for clean-record drivers',
+      'Fully online — fast quotes, easy policy management, and claims handled through the app',
+      'Military and federal employee discounts available on top of standard savings'
+    ],
+    'Progressive': [
+      'Snapshot telematics can significantly cut your rate if you drive carefully and not often',
+      'More lenient than most carriers on drivers with tickets, incidents, or prior coverage gaps',
+      'Name Your Price tool lets you set a budget and find coverage that fits'
+    ],
+    'State Farm': [
+      'Drive Safe & Save telematics can reduce your rate by up to 30% for safe, low-mileage driving',
+      'Largest local agent network in the country — ideal if you prefer hands-on, in-person support',
+      'Strong youth discounts including good student and distant student programs for families'
+    ],
+    'Allstate': [
+      'Drivewise telematics earns ongoing cash-back rewards for safe driving habits',
+      'Home + auto bundling can save 10–25% if you own your home and insure it with the same carrier',
+      'Accident forgiveness keeps your rate stable after a first at-fault claim'
+    ],
+    'USAA': [
+      'Among the lowest rates in most states — exclusive to active military, veterans, and their families',
+      'SafePilot telematics stacks an additional 10–30% discount on already-low base rates',
+      'Consistently top-rated for claims satisfaction and overall customer experience'
+    ],
+    'Liberty Mutual': [
+      'RightTrack telematics can earn up to 30% off for safe, low-mileage driving habits',
+      'New car replacement covers full original value — not depreciated cost — after a total loss',
+      'Accident forgiveness prevents a rate hike after your first at-fault accident'
+    ],
+    'Farmers': [
+      'Signal telematics app rewards smooth, accident-free driving with meaningful discounts',
+      'Multi-policy bundle savings when combining home and auto with the same carrier',
+      'Wide local agent network for drivers who prefer in-person coverage guidance'
+    ],
+    'Nationwide': [
+      'SmartRide telematics delivers consistent savings for low-mileage, safe drivers',
+      'Vanishing deductible reduces your out-of-pocket cost by $100 for every claim-free year',
+      'Competitive rates for drivers 55+ through its dedicated mature driver discount'
+    ],
+    'Travelers': [
+      'IntelliDrive telematics rewards low mileage and smooth, consistent driving behavior',
+      'Strong multi-policy savings when bundling home and auto coverage together',
+      'One of the most financially stable carriers in the industry — confidence at claims time'
+    ],
+    'Root Insurance': [
+      'Telematics-only pricing — safe drivers consistently pay 20–40% below market averages',
+      'Credit score is not used in rate calculation, making it strong for fair or poor credit',
+      'Fully digital — no agents, straightforward app-based quotes, policy management, and claims'
+    ],
+    'Safeco': [
+      'RightTrack telematics provides ongoing safe-driver savings, not just a sign-up discount',
+      'Strong home + auto bundle discount for customers insuring both with the same carrier',
+      'Diminishing deductible rewards each claim-free year with lower out-of-pocket exposure'
+    ],
+    'The Hartford': [
+      'AARP partnership consistently delivers the lowest rates for drivers 50 and older',
+      'RecoverCare benefit covers household help — cleaning, cooking, errands — after an accident',
+      'Lifetime renewability guarantee means AARP members cannot be dropped for claims frequency'
+    ]
+  };
+
+  function buildWhySection() {
+    if (document.querySelector('.pb-why')) return;
+    var whyA = CARRIER_WHY[cA];
+    var whyB = CARRIER_WHY[cB];
+    if (!whyA && !whyB) return;
+
+    var section = document.createElement('div');
+    section.className = 'pb-why';
+
+    function makeCol(name, bullets) {
+      var col = document.createElement('div');
+      col.className = 'pb-why-col';
+      col.innerHTML =
+        '<p class="pb-why-kicker">Why you might choose</p>' +
+        '<p class="pb-why-name">' + name + '</p>' +
+        '<ul class="pb-why-list">' +
+        bullets.map(function (b) { return '<li class="pb-why-item">' + b + '</li>'; }).join('') +
+        '</ul>';
+      return col;
+    }
+
+    if (whyA) section.appendChild(makeCol(cA, whyA));
+    if (whyB) section.appendChild(makeCol(cB, whyB));
+
+    var actions = document.querySelector('.pb-standalone-actions');
+    if (actions && actions.parentNode) {
+      actions.parentNode.insertBefore(section, actions);
+    }
+  }
+
   // ─── Init ─────────────────────────────────────────────────────────────────
 
   document.querySelectorAll('[data-pb] .pb-pill').forEach(function (b) { b.classList.remove('active'); });
@@ -459,6 +554,7 @@
     openBuilder();
   }
 
+  buildWhySection();
   updateResult();
 
 })();
