@@ -326,15 +326,7 @@
     <div class="legal">&#169; 2026 BORINGRATE. NOT AN INSURANCE PRODUCER. NOT A LICENSED AGENT. NO COMMISSIONED RELATIONSHIPS WITH ANY CARRIER LISTED. ESTIMATES ARE EDITORIAL OPINION BASED ON PUBLIC DATA AND ARE NOT QUOTES. SHOP AT YOUR OWN DISCRETION.</div>
   </div>
 </footer>
-<script>
-(function(){try{var p=JSON.parse(localStorage.getItem("br_profile"));if(p&&p.zip){document.getElementById("zipBarInput").value=p.zip;var btn=document.querySelector(".zip-bar-btn");if(btn)btn.textContent="Return to Rates →";}}catch(e){}})();
-document.getElementById("zipBarForm").addEventListener("submit",function(e){e.preventDefault();var zip=document.getElementById("zipBarInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("zipBarInput").focus();return;}window.location.href="/?zip="+zip;});
-document.getElementById("zipBarInput").addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
-document.getElementById("embedZipForm").addEventListener("submit",function(e){e.preventDefault();var zip=document.getElementById("embedZipInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("embedZipInput").focus();return;}window.location.href="/?zip="+zip;});
-document.getElementById("embedZipInput").addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
-
-(function(){var btn=document.getElementById("navHamburger"),mega=document.getElementById("navMega");btn.addEventListener("click",function(){var o=mega.classList.toggle("open");btn.classList.toggle("open",o);btn.setAttribute("aria-expanded",o);});document.addEventListener("click",function(e){if(!mega.contains(e.target)&&!btn.contains(e.target)){mega.classList.remove("open");btn.classList.remove("open");btn.setAttribute("aria-expanded","false");}});mega.querySelectorAll("[data-mega-toggle]").forEach(function(h){h.addEventListener("click",function(){h.closest(".nav-mega-col").classList.toggle("open");});});})();
-</script>
+<script>(function(){var btn=document.getElementById('navHamburger');var mega=document.getElementById('navMega');if(!btn||!mega)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});mega.addEventListener('click',function(e){var tab=e.target.closest('.nav-res-tab');if(!tab)return;e.stopPropagation();var pid=tab.dataset.panel;var isActive=tab.classList.contains('active');mega.querySelectorAll('.nav-res-tab').forEach(function(t){t.classList.remove('active');});mega.querySelectorAll('.nav-res-panel').forEach(function(p){p.classList.remove('active');});if(!isActive&&pid){tab.classList.add('active');var panel=document.getElementById(pid);if(panel)panel.classList.add('active');}});})();</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 (function(){

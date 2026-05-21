@@ -260,16 +260,7 @@
   </div>
 </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var btn = document.getElementById('navHamburger');
-  var mega = document.getElementById('navMega');
-  if (!btn || !mega) return;
-  btn.addEventListener('click', function(e) { e.stopPropagation(); var open = !mega.classList.contains('open'); mega.classList.toggle('open', open); btn.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); if (!open) mega.querySelectorAll('.nav-mega-col').forEach(function(c) { c.classList.remove('open'); }); });
-  document.addEventListener('click', function(e) { if (!btn.contains(e.target) && !mega.contains(e.target)) { mega.classList.remove('open'); btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); mega.querySelectorAll('.nav-mega-col').forEach(function(c) { c.classList.remove('open'); }); } });
-  mega.addEventListener('click', function(e) { var head = e.target.closest('[data-mega-toggle]'); if (!head || window.innerWidth > 800) return; e.stopPropagation(); head.closest('.nav-mega-col').classList.toggle('open'); });
-});
-</script>
+<script>(function(){var btn=document.getElementById('navHamburger');var mega=document.getElementById('navMega');if(!btn||!mega)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});mega.addEventListener('click',function(e){var tab=e.target.closest('.nav-res-tab');if(!tab)return;e.stopPropagation();var pid=tab.dataset.panel;var isActive=tab.classList.contains('active');mega.querySelectorAll('.nav-res-tab').forEach(function(t){t.classList.remove('active');});mega.querySelectorAll('.nav-res-panel').forEach(function(p){p.classList.remove('active');});if(!isActive&&pid){tab.classList.add('active');var panel=document.getElementById(pid);if(panel)panel.classList.add('active');}});})();</script>
 
 </body>
 </html>
