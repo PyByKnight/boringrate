@@ -177,7 +177,8 @@
         if ((opts.age === 'young' || opts.youngDriver) && (lbl.includes('55') || lbl.includes('senior'))) muted = true;
         if (opts.age === 'senior' && (lbl.includes('young') || (lbl.includes('18') && lbl.includes('24')))) muted = true;
         if (opts.home === 'rent' && (lbl.includes('homeowner') || (lbl.includes('bundle') && lbl.includes('home')))) muted = true;
-        if (opts.lapse === false && !opts.lapse && lbl.includes('lapse')) muted = false; // lapse rows never muted unless explicitly clean
+        // Coverage gap: mute unless user explicitly checked it
+        if (!opts.lapse && (lbl.includes('lapse') || (lbl.includes('gap') && lbl.includes('coverage')))) muted = true;
       }
       item.row.classList.toggle('pb-muted', muted);
     });
@@ -294,43 +295,72 @@
       }
     }
 
-    // ── CTA link ───────────────────────────────────────────────────────────
+    // ── CTA link + profile persistence ────────────────────────────────────
     var cta = document.getElementById('pbCta');
-    if (cta) {
-      var zip = '';
-      var zipEl = document.getElementById('pbZip');
-      if (zipEl && /^\d{5}$/.test(zipEl.value.trim())) zip = zipEl.value.trim();
-      if (!zip) { try { zip = JSON.parse(localStorage.getItem('br_profile') || '{}').zip || ''; } catch (e) {} }
-      cta.href = zip ? '/?zip=' + zip : '/';
-      try {
-        var carrier = document.getElementById('pbCarrier') ? document.getElementById('pbCarrier').value : '';
-        localStorage.setItem('br_profile', JSON.stringify({
-          zip: zip, credit: opts.credit, age: opts.age, home: opts.home,
-          vehicles: opts.vehicles, coverage: opts.coverage, carrier: carrier,
-          from: 'compare', fromCarriers: cA + ' vs ' + cB
-        }));
-      } catch (e) {}
-    }
+    var zipEl2 = document.getElementById('pbZip');
+    var zip = zipEl2 && /^\d{5}$/.test(zipEl2.value.trim()) ? zipEl2.value.trim() : '';
+    if (!zip) { try { zip = JSON.parse(localStorage.getItem('br_profile') || '{}').zip || ''; } catch (e) {} }
+
+    // Mirror ZIP to the zip-embed form at the bottom of the page
+    var embedZip = document.getElementById('embedZipInput');
+    if (embedZip && zip) embedZip.value = zip;
+
+    if (cta) cta.href = zip ? '/?zip=' + zip : '/';
+
+    // Save in the format index.html expects: {zip, refinement: {...}}
+    try {
+      var ageMap = { young: '18-24', young2: '25-34', mid: '35-54', senior: '55+' };
+      var carrier = document.getElementById('pbCarrier') ? document.getElementById('pbCarrier').value : '';
+      localStorage.setItem('br_profile', JSON.stringify({
+        zip: zip,
+        refinement: {
+          own: opts.home || null,
+          vehicles: opts.vehicles === '2' ? '2+' : (opts.vehicles || null),
+          age: opts.age ? (ageMap[opts.age] || null) : null,
+          credit: opts.credit || null,
+          coverage: opts.coverage || null,
+          youngDriver: opts.youngDriver || false,
+          insured: !opts.lapse,
+          srRequired: opts.suspended || false,
+          curCarrier: carrier || ''
+        }
+      }));
+    } catch (e) {}
   }
 
   // ─── Load saved profile ────────────────────────────────────────────────────
+
+  var ageUnmap = { '18-24': 'young', '25-34': 'young2', '35-54': 'mid', '55+': 'senior' };
 
   function loadSaved() {
     try {
       var p = JSON.parse(localStorage.getItem('br_profile') || 'null');
       if (!p) return false;
+      var r = p.refinement || {};
       var zipEl = document.getElementById('pbZip');
       if (zipEl && p.zip) zipEl.value = p.zip;
-      ['credit', 'age', 'home', 'coverage'].forEach(function (key) {
-        if (!p[key]) return;
+      // Restore pills: map index keys → compare data-v values
+      var pillMap = {
+        credit: r.credit || null,
+        age: r.age ? (ageUnmap[r.age] || null) : null,
+        home: r.own || null,
+        vehicles: r.vehicles === '2+' ? '2' : (r.vehicles || null),
+        coverage: r.coverage || null
+      };
+      Object.keys(pillMap).forEach(function (key) {
+        var val = pillMap[key];
+        if (!val) return;
         var grp = document.querySelector('[data-pb="' + key + '"]');
-        var btn = grp ? grp.querySelector('[data-v="' + p[key] + '"]') : null;
+        var btn = grp ? grp.querySelector('[data-v="' + val + '"]') : null;
         if (!btn) return;
         grp.querySelectorAll('.pb-pill').forEach(function (b) { b.classList.remove('active'); });
         grp.classList.add('has-selection');
         btn.classList.add('active');
       });
-      if (p.carrier) { var sel = document.getElementById('pbCarrier'); if (sel) sel.value = p.carrier; }
+      if (r.curCarrier) { var sel = document.getElementById('pbCarrier'); if (sel) sel.value = r.curCarrier; }
+      if (r.youngDriver) { var yd = document.getElementById('pbYoungDriver'); if (yd) yd.checked = true; }
+      if (r.insured === false) { var lp = document.getElementById('pbLapsed'); if (lp) lp.checked = true; }
+      if (r.srRequired) { var sr = document.getElementById('pbSuspended'); if (sr) sr.checked = true; }
       return true;
     } catch (e) { return false; }
   }
