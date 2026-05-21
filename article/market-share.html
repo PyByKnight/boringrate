@@ -255,7 +255,7 @@
     <div class="sort-bar">
       <span class="sort-label">Sort:</span>
       <button class="sort-btn active" id="sortShare">Market Share</button>
-      <button class="sort-btn" id="sortPremium">Premium Volume</button>
+      <button class="sort-btn" id="sortStates">States Active</button>
       <button class="sort-btn" id="sortName">A–Z</button>
     </div>
 
@@ -392,16 +392,21 @@
     {name:'All others',        slug:null,                share:16.8, premium:62.5, states:null, type:'Regional &amp; specialty'},
   ];
 
-  var sorted = DATA.slice();
-  var currentSort = 'share';
+  var OTHERS = DATA[DATA.length - 1];
+  var CARRIERS = DATA.slice(0, DATA.length - 1);
+  var sorted = CARRIERS.slice();
+
+  function sortedWithOthers(arr) {
+    return arr.concat([OTHERS]);
+  }
 
   function render() {
     var tbody = document.getElementById('rankingsBody');
     if (!tbody) return;
-    var maxShare = DATA[0].share; // State Farm is always largest
+    var maxShare = CARRIERS[0].share;
     tbody.innerHTML = '';
     var rank = 1;
-    sorted.forEach(function(d) {
+    sortedWithOthers(sorted).forEach(function(d) {
       var tr = document.createElement('tr');
       var barPct = Math.round((d.share / maxShare) * 100);
       var carrierCell = d.slug
@@ -419,15 +424,15 @@
   }
 
   document.getElementById('sortShare').addEventListener('click', function() {
-    sorted = DATA.slice().sort(function(a,b){return b.share - a.share;});
+    sorted = CARRIERS.slice().sort(function(a,b){return b.share - a.share;});
     setActive(this); render();
   });
-  document.getElementById('sortPremium').addEventListener('click', function() {
-    sorted = DATA.slice().sort(function(a,b){return b.premium - a.premium;});
+  document.getElementById('sortStates').addEventListener('click', function() {
+    sorted = CARRIERS.slice().sort(function(a,b){return (b.states||0) - (a.states||0);});
     setActive(this); render();
   });
   document.getElementById('sortName').addEventListener('click', function() {
-    sorted = DATA.slice().sort(function(a,b){return a.name.localeCompare(b.name);});
+    sorted = CARRIERS.slice().sort(function(a,b){return a.name.localeCompare(b.name);});
     setActive(this); render();
   });
 
