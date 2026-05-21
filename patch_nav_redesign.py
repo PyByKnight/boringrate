@@ -183,7 +183,7 @@ NEW_NAV_CSS = """
   .nav-section:last-child{margin-bottom:0;}
   .nav-section-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(246,241,232,0.35);margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid rgba(246,241,232,0.12);}
   .nav-tools{display:flex;gap:2px;flex-wrap:wrap;}
-  .nav-tool{display:flex;flex-direction:column;gap:3px;padding:11px 14px;text-decoration:none;flex:1;min-width:150px;background:rgba(246,241,232,0.04);border:1px solid rgba(246,241,232,0.08);transition:background 120ms;}
+  .nav-tool{display:flex;flex-direction:column;gap:3px;padding:11px 14px;text-decoration:none;color:var(--paper);flex:1;min-width:150px;background:rgba(246,241,232,0.04);border:1px solid rgba(246,241,232,0.08);transition:background 120ms;}
   .nav-tool:hover{background:rgba(246,241,232,0.1);}
   .nav-tool-name{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--paper);}
   .nav-tool-desc{font-family:var(--mono);font-size:10px;color:rgba(246,241,232,0.38);letter-spacing:0.03em;}
@@ -279,7 +279,7 @@ def patch_file(path, new_nav):
     html = replace_nav_mega(html, new_nav)
 
     # 2. Add new nav CSS (override old nav-mega-inner and add new classes)
-    if 'nav-section-label' not in html:
+    if '.nav-section-label{' not in html:
         html = html.replace('\n</style>', NEW_NAV_CSS + NEW_NAV_CSS_MOBILE + '\n</style>', 1)
 
     # 3. Replace hamburger JS

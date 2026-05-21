@@ -36,6 +36,48 @@
   @media(max-width:480px){.article-header{padding:24px 0 20px;}.article-body{padding:28px 0 48px;}.article-body p{font-size:16px;}.zip-bar{top:57px;}.zip-embed{padding:22px 18px;}.nav-mega-states{grid-template-columns:repeat(2,1fr);}}
   .tldr-card{border-left:3px solid var(--accent);padding:20px 24px;margin:0 0 32px;background:var(--paper-deep);max-width:660px;}.tldr-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}.tldr-list{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;}.tldr-list li{font-size:16px;line-height:1.5;color:var(--ink-soft);padding-left:18px;position:relative;}.tldr-list li::before{content:"\2192";position:absolute;left:0;color:var(--accent);font-size:13px;line-height:1.75;}
   .internal-links{display:flex;flex-wrap:wrap;gap:8px 16px;max-width:660px;margin:14px 0 32px;}.internal-links a{font-family:var(--mono);font-size:12px;letter-spacing:0.05em;color:var(--accent);text-decoration:none;text-transform:uppercase;border-bottom:1px solid var(--rule);padding-bottom:2px;white-space:nowrap;}.internal-links a:hover{border-color:var(--accent);}
+  .nav-mega-inner{display:block;padding:24px 28px;max-width:1180px;margin:0 auto;}
+  .nav-section{margin-bottom:22px;}
+  .nav-section:last-child{margin-bottom:0;}
+  .nav-section-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(246,241,232,0.35);margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid rgba(246,241,232,0.12);}
+  .nav-tools{display:flex;gap:2px;flex-wrap:wrap;}
+  .nav-tool{display:flex;flex-direction:column;gap:3px;padding:11px 14px;text-decoration:none;color:var(--paper);flex:1;min-width:150px;background:rgba(246,241,232,0.04);border:1px solid rgba(246,241,232,0.08);transition:background 120ms;}
+  .nav-tool:hover{background:rgba(246,241,232,0.1);}
+  .nav-tool-name{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--paper);}
+  .nav-tool-desc{font-family:var(--mono);font-size:10px;color:rgba(246,241,232,0.38);letter-spacing:0.03em;}
+  .nav-res-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px;}
+  .nav-res-tab{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;background:none;border:1px solid rgba(246,241,232,0.15);color:rgba(246,241,232,0.5);padding:6px 12px;cursor:pointer;transition:all 120ms;}
+  .nav-res-tab:hover,.nav-res-tab.active{color:var(--paper);border-color:rgba(246,241,232,0.4);background:rgba(246,241,232,0.08);}
+  .nav-res-panel{display:none;}
+  .nav-res-panel.active{display:block;}
+  .nav-res-metros{display:grid;grid-template-columns:repeat(7,1fr);gap:1px 0;}
+  .nav-res-metros a{font-family:var(--mono);font-size:11px;color:rgba(246,241,232,0.65);text-decoration:none;padding:3px 0;transition:color 120ms;letter-spacing:0.02em;}
+  .nav-res-metros a:hover{color:var(--paper);}
+  .nav-res-subhead{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(246,241,232,0.3);margin:0 0 6px;}
+  .nav-res-carriers{display:grid;grid-template-columns:repeat(4,1fr);gap:0 16px;}
+  .nav-res-carriers a{font-family:var(--sans);font-size:12px;color:rgba(246,241,232,0.72);text-decoration:none;padding:5px 0;border-bottom:1px solid rgba(246,241,232,0.06);display:flex;justify-content:space-between;transition:color 120ms;}
+  .nav-res-carriers a:hover{color:var(--paper);}
+  .nav-res-guides a{display:block;font-family:var(--sans);font-size:13px;color:rgba(246,241,232,0.75);text-decoration:none;padding:7px 0;border-bottom:1px solid rgba(246,241,232,0.08);transition:color 120ms;}
+  .nav-res-guides a:last-child{border-bottom:none;}
+  .nav-res-guides a:hover{color:var(--paper);}
+  @media(max-width:900px){
+    .nav-mega-inner{padding:0;}
+    .nav-section{margin:0;border-bottom:1px solid rgba(246,241,232,0.12);}
+    .nav-section-label{padding:14px 20px;margin:0;border-bottom:none;}
+    .nav-tools{flex-direction:column;gap:0;}
+    .nav-tool{border:none;border-bottom:1px solid rgba(246,241,232,0.06);min-width:0;padding:12px 20px;}
+    .nav-res-tabs{flex-direction:column;gap:0;margin:0;padding:0 20px 10px;}
+    .nav-res-tab{border:none;border-bottom:1px solid rgba(246,241,232,0.08);text-align:left;padding:12px 0;}
+    .nav-res-panel{padding:0 20px 14px;}
+    .nav-mega-states{grid-template-columns:repeat(3,1fr);}
+    .nav-res-metros{grid-template-columns:repeat(2,1fr);}
+    .nav-res-carriers{grid-template-columns:1fr 1fr;gap:0 10px;}
+  }
+  @media(max-width:480px){
+    .nav-mega-states{grid-template-columns:repeat(2,1fr);}
+    .nav-res-metros{grid-template-columns:repeat(2,1fr);}
+    .nav-res-carriers{grid-template-columns:1fr;}
+  }
 </style>
 <meta property="og:type" content="article" /><meta property="og:site_name" content="BoringRate" /><meta property="og:url" content="https://boringrate.com/article/metro/portland-me.html" /><meta property="og:title" content="Auto Insurance Rates in Portland (2026)" /><meta property="og:description" content="See which carriers are cheapest in Portland. No calls, no spam." />
 <meta property="og:image" content="https://boringrate.com/og-default.png" />
