@@ -110,7 +110,7 @@
   .nav-mega-carriers{display:flex;flex-direction:column;}
   .nav-mega-carriers a{font-family:var(--sans);font-size:14px;font-weight:500;color:rgba(246,241,232,0.8);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(246,241,232,0.08);display:flex;justify-content:space-between;align-items:center;transition:color 120ms;}
   .nav-mega-carriers a:last-child{border-bottom:none;}
-  .nav-mega-carriers a:hover{color:var(--paper);}
+  .nav-mega-carriers a:hover{color:var(--paper);}.nav-mega-carriers a.nav-mega-cta{color:var(--paper);font-weight:600;border-bottom-color:rgba(246,241,232,0.2);}
   .nav-mega-tag{font-family:var(--mono);font-size:10px;color:rgba(246,241,232,0.3);letter-spacing:0.04em;}
   @media(max-width:800px){.nav-mega{max-height:calc(100vh - 65px);overflow-y:auto;}.nav-mega-inner{grid-template-columns:1fr;}.nav-mega-col{border-bottom:1px solid rgba(246,241,232,0.1);}.nav-mega-col+.nav-mega-col{border-left:none;padding-left:0;margin-top:0;padding-top:0;}.nav-mega-head{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;margin:0;border-bottom:none;font-size:11px;}.nav-mega-col-arrow{font-size:18px;color:rgba(246,241,232,0.4);transition:transform 200ms;display:inline-block;}.nav-mega-col.open .nav-mega-col-arrow{transform:rotate(180deg);}.nav-mega-col-body{display:none;padding:0 20px 16px;}.nav-mega-col.open .nav-mega-col-body{display:block;}.nav-mega-states{grid-template-columns:repeat(3,1fr);}}
   @media(max-width:480px){.nav-mega-states{grid-template-columns:repeat(2,1fr);}}
@@ -234,16 +234,12 @@
         <div class="nav-mega-head" data-mega-toggle>Compare Carriers <span class="nav-mega-col-arrow">&#8964;</span></div>
         <div class="nav-mega-col-body">
           <div class="nav-mega-carriers">
+            <a href="/article/compare/index.html" class="nav-mega-cta">Compare any two carriers →</a>
             <a href="/article/compare/geico-vs-state-farm.html">GEICO vs State Farm</a>
             <a href="/article/compare/geico-vs-progressive.html">GEICO vs Progressive</a>
-            <a href="/article/compare/geico-vs-allstate.html">GEICO vs Allstate</a>
-            <a href="/article/compare/geico-vs-travelers.html">GEICO vs Travelers</a>
             <a href="/article/compare/state-farm-vs-progressive.html">State Farm vs Progressive</a>
-            <a href="/article/compare/state-farm-vs-allstate.html">State Farm vs Allstate</a>
+            <a href="/article/compare/geico-vs-allstate.html">GEICO vs Allstate</a>
             <a href="/article/compare/progressive-vs-allstate.html">Progressive vs Allstate</a>
-            <a href="/article/compare/travelers-vs-safeco.html">Travelers vs Safeco</a>
-            <a href="/article/compare/geico-vs-usaa.html">GEICO vs USAA</a>
-            <a href="/article/compare/nationwide-vs-allstate.html">Nationwide vs Allstate</a>
           </div>
         </div>
       </div>
