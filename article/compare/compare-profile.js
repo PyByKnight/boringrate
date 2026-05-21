@@ -1,11 +1,10 @@
-/* compare-profile.js — shared profile builder for all 66 carrier compare pages */
+/* compare-profile.js — carrier compare pages: profile builder + smart verdict */
 (function () {
   'use strict';
 
   var tbl = document.querySelector('.cmp-table');
   if (!tbl) return;
 
-  // Read carrier names from table headers
   var ths = tbl.querySelectorAll('thead th');
   var cA = ths[1] ? ths[1].textContent.trim() : '';
   var cB = ths[2] ? ths[2].textContent.trim() : '';
@@ -19,7 +18,6 @@
     return m ? parseFloat(m[1]) / 100 : null;
   }
 
-  // Parse table rows into structured data
   var d = { a: { cFair: null, home: null }, b: { cFair: null, home: null } };
   var aWinThemes = [], bWinThemes = [];
   var telA = '', telB = '', buyA = '', buyB = '';
@@ -81,9 +79,8 @@
     if (carrier.toLowerCase().includes('root')) {
       var req = (telInfo || '').toLowerCase().includes('required');
       return themes.map(function (t) {
-        if (t === 'overall base rates') {
+        if (t === 'overall base rates')
           return req ? 'safe drivers using its required RootApp telematics' : 'telematics-savvy safe drivers';
-        }
         return t;
       });
     }
@@ -98,12 +95,10 @@
 
   var aThemes = applyCarrierContext(cA, aWinThemes, telA);
   var bThemes = applyCarrierContext(cB, bWinThemes, telB);
-
   function top2(arr) { return arr.slice(0, 2).join(' and '); }
 
   var verdictText = '';
   if (aThemes.length > 0 && bThemes.length > 0) {
-    // Minority winner leads the "while" clause
     if (aThemes.length >= bThemes.length) {
       verdictText = 'While ' + cB + ' wins for ' + top2(bThemes) + ', ' + cA + ' is better for ' + top2(aThemes) + '.';
     } else {
@@ -114,7 +109,6 @@
   } else if (bThemes.length > 0) {
     verdictText = cB + ' leads across most profiles, especially for ' + top2(bThemes) + '.';
   }
-
   var subEl = document.querySelector('.cmp-verdict-sub');
   if (subEl && verdictText) subEl.textContent = verdictText;
 
@@ -123,7 +117,7 @@
   function calcRate(carrier, opts) {
     var r = carrier.base;
     if (!r) return null;
-
+    // Only apply adjustments for options the user actually selected (null = skip)
     if (opts.credit === 'excellent' && carrier.cExc != null) r *= (1 + carrier.cExc);
     else if (opts.credit === 'fair' && carrier.cFair != null) r *= (1 + carrier.cFair);
     else if (opts.credit === 'poor' && carrier.cFair != null) r *= (1 + carrier.cFair * 1.5);
@@ -135,9 +129,8 @@
     if (opts.home === 'own' && carrier.home != null) r *= (1 + carrier.home);
     if (opts.home === 'own' && carrier.multi != null) r *= (1 + carrier.multi);
 
-    if (opts.youngDriver && opts.age !== 'young' && carrier.young != null) {
+    if (opts.youngDriver && opts.age !== 'young' && carrier.young != null)
       r *= (1 + carrier.young * 0.5);
-    }
 
     if (opts.lapse && carrier.lapse != null) r *= (1 + carrier.lapse);
     if (opts.suspended) r *= 1.28;
@@ -148,20 +141,24 @@
   function getOpts() {
     function pill(name) {
       var el = document.querySelector('[data-pb="' + name + '"] .pb-pill.active');
-      return el ? el.dataset.v : null;
+      return el ? el.dataset.v : null; // null = not selected
     }
     function chk(id) { var el = document.getElementById(id); return el ? el.checked : false; }
     return {
-      credit: pill('credit') || 'good',
-      age: pill('age') || 'mid',
-      home: pill('home') || 'rent',
-      vehicles: pill('vehicles') || '1',
-      coverage: pill('coverage') || 'standard',
-      shopping: pill('shopping') || 'any',
+      credit: pill('credit'),
+      age: pill('age'),
+      home: pill('home'),
+      vehicles: pill('vehicles'),
+      coverage: pill('coverage'),
+      shopping: pill('shopping'),
       youngDriver: chk('pbYoungDriver'),
       lapse: chk('pbLapsed'),
       suspended: chk('pbSuspended')
     };
+  }
+
+  function hasProfile(opts) {
+    return !!(opts.credit || opts.age || opts.home || opts.youngDriver || opts.lapse || opts.suspended);
   }
 
   // ─── Table row highlighting ────────────────────────────────────────────────
@@ -176,7 +173,7 @@
       if (opts.age === 'senior' && lbl.includes('55')) rel = true;
       if (opts.home === 'own' && (lbl.includes('homeowner') || lbl.includes('multi') || lbl.includes('bundle'))) rel = true;
       if (opts.lapse && (lbl.includes('lapse') || (lbl.includes('gap') && lbl.includes('coverage')))) rel = true;
-      if (opts.shopping !== 'any' && (lbl.includes('how to buy') || (lbl.includes('buy') && lbl.length < 20))) rel = true;
+      if (opts.shopping !== 'any' && opts.shopping && (lbl.includes('how to buy') || (lbl.includes('buy') && lbl.length < 20))) rel = true;
       item.row.classList.toggle('pb-relevant', rel);
     });
   }
@@ -198,16 +195,17 @@
     noteEl.style.display = note ? 'block' : 'none';
   }
 
-  // ─── Main update ───────────────────────────────────────────────────────────
+  // ─── Update summary bar + form result ─────────────────────────────────────
 
   function updateResult() {
     var opts = getOpts();
-    var rA = calcRate(d.a, opts);
-    var rB = calcRate(d.b, opts);
+    var profiled = hasProfile(opts);
 
     highlightRows(opts);
     checkShoppingConflict(opts);
 
+    var rA = calcRate(d.a, opts);
+    var rB = calcRate(d.b, opts);
     if (!rA || !rB) return;
 
     var winner, loser, wRate, lRate;
@@ -215,13 +213,35 @@
     else { winner = cB; loser = cA; wRate = rB; lRate = rA; }
     var save = lRate - wRate;
 
+    // ── Summary bar (always visible) ──────────────────────────────────────
+    var labelEl = document.getElementById('pbSummaryLabel');
+    var ratesEl = document.getElementById('pbSummaryRates');
+    if (profiled) {
+      if (labelEl) labelEl.textContent = 'Your profile';
+      if (ratesEl) ratesEl.textContent = winner + ' wins — saves ~$' + save + '/yr vs ' + loser;
+    } else {
+      if (labelEl) labelEl.textContent = 'General rates';
+      if (ratesEl) ratesEl.textContent = cA + ' ~$' + (d.a.base || 0).toLocaleString() + '/yr · ' + cB + ' ~$' + (d.b.base || 0).toLocaleString() + '/yr';
+    }
+
+    // ── Form result (visible only when form is open) ───────────────────────
     var winnerEl = document.getElementById('pbWinner');
     var detailEl = document.getElementById('pbDetail');
-    if (winnerEl) winnerEl.textContent = winner + ' wins for your profile';
-    if (detailEl) detailEl.textContent =
-      '~$' + wRate.toLocaleString() + '/yr vs ~$' + lRate.toLocaleString() + '/yr — saves ~$' + save + '/yr vs ' + loser;
+    if (!profiled) {
+      if (winnerEl) winnerEl.textContent = '';
+      if (detailEl) {
+        detailEl.textContent = 'Select options above to see rates for your profile.';
+        detailEl.style.color = 'var(--ink-mute)';
+      }
+    } else {
+      if (winnerEl) winnerEl.textContent = winner + ' wins for your profile';
+      if (detailEl) {
+        detailEl.textContent = '~$' + wRate.toLocaleString() + '/yr vs ~$' + lRate.toLocaleString() + '/yr — saves ~$' + save + '/yr vs ' + loser;
+        detailEl.style.color = '';
+      }
+    }
 
-    // Build CTA + persist profile for index pickup
+    // ── CTA link ───────────────────────────────────────────────────────────
     var cta = document.getElementById('pbCta');
     if (cta) {
       var zip = '';
@@ -244,8 +264,8 @@
 
   function loadSaved() {
     try {
-      var p = JSON.parse(localStorage.getItem('br_profile') || '{}');
-      if (!p) return;
+      var p = JSON.parse(localStorage.getItem('br_profile') || 'null');
+      if (!p) return false;
       var zipEl = document.getElementById('pbZip');
       if (zipEl && p.zip) zipEl.value = p.zip;
       ['credit', 'age', 'home', 'coverage'].forEach(function (key) {
@@ -256,7 +276,38 @@
         btn.classList.add('active');
       });
       if (p.carrier) { var sel = document.getElementById('pbCarrier'); if (sel) sel.value = p.carrier; }
-    } catch (e) {}
+      return true;
+    } catch (e) { return false; }
+  }
+
+  // ─── Toggle open/close ────────────────────────────────────────────────────
+
+  var builderEl = document.getElementById('profileBuilder');
+  var customizeBtn = document.getElementById('pbCustomizeBtn');
+
+  function openBuilder() {
+    if (!builderEl) return;
+    builderEl.style.display = 'block';
+    if (customizeBtn) {
+      customizeBtn.textContent = 'Hide ▲';
+      customizeBtn.classList.add('open');
+    }
+  }
+
+  function closeBuilder() {
+    if (!builderEl) return;
+    builderEl.style.display = 'none';
+    if (customizeBtn) {
+      customizeBtn.textContent = 'Customize for your profile ▾';
+      customizeBtn.classList.remove('open');
+    }
+  }
+
+  if (customizeBtn) {
+    customizeBtn.addEventListener('click', function () {
+      var isOpen = builderEl && builderEl.style.display !== 'none';
+      isOpen ? closeBuilder() : openBuilder();
+    });
   }
 
   // ─── Wire events ──────────────────────────────────────────────────────────
@@ -283,7 +334,18 @@
   var carSel = document.getElementById('pbCarrier');
   if (carSel) carSel.addEventListener('change', updateResult);
 
-  loadSaved();
-  updateResult();
+  // ─── Init ─────────────────────────────────────────────────────────────────
+
+  // Always start with no active pills — clear any defaults baked into HTML
+  document.querySelectorAll('[data-pb] .pb-pill').forEach(function (b) { b.classList.remove('active'); });
+
+  var hadSaved = loadSaved();
+
+  // If user has a prior saved profile, open the form and show their results
+  if (hadSaved && hasProfile(getOpts())) {
+    openBuilder();
+  }
+
+  updateResult(); // sets summary bar to "General rates" (or profile if restored)
 
 })();

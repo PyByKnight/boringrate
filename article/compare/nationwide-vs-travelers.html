@@ -164,6 +164,12 @@
   .pb-shopping-note{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.04em;margin-top:8px;line-height:1.55;}
   .cmp-table tr.pb-relevant{background:rgba(180,50,26,0.04);}
   .cmp-table tr.pb-relevant td:first-child{border-left:2px solid var(--accent);padding-left:10px;}
+  .pb-summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px;border:1px solid var(--rule);background:var(--paper-deep);max-width:660px;margin:0 0 12px;flex-wrap:wrap;}
+  .pb-summary-left{display:flex;flex-direction:column;gap:2px;}
+  .pb-summary-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);}
+  .pb-summary-rates{font-family:var(--serif);font-size:16px;font-weight:500;letter-spacing:-0.01em;color:var(--ink);}
+  .pb-summary-toggle{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;background:none;border:1px solid var(--rule);padding:8px 14px;cursor:pointer;color:var(--ink-soft);white-space:nowrap;transition:all 120ms;flex-shrink:0;}
+  .pb-summary-toggle:hover,.pb-summary-toggle.open{border-color:var(--ink);color:var(--ink);}
 </style>
 <script type="application/ld+json">
 {
@@ -298,7 +304,14 @@
 
             <a href="/article/compare/index.html" class="hub-back">Compare hub</a>
     <h2>Who wins for your profile?</h2>
-    <div class="profile-builder" id="profileBuilder">
+    <div class="pb-summary" id="pbSummary">
+      <div class="pb-summary-left">
+        <div class="pb-summary-label" id="pbSummaryLabel">General rates</div>
+        <div class="pb-summary-rates" id="pbSummaryRates"></div>
+      </div>
+      <button type="button" class="pb-summary-toggle" id="pbCustomizeBtn">Customize for your profile &#9662;</button>
+    </div>
+    <div class="profile-builder" id="profileBuilder" style="display:none;">
       <div class="pb-row">
         <div class="pb-row-label">Age</div>
         <div class="pb-pills" data-pb="age">
