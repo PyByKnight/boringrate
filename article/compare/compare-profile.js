@@ -241,6 +241,9 @@
       }
     }
 
+    // ── Clear button visibility ────────────────────────────────────────────
+    if (clearBtn) clearBtn.style.display = profiled ? 'inline-block' : 'none';
+
     // ── CTA link ───────────────────────────────────────────────────────────
     var cta = document.getElementById('pbCta');
     if (cta) {
@@ -272,7 +275,8 @@
         if (!p[key]) return;
         var btn = document.querySelector('[data-pb="' + key + '"] [data-v="' + p[key] + '"]');
         if (!btn) return;
-        document.querySelectorAll('[data-pb="' + key + '"] .pb-pill').forEach(function (b) { b.classList.remove('active'); });
+        var grp = document.querySelector('[data-pb="' + key + '"]');
+        if (grp) { grp.querySelectorAll('.pb-pill').forEach(function (b) { b.classList.remove('active'); }); grp.classList.add('has-selection'); }
         btn.classList.add('active');
       });
       if (p.carrier) { var sel = document.getElementById('pbCarrier'); if (sel) sel.value = p.carrier; }
@@ -310,12 +314,33 @@
     });
   }
 
+  // ─── Clear button ─────────────────────────────────────────────────────────
+
+  var clearBtn = document.getElementById('pbClearBtn');
+
+  function clearProfile() {
+    document.querySelectorAll('[data-pb] .pb-pill').forEach(function (b) { b.classList.remove('active'); });
+    document.querySelectorAll('[data-pb]').forEach(function (g) { g.classList.remove('has-selection'); });
+    ['pbYoungDriver', 'pbLapsed', 'pbSuspended'].forEach(function (id) {
+      var el = document.getElementById(id); if (el) el.checked = false;
+    });
+    var zipEl2 = document.getElementById('pbZip'); if (zipEl2) zipEl2.value = '';
+    var carSel2 = document.getElementById('pbCarrier'); if (carSel2) carSel2.value = '';
+    try { localStorage.removeItem('br_profile'); } catch (e) {}
+    if (clearBtn) clearBtn.style.display = 'none';
+    updateResult();
+  }
+
+  if (clearBtn) clearBtn.addEventListener('click', clearProfile);
+
   // ─── Wire events ──────────────────────────────────────────────────────────
 
   document.querySelectorAll('[data-pb] .pb-pill').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      btn.closest('[data-pb]').querySelectorAll('.pb-pill').forEach(function (b) { b.classList.remove('active'); });
+      var group = btn.closest('[data-pb]');
+      group.querySelectorAll('.pb-pill').forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
+      group.classList.add('has-selection');
       updateResult();
     });
   });

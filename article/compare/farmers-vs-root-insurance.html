@@ -150,7 +150,7 @@
   .pb-checks{display:flex;flex-direction:column;gap:8px;}
   .pb-check{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);cursor:pointer;letter-spacing:0.03em;user-select:none;}
   .pb-check input[type=checkbox]{accent-color:var(--ink);width:14px;height:14px;cursor:pointer;flex-shrink:0;}
-  .pb-extra-row{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0 0;padding-top:14px;border-top:1px solid var(--rule);}
+  .pb-extra-row{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 14px;padding-bottom:14px;border-bottom:1px solid var(--rule);}
   .pb-extra-group{display:flex;flex-direction:column;gap:5px;}
   .pb-carrier-group{flex:1;min-width:160px;}
   .pb-extra-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);}
@@ -170,6 +170,11 @@
   .pb-summary-rates{font-family:var(--serif);font-size:16px;font-weight:500;letter-spacing:-0.01em;color:var(--ink);}
   .pb-summary-toggle{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;background:none;border:1px solid var(--rule);padding:8px 14px;cursor:pointer;color:var(--ink-soft);white-space:nowrap;transition:all 120ms;flex-shrink:0;}
   .pb-summary-toggle:hover,.pb-summary-toggle.open{border-color:var(--ink);color:var(--ink);}
+  .pb-summary-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+  .pb-clear-btn{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;background:none;border:1px solid var(--rule);padding:7px 12px;cursor:pointer;color:var(--ink-mute);white-space:nowrap;transition:all 120ms;}
+  .pb-clear-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .pb-pills.has-selection .pb-pill:not(.active){opacity:0.3;color:var(--ink-mute);}
+  .pb-standalone-actions{display:flex;gap:12px;flex-wrap:wrap;max-width:660px;margin:0 0 36px;}
 </style>
 <script type="application/ld+json">
 {
@@ -276,42 +281,36 @@
   </div>
   <div class="article-body">
 
-    <div class="cmp-verdict">
-      <div class="cmp-verdict-label">Overall verdict</div>
-      <div class="cmp-verdict-score">Farmers wins 5–4 categories</div>
-      <div class="cmp-verdict-sub">Farmers leads on more rate factors. Root Insurance may still win for specific profiles — see the table below.</div>
-    </div>
-
-    <h2>Side-by-side comparison</h2>
-    <table class="cmp-table">
-      <thead>
-        <tr><th>Feature</th><th>Farmers</th><th>Root Insurance</th><th>Winner</th></tr>
-      </thead>
-      <tbody>
-        <tr class="cmp-row row-win-b"><td>Avg annual rate</td><td>~$1,768/yr</td><td>~$1,462/yr</td><td><span class="win-pill win-pill-b">✓ Root Insurance</span></td></tr>
-        <tr class="cmp-row row-win-b"><td>NAIC complaint ratio<span class="row-note">lower = fewer complaints vs. industry avg</span></td><td>0.86 &mdash; good</td><td>0.68 &mdash; excellent</td><td><span class="win-pill win-pill-b">✓ Root Insurance</span></td></tr>
-        <tr class="cmp-row row-win-a"><td>Credit: excellent<span class="row-note">rate change for excellent credit</span></td><td>-10%</td><td>-2%</td><td><span class="win-pill win-pill-a">✓ Farmers</span></td></tr>
-        <tr class="cmp-row row-win-b"><td>Credit: fair / poor<span class="row-note">rate change for fair credit</span></td><td>+24%</td><td>+8%</td><td><span class="win-pill win-pill-b">✓ Root Insurance</span></td></tr>
-        <tr class="cmp-row row-win-b"><td>Young drivers · 18&ndash;24<span class="row-note">surcharge vs 35&ndash;54 baseline</span></td><td>+17%</td><td>-4%</td><td><span class="win-pill win-pill-b">✓ Root Insurance</span></td></tr>
-        <tr class="cmp-row row-win-a"><td>Drivers 55+<span class="row-note">discount vs 35&ndash;54 baseline</span></td><td>-7%</td><td>+3%</td><td><span class="win-pill win-pill-a">✓ Farmers</span></td></tr>
-        <tr class="cmp-row row-win-a"><td>Homeowner discount</td><td>-7%</td><td>No change</td><td><span class="win-pill win-pill-a">✓ Farmers</span></td></tr>
-        <tr class="cmp-row row-win-a"><td>Multi-policy discount</td><td>-6%</td><td>-2%</td><td><span class="win-pill win-pill-a">✓ Farmers</span></td></tr>
-        <tr class="cmp-row row-win-a"><td>Lapsed coverage penalty<span class="row-note">surcharge for coverage gap</span></td><td>+14%</td><td>+20%</td><td><span class="win-pill win-pill-a">✓ Farmers</span></td></tr>
-        <tr class="cmp-row cmp-info"><td>How to buy</td><td>Agent only</td><td>Online / phone only</td><td><span class="win-tie">&mdash;</span></td></tr>
-        <tr class="cmp-row cmp-info"><td>Telematics program</td><td>Signal</td><td>Root App (required)</td><td><span class="win-tie">&mdash;</span></td></tr>
-      </tbody>
-    </table>
-
-            <a href="/article/compare/index.html" class="hub-back">Compare hub</a>
+<a href="/article/compare/index.html" class="hub-back">Compare hub</a>
     <h2>Who wins for your profile?</h2>
     <div class="pb-summary" id="pbSummary">
       <div class="pb-summary-left">
         <div class="pb-summary-label" id="pbSummaryLabel">General rates</div>
         <div class="pb-summary-rates" id="pbSummaryRates"></div>
       </div>
-      <button type="button" class="pb-summary-toggle" id="pbCustomizeBtn">Customize for your profile &#9662;</button>
+      <div class="pb-summary-right">
+        <button type="button" class="pb-summary-toggle" id="pbCustomizeBtn">Customize for your profile &#9662;</button>
+        <button type="button" class="pb-clear-btn" id="pbClearBtn" style="display:none;">Clear</button>
+      </div>
     </div>
     <div class="profile-builder" id="profileBuilder" style="display:none;">
+      <div class="pb-extra-row">
+        <div class="pb-extra-group">
+          <label class="pb-extra-label">ZIP code</label>
+          <input type="text" class="pb-zip-input" id="pbZip" maxlength="5" inputmode="numeric" placeholder="12345" autocomplete="postal-code" />
+        </div>
+        <div class="pb-extra-group pb-carrier-group">
+          <label class="pb-extra-label">Current carrier</label>
+          <select class="pb-select" id="pbCarrier">
+            <option value="">Current carrier (optional)</option>
+            <option>State Farm</option><option>GEICO</option><option>Progressive</option><option>Allstate</option>
+            <option>USAA</option><option>Liberty Mutual</option><option>Farmers</option><option>Travelers</option>
+            <option>Nationwide</option><option>American Family</option><option>Erie</option>
+            <option>Root Insurance</option><option>Safeco</option><option>The Hartford</option><option>Amica</option>
+            <option>Other</option><option value="none">No insurance / lapsed</option>
+          </select>
+        </div>
+      </div>
       <div class="pb-row">
         <div class="pb-row-label">Age</div>
         <div class="pb-pills" data-pb="age">
@@ -368,32 +367,43 @@
           <label class="pb-check"><input type="checkbox" id="pbSuspended" /> Suspended / revoked license</label>
         </div>
       </div>
-      <div class="pb-extra-row">
-        <div class="pb-extra-group">
-          <label class="pb-extra-label">ZIP code</label>
-          <input type="text" class="pb-zip-input" id="pbZip" maxlength="5" inputmode="numeric" placeholder="12345" autocomplete="postal-code" />
-        </div>
-        <div class="pb-extra-group pb-carrier-group">
-          <label class="pb-extra-label">Current carrier</label>
-          <select class="pb-select" id="pbCarrier">
-            <option value="">Current carrier (optional)</option>
-            <option>State Farm</option><option>GEICO</option><option>Progressive</option><option>Allstate</option>
-            <option>USAA</option><option>Liberty Mutual</option><option>Farmers</option><option>Travelers</option>
-            <option>Nationwide</option><option>American Family</option><option>Erie</option>
-            <option>Root Insurance</option><option>Safeco</option><option>The Hartford</option><option>Amica</option>
-            <option>Other</option><option value="none">No insurance / lapsed</option>
-          </select>
-        </div>
-      </div>
       <div class="pb-result" id="pbResult">
         <div class="pb-result-winner" id="pbWinner"></div>
         <div class="pb-result-detail" id="pbDetail"></div>
         <div id="pbShoppingNote" class="pb-shopping-note" style="display:none;"></div>
       </div>
-      <div class="pb-actions">
-        <a href="/" class="pb-cta" id="pbCta">Compare all carriers for your profile &rarr;</a>
-        <a href="/article/compare/index.html" class="pb-cta pb-cta-alt">Return to Compare Hub &rarr;</a>
-      </div>
+    </div>
+
+    
+    <div class="cmp-verdict">
+      <div class="cmp-verdict-label">Overall verdict</div>
+      <div class="cmp-verdict-score">Farmers wins 5–4 categories</div>
+      <div class="cmp-verdict-sub">Farmers leads on more rate factors. Root Insurance may still win for specific profiles — see the table below.</div>
+    </div>
+
+    <h2>Side-by-side comparison</h2>
+    <table class="cmp-table">
+      <thead>
+        <tr><th>Feature</th><th>Farmers</th><th>Root Insurance</th><th>Winner</th></tr>
+      </thead>
+      <tbody>
+        <tr class="cmp-row row-win-b"><td>Avg annual rate</td><td>~$1,768/yr</td><td>~$1,462/yr</td><td><span class="win-pill win-pill-b">✓ Root Insurance</span></td></tr>
+        <tr class="cmp-row row-win-b"><td>NAIC complaint ratio<span class="row-note">lower = fewer complaints vs. industry avg</span></td><td>0.86 &mdash; good</td><td>0.68 &mdash; excellent</td><td><span class="win-pill win-pill-b">✓ Root Insurance</span></td></tr>
+        <tr class="cmp-row row-win-a"><td>Credit: excellent<span class="row-note">rate change for excellent credit</span></td><td>-10%</td><td>-2%</td><td><span class="win-pill win-pill-a">✓ Farmers</span></td></tr>
+        <tr class="cmp-row row-win-b"><td>Credit: fair / poor<span class="row-note">rate change for fair credit</span></td><td>+24%</td><td>+8%</td><td><span class="win-pill win-pill-b">✓ Root Insurance</span></td></tr>
+        <tr class="cmp-row row-win-b"><td>Young drivers · 18&ndash;24<span class="row-note">surcharge vs 35&ndash;54 baseline</span></td><td>+17%</td><td>-4%</td><td><span class="win-pill win-pill-b">✓ Root Insurance</span></td></tr>
+        <tr class="cmp-row row-win-a"><td>Drivers 55+<span class="row-note">discount vs 35&ndash;54 baseline</span></td><td>-7%</td><td>+3%</td><td><span class="win-pill win-pill-a">✓ Farmers</span></td></tr>
+        <tr class="cmp-row row-win-a"><td>Homeowner discount</td><td>-7%</td><td>No change</td><td><span class="win-pill win-pill-a">✓ Farmers</span></td></tr>
+        <tr class="cmp-row row-win-a"><td>Multi-policy discount</td><td>-6%</td><td>-2%</td><td><span class="win-pill win-pill-a">✓ Farmers</span></td></tr>
+        <tr class="cmp-row row-win-a"><td>Lapsed coverage penalty<span class="row-note">surcharge for coverage gap</span></td><td>+14%</td><td>+20%</td><td><span class="win-pill win-pill-a">✓ Farmers</span></td></tr>
+        <tr class="cmp-row cmp-info"><td>How to buy</td><td>Agent only</td><td>Online / phone only</td><td><span class="win-tie">&mdash;</span></td></tr>
+        <tr class="cmp-row cmp-info"><td>Telematics program</td><td>Signal</td><td>Root App (required)</td><td><span class="win-tie">&mdash;</span></td></tr>
+      </tbody>
+    </table>
+
+        <div class="pb-standalone-actions">
+      <a href="/" class="pb-cta" id="pbCta">Compare all carriers for your profile &rarr;</a>
+      <a href="/article/compare/index.html" class="pb-cta pb-cta-alt">Return to Compare Hub &rarr;</a>
     </div>
 
     <div class="zip-embed">
