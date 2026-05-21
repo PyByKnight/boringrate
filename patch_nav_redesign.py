@@ -200,6 +200,9 @@ NEW_NAV_CSS = """
   .nav-res-tab:hover,.nav-res-tab.active{color:var(--paper);border-color:rgba(246,241,232,0.4);background:rgba(246,241,232,0.08);}
   .nav-res-panel{display:none;}
   .nav-res-panel.active{display:block;}
+  .nav-mega-states{display:grid;grid-template-columns:repeat(5,1fr);gap:2px 0;}
+  .nav-mega-states a{font-family:var(--mono);font-size:11px;color:rgba(246,241,232,0.65);text-decoration:none;padding:3px 0;transition:color 120ms;letter-spacing:0.02em;}
+  .nav-mega-states a:hover{color:var(--paper);}
   .nav-res-metros{display:grid;grid-template-columns:repeat(7,1fr);gap:1px 0;}
   .nav-res-metros a{font-family:var(--mono);font-size:11px;color:rgba(246,241,232,0.65);text-decoration:none;padding:3px 0;transition:color 120ms;letter-spacing:0.02em;}
   .nav-res-metros a:hover{color:var(--paper);}
