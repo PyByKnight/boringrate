@@ -381,5 +381,6 @@
   });
 })();
 </script>
+<script>(function(){function goZip(fid,iid){var f=document.getElementById(fid),i=document.getElementById(iid);if(!f||!i)return;f.addEventListener("submit",function(e){e.preventDefault();var z=i.value.replace(/\D/g,"").substring(0,5);if(!/^\d{5}$/.test(z)){i.focus();return;}window.location.href="/?zip="+z;});}goZip("zipBarForm","zipBarInput");goZip("embedZipForm","embedZipInput");})();</script>
 </body>
 </html>
