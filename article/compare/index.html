@@ -340,9 +340,11 @@
   function getUrl(a,b){var ia=CARRIERS.indexOf(a),ib=CARRIERS.indexOf(b);return ia<ib?'/article/compare/'+a+'-vs-'+b+'.html':'/article/compare/'+b+'-vs-'+a+'.html';}
   function render(){
     grid.querySelectorAll('.carrier-card').forEach(function(c){c.classList.remove('selected-a','selected-b');var s=c.dataset.slug;if(s===selA)c.classList.add('selected-a');else if(s===selB)c.classList.add('selected-b');});
-    if(!selA){status.textContent='Pick a carrier to start';status.classList.remove('active');label.textContent='';label.classList.remove('ready');btn.href='#';btn.style.opacity='0.35';btn.style.pointerEvents='none';}
-    else if(!selB){status.textContent='Now pick a second carrier';status.classList.add('active');label.textContent='';label.classList.remove('ready');btn.href='#';btn.style.opacity='0.35';btn.style.pointerEvents='none';}
-    else{status.textContent='Ready to compare';status.classList.add('active');label.textContent=(NAMES[selA]||selA)+' vs '+(NAMES[selB]||selB);label.classList.add('ready');btn.href=getUrl(selA,selB);btn.style.opacity='';btn.style.pointerEvents='';}
+    var ready=!!(selA&&selB);
+    btn.classList.toggle('ready',ready);
+    if(!selA){status.textContent='Pick a carrier to start';status.classList.remove('active');label.textContent='';label.classList.remove('ready');btn.href='#';}
+    else if(!selB){status.textContent='Now pick a second carrier';status.classList.add('active');label.textContent='';label.classList.remove('ready');btn.href='#';}
+    else{status.textContent='Ready to compare';status.classList.add('active');label.textContent=(NAMES[selA]||selA)+' vs '+(NAMES[selB]||selB);label.classList.add('ready');btn.href=getUrl(selA,selB);}
   }
   grid.addEventListener('click',function(e){var card=e.target.closest('.carrier-card');if(!card)return;var slug=card.dataset.slug;if(slug===selA){selA=selB;selB=null;}else if(slug===selB){selB=null;}else if(!selA){selA=slug;}else if(!selB){selB=slug;}else{selB=slug;}render();});
   render();
