@@ -693,6 +693,19 @@
   .article-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
   .article-card .byline { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); margin-top: 14px; letter-spacing: 0.06em; }
 
+  /* ── FAQ accordion ──────────────────────────────────────── */
+  .faq-section { padding: 64px 0; border-top: 1px solid var(--rule); }
+  .faq-section h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 32px; }
+  .faq-list { max-width: 720px; }
+  .faq-item { border-top: 1px solid var(--rule); }
+  .faq-item:last-child { border-bottom: 1px solid var(--rule); }
+  .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; background: none; border: none; padding: 18px 0; cursor: pointer; text-align: left; font-family: var(--sans); font-size: 16px; font-weight: 500; color: var(--ink); }
+  .faq-q:hover { color: var(--accent); }
+  .faq-icon { font-family: var(--mono); font-size: 18px; font-weight: 400; flex-shrink: 0; color: var(--ink-mute); transition: transform 200ms; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a { display: none; padding: 0 0 20px; font-size: 15px; color: var(--ink-soft); line-height: 1.6; max-width: 640px; }
+  .faq-item.open .faq-a { display: block; }
+
   /* ── Footer ──────────────────────────────────────────────── */
   footer { padding: 56px 0 36px; background: var(--ink); color: var(--paper); }
   .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
@@ -1013,6 +1026,46 @@
     .nav-res-carriers{grid-template-columns:1fr;}
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does BoringRate rank carriers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We collect publicly reported rate data from state filings and carrier disclosures, then weight by a standard driver profile — clean record, 35-year-old, mid-size sedan, 12,000 miles per year. The result is a carrier ranking for your specific ZIP, not a national average. No carrier pays to appear or to rank higher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is BoringRate free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. BoringRate earns nothing from carriers, agents, or referrals. No commissioned relationships, no 'best rate' ads that pay us when you click. The site is editorially independent — carriers don't pay to be listed and can't pay to rank higher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate are the rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The figures are editorial estimates based on public rate filings, not live quotes. Expect ±15–20% variance depending on your exact profile, vehicle, and coverage selection. Use the rankings to identify which carriers are worth quoting — then get the actual number directly from the carrier."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does BoringRate sell my information?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. If you subscribe for rate alerts, your email goes to our list and nowhere else. We don't sell, share, or broker leads. No carrier or agent ever receives your contact information through BoringRate."
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1473,6 +1526,30 @@
     <div class="compare-cols" id="compareCols"></div>
   </div>
 </div>
+
+<section class="faq-section">
+  <div class="wrap">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How does BoringRate rank carriers?<span class="faq-icon">+</span></button>
+        <div class="faq-a">We collect publicly reported rate data from state filings and carrier disclosures, then weight by a standard driver profile — clean record, 35-year-old, mid-size sedan, 12,000 miles per year. The result is a carrier ranking for your specific ZIP, not a national average. No carrier pays to appear or to rank higher.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Is BoringRate free?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. BoringRate earns nothing from carriers, agents, or referrals. No commissioned relationships, no "best rate" ads that pay us when you click. The site is editorially independent — carriers don't pay to be listed and can't pay to rank higher.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How accurate are the rates?<span class="faq-icon">+</span></button>
+        <div class="faq-a">The figures are editorial estimates based on public rate filings, not live quotes. Expect ±15–20% variance depending on your exact profile, vehicle, and coverage selection. Use the rankings to identify which carriers are worth quoting — then get the actual number directly from the carrier.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Does BoringRate sell my information?<span class="faq-icon">+</span></button>
+        <div class="faq-a">No. If you subscribe for rate alerts, your email goes to our list and nowhere else. We don't sell, share, or broker leads. No carrier or agent ever receives your contact information through BoringRate.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="wrap">
@@ -4905,6 +4982,7 @@ document.getElementById("zipInput").addEventListener("input", e => {
 })();
 </script>
 
+<script>(function(){document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('click',function(){var item=btn.closest('.faq-item');var open=item.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));});});})();</script>
 <script>(function(){var btn=document.getElementById('navHamburger');var mega=document.getElementById('navMega');if(!btn||!mega)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});mega.addEventListener('click',function(e){var tab=e.target.closest('.nav-res-tab');if(!tab)return;e.stopPropagation();var pid=tab.dataset.panel;var isActive=tab.classList.contains('active');mega.querySelectorAll('.nav-res-tab').forEach(function(t){t.classList.remove('active');});mega.querySelectorAll('.nav-res-panel').forEach(function(p){p.classList.remove('active');});if(!isActive&&pid){tab.classList.add('active');var panel=document.getElementById(pid);if(panel)panel.classList.add('active');}});})();</script>
 <div class="auth-toast" id="authToast"></div>
 </body>
