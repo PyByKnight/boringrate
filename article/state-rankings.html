@@ -437,6 +437,40 @@
   </div>
 </div>
 
+<div class="wrap" id="renters-section" style="margin-top:56px;padding-top:40px;border-top:2px solid var(--rule);">
+  <style>
+    .sort-btn-r{font-family:var(--mono);font-size:11px;letter-spacing:0.07em;text-transform:uppercase;padding:6px 14px;border:1px solid var(--rule);background:none;color:var(--ink-mute);cursor:pointer;transition:all 120ms;}
+    .sort-btn-r.active,.sort-btn-r:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+    .renters-note{font-size:12px;color:var(--ink-mute);font-family:var(--mono);letter-spacing:0.04em;margin-top:16px;}
+  </style>
+  <div style="margin-bottom:24px;">
+    <div style="font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent);margin-bottom:10px;">Renters Insurance</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:600;letter-spacing:-0.02em;margin-bottom:8px;color:var(--ink);">Renters Insurance Rates by State (2026)</h2>
+    <p style="font-size:16px;color:var(--ink-mute);max-width:600px;line-height:1.55;">National average: <strong style="color:var(--ink);">$168/year</strong> ($14/month) for standard coverage. Click any state to see carrier rankings, risk factors, and coverage tips.</p>
+  </div>
+  <div class="sort-row">
+    <span class="sort-label">Sort:</span>
+    <button class="sort-btn-r active" data-sort-r="high">Most Expensive First</button>
+    <button class="sort-btn-r" data-sort-r="low">Cheapest First</button>
+    <button class="sort-btn-r" data-sort-r="az">A – Z</button>
+  </div>
+  <div class="rankings-wrap">
+    <table class="rankings-table">
+      <thead>
+        <tr>
+          <th class="th-rank">#</th>
+          <th>State</th>
+          <th class="th-bar" style="width:40%;"></th>
+          <th class="th-price">Avg. Annual Premium</th>
+          <th class="th-actions" style="min-width:0;width:0;padding:0;"></th>
+        </tr>
+      </thead>
+      <tbody id="rentersRankingsBody"></tbody>
+    </table>
+  </div>
+  <p class="renters-note">Renters insurance averages · standard $20K personal property / $100K liability · editorial estimates · <a href="/renters/index.html" style="color:var(--accent);text-decoration:none;">see full renters hub →</a></p>
+</div>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -720,5 +754,60 @@ document.getElementById("zipBarInput").addEventListener("input", e => {
 })();
 </script>
 <script>(function(){function goZip(fid,iid){var f=document.getElementById(fid),i=document.getElementById(iid);if(!f||!i)return;f.addEventListener("submit",function(e){e.preventDefault();var z=i.value.replace(/\D/g,"").substring(0,5);if(!/^\d{5}$/.test(z)){i.focus();return;}window.location.href="/?zip="+z;});}goZip("zipBarForm","zipBarInput");goZip("embedZipForm","embedZipInput");})();</script>
+<script>
+(function(){
+var RENTERS=[
+  ["Alabama","alabama","AL",202],["Alaska","alaska","AK",152],["Arizona","arizona","AZ",168],
+  ["Arkansas","arkansas","AR",182],["California","california","CA",215],["Colorado","colorado","CO",163],
+  ["Connecticut","connecticut","CT",158],["Delaware","delaware","DE",172],["Florida","florida","FL",252],
+  ["Georgia","georgia","GA",183],["Hawaii","hawaii","HI",195],["Idaho","idaho","ID",141],
+  ["Illinois","illinois","IL",178],["Indiana","indiana","IN",168],["Iowa","iowa","IA",155],
+  ["Kansas","kansas","KS",210],["Kentucky","kentucky","KY",174],["Louisiana","louisiana","LA",268],
+  ["Maine","maine","ME",137],["Maryland","maryland","MD",188],["Massachusetts","massachusetts","MA",162],
+  ["Michigan","michigan","MI",205],["Minnesota","minnesota","MN",154],["Mississippi","mississippi","MS",208],
+  ["Missouri","missouri","MO",178],["Montana","montana","MT",152],["Nebraska","nebraska","NE",156],
+  ["Nevada","nevada","NV",172],["New Hampshire","new-hampshire","NH",127],["New Jersey","new-jersey","NJ",165],
+  ["New Mexico","new-mexico","NM",185],["New York","new-york","NY",175],["North Carolina","north-carolina","NC",178],
+  ["North Dakota","north-dakota","ND",143],["Ohio","ohio","OH",168],["Oklahoma","oklahoma","OK",198],
+  ["Oregon","oregon","OR",149],["Pennsylvania","pennsylvania","PA",167],["Rhode Island","rhode-island","RI",192],
+  ["South Carolina","south-carolina","SC",180],["South Dakota","south-dakota","SD",143],
+  ["Tennessee","tennessee","TN",175],["Texas","texas","TX",191],["Utah","utah","UT",137],
+  ["Vermont","vermont","VT",130],["Virginia","virginia","VA",165],["Washington","washington","WA",158],
+  ["Washington D.C.","washington-dc","DC",200],["West Virginia","west-virginia","WV",168],
+  ["Wisconsin","wisconsin","WI",138],["Wyoming","wyoming","WY",141]
+];
+var RMAX=268;
+var rSort="high";
+function renderRenters(){
+  var s=RENTERS.slice();
+  if(rSort==="high")s.sort(function(a,b){return b[3]-a[3];});
+  else if(rSort==="low")s.sort(function(a,b){return a[3]-b[3];});
+  else s.sort(function(a,b){return a[0].localeCompare(b[0]);});
+  var tb=document.getElementById("rentersRankingsBody");
+  if(!tb)return;
+  tb.innerHTML=s.map(function(row,i){
+    var name=row[0],slug=row[1],abbr=row[2],price=row[3];
+    var pct=Math.round(price/RMAX*100);
+    var t=price<150?"low":price<195?"mid":"high";
+    return'<tr class="state-main-row">'+
+      '<td class="td-rank">'+(i+1)+'</td>'+
+      '<td class="td-state"><a href="/renters/state/'+slug+'.html" class="state-link">'+name+'<span class="state-research-tag">&rarr; Renters Report</span></a></td>'+
+      '<td class="td-bar"><div class="price-bar-track"><div class="price-bar-fill tier-'+t+'" style="width:'+pct+'%"></div></div></td>'+
+      '<td class="td-price tier-'+t+'">$'+price+'</td>'+
+      '<td class="td-actions"></td>'+
+      '</tr>';
+  }).join("");
+}
+document.querySelectorAll(".sort-btn-r").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    document.querySelectorAll(".sort-btn-r").forEach(function(b){b.classList.remove("active");});
+    btn.classList.add("active");
+    rSort=btn.dataset.sortR;
+    renderRenters();
+  });
+});
+renderRenters();
+})();
+</script>
 </body>
 </html>
