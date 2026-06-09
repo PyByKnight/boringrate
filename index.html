@@ -95,6 +95,14 @@
   .nav-tabs a:last-child { border-right: none; }
   .nav-tabs a.active { background: var(--ink); color: var(--paper); }
   .nav-tabs a:not(.active):hover { color: var(--ink); background: var(--paper-deep); }
+  .type-switch{display:flex;border:1px solid var(--rule);flex-shrink:0;}
+  .type-switch-btn{font-family:var(--mono);font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;padding:6px 12px;border-right:1px solid var(--rule);transition:all 120ms;white-space:nowrap;}
+  .type-switch-btn:last-child{border-right:none;}
+  .type-switch-btn.active{background:var(--ink);color:var(--paper);}
+  .type-switch-btn:not(.active):not(.type-switch-dim):hover{color:var(--ink);background:var(--paper-deep);}
+  .type-switch-dim{opacity:0.3;cursor:default;}
+  @media(max-width:580px){.header-auth{display:none;}}
+  @media(max-width:400px){.type-switch-btn{padding:5px 8px;font-size:10px;letter-spacing:0.04em;}}
   .nav-method { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; }
   .nav-method:hover { color: var(--ink); }
 
@@ -528,6 +536,51 @@
     pointer-events: none;
     letter-spacing: 0;
   }
+  .rank-grade {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: -0.01em;
+    padding: 4px 6px; border-radius: 2px; cursor: help;
+    line-height: 1; white-space: nowrap; position: relative; flex-shrink: 0;
+  }
+  .rank-grade.grade-aplus  { color: #176617; background: #e5f5e5; }
+  .rank-grade.grade-a      { color: #1a7a1a; background: #ebf7eb; }
+  .rank-grade.grade-aminus { color: #2d8a2d; background: #eef8ee; }
+  .rank-grade.grade-bplus  { color: #5a6b00; background: #f2f6d4; }
+  .rank-grade.grade-b      { color: #6e6e00; background: #f5f5d4; }
+  .rank-grade.grade-bminus { color: #7a4800; background: #f5ecd4; }
+  .rank-grade.grade-cplus  { color: #883000; background: #f5e6d4; }
+  .rank-grade.grade-c      { color: #781800; background: #f5dbd4; }
+  .rank-grade.grade-f      { color: #5c0000; background: #f0d4d4; }
+  .rank-grade[data-tip]:hover::after, .rank-grade[data-tip]:focus::after {
+    content: attr(data-tip);
+    position: absolute; bottom: calc(100% + 6px); right: 0;
+    background: var(--ink); color: var(--paper);
+    font-family: var(--sans); font-size: 11px; font-weight: 400;
+    padding: 7px 9px; width: 240px; white-space: normal;
+    line-height: 1.45; z-index: 20; pointer-events: none; letter-spacing: 0;
+  }
+  .rank-stability {
+    display: inline-flex; align-items: center; gap: 3px;
+    margin-top: 4px; cursor: help; position: relative;
+  }
+  .rank-stability-label {
+    font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--ink-mute); margin-right: 2px;
+    flex-shrink: 0;
+  }
+  .rank-stab-dot {
+    width: 7px; height: 7px; border-radius: 50%; display: inline-block; flex-shrink: 0;
+  }
+  .rank-stab-dot.filled { background: var(--ink-soft); }
+  .rank-stab-dot.empty  { background: transparent; border: 1.5px solid rgba(0,0,0,0.2); }
+  .rank-stability[data-tip]:hover::after, .rank-stability[data-tip]:focus::after {
+    content: attr(data-tip);
+    position: absolute; bottom: calc(100% + 4px); left: 0;
+    background: var(--ink); color: var(--paper);
+    font-family: var(--sans); font-size: 11px; font-weight: 400;
+    padding: 7px 9px; width: 260px; white-space: normal;
+    line-height: 1.45; z-index: 20; pointer-events: none; letter-spacing: 0;
+  }
 
   .rank-vs { font-family: var(--mono); font-size: 18px; font-weight: 500; transition: color 300ms; text-align: right; }
   .rank-vs.under { color: var(--good); }
@@ -796,6 +849,7 @@
     .rank-num { grid-column: 1; grid-row: 1; align-self: start; padding-top: 3px; }
     .rank-name-wrap { grid-column: 2; grid-row: 1 / 3; align-self: center; }
     .rank-mark { grid-column: 3; grid-row: 1 / 3; align-self: center; width: 20px; height: 20px; }
+    .rank-grade { grid-column: 3; grid-row: 1 / 3; align-self: center; font-size: 10px; padding: 2px 4px; }
     .rank-mark svg { width: 14px; height: 14px; }
     .rank-vs { grid-column: 4; grid-row: 1; text-align: right; font-size: 14px; margin-top: 0; align-self: end; }
     .rank-vs .vs-sub { font-size: 9px; }
@@ -1111,6 +1165,11 @@
 <header class="top">
   <div class="wrap top-inner">
     <a href="index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
+    <div class="type-switch">
+      <a href="/" class="type-switch-btn active">Auto</a>
+      <a href="/renters/index.html" class="type-switch-btn">Renters</a>
+      <span class="type-switch-btn type-switch-dim" title="Home insurance — coming soon">Home</span>
+    </div>
     <div class="header-auth" id="headerAuth">
       <div id="headerAuthOut">
         <button class="header-notify-btn" id="headerNotifyBtn">Notify me &#9662;</button>
@@ -2900,53 +2959,53 @@ const SHOP_MULT = {
 };
 
 const CARRIERS_STANDARD = [
-  { name: "USAA",           base: 0.82, tag: "Military & immediate family only",        bestFor: "Military & veterans",
+  { name: "USAA",           base: 0.82, csGrade: "A+", stability: 4, tag: "Military & immediate family only",        bestFor: "Military & veterans",
     sens: { own: -0.04, rent: 0.02, age: { "18-24": 0.20, "25-34": 0.04, "35-54": -0.06, "55+": -0.10 }, youngDriver: 0.18, telematics: -0.05, multi: -0.03, single: 0.02, lapsed: 0.20, renewal: -0.03, credit: { excellent: -0.08, fair: 0.18 } } },
-  { name: "GEICO",          base: 0.80, tag: "No agents — buy and manage online",       bestFor: "Online shoppers",
+  { name: "GEICO",          base: 0.80, csGrade: "B+", stability: 2, tag: "No agents — buy and manage online",       bestFor: "Online shoppers",
     youngDriverTag: "DriveEasy telematics can offset young driver costs",
     sens: { own: -0.05, rent: 0.02, age: { "18-24": 0.24, "25-34": 0.06, "35-54": -0.04, "55+": -0.08 }, youngDriver: 0.22, telematics: -0.07, multi: -0.05, single: 0.03, lapsed: 0.15, renewal: -0.02, credit: { excellent: -0.14, fair: 0.28 } } },
-  { name: "State Farm",     base: 0.86, tag: "Large local agent network",               bestFor: "Local agent service",
+  { name: "State Farm",     base: 0.86, csGrade: "B+", stability: 4, tag: "Large local agent network",               bestFor: "Local agent service",
     youngDriverTag: "Steer Clear® program · good student discount available",
     sens: { own: -0.08, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.02, "35-54": -0.05, "55+": -0.09 }, youngDriver: 0.14, telematics: -0.06, multi: -0.12, single: 0.02, lapsed: 0.18, renewal: -0.05, credit: { excellent: -0.10, fair: 0.22 } } },
-  { name: "Progressive",    base: 0.94, tag: "Rates vary widely by driver profile",     bestFor: "High-risk & SR-22",
+  { name: "Progressive",    base: 0.94, csGrade: "B", stability: 2, tag: "Rates vary widely by driver profile",     bestFor: "High-risk & SR-22",
     youngDriverTag: "Lowest under-25 surcharge in class · Snapshot telematics",
     sens: { own: -0.03, rent: 0.01, age: { "18-24": 0.04, "25-34": 0.01, "35-54": 0.00, "55+": -0.04 }, youngDriver: 0.05, telematics: -0.08, multi: -0.04, single: 0.02, lapsed: 0.05, renewal: 0.05, credit: { excellent: -0.11, fair: 0.25 } } },
-  { name: "Allstate",       base: 1.08, tag: "Strong bundling discounts",               bestFor: "Accident forgiveness",
+  { name: "Allstate",       base: 1.08, csGrade: "B-", stability: 3, tag: "Strong bundling discounts",               bestFor: "Accident forgiveness",
     sens: { own: -0.10, rent: 0.04, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.04, "55+": -0.08 }, youngDriver: 0.18, telematics: -0.05, multi: -0.08, single: 0.03, lapsed: 0.16, renewal: 0.02, credit: { excellent: -0.13, fair: 0.30 } } },
-  { name: "Liberty Mutual", base: 1.23, tag: "Broad coverage options",                  bestFor: "New car replacement",
+  { name: "Liberty Mutual", base: 1.23, csGrade: "C+", stability: 2, tag: "Broad coverage options",                  bestFor: "New car replacement",
     sens: { own: -0.06, rent: 0.03, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.03, "55+": -0.06 }, youngDriver: 0.20, telematics: -0.04, multi: -0.05, single: 0.02, lapsed: 0.20, renewal: 0.04, credit: { excellent: -0.15, fair: 0.35 } } },
-  { name: "Farmers",        base: 1.04, tag: "Strong local agent network",              bestFor: "Full-service agents",
+  { name: "Farmers",        base: 1.04, csGrade: "B", stability: 3, tag: "Strong local agent network",              bestFor: "Full-service agents",
     sens: { own: -0.07, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.03, "35-54": -0.04, "55+": -0.07 }, youngDriver: 0.16, telematics: -0.04, multi: -0.06, single: 0.02, lapsed: 0.14, renewal: 0.01, credit: { excellent: -0.10, fair: 0.24 } } },
-  { name: "Nationwide",     base: 0.99, tag: "Strong bundling discounts",               bestFor: "Vanishing deductible",
+  { name: "Nationwide",     base: 0.99, csGrade: "B+", stability: 3, tag: "Strong bundling discounts",               bestFor: "Vanishing deductible",
     sens: { own: -0.08, rent: 0.03, age: { "18-24": 0.15, "25-34": 0.02, "35-54": -0.05, "55+": -0.08 }, youngDriver: 0.15, telematics: -0.05, multi: -0.06, single: 0.02, lapsed: 0.15, renewal: -0.01, credit: { excellent: -0.14, fair: 0.28 } } },
-  { name: "Travelers",      base: 0.97, tag: "IntelliDrive® telematics · no downside risk", bestFor: "Homeowners who bundle",
+  { name: "Travelers",      base: 0.97, csGrade: "B+", stability: 3, tag: "IntelliDrive® telematics · no downside risk", bestFor: "Homeowners who bundle",
     sens: { own: -0.10, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.03, "35-54": -0.04, "55+": -0.08 }, youngDriver: 0.15, telematics: -0.07, multi: -0.06, single: 0.02, lapsed: 0.16, renewal: -0.02, credit: { excellent: -0.10, fair: 0.26 } } },
-  { name: "Safeco",         base: 1.06, tag: "Sold through independent agents",            bestFor: "Independent agent shoppers",
+  { name: "Safeco",         base: 1.06, csGrade: "B", stability: 2, tag: "Sold through independent agents",            bestFor: "Independent agent shoppers",
     sens: { own: -0.08, rent: 0.03, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.04, "55+": -0.07 }, youngDriver: 0.17, telematics: -0.04, multi: -0.05, single: 0.02, lapsed: 0.16, renewal: -0.02, credit: { excellent: -0.11, fair: 0.26 } } },
-  { name: "The Hartford",   base: 0.96, tag: "AARP partnership — 50+ specialist",          bestFor: "Drivers 50+ & AARP members",
+  { name: "The Hartford",   base: 0.96, csGrade: "A-", stability: 4, tag: "AARP partnership — 50+ specialist",          bestFor: "Drivers 50+ & AARP members",
     sens: { own: -0.07, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.06, "35-54": -0.04, "55+": -0.18 }, youngDriver: 0.24, telematics: -0.03, multi: -0.05, single: 0.02, lapsed: 0.15, renewal: -0.02, credit: { excellent: -0.10, fair: 0.22 } } },
-  { name: "Root Insurance", base: 0.86, tag: "Telematics-only pricing · based on how you drive", bestFor: "Safe drivers — behavior-based rates",
+  { name: "Root Insurance", base: 0.86, csGrade: "B-", stability: 2, tag: "Telematics-only pricing · based on how you drive", bestFor: "Safe drivers — behavior-based rates",
     sens: { own: 0.00, rent: 0.00, age: { "18-24": -0.04, "25-34": -0.02, "35-54": 0.00, "55+": 0.03 }, youngDriver: -0.03, telematics: -0.15, multi: -0.02, single: 0.00, lapsed: 0.20, renewal: -0.05, credit: { excellent: -0.02, fair: 0.08 } } }
 ];
 
 // Non-standard carriers — high-risk / SR-22 market
 // Base rates are multiples of state avg; non-standard premiums run 40-120% above standard
 const CARRIERS_NONSTANDARD = [
-  { name: "GEICO",          base: 1.10, tag: "Accepts most high-risk profiles",
+  { name: "GEICO",          base: 1.10, csGrade: "B-", stability: 2, tag: "Accepts most high-risk profiles",
     sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.25, "25-34": 0.08, "35-54": -0.02, "55+": -0.05 }, multi: -0.05, single: 0.02, lapsed: 0.12, renewal: -0.02 } },
-  { name: "Progressive",    base: 1.15, tag: "Best for DUI / SR-22, same-day filing",
+  { name: "Progressive",    base: 1.15, csGrade: "B-", stability: 2, tag: "Best for DUI / SR-22, same-day filing",
     sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.06, "35-54": 0.00, "55+": -0.03 }, multi: -0.04, single: 0.02, lapsed: 0.08, renewal: 0.04 } },
-  { name: "The General",    base: 1.40, tag: "Accepts all risk profiles, no exam",
+  { name: "The General",    base: 1.40, csGrade: "C", stability: 2, tag: "Accepts all risk profiles, no exam",
     sens: { own: -0.01, rent: 0.01, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.05, renewal: 0.02 } },
-  { name: "Direct Auto",    base: 1.45, tag: "Flexible payments, 450+ locations",
+  { name: "Direct Auto",    base: 1.45, csGrade: "C", stability: 2, tag: "Flexible payments, 450+ locations",
     sens: { own: -0.01, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.05, renewal: 0.02 } },
-  { name: "Safe Auto",      base: 1.48, tag: "State minimum specialist",
+  { name: "Safe Auto",      base: 1.48, csGrade: "C", stability: 2, tag: "State minimum specialist",
     sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.15, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } },
-  { name: "Dairyland",      base: 1.42, tag: "SR-22 / FR-44 specialist, 38 states",
+  { name: "Dairyland",      base: 1.42, csGrade: "C", stability: 2, tag: "SR-22 / FR-44 specialist, 38 states",
     sens: { own: -0.01, rent: 0.01, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.04, renewal: 0.02 } },
-  { name: "Kemper",         base: 1.38, tag: "Dedicated non-standard division",
+  { name: "Kemper",         base: 1.38, csGrade: "C", stability: 1, tag: "Dedicated non-standard division",
     sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.05, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.06, renewal: 0.02 } },
-  { name: "Bristol West",   base: 1.35, tag: "Farmers subsidiary, widely available",
+  { name: "Bristol West",   base: 1.35, csGrade: "C", stability: 2, tag: "Farmers subsidiary, widely available",
     sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.06, renewal: 0.02 } }
 ];
 
@@ -3589,72 +3648,72 @@ const STATE_CARRIER_ADJ = {
 // Bases are already state-appropriate — no STATE_CARRIER_ADJ applied.
 // Sources: J.D. Power regional rankings, NAIC market share, NerdWallet/Bankrate state guides.
 const LOCAL_CARRIER_DEFS = {
-  "Erie Insurance":         { base: 0.77, tag: "Rate Lock® feature · J.D. Power #1 North Central & Mid-Atlantic",
+  "Erie Insurance":         { base: 0.77, csGrade: "A+", stability: 5, tag: "Rate Lock® feature · J.D. Power #1 North Central & Mid-Atlantic",
     sens: { own: -0.09, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.02, "35-54": -0.05, "55+": -0.10 }, youngDriver: 0.16, multi: -0.12, single: 0.02, lapsed: 0.18, renewal: -0.08 } },
-  "American Family":        { base: 0.82, tag: "Midwest specialist · bundling & telematics discounts",
+  "American Family":        { base: 0.82, csGrade: "B+", stability: 4, tag: "Midwest specialist · bundling & telematics discounts",
     youngDriverTag: "KnowYourDrive telematics · Teen Safe Driver program",
     sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.04, "55+": -0.10 }, youngDriver: 0.13, multi: -0.09, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Amica Mutual":           { base: 0.83, tag: "J.D. Power New England #1 for 10+ consecutive years",
+  "Amica Mutual":           { base: 0.83, csGrade: "A+", stability: 5, tag: "J.D. Power New England #1 for 10+ consecutive years",
     sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.04, "55+": -0.10 }, youngDriver: 0.19, multi: -0.08, single: 0.02, lapsed: 0.25, renewal: -0.09 } },
-  "Auto-Owners":            { base: 0.79, tag: "Agent-only · top satisfaction scores across Midwest & South",
+  "Auto-Owners":            { base: 0.79, csGrade: "A", stability: 5, tag: "Agent-only · top satisfaction scores across Midwest & South",
     sens: { own: -0.09, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, youngDriver: 0.16, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
-  "PEMCO":                  { base: 0.78, tag: "Pacific Northwest specialist · very high loyalty scores",
+  "PEMCO":                  { base: 0.78, csGrade: "A", stability: 5, tag: "Pacific Northwest specialist · very high loyalty scores",
     sens: { own: -0.09, rent: 0.02, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.20, renewal: -0.08 } },
-  "NJM Insurance":          { base: 0.72, tag: "Highest customer satisfaction in the Mid-Atlantic",
+  "NJM Insurance":          { base: 0.72, csGrade: "A+", stability: 5, tag: "Highest customer satisfaction in the Mid-Atlantic",
     sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.22, renewal: -0.08 } },
-  "Mercury Insurance":      { base: 0.82, tag: "Competitive in Western states and beyond",
+  "Mercury Insurance":      { base: 0.82, csGrade: "B", stability: 3, tag: "Competitive in Western states and beyond",
     sens: { own: -0.06, rent: 0.02, age: { "18-24": 0.12, "25-34": 0.02, "35-54": -0.04, "55+": -0.08 }, multi: -0.07, single: 0.02, lapsed: 0.14, renewal: -0.03 } },
-  "Wawanesa":               { base: 0.78, tag: "J.D. Power #1 in California customer satisfaction",
+  "Wawanesa":               { base: 0.78, csGrade: "A", stability: 4, tag: "J.D. Power #1 in California customer satisfaction",
     sens: { own: -0.07, rent: 0.02, age: { "18-24": 0.14, "25-34": 0.02, "35-54": -0.04, "55+": -0.08 }, multi: -0.07, single: 0.02, lapsed: 0.16, renewal: -0.05 } },
-  "Shelter Insurance":      { base: 0.79, tag: "J.D. Power Central region leader · strong agent network",
+  "Shelter Insurance":      { base: 0.79, csGrade: "A", stability: 4, tag: "J.D. Power Central region leader · strong agent network",
     sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.10, single: 0.02, lapsed: 0.18, renewal: -0.07 } },
-  "Kentucky Farm Bureau":   { base: 0.68, tag: "State-exclusive · minimum coverage often &lt; half the state average",
+  "Kentucky Farm Bureau":   { base: 0.68, csGrade: "A", stability: 5, tag: "State-exclusive · minimum coverage often &lt; half the state average",
     sens: { own: -0.12, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "NC Farm Bureau":         { base: 0.76, tag: "State-exclusive · one of the largest carriers in the state",
+  "NC Farm Bureau":         { base: 0.76, csGrade: "A", stability: 5, tag: "State-exclusive · one of the largest carriers in the state",
     sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Texas Farm Bureau":      { base: 0.70, tag: "State-exclusive · J.D. Power #1 in Texas, 11 years running",
+  "Texas Farm Bureau":      { base: 0.70, csGrade: "A+", stability: 5, tag: "State-exclusive · J.D. Power #1 in Texas, 11 years running",
     sens: { own: -0.12, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Georgia Farm Bureau":    { base: 0.70, tag: "State-exclusive · avg 20% below the state average",
+  "Georgia Farm Bureau":    { base: 0.70, csGrade: "A", stability: 5, tag: "State-exclusive · avg 20% below the state average",
     sens: { own: -0.12, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Louisiana Farm Bureau":  { base: 0.65, tag: "State-exclusive · dramatically below average in the nation's priciest market",
+  "Louisiana Farm Bureau":  { base: 0.65, csGrade: "A", stability: 5, tag: "State-exclusive · dramatically below average in the nation's priciest market",
     sens: { own: -0.12, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Mississippi Farm Bureau":{ base: 0.77, tag: "State-exclusive · strong rural network statewide",
+  "Mississippi Farm Bureau":{ base: 0.77, csGrade: "A", stability: 5, tag: "State-exclusive · strong rural network statewide",
     sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Tennessee Farm Bureau":  { base: 0.71, tag: "State-exclusive · J.D. Power Southeast #1, 11 years running",
+  "Tennessee Farm Bureau":  { base: 0.71, csGrade: "A+", stability: 5, tag: "State-exclusive · J.D. Power Southeast #1, 11 years running",
     sens: { own: -0.12, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Alfa Insurance":         { base: 0.81, tag: "Regional specialist · strong presence across the Southeast",
+  "Alfa Insurance":         { base: 0.81, csGrade: "B+", stability: 4, tag: "Regional specialist · strong presence across the Southeast",
     sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
-  "NYCM Insurance":         { base: 0.78, tag: "State-exclusive · J.D. Power New York satisfaction leader",
+  "NYCM Insurance":         { base: 0.78, csGrade: "A", stability: 4, tag: "State-exclusive · J.D. Power New York satisfaction leader",
     sens: { own: -0.09, rent: 0.03, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.07 } },
-  "Westfield Insurance":    { base: 0.80, tag: "Ohio-based regional specialist · Midwest &amp; Mid-Atlantic",
+  "Westfield Insurance":    { base: 0.80, csGrade: "B+", stability: 4, tag: "Ohio-based regional specialist · Midwest &amp; Mid-Atlantic",
     sens: { own: -0.09, rent: 0.03, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
-  "Country Financial":      { base: 0.83, tag: "Insurance &amp; financial services · Midwest focus",
+  "Country Financial":      { base: 0.83, csGrade: "B+", stability: 4, tag: "Insurance &amp; financial services · Midwest focus",
     sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.20, "25-34": 0.04, "35-54": -0.06, "55+": -0.10 }, multi: -0.10, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
-  "MAPFRE Insurance":       { base: 0.81, tag: "Largest auto insurer in Massachusetts",
+  "MAPFRE Insurance":       { base: 0.81, csGrade: "B", stability: 3, tag: "Largest auto insurer in Massachusetts",
     sens: { own: -0.07, rent: 0.02, age: { "18-24": 0.14, "25-34": 0.02, "35-54": -0.04, "55+": -0.09 }, multi: -0.07, single: 0.02, lapsed: 0.16, renewal: -0.05 } },
-  "Grinnell Mutual":        { base: 0.80, tag: "Farmer-focused · strong Midwest agent network",
+  "Grinnell Mutual":        { base: 0.80, csGrade: "A", stability: 5, tag: "Farmer-focused · strong Midwest agent network",
     sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.19, renewal: -0.07 } },
-  "Indiana Farm Bureau":    { base: 0.77, tag: "State-exclusive · strong rural and suburban presence",
+  "Indiana Farm Bureau":    { base: 0.77, csGrade: "A", stability: 5, tag: "State-exclusive · strong rural and suburban presence",
     sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Virginia Farm Bureau":   { base: 0.80, tag: "State-exclusive · competitive rates statewide",
+  "Virginia Farm Bureau":   { base: 0.80, csGrade: "A", stability: 5, tag: "State-exclusive · competitive rates statewide",
     sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "SC Farm Bureau":         { base: 0.78, tag: "State-exclusive · strong statewide presence",
+  "SC Farm Bureau":         { base: 0.78, csGrade: "A", stability: 5, tag: "State-exclusive · strong statewide presence",
     sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Arkansas Farm Bureau":   { base: 0.80, tag: "State-exclusive · strong rural network statewide",
+  "Arkansas Farm Bureau":   { base: 0.80, csGrade: "A", stability: 5, tag: "State-exclusive · strong rural network statewide",
     sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Oklahoma Farm Bureau":   { base: 0.79, tag: "State-exclusive · strong statewide presence",
+  "Oklahoma Farm Bureau":   { base: 0.79, csGrade: "A", stability: 5, tag: "State-exclusive · strong statewide presence",
     sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Kansas Farm Bureau":     { base: 0.79, tag: "State-exclusive · competitive rates statewide",
+  "Kansas Farm Bureau":     { base: 0.79, csGrade: "A", stability: 5, tag: "State-exclusive · competitive rates statewide",
     sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Michigan Farm Bureau":   { base: 0.84, tag: "State-exclusive · competitive option in Michigan's market",
+  "Michigan Farm Bureau":   { base: 0.84, csGrade: "B+", stability: 4, tag: "State-exclusive · competitive option in Michigan's market",
     sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.20, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
-  "Iowa Farm Bureau":       { base: 0.79, tag: "State-exclusive · FBL Financial, strong statewide presence",
+  "Iowa Farm Bureau":       { base: 0.79, csGrade: "A", stability: 5, tag: "State-exclusive · FBL Financial, strong statewide presence",
     sens: { own: -0.11, rent: 0.04, age: { "18-24": 0.21, "25-34": 0.04, "35-54": -0.06, "55+": -0.11 }, multi: -0.10, single: 0.02, lapsed: 0.20, renewal: -0.07 } },
-  "Nodak Mutual":           { base: 0.78, tag: "North Dakota's largest regional carrier",
+  "Nodak Mutual":           { base: 0.78, csGrade: "A", stability: 5, tag: "North Dakota's largest regional carrier",
     sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.18, renewal: -0.07 } },
-  "CSAA / AAA":             { base: 0.83, tag: "AAA member pricing, competitive across Western states",
+  "CSAA / AAA":             { base: 0.83, csGrade: "B+", stability: 3, tag: "AAA member pricing, competitive across Western states",
     sens: { own: -0.08, rent: 0.02, age: { "18-24": 0.18, "25-34": 0.03, "35-54": -0.04, "55+": -0.09 }, youngDriver: 0.17, multi: -0.08, single: 0.02, lapsed: 0.18, renewal: -0.06 } },
-  "West Bend Mutual":       { base: 0.82, tag: "Wisconsin specialist · strong Midwest network",
+  "West Bend Mutual":       { base: 0.82, csGrade: "A", stability: 4, tag: "Wisconsin specialist · strong Midwest network",
     sens: { own: -0.10, rent: 0.03, age: { "18-24": 0.19, "25-34": 0.03, "35-54": -0.05, "55+": -0.10 }, multi: -0.09, single: 0.02, lapsed: 0.19, renewal: -0.07 } }
 };
 
@@ -4572,6 +4631,30 @@ function markSvg(kind) {
   return "";
 }
 
+function gradeClassName(g) {
+  var map = {'A+':'aplus','A':'a','A-':'aminus','B+':'bplus','B':'b','B-':'bminus','C+':'cplus','C':'c','F':'f'};
+  return 'grade-' + (map[g] || 'b');
+}
+function gradeLabel(g) {
+  var labels = {'A+':'Exceptional customer service','A':'Excellent customer service','A-':'Very good customer service','B+':'Above-average customer service','B':'Average customer service','B-':'Below-average customer service','C+':'Poor customer service','C':'Very poor customer service','F':'Failing customer service'};
+  return labels[g] || 'No grade available';
+}
+function stabilityDots(n) {
+  var h = '';
+  for (var i = 1; i <= 5; i++) h += '<span class="rank-stab-dot ' + (i <= n ? 'filled' : 'empty') + '"></span>';
+  return h;
+}
+function stabilityLabel(n) {
+  var labels = {
+    5: 'Excellent rate stability — rates rarely change at renewal. Mutual and member-owned carriers tend to lock in long-term pricing.',
+    4: 'Good rate stability — generally consistent, with occasional increases that track market trends.',
+    3: 'Moderate rate stability — expect some changes at renewal. Review your rate annually.',
+    2: 'Below-average stability — known for renewal creep or significant recent rate hikes. Shop annually.',
+    1: 'Poor rate stability — high volatility, bait-and-switch pricing patterns, or past market exits.'
+  };
+  return labels[n] || 'Stability data not available.';
+}
+
 function renderRanking() {
   if (!stateData) return;
   saveProfile();
@@ -4622,10 +4705,11 @@ function renderRanking() {
     const c = row.carrier;
     const num = String(idx + 1).padStart(2, "0");
     const delta = formatDelta(row.price - median);
-    const tip = ratioLabel(row.ratio) + " claims record — " + ratioPhrase(row.ratio);
-    const markHtml = row.mark === "none"
-      ? '<div class="rank-mark none" data-tip="' + tip + '" tabindex="0"></div>'
-      : '<div class="rank-mark ' + row.mark + '" data-tip="' + tip + '" tabindex="0">' + markSvg(row.mark) + '</div>';
+    const gradeClass = gradeClassName(c.csGrade);
+    const gradeTip = gradeLabel(c.csGrade) + ' — NAIC complaint ratio: ' + row.ratio.toFixed(2) + ' (industry avg 1.0; lower is better)';
+    const gradeHtml = '<div class="rank-grade ' + gradeClass + '" data-tip="' + gradeTip + '" tabindex="0">' + (c.csGrade || '—') + '</div>';
+    const stabScore = c.stability || 3;
+    const stabilityHtml = '<div class="rank-stability" data-tip="' + stabilityLabel(stabScore) + '" tabindex="0"><span class="rank-stability-label">Stability</span>' + stabilityDots(stabScore) + '</div>';
     const a = document.createElement("div");
     a.className = "rank-row" + (compareSet.has(c.name) ? " compare-selected" : "");
     a.dataset.carrier = c.name;
@@ -4638,8 +4722,8 @@ function renderRanking() {
     const compareHtml = '<div class="rank-cta"><a class="rank-quote-cta ' + delta.klass + '" href="' + quoteUrl + '" target="_blank" rel="noopener noreferrer"><span class="qcta-save">' + delta.text + '</span><span class="qcta-action">Get Quote →</span></a><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
     a.innerHTML =
       '<div class="rank-num">' + num + '</div>' +
-      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div>' + heroHtml + researchHtml + '</div>' +
-      markHtml +
+      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div>' + heroHtml + stabilityHtml + researchHtml + '</div>' +
+      gradeHtml +
       compareHtml;
     a.addEventListener("click", function(e) {
       const cb = e.target.closest(".rank-cb");
