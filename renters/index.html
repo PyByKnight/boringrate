@@ -159,7 +159,7 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .rank-grade.grade-cplus{color:#883000;background:#f5e6d4;}
 .rank-grade.grade-c{color:#781800;background:#f5dbd4;}
 .rank-grade[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:11px;padding:7px 9px;width:240px;white-space:normal;line-height:1.45;z-index:20;pointer-events:none;}
-.rank-stability{display:inline-flex;align-items:center;gap:3px;margin-top:4px;cursor:help;position:relative;}
+.rank-stability{display:inline-flex;align-items:center;gap:3px;cursor:help;position:relative;}
 .rank-stability-label{font-family:var(--mono);font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-mute);margin-right:2px;flex-shrink:0;}
 .rank-stab-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0;}
 .rank-stab-dot.filled{background:var(--ink-soft);}
@@ -183,6 +183,13 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .pb-fill{height:100%;background:var(--accent);transition:width 300ms;}
 .pb-count{font-family:var(--mono);font-size:10px;color:var(--ink-mute);letter-spacing:0.05em;}
 .rank-list{background:var(--paper);border:1px solid var(--rule);overflow:hidden;}
+.rank-col-head{display:none;grid-template-columns:36px 1fr auto auto auto auto;gap:0 12px;align-items:center;padding:8px 18px;border-bottom:1px solid var(--rule);background:var(--paper-deep);}
+.rank-col-head.visible{display:grid;}
+.rank-col-h{font-family:var(--mono);font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mute);text-align:center;white-space:nowrap;position:relative;}
+.rank-col-h.col-name{text-align:left;}
+.rank-col-h .col-info{display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:50%;border:1px solid var(--ink-mute);font-size:8px;font-weight:700;cursor:help;margin-left:3px;vertical-align:middle;opacity:0.6;transition:opacity 120ms;flex-shrink:0;}
+.rank-col-h .col-info:hover{opacity:1;}
+.rank-col-h[data-tip]:hover::after{content:attr(data-tip);position:absolute;top:calc(100% + 5px);left:50%;transform:translateX(-50%);white-space:normal;width:230px;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:11px;padding:8px 10px;z-index:200;line-height:1.5;pointer-events:none;font-weight:400;letter-spacing:0;text-transform:none;}
 .rank-row{display:grid;grid-template-columns:36px 1fr auto auto auto auto;gap:0 12px;align-items:center;padding:16px 18px;border-bottom:1px solid var(--rule);transition:background 120ms;}
 .rank-row:last-child{border-bottom:none;}
 .rank-row:hover{background:var(--paper-deep);cursor:pointer;}
@@ -386,7 +393,16 @@ footer p{font-size:14px;color:rgba(246,241,232,.7);margin-top:12px;max-width:320
       <div class="rank-table-label" id="rankTableLabel">
         <span id="rankTableState"></span>
       </div>
-      <div class="rank-list" id="rankList"></div>
+      <div class="rank-list" id="rankList">
+        <div class="rank-col-head" id="rankColHead">
+          <div class="rank-col-h"></div>
+          <div class="rank-col-h col-name">Carrier</div>
+          <div class="rank-col-h" data-tip="Letter grade based on J.D. Power customer satisfaction scores, NAIC complaint ratios, and third-party claims handling reviews. A+ = exceptional; C = significantly below average.">CS Rating <span class="col-info">i</span></div>
+          <div class="rank-col-h" data-tip="How consistently this carrier prices renewals. 5 dots = rates rarely change after year one. 1–2 dots = intro rates often increase significantly at renewal.">Rate Stability <span class="col-info">i</span></div>
+          <div class="rank-col-h"></div>
+          <div class="rank-col-h"></div>
+        </div>
+      </div>
       <div class="rank-state-link" id="rankStateLink"></div>
       <div class="rank-foot" id="rankFoot"></div>
     </div>
@@ -1273,9 +1289,9 @@ function renderRanking() {
       : '<div class="rank-mark ' + row.mark + '" data-tip="' + tip + '" tabindex="0">' + markSvg(row.mark) + '</div>';
     const gradeClass = gradeClassName(c.csGrade);
     const gradeTip = gradeLabel(c.csGrade);
-    const gradeHtml = '<div class="rank-grade ' + gradeClass + '" data-tip="' + gradeTip + '" tabindex="0"><span class="rank-grade-val">' + (c.csGrade || '—') + '</span><span class="rank-grade-label">CS Rating</span></div>';
+    const gradeHtml = '<div class="rank-grade ' + gradeClass + '" data-tip="' + gradeTip + '" tabindex="0"><span class="rank-grade-val">' + (c.csGrade || '—') + '</span></div>';
     const stabScore = c.stability || 3;
-    const stabHtml = '<div class="rank-stability" data-stab="' + stabScore + '" data-tip="' + stabilityLabel(stabScore) + '" tabindex="0"><span class="rank-stability-label">Rate Stab.</span>' + stabilityDots(stabScore) + '</div>';
+    const stabHtml = '<div class="rank-stability" data-stab="' + stabScore + '" data-tip="' + stabilityLabel(stabScore) + '" tabindex="0">' + stabilityDots(stabScore) + '</div>';
     const a = document.createElement("div");
     a.className = "rank-row";
     a.dataset.carrier = c.name;
@@ -1326,6 +1342,7 @@ function renderRanking() {
 
   // Update labels
   document.getElementById("rankTableLabel").className = "rank-table-label active";
+  document.getElementById("rankColHead").className = "rank-col-head visible";
   document.getElementById("rankTableState").textContent = stateData.name + " · Renters Insurance";
 
   // Sidebar
