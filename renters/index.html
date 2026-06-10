@@ -355,7 +355,7 @@ footer p{font-size:14px;color:rgba(246,241,232,.7);margin-top:12px;max-width:320
       <label>Property coverage</label>
       <div class="pill-row" data-q="coverage">
         <button type="button" class="pill" data-v="low">$15k</button>
-        <button type="button" class="pill active" data-v="standard">$30k</button>
+        <button type="button" class="pill" data-v="standard">$30k</button>
         <button type="button" class="pill" data-v="high">$50k</button>
       </div>
     </div>
@@ -363,21 +363,21 @@ footer p{font-size:14px;color:rgba(246,241,232,.7);margin-top:12px;max-width:320
       <label>Deductible</label>
       <div class="pill-row" data-q="deductible">
         <button type="button" class="pill" data-v="low">$500</button>
-        <button type="button" class="pill active" data-v="standard">$1,000</button>
+        <button type="button" class="pill" data-v="standard">$1,000</button>
         <button type="button" class="pill" data-v="high">$2,500</button>
       </div>
     </div>
     <div class="refine-group">
       <label>Bundle w/ auto?</label>
       <div class="pill-row" data-q="bundle">
-        <button type="button" class="pill active" data-v="no">Solo policy</button>
+        <button type="button" class="pill" data-v="no">Solo policy</button>
         <button type="button" class="pill" data-v="yes">Bundle auto</button>
       </div>
     </div>
     <div class="refine-group">
       <label>Prior claims</label>
       <div class="pill-row" data-q="claims">
-        <button type="button" class="pill active" data-v="none">No claims</button>
+        <button type="button" class="pill" data-v="none">No claims</button>
         <button type="button" class="pill" data-v="one">1 claim</button>
         <button type="button" class="pill" data-v="multi">2+ claims</button>
       </div>
@@ -1179,7 +1179,7 @@ var stateData = null;
 var currentMetro = null;
 var lastOrder = [];
 var showAllCarriers = false;
-var refinement = {coverage:"standard", deductible:"standard", bundle:"no", claims:"none"};
+var refinement = {coverage:null, deductible:null, bundle:null, claims:null};
 const PROFILE_KEY = "br_renters_profile";
 
 // ── NAIC helpers (same as auto tool) ──
@@ -1363,14 +1363,14 @@ function renderRanking() {
 
   // Personalization score
   var pbScore = 0;
-  if (refinement.coverage !== "standard") pbScore++;
-  if (refinement.deductible !== "standard") pbScore++;
-  if (refinement.bundle !== "no") pbScore++;
-  if (refinement.claims !== "none") pbScore++;
-  const pbPct = pbScore * 25;
+  if (refinement.coverage !== null) pbScore++;
+  if (refinement.deductible !== null) pbScore++;
+  if (refinement.bundle !== null) pbScore++;
+  if (refinement.claims !== null) pbScore++;
+  const pbPct = Math.min(100, pbScore * 25);
   const pb = document.getElementById("personalizationBanner");
   pb.className = "personalization-banner visible";
-  const pbLabel = pbScore === 4 ? "Fully Personalized" : pbScore + " / 4 Options Set";
+  const pbLabel = pbScore === 0 ? "Personalize above to refine rates" : pbScore === 4 ? "Fully personalized" : pbScore + " / 4 selected";
   pb.innerHTML = '<div class="pb-track"><div class="pb-fill" style="width:' + pbPct + '%"></div></div>'
     + '<div class="pb-count">' + pbLabel + '</div>';
 
