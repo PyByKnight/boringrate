@@ -1466,7 +1466,7 @@
       <span id="rankTableState">—</span>
     </div>
 
-    <div class="rank-col-head" id="rankColHead">
+    <div class="rank-col-head" id="rankColHead" style="display:none;">
       <div class="rank-col-h"></div>
       <div class="rank-col-h col-name">Carrier</div>
       <div class="rank-col-h" data-tip="Letter grade based on J.D. Power customer satisfaction scores, NAIC complaint ratios, and third-party claims handling reviews. A+ = exceptional; C = significantly below average.">CS Rating <span class="col-info">i</span></div>
@@ -4825,7 +4825,7 @@ function renderRanking() {
   document.getElementById("metroPill").style.display = "none";
   document.getElementById("rankTableLabel").style.display = "flex";
   document.getElementById("rankTableState").textContent = locationLabel + (isNonStandard() ? " · Non-standard" : " · Savings vs. Median");
-  document.getElementById("rankColHead").className = "rank-col-head visible";
+  document.getElementById("rankColHead").style.display = "grid";
 
   let pbScore = 0;
   if (refinement.coverage) pbScore++;
