@@ -112,6 +112,19 @@
   .nav-method { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; }
   .nav-method:hover { color: var(--ink); }
 
+  /* ── Nav dropdowns ──────────────────────────────────────── */
+  .nav-dd-group{position:relative;}
+  .nav-dd-btn{font-family:var(--mono);font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-soft);background:none;border:1px solid var(--rule);padding:6px 12px;cursor:pointer;white-space:nowrap;transition:all 120ms;}
+  .nav-dd-btn:hover,.nav-dd-btn[aria-expanded="true"]{color:var(--ink);border-color:var(--ink);background:var(--paper-deep);}
+  .nav-dd-panel{display:none;position:absolute;top:calc(100% + 6px);left:0;background:var(--paper);border:1px solid var(--ink);min-width:180px;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.08);}
+  .nav-dd-panel.open{display:flex;flex-direction:column;}
+  .nav-dd-panel a{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;padding:9px 14px;border-bottom:1px solid var(--rule);white-space:nowrap;transition:background 100ms,color 100ms;}
+  .nav-dd-panel a:last-child{border-bottom:none;}
+  .nav-dd-panel a:hover{background:var(--paper-deep);color:var(--ink);}
+  .nav-dd-panel a.active{background:var(--ink);color:var(--paper);}
+  .nav-dd-panel-dim{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-mute);padding:9px 14px;opacity:0.4;border-top:1px solid var(--rule);cursor:default;}
+  .nav-dd-soon{font-size:9px;letter-spacing:0.04em;vertical-align:super;margin-left:3px;}
+
   /* ── HERO ────────────────────────────────────────────────── */
   .hero { padding: 56px 0 36px; text-align: center; border-bottom: 1px solid var(--rule); }
   .kicker {
@@ -926,6 +939,7 @@
   }
   @media (max-width: 480px) {
     .nav-tabs { display: none; }
+    .nav-dd-group { display: none; }
     .personalization-banner-cta { display: none; }
     .nav-mega-states { grid-template-columns: repeat(2, 1fr); }
     .refine-always { flex-direction: column; align-items: flex-start; }
@@ -1180,11 +1194,6 @@
 <header class="top">
   <div class="wrap top-inner">
     <a href="index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
-    <div class="type-switch">
-      <a href="/" class="type-switch-btn active">Auto</a>
-      <a href="/renters/index.html" class="type-switch-btn">Renters</a>
-      <span class="type-switch-btn type-switch-dim" title="Home insurance — coming soon">Home</span>
-    </div>
     <div class="header-auth" id="headerAuth">
       <div id="headerAuthOut">
         <button class="header-notify-btn" id="headerNotifyBtn">Notify me &#9662;</button>
@@ -1214,11 +1223,21 @@
       </div>
     </div>
     <nav class="primary">
-      <div class="nav-tabs">
-        <a href="/" class="active">Rate Comparison</a>
-        <a href="/coverage.html">Coverage Calculator</a>
-        <a href="/article/compare/index.html">Carrier Comparison</a>
-        <a href="/renters/index.html">Renters</a>
+      <div class="nav-dd-group">
+        <button class="nav-dd-btn" id="navDdTools" aria-expanded="false">Tools &#9662;</button>
+        <div class="nav-dd-panel" id="navDdToolsPanel">
+          <a href="/" class="active">Rate Comparison</a>
+          <a href="/coverage.html">Coverage Calculator</a>
+          <a href="/article/compare/index.html">Carrier Comparison</a>
+        </div>
+      </div>
+      <div class="nav-dd-group">
+        <button class="nav-dd-btn" id="navDdProduct" aria-expanded="false">Product &#9662;</button>
+        <div class="nav-dd-panel" id="navDdProductPanel">
+          <a href="/" class="active">Auto</a>
+          <a href="/renters/index.html">Renters</a>
+          <span class="nav-dd-panel-dim">Home<span class="nav-dd-soon">soon</span></span>
+        </div>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Browse site" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
@@ -5083,6 +5102,7 @@ document.getElementById("zipInput").addEventListener("input", e => {
 </script>
 
 <script>(function(){document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('click',function(){var item=btn.closest('.faq-item');var open=item.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));});});})();</script>
+<script>(function(){var dds=document.querySelectorAll('.nav-dd-btn');dds.forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();var panel=document.getElementById(btn.id+'Panel');if(!panel)return;var wasOpen=panel.classList.contains('open');document.querySelectorAll('.nav-dd-panel').forEach(function(p){p.classList.remove('open');});document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.setAttribute('aria-expanded','false');});if(!wasOpen){panel.classList.add('open');btn.setAttribute('aria-expanded','true');}});});document.addEventListener('click',function(){document.querySelectorAll('.nav-dd-panel').forEach(function(p){p.classList.remove('open');});document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.setAttribute('aria-expanded','false');});});})();</script>
 <script>(function(){var btn=document.getElementById('navHamburger');var mega=document.getElementById('navMega');if(!btn||!mega)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});mega.addEventListener('click',function(e){var tab=e.target.closest('.nav-res-tab');if(!tab)return;e.stopPropagation();var pid=tab.dataset.panel;var isActive=tab.classList.contains('active');mega.querySelectorAll('.nav-res-tab').forEach(function(t){t.classList.remove('active');});mega.querySelectorAll('.nav-res-panel').forEach(function(p){p.classList.remove('active');});if(!isActive&&pid){tab.classList.add('active');var panel=document.getElementById(pid);if(panel)panel.classList.add('active');}});})();</script>
 <div class="auth-toast" id="authToast"></div>
 </body>
