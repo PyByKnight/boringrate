@@ -438,6 +438,13 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
+  .rank-col-head { display: none; grid-template-columns: 44px 1fr auto auto auto auto; gap: 12px; align-items: center; padding: 8px 22px; border: 1px solid var(--rule); border-bottom: none; background: var(--paper-deep); }
+  .rank-col-head.visible { display: grid; }
+  .rank-col-h { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); text-align: center; white-space: nowrap; position: relative; }
+  .rank-col-h.col-name { text-align: left; }
+  .rank-col-h .col-info { display: inline-flex; align-items: center; justify-content: center; width: 13px; height: 13px; border-radius: 50%; border: 1px solid var(--ink-mute); font-size: 8px; font-weight: 700; cursor: help; margin-left: 3px; vertical-align: middle; opacity: 0.6; transition: opacity 120ms; flex-shrink: 0; }
+  .rank-col-h .col-info:hover { opacity: 1; }
+  .rank-col-h[data-tip]:hover::after { content: attr(data-tip); position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%); white-space: normal; width: 230px; background: var(--ink); color: var(--paper); font-family: var(--sans); font-size: 11px; padding: 8px 10px; z-index: 200; line-height: 1.5; pointer-events: none; font-weight: 400; letter-spacing: 0; text-transform: none; }
   .rank-list { background: var(--paper); border: 1px solid var(--rule); overflow: hidden; }
   .rank-list.with-header { border-top: none; }
   .rank-and-agents { display: flex; gap: 16px; align-items: flex-start; }
@@ -582,7 +589,7 @@
   }
   .rank-stability {
     display: inline-flex; align-items: center; gap: 3px;
-    margin-top: 4px; cursor: help; position: relative;
+    cursor: help; position: relative;
   }
   .rank-stability-label {
     font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em;
@@ -1457,8 +1464,16 @@
       <span id="rankTableState">—</span>
     </div>
 
+    <div class="rank-col-head" id="rankColHead">
+      <div class="rank-col-h"></div>
+      <div class="rank-col-h col-name">Carrier</div>
+      <div class="rank-col-h" data-tip="Letter grade based on J.D. Power customer satisfaction scores, NAIC complaint ratios, and third-party claims handling reviews. A+ = exceptional; C = significantly below average.">CS Rating <span class="col-info">i</span></div>
+      <div class="rank-col-h" data-tip="How consistently this carrier prices renewals. 5 dots = rates rarely change after year one. 1–2 dots = intro rates often increase significantly at renewal.">Rate Stability <span class="col-info">i</span></div>
+      <div class="rank-col-h"></div>
+      <div class="rank-col-h"></div>
+    </div>
     <div class="rank-and-agents">
-      <div class="rank-list" id="rankList"></div>
+      <div class="rank-list with-header" id="rankList"></div>
       <div class="agent-panel" id="agentPanel" style="display:none;"></div>
     </div>
     <div class="rank-foot" id="rankFoot">
@@ -4741,9 +4756,9 @@ function renderRanking() {
     const delta = formatDelta(row.price - median);
     const gradeClass = gradeClassName(c.csGrade);
     const gradeTip = gradeLabel(c.csGrade) + ' — NAIC complaint ratio: ' + row.ratio.toFixed(2) + ' (industry avg 1.0; lower is better)';
-    const gradeHtml = '<div class="rank-grade ' + gradeClass + '" data-tip="' + gradeTip + '" tabindex="0"><span class="rank-grade-val">' + (c.csGrade || '—') + '</span><span class="rank-grade-label">CS Rating</span></div>';
+    const gradeHtml = '<div class="rank-grade ' + gradeClass + '" data-tip="' + gradeTip + '" tabindex="0"><span class="rank-grade-val">' + (c.csGrade || '—') + '</span></div>';
     const stabScore = c.stability || 3;
-    const stabilityHtml = '<div class="rank-stability" data-stab="' + stabScore + '" data-tip="' + stabilityLabel(stabScore) + '" tabindex="0"><span class="rank-stability-label">Rate Stability</span>' + stabilityDots(stabScore) + '</div>';
+    const stabilityHtml = '<div class="rank-stability" data-stab="' + stabScore + '" data-tip="' + stabilityLabel(stabScore) + '" tabindex="0">' + stabilityDots(stabScore) + '</div>';
     const a = document.createElement("div");
     a.className = "rank-row" + (compareSet.has(c.name) ? " compare-selected" : "");
     a.dataset.carrier = c.name;
@@ -4808,6 +4823,7 @@ function renderRanking() {
   document.getElementById("metroPill").style.display = "none";
   document.getElementById("rankTableLabel").style.display = "flex";
   document.getElementById("rankTableState").textContent = locationLabel + (isNonStandard() ? " · Non-standard" : " · Savings vs. Median");
+  document.getElementById("rankColHead").className = "rank-col-head visible";
 
   let pbScore = 0;
   if (refinement.coverage) pbScore++;

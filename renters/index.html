@@ -182,9 +182,9 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .pb-track{height:4px;width:80px;background:var(--rule);flex-shrink:0;}
 .pb-fill{height:100%;background:var(--accent);transition:width 300ms;}
 .pb-count{font-family:var(--mono);font-size:10px;color:var(--ink-mute);letter-spacing:0.05em;}
-.rank-list{background:var(--paper);border:1px solid var(--rule);overflow:hidden;}
-.rank-col-head{display:none;grid-template-columns:36px 1fr auto auto auto auto;gap:0 12px;align-items:center;padding:8px 18px;border-bottom:1px solid var(--rule);background:var(--paper-deep);}
+.rank-col-head{display:none;grid-template-columns:36px 1fr auto auto auto auto;gap:0 12px;align-items:center;padding:8px 18px;border:1px solid var(--rule);border-bottom:none;background:var(--paper-deep);}
 .rank-col-head.visible{display:grid;}
+.rank-list{background:var(--paper);border:1px solid var(--rule);overflow:hidden;}
 .rank-col-h{font-family:var(--mono);font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mute);text-align:center;white-space:nowrap;position:relative;}
 .rank-col-h.col-name{text-align:left;}
 .rank-col-h .col-info{display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:50%;border:1px solid var(--ink-mute);font-size:8px;font-weight:700;cursor:help;margin-left:3px;vertical-align:middle;opacity:0.6;transition:opacity 120ms;flex-shrink:0;}
@@ -393,16 +393,15 @@ footer p{font-size:14px;color:rgba(246,241,232,.7);margin-top:12px;max-width:320
       <div class="rank-table-label" id="rankTableLabel">
         <span id="rankTableState"></span>
       </div>
-      <div class="rank-list" id="rankList">
-        <div class="rank-col-head" id="rankColHead">
-          <div class="rank-col-h"></div>
-          <div class="rank-col-h col-name">Carrier</div>
-          <div class="rank-col-h" data-tip="Letter grade based on J.D. Power customer satisfaction scores, NAIC complaint ratios, and third-party claims handling reviews. A+ = exceptional; C = significantly below average.">CS Rating <span class="col-info">i</span></div>
-          <div class="rank-col-h" data-tip="How consistently this carrier prices renewals. 5 dots = rates rarely change after year one. 1–2 dots = intro rates often increase significantly at renewal.">Rate Stability <span class="col-info">i</span></div>
-          <div class="rank-col-h"></div>
-          <div class="rank-col-h"></div>
-        </div>
+      <div class="rank-col-head" id="rankColHead">
+        <div class="rank-col-h"></div>
+        <div class="rank-col-h col-name">Carrier</div>
+        <div class="rank-col-h" data-tip="Letter grade based on J.D. Power customer satisfaction scores, NAIC complaint ratios, and third-party claims handling reviews. A+ = exceptional; C = significantly below average.">CS Rating <span class="col-info">i</span></div>
+        <div class="rank-col-h" data-tip="How consistently this carrier prices renewals. 5 dots = rates rarely change after year one. 1–2 dots = intro rates often increase significantly at renewal.">Rate Stability <span class="col-info">i</span></div>
+        <div class="rank-col-h"></div>
+        <div class="rank-col-h"></div>
       </div>
+      <div class="rank-list" id="rankList"></div>
       <div class="rank-state-link" id="rankStateLink"></div>
       <div class="rank-foot" id="rankFoot"></div>
     </div>
