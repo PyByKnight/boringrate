@@ -444,11 +444,11 @@
   .rank-col-h.col-name { text-align: left; }
   .rank-col-h .col-info { display: inline-flex; align-items: center; justify-content: center; width: 13px; height: 13px; border-radius: 50%; border: 1px solid var(--ink-mute); font-size: 8px; font-weight: 700; cursor: help; margin-left: 3px; vertical-align: middle; opacity: 0.6; transition: opacity 120ms; flex-shrink: 0; }
   .rank-col-h .col-info:hover { opacity: 1; }
-  .rank-col-h[data-tip]:hover::after { content: attr(data-tip); position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%); white-space: normal; width: 230px; background: var(--ink); color: var(--paper); font-family: var(--sans); font-size: 11px; padding: 8px 10px; z-index: 200; line-height: 1.5; pointer-events: none; font-weight: 400; letter-spacing: 0; text-transform: none; }
+  .rank-col-h[data-tip]:hover::after { content: attr(data-tip); position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%); white-space: normal; width: 230px; background: var(--ink); color: var(--paper); font-family: var(--sans); font-size: 11px; padding: 8px 10px; z-index: 1000; line-height: 1.5; pointer-events: none; font-weight: 400; letter-spacing: 0; text-transform: none; }
   .rank-list { background: var(--paper); border: 1px solid var(--rule); overflow: visible; }
   .rank-list.with-header { border-top: none; }
-  .rank-and-agents { display: flex; gap: 16px; align-items: flex-start; }
-  .rank-and-agents .rank-list { flex: 1 1 0; min-width: 0; }
+  .rank-and-agents { display: flex; gap: 16px; align-items: flex-start; overflow: visible; }
+  .rank-and-agents .rank-list { flex: 1 1 0; min-width: 0; overflow: visible; }
   .agent-panel {
     flex: 0 0 252px;
     border: 1px solid var(--rule);
@@ -514,6 +514,7 @@
     align-items: center;
     gap: 12px;
     padding: 18px 22px;
+    position: relative;
     border-bottom: 1px solid var(--rule);
     transition: background 200ms;
     text-decoration: none;
@@ -558,7 +559,7 @@
     padding: 8px 10px;
     width: 220px;
     white-space: normal;
-    z-index: 10;
+    z-index: 1000;
     pointer-events: none;
     letter-spacing: 0;
   }
@@ -585,7 +586,7 @@
     background: var(--ink); color: var(--paper);
     font-family: var(--sans); font-size: 11px; font-weight: 400;
     padding: 7px 9px; width: 240px; white-space: normal;
-    line-height: 1.45; z-index: 20; pointer-events: none; letter-spacing: 0;
+    line-height: 1.45; z-index: 1000; pointer-events: none; letter-spacing: 0;
   }
   .rank-stability {
     display: inline-flex; align-items: center; gap: 3px;
@@ -612,7 +613,7 @@
     background: var(--ink); color: var(--paper);
     font-family: var(--sans); font-size: 11px; font-weight: 400;
     padding: 7px 9px; width: 260px; white-space: normal;
-    line-height: 1.45; z-index: 20; pointer-events: none; letter-spacing: 0;
+    line-height: 1.45; z-index: 1000; pointer-events: none; letter-spacing: 0;
   }
 
   .rank-vs { font-family: var(--mono); font-size: 18px; font-weight: 500; transition: color 300ms; text-align: right; }
