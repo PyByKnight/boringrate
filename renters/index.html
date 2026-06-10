@@ -137,14 +137,37 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .profile-restored{font-family:var(--mono);font-size:11px;color:var(--ink-mute);margin-top:10px;letter-spacing:0.05em;display:none;}
 
 /* ── Refine bar ── */
-.refine-bar{padding:18px 0;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:61px;z-index:35;backdrop-filter:blur(6px);}
-.refine-inner{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;}
+.refine-bar{padding:14px 0 0;background:var(--paper);}
+.refine-inner{background:var(--paper-deep);border:1px solid var(--rule);padding:14px 18px;margin-bottom:16px;display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;}
 .refine-group{display:flex;flex-direction:column;gap:6px;}
-.refine-label,.refine-group label{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);display:block;}
-.pill-row{display:flex;gap:4px;flex-wrap:wrap;}
-.pill{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;padding:5px 10px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft);cursor:pointer;transition:all 100ms;user-select:none;white-space:nowrap;appearance:none;line-height:1.2;}
-.pill:hover{border-color:var(--ink-soft);color:var(--ink);}
+.refine-label,.refine-group label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);display:block;margin-bottom:0;}
+.pill-row{display:flex;gap:5px;flex-wrap:wrap;}
+.pill{font-family:var(--sans);font-size:12px;font-weight:500;padding:5px 10px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft);cursor:pointer;transition:all 120ms;user-select:none;white-space:nowrap;appearance:none;line-height:normal;border-radius:0;}
+.pill:hover{border-color:var(--ink);color:var(--ink);}
 .pill.active{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+
+/* ── CS grade + rate stability ── */
+.rank-grade{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:36px;height:36px;flex-shrink:0;cursor:help;position:relative;}
+.rank-grade-val{font-size:13px;font-weight:700;line-height:1;}
+.rank-grade-label{font-size:7.5px;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;opacity:0.65;line-height:1;}
+.rank-grade.grade-aplus{color:#176617;background:#e5f5e5;}
+.rank-grade.grade-a{color:#1a7a1a;background:#ebf7eb;}
+.rank-grade.grade-aminus{color:#2d8a2d;background:#eef8ee;}
+.rank-grade.grade-bplus{color:#5a6b00;background:#f2f6d4;}
+.rank-grade.grade-b{color:#6e6e00;background:#f5f5d4;}
+.rank-grade.grade-bminus{color:#7a4800;background:#f5ecd4;}
+.rank-grade.grade-cplus{color:#883000;background:#f5e6d4;}
+.rank-grade.grade-c{color:#781800;background:#f5dbd4;}
+.rank-grade[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:11px;padding:7px 9px;width:240px;white-space:normal;line-height:1.45;z-index:20;pointer-events:none;}
+.rank-stability{display:inline-flex;align-items:center;gap:3px;margin-top:4px;cursor:help;position:relative;}
+.rank-stability-label{font-family:var(--mono);font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-mute);margin-right:2px;flex-shrink:0;}
+.rank-stab-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0;}
+.rank-stab-dot.filled{background:var(--ink-soft);}
+.rank-stab-dot.empty{background:transparent;border:1.5px solid rgba(0,0,0,0.2);}
+.rank-stability[data-stab="1"] .rank-stab-dot.filled,.rank-stability[data-stab="2"] .rank-stab-dot.filled{background:var(--bad);}
+.rank-stability[data-stab="3"] .rank-stab-dot.filled{background:var(--warn);}
+.rank-stability[data-stab="4"] .rank-stab-dot.filled,.rank-stability[data-stab="5"] .rank-stab-dot.filled{background:var(--good);}
+.rank-stability[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 4px);left:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:11px;padding:7px 9px;width:260px;white-space:normal;line-height:1.45;z-index:20;pointer-events:none;}
 @media(max-width:700px){.refine-inner{gap:14px;}}
 
 /* ── Result section ── */
@@ -160,7 +183,7 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .pb-fill{height:100%;background:var(--accent);transition:width 300ms;}
 .pb-count{font-family:var(--mono);font-size:10px;color:var(--ink-mute);letter-spacing:0.05em;}
 .rank-list{background:var(--paper);border:1px solid var(--rule);overflow:hidden;}
-.rank-row{display:grid;grid-template-columns:36px 1fr auto auto;gap:0 12px;align-items:center;padding:16px 18px;border-bottom:1px solid var(--rule);transition:background 120ms;}
+.rank-row{display:grid;grid-template-columns:36px 1fr auto auto auto auto;gap:0 12px;align-items:center;padding:16px 18px;border-bottom:1px solid var(--rule);transition:background 120ms;}
 .rank-row:last-child{border-bottom:none;}
 .rank-row:hover{background:var(--paper-deep);cursor:pointer;}
 .rank-row.flash{background:#fff3d6;}
@@ -1026,7 +1049,7 @@ const RENTERS_CARRIERS = [
     name:"Lemonade",     base:0.52,
     tag:"App-based · instant claims via AI",
     bestFor:"Cheapest rate, tech-forward renters",
-    naic:1.40, slug:"lemonade",
+    naic:1.40, slug:"lemonade", csGrade:"B-", stability:2,
     availNote:"Not available in all states — check availability",
     restricted:true,
     states:["AL","AR","AZ","CA","CO","CT","DC","FL","GA","IL","IN","IA","KS","MA","MD","MI","MN","MO","MT","NJ","NM","NV","NY","NC","OH","OR","PA","RI","SC","SD","TN","TX","UT","VA","WA","WI"],
@@ -1037,7 +1060,7 @@ const RENTERS_CARRIERS = [
     name:"USAA",         base:0.60,
     tag:"Military members &amp; immediate family only",
     bestFor:"Military &amp; veterans — best overall value",
-    naic:0.44, slug:"usaa",
+    naic:0.44, slug:"usaa", csGrade:"A+", stability:5,
     restricted:true, availNote:"Military &amp; family only",
     links:"https://www.usaa.com",
     sens:{bundle:-0.10, claims1:0.22, claims2:0.42, covLow:-0.20, covHigh:0.26, dedLow:0.16, dedHigh:-0.20}
@@ -1046,7 +1069,7 @@ const RENTERS_CARRIERS = [
     name:"Erie",         base:0.76,
     tag:"Mid-Atlantic &amp; Midwest · agent-based",
     bestFor:"Excellent claims service in coverage states",
-    naic:0.71, slug:"erie",
+    naic:0.71, slug:"erie", csGrade:"A", stability:4,
     restricted:true, availNote:"12 states + D.C. only",
     states:["DC","IL","IN","KY","MD","NC","NY","OH","PA","TN","VA","WI","WV"],
     links:"https://www.erieinsurance.com",
@@ -1056,7 +1079,7 @@ const RENTERS_CARRIERS = [
     name:"GEICO",        base:0.80,
     tag:"No agents — buy and manage online",
     bestFor:"Online shoppers who want low hassle",
-    naic:0.79, slug:"geico",
+    naic:0.79, slug:"geico", csGrade:"B+", stability:2,
     links:"https://www.geico.com",
     sens:{bundle:-0.08, claims1:0.28, claims2:0.52, covLow:-0.21, covHigh:0.28, dedLow:0.18, dedHigh:-0.21}
   },
@@ -1064,7 +1087,7 @@ const RENTERS_CARRIERS = [
     name:"Travelers",    base:0.85,
     tag:"Strong bundling · broad coverage options",
     bestFor:"Auto + renters bundle — biggest combined discount",
-    naic:0.72, slug:"travelers",
+    naic:0.72, slug:"travelers", csGrade:"B+", stability:4,
     links:"https://www.travelers.com",
     sens:{bundle:-0.18, claims1:0.26, claims2:0.50, covLow:-0.20, covHigh:0.26, dedLow:0.15, dedHigh:-0.20}
   },
@@ -1072,7 +1095,7 @@ const RENTERS_CARRIERS = [
     name:"Progressive",  base:0.90,
     tag:"Same-day coverage · broad availability",
     bestFor:"Bundling auto &amp; renters online instantly",
-    naic:0.98, slug:"progressive",
+    naic:0.98, slug:"progressive", csGrade:"B", stability:3,
     links:"https://www.progressive.com",
     sens:{bundle:-0.12, claims1:0.30, claims2:0.56, covLow:-0.21, covHigh:0.27, dedLow:0.16, dedHigh:-0.20}
   },
@@ -1080,7 +1103,7 @@ const RENTERS_CARRIERS = [
     name:"American Family", base:0.92,
     tag:"Midwest specialist · generous bundling",
     bestFor:"Midwest renters who bundle auto",
-    naic:0.82, slug:"american-family",
+    naic:0.82, slug:"american-family", csGrade:"B+", stability:4,
     restricted:true, availNote:"19 Midwest &amp; Western states",
     states:["AZ","CO","GA","ID","IL","IN","IA","KS","MN","MO","ND","NE","NV","OH","OR","SD","UT","WA","WI","WY"],
     links:"https://www.amfam.com",
@@ -1090,7 +1113,7 @@ const RENTERS_CARRIERS = [
     name:"Nationwide",   base:0.95,
     tag:"Strong bundling &amp; SmartRide discount",
     bestFor:"Renters who bundle auto &amp; want vanishing deductible",
-    naic:0.63, slug:"nationwide",
+    naic:0.63, slug:"nationwide", csGrade:"B+", stability:4,
     links:"https://www.nationwide.com",
     sens:{bundle:-0.15, claims1:0.26, claims2:0.48, covLow:-0.20, covHigh:0.26, dedLow:0.16, dedHigh:-0.20}
   },
@@ -1098,7 +1121,7 @@ const RENTERS_CARRIERS = [
     name:"State Farm",   base:1.00,
     tag:"Largest agent network in the U.S.",
     bestFor:"Local agent service &amp; reliable claims",
-    naic:1.04, slug:"state-farm",
+    naic:1.04, slug:"state-farm", csGrade:"B+", stability:3,
     links:"https://www.statefarm.com",
     sens:{bundle:-0.20, claims1:0.28, claims2:0.52, covLow:-0.21, covHigh:0.26, dedLow:0.16, dedHigh:-0.20}
   },
@@ -1106,7 +1129,7 @@ const RENTERS_CARRIERS = [
     name:"Amica",        base:1.08,
     tag:"Member-owned · best-in-class claims service",
     bestFor:"Claims experience — lowest complaint ratio in the industry",
-    naic:0.33, slug:"amica",
+    naic:0.33, slug:"amica", csGrade:"A+", stability:5,
     links:"https://www.amica.com",
     sens:{bundle:-0.12, claims1:0.20, claims2:0.38, covLow:-0.20, covHigh:0.26, dedLow:0.15, dedHigh:-0.19}
   },
@@ -1114,7 +1137,7 @@ const RENTERS_CARRIERS = [
     name:"Liberty Mutual", base:1.05,
     tag:"Broad availability · many discount options",
     bestFor:"Renters with multiple policies to bundle",
-    naic:1.01, slug:"liberty-mutual",
+    naic:1.01, slug:"liberty-mutual", csGrade:"C+", stability:2,
     links:"https://www.libertymutual.com",
     sens:{bundle:-0.14, claims1:0.30, claims2:0.58, covLow:-0.21, covHigh:0.27, dedLow:0.16, dedHigh:-0.20}
   },
@@ -1122,7 +1145,7 @@ const RENTERS_CARRIERS = [
     name:"Allstate",     base:1.08,
     tag:"DepositFree™ · waive security deposit option",
     bestFor:"Renters wanting lease deposit alternatives",
-    naic:1.21, slug:"allstate",
+    naic:1.21, slug:"allstate", csGrade:"C+", stability:3,
     links:"https://www.allstate.com",
     sens:{bundle:-0.16, claims1:0.32, claims2:0.60, covLow:-0.21, covHigh:0.27, dedLow:0.16, dedHigh:-0.20}
   },
@@ -1130,7 +1153,7 @@ const RENTERS_CARRIERS = [
     name:"Farmers",      base:1.22,
     tag:"Full-service agents · broad coverage add-ons",
     bestFor:"Renters who want an agent for everything",
-    naic:0.85, slug:"farmers",
+    naic:0.85, slug:"farmers", csGrade:"B", stability:3,
     links:"https://www.farmers.com",
     sens:{bundle:-0.16, claims1:0.30, claims2:0.56, covLow:-0.21, covHigh:0.27, dedLow:0.15, dedHigh:-0.19}
   }
@@ -1192,6 +1215,30 @@ function formatDelta(amount) {
   return { text:"+$" + abs.toLocaleString(), klass:"over", sub:"vs. median" };
 }
 
+function gradeClassName(g) {
+  var map = {'A+':'aplus','A':'a','A-':'aminus','B+':'bplus','B':'b','B-':'bminus','C+':'cplus','C':'c','F':'f'};
+  return 'grade-' + (map[g] || 'b');
+}
+function gradeLabel(g) {
+  var labels = {'A+':'Exceptional customer service','A':'Excellent customer service','A-':'Very good customer service','B+':'Above-average customer service','B':'Average customer service','B-':'Below-average customer service','C+':'Poor customer service','C':'Very poor customer service','F':'Failing customer service'};
+  return labels[g] || 'No grade available';
+}
+function stabilityDots(n) {
+  var h = '';
+  for (var i = 1; i <= 5; i++) h += '<span class="rank-stab-dot ' + (i <= n ? 'filled' : 'empty') + '"></span>';
+  return h;
+}
+function stabilityLabel(n) {
+  var labels = {
+    5: "Rate Stability: Excellent (5/5) — Today's rate is likely your long-term rate.",
+    4: "Rate Stability: Good (4/5) — Generally consistent pricing.",
+    3: "Rate Stability: Moderate (3/5) — Expect some rate changes at renewal.",
+    2: "Rate Stability: Below Average (2/5) — Renewal creep risk. Competitive intro rates that increase over time.",
+    1: "Rate Stability: Poor (1/5) — Significant hikes at renewal likely."
+  };
+  return labels[n] || 'Stability data not available.';
+}
+
 function renderRanking() {
   if (!stateData) return;
   saveProfile();
@@ -1224,6 +1271,11 @@ function renderRanking() {
     const markHtml = row.mark === "none"
       ? '<div class="rank-mark none" data-tip="' + tip + '" tabindex="0"></div>'
       : '<div class="rank-mark ' + row.mark + '" data-tip="' + tip + '" tabindex="0">' + markSvg(row.mark) + '</div>';
+    const gradeClass = gradeClassName(c.csGrade);
+    const gradeTip = gradeLabel(c.csGrade);
+    const gradeHtml = '<div class="rank-grade ' + gradeClass + '" data-tip="' + gradeTip + '" tabindex="0"><span class="rank-grade-val">' + (c.csGrade || '—') + '</span><span class="rank-grade-label">CS Rating</span></div>';
+    const stabScore = c.stability || 3;
+    const stabHtml = '<div class="rank-stability" data-stab="' + stabScore + '" data-tip="' + stabilityLabel(stabScore) + '" tabindex="0"><span class="rank-stability-label">Rate Stab.</span>' + stabilityDots(stabScore) + '</div>';
     const a = document.createElement("div");
     a.className = "rank-row";
     a.dataset.carrier = c.name;
@@ -1238,7 +1290,7 @@ function renderRanking() {
         '<div class="rank-tag">' + c.tag + '</div>' +
         availHtml + researchHtml +
       '</div>' +
-      markHtml + ctaHtml;
+      gradeHtml + stabHtml + markHtml + ctaHtml;
     a.addEventListener("click", function(e) {
       const review = e.target.closest(".rank-review-link");
       if (review && review.dataset.url) window.location.href = review.dataset.url;
