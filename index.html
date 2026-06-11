@@ -1199,6 +1199,7 @@
 
 /* ── Row holding ZIP confirmation + personalization progress bar ── */
 .refine-zip-row {
+  scroll-margin-top: 84px; /* clear the sticky header when we scroll here on ZIP submit */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -5219,8 +5220,9 @@ document.getElementById("zipForm").addEventListener("submit", e => {
   stateData = lookupZip(zip);
   lastOrder = []; showAllCarriers = false;
   renderRanking();
+  document.getElementById("result").classList.remove("demo");
   document.getElementById("result").classList.add("active");
-  document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
+  (document.getElementById("refineZipRow") || document.getElementById("result")).scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 document.querySelectorAll("#refineBar .pill-row[data-toggle]").forEach(group => {
@@ -5379,7 +5381,7 @@ document.getElementById("zipInput").addEventListener("input", e => {
     document.getElementById("result").classList.remove("demo");
     document.getElementById("result").classList.add("active");
     setTimeout(() => {
-      document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
+      (document.getElementById("refineZipRow") || document.getElementById("result")).scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
   }
 })();
