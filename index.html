@@ -1227,14 +1227,22 @@
 .refine.open .refine-trigger-closed { display: none; }
 .refine.open .refine-trigger-open { display: inline; }
 
-/* ── Open-state trigger: stays visible as a header for the expanded panel ── */
-.refine.open .refine-trigger {
-  background: var(--paper);
-  margin: 0 0 14px;
-}
+/* ── Open-state trigger: stays visible as a header for the expanded panel.
+   Less-aggressive hover so the open header doesn't flash to filled black
+   on every cursor pass. Keeps the panel feeling stable while expanded. */
+.refine.open .refine-trigger { background: var(--paper); margin: 0 0 14px; }
+.refine.open .refine-trigger:hover { background: var(--paper-deep); color: var(--ink); }
+.refine.open .refine-trigger:hover .refine-trigger-action { color: var(--ink); text-decoration-color: var(--accent); }
+.refine.open .refine-trigger:hover .refine-trigger-arrow { color: var(--accent); }
 .refine.open .refine-trigger-arrow { transform: rotate(180deg); }
 
-.refine:not(.open) .refine-always { display: none; }
+/* Collapsed state hides the chip rows; open state forces them visible
+   so we never inherit a stale display:none from somewhere else. */
+.refine:not(.open) .refine-always { display: none !important; }
+.refine.open .refine-always { display: flex !important; }
+@media (max-width: 480px) {
+  .refine.open .refine-always { flex-direction: column; align-items: flex-start; }
+}
 
 /* ── Hide visual clutter that pads space above the rank table ── */
 .boring-rank-header,
