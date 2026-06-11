@@ -951,6 +951,11 @@
   @media (max-width: 480px) {
     .nav-tabs { display: none; }
     .nav-dd-group { display: none; }
+    .nav-dd-group:has(#navDdProductPanel) { display: flex; order: 10; width: 100%; border-top: 1px solid var(--rule); margin-top: 8px; }
+    .nav-dd-group:has(#navDdProductPanel) > .nav-dd-btn { display: none; }
+    .nav-dd-group:has(#navDdProductPanel) > .nav-dd-panel { display: flex !important; position: static; border: 1px solid var(--rule); box-shadow: none; background: transparent; width: 100%; min-width: 0; }
+    .nav-dd-group:has(#navDdProductPanel) > .nav-dd-panel a { flex: 1; text-align: center; border-right: 1px solid var(--rule); border-bottom: none; padding: 7px 4px; font-size: 10px; }
+    .nav-dd-group:has(#navDdProductPanel) > .nav-dd-panel a:last-child { border-right: none; }
     .personalization-banner-cta { display: none; }
     .nav-mega-states { grid-template-columns: repeat(2, 1fr); }
     .refine-always { flex-direction: column; align-items: flex-start; }
