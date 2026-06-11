@@ -1143,6 +1143,22 @@
 .result.demo .refine-zip-row,
 .result.demo .refine-zip-confirm { display: none; }
 
+/* ── Cross-sell card (renters after auto results) — editorial accent card,
+   paper-deep bg with a left accent stripe; mirrors the article carrier-link
+   callout. Hidden in demo mode (no real ZIP/state to bundle against). ── */
+.cross-sell {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
+  margin: 18px 0 0; padding: 16px 20px;
+  background: var(--paper-deep); border: 1px solid var(--rule); border-left: 3px solid var(--accent);
+  font-family: var(--sans); text-decoration: none; color: var(--ink);
+}
+.cross-sell:hover { border-left-color: var(--ink); }
+.cross-sell-body { flex: 1 1 240px; font-size: 15px; line-height: 1.45; color: var(--ink-soft); }
+.cross-sell-body strong { color: var(--ink); }
+.cross-sell-cta { font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+.cross-sell:hover .cross-sell-cta { text-decoration: underline; text-underline-offset: 3px; }
+.result.demo #crossSellRenters { display: none; }
+
 /* ── Refine bar: prominent Coverage Calculator CTA above the Min/Std/Premium chips ── */
 .refine-q-coverage { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
 .refine-coverage-cta {
@@ -1674,6 +1690,16 @@
 
     <!-- State article teaser — shown when a state report exists -->
     <div id="stateArticleTeaser" style="display:none;"></div>
+
+    <!-- Cross-sell: surface renters once the user has shown auto buy-intent.
+         Hidden in demo mode; link + state name populated in renderRanking(). -->
+    <a class="cross-sell" id="crossSellRenters" href="/renters/">
+      <span class="cross-sell-body">
+        <strong>Also need renters insurance?</strong>
+        Most carriers offer a 5–15% bundle discount.
+      </span>
+      <span class="cross-sell-cta">Compare renters rates in <span id="crossSellState">your state</span> &rarr;</span>
+    </a>
 
     <div class="email-capture">
       <div class="email-capture-text">
@@ -5073,6 +5099,16 @@ function renderRanking() {
     ? "Showing non-standard carriers — specialized for lapsed coverage, SR-22, or high-risk profiles. Estimates are directional. Not a quote. <a href='methodology.html'>How we rank →</a>"
     : "Estimates reflect typical price positioning from public rate filings; quality marks reflect NAIC complaint indices. Not a quote. <a href='methodology.html'>How we rank →</a>";
   document.getElementById("rankFoot").innerHTML = footNote;
+
+  // Cross-sell renters: state name + ZIP-carried link to the renters tool.
+  const _csState = document.getElementById("crossSellState");
+  const _csLink = document.getElementById("crossSellRenters");
+  if (_csState && _csLink) {
+    _csState.textContent = stateData.name;
+    const _csZip = document.getElementById("zipInput").value.trim();
+    _csLink.href = /^\d{5}$/.test(_csZip) ? "/renters/?zip=" + _csZip : "/renters/";
+  }
+
   renderAgentPanel();
 }
 
