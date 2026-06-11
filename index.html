@@ -638,6 +638,11 @@
   .rank-quote-cta.over  { color: var(--bad);  border-color: rgba(180,50,26,0.30); }
   .qcta-save   { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; }
   .qcta-action { font-size: 9px; text-transform: uppercase; letter-spacing: 0.07em; opacity: 0.8; white-space: nowrap; }
+  /* Drop "Quote on " prefix on narrow viewports so the destination domain
+     fits — keeps the trust signal (carrier domain) but reclaims width. */
+  @media (max-width: 480px) {
+    .qcta-action-prefix { display: none; }
+  }
 
   .rank-cov-nudge {
     background: var(--ink); color: var(--paper);
@@ -4864,6 +4869,19 @@ function formatDelta(amount) {
   return { text: "+$" + abs.toLocaleString(), klass: "over", sub: "vs. median" };
 }
 
+function quoteDomain(url) {
+  // Strip protocol + 'www.' + path so the Get Quote button can label the
+  // destination ("geico.com" instead of opaque "Get Quote"). Reinforces
+  // the boringrate promise: we're sending you to the carrier directly,
+  // not to a lead-gen funnel.
+  if (!url || url === "#") return "";
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch (e) {
+    return "";
+  }
+}
+
 function markSvg(kind) {
   if (kind === "star") return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.95 6.6 7.05.7-5.3 4.85 1.55 6.85L12 17.9l-6.25 3.6 1.55-6.85L2 9.8l7.05-.7L12 2.5z"/></svg>';
   if (kind === "flag") return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3v18h2v-7h11l-2-3.5 2-3.5H7V3H5z"/></svg>';
@@ -4968,7 +4986,11 @@ function renderRanking() {
     const researchHtml = researchUrl ? '<span class="rank-review-link" data-url="' + researchUrl + '">BoringRate Research</span>' : '';
     const inCompare = compareSet.has(c.name);
     const quoteUrl = CARRIER_LINKS[c.name] || "#";
-    const compareHtml = '<div class="rank-cta"><a class="rank-quote-cta ' + delta.klass + '" href="' + quoteUrl + '" target="_blank" rel="noopener noreferrer"><span class="qcta-save">' + delta.text + '</span><span class="qcta-action">Get Quote →</span></a><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
+    const _domain = quoteDomain(quoteUrl);
+    const _actionHtml = _domain
+      ? '<span class="qcta-action"><span class="qcta-action-prefix">Quote on </span>' + _domain + ' &rarr;</span>'
+      : '<span class="qcta-action">Get Quote &rarr;</span>';
+    const compareHtml = '<div class="rank-cta"><a class="rank-quote-cta ' + delta.klass + '" href="' + quoteUrl + '" target="_blank" rel="noopener noreferrer"><span class="qcta-save">' + delta.text + '</span>' + _actionHtml + '</a><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
     a.innerHTML =
       '<div class="rank-num">' + num + '</div>' +
       '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div>' + heroHtml + researchHtml + '</div>' +
@@ -5141,7 +5163,7 @@ function updateCompareTray() {
       '<div class="compare-delta ' + delta.klass + '">' + delta.text + ' vs. median</div>' +
       prosHtml + consHtml +
       '<div class="compare-naic">NAIC Ratio: ' + (row.ratio ? row.ratio.toFixed(2) : '—') + '</div>' +
-      '<a href="' + quoteUrl + '" target="_blank" rel="noopener noreferrer" class="compare-col-quote">Get Quote →</a>' +
+      '<a href="' + quoteUrl + '" target="_blank" rel="noopener noreferrer" class="compare-col-quote">' + (quoteDomain(quoteUrl) ? 'Quote on ' + quoteDomain(quoteUrl) + ' &rarr;' : 'Get Quote &rarr;') + '</a>' +
       '</div>';
   }).join('');
   document.getElementById("compareTrayTitle").textContent = names.join(" vs. ");
