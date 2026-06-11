@@ -1194,16 +1194,27 @@
    accidentally hidden by an inherited rule. */
 .refine-zip-row .personalization-banner {
   display: flex !important;
-  background: transparent;
-  border: none;
-  margin: 0;
-  padding: 0;
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
   gap: 10px;
   align-items: center;
+  min-width: 200px;
+  flex: 0 0 auto;
 }
-.refine-zip-row .pb-track { max-width: 150px; height: 5px; flex: 1 1 100px; }
-.refine-zip-row .pb-fill { height: 100%; }
-.refine-zip-row .pb-count { font-size: 11px; }
+.refine-zip-row .pb-track {
+  width: 150px !important;
+  max-width: 150px;
+  min-width: 100px;
+  height: 8px !important;
+  flex: 0 0 150px;
+  background: var(--ink-mute) !important;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.refine-zip-row .pb-fill { height: 100% !important; border-radius: 4px; }
+.refine-zip-row .pb-count { font-size: 12px; color: var(--ink); font-weight: 600; }
 
 /* Persistent ZIP confirmation chip */
 .refine-zip-confirm {
