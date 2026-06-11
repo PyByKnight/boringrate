@@ -1181,7 +1181,6 @@ var lastOrder = [];
 var showAllCarriers = false;
 var refinement = {coverage:null, deductible:null, bundle:null, claims:null};
 const PROFILE_KEY = "br_renters_profile";
-const PROFILE_VERSION = 2;
 
 // ── NAIC helpers (same as auto tool) ──
 function qualityMark(r) { return r < 1.0 ? "star" : r > 2.0 ? "flag" : "none"; }
@@ -1395,13 +1394,13 @@ function lookupZip(zip) {
 function saveProfile() {
   const zip = document.getElementById("zipInput").value.trim();
   if (!/^\d{5}$/.test(zip)) return;
-  try { localStorage.setItem(PROFILE_KEY, JSON.stringify({v:PROFILE_VERSION, zip, refinement:{...refinement}})); } catch(e) {}
+  try { localStorage.setItem(PROFILE_KEY, JSON.stringify({zip, refinement:{...refinement}})); } catch(e) {}
 }
 
 function loadProfile() {
   try {
     const saved = JSON.parse(localStorage.getItem(PROFILE_KEY));
-    if (!saved || saved.v !== PROFILE_VERSION) { localStorage.removeItem(PROFILE_KEY); return; }
+    if (!saved) return;
     if (saved.refinement) Object.assign(refinement, saved.refinement);
     applyRefinementsToUI();
     if (!/^\d{5}$/.test(saved.zip)) return;
@@ -1490,7 +1489,7 @@ document.getElementById("zipInput").addEventListener("input", e => {
   if (/^\d{5}$/.test(zip)) {
     try {
       const saved = JSON.parse(localStorage.getItem(PROFILE_KEY));
-      if (saved && saved.v === PROFILE_VERSION && saved.refinement) { Object.assign(refinement, saved.refinement); applyRefinementsToUI(); }
+      if (saved && saved.refinement) { Object.assign(refinement, saved.refinement); applyRefinementsToUI(); }
     } catch(e) {}
     document.getElementById("zipInput").value = zip;
     stateData = lookupZip(zip);
