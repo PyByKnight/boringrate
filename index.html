@@ -1190,14 +1190,20 @@
 }
 /* When this row is shown, the inner personalization-banner sheds its
    stand-alone box treatment (border/bg/margin) and just shows its
-   progress bar + count inline. */
+   progress bar + count inline. Force display:flex so the bar can't be
+   accidentally hidden by an inherited rule. */
 .refine-zip-row .personalization-banner {
+  display: flex !important;
   background: transparent;
   border: none;
   margin: 0;
   padding: 0;
+  gap: 10px;
+  align-items: center;
 }
-.refine-zip-row .pb-track { max-width: 140px; }
+.refine-zip-row .pb-track { max-width: 150px; height: 5px; flex: 1 1 100px; }
+.refine-zip-row .pb-fill { height: 100%; }
+.refine-zip-row .pb-count { font-size: 11px; }
 
 /* Persistent ZIP confirmation chip */
 .refine-zip-confirm {
@@ -5008,16 +5014,21 @@ function renderRanking() {
   document.getElementById("rankTableLabel").style.display = "flex";
   document.getElementById("rankTableState").textContent = locationLabel + (isNonStandard() ? " · Non-standard" : " · Savings vs. Median");
 
+  // Personalization completeness: 4 user-set options (own, vehicles, age,
+  // credit). Coverage tier is excluded from the count because it always
+  // has a default ("standard") that the user didn't choose; it's an
+  // assumption, not a personalization. Currently-insured is intentionally
+  // excluded too — same reason: defaulted, not user-selected.
   let pbScore = 0;
-  if (refinement.coverage) pbScore++;
   if (refinement.own)      pbScore++;
   if (refinement.vehicles) pbScore++;
   if (refinement.age)      pbScore++;
   if (refinement.credit)   pbScore++;
-  const pbPct = pbScore * 20;
+  const pbTotal = 4;
+  const pbPct = pbScore * (100 / pbTotal);
   const pb = document.getElementById("personalizationBanner");
-  pb.className = "personalization-banner visible" + (pbScore === 5 ? " complete" : "");
-  const pbLabel = pbScore === 5 ? "Fully Personalized" : pbScore + " / 5 Personalized";
+  pb.className = "personalization-banner visible" + (pbScore === pbTotal ? " complete" : "");
+  const pbLabel = pbScore === pbTotal ? "Fully Personalized" : pbScore + " / " + pbTotal + " Personalized";
   pb.innerHTML = '<div class="pb-track"><div class="pb-fill" style="width:' + pbPct + '%"></div></div>'
     + '<div class="pb-count">' + pbLabel + '</div>';
 
