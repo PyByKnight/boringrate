@@ -241,6 +241,20 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .sidebar-link{display:block;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-top:1px solid var(--rule);padding-top:12px;margin-top:4px;}
 .sidebar-link:hover{color:var(--accent-deep);}
 @media(max-width:800px){.rank-area{flex-direction:column;}.rank-sidebar.active{display:block;width:100%;}.sidebar-card{display:none;}}
+@media(max-width:600px){
+  .rank-col-head{display:none!important;}
+  .rank-row{grid-template-columns:32px 1fr auto auto;grid-template-rows:auto auto;padding:12px 14px;gap:4px 10px;}
+  .rank-num{grid-column:1;grid-row:1/span 2;align-self:center;}
+  .rank-name-wrap{grid-column:2;grid-row:1;}
+  .rank-grade{grid-column:2;grid-row:2;width:28px;height:28px;align-self:start;}
+  .rank-stability{grid-column:3;grid-row:2;align-self:start;}
+  .rank-stability-label{display:none;}
+  .rank-stab-dot.empty{border-color:var(--rule);}
+  .rank-mark{grid-column:3;grid-row:1;align-self:center;}
+  .rank-cta{grid-column:4;grid-row:1/span 2;align-self:center;}
+  .rank-quote-cta{padding:7px 10px;}
+  .median-divider{grid-template-columns:32px 1fr;padding:8px 14px;}
+}
 
 /* ── Email capture ── */
 .email-section{padding:48px 0;border-top:1px solid var(--rule);}
