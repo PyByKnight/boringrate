@@ -1133,10 +1133,11 @@
   .demo-banner-tag { display: block; margin-right: 0; margin-bottom: 6px; font-size: 11px; }
 }
 
-/* In demo mode, hide the refine bar AND the ZIP confirmation chip —
-   there's nothing meaningful to personalize against a California
-   example. The user should focus on entering their ZIP. */
+/* In demo mode, hide the refine bar, the ZIP confirmation chip, AND the
+   whole zip-row — there's nothing meaningful to personalize against a
+   California example. The user should focus on entering their ZIP. */
 .result.demo .refine,
+.result.demo .refine-zip-row,
 .result.demo .refine-zip-confirm { display: none; }
 
 /* ── Refine bar: prominent Coverage Calculator CTA above the Min/Std/Premium chips ── */
@@ -1177,22 +1178,46 @@
 }
 #refineMoreToggle:hover .refine-toggle-label { text-decoration-color: var(--ink); }
 
-/* ── Persistent ZIP confirmation chip (above the refine bar) ── */
+/* ── Row holding ZIP confirmation + personalization progress bar ── */
+.refine-zip-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 0 14px;
+  margin: 0 0 6px;
+}
+/* When this row is shown, the inner personalization-banner sheds its
+   stand-alone box treatment (border/bg/margin) and just shows its
+   progress bar + count inline. */
+.refine-zip-row .personalization-banner {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.refine-zip-row .pb-track { max-width: 140px; }
+
+/* Persistent ZIP confirmation chip */
 .refine-zip-confirm {
   display: flex;
   align-items: baseline;
   gap: 8px;
-  padding: 6px 14px 8px;
+  padding: 0;
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-mute);
-  margin-bottom: 0;
 }
 .refine-zip-prefix { color: var(--ink-mute); }
 .refine-zip-value { color: var(--ink); font-weight: 700; letter-spacing: 0.12em; }
+
+/* Green progress fill once all five options are personalized */
+.personalization-banner.complete .pb-fill { background: var(--good); }
+.personalization-banner.complete .pb-count { color: var(--good); font-weight: 600; }
 
 /* ── Refine bar: collapsed by default; click trigger to expand ── */
 .refine:not(.open) { background: transparent; border: none; padding: 0; margin-bottom: 12px; }
@@ -1419,10 +1444,13 @@
     </div>
     <div class="state-banner" id="stateBanner"></div>
 
-    <!-- ZIP confirmation chip — persistent above the refine bar -->
-    <div class="refine-zip-confirm" id="refineZipConfirm">
-      <span class="refine-zip-prefix">Showing Best Rates in</span>
-      <span class="refine-zip-value" id="refineTriggerZip">your ZIP</span>
+    <!-- ZIP confirmation + personalization progress (sit on one row) -->
+    <div class="refine-zip-row" id="refineZipRow">
+      <div class="refine-zip-confirm" id="refineZipConfirm">
+        <span class="refine-zip-prefix">Showing Best Rates in</span>
+        <span class="refine-zip-value" id="refineTriggerZip">your ZIP</span>
+      </div>
+      <div class="personalization-banner" id="personalizationBanner"></div>
     </div>
     <!-- Refine bar (collapsed by default; click trigger to expand) -->
     <div class="refine" id="refineBar">
@@ -1599,9 +1627,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Personalization status — always shown with results -->
-    <div class="personalization-banner" id="personalizationBanner"></div>
 
     <!-- Boring Rank header — shown above table when qualifiers exist -->
     <div class="boring-rank-header" id="boringRankHeader">
@@ -4991,8 +5016,8 @@ function renderRanking() {
   if (refinement.credit)   pbScore++;
   const pbPct = pbScore * 20;
   const pb = document.getElementById("personalizationBanner");
-  pb.className = "personalization-banner visible";
-  const pbLabel = pbScore === 5 ? "Personalized" : pbScore + " / 5 Personalized Options";
+  pb.className = "personalization-banner visible" + (pbScore === 5 ? " complete" : "");
+  const pbLabel = pbScore === 5 ? "Fully Personalized" : pbScore + " / 5 Personalized";
   pb.innerHTML = '<div class="pb-track"><div class="pb-fill" style="width:' + pbPct + '%"></div></div>'
     + '<div class="pb-count">' + pbLabel + '</div>';
 
