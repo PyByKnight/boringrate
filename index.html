@@ -1450,13 +1450,19 @@
     </div>
     <div class="state-banner" id="stateBanner"></div>
 
-    <!-- ZIP confirmation + personalization progress (sit on one row) -->
+    <!-- ZIP confirmation + personalization progress (sit on one row).
+         Banner pre-rendered with default 1/4 state so it's visible even
+         before renderRanking() runs; JS overwrites innerHTML when the
+         user changes any chip. -->
     <div class="refine-zip-row" id="refineZipRow">
       <div class="refine-zip-confirm" id="refineZipConfirm">
         <span class="refine-zip-prefix">Showing Best Rates in</span>
         <span class="refine-zip-value" id="refineTriggerZip">your ZIP</span>
       </div>
-      <div class="personalization-banner" id="personalizationBanner"></div>
+      <div class="personalization-banner visible" id="personalizationBanner">
+        <div class="pb-track"><div class="pb-fill" style="width:25%"></div></div>
+        <div class="pb-count">1 / 4 Personalized</div>
+      </div>
     </div>
     <!-- Refine bar (collapsed by default; click trigger to expand) -->
     <div class="refine" id="refineBar">
