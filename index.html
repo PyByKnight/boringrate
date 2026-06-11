@@ -1133,10 +1133,11 @@
   .demo-banner-tag { display: block; margin-right: 0; margin-bottom: 6px; font-size: 11px; }
 }
 
-/* In demo mode, hide the refine bar — there's nothing meaningful to
-   personalize against a California example. The user should focus on
-   entering their ZIP. */
-.result.demo .refine { display: none; }
+/* In demo mode, hide the refine bar AND the ZIP confirmation chip —
+   there's nothing meaningful to personalize against a California
+   example. The user should focus on entering their ZIP. */
+.result.demo .refine,
+.result.demo .refine-zip-confirm { display: none; }
 
 /* ── Refine bar: prominent Coverage Calculator CTA above the Min/Std/Premium chips ── */
 .refine-q-coverage { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
@@ -1168,32 +1169,49 @@
   .refine-toggle-hint { display: block; margin-left: 0; margin-top: 2px; }
 }
 
+/* ── Persistent ZIP confirmation chip (above the refine bar) ── */
+.refine-zip-confirm {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 14px 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 0;
+}
+.refine-zip-prefix { color: var(--ink-mute); }
+.refine-zip-value { color: var(--ink); font-weight: 700; letter-spacing: 0.12em; }
+
 /* ── Refine bar: collapsed by default; click trigger to expand ── */
 .refine:not(.open) { background: transparent; border: none; padding: 0; margin-bottom: 12px; }
 .refine-trigger {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 12px;
   width: 100%;
-  padding: 10px 14px;
+  padding: 14px 18px;
   font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: var(--ink);
   background: var(--paper);
-  border: 1px solid var(--rule);
+  border: 2px solid var(--ink);
   cursor: pointer;
-  text-align: left;
-  transition: background 120ms, color 120ms, border-color 120ms;
+  text-align: center;
+  transition: background 120ms, color 120ms;
 }
-.refine-trigger:hover { background: var(--paper-deep); color: var(--ink); border-color: var(--ink); }
-.refine-trigger-label { color: var(--ink-mute); font-weight: 500; }
-.refine-trigger-label #refineTriggerZip { color: var(--ink-soft); font-weight: 700; }
-.refine-trigger-action { color: var(--ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; margin-left: 4px; }
-.refine-trigger:hover .refine-trigger-label { color: var(--ink-soft); }
-.refine-trigger-arrow { margin-left: auto; font-size: 14px; line-height: 1; }
+.refine-trigger:hover { background: var(--ink); color: var(--paper); }
+.refine-trigger-action { color: var(--ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
+.refine-trigger:hover .refine-trigger-action { color: var(--paper); text-decoration-color: var(--paper); }
+.refine-trigger-arrow { color: var(--accent); font-size: 18px; line-height: 1; font-weight: 700; }
+.refine-trigger:hover .refine-trigger-arrow { color: var(--paper); }
 .refine.open .refine-trigger { display: none; }
 .refine:not(.open) .refine-always { display: none; }
 
@@ -1372,11 +1390,16 @@
     </div>
     <div class="state-banner" id="stateBanner"></div>
 
+    <!-- ZIP confirmation chip — persistent above the refine bar -->
+    <div class="refine-zip-confirm" id="refineZipConfirm">
+      <span class="refine-zip-prefix">Showing Best Rates in</span>
+      <span class="refine-zip-value" id="refineTriggerZip">your ZIP</span>
+    </div>
     <!-- Refine bar (collapsed by default; click trigger to expand) -->
     <div class="refine" id="refineBar">
       <button type="button" class="refine-trigger" id="refineTrigger">
-        <span class="refine-trigger-label">Showing Best Rates in <span id="refineTriggerZip">your ZIP</span>. <span class="refine-trigger-action">Personalize for more accurate rates</span></span>
-        <span class="refine-trigger-arrow">&#8964;</span>
+        <span class="refine-trigger-action">Personalize Below for More Accurate Rates</span>
+        <span class="refine-trigger-arrow">&darr;</span>
       </button>
       <div class="refine-always">
         <div class="refine-pair">
@@ -1414,7 +1437,7 @@
           </div>
         </div>
         <div class="refine-more-toggle" id="refineMoreToggle">
-          <span class="refine-toggle-label">More Coverage Details</span>
+          <span class="refine-toggle-label">Add Specific Coverages</span>
           <span class="refine-toggle-hint">Coverage choice can swing rate ~30%</span>
           <span class="refine-more-arrow" id="refineMoreIcon">&#8964;</span>
         </div>
