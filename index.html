@@ -126,20 +126,12 @@
   .nav-dd-soon{font-size:9px;letter-spacing:0.04em;vertical-align:super;margin-left:3px;}
 
   /* ── HERO ────────────────────────────────────────────────── */
-  .hero { padding: 56px 0 36px; text-align: center; border-bottom: 1px solid var(--rule); }
-  .kicker {
-    font-family: var(--mono);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--accent);
-    margin-bottom: 20px;
-  }
+  .hero { padding: 28px 0 20px; text-align: center; border-bottom: 1px solid var(--rule); }
   h1.hero-h {
     font-family: var(--serif);
     font-weight: 500;
-    font-size: clamp(34px, 5vw, 60px);
-    line-height: 1.0;
+    font-size: clamp(26px, 3.5vw, 42px);
+    line-height: 1.05;
     letter-spacing: -0.025em;
     max-width: 880px;
     margin: 0 auto 10px;
@@ -1139,67 +1131,6 @@
   .demo-banner-text { font-size: 13px; }
 }
 
-/* ── Hero: "or" divider between ZIP and Coverage Calculator paths ── */
-.hero-or {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin: 20px auto 0;
-  max-width: 460px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-}
-.hero-or::before, .hero-or::after {
-  content: '';
-  flex: 1;
-  border-top: 1px solid var(--rule);
-}
-
-/* ── Hero: parallel CTA to Coverage Calculator ── */
-.hero-coverage-cta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin: 14px auto 0;
-  max-width: 460px;
-  padding: 14px 18px;
-  background: var(--paper);
-  border: 1px solid var(--ink);
-  color: var(--ink);
-  text-decoration: none;
-  text-align: left;
-  transition: background 120ms, color 120ms;
-}
-.hero-coverage-cta:hover { background: var(--ink); color: var(--paper); }
-.hero-coverage-q {
-  font-family: var(--sans);
-  font-size: 14px;
-  flex: 1;
-  line-height: 1.35;
-}
-.hero-coverage-action {
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-underline-offset: 4px;
-}
-.hero-coverage-cta:hover .hero-coverage-action {
-  text-decoration-color: var(--paper);
-}
-@media (max-width: 600px) {
-  .hero-coverage-cta { flex-direction: column; align-items: flex-start; gap: 10px; padding: 12px 14px; }
-  .hero-coverage-action { font-size: 12px; }
-}
-
 /* ── Refine bar: inline "Not sure?" help link next to Coverage label ── */
 .refine-q-help {
   font-family: var(--mono);
@@ -1358,19 +1289,14 @@
 <!-- ─── HERO ─────────────────────────────────────────────── -->
 <div class="wrap">
   <div class="hero">
-    <div class="kicker">Boring on purpose · Independent insurance research</div>
     <h1 class="hero-h">See which carrier is cheapest <em>in your ZIP.</em><span class="hero-sub">No calls. No spam. No selling your info.</span></h1>
     <form class="zip-form" id="zipForm" autocomplete="off">
       <input class="zip-input" id="zipInput" type="text" maxlength="5" inputmode="numeric" placeholder="Enter ZIP" aria-label="ZIP code" />
       <button type="submit" class="zip-btn">See rates</button>
     </form>
-    <div class="hero-or"><span>or</span></div>
-    <a href="/coverage.html" class="hero-coverage-cta">
-      <span class="hero-coverage-q">Not sure how much coverage you need?</span>
-      <span class="hero-coverage-action">Use the Coverage Calculator &rarr;</span>
-    </a>
     <div class="zip-privacy">Editorial &nbsp;·&nbsp; Updated quarterly from state DOI rate filings &amp; NAIC complaint indices &nbsp;·&nbsp; No emails, no calls.</div>
     <div id="profileRestored" class="profile-restored" style="display:none;">Welcome back — your last search is loaded.</div>
+    <div class="coverage-nudge">Not sure how much coverage you need? &nbsp;<a href="/coverage.html">Coverage Calculator &rarr;</a></div>
   </div>
 </div>
 
