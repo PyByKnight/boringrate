@@ -1155,7 +1155,7 @@
 }
 .refine-coverage-cta:hover { color: var(--accent-deep); text-decoration-color: var(--accent-deep); }
 
-/* ── Inline benefit hint after 'More Coverage Details' label ── */
+/* ── Inline benefit hint after 'Add Specific Coverage Selections' label ── */
 .refine-toggle-hint {
   font-family: var(--mono);
   font-size: 10px;
@@ -1168,6 +1168,14 @@
 @media (max-width: 600px) {
   .refine-toggle-hint { display: block; margin-left: 0; margin-top: 2px; }
 }
+/* Underline the 'Add Specific Coverage Selections' label for parity
+   with the trigger button — signals it's a clickable expand. */
+#refineMoreToggle .refine-toggle-label {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 4px;
+}
+#refineMoreToggle:hover .refine-toggle-label { text-decoration-color: var(--ink); }
 
 /* ── Persistent ZIP confirmation chip (above the refine bar) ── */
 .refine-zip-confirm {
@@ -1210,9 +1218,22 @@
 .refine-trigger:hover { background: var(--ink); color: var(--paper); }
 .refine-trigger-action { color: var(--ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
 .refine-trigger:hover .refine-trigger-action { color: var(--paper); text-decoration-color: var(--paper); }
-.refine-trigger-arrow { color: var(--accent); font-size: 18px; line-height: 1; font-weight: 700; }
+.refine-trigger-arrow { color: var(--accent); font-size: 18px; line-height: 1; font-weight: 700; display: inline-block; transition: transform 180ms; }
 .refine-trigger:hover .refine-trigger-arrow { color: var(--paper); }
-.refine.open .refine-trigger { display: none; }
+
+/* ── Closed/open text swap inside the trigger ── */
+.refine-trigger-closed { display: inline; }
+.refine-trigger-open { display: none; }
+.refine.open .refine-trigger-closed { display: none; }
+.refine.open .refine-trigger-open { display: inline; }
+
+/* ── Open-state trigger: stays visible as a header for the expanded panel ── */
+.refine.open .refine-trigger {
+  background: var(--paper);
+  margin: 0 0 14px;
+}
+.refine.open .refine-trigger-arrow { transform: rotate(180deg); }
+
 .refine:not(.open) .refine-always { display: none; }
 
 /* ── Hide visual clutter that pads space above the rank table ── */
@@ -1397,8 +1418,11 @@
     </div>
     <!-- Refine bar (collapsed by default; click trigger to expand) -->
     <div class="refine" id="refineBar">
-      <button type="button" class="refine-trigger" id="refineTrigger">
-        <span class="refine-trigger-action">Add Personalization Here for More Accurate Rates</span>
+      <button type="button" class="refine-trigger" id="refineTrigger" aria-expanded="false">
+        <span class="refine-trigger-action">
+          <span class="refine-trigger-closed">Add Personalization Here for More Accurate Rates</span>
+          <span class="refine-trigger-open">Personalize Your Profile</span>
+        </span>
         <span class="refine-trigger-arrow">&darr;</span>
       </button>
       <div class="refine-always">
@@ -1437,7 +1461,7 @@
           </div>
         </div>
         <div class="refine-more-toggle" id="refineMoreToggle">
-          <span class="refine-toggle-label">Add Specific Coverages</span>
+          <span class="refine-toggle-label">Add Specific Coverage Selections</span>
           <span class="refine-toggle-hint">Coverage choice can swing rate ~30%</span>
           <span class="refine-more-arrow" id="refineMoreIcon">&#8964;</span>
         </div>
@@ -5279,12 +5303,15 @@ document.getElementById("zipInput").addEventListener("input", e => {
   // the inner submit handler — class is gone before renderRanking runs).
   var zipForm = document.getElementById('zipForm');
   if (zipForm) zipForm.addEventListener('submit', exitDemo, true);
-  // Click trigger expands the refine bar.
+  // Click trigger expands / collapses the refine bar (true toggle so the
+  // user can re-collapse if they want to focus on the rank table).
   var refineTrigger = document.getElementById('refineTrigger');
   if (refineTrigger) {
     refineTrigger.addEventListener('click', function() {
       var rb = document.getElementById('refineBar');
-      if (rb) rb.classList.add('open');
+      if (!rb) return;
+      var nowOpen = rb.classList.toggle('open');
+      refineTrigger.setAttribute('aria-expanded', String(nowOpen));
     });
   }
   // Banner CTA scrolls + focuses the ZIP input.
