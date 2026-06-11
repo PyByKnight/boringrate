@@ -122,6 +122,35 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .zip-privacy{font-family:var(--mono);font-size:10px;letter-spacing:0.04em;color:var(--ink-mute);margin-top:10px;opacity:0.7;}
 .refine-bar{padding:14px 0 0;background:var(--paper);}
 .refine-inner{background:var(--paper-deep);border:1px solid var(--rule);padding:14px 18px;margin-bottom:16px;display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;}
+/* Refine collapsed by default; click trigger to expand */
+.refine-bar:not(.open) .refine-inner{display:none;}
+.refine-trigger{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:14px 18px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);background:var(--paper);border:2px solid var(--ink);cursor:pointer;text-align:center;transition:background 120ms,color 120ms;}
+.refine-trigger:hover{background:var(--ink);color:var(--paper);}
+.refine-trigger-action{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px;}
+.refine-trigger:hover .refine-trigger-action{color:var(--paper);text-decoration-color:var(--paper);}
+.refine-trigger-arrow{color:var(--accent);font-size:18px;line-height:1;font-weight:700;display:inline-block;transition:transform 180ms;}
+.refine-trigger:hover .refine-trigger-arrow{color:var(--paper);}
+.refine-trigger-closed{display:inline;}
+.refine-trigger-open{display:none;}
+.refine-bar.open .refine-trigger-closed{display:none;}
+.refine-bar.open .refine-trigger-open{display:inline;}
+.refine-bar.open .refine-trigger{background:var(--paper);margin:0 0 14px;}
+.refine-bar.open .refine-trigger:hover{background:var(--paper-deep);color:var(--ink);}
+.refine-bar.open .refine-trigger:hover .refine-trigger-action{color:var(--ink);text-decoration-color:var(--accent);}
+.refine-bar.open .refine-trigger:hover .refine-trigger-arrow{color:var(--accent);}
+.refine-bar.open .refine-trigger-arrow{transform:rotate(180deg);}
+
+/* Persistent ZIP confirmation chip + inline personalization progress bar */
+.refine-zip-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0 14px;margin:14px 0 6px;}
+.refine-zip-confirm{display:flex;align-items:baseline;gap:8px;padding:0;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);}
+.refine-zip-prefix{color:var(--ink-mute);}
+.refine-zip-value{color:var(--ink);font-weight:700;letter-spacing:0.12em;}
+.refine-zip-row .personalization-banner{display:flex !important;background:transparent !important;border:none !important;margin:0 !important;padding:0 !important;gap:10px;align-items:center;min-width:200px;flex:0 0 auto;}
+.refine-zip-row .pb-track{width:150px !important;max-width:150px;min-width:100px;height:8px !important;flex:0 0 150px;background:var(--ink-mute) !important;border-radius:4px;overflow:hidden;}
+.refine-zip-row .pb-fill{height:100% !important;border-radius:4px;}
+.refine-zip-row .pb-count{font-size:12px;color:var(--ink);font-weight:600;}
+.personalization-banner.complete .pb-fill{background:var(--good);}
+.personalization-banner.complete .pb-count{color:var(--good);font-weight:600;}
 .refine-group{display:flex;flex-direction:column;gap:6px;}
 .refine-label,.refine-group label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);display:block;margin-bottom:0;}
 .pill-row{display:flex;gap:5px;flex-wrap:wrap;}
@@ -327,7 +356,27 @@ footer p{font-size:14px;color:rgba(246,241,232,.7);margin-top:12px;max-width:320
   <div class="profile-restored" id="profileRestored">&larr; Your last search restored.</div>
 </section>
 
+<!-- ZIP confirmation + personalization progress (sit on one row) -->
+<div class="refine-zip-row" id="refineZipRow">
+  <div class="refine-zip-confirm" id="refineZipConfirm">
+    <span class="refine-zip-prefix">Showing Best Rates in</span>
+    <span class="refine-zip-value" id="refineTriggerZip">your ZIP</span>
+  </div>
+  <div class="personalization-banner visible" id="personalizationBanner">
+    <div class="pb-track"><div class="pb-fill" style="width:0%"></div></div>
+    <div class="pb-count">Personalize below for accurate rates</div>
+  </div>
+</div>
+
+<!-- Refine bar (collapsed by default; click trigger to expand) -->
 <div class="refine-bar" id="refineBar">
+  <button type="button" class="refine-trigger" id="refineTrigger" aria-expanded="false">
+    <span class="refine-trigger-action">
+      <span class="refine-trigger-closed">Add Personalization Here for More Accurate Rates</span>
+      <span class="refine-trigger-open">Personalize Your Profile</span>
+    </span>
+    <span class="refine-trigger-arrow">&darr;</span>
+  </button>
   <div class="refine-inner">
     <div class="refine-group">
       <label>Dwelling coverage &nbsp;<span class="coverage-val" id="coverageVal">$300,000</span></label>
@@ -365,7 +414,6 @@ footer p{font-size:14px;color:rgba(246,241,232,.7);margin-top:12px;max-width:320
 <div class="result" id="result">
   <div class="rank-area">
     <div class="rank-main">
-      <div class="personalization-banner" id="personalizationBanner"></div>
       <div class="rank-table-label" id="rankTableLabel">
         <span id="rankTableState"></span>
       </div>
@@ -1018,15 +1066,24 @@ function renderRanking() {
   document.getElementById("sidebarState").textContent = stateData.name;
   document.getElementById("sidebarAvg").innerHTML = 'State avg <strong>$' + stateData.avg.toLocaleString() + '/yr</strong>';
 
+  // Refine-trigger ZIP echo — confirms the system understood the entered ZIP
+  const _refZip = document.getElementById("refineTriggerZip");
+  if (_refZip) {
+    const _z = document.getElementById("zipInput").value.trim();
+    _refZip.textContent = /^\d{5}$/.test(_z) ? _z : "your ZIP";
+  }
+
   var nonDefaultCount = 0;
   if (refinement.dwellingK !== 300) nonDefaultCount++;
   if (refinement.deductible !== "standard") nonDefaultCount++;
   if (refinement.bundle !== "no") nonDefaultCount++;
   if (refinement.claims !== "none") nonDefaultCount++;
-  const pbPct = nonDefaultCount === 0 ? 25 : Math.min(100, nonDefaultCount * 25);
+  const pbPct = Math.min(100, nonDefaultCount * 25);
   const pb = document.getElementById("personalizationBanner");
-  pb.className = "personalization-banner visible";
-  const pbLabel = nonDefaultCount === 0 ? "Typical profile \xb7 adjust above to personalize" : nonDefaultCount + " / 4 customized";
+  pb.className = "personalization-banner visible" + (nonDefaultCount === 4 ? " complete" : "");
+  const pbLabel = nonDefaultCount === 0
+    ? "Personalize below for accurate rates"
+    : nonDefaultCount === 4 ? "Fully Personalized" : nonDefaultCount + " / 4 Personalized";
   pb.innerHTML = '<div class="pb-track"><div class="pb-fill" style="width:' + pbPct + '%"></div></div>'
     + '<div class="pb-count">' + pbLabel + '</div>';
 
@@ -1112,6 +1169,24 @@ document.getElementById("zipForm").addEventListener("submit", e => {
 document.getElementById("zipInput").addEventListener("input", e => {
   e.target.value = e.target.value.replace(/\D/g,"").substring(0,5);
 });
+
+// Refine trigger — toggles .open on #refineBar (two-way). Belt-and-suspenders
+// inline display so chips can't be hidden by a stale cascade. Mirrors Auto.
+(function() {
+  var refineTrigger = document.getElementById('refineTrigger');
+  if (!refineTrigger) return;
+  refineTrigger.addEventListener('click', function() {
+    var rb = document.getElementById('refineBar');
+    if (!rb) return;
+    var nowOpen = rb.classList.toggle('open');
+    refineTrigger.setAttribute('aria-expanded', String(nowOpen));
+    var ri = rb.querySelector('.refine-inner');
+    if (ri) ri.style.display = nowOpen ? 'flex' : 'none';
+    if (nowOpen && ri && ri.scrollIntoView) {
+      setTimeout(function() { ri.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 80);
+    }
+  });
+})();
 
 (function() {
   const params = new URLSearchParams(window.location.search);
