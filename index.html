@@ -5312,7 +5312,9 @@ document.getElementById("zipInput").addEventListener("input", e => {
   var zipForm = document.getElementById('zipForm');
   if (zipForm) zipForm.addEventListener('submit', exitDemo, true);
   // Click trigger expands / collapses the refine bar (true toggle so the
-  // user can re-collapse if they want to focus on the rank table).
+  // user can re-collapse if they want to focus on the rank table). Also
+  // sets inline display on .refine-always as a belt-and-suspenders against
+  // any inherited display:none from cascade conflicts.
   var refineTrigger = document.getElementById('refineTrigger');
   if (refineTrigger) {
     refineTrigger.addEventListener('click', function() {
@@ -5320,6 +5322,12 @@ document.getElementById("zipInput").addEventListener("input", e => {
       if (!rb) return;
       var nowOpen = rb.classList.toggle('open');
       refineTrigger.setAttribute('aria-expanded', String(nowOpen));
+      var ra = rb.querySelector('.refine-always');
+      if (ra) ra.style.display = nowOpen ? 'flex' : 'none';
+      if (nowOpen && ra && ra.scrollIntoView) {
+        // Ensure the chips are visible in the viewport after expand
+        setTimeout(function() { ra.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 80);
+      }
     });
   }
   // Banner CTA scrolls + focuses the ZIP input.
