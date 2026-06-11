@@ -399,5 +399,35 @@
 })();
 </script>
 <script>(function(){function goZip(fid,iid){var f=document.getElementById(fid),i=document.getElementById(iid);if(!f||!i)return;f.addEventListener("submit",function(e){e.preventDefault();var z=i.value.replace(/\D/g,"").substring(0,5);if(!/^\d{5}$/.test(z)){i.focus();return;}window.location.href="/?zip="+z;});}goZip("zipBarForm","zipBarInput");goZip("embedZipForm","embedZipInput");})();</script>
+
+<!-- article-sticky-cta-style --><style>
+.article-sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;align-items:center;justify-content:center;gap:10px;padding:13px 18px;background:var(--ink);border-top:3px solid var(--accent);color:var(--paper);font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;box-shadow:0 -4px 18px rgba(0,0,0,0.18);}
+.article-sticky-cta .ascta-arrow{color:var(--accent);font-size:15px;}
+@media(max-width:800px){.article-sticky-cta.show{display:flex;}}
+</style>
+<a class="article-sticky-cta" id="articleStickyCta" href="#zipBarInput" aria-label="Compare Sioux Falls rates">Compare Sioux Falls rates <span class="ascta-arrow">&rarr;</span></a>
+<!-- article-sticky-cta-script --><script>
+(function(){
+  var strip=document.getElementById("articleStickyCta");
+  if(!strip)return;
+  var targets=[];
+  ["zipBarForm","embedZipForm"].forEach(function(id){var e=document.getElementById(id);if(e)targets.push(e);});
+  var ae=document.querySelector(".article-email");if(ae)targets.push(ae);
+  var ft=document.querySelector("footer");if(ft)targets.push(ft);
+  if(!targets.length)return;
+  var visible=new Set();
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting)visible.add(en.target);else visible.delete(en.target);});
+    strip.classList.toggle("show",visible.size===0);
+  },{rootMargin:"0px 0px -10% 0px"});
+  targets.forEach(function(t){io.observe(t);});
+  strip.addEventListener("click",function(e){
+    e.preventDefault();
+    var inp=document.getElementById("zipBarInput")||document.getElementById("embedZipInput");
+    if(inp){inp.scrollIntoView({behavior:"smooth",block:"center"});setTimeout(function(){try{inp.focus();}catch(_){}}, 450);}
+    else{window.location.href="/";}
+  });
+})();
+</script>
 </body>
 </html>
