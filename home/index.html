@@ -272,7 +272,6 @@ body.br-demo .refine-zip-row{display:none !important;}
 .rank-quote-cta:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);}
 .qcta-save{font-size:13px;font-weight:700;}
 .qcta-action{font-size:9px;opacity:.7;text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap;}
-@media(max-width:480px){.qcta-action-prefix{display:none;}}
 .median-divider{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:center;padding:8px 18px;background:var(--paper-deep);border-bottom:1px solid var(--rule);}
 .median-dash{border-top:1px dashed var(--rule);}
 .median-label{font-family:var(--mono);font-size:10px;color:var(--ink-mute);letter-spacing:0.06em;white-space:nowrap;}
@@ -1039,7 +1038,7 @@ function renderRanking() {
     const availHtml = c.restricted ? '<div class="rank-avail">' + c.availNote + '</div>' : '';
     const quoteUrl = c.links || "#";
     const _qctaAction = _qDomain
-      ? '<span class="qcta-action"><span class="qcta-action-prefix">Quote on </span>' + _qDomain + ' &rarr;</span>'
+      ? '<span class="qcta-action"><span class="qcta-action-prefix">@ </span>' + _qDomain + ' &rarr;</span>'
       : '<span class="qcta-action">Get Quote &rarr;</span>';
     const ctaHtml = '<div class="rank-cta"><a class="rank-quote-cta ' + delta.klass + '" href="' + quoteUrl + '" target="_blank" rel="noopener noreferrer"><span class="qcta-save">' + delta.text + '</span>' + _qctaAction + '</a></div>';
     const a = document.createElement("div");
