@@ -1154,6 +1154,20 @@
 }
 .refine-coverage-cta:hover { color: var(--accent-deep); text-decoration-color: var(--accent-deep); }
 
+/* ── Inline benefit hint after 'More Coverage Details' label ── */
+.refine-toggle-hint {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--ink-mute);
+  margin-left: 10px;
+}
+@media (max-width: 600px) {
+  .refine-toggle-hint { display: block; margin-left: 0; margin-top: 2px; }
+}
+
 /* ── Refine bar: collapsed by default; click trigger to expand ── */
 .refine:not(.open) { background: transparent; border: none; padding: 0; margin-bottom: 12px; }
 .refine-trigger {
@@ -1360,7 +1374,7 @@
     <!-- Refine bar (collapsed by default; click trigger to expand) -->
     <div class="refine" id="refineBar">
       <button type="button" class="refine-trigger" id="refineTrigger">
-        <span class="refine-trigger-label">Showing ZIP Averages: <span class="refine-trigger-action">Personalize your details</span></span>
+        <span class="refine-trigger-label">Showing ZIP Averages &mdash; <span class="refine-trigger-action">Personalize for an accurate rate</span></span>
         <span class="refine-trigger-arrow">&#8964;</span>
       </button>
       <div class="refine-always">
@@ -1400,6 +1414,7 @@
         </div>
         <div class="refine-more-toggle" id="refineMoreToggle">
           <span class="refine-toggle-label">More Coverage Details</span>
+          <span class="refine-toggle-hint">Coverage choice can swing rate ~30%</span>
           <span class="refine-more-arrow" id="refineMoreIcon">&#8964;</span>
         </div>
       </div>
