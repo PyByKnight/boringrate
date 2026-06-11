@@ -1118,18 +1118,24 @@
   }
 </style>
 <style>
-/* ── Demo / example-mode banner (shown when no ZIP entered) ── */
-.demo-banner { display: none; align-items: center; gap: 14px; padding: 12px 18px; margin-bottom: 18px; border: 1px solid var(--ink); background: var(--paper-deep); }
-.result.demo .demo-banner { display: flex; }
-.demo-banner-tag { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--paper); background: var(--ink); padding: 4px 8px; flex-shrink: 0; }
-.demo-banner-text { font-family: var(--sans); font-size: 14px; color: var(--ink-soft); flex: 1; line-height: 1.4; }
+/* ── Demo / example-mode callout (shown when no ZIP entered) ──
+   Styled as an editorial note attached to the rank table below, not a
+   full-width section. Left accent bar + cream background = "heads up
+   about the data" rather than its own section. */
+.demo-banner { display: none; padding: 10px 16px; margin: 0 0 14px; background: var(--paper-deep); border-left: 3px solid var(--accent); font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
+.result.demo .demo-banner { display: block; }
+.demo-banner-tag { display: inline-block; margin-right: 8px; font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 .demo-banner-text strong { color: var(--ink); font-weight: 600; }
-.demo-banner-cta { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: underline; flex-shrink: 0; white-space: nowrap; }
-.demo-banner-cta:hover { color: var(--accent); }
+.demo-banner a { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.demo-banner a:hover { color: var(--accent); }
 @media (max-width: 600px) {
-  .demo-banner { flex-direction: column; align-items: flex-start; gap: 8px; padding: 10px 14px; }
-  .demo-banner-text { font-size: 13px; }
+  .demo-banner { padding: 9px 14px; font-size: 13px; }
 }
+
+/* In demo mode, hide the refine bar — there's nothing meaningful to
+   personalize against a California example. The user should focus on
+   entering their ZIP. */
+.result.demo .refine { display: none; }
 
 /* ── Refine bar: inline "Not sure?" help link next to Coverage label ── */
 .refine-q-help {
@@ -1336,11 +1342,9 @@
 <div class="wrap">
   <section class="result" id="result">
 
-    <!-- Demo-mode banner: shown only when .result.demo is active -->
+    <!-- Demo-mode callout: visible only when .result.demo is active -->
     <div class="demo-banner" id="demoBanner" role="status">
-      <span class="demo-banner-tag">Example</span>
-      <span class="demo-banner-text">Showing <strong>California</strong> rankings — enter your ZIP above for your area.</span>
-      <a href="#zipInput" class="demo-banner-cta" id="demoBannerCta">Enter ZIP &uarr;</a>
+      <span class="demo-banner-tag">Example</span><span class="demo-banner-text">Showing <strong>California</strong> rankings. <a href="#zipInput" id="demoBannerCta">Enter your ZIP above &uarr;</a> to see your area's rates.</span>
     </div>
 
     <!-- Compact state label + state alert inline -->
