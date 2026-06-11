@@ -1138,6 +1138,81 @@
   .demo-banner { flex-direction: column; align-items: flex-start; gap: 8px; padding: 10px 14px; }
   .demo-banner-text { font-size: 13px; }
 }
+
+/* ── Hero: "or" divider between ZIP and Coverage Calculator paths ── */
+.hero-or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 20px auto 0;
+  max-width: 460px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.hero-or::before, .hero-or::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid var(--rule);
+}
+
+/* ── Hero: parallel CTA to Coverage Calculator ── */
+.hero-coverage-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 14px auto 0;
+  max-width: 460px;
+  padding: 14px 18px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  text-align: left;
+  transition: background 120ms, color 120ms;
+}
+.hero-coverage-cta:hover { background: var(--ink); color: var(--paper); }
+.hero-coverage-q {
+  font-family: var(--sans);
+  font-size: 14px;
+  flex: 1;
+  line-height: 1.35;
+}
+.hero-coverage-action {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 4px;
+}
+.hero-coverage-cta:hover .hero-coverage-action {
+  text-decoration-color: var(--paper);
+}
+@media (max-width: 600px) {
+  .hero-coverage-cta { flex-direction: column; align-items: flex-start; gap: 10px; padding: 12px 14px; }
+  .hero-coverage-action { font-size: 12px; }
+}
+
+/* ── Refine bar: inline "Not sure?" help link next to Coverage label ── */
+.refine-q-help {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: underline;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+.refine-q-help:hover { color: var(--accent-deep); }
 </style>
 <script type="application/ld+json">
 {
@@ -1289,9 +1364,13 @@
       <input class="zip-input" id="zipInput" type="text" maxlength="5" inputmode="numeric" placeholder="Enter ZIP" aria-label="ZIP code" />
       <button type="submit" class="zip-btn">See rates</button>
     </form>
+    <div class="hero-or"><span>or</span></div>
+    <a href="/coverage.html" class="hero-coverage-cta">
+      <span class="hero-coverage-q">Not sure how much coverage you need?</span>
+      <span class="hero-coverage-action">Use the Coverage Calculator &rarr;</span>
+    </a>
     <div class="zip-privacy">Editorial &nbsp;·&nbsp; Updated quarterly from state DOI rate filings &amp; NAIC complaint indices &nbsp;·&nbsp; No emails, no calls.</div>
     <div id="profileRestored" class="profile-restored" style="display:none;">Welcome back — your last search is loaded.</div>
-    <div class="coverage-nudge">Not sure what coverage you need? &nbsp;<a href="/coverage.html">Coverage Calculator →</a></div>
   </div>
 </div>
 
@@ -1342,25 +1421,25 @@
             <button type="button" class="pill" data-v="55+">55+</button>
           </div>
         </div>
+        <div class="refine-q">
+          <label>Coverage <a href="/coverage.html" class="refine-q-help">Not sure? →</a></label>
+          <div class="pill-row" data-q="coverage">
+            <button type="button" class="pill" data-v="minimum">Minimum</button>
+            <button type="button" class="pill active" data-v="standard">Standard</button>
+            <button type="button" class="pill" data-v="premium">Premium</button>
+          </div>
+        </div>
         <div class="refine-more-toggle" id="refineMoreToggle">
-          <span class="refine-toggle-label">More Options</span>
+          <span class="refine-toggle-label">Adjust details</span>
           <span class="refine-more-arrow" id="refineMoreIcon">&#8964;</span>
         </div>
       </div>
       <div class="refine-more-body" id="refineMoreBody">
-        <!-- Coverage tier + detail at top -->
+        <!-- Coverage limits & deductibles (fine-tune the tier picked above) -->
         <div class="refine-cov-section" style="margin-top:0;padding-top:0;border-top:none;">
           <div class="refine-cov-header">
-            <span>Coverage detail</span>
-            <a href="/coverage.html" style="font-size:11px;font-family:var(--mono);color:var(--accent);text-decoration:underline;letter-spacing:0.04em;">Learn More: The Right Coverage Calculator For You →</a>
-          </div>
-          <div class="refine-q" style="margin-bottom:12px;">
-            <label>Coverage tier</label>
-            <div class="pill-row" data-q="coverage">
-              <button type="button" class="pill" data-v="minimum">Minimum</button>
-              <button type="button" class="pill active" data-v="standard">Standard</button>
-              <button type="button" class="pill" data-v="premium">Premium</button>
-            </div>
+            <span>Fine-tune coverage limits</span>
+            <a href="/coverage.html" style="font-size:11px;font-family:var(--mono);color:var(--accent);text-decoration:underline;letter-spacing:0.04em;">Coverage Calculator →</a>
           </div>
           <div class="refine-cov-grid">
             <div class="refine-q">
