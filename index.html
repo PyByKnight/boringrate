@@ -730,6 +730,11 @@
     line-height: 1.55;
   }
   .email-form { display: flex; gap: 8px; flex: 1; min-width: 260px; flex-wrap: wrap; }
+  .email-more-toggle { flex: 1 1 100%; text-align: left; background: none; border: none; padding: 2px 0; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mute); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--rule); }
+  .email-more-toggle:hover { color: var(--accent); text-decoration-color: var(--accent); }
+  .email-more-toggle::after { content: " \2304"; }
+  .email-more-toggle[aria-expanded="true"]::after { content: " \2303"; }
+  .email-extra { flex: 1 1 100%; display: flex; gap: 8px; flex-wrap: wrap; }
   .email-input {
     flex: 1;
     font-family: var(--sans);
@@ -1753,16 +1758,19 @@ window.track = function (name, props) {
       </div>
       <div class="email-form" id="emailForm">
         <input class="email-input" id="emailInput" type="email" placeholder="your@email.com" aria-label="Email address" />
-        <input class="email-input email-zip" id="emailZipInput" type="text" inputmode="numeric" placeholder="ZIP code" maxlength="5" aria-label="ZIP code" />
-        <select class="email-select" id="emailCarrierInput" aria-label="Current carrier (optional)">
-          <option value="">Current carrier (optional)</option>
-          <option>State Farm</option><option>GEICO</option><option>Progressive</option><option>Allstate</option><option>USAA</option><option>Liberty Mutual</option><option>Farmers</option><option>Travelers</option><option>Nationwide</option><option>American Family</option><option>Erie</option><option>Root Insurance</option><option>Safeco</option><option>The Hartford</option><option>Amica</option><option>Other</option>
-        </select>
-        <select class="email-select email-month" id="emailMonthInput" aria-label="Renewal month (optional)">
-          <option value="">Renewal month (optional)</option>
-          <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
-        </select>
-        <button type="button" class="email-btn email-btn-ghost" id="emailBtn">Send link</button>
+        <button type="button" class="email-btn email-btn-ghost" id="emailBtn">Notify me</button>
+        <button type="button" class="email-more-toggle" id="emailMoreToggle" aria-expanded="false">Add carrier &amp; renewal details (optional)</button>
+        <div class="email-extra" id="emailExtra" style="display:none;">
+          <input class="email-input email-zip" id="emailZipInput" type="text" inputmode="numeric" placeholder="ZIP code" maxlength="5" aria-label="ZIP code" />
+          <select class="email-select" id="emailCarrierInput" aria-label="Current carrier (optional)">
+            <option value="">Current carrier (optional)</option>
+            <option>State Farm</option><option>GEICO</option><option>Progressive</option><option>Allstate</option><option>USAA</option><option>Liberty Mutual</option><option>Farmers</option><option>Travelers</option><option>Nationwide</option><option>American Family</option><option>Erie</option><option>Root Insurance</option><option>Safeco</option><option>The Hartford</option><option>Amica</option><option>Other</option>
+          </select>
+          <select class="email-select email-month" id="emailMonthInput" aria-label="Renewal month (optional)">
+            <option value="">Renewal month (optional)</option>
+            <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
+          </select>
+        </div>
       </div>
       <div class="email-thanks" id="emailThanks" style="display:none;">&#10003; Check your email — magic link sent.</div>
       <div class="email-signed-in" id="emailSignedIn" style="display:none;">
@@ -3164,13 +3172,27 @@ document.getElementById("emailBtn").addEventListener("click", async () => {
   const carrier = document.getElementById("emailCarrierInput").value;
   const renewal = document.getElementById("emailMonthInput").value;
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById("emailInput").focus(); return; }
-  if (!/^\d{5}$/.test(zip)) { document.getElementById("emailZipInput").focus(); return; }
+  if (!/^\d{5}$/.test(zip)) {
+    // ZIP lives in the (collapsed) optional section — reveal it so the user can fix it
+    document.getElementById("emailExtra").style.display = "flex";
+    document.getElementById("emailMoreToggle").setAttribute("aria-expanded", "true");
+    document.getElementById("emailZipInput").focus();
+    return;
+  }
   localStorage.setItem("br_notify", JSON.stringify({ zip, carrier, renewal, source: "index" }));
   const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
   if (!error) {
     document.getElementById("emailForm").style.display = "none";
     document.getElementById("emailThanks").style.display = "block";
   }
+});
+
+// Optional carrier/renewal details — collapsed by default to keep the ask to one field
+document.getElementById("emailMoreToggle").addEventListener("click", function () {
+  var extra = document.getElementById("emailExtra");
+  var open = extra.style.display !== "flex";
+  extra.style.display = open ? "flex" : "none";
+  this.setAttribute("aria-expanded", String(open));
 });
 
 // Profile edit / save
@@ -5158,6 +5180,11 @@ function renderRanking() {
     const _csZip = document.getElementById("zipInput").value.trim();
     _csLink.href = /^\d{5}$/.test(_csZip) ? "/renters/?zip=" + _csZip : "/renters/";
   }
+
+  // Prefill the notify-form ZIP from the search so the user needn't retype it
+  const _ez = document.getElementById("emailZipInput");
+  const _ezSrc = document.getElementById("zipInput").value.trim();
+  if (_ez && !_ez.value && /^\d{5}$/.test(_ezSrc)) _ez.value = _ezSrc;
 
   renderAgentPanel();
 }
