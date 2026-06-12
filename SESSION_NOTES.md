@@ -1,5 +1,29 @@
 # BoringRate — Session Notes
-_Last updated: 2026-06-11 (long evening session, Opus 4.7)_
+_Last updated: 2026-06-11 (follow-up session, Opus 4.8)_
+
+## This session (2026-06-11, Opus 4.8) — shipped
+
+All three previously-pending tasks DONE, plus two bug fixes the user flagged
+live, a rate-visibility fix, and a parity extension. Commits (newest first):
+
+- **renters articles: sticky mobile CTA parity (147 pages)** — extended the
+  sticky CTA to the renters article tree (`renters/{state,metro,carrier}/`);
+  `patch_article_sticky_cta.py` now handles both trees (renters fallback
+  `/renters/`, own label format).
+- **tool: absolute `$X/yr est.` premium per rank row (auto/home/renters)** —
+  rows previously showed only "Save $X vs median"; since the median moves with
+  the profile, profile changes looked invisible. Added a per-row absolute
+  premium (`.rank-premium`) so changes are legible. The model DOES vary
+  (3-4x swings, reorderings) — see [[boringrate-rate-model]]. Rates are MODELED
+  client-side (`base × stateAvg × sensitivities`), not live-quoted.
+- **tool: ZIP submit clears `demo` + lands on personalization CTA** — the
+  `zipForm` submit handler added `.active` but never removed `.demo`, so
+  `.result.demo .refine-zip-row` / `.refine` stayed `display:none` and the ZIP
+  chip + "Add Personalization" CTA were hidden after a real ZIP. Now removes
+  demo, scrolls to `#refineZipRow` (scroll-margin-top:84px clears sticky header).
+- **article: sticky mobile CTA strip (263 auto pages)** — Task #2.
+- **auto: cross-sell renters after results** — Task #3 (`#crossSellRenters`).
+- **article: activate Home nav link (263 pages)** — Task #1.
 
 ## How to resume (read this first when you come back)
 
@@ -36,45 +60,20 @@ Run `git log --oneline -40` to see all commits. Highlights:
 ### Articles
 - **Carrier mentions hyperlinked** — first occurrence of each carrier name in body text wrapped in `<a class="ca-link" href="/article/carrier/{slug}.html">`. 3,087 mentions across 222 files via `patch_carrier_links.py`. Editorial accent-red underline style.
 
-## Pending — execute next (the three tasks the user signed off on tonight)
+## Pending — execute next
 
-### 1. Article nav Home link update (~30 min, mechanical)
-**What:** ~200+ article files still show the old "Home (soon)" dim span in the Product dropdown nav.
+All three signed-off tasks are DONE (see "This session" above). The sticky CTA
+ended up scroll-to-own-form (honest: reader's real ZIP) rather than a fake
+representative ZIP, and the cross-sell carries the entered ZIP into
+`/renters/?zip=`. Implementation differs slightly from the original sketch below
+but achieves the same goals.
 
-**Find:** `<span class="nav-dd-panel-dim">Home<span class="nav-dd-soon">soon</span></span>`
-
-**Replace with:** `<a href="/home/index.html">Home</a>`
-
-**Where:** Every file in `/home/knighttyler/boringrate/article/**/*.html`.
-
-**Approach:** Write a Python script `patch_article_home_nav.py` similar to `patch_carrier_links.py`. Idempotent (skip files that don't have the old markup). Walk state/, metro/, carrier/, compare/, plus loose articles.
-
-Verify with: `grep -rl 'nav-dd-panel-dim">Home' /home/knighttyler/boringrate/article/ | wc -l` (should drop to 0 after pass).
-
-### 2. Sticky mobile article CTA (~1 hour)
-**What:** Articles are long. On mobile, a reader 60% down a Florida deep-dive can't quickly act. Add a persistent bottom strip with `Compare [State] rates →` linking back to the rate comparison tool.
-
-**Where:** Article pages — state/, metro/, carrier/, compare/, plus loose articles.
-
-**Approach:**
-- CSS: `.article-sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; ... }` shown only on `@media (max-width: 800px)` and only when scrolled past the top of the article body
-- Content: state name pulled from article context. For state pages, link to `/?zip=...` with a representative ZIP for that state. For renters article pages, link to `/renters/?zip=...`. For home, similar.
-- JS: hide the strip when zip-bar at top is in view (avoid double CTA); show when scrolled past it.
-
-Use a script to inject the same CSS + HTML + JS into every article file. Keep it mobile-only — no impact on desktop layout.
-
-### 3. Cross-sell after auto results (~30 min)
-**What:** After a user sees their auto rate ranking, there's zero cross-sell. They just demonstrated buy-intent. Surface the renters page.
-
-**Where:** `/home/knighttyler/boringrate/index.html` — inside the `.result` section, after the `.rank-list` but before the email capture / footer.
-
-**Copy:** *"Also need renters insurance? Most carriers offer a 5-15% bundle discount. → Compare renters rates in [State]"* (state name from `stateData.name`) linking to `/renters/?zip=` + saved ZIP.
-
-**Approach:**
-- HTML element with id like `crossSellRenters`, inside `.result`
-- CSS for a editorial accent card (paper-deep bg, left accent stripe — same style as the carrier-link callout in articles)
-- JS in renderRanking: read zipInput and stateData.name, populate the link + state copy
-- Hidden in demo mode via `.result.demo #crossSellRenters { display: none; }`
+Open follow-ups (not yet signed off):
+- **Cross-sell the other direction** — renters→auto, and a home cross-sell.
+  Currently only auto results surface renters.
+- **Decide rate-display philosophy** — we now show absolute `$X/yr est.`
+  alongside "Save $X vs median". If the user prefers one or the other, easy to
+  adjust in each `renderRanking` (search `rank-premium`).
 
 ## Strategic roadmap (after these three)
 
