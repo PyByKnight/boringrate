@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "note": "Every entry MUST have a real source + url. Directional, attributed, never invented. pct is the filed/approved statewide AVERAGE change; individual rates vary by risk (regulators' own caveat).",
+    "national_2026": "Auto rates are rising more slowly in 2026 (~3% avg) than 2025's ~18% spike; many carriers are now FILING DECREASES after lower 2024-25 claim losses.",
+    "national_source": "Insurify 2026 Auto Insurance Report",
+    "national_url": "https://insurify.com/car-insurance/report/"
+  },
+  "changes": [
+    {"carrier":"American Family","state":"NV","pct":12.0,"dir":"increase","effective":"2026-01-01","affected":20535,"source":"Las Vegas Review-Journal (NV DOI filings)","url":"https://www.reviewjournal.com/business/500k-nevadans-to-see-auto-insurance-rates-increase-in-2026-3605020/"},
+    {"carrier":"Central Insurance","state":"NV","pct":17.5,"dir":"increase","effective":"2026-01-01","affected":1720,"source":"Las Vegas Review-Journal (NV DOI filings)","url":"https://www.reviewjournal.com/business/500k-nevadans-to-see-auto-insurance-rates-increase-in-2026-3605020/"},
+    {"carrier":"Essentia Insurance","state":"NV","pct":9.8,"dir":"increase","effective":"2026-01-01","affected":19760,"source":"Las Vegas Review-Journal (NV DOI filings)","url":"https://www.reviewjournal.com/business/500k-nevadans-to-see-auto-insurance-rates-increase-in-2026-3605020/"},
+    {"carrier":"State Farm","state":"NV","pct":2.7,"dir":"increase","effective":"2026-01-02","affected":424000,"source":"Las Vegas Review-Journal (NV DOI filings)","url":"https://www.reviewjournal.com/business/500k-nevadans-to-see-auto-insurance-rates-increase-in-2026-3605020/"},
+    {"carrier":"Viking Insurance of Wisconsin","state":"NV","pct":5.0,"dir":"increase","effective":"2026-01-12","affected":22537,"source":"Las Vegas Review-Journal (NV DOI filings)","url":"https://www.reviewjournal.com/business/500k-nevadans-to-see-auto-insurance-rates-increase-in-2026-3605020/"},
+    {"carrier":"Nationwide General","state":"NV","pct":7.2,"dir":"increase","effective":"2026-02-01","affected":927,"source":"Las Vegas Review-Journal (NV DOI filings)","url":"https://www.reviewjournal.com/business/500k-nevadans-to-see-auto-insurance-rates-increase-in-2026-3605020/"},
+    {"carrier":"Cincinnati Casualty","state":"NV","pct":20.4,"dir":"increase","effective":"2026-03-21","affected":2182,"source":"Las Vegas Review-Journal (NV DOI filings)","url":"https://www.reviewjournal.com/business/500k-nevadans-to-see-auto-insurance-rates-increase-in-2026-3605020/"},
+    {"carrier":"Allstate","state":"NV","pct":3.5,"dir":"increase","effective":"2026-04-06","affected":17504,"source":"Las Vegas Review-Journal (NV DOI filings)","url":"https://www.reviewjournal.com/business/500k-nevadans-to-see-auto-insurance-rates-increase-in-2026-3605020/"},
+
+    {"carrier":"Progressive Security","state":"LA","pct":6.6,"dir":"decrease","effective":"2026-01-16","renewal":"2026-02-13","affected":270000,"source":"Louisiana Dept. of Insurance","url":"https://ldi.la.gov/news/press-releases/1-7-26-progressive-approved-for-personal-auto-rate-decreases","note":"New business Jan 16; existing customers not until renewals begin Feb 13. Follows a 3.2% cut filed July 2025."},
+    {"carrier":"Progressive Paloverde","state":"LA","pct":4.0,"dir":"decrease","effective":"2026-01-16","renewal":"2026-02-13","affected":200000,"source":"Louisiana Dept. of Insurance","url":"https://ldi.la.gov/news/press-releases/1-7-26-progressive-approved-for-personal-auto-rate-decreases","note":"New business Jan 16; existing customers at renewal (from Feb 13)."}
+  ]
+}
