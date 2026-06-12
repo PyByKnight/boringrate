@@ -93,12 +93,17 @@ def state_page(code, changes):
     name, slug, _ = STATE[code]
     incs = [c for c in changes if c["dir"] == "increase"]
     decs = [c for c in changes if c["dir"] == "decrease"]
+    def phrase(n, verb):
+        return f"{n} carrier{'s' if n != 1 else ''} {verb}"
+    bits = []
+    if incs: bits.append(phrase(len(incs), "raised"))
+    if decs: bits.append(phrase(len(decs), "cut"))
+    summary = " and ".join(bits) if bits else "carriers changed"
     title = f"{name} Auto Insurance Rate Changes (2026) — Who Raised, Who Cut"
-    desc = (f"{len(incs)} carriers raised and {len(decs)} cut {name} auto rates in 2026. "
+    desc = (f"{summary[0].upper() + summary[1:]} {name} auto rates in 2026. "
             f"See the filings, effective dates, and whether you're getting the new rate.")
     h1 = f"{name} auto insurance rate changes in 2026"
-    dek = (f"{len(incs)} carrier{'s' if len(incs)!=1 else ''} raised rates and "
-           f"{len(decs)} cut them in {name} this year &mdash; from approved DOI filings. "
+    dek = (f"{summary[0].upper() + summary[1:]} rates in {name} this year &mdash; from approved DOI filings. "
            "Here&rsquo;s who, by how much, and whether your renewal reflects it.")
     parts = []
     decline_note = ""
@@ -128,18 +133,21 @@ def state_page(code, changes):
     parts.append('<p style="font-size:13px;color:var(--ink-mute);">Figures are filed/approved statewide '
                  'averages from each state&rsquo;s Department of Insurance; your individual change varies by '
                  'risk profile. Each row links to its source. Not a quote.</p>')
-    faq = [
-        (f"Which carriers raised car insurance rates in {name} in 2026?",
-         "; ".join(f'{c["carrier"]} ({"+" if c["dir"]=="increase" else "-"}{c["pct"]:g}%)' for c in incs[:6]) +
-         ". Each is an approved statewide-average filing — see the table for dates and sources."),
-        (f"Did any carrier cut rates in {name} in 2026?",
-         ("Yes — " + "; ".join(f'{c["carrier"]} (-{c["pct"]:g}%)' for c in decs) +
-          ". Cuts usually reach new customers first and existing customers at renewal.") if decs
-         else "No approved decreases are in our tracker for this state yet — check back as filings post."),
-        ("If my carrier cut rates, will my bill go down automatically?",
-         "Not necessarily. Decreases often apply to new business first and to existing customers only at "
-         "renewal. Re-shopping is the reliable way to capture the lowest current rate."),
-    ]
+    faq = []
+    if incs:
+        faq.append((f"Which carriers raised car insurance rates in {name} in 2026?",
+                    "; ".join(f'{c["carrier"]} (+{c["pct"]:g}%)' for c in incs[:6]) +
+                    ". Each is an approved statewide-average filing — see the table for dates and sources."))
+    if decs:
+        faq.append((f"Which carriers cut car insurance rates in {name} in 2026?",
+                    "; ".join(f'{c["carrier"]} (-{c["pct"]:g}%)' for c in decs) +
+                    ". Cuts usually reach new customers first and existing customers only at renewal."))
+    faq.append(("If my carrier cut rates, will my bill go down automatically?",
+                "Not necessarily. Decreases often apply to new business first and to existing customers only at "
+                "renewal. Re-shopping is the reliable way to capture the lowest current rate."))
+    faq.append((f"Where does this {name} rate-change data come from?",
+                "Approved rate filings from the state Department of Insurance and reputable outlets — each row "
+                "links to its source. Figures are statewide averages; your change depends on your risk profile."))
     return render(slug, title, desc, h1, dek, "\n".join(parts), faq)
 
 
@@ -162,6 +170,10 @@ def hub_page(data):
         'usually reaches new customers first &mdash; your own bill may not drop until renewal, if at all. '
         'A rate <em>hike</em>, though, hits at your next renewal. Either way, re-shopping is how you stay on the best price.</p></div>',
     ]
+    if m.get("dividend_note"):
+        parts.append('<div class="callout"><p><strong>Biggest 2026 story:</strong> '
+                     + esc(m["dividend_note"]) +
+                     f' (<a class="ca-link" href="{m["dividend_url"]}" target="_blank" rel="noopener nofollow">State Farm</a>)</p></div>')
     # deep-dive states (carrier-by-carrier filings)
     if states:
         parts.append('<h2>States we track carrier-by-carrier</h2>')

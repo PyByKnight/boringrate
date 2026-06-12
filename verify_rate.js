@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { JSDOM } = require("jsdom");
-const pages = ["article/rate-changes/index.html", "article/rate-changes/nevada.html", "article/rate-changes/louisiana.html"];
+const pages = ["article/rate-changes/index.html", "article/rate-changes/nevada.html", "article/rate-changes/louisiana.html", "article/rate-changes/california.html"];
 function check(p) {
   return new Promise(resolve => {
     const errs = [];

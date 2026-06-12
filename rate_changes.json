@@ -3,7 +3,9 @@
     "note": "Every entry MUST have a real source + url. Directional, attributed, never invented. pct is the filed/approved statewide AVERAGE change; individual rates vary by risk (regulators' own caveat).",
     "national_2026": "Auto rates are rising more slowly in 2026 (~3% avg) than 2025's ~18% spike; many carriers are now FILING DECREASES after lower 2024-25 claim losses.",
     "national_source": "Insurify 2026 Auto Insurance Report",
-    "national_url": "https://insurify.com/car-insurance/report/"
+    "national_url": "https://insurify.com/car-insurance/report/",
+    "dividend_note": "State Farm is returning a record $5 billion to auto customers in summer 2026 — about $100 per vehicle across 49M+ vehicles, the largest dividend in its 104-year history.",
+    "dividend_url": "https://newsroom.statefarm.com/state-farm-mutual-announces-5-billion-cash-back-to-auto-customers-through-largest-dividend-in-company-history/"
   },
   "statewide_2026": {
     "_source": "Insurify 2026 Auto Insurance Report (projected average change)",
@@ -29,6 +31,8 @@
     {"carrier":"Allstate","state":"NV","pct":3.5,"dir":"increase","effective":"2026-04-06","affected":17504,"source":"Las Vegas Review-Journal (NV DOI filings)","url":"https://www.reviewjournal.com/business/500k-nevadans-to-see-auto-insurance-rates-increase-in-2026-3605020/"},
 
     {"carrier":"Progressive Security","state":"LA","pct":6.6,"dir":"decrease","effective":"2026-01-16","renewal":"2026-02-13","affected":270000,"source":"Louisiana Dept. of Insurance","url":"https://ldi.la.gov/news/press-releases/1-7-26-progressive-approved-for-personal-auto-rate-decreases","note":"New business Jan 16; existing customers not until renewals begin Feb 13. Follows a 3.2% cut filed July 2025."},
-    {"carrier":"Progressive Paloverde","state":"LA","pct":4.0,"dir":"decrease","effective":"2026-01-16","renewal":"2026-02-13","affected":200000,"source":"Louisiana Dept. of Insurance","url":"https://ldi.la.gov/news/press-releases/1-7-26-progressive-approved-for-personal-auto-rate-decreases","note":"New business Jan 16; existing customers at renewal (from Feb 13)."}
+    {"carrier":"Progressive Paloverde","state":"LA","pct":4.0,"dir":"decrease","effective":"2026-01-16","renewal":"2026-02-13","affected":200000,"source":"Louisiana Dept. of Insurance","url":"https://ldi.la.gov/news/press-releases/1-7-26-progressive-approved-for-personal-auto-rate-decreases","note":"New business Jan 16; existing customers at renewal (from Feb 13)."},
+
+    {"carrier":"State Farm","state":"CA","pct":6.2,"dir":"decrease","effective":"2026-05-08","source":"State Farm Newsroom","url":"https://newsroom.statefarm.com/state-farm-seeks-62-auto-rate-reduction-for-california-drivers/","note":"Approved March 2026; effective May 8 for new business and renewals. California's largest auto insurer. Separately, State Farm is returning a record $5B auto dividend (~$100/vehicle) to qualifying customers nationwide in summer 2026."}
   ]
 }
