@@ -284,6 +284,13 @@ body.br-demo .refine-zip-row{display:none !important;}
 .rank-state-link a:hover{text-decoration:underline;}
 .rank-foot{font-family:var(--mono);font-size:10px;color:var(--ink-mute);letter-spacing:0.04em;margin-top:14px;line-height:1.6;}
 .rank-foot a{color:var(--ink-mute);}
+.cross-sell{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin:18px 0 0;padding:16px 20px;background:var(--paper-deep);border:1px solid var(--rule);border-left:3px solid var(--accent);font-family:var(--sans);text-decoration:none;color:var(--ink);}
+.cross-sell:hover{border-left-color:var(--ink);}
+.cross-sell-body{flex:1 1 240px;font-size:15px;line-height:1.45;color:var(--ink-soft);}
+.cross-sell-body strong{color:var(--ink);}
+.cross-sell-cta{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--accent);white-space:nowrap;}
+.cross-sell:hover .cross-sell-cta{text-decoration:underline;text-underline-offset:3px;}
+.result.demo #crossSellAuto{display:none;}
 .rank-sidebar{flex:0 0 260px;display:none;}
 .rank-sidebar.active{display:block;}
 .sidebar-card{border:1px solid var(--rule);padding:20px;background:var(--paper-deep);}
@@ -452,6 +459,14 @@ footer p{font-size:14px;color:rgba(246,241,232,.7);margin-top:12px;max-width:320
       <div class="rank-list" id="rankList"></div>
       <div class="rank-state-link" id="rankStateLink"></div>
       <div class="rank-foot" id="rankFoot"></div>
+      <!-- Cross-sell auto (bundle). Hidden in demo; populated in renderRanking. -->
+      <a class="cross-sell" id="crossSellAuto" href="/">
+        <span class="cross-sell-body">
+          <strong>Bundle your auto for a bigger discount.</strong>
+          Most homeowners save 10–25% bundling home + auto.
+        </span>
+        <span class="cross-sell-cta">Compare auto rates in <span id="crossSellAutoState">your state</span> &rarr;</span>
+      </a>
     </div>
     <div class="rank-sidebar" id="rankSidebar">
       <div class="sidebar-card">
@@ -1116,6 +1131,16 @@ function renderRanking() {
     'Estimates based on state avg rate &times; carrier price position from public filings. Not a quote. Rates in FL, LA, TX, OK, CO may vary significantly. NAIC marks reflect home complaint indices. <a href="/methodology.html">How we rank &rarr;</a>';
 
   document.getElementById("emailSection").style.display = "block";
+
+  // Cross-sell auto: homeowners bundle home + auto for the biggest discount.
+  var _csState = document.getElementById("crossSellAutoState");
+  var _csLink = document.getElementById("crossSellAuto");
+  if (_csState && _csLink) {
+    _csState.textContent = stateData.name;
+    var _csZip = document.getElementById("zipInput").value.trim();
+    _csLink.href = /^\d{5}$/.test(_csZip) ? "/?zip=" + _csZip : "/";
+  }
+
   renderAgentPanel();
 }
 
