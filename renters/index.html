@@ -214,6 +214,12 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .rank-stability[data-stab="4"] .rank-stab-dot.filled,.rank-stability[data-stab="5"] .rank-stab-dot.filled{background:var(--good);}
 .rank-stability[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 4px);left:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:11px;padding:7px 9px;width:260px;white-space:normal;line-height:1.45;z-index:20;pointer-events:none;}
 @media(max-width:700px){.refine-inner{gap:14px;}}
+@media(max-width:600px){ /* stack refine groups + bigger full-width pill tap targets */
+  .refine-inner{flex-direction:column;align-items:stretch;gap:14px;}
+  .refine-group{width:100%;}
+  .refine-group .pill-row{gap:6px;}
+  .refine-group .pill{flex:1 1 0;min-width:0;text-align:center;padding:9px 8px;font-size:13px;}
+}
 
 /* ── Result section ── */
 .result{display:none;padding:40px 0;scroll-margin-top:72px;}

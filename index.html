@@ -968,10 +968,15 @@
     .nav-dd-group:has(#navDdProductPanel) > .nav-dd-panel a:last-child { border-right: none; }
     .personalization-banner-cta { display: none; }
     .nav-mega-states { grid-template-columns: repeat(2, 1fr); }
-    .refine-always { flex-direction: column; align-items: flex-start; }
+    .refine-always { flex-direction: column; align-items: stretch; gap: 14px; }
     .refine-more-toggle { margin-left: 0; }
     .refine-grid { grid-template-columns: 1fr; }
     .refine-cov-grid { grid-template-columns: 1fr 1fr; }
+    /* Bigger, full-width pills = easier tap targets on phones */
+    .refine-pair { gap: 10px; }
+    .refine-pair .refine-q { flex: 1 1 0; min-width: 0; }
+    .refine-always .pill-row { gap: 6px; }
+    .refine-always .pill-row .pill { flex: 1 1 0; min-width: 0; text-align: center; padding: 9px 8px; font-size: 13px; }
     /* Tighter hero on phones — less vertical space before the ZIP box */
     .hero { padding: 16px 0 14px; }
     h1.hero-h { margin-bottom: 8px; }
