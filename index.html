@@ -2418,7 +2418,7 @@ const ZIP_PREFIX_METRO = {
   // Seattle outer — South Sound / Tacoma
   "983":"sea","984":"sea","985":"sea","986":"sea",
   // Denver outer — Castle Rock / Parker / Boulder
-  "807":"den","808":"den","809":"den",
+  "807":"den","808":"csp","809":"csp",
   // Austin outer — Kyle / Buda / Georgetown
   "785":"aus","788":"aus","789":"aus",
   // Nashville outer — Murfreesboro / Clarksville
@@ -2506,6 +2506,7 @@ const METRO_NAMES = {
   phx: "Phoenix metro",
   sea: "Seattle metro",
   den: "Denver metro",
+  csp: "Colorado Springs metro",
   min: "Minneapolis–St. Paul metro",
   det: "Detroit metro",
   tam: "Tampa–St. Pete metro",
@@ -2585,6 +2586,7 @@ const METRO_ABBR = {
   nyc: "NYC",          la:  "LA",           chi: "Chicago",      dfw: "DFW",
   hou: "Houston",      dc:  "DC",           mia: "Miami",        phl: "Philly",
   atl: "ATL",          phx: "PHX",          sea: "Seattle",      den: "Denver",
+  csp: "Colo. Springs",
   min: "MSP",          det: "Detroit",      tam: "Tampa",        clt: "Charlotte",
   por: "Portland",     stl: "St. Louis",    san: "San Antonio",  sac: "Sacramento",
   bal: "Baltimore",    ors: "Orlando",      cin: "Cincinnati",   pit: "Pittsburgh",
@@ -2621,6 +2623,7 @@ const METRO_CARRIER_ADJ = {
   phx: { "USAA":1.08,"GEICO":1.08,"State Farm":1.10,"Progressive":1.12,"Allstate":1.12,"Liberty Mutual":1.14,"Farmers":1.10,"Nationwide":1.10,"Erie Insurance":1.05,"American Family":1.08,"Amica Mutual":1.07,"Auto-Owners":1.07,"Travelers":1.13,"Safeco":1.07,"The Hartford":1.11,"Root Insurance":1.02 },
   sea: { "GEICO":1.04,"State Farm":1.06,"Progressive":1.05,"Allstate":1.08,"Liberty Mutual":1.10,"Farmers":1.07,"Nationwide":1.05,"USAA":1.03,"Erie Insurance":1.03,"American Family":1.05,"Amica Mutual":1.04,"Auto-Owners":1.04,"Travelers":1.07,"Safeco":1.01,"The Hartford":1.06,"Root Insurance":0.99 },
   den: { "GEICO":1.03,"State Farm":1.05,"Progressive":1.04,"Allstate":1.07,"Liberty Mutual":1.09,"Farmers":1.06,"Nationwide":1.04,"USAA":1.02,"Erie Insurance":1.03,"American Family":1.04,"Amica Mutual":1.04,"Auto-Owners":1.03,"Travelers":1.06,"Safeco":1.03,"The Hartford":1.04,"Root Insurance":0.98 },
+  csp: { "GEICO":1.01,"State Farm":1.03,"Progressive":1.02,"Allstate":1.05,"Liberty Mutual":1.07,"Farmers":1.04,"Nationwide":1.02,"USAA":1.00,"Erie Insurance":1.01,"American Family":1.02,"Amica Mutual":1.02,"Auto-Owners":1.01,"Travelers":1.04,"Safeco":1.01,"The Hartford":1.02,"Root Insurance":0.97 },
   min: { "GEICO":1.02,"State Farm":1.04,"Progressive":1.03,"Allstate":1.06,"Liberty Mutual":1.08,"Farmers":1.05,"Nationwide":1.03,"USAA":1.01,"Erie Insurance":1.02,"American Family":1.03,"Amica Mutual":1.03,"Auto-Owners":1.02,"Travelers":1.04,"Safeco":1.05,"The Hartford":1.03,"Root Insurance":0.97 },
   det: { "GEICO":1.18,"State Farm":1.20,"Progressive":1.15,"Allstate":1.22,"Liberty Mutual":1.25,"Farmers":1.16,"Nationwide":1.14,"USAA":1.12,"Erie Insurance":1.12,"American Family":1.14,"Amica Mutual":1.14,"Auto-Owners":1.14,"Travelers":1.16,"Safeco":1.16,"The Hartford":1.15,"Root Insurance":1.15 },
   tam: { "GEICO":1.07,"State Farm":1.09,"Progressive":1.08,"Allstate":1.11,"Liberty Mutual":1.13,"Farmers":1.08,"Nationwide":1.06,"USAA":1.05,"Erie Insurance":1.05,"American Family":1.06,"Amica Mutual":1.06,"Auto-Owners":1.07,"Travelers":1.08,"Safeco":1.08,"The Hartford":1.08,"Root Insurance":1.05 },
