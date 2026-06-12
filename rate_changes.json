@@ -5,6 +5,19 @@
     "national_source": "Insurify 2026 Auto Insurance Report",
     "national_url": "https://insurify.com/car-insurance/report/"
   },
+  "statewide_2026": {
+    "_source": "Insurify 2026 Auto Insurance Report (projected average change)",
+    "_url": "https://insurify.com/car-insurance/report/",
+    "AL":[1.1,1670],"AR":[-1.0,1761],"AZ":[0.8,1813],"CA":[1.0,2333],"CO":[0.0,2578],"CT":[1.0,2404],
+    "DE":[1.0,3009],"DC":[1.8,4088],"FL":[0.4,2734],"GA":[1.8,2992],"HI":[1.3,1580],"ID":[-0.5,1244],
+    "IL":[0.4,1793],"IN":[0.1,1487],"IA":[-1.3,1230],"KS":[0.4,1709],"KY":[1.2,2168],"LA":[-0.4,2361],
+    "ME":[0.8,1253],"MD":[-0.2,3594],"MA":[0.8,1730],"MI":[0.2,3079],"MN":[-1.3,2061],"MS":[0.3,2069],
+    "MO":[0.7,2076],"MT":[-0.3,1793],"NE":[-1.4,1517],"NV":[1.7,2945],"NH":[0.1,957],"NJ":[1.4,3024],
+    "NM":[-0.5,1596],"NY":[0.7,3041],"NC":[1.7,1300],"ND":[-0.6,1147],"OH":[0.7,1377],"OK":[1.2,1995],
+    "OR":[0.8,1715],"PA":[0.4,1867],"RI":[1.7,3450],"SC":[-0.2,2951],"SD":[0.8,1789],"TN":[0.7,1509],
+    "TX":[0.3,2477],"UT":[-0.9,1640],"VT":[-0.8,1595],"VA":[1.1,2325],"WA":[1.8,2009],"WV":[0.3,1718],
+    "WI":[-0.7,1393],"WY":[0.2,1054]
+  },
   "changes": [
     {"carrier":"American Family","state":"NV","pct":12.0,"dir":"increase","effective":"2026-01-01","affected":20535,"source":"Las Vegas Review-Journal (NV DOI filings)","url":"https://www.reviewjournal.com/business/500k-nevadans-to-see-auto-insurance-rates-increase-in-2026-3605020/"},
     {"carrier":"Central Insurance","state":"NV","pct":17.5,"dir":"increase","effective":"2026-01-01","affected":1720,"source":"Las Vegas Review-Journal (NV DOI filings)","url":"https://www.reviewjournal.com/business/500k-nevadans-to-see-auto-insurance-rates-increase-in-2026-3605020/"},

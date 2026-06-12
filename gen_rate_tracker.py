@@ -154,26 +154,52 @@ def hub_page(data):
     h1 = "Auto insurance rate change tracker &mdash; 2026"
     dek = ("Who&rsquo;s raising rates, who&rsquo;s cutting, and whether your renewal reflects it &mdash; "
            "tracked from state Department of Insurance filings.")
+    sw = data["statewide_2026"]
     parts = [
         f'<p>{esc(m["national_2026"])} '
         f'(<a class="ca-link" href="{m["national_url"]}" target="_blank" rel="noopener nofollow">{esc(m["national_source"])}</a>)</p>',
         '<div class="callout"><p><strong>The catch most drivers miss:</strong> an approved rate <em>cut</em> '
         'usually reaches new customers first &mdash; your own bill may not drop until renewal, if at all. '
         'A rate <em>hike</em>, though, hits at your next renewal. Either way, re-shopping is how you stay on the best price.</p></div>',
-        '<h2>Rate changes by state</h2>',
     ]
-    for s in states:
-        name, slug, _ = STATE[s]
-        incs = sum(1 for c in by_state[s] if c["dir"] == "increase")
-        decs = sum(1 for c in by_state[s] if c["dir"] == "decrease")
-        bits = []
-        if incs: bits.append(f'<span style="color:{RED};">{incs} raised</span>')
-        if decs: bits.append(f'<span style="color:{GREEN};">{decs} cut</span>')
-        parts.append(f'<p style="margin:6px 0;"><a class="ca-link" href="/article/rate-changes/{slug}.html">'
-                     f'{esc(name)} rate changes &rarr;</a> &nbsp;&middot;&nbsp; {", ".join(bits)}</p>')
-    parts.append('<p style="font-size:13px;color:var(--ink-mute);margin-top:20px;">Every figure is a '
-                 'filed/approved statewide-average change from a state Department of Insurance, linked to its '
-                 'source. Individual rates vary by risk. Coverage expands as filings post. Not a quote.</p>')
+    # deep-dive states (carrier-by-carrier filings)
+    if states:
+        parts.append('<h2>States we track carrier-by-carrier</h2>')
+        for s in states:
+            name, slug, _ = STATE[s]
+            incs = sum(1 for c in by_state[s] if c["dir"] == "increase")
+            decs = sum(1 for c in by_state[s] if c["dir"] == "decrease")
+            bits = []
+            if incs: bits.append(f'<span style="color:{RED};">{incs} raised</span>')
+            if decs: bits.append(f'<span style="color:{GREEN};">{decs} cut</span>')
+            parts.append(f'<p style="margin:6px 0;"><a class="ca-link" href="/article/rate-changes/{slug}.html">'
+                         f'{esc(name)} rate-change tracker &rarr;</a> &nbsp;&middot;&nbsp; {", ".join(bits)}</p>')
+    # full 51-state projected-change table (the supplement)
+    parts.append('<h2>2026 projected rate change &mdash; every state</h2>')
+    parts.append('<p>Projected statewide <em>average</em> change for 2026 from '
+                 f'<a class="ca-link" href="{sw["_url"]}" target="_blank" rel="noopener nofollow">{esc(sw["_source"])}</a>. '
+                 'These are modest market-wide projections &mdash; individual carriers still file double-digit '
+                 'moves (see the trackers above). Your own rate depends on your ZIP and profile.</p>')
+    deep = set(states)
+    rows = []
+    for code in sorted([k for k in sw if not k.startswith("_")], key=lambda c: STATE[c][0]):
+        name, slug, _ = STATE[code]
+        pct, prem = sw[code]
+        color = RED if pct > 0 else (GREEN if pct < 0 else "var(--ink-mute)")
+        chg = ("+" if pct > 0 else ("−" if pct < 0 else "±")) + f"{abs(pct):g}%"
+        if code in deep:
+            link = f'<a class="ca-link" href="/article/rate-changes/{slug}.html">tracker &rarr;</a>'
+        else:
+            link = f'<a class="ca-link" href="/article/state/{slug}.html">state report &rarr;</a>'
+        rows.append(f'<tr style="border-bottom:1px solid var(--rule);"><td style="padding:7px 8px;">{esc(name)}</td>'
+                    f'<td style="color:{color};font-weight:600;">{chg}</td><td>${prem:,}</td><td style="font-size:13px;">{link}</td></tr>')
+    parts.append('<table style="width:100%;border-collapse:collapse;font-size:15px;margin:14px 0;">'
+                 '<thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">'
+                 '<th style="padding:8px;">State</th><th>2026 proj.</th><th>Avg premium</th><th></th></tr></thead><tbody>'
+                 + "".join(rows) + '</tbody></table>')
+    parts.append('<p style="font-size:13px;color:var(--ink-mute);margin-top:18px;">Carrier filings are '
+                 'filed/approved statewide-average changes from state Departments of Insurance (each row linked to '
+                 'its source). State projections are Insurify forecasts. Individual rates vary by risk. Not a quote.</p>')
     faq = [
         ("Are auto insurance rates going up or down in 2026?",
          esc(m["national_2026"])),
