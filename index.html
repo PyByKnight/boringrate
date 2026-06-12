@@ -63,6 +63,7 @@
   }
 
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+  @media (max-width: 600px) { .wrap { padding: 0 14px; } } /* widen content (incl. rank section) toward screen edges on mobile */
 
   /* ── Top bar ─────────────────────────────────────────────── */
   header.top {
@@ -226,7 +227,7 @@
   }
   .coverage-nudge a:hover { text-decoration: underline; }
   /* ── RESULT BLOCK ───────────────────────────────────────── */
-  .result { padding: 24px 0; border-bottom: 1px solid var(--rule); display: none; }
+  .result { padding: 24px 0; border-bottom: 1px solid var(--rule); display: none; scroll-margin-top: 72px; }
   .result.active { display: block; }
 
   /* Compact state label — replaces verbose headline block */
@@ -5257,7 +5258,7 @@ document.getElementById("zipForm").addEventListener("submit", e => {
   renderRanking();
   document.getElementById("result").classList.remove("demo");
   document.getElementById("result").classList.add("active");
-  (document.getElementById("refineZipRow") || document.getElementById("result")).scrollIntoView({ behavior: "smooth", block: "start" });
+  document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 document.querySelectorAll("#refineBar .pill-row[data-toggle]").forEach(group => {
@@ -5416,7 +5417,7 @@ document.getElementById("zipInput").addEventListener("input", e => {
     document.getElementById("result").classList.remove("demo");
     document.getElementById("result").classList.add("active");
     setTimeout(() => {
-      (document.getElementById("refineZipRow") || document.getElementById("result")).scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
   }
 })();
