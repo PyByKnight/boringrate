@@ -107,6 +107,32 @@ names now wrap. Note: home rows never had a Research link or Compare box.
 3. The (i) icon replaced the Research text link on DESKTOP too. If you want the
    desktop text back, gate `.rank-review-icon` styles to the mobile media query.
 
+## Metro page expansion (2026-06-12)
+
+Two generators added:
+- `gen_metro_page.py` — `build_page(cfg)` builds one metro page from the
+  `article/metro/atlanta.html` template (state-base × metro-offset; see
+  [[boringrate-metro-model]]). Full SEO (title/meta/OG/Twitter/canonical,
+  FAQPage+BreadcrumbList schema, sticky CTA). `STATE` dict mirrors STATE_DATA.
+- `gen_metros_batch.py` — adds a list of metros: generates pages **and** wires the
+  tool (`METRO_NAMES`, `METRO_CARRIER_ADJ` via a carrier `SPREAD` around the offset,
+  `ZIP_PREFIX_METRO` add/reassign), sitemap, and state-page links. Re-runnable.
+  **To add more metros: append to `METROS` (slug, name, state, offset, key, zips) and
+  run `python3 gen_metros_batch.py`.** ZIP reassign is replace-all (a dup "374" key
+  bit us once — JS last-wins).
+
+Done so far: 84 → 95 metros. Colorado Springs (pilot) + batch of 11 (Grand Rapids,
+Reno, Worcester, Allentown, Savannah, Pensacola, Asheville, Lexington; splits:
+Dayton←Cincinnati, Akron←Cleveland, Chattanooga←Nashville).
+
+**Still deferred: nav mega-menu** lists all metros and is duplicated across 410+
+pages — new metros aren't in it yet (reachable via state links + sitemap). Worth a
+batch patch (like `patch_article_sticky_cta.py`) for internal-link SEO. Offsets are
+directional; offset moves price level only, NOT carrier ranking.
+
+Note: state coverage is COMPLETE (930/930 ZIP3 prefixes → no national-fallback bug).
+ZIP→metro is ~543/930 (rest legitimately state-only/rural).
+
 ## Analytics event layer (built 2026-06-11 — connect a vendor to go live)
 
 A vendor-agnostic `window.track(name, props)` is defined in `<head>` of all three
