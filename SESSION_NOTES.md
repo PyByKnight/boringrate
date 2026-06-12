@@ -80,6 +80,23 @@ Open follow-ups (not yet signed off):
   alongside "Save $X vs median". If the user prefers one or the other, easy to
   adjust in each `renderRanking` (search `rank-premium`).
 
+## Mobile rank-row streamline (2026-06-11)
+
+Mobile-only (auto ≤800px, home/renters ≤600px); **desktop untouched**. Rows now
+show: carrier name + tagline, Rate Stability score (with an inline "Rate
+Stability" label via `.rank-stability::after`, since the column header is
+desktop-only), and the rate/quote box (`$X/yr est.` + Save/quote). Hidden on
+mobile: `.rank-grade` (Customer Service), `.rank-review-link` (BoringRate
+Research), `.rank-cb` (Compare), and `.rank-mark` (NAIC, renters/home only).
+Quote box is `min-width:0` on mobile so carrier names keep room.
+
+**Two judgment calls to confirm on a phone:**
+1. NAIC quality mark hidden on mobile — stability is the single mobile quality
+   signal (auto's NAIC lived in the removed grade's tooltip, so this keeps the 3
+   pages consistent). Un-hide `.rank-mark` in the mobile blocks if you want it back.
+2. "Rate Stability header" was implemented as a per-row inline label, not a
+   single header at the top of the list.
+
 ## Analytics event layer (built 2026-06-11 — connect a vendor to go live)
 
 A vendor-agnostic `window.track(name, props)` is defined in `<head>` of all three
