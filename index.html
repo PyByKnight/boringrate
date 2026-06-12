@@ -435,6 +435,12 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
+  .rank-median-top { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; padding: 12px 22px; background: var(--ink); color: var(--paper); }
+  .rmt-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(246,241,232,0.6); }
+  .rmt-val { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--paper); letter-spacing: -0.01em; }
+  .rmt-yr { font-size: 12px; font-weight: 400; color: rgba(246,241,232,0.55); margin-left: 2px; }
+  .rmt-note { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.5); letter-spacing: 0.04em; margin-left: auto; }
+  @media (max-width: 600px) { .rmt-note { margin-left: 0; flex-basis: 100%; } .rmt-val { font-size: 19px; } }
   .rank-col-head { display: grid; grid-template-columns: 44px 1fr auto auto auto; gap: 12px; align-items: center; padding: 8px 22px; border-bottom: 1px solid var(--rule); background: var(--paper-deep); }
   .rank-col-head.visible { display: grid; }
   .rank-col-h { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); text-align: center; white-space: nowrap; position: relative; }
@@ -5062,6 +5068,16 @@ function renderRanking() {
 
   const list = document.getElementById("rankList");
   list.innerHTML = "";
+
+  // Median anchor at the top of the results — gives "Save $X" a clear reference point
+  const medTop = document.createElement("div");
+  medTop.className = "rank-median-top";
+  const _medWhere = currentMetro ? (METRO_NAMES[currentMetro] || "your area") : stateData.name;
+  medTop.innerHTML =
+    '<span class="rmt-label">Median rate · ' + _medWhere + '</span>' +
+    '<span class="rmt-val">$' + median.toLocaleString() + '<span class="rmt-yr">/yr</span></span>' +
+    '<span class="rmt-note">&ldquo;Save&rdquo; = below this median</span>';
+  list.appendChild(medTop);
 
   const colHeadRow = document.createElement("div");
   colHeadRow.className = "rank-col-head";

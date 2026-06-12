@@ -52,6 +52,8 @@ function run(file, zip, product) {
         out.firstSave = (first.querySelector(".qcta-save") || {}).textContent;
         out.firstQuoteHref = (first.querySelector(".rank-quote-cta") || {}).getAttribute && first.querySelector(".rank-quote-cta").getAttribute("href");
       }
+      const mt = d.querySelector(".rank-median-top");
+      out.medianTop = mt ? mt.textContent.replace(/\s+/g, " ").trim() : "(none)";
       const cs = d.getElementById("crossSellRenters") || d.getElementById("crossSellAuto");
       if (cs) out.crossSell = { id: cs.id, href: cs.getAttribute("href"), state: (d.getElementById("crossSellState")||d.getElementById("crossSellAutoState")||{}).textContent };
       const ez = d.getElementById("emailZipInput");
