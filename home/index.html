@@ -198,18 +198,22 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .rank-stability[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 4px);left:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:11px;padding:7px 9px;width:260px;white-space:normal;line-height:1.45;z-index:1000;pointer-events:none;}
 @media(max-width:700px){.refine-inner{gap:14px;}}
 @media(max-width:600px){
+  /* Streamlined mobile rank row: carrier + tagline, rate stability, rate/quote box. */
   .rank-col-head{display:none!important;}
-  .rank-row{grid-template-columns:32px 1fr auto auto;grid-template-rows:auto auto;padding:12px 14px;gap:4px 10px;}
-  .rank-num{grid-column:1;grid-row:1/span 2;align-self:center;}
+  .rank-row{grid-template-columns:30px 1fr auto;grid-template-rows:auto auto;padding:14px;gap:6px 12px;}
+  .rank-num{grid-column:1;grid-row:1;align-self:start;}
   .rank-name-wrap{grid-column:2;grid-row:1;}
-  .rank-grade{grid-column:2;grid-row:2;width:28px;height:28px;align-self:start;}
-  .rank-stability{grid-column:3;grid-row:2;align-self:start;}
-  .rank-stability-label{display:none;}
+  .rank-stability{grid-column:2;grid-row:2;align-self:center;display:inline-flex;align-items:center;gap:7px;}
+  .rank-stability::after{content:"Rate Stability";font-family:var(--mono);font-size:9px;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-mute);white-space:nowrap;}
   .rank-stab-dot.empty{border-color:var(--rule);}
-  .rank-mark{grid-column:3;grid-row:1;align-self:center;}
-  .rank-cta{grid-column:4;grid-row:1/span 2;align-self:center;}
-  .rank-quote-cta{padding:7px 10px;}
-  .median-divider{grid-template-columns:32px 1fr;padding:8px 14px;}
+  .rank-cta{grid-column:3;grid-row:1/span 2;align-self:center;}
+  /* Hidden on mobile to declutter — desktop still shows these */
+  .rank-grade{display:none;}
+  .rank-mark{display:none;}
+  .rank-review-link{display:none;}
+  .rank-cb{display:none;}
+  .rank-quote-cta{min-width:0;padding:7px 10px;} /* content-sized on mobile so the carrier name keeps room */
+  .median-divider{grid-template-columns:30px 1fr;padding:8px 14px;}
 }
 .result{display:none;padding:40px 0;}
 .result.active{display:block;}
