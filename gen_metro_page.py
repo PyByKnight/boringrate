@@ -15,10 +15,21 @@ ROOT = pathlib.Path(__file__).parent
 TEMPLATE = ROOT / "article" / "metro" / "atlanta.html"
 NATIONAL_AVG = 2400  # baseline implied by existing pages (Atlanta $3,600 = +50%)
 
-# state code -> (display name, slug, state avg). Extend as needed.
-STATE = {
-    "CO": ("Colorado", "colorado", 1706),
-}
+# state code -> (display name, slug, state avg). Mirrors STATE_DATA in index.html.
+_ST = {'AL':('Alabama',2468),'AK':('Alaska',2314),'AZ':('Arizona',2578),'AR':('Arkansas',2362),
+'CA':('California',3668),'CO':('Colorado',1706),'CT':('Connecticut',3124),'DC':('Washington D.C.',3486),
+'DE':('Delaware',3218),'FL':('Florida',4848),'GA':('Georgia',3224),'HI':('Hawaii',1446),'ID':('Idaho',1654),
+'IL':('Illinois',2194),'IN':('Indiana',1842),'IA':('Iowa',1586),'KS':('Kansas',2124),'KY':('Kentucky',2756),
+'LA':('Louisiana',4612),'ME':('Maine',1468),'MD':('Maryland',2986),'MA':('Massachusetts',2842),
+'MI':('Michigan',4724),'MN':('Minnesota',2214),'MS':('Mississippi',2438),'MO':('Missouri',2648),
+'MT':('Montana',2268),'NE':('Nebraska',2012),'NV':('Nevada',3842),'NH':('New Hampshire',1624),
+'NJ':('New Jersey',3486),'NM':('New Mexico',2314),'NY':('New York',3484),'NC':('North Carolina',1842),
+'ND':('North Dakota',1748),'OH':('Ohio',1724),'OK':('Oklahoma',2648),'OR':('Oregon',1986),
+'PA':('Pennsylvania',2468),'RI':('Rhode Island',3124),'SC':('South Carolina',2586),'SD':('South Dakota',1986),
+'TN':('Tennessee',2124),'TX':('Texas',3136),'UT':('Utah',2468),'VT':('Vermont',1524),'VA':('Virginia',1924),
+'WA':('Washington',2312),'WV':('West Virginia',2124),'WI':('Wisconsin',1724),'WY':('Wyoming',1986)}
+def _slug(n): return n.lower().replace('.', '').replace(' ', '-')
+STATE = {k: (v[0], _slug(v[0]), v[1]) for k, v in _ST.items()}
 
 
 def pct_phrase(metro_avg):

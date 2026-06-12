@@ -2272,6 +2272,20 @@ const NAIC_RATIOS = {
 
 // Top 10 metro areas — 3-digit ZIP prefix → metro code
 const ZIP_PREFIX_METRO = {
+  "455":"day",
+  "405":"lex",
+  "288":"avl",
+  "325":"pns",
+  "314":"sav",
+  "181":"abe",
+  "180":"abe",
+  "016":"wor",
+  "015":"wor",
+  "897":"rno",
+  "895":"rno",
+  "496":"grr",
+  "495":"grr",
+  "493":"grr",
   // New York City metro (NY + inner NJ)
   "100":"nyc","101":"nyc","102":"nyc","103":"nyc","104":"nyc",
   "110":"nyc","111":"nyc","112":"nyc","113":"nyc","114":"nyc",
@@ -2331,11 +2345,11 @@ const ZIP_PREFIX_METRO = {
   // Orlando metro
   "327":"ors","328":"ors","329":"ors","347":"ors",
   // Cincinnati metro
-  "410":"cin","411":"cin","450":"cin","451":"cin","452":"cin","453":"cin","454":"cin","456":"cin",
+  "410":"cin","411":"cin","450":"cin","451":"cin","452":"cin","453":"day","454":"day","456":"cin",
   // Pittsburgh metro
   "150":"pit","151":"pit","152":"pit","153":"pit","154":"pit","155":"pit","156":"pit",
   // Cleveland metro
-  "440":"cle","441":"cle","442":"cle","443":"cle","444":"cle","445":"cle",
+  "440":"cle","441":"cle","442":"cle","443":"akr","444":"cle","445":"cle",
   // Indianapolis metro
   "460":"ind","461":"ind","462":"ind","463":"ind","464":"ind","465":"ind","466":"ind",
   // Columbus metro
@@ -2343,7 +2357,7 @@ const ZIP_PREFIX_METRO = {
   // Salt Lake City metro
   "840":"slc","841":"slc","842":"slc","843":"slc","844":"slc",
   // Nashville metro
-  "370":"nas","371":"nas","372":"nas","373":"nas","374":"nas",
+  "370":"nas","371":"nas","372":"nas","373":"cha","374":"cha",
   // Milwaukee metro
   "530":"mke","531":"mke","532":"mke","534":"mke","535":"mke",
   // Austin metro
@@ -2422,7 +2436,7 @@ const ZIP_PREFIX_METRO = {
   // Austin outer — Kyle / Buda / Georgetown
   "785":"aus","788":"aus","789":"aus",
   // Nashville outer — Murfreesboro / Clarksville
-  "374":"nas","375":"nas","376":"nas",
+  "374":"cha","375":"nas","376":"nas",
   // Minneapolis outer — Anoka / Dakota / Scott counties
   "552":"min","556":"min","557":"min","558":"min",
   // Phoenix outer — Gilbert / Chandler / Queen Creek
@@ -2494,6 +2508,17 @@ const ZIP_PREFIX_METRO = {
 };
 
 const METRO_NAMES = {
+  cha: "Chattanooga metro",
+  akr: "Akron metro",
+  day: "Dayton metro",
+  lex: "Lexington metro",
+  avl: "Asheville metro",
+  pns: "Pensacola metro",
+  sav: "Savannah metro",
+  abe: "Allentown metro",
+  wor: "Worcester metro",
+  rno: "Reno metro",
+  grr: "Grand Rapids metro",
   nyc: "New York City metro",
   la:  "Los Angeles metro",
   chi: "Chicago metro",
@@ -2611,6 +2636,17 @@ const METRO_ABBR = {
 // Additional multiplier on top of state adjustment — metro rates vs. rest of state.
 // Calibrated from NAIC market data and rate filing patterns.
 const METRO_CARRIER_ADJ = {
+  cha: { "GEICO":0.94,"State Farm":0.96,"Progressive":0.95,"Allstate":0.98,"Liberty Mutual":1.0,"Farmers":0.97,"Nationwide":0.95,"USAA":0.93,"Erie Insurance":0.94,"American Family":0.95,"Amica Mutual":0.95,"Auto-Owners":0.94,"Travelers":0.97,"Safeco":0.94,"The Hartford":0.95,"Root Insurance":0.89 },
+  akr: { "GEICO":0.99,"State Farm":1.01,"Progressive":1.0,"Allstate":1.03,"Liberty Mutual":1.05,"Farmers":1.02,"Nationwide":1.0,"USAA":0.98,"Erie Insurance":0.99,"American Family":1.0,"Amica Mutual":1.0,"Auto-Owners":0.99,"Travelers":1.02,"Safeco":0.99,"The Hartford":1.0,"Root Insurance":0.94 },
+  day: { "GEICO":0.99,"State Farm":1.01,"Progressive":1.0,"Allstate":1.03,"Liberty Mutual":1.05,"Farmers":1.02,"Nationwide":1.0,"USAA":0.98,"Erie Insurance":0.99,"American Family":1.0,"Amica Mutual":1.0,"Auto-Owners":0.99,"Travelers":1.02,"Safeco":0.99,"The Hartford":1.0,"Root Insurance":0.94 },
+  lex: { "GEICO":0.91,"State Farm":0.93,"Progressive":0.92,"Allstate":0.95,"Liberty Mutual":0.97,"Farmers":0.94,"Nationwide":0.92,"USAA":0.9,"Erie Insurance":0.91,"American Family":0.92,"Amica Mutual":0.92,"Auto-Owners":0.91,"Travelers":0.94,"Safeco":0.91,"The Hartford":0.92,"Root Insurance":0.86 },
+  avl: { "GEICO":0.99,"State Farm":1.01,"Progressive":1.0,"Allstate":1.03,"Liberty Mutual":1.05,"Farmers":1.02,"Nationwide":1.0,"USAA":0.98,"Erie Insurance":0.99,"American Family":1.0,"Amica Mutual":1.0,"Auto-Owners":0.99,"Travelers":1.02,"Safeco":0.99,"The Hartford":1.0,"Root Insurance":0.94 },
+  pns: { "GEICO":0.85,"State Farm":0.85,"Progressive":0.85,"Allstate":0.85,"Liberty Mutual":0.85,"Farmers":0.85,"Nationwide":0.85,"USAA":0.85,"Erie Insurance":0.85,"American Family":0.85,"Amica Mutual":0.85,"Auto-Owners":0.85,"Travelers":0.85,"Safeco":0.85,"The Hartford":0.85,"Root Insurance":0.85 },
+  sav: { "GEICO":0.87,"State Farm":0.89,"Progressive":0.88,"Allstate":0.91,"Liberty Mutual":0.93,"Farmers":0.9,"Nationwide":0.88,"USAA":0.86,"Erie Insurance":0.87,"American Family":0.88,"Amica Mutual":0.88,"Auto-Owners":0.87,"Travelers":0.9,"Safeco":0.87,"The Hartford":0.88,"Root Insurance":0.85 },
+  abe: { "GEICO":0.94,"State Farm":0.96,"Progressive":0.95,"Allstate":0.98,"Liberty Mutual":1.0,"Farmers":0.97,"Nationwide":0.95,"USAA":0.93,"Erie Insurance":0.94,"American Family":0.95,"Amica Mutual":0.95,"Auto-Owners":0.94,"Travelers":0.97,"Safeco":0.94,"The Hartford":0.95,"Root Insurance":0.89 },
+  wor: { "GEICO":0.92,"State Farm":0.94,"Progressive":0.93,"Allstate":0.96,"Liberty Mutual":0.98,"Farmers":0.95,"Nationwide":0.93,"USAA":0.91,"Erie Insurance":0.92,"American Family":0.93,"Amica Mutual":0.93,"Auto-Owners":0.92,"Travelers":0.95,"Safeco":0.92,"The Hartford":0.93,"Root Insurance":0.87 },
+  rno: { "GEICO":0.85,"State Farm":0.85,"Progressive":0.85,"Allstate":0.85,"Liberty Mutual":0.85,"Farmers":0.85,"Nationwide":0.85,"USAA":0.85,"Erie Insurance":0.85,"American Family":0.85,"Amica Mutual":0.85,"Auto-Owners":0.85,"Travelers":0.85,"Safeco":0.85,"The Hartford":0.85,"Root Insurance":0.85 },
+  grr: { "GEICO":0.85,"State Farm":0.85,"Progressive":0.85,"Allstate":0.85,"Liberty Mutual":0.85,"Farmers":0.85,"Nationwide":0.85,"USAA":0.85,"Erie Insurance":0.85,"American Family":0.85,"Amica Mutual":0.85,"Auto-Owners":0.85,"Travelers":0.85,"Safeco":0.85,"The Hartford":0.85,"Root Insurance":0.85 },
   nyc: { "USAA":1.38,"GEICO":1.30,"State Farm":1.40,"Progressive":1.35,"Allstate":1.42,"Liberty Mutual":1.46,"Farmers":1.42,"Nationwide":1.38,"Erie Insurance":1.28,"American Family":1.32,"Amica Mutual":1.26,"Auto-Owners":1.30,"Travelers":1.32,"Safeco":1.42,"The Hartford":1.34,"Root Insurance":1.22 },
   la:  { "USAA":1.22,"GEICO":1.20,"State Farm":1.18,"Progressive":1.25,"Allstate":1.28,"Liberty Mutual":1.30,"Farmers":1.16,"Nationwide":1.22,"Erie Insurance":1.14,"American Family":1.18,"Amica Mutual":1.16,"Auto-Owners":1.16,"Travelers":1.26,"Safeco":1.18,"The Hartford":1.23,"Root Insurance":1.18 },
   chi: { "USAA":1.28,"GEICO":1.26,"State Farm":1.20,"Progressive":1.28,"Allstate":1.22,"Liberty Mutual":1.32,"Farmers":1.28,"Nationwide":1.26,"Erie Insurance":1.18,"American Family":1.22,"Amica Mutual":1.20,"Auto-Owners":1.20,"Travelers":1.27,"Safeco":1.29,"The Hartford":1.26,"Root Insurance":1.14 },
