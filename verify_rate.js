@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { JSDOM } = require("jsdom");
-const pages = ["article/rate-changes/index.html", "article/rate-changes/nevada.html", "article/rate-changes/louisiana.html", "article/rate-changes/california.html"];
+const pages = fs.readdirSync("article/rate-changes").filter(f => f.endsWith(".html")).map(f => "article/rate-changes/" + f);
 function check(p) {
   return new Promise(resolve => {
     const errs = [];

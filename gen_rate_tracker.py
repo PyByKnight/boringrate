@@ -18,8 +18,12 @@ MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 
 
 def fdate(iso):
-    y, m, d = iso.split("-")
-    return f"{MONTHS[int(m)]} {int(d)}, {y}"
+    p = iso.split("-")
+    if len(p) == 1:
+        return p[0]                                  # year only
+    if len(p) == 2:
+        return f"{MONTHS[int(p[1])]} {p[0]}"         # year-month
+    return f"{MONTHS[int(p[1])]} {int(p[2])}, {p[0]}"
 
 
 def signed(c):
