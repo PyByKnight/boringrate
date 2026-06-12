@@ -975,6 +975,7 @@
     /* Bigger, full-width pills = easier tap targets on phones */
     .refine-pair { gap: 10px; }
     .refine-pair .refine-q { flex: 1 1 0; min-width: 0; }
+    .refine-q-coverage { align-items: stretch; }
     .refine-always .pill-row { gap: 6px; }
     .refine-always .pill-row .pill { flex: 1 1 0; min-width: 0; text-align: center; padding: 9px 8px; font-size: 13px; }
     /* Tighter hero on phones — less vertical space before the ZIP box */
@@ -1330,7 +1331,7 @@
 .refine:not(.open) .refine-always { display: none !important; }
 .refine.open .refine-always { display: flex !important; }
 @media (max-width: 480px) {
-  .refine.open .refine-always { flex-direction: column; align-items: flex-start; }
+  .refine.open .refine-always { flex-direction: column; align-items: stretch; }
 }
 
 /* ── Hide visual clutter that pads space above the rank table ── */
