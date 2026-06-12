@@ -530,6 +530,9 @@
   .rank-hero-label { font-weight: 600; color: var(--ink); }
   .rank-review-link { font-size: 10px; font-family: var(--mono); letter-spacing: 0.05em; color: var(--ink-mute); margin-top: 4px; display: inline-block; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--rule); transition: color 120ms; }
   .rank-review-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
+  /* Compact (i) variant — sits inline next to the carrier name */
+  .rank-review-link.rank-review-icon { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; margin: 0 0 0 7px; padding: 0; border: 1px solid var(--ink-mute); border-radius: 50%; font-family: var(--serif); font-style: italic; font-size: 11px; font-weight: 600; line-height: 1; color: var(--ink-mute); text-decoration: none; vertical-align: middle; cursor: pointer; transition: color 120ms, border-color 120ms; }
+  .rank-review-link.rank-review-icon:hover { color: var(--accent); border-color: var(--accent); }
 
   .rank-mark {
     width: 24px; height: 24px;
@@ -886,18 +889,20 @@
        and the rate/quote box. Secondary signals hidden (see below). */
     .rank-row { grid-template-columns: 30px 1fr auto; grid-template-rows: auto auto; column-gap: 12px; row-gap: 6px; padding: 14px; }
     .rank-num { grid-column: 1; grid-row: 1; align-self: start; }
-    .rank-name-wrap { grid-column: 2; grid-row: 1; }
+    .rank-name-wrap { grid-column: 2; grid-row: 1; min-width: 0; }
     .rank-stability { grid-column: 2; grid-row: 2; align-self: center; display: inline-flex; align-items: center; gap: 7px; }
     .rank-stability::after { content: "Rate Stability"; font-family: var(--mono); font-size: 9px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-mute); white-space: nowrap; }
     .rank-stab-dot.empty { border-color: var(--rule); }
     .rank-cta { grid-column: 3; grid-row: 1 / span 2; align-self: center; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-    .rank-quote-cta { min-width: 0; padding: 7px 10px; } /* content-sized on mobile so the carrier name keeps room */
+    /* Fixed-width quote box → uniform across rows and never bleeds past the row */
+    .rank-quote-cta { width: 144px; min-width: 0; box-sizing: border-box; padding: 7px 8px; }
+    .qcta-save { font-size: 12px; }
+    .qcta-action { font-size: 8.5px; display: block; width: 100%; text-align: center; overflow: hidden; text-overflow: ellipsis; }
     /* Hidden on mobile to declutter — desktop still shows these */
-    .rank-grade { display: none; }
-    .rank-review-link { display: none; }
-    .rank-cb { display: none; }
+    .rank-grade { display: none !important; }
+    .rank-cb { display: none !important; }
     .rank-col-head { display: none; }
-    .rank-name { font-size: 16px; }
+    .rank-name { font-size: 16px; overflow-wrap: anywhere; }
     .rank-tag { font-size: 11px; }
     .median-divider { grid-template-columns: 30px 1fr auto; padding: 6px 16px; font-size: 10px; }
     .state-banner-inner { flex-wrap: nowrap; padding: 8px 16px; gap: 8px; justify-content: flex-start; }
@@ -5037,7 +5042,7 @@ function renderRanking() {
     const hero = getCarrierHero(c.name);
     const heroHtml = hero ? '<div class="rank-hero"><span class="rank-hero-label">' + hero.label + '</span></div>' : '';
     const researchUrl = CARRIER_RESEARCH_LINKS[c.name];
-    const researchHtml = researchUrl ? '<span class="rank-review-link" data-url="' + researchUrl + '">BoringRate Research</span>' : '';
+    const researchHtml = researchUrl ? '<span class="rank-review-link rank-review-icon" data-url="' + researchUrl + '" role="button" tabindex="0" aria-label="BoringRate Research — read our analysis" title="BoringRate Research">i</span>' : '';
     const inCompare = compareSet.has(c.name);
     const quoteUrl = CARRIER_LINKS[c.name] || "#";
     const _domain = quoteDomain(quoteUrl);
@@ -5048,7 +5053,7 @@ function renderRanking() {
     const compareHtml = '<div class="rank-cta">' + premiumHtml + '<a class="rank-quote-cta ' + delta.klass + '" href="' + quoteUrl + '" target="_blank" rel="noopener noreferrer"><span class="qcta-save">' + delta.text + '</span>' + _actionHtml + '</a><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
     a.innerHTML =
       '<div class="rank-num">' + num + '</div>' +
-      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + '</div>' + heroHtml + researchHtml + '</div>' +
+      '<div class="rank-name-wrap"><div class="rank-name">' + c.name + researchHtml + '</div>' + heroHtml + '</div>' +
       gradeHtml +
       stabilityHtml +
       compareHtml;
