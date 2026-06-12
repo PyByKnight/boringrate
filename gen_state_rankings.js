@@ -60,10 +60,11 @@ function injectState(code) {
   if (h.includes(START)) {
     h = h.replace(new RegExp(START + "[\\s\\S]*?" + END), blk);
   } else {
-    // insert before the first <h2> in the article body
     const bodyAt = h.indexOf('<div class="article-body">');
-    const h2At = h.indexOf("<h2", bodyAt);
-    h = h.slice(0, h2At) + blk + "\n    " + h.slice(h2At);
+    let at = h.indexOf("<h2", bodyAt);                       // prefer before first <h2>
+    if (at === -1) at = h.indexOf('<div class="zip-embed"', bodyAt);  // else before the ZIP CTA
+    if (at === -1) { console.log("  ! no anchor, skipped:", path); return; }
+    h = h.slice(0, at) + blk + "\n    " + h.slice(at);
   }
   fs.writeFileSync(path, h);
   console.log("  injected:", path);
