@@ -3,8 +3,13 @@ _Last updated: 2026-06-11 (follow-up session, Opus 4.8)_
 
 ## This session (2026-06-11, Opus 4.8) — shipped
 
-All three previously-pending tasks DONE, plus two bug fixes the user flagged
-live, a rate-visibility fix, and a parity extension. Commits (newest first):
+All 3 pending tasks DONE + bug fixes + conversion + SEO. **All commits pushed to
+origin/main (auto-deploys to boringrate.com via GitHub Pages).** Later batch
+(newest first): broken-link fixes (404s); sitemap +14 missing pages (home tool,
+AAA compares); Twitter Card tags on 415 pages + 16 og:image backfills; reverse
+cross-sell (renters+home → auto); quote-domain trim (csaa-insurance.aaa.com →
+aaa.com); uniform quote-CTA box width (`min-width` border-box, fixes ragged
+right edge). Earlier batch:
 
 - **renters articles: sticky mobile CTA parity (147 pages)** — extended the
   sticky CTA to the renters article tree (`renters/{state,metro,carrier}/`);
