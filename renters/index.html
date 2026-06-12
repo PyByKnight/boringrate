@@ -1389,7 +1389,7 @@ function renderRanking() {
     const researchUrl = "/renters/carrier/" + c.slug + ".html";
     const researchHtml = '<span class="rank-review-link" data-url="' + researchUrl + '">BoringRate Research</span>';
     const quoteUrl = c.links || "#";
-    const _qDomain = (function(u){ if(!u||u==="#") return ""; try{ return new URL(u).hostname.replace(/^www\./,""); }catch(e){ return ""; } })(quoteUrl);
+    const _qDomain = (function(u){ if(!u||u==="#") return ""; try{ var h=new URL(u).hostname.replace(/^www\./,""); var p=h.split("."); return p.length>2?p.slice(-2).join("."):h; }catch(e){ return ""; } })(quoteUrl);
     const _qctaAction = _qDomain
       ? '<span class="qcta-action"><span class="qcta-action-prefix">@ </span>' + _qDomain + ' &rarr;</span>'
       : '<span class="qcta-action">Get Quote &rarr;</span>';

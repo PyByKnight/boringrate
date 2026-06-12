@@ -4905,7 +4905,11 @@ function quoteDomain(url) {
   // not to a lead-gen funnel.
   if (!url || url === "#") return "";
   try {
-    return new URL(url).hostname.replace(/^www\./, "");
+    var host = new URL(url).hostname.replace(/^www\./, "");
+    // Collapse to the registrable domain (last two labels) so subdomains
+    // like csaa-insurance.aaa.com display as the clean brand "aaa.com".
+    var parts = host.split(".");
+    return parts.length > 2 ? parts.slice(-2).join(".") : host;
   } catch (e) {
     return "";
   }
