@@ -90,12 +90,22 @@ mobile: `.rank-grade` (Customer Service), `.rank-review-link` (BoringRate
 Research), `.rank-cb` (Compare), and `.rank-mark` (NAIC, renters/home only).
 Quote box is `min-width:0` on mobile so carrier names keep room.
 
+Follow-up fixes (after first phone review): quote box is now fixed 144px +
+ellipsis (was content-sized → ragged + bled past the row); Compare/grade/mark
+hidden with `!important` (a base `.rank-cb` rule and a 480px research re-show
+sat after the media block and were overriding the plain hides); "BoringRate
+Research" text link replaced by a compact **(i) circle inline next to the
+carrier name** (all viewports — user said the icon "captures enough"); long
+names now wrap. Note: home rows never had a Research link or Compare box.
+
 **Two judgment calls to confirm on a phone:**
 1. NAIC quality mark hidden on mobile — stability is the single mobile quality
    signal (auto's NAIC lived in the removed grade's tooltip, so this keeps the 3
    pages consistent). Un-hide `.rank-mark` in the mobile blocks if you want it back.
 2. "Rate Stability header" was implemented as a per-row inline label, not a
    single header at the top of the list.
+3. The (i) icon replaced the Research text link on DESKTOP too. If you want the
+   desktop text back, gate `.rank-review-icon` styles to the mobile media query.
 
 ## Analytics event layer (built 2026-06-11 — connect a vendor to go live)
 
