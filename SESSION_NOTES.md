@@ -107,6 +107,37 @@ names now wrap. Note: home rows never had a Research link or Compare box.
 3. The (i) icon replaced the Research text link on DESKTOP too. If you want the
    desktop text back, gate `.rank-review-icon` styles to the mobile media query.
 
+## Rate-change tracker (2026-06-12) — new traffic play, IN PROGRESS
+
+Tracks who raised/cut auto rates by state + the "are you actually getting the new
+rate?" angle. **Data discipline: every entry has a real source + URL; nothing invented.**
+- `rate_changes.json` — `changes[]` (carrier-level filings, each sourced) +
+  `statewide_2026` (Insurify projected avg for 49 states+DC, one source) + `_meta`
+  (national + $5B State Farm dividend callout).
+- `gen_rate_tracker.py` — builds the hub (`article/rate-changes/index.html`: national
+  context, dividend callout, deep-state links, full 50-state projection table) + a
+  rich per-state page for each state with carrier-level data. FAQPage+Breadcrumb schema.
+- Linked from each covered state's article + sitemap + **Guides nav site-wide**
+  (`patch_nav_tracker.py`, 418 pages).
+- **Verify: `node verify_rate.js`** (jsdom, scans all rate pages; 0 JS errors expected).
+
+**Deep states so far (5):** NV (8 increases, Review-Journal/NV DOI), LA (Progressive
+-6.6%/-4%, LA DOI), CA (State Farm -6.2% + $5B dividend, SF newsroom), TX (State Farm
+-4.1%, SF newsroom), FL (top-5 cuts -8/-10%, WFLX Mar 2026). **Hub table covers all
+states** via Insurify projection.
+
+**To add a state:** research via WebSearch (+ WebFetch where allowed; SERFF/many DOI
+sites are 403-blocked to bots), add sourced rows to `changes[]`, run
+`python3 gen_rate_tracker.py`, add sitemap + a state-page callout. ONLY publish
+figures you can date to 2026 + attribute (excluded CA Mercury/GEICO +6.9% — traced to
+2023-25; excluded FL dividend-per-state specifics — unverified in-source).
+
+**Pending/ideas:** more states (LA has more cuts to add — Farm Bureau -11.8%, Allstate
+-7.6%, Encompass -15%, need source verify); the email "your carrier filed a change"
+trigger; quarterly freshness refresh; footer link. **Data note:** CA state article says
+"+6.1% projected 2026" but Insurify says +1.0% — pre-existing source discrepancy, not
+yet reconciled.
+
 ## Metro page expansion (2026-06-12)
 
 Two generators added:
