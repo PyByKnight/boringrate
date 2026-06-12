@@ -80,6 +80,27 @@ Open follow-ups (not yet signed off):
   alongside "Save $X vs median". If the user prefers one or the other, easy to
   adjust in each `renderRanking` (search `rank-premium`).
 
+## Analytics event layer (built 2026-06-11 — connect a vendor to go live)
+
+A vendor-agnostic `window.track(name, props)` is defined in `<head>` of all three
+tool pages (`index.html`, `home/index.html`, `renters/index.html`). It buffers
+events in `window.brEvents` and **sends nowhere** until a transport is wired.
+
+**To connect tomorrow:** uncomment ONE line in the `track()` transport block (same
+in all 3 files):
+- Plausible: add their `<script>` to `<head>`, then `window.plausible(name, {props: ev.props})`
+- GA4: add gtag snippet, then `window.gtag("event", name, ev.props)`
+- Supabase: POST `ev` to an `events` table (reuse existing supabase client)
+
+Debug now: set `window.BR_DEBUG = true` in console to see events log; inspect
+`window.brEvents`.
+
+**Events already firing** (props in braces): `zip_submitted` {zip, product, source:
+form|url}, `refine_expanded` {product}, `quote_clicked` {carrier, product, href},
+`email_signup` {product}, `cross_sell_clicked` {from, to, href}, `demo_cta_clicked`
+{product}. `product` is auto|home|renters. Article zip-bar searches redirect to the
+tool and fire `zip_submitted` with `source:url`.
+
 ## Strategic roadmap (after these three)
 
 ### Tier 1 — Measurement (user said they'd set up tomorrow)

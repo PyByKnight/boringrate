@@ -344,6 +344,22 @@ footer p{font-size:14px;color:rgba(246,241,232,.7);margin-top:12px;max-width:320
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"BoringRate Home Insurance Rate Comparison","url":"https://boringrate.com/home/index.html","description":"Compare home insurance carrier rates by ZIP code. Personalize by dwelling coverage, deductible, and bundle discount.","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
 </script>
+<script>
+/* BoringRate event layer — vendor-agnostic. Buffers events in window.brEvents and
+   sends NOWHERE until a vendor is connected. Tomorrow: wire ONE transport line
+   below (Plausible / GA4 / Supabase). Set window.BR_DEBUG=true to log in console. */
+window.brEvents = window.brEvents || [];
+window.track = function (name, props) {
+  var ev = { name: name, props: props || {}, ts: Date.now(), path: location.pathname };
+  window.brEvents.push(ev);
+  try { if (window.BR_DEBUG) console.log("[track]", name, ev.props); } catch (e) {}
+  /* --- transport (wire ONE tomorrow) ---
+     if (window.plausible) window.plausible(name, { props: ev.props });
+     if (window.gtag)      window.gtag("event", name, ev.props);
+     // or POST `ev` to a Supabase `events` table
+  */
+};
+</script>
 </head>
 <body>
 
@@ -1342,6 +1358,42 @@ document.getElementById("emailBtn").addEventListener("click", async () => {
   } else {
     setTimeout(bootDemo, 0);
   }
+})();
+</script>
+<script>
+/* Event hooks (home). Fires window.track(...) — see the layer defined in <head>. */
+(function () {
+  if (typeof window.track !== "function") return;
+  var PRODUCT = "home";
+  try {
+    var z = (new URLSearchParams(location.search).get("zip") || "").replace(/\D/g, "").slice(0, 5);
+    if (/^\d{5}$/.test(z)) track("zip_submitted", { zip: z, product: PRODUCT, source: "url" });
+  } catch (e) {}
+  var zf = document.getElementById("zipForm");
+  if (zf) zf.addEventListener("submit", function () {
+    var v = ((document.getElementById("zipInput") || {}).value || "").replace(/\D/g, "").slice(0, 5);
+    if (/^\d{5}$/.test(v)) track("zip_submitted", { zip: v, product: PRODUCT, source: "form" });
+  });
+  var rt = document.getElementById("refineTrigger");
+  if (rt) rt.addEventListener("click", function () {
+    var rb = document.getElementById("refineBar");
+    if (rb && rb.classList.contains("open")) track("refine_expanded", { product: PRODUCT });
+  });
+  var eb = document.getElementById("emailBtn");
+  if (eb) eb.addEventListener("click", function () { track("email_signup", { product: PRODUCT }); });
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest) return;
+    var q = e.target.closest(".rank-quote-cta");
+    if (q) {
+      var row = q.closest("[data-carrier]");
+      track("quote_clicked", { carrier: row ? row.getAttribute("data-carrier") : null, product: PRODUCT, href: q.getAttribute("href") });
+      return;
+    }
+    var cs = e.target.closest(".cross-sell");
+    if (cs) { track("cross_sell_clicked", { from: PRODUCT, to: cs.id || null, href: cs.getAttribute("href") }); return; }
+    var dc = e.target.closest("#demoBannerCta, .demo-banner a");
+    if (dc) { track("demo_cta_clicked", { product: PRODUCT }); return; }
+  }, true);
 })();
 </script>
 </body>
