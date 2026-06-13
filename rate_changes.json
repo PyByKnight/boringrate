@@ -42,6 +42,8 @@
     {"carrier":"Progressive","state":"FL","pct":8.0,"dir":"decrease","effective":"2026","source":"WFLX (Mar 2026)","url":"https://www.wflx.com/2026/03/05/floridas-top-5-auto-insurers-are-cutting-rates-by-8-2026/"},
     {"carrier":"GEICO","state":"FL","pct":8.0,"dir":"decrease","effective":"2026","source":"WFLX (Mar 2026)","url":"https://www.wflx.com/2026/03/05/floridas-top-5-auto-insurers-are-cutting-rates-by-8-2026/"},
     {"carrier":"Allstate","state":"FL","pct":8.0,"dir":"decrease","effective":"2026","source":"WFLX (Mar 2026)","url":"https://www.wflx.com/2026/03/05/floridas-top-5-auto-insurers-are-cutting-rates-by-8-2026/"},
-    {"carrier":"USAA","state":"FL","pct":8.0,"dir":"decrease","effective":"2026","source":"WFLX (Mar 2026)","url":"https://www.wflx.com/2026/03/05/floridas-top-5-auto-insurers-are-cutting-rates-by-8-2026/"}
+    {"carrier":"USAA","state":"FL","pct":8.0,"dir":"decrease","effective":"2026","source":"WFLX (Mar 2026)","url":"https://www.wflx.com/2026/03/05/floridas-top-5-auto-insurers-are-cutting-rates-by-8-2026/"},
+
+    {"carrier":"State Farm","state":"GA","pct":3.0,"dir":"decrease","effective":"2025-11-28","renewal":"2025-12-28","source":"State Farm Newsroom","url":"https://newsroom.statefarm.com/state-farm-announces-new-auto-rate-reduction-for-georgia-drivers/","note":"Latest of several cuts totaling ~10% avg over the past year (~$400M/yr saved, ~$190/vehicle); new business Nov 28, renewals Dec 28. Cites fewer claims + GA legal reforms."}
   ]
 }
