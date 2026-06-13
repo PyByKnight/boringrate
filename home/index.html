@@ -134,7 +134,7 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .refine-inner{background:var(--paper-deep);border:1px solid var(--rule);padding:14px 18px;margin-bottom:16px;display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;}
 /* Refine collapsed by default; click trigger to expand */
 .refine-bar:not(.open) .refine-inner{display:none;}
-.refine-trigger{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:14px 18px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);background:var(--paper);border:2px solid var(--ink);cursor:pointer;text-align:center;transition:background 120ms,color 120ms;}
+.refine-trigger{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:14px 18px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);background:var(--paper);border:2px solid var(--ink);cursor:pointer;text-align:left;transition:background 120ms,color 120ms;}
 .refine-trigger:hover{background:var(--ink);color:var(--paper);}
 .refine-trigger-action{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px;}
 .refine-trigger:hover .refine-trigger-action{color:var(--paper);text-decoration-color:var(--paper);}
@@ -152,7 +152,7 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 
 /* Persistent ZIP confirmation chip + inline personalization progress bar */
 .refine-zip-row{scroll-margin-top:84px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0 14px;margin:14px 0 6px;}
-.refine-zip-confirm{display:flex;align-items:baseline;gap:8px;padding:0;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);}
+.refine-zip-confirm{display:none;align-items:baseline;gap:8px;padding:0;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);}
 .refine-zip-prefix{color:var(--ink-mute);}
 .refine-zip-value{color:var(--ink);font-weight:700;letter-spacing:0.12em;}
 .refine-zip-row .personalization-banner{display:flex !important;background:transparent !important;border:none !important;margin:0 !important;padding:0 !important;gap:10px;align-items:center;min-width:200px;flex:0 0 auto;}
@@ -447,8 +447,8 @@ window.track = function (name, props) {
 <div class="refine-bar" id="refineBar">
   <button type="button" class="refine-trigger" id="refineTrigger" aria-expanded="false">
     <span class="refine-trigger-action">
-      <span class="refine-trigger-closed">Add Personalization Here for More Accurate Rates</span>
-      <span class="refine-trigger-open">Personalize Your Profile</span>
+      <span class="refine-trigger-closed">Edit Personalization for a More Accurate Rate</span>
+      <span class="refine-trigger-open">Hide Personalization</span>
     </span>
     <span class="refine-trigger-arrow">&darr;</span>
   </button>

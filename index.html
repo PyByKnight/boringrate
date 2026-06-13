@@ -1275,7 +1275,7 @@
 
 /* Persistent ZIP confirmation chip */
 .refine-zip-confirm {
-  display: flex;
+  display: none;
   align-items: baseline;
   gap: 8px;
   padding: 0;
@@ -1298,7 +1298,7 @@
 .refine-trigger {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 12px;
   width: 100%;
   padding: 14px 18px;
@@ -1311,7 +1311,7 @@
   background: var(--paper);
   border: 2px solid var(--ink);
   cursor: pointer;
-  text-align: center;
+  text-align: left;
   transition: background 120ms, color 120ms;
 }
 .refine-trigger:hover { background: var(--ink); color: var(--paper); }
@@ -1552,8 +1552,8 @@ window.track = function (name, props) {
     <div class="refine" id="refineBar">
       <button type="button" class="refine-trigger" id="refineTrigger" aria-expanded="false">
         <span class="refine-trigger-action">
-          <span class="refine-trigger-closed">Add Personalization Here for More Accurate Rates</span>
-          <span class="refine-trigger-open">Personalize Your Profile</span>
+          <span class="refine-trigger-closed">Edit Personalization for a More Accurate Rate</span>
+          <span class="refine-trigger-open">Hide Personalization</span>
         </span>
         <span class="refine-trigger-arrow">&darr;</span>
       </button>
