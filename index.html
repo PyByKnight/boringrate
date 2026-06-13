@@ -5285,11 +5285,15 @@ function renderAgentPanel() {
   panel.style.display = "block";
 }
 
+// 5-digit exceptions: ZIPs whose 3-digit prefix maps to the wrong metro.
+// Monument/Tri-Lakes (80132/80133) sit in the 801 "Denver" prefix but are
+// really the Colorado Springs MSA.
+const ZIP5_METRO = { "80132": "csp", "80133": "csp" };
 function lookupZip(zip) {
   const prefix3 = zip.substring(0, 3);
   const prefix2 = zip.substring(0, 2);
   const stateCode = ZIP3_TO_STATE[prefix3] || ZIP3_TO_STATE[prefix2];
-  currentMetro = ZIP_PREFIX_METRO[prefix3] || null;
+  currentMetro = ZIP5_METRO[zip] || ZIP_PREFIX_METRO[prefix3] || null;
   return (stateCode && STATE_DATA[stateCode]) || FALLBACK;
 }
 
