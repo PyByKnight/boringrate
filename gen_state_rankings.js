@@ -72,23 +72,22 @@ function block(name, data, avgLabel) {
 <table style="width:100%;border-collapse:collapse;font-size:16px;margin:16px 0;max-width:660px;">
 <thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;"><th style="padding:8px 6px;">#</th><th style="padding:8px 6px;">Carrier</th><th style="padding:8px 6px;">Est. annual</th><th style="padding:8px 6px;">vs median</th></tr></thead>
 <tbody>${rows}</tbody></table>
-<p style="font-size:13px;color:var(--ink-mute);max-width:660px;">Directional estimates from public rate filings and NAIC complaint indices &mdash; not a quote. Your actual rate depends on your ZIP, vehicle, age, and credit. Enter your ZIP below for your personalized ranking.</p>
+<p style="margin:14px 0 8px;"><a href="#embedZipForm" style="display:inline-block;background:var(--accent);color:#fff;font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:13px 24px;text-decoration:none;border-radius:2px;">Enter your ZIP for your exact rate &rarr;</a></p>
+<p style="font-size:13px;color:var(--ink-mute);max-width:660px;">Directional estimates from public rate filings and NAIC complaint indices &mdash; not a quote. Your actual rate depends on your ZIP, vehicle, age, and credit.</p>
 ${END}`;
 }
 
 function inject(path, name, data, avgLabel) {
   if (!fs.existsSync(path)) { console.log("  ! no article:", path); return; }
   let h = fs.readFileSync(path, "utf8");
+  // strip any existing block (so re-runs MOVE it to the top, not leave it in place)
+  h = h.replace(new RegExp("\\s*" + START + "[\\s\\S]*?" + END), "");
   const blk = block(name, data, avgLabel);
-  if (h.includes(START)) {
-    h = h.replace(new RegExp(START + "[\\s\\S]*?" + END), blk);
-  } else {
-    const bodyAt = h.indexOf('<div class="article-body">');
-    let at = h.indexOf("<h2", bodyAt);                       // prefer before first <h2>
-    if (at === -1) at = h.indexOf('<div class="zip-embed"', bodyAt);  // else before the ZIP CTA
-    if (at === -1) { console.log("  ! no anchor, skipped:", path); return; }
-    h = h.slice(0, at) + blk + "\n    " + h.slice(at);
-  }
+  const marker = '<div class="article-body">';
+  const at = h.indexOf(marker);
+  if (at === -1) { console.log("  ! no article-body:", path); return; }
+  const pos = at + marker.length;          // insert as the FIRST thing users see
+  h = h.slice(0, pos) + "\n" + blk + h.slice(pos);
   fs.writeFileSync(path, h);
   console.log("  injected:", path);
 }
