@@ -107,6 +107,28 @@ names now wrap. Note: home rows never had a Research link or Compare box.
 3. The (i) icon replaced the Research text link on DESKTOP too. If you want the
    desktop text back, gate `.rank-review-icon` styles to the mobile media query.
 
+## Pre-rendered state/metro rankings (2026-06-12) — SEO "best rates in [X]" play, DONE
+
+`gen_state_rankings.js` (Node, evals the model from index.html) injects an indexable
+static "Cheapest carriers in [State/Metro]" ranked table into every state + metro
+article — Google reads the real rankings → matches "best rates in [state]" intent →
+the page ranks, and the existing ZIP CTA drops users into the live JS tool. Same
+model: state avg × carrier base × STATE_CARRIER_ADJ (× METRO_CARRIER_ADJ for metros).
+Idempotent (markers `<!-- state-rankings-start/end -->`); re-run to refresh.
+- `node gen_state_rankings.js --states` (51) · `--metros` (95) · or `TN CO ...`.
+- Live on **all 51 states + 95 metros = 146 pages**, verified 0 JS errors
+  (`node verify_states.js`). User approved: "do it the way Google rewards, don't
+  overthink, I love the JS tool, just get users there."
+
+## Results UI tweaks from user feedback (2026-06-12)
+- Top of results: compact **"Avg rate in [ZIP]: $X/yr"** banner (was a big dark
+  "Median rate" block — user: too big). Light paper-deep bar, 16px.
+- Per-row delta: **"−$X vs avg" / "+$X vs avg"** (was "Save $X" — user: unclear what
+  it's vs). All 3 tool pages.
+- Removed the redundant `rank-table-label` bar above the rank list (was stacking with
+  the new banner) to kill the growing gap between the ZIP CTA and the rankings.
+- PENDING USER: confirm the "vs avg" wording + compact banner look on a phone.
+
 ## Rate-change tracker (2026-06-12) — new traffic play, IN PROGRESS
 
 Tracks who raised/cut auto rates by state + the "are you actually getting the new
