@@ -235,7 +235,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
   }
   .result-label-state {
@@ -287,7 +287,7 @@
     background: var(--paper-deep);
     border: 1px solid var(--rule);
     padding: 14px 18px;
-    margin: 0 0 16px;
+    margin: 0 0 10px;
   }
   .refine-always {
     display: flex;
@@ -5200,7 +5200,7 @@ function renderRanking() {
   }
   document.getElementById("resMeta").textContent = isNonStandard() ? "Non-standard carriers" : "";
   document.getElementById("metroPill").style.display = "none";
-  document.getElementById("rankTableLabel").style.display = "flex";
+  document.getElementById("rankTableLabel").style.display = "none";
   document.getElementById("rankTableState").textContent = locationLabel + (isNonStandard() ? " · Non-standard" : " · Savings vs. Median");
 
   // Personalization completeness: 4 user-set options (own, vehicles, age,
