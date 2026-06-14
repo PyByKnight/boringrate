@@ -120,6 +120,19 @@ Idempotent (markers `<!-- state-rankings-start/end -->`); re-run to refresh.
   (`node verify_states.js`). User approved: "do it the way Google rewards, don't
   overthink, I love the JS tool, just get users there."
 
+## Rankings — to top + ZIP box + renters parity (2026-06-13/14)
+- Rankings now injected at the TOP of every state+metro article (first thing after
+  the headline) — `gen_state_rankings.js` strips+re-inserts at top.
+- Ranking block CTA is a real **ZIP entry box** (input+button) that redirects to the
+  tool: `/?zip=` (auto state+metro) / `/renters/?zip=` (renters). Inline onsubmit (no
+  CSP). Was an anchor "red box".
+- **Renters parity**: `gen_renters_rankings.js` → "Cheapest renters carriers in [State]"
+  on all 51 renters/state pages (avg×base, carrier availability filter).
+- Refine trigger CTA → **"Edit Personal Profile"** (accordion, text left/chevron right).
+- 80132/80133 → Colorado Springs via `ZIP5_METRO` override in index.html lookupZip.
+- Note: jsdom prints a benign stderr "addEventListener null" for article bottom
+  scripts (present pre-change, browser-works) — error-listener count is 0; ignore.
+
 ## Results UI tweaks from user feedback (2026-06-12)
 - Top of results: compact **"Avg rate in [ZIP]: $X/yr"** banner (was a big dark
   "Median rate" block — user: too big). Light paper-deep bar, 16px.
