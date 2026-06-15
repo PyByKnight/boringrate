@@ -3,6 +3,21 @@ _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
 
 ## This session (2026-06-15, Opus 4.8) — shipped
 
+- **HIGH-INTENT "cheapest for [situation]" articles + model alignment.** Built 5
+  ranking-led pages (`article/cheapest-car-insurance-*`): young-drivers, after-
+  accident, after-dui (SR-22), bad-credit, seniors. Each leads with **top-3 +
+  bottom-3** (bottom-3 = "you're likely overpaying → shop"), a ZIP CTA carrying
+  `?sit=<situation>`, and honest how-to-save content. Top/bottom computed from the
+  LIVE model (`gen_situation_articles.py` parses index.html), so article and tool
+  align directionally (article = national avg, tool = ZIP-specific). MODEL/TOOL
+  changes: added directional per-carrier `accident` factor to the 12 standard
+  carriers + applied in estimatePremium + "At-fault accident" refine toggle;
+  tool now reads `?sit=young|senior|credit|lapse|sr22|accident` (SR-22/DUI already
+  routed to CARRIERS_NONSTANDARD). Did NOT overwrite existing guides (caught a slug
+  collision with article/young-drivers.html, restored it; new pages use distinct
+  cheapest-* slugs + cross-link the guides). Linked from article hub + sitemap.
+  jsdom: 506/506 pages 0 errors. OPEN: add the 5 to the global nav res-guides
+  panel (500-page migration, optional); renters/home situation pages later.
 - **CONTENT: de-duplicated auto metro pages (66 of 95).** Audit flagged the 95
   auto metros as the near-duplicate thin-content risk (~600 words, tight range,
   template + name/number swap). NOTE: the COMPARE pages (81) looked thin by word
