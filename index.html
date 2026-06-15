@@ -1719,6 +1719,10 @@ window.track = function (name, props) {
               <input type="checkbox" id="srRequired" />
               <span>Suspended license / SR-22</span>
             </div>
+            <div class="check-row">
+              <input type="checkbox" id="atFaultAccident" />
+              <span>At-fault accident (last 3 yrs)</span>
+            </div>
           </div>
         </div>
       </div>
@@ -3031,6 +3035,7 @@ function applyRefinementsToUI() {
   });
   document.getElementById("currentlyInsured").checked = refinement.insured;
   document.getElementById("srRequired").checked = refinement.srRequired;
+  document.getElementById("atFaultAccident").checked = refinement.accident || false;
   document.getElementById("youngDriver").checked = refinement.youngDriver || false;
   document.getElementById("interestedInTelematics").checked = refinement.telematics || false;
   document.getElementById("curCarrier").value = refinement.curCarrier || "";
@@ -3339,32 +3344,32 @@ const SHOP_MULT = {
 
 const CARRIERS_STANDARD = [
   { name: "USAA",           base: 0.82, csGrade: "A+", stability: 4, tag: "Military & immediate family only",        bestFor: "Military & veterans",
-    sens: { own: -0.04, rent: 0.02, age: { "18-24": 0.20, "25-34": 0.04, "35-54": -0.06, "55+": -0.10 }, youngDriver: 0.18, telematics: -0.05, multi: -0.03, single: 0.02, lapsed: 0.20, renewal: -0.03, credit: { excellent: -0.08, fair: 0.18 } } },
+    sens: { own: -0.04, rent: 0.02, age: { "18-24": 0.20, "25-34": 0.04, "35-54": -0.06, "55+": -0.10 }, youngDriver: 0.18, telematics: -0.05, multi: -0.03, single: 0.02, lapsed: 0.20, renewal: -0.03, credit: { excellent: -0.08, fair: 0.18 }, accident: 0.22 } },
   { name: "GEICO",          base: 0.80, csGrade: "B+", stability: 2, tag: "No agents — buy and manage online",       bestFor: "Online shoppers",
     youngDriverTag: "DriveEasy telematics can offset young driver costs",
-    sens: { own: -0.05, rent: 0.02, age: { "18-24": 0.24, "25-34": 0.06, "35-54": -0.04, "55+": -0.08 }, youngDriver: 0.22, telematics: -0.07, multi: -0.05, single: 0.03, lapsed: 0.15, renewal: -0.02, credit: { excellent: -0.14, fair: 0.28 } } },
+    sens: { own: -0.05, rent: 0.02, age: { "18-24": 0.24, "25-34": 0.06, "35-54": -0.04, "55+": -0.08 }, youngDriver: 0.22, telematics: -0.07, multi: -0.05, single: 0.03, lapsed: 0.15, renewal: -0.02, credit: { excellent: -0.14, fair: 0.28 }, accident: 0.26 } },
   { name: "State Farm",     base: 0.86, csGrade: "B+", stability: 4, tag: "Large local agent network",               bestFor: "Local agent service",
     youngDriverTag: "Steer Clear® program · good student discount available",
-    sens: { own: -0.08, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.02, "35-54": -0.05, "55+": -0.09 }, youngDriver: 0.14, telematics: -0.06, multi: -0.12, single: 0.02, lapsed: 0.18, renewal: -0.05, credit: { excellent: -0.10, fair: 0.22 } } },
+    sens: { own: -0.08, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.02, "35-54": -0.05, "55+": -0.09 }, youngDriver: 0.14, telematics: -0.06, multi: -0.12, single: 0.02, lapsed: 0.18, renewal: -0.05, credit: { excellent: -0.10, fair: 0.22 }, accident: 0.24 } },
   { name: "Progressive",    base: 0.94, csGrade: "B", stability: 2, tag: "Rates vary widely by driver profile",     bestFor: "High-risk & SR-22",
     youngDriverTag: "Lowest under-25 surcharge in class · Snapshot telematics",
-    sens: { own: -0.03, rent: 0.01, age: { "18-24": 0.04, "25-34": 0.01, "35-54": 0.00, "55+": -0.04 }, youngDriver: 0.05, telematics: -0.08, multi: -0.04, single: 0.02, lapsed: 0.05, renewal: 0.05, credit: { excellent: -0.11, fair: 0.25 } } },
+    sens: { own: -0.03, rent: 0.01, age: { "18-24": 0.04, "25-34": 0.01, "35-54": 0.00, "55+": -0.04 }, youngDriver: 0.05, telematics: -0.08, multi: -0.04, single: 0.02, lapsed: 0.05, renewal: 0.05, credit: { excellent: -0.11, fair: 0.25 }, accident: 0.28 } },
   { name: "Allstate",       base: 1.08, csGrade: "B-", stability: 3, tag: "Strong bundling discounts",               bestFor: "Accident forgiveness",
-    sens: { own: -0.10, rent: 0.04, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.04, "55+": -0.08 }, youngDriver: 0.18, telematics: -0.05, multi: -0.08, single: 0.03, lapsed: 0.16, renewal: 0.02, credit: { excellent: -0.13, fair: 0.30 } } },
+    sens: { own: -0.10, rent: 0.04, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.04, "55+": -0.08 }, youngDriver: 0.18, telematics: -0.05, multi: -0.08, single: 0.03, lapsed: 0.16, renewal: 0.02, credit: { excellent: -0.13, fair: 0.30 }, accident: 0.22 } },
   { name: "Liberty Mutual", base: 1.23, csGrade: "C+", stability: 2, tag: "Broad coverage options",                  bestFor: "New car replacement",
-    sens: { own: -0.06, rent: 0.03, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.03, "55+": -0.06 }, youngDriver: 0.20, telematics: -0.04, multi: -0.05, single: 0.02, lapsed: 0.20, renewal: 0.04, credit: { excellent: -0.15, fair: 0.35 } } },
+    sens: { own: -0.06, rent: 0.03, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.03, "55+": -0.06 }, youngDriver: 0.20, telematics: -0.04, multi: -0.05, single: 0.02, lapsed: 0.20, renewal: 0.04, credit: { excellent: -0.15, fair: 0.35 }, accident: 0.34 } },
   { name: "Farmers",        base: 1.04, csGrade: "B", stability: 3, tag: "Strong local agent network",              bestFor: "Full-service agents",
-    sens: { own: -0.07, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.03, "35-54": -0.04, "55+": -0.07 }, youngDriver: 0.16, telematics: -0.04, multi: -0.06, single: 0.02, lapsed: 0.14, renewal: 0.01, credit: { excellent: -0.10, fair: 0.24 } } },
+    sens: { own: -0.07, rent: 0.03, age: { "18-24": 0.17, "25-34": 0.03, "35-54": -0.04, "55+": -0.07 }, youngDriver: 0.16, telematics: -0.04, multi: -0.06, single: 0.02, lapsed: 0.14, renewal: 0.01, credit: { excellent: -0.10, fair: 0.24 }, accident: 0.32 } },
   { name: "Nationwide",     base: 0.99, csGrade: "B+", stability: 3, tag: "Strong bundling discounts",               bestFor: "Vanishing deductible",
-    sens: { own: -0.08, rent: 0.03, age: { "18-24": 0.15, "25-34": 0.02, "35-54": -0.05, "55+": -0.08 }, youngDriver: 0.15, telematics: -0.05, multi: -0.06, single: 0.02, lapsed: 0.15, renewal: -0.01, credit: { excellent: -0.14, fair: 0.28 } } },
+    sens: { own: -0.08, rent: 0.03, age: { "18-24": 0.15, "25-34": 0.02, "35-54": -0.05, "55+": -0.08 }, youngDriver: 0.15, telematics: -0.05, multi: -0.06, single: 0.02, lapsed: 0.15, renewal: -0.01, credit: { excellent: -0.14, fair: 0.28 }, accident: 0.25 } },
   { name: "Travelers",      base: 0.97, csGrade: "B+", stability: 3, tag: "IntelliDrive® telematics · no downside risk", bestFor: "Homeowners who bundle",
-    sens: { own: -0.10, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.03, "35-54": -0.04, "55+": -0.08 }, youngDriver: 0.15, telematics: -0.07, multi: -0.06, single: 0.02, lapsed: 0.16, renewal: -0.02, credit: { excellent: -0.10, fair: 0.26 } } },
+    sens: { own: -0.10, rent: 0.04, age: { "18-24": 0.16, "25-34": 0.03, "35-54": -0.04, "55+": -0.08 }, youngDriver: 0.15, telematics: -0.07, multi: -0.06, single: 0.02, lapsed: 0.16, renewal: -0.02, credit: { excellent: -0.10, fair: 0.26 }, accident: 0.3 } },
   { name: "Safeco",         base: 1.06, csGrade: "B", stability: 2, tag: "Sold through independent agents",            bestFor: "Independent agent shoppers",
-    sens: { own: -0.08, rent: 0.03, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.04, "55+": -0.07 }, youngDriver: 0.17, telematics: -0.04, multi: -0.05, single: 0.02, lapsed: 0.16, renewal: -0.02, credit: { excellent: -0.11, fair: 0.26 } } },
+    sens: { own: -0.08, rent: 0.03, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.04, "55+": -0.07 }, youngDriver: 0.17, telematics: -0.04, multi: -0.05, single: 0.02, lapsed: 0.16, renewal: -0.02, credit: { excellent: -0.11, fair: 0.26 }, accident: 0.32 } },
   { name: "The Hartford",   base: 0.96, csGrade: "A-", stability: 4, tag: "AARP partnership — 50+ specialist",          bestFor: "Drivers 50+ & AARP members",
-    sens: { own: -0.07, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.06, "35-54": -0.04, "55+": -0.18 }, youngDriver: 0.24, telematics: -0.03, multi: -0.05, single: 0.02, lapsed: 0.15, renewal: -0.02, credit: { excellent: -0.10, fair: 0.22 } } },
+    sens: { own: -0.07, rent: 0.04, age: { "18-24": 0.22, "25-34": 0.06, "35-54": -0.04, "55+": -0.18 }, youngDriver: 0.24, telematics: -0.03, multi: -0.05, single: 0.02, lapsed: 0.15, renewal: -0.02, credit: { excellent: -0.10, fair: 0.22 }, accident: 0.26 } },
   { name: "Root Insurance", base: 0.86, csGrade: "B-", stability: 2, tag: "Telematics-only pricing · based on how you drive", bestFor: "Safe drivers — behavior-based rates",
-    sens: { own: 0.00, rent: 0.00, age: { "18-24": -0.04, "25-34": -0.02, "35-54": 0.00, "55+": 0.03 }, youngDriver: -0.03, telematics: -0.15, multi: -0.02, single: 0.00, lapsed: 0.20, renewal: -0.05, credit: { excellent: -0.02, fair: 0.08 } } }
+    sens: { own: 0.00, rent: 0.00, age: { "18-24": -0.04, "25-34": -0.02, "35-54": 0.00, "55+": 0.03 }, youngDriver: -0.03, telematics: -0.15, multi: -0.02, single: 0.00, lapsed: 0.20, renewal: -0.05, credit: { excellent: -0.02, fair: 0.08 }, accident: 0.4 } }
 ];
 
 // Non-standard carriers — high-risk / SR-22 market
@@ -4930,7 +4935,7 @@ const METRO_AGENTS = {
   ],
 };
 
-const refinement = { own: null, vehicles: null, curCarrier: "", age: null, credit: "good", insured: true, srRequired: false, youngDriver: false, telematics: false, shopPref: "web", coverage: "standard",
+const refinement = { own: null, vehicles: null, curCarrier: "", age: null, credit: "good", insured: true, srRequired: false, accident: false, youngDriver: false, telematics: false, shopPref: "web", coverage: "standard",
   covLiability: 2, covCollision: 2, covComp: 1, covUmUim: 1, covMedpay: 0, covGap: 0 };
 const TIER_PRESETS = {
   minimum:  { covLiability: 0, covCollision: 0, covComp: 0, covUmUim: 0, covMedpay: 0, covGap: 0 },
@@ -4973,6 +4978,7 @@ function estimatePremium(carrier, avg) {
     if (refinement.credit === "excellent") m *= (1 + s.credit.excellent);
     else if (refinement.credit === "fair")  m *= (1 + s.credit.fair);
   }
+  if (refinement.accident && s.accident !== undefined) m *= (1 + s.accident);
   if (!refinement.insured) { m *= (1 + s.lapsed); }
   else if (refinement.curCarrier === carrier.name) { m *= (1 + s.renewal); }
   else if (refinement.curCarrier === "none") { m *= (1 + s.lapsed); }
@@ -5400,6 +5406,11 @@ document.getElementById("srRequired").addEventListener("change", e => {
   if (wasNS !== isNonStandard()) lastOrder = [];
   renderRanking();
 });
+document.getElementById("atFaultAccident").addEventListener("change", e => {
+  refinement.accident = e.target.checked;
+  lastOrder = [];
+  renderRanking();
+});
 document.getElementById("youngDriver").addEventListener("change", e => {
   refinement.youngDriver = e.target.checked;
   renderRanking();
@@ -5508,6 +5519,17 @@ document.getElementById("zipInput").addEventListener("input", e => {
       document.querySelectorAll('.pill-row[data-q="coverage"] .pill').forEach(p => {
         p.classList.toggle("active", p.dataset.v === cov);
       });
+    }
+    // Situation from a "cheapest for X" article CTA (?sit=young|senior|credit|lapse|sr22|accident)
+    var sit = (params.get("sit") || "").toLowerCase();
+    if (sit) {
+      if (sit === "young") { refinement.youngDriver = true; refinement.age = "18-24"; }
+      else if (sit === "senior") { refinement.age = "55+"; }
+      else if (sit === "credit") { refinement.credit = "fair"; }
+      else if (sit === "lapse") { refinement.insured = false; }
+      else if (sit === "sr22" || sit === "dui") { refinement.srRequired = true; }
+      else if (sit === "accident") { refinement.accident = true; }
+      applyRefinementsToUI();
     }
     document.getElementById("zipInput").value = zip;
     stateData = lookupZip(zip);
