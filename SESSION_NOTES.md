@@ -16,13 +16,30 @@ _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
   preserves `ZIP3_TO_STATE`). jsdom-verified `verify_renters_cov.js`: 0 JS
   errors, 6 cards, ZIP→state, premium responds to every input. Wired from the
   renters rate tool (below-fold contextual link) + sitemap.
-  - **NEXT (coverage tools):** build the HOME coverage calculator (same pattern).
-    Then global-nav discoverability — add a "Coverage Calculator" entry to each
-    product's nav section so both tools (rate compare + coverage) are reachable
-    from every page for auto/home/renters. That nav touches ~200+ pages, so it's
-    a dedicated regen task, NOT a heartbeat sliver — do it in a focused pass or
-    on user direction (the renters tool is already reachable via the contextual
-    link + sitemap in the meantime).
+- **HOME PRODUCT — completed this session (user: "build the home product, then
+  global nav discoverability").**
+  - Home RATE tool (`/home/index.html`) already existed from a prior session
+    (HOME_STATE_DATA, HOME_CARRIERS, ZIP ranking, in sitemap). Verified working
+    (`verify_home_tool.js`): 0 JS errors, 10 ranking rows, ZIP→state.
+  - NEW: home COVERAGE calculator (`/home/coverage.html`) — built via
+    `build_home_coverage.py` (adapts the clean renters coverage scaffold). 8
+    cards: Dwelling A, Other Structures B (auto 10%), Personal Property C (auto
+    50%, RCV toggle), Loss of Use D (auto 30%), Liability E, Medical Payments F,
+    Water Backup endorsement, Scheduled Items + flood/earthquake-not-covered
+    primer. Live premium off home state avgs (national $1,915). CTA→/home/.
+    `verify_home_cov.js`: 0 errors, 8 cards, responds to every input. Wired from
+    home rate tool + sitemap.
+  - GLOBAL NAV discoverability (`migrate_nav_discoverability.py`, 438 pages,
+    idempotent): Product dropdown now lists Auto/Renters/**Home** (un-dimmed the
+    151 "Home soon" pages); Tools dropdown + mega-menu Tools section now list all
+    three coverage calculators (Auto/Renters/Home). Footer per-product columns
+    left untouched. jsdom-verified across sample pages.
+  - **Net: both highest-value tools (rate comparison + coverage) now exist and
+    are reachable from every page for all three products (auto/renters/home).**
+  - NEXT / still open (user-scope, do NOT do unprompted): home-specific SEO
+    content (home state/metro/carrier article trees + pre-rendered rankings like
+    auto/renters have) — home currently has the two tools but no article tree;
+    home product's footer per-product columns could later add coverage links.
 
 ---
 _Earlier (2026-06-11):_
