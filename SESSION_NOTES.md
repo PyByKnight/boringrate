@@ -3,6 +3,19 @@ _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
 
 ## This session (2026-06-15, Opus 4.8) — shipped
 
+- **FIX: dropdown nav broken on desktop (351 article pages).** A malformed
+  `@media(max-width:900px){nav.primary` that never closed trapped the ENTIRE
+  dropdown stylesheet inside the mobile breakpoint — so on desktop the Tools/
+  Product panels rendered open + unstyled (links run together). Pulled the base
+  dropdown CSS to top level, wrapped only mobile-hide rules in the media query.
+  Verified 0 brace imbalances / 0 malformed openers / 0 JS errors. Pre-existing;
+  the added coverage links exposed it.
+- **UX: promoted paired tool CTA to the top of SEO pages.** State/metro (248):
+  under the ranking table + removed redundant inline ZIP form. Carrier (147):
+  after the TLDR. Compare/guides (88): top of article-body. Now every SEO page
+  shows both tools high, value-first. (move_ctas_up.py; 2 link-directory hubs
+  keep it low.)
+
 - **QA pass — funnel to the two tools.** (a) Added the two-tile paired CTA to 85
   high-intent AUTO pages that had no in-body tool CTA: ~68 carrier compare pages,
   6 guides, 10 rate-change trackers, 3 hubs (`insert_tool_tiles.py`, self-contained
