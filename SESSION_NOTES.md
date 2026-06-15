@@ -120,6 +120,17 @@ Idempotent (markers `<!-- state-rankings-start/end -->`); re-run to refresh.
   (`node verify_states.js`). User approved: "do it the way Google rewards, don't
   overthink, I love the JS tool, just get users there."
 
+## Rate-tracker pages redesigned + QA clean (2026-06-15)
+- Tracker per-state pages were "sparse/ugly" (single-filing pages = 1-row table). Rebuilt:
+  data-driven headline + "shop for a better rate" CTA → embedded cheapest-carriers
+  ranking + ZIP entry box (→ /?zip=) → sourced filing detail → "are you getting it" callout.
+- `node gen_state_rankings.js --export` → `state_rankings.json` (consumed by gen_rate_tracker.py).
+  `render()` uses lambda re.sub replacements (HTML has `\d` in ZIP onsubmit — string repl broke).
+- 9 deep tracker states (CA/FL/GA/LA/NV/SC/TN/TX) + hub 50-state table + State Farm $4.6B note.
+- **RESOLVED user decision:** per-row delta wording = **"−$X vs avg"** (confirmed 2026-06-15; memory updated).
+- Full QA pass clean: verify_rate.js / verify_states.js / verify_funnel.js all 0 JS errors.
+- STILL pending user: prominent on-homepage tracker link (currently nav + footer only).
+
 ## Rankings — to top + ZIP box + renters parity (2026-06-13/14)
 - Rankings now injected at the TOP of every state+metro article (first thing after
   the headline) — `gen_state_rankings.js` strips+re-inserts at top.
