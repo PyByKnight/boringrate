@@ -3,6 +3,20 @@ _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
 
 ## This session (2026-06-15, Opus 4.8) — shipped
 
+- **UX: paired two-tool CTA replaces the dark zip-embed box (409 article pages).**
+  User feedback: the dark `zip-embed` CTA was "not very inviting to click," and the
+  coverage tool was a buried text link while the rate tool got a big visual CTA.
+  Replaced site-wide (`migrate_tool_ctas.py`) with a light **two-tile module**
+  (`.tooltiles`): a "Compare rates" tile with a working ZIP box + a "Coverage
+  calculator" tile with "Help me choose my coverage options →". Product-aware
+  (auto/renters/home coverage URLs); ZIP form keeps `embedZipForm`/`embedZipInput`
+  so the existing per-page redirect is unchanged. Dark box now gone sitewide.
+  Picked via a rendered preview (`cta-preview.html`, git-ignored, local only — the
+  user couldn't judge from ASCII). jsdom-verified: 0 JS errors. See
+  [[boringrate-cta-tiles]]. NOTE: other dark CTAs still exist intentionally (rate-
+  tool hero, coverage-tool bottom-cta) — not flagged by the user.
+
+
 - **NEW: renters coverage calculator (`/renters/coverage.html`)** — pushed/live.
   Coverage tool was auto-only; this is the renters counterpart (user picked
   "approach A": purpose-built renters engine reusing the auto tool's design
