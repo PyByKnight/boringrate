@@ -371,16 +371,18 @@
 
   /* ── CTA at bottom ── */
   .bottom-cta {
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--paper-deep);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
     padding: 32px;
     margin-bottom: 72px;
   }
-  .bottom-cta-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(246,241,232,0.4); margin-bottom: 16px; }
+  .bottom-cta-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 16px; }
   .bottom-cta-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-  .bottom-cta-text h3 { font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 6px; color: var(--paper); }
-  .bottom-cta-text p { font-size: 14px; color: rgba(246,241,232,0.6); line-height: 1.5; }
-  .bottom-cta-selections { font-family: var(--mono); font-size: 11px; color: rgba(246,241,232,0.4); letter-spacing: 0.05em; line-height: 1.8; margin-top: 12px; }
+  .bottom-cta-text h3 { font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 6px; color: var(--ink); }
+  .bottom-cta-text p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+  .bottom-cta-selections { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.05em; line-height: 1.8; margin-top: 12px; }
   .bottom-zip-row { display: flex; gap: 0; margin-top: 20px; align-items: stretch; flex-wrap: wrap; }
   .bottom-zip-input {
     font-family: var(--mono);
@@ -388,14 +390,14 @@
     letter-spacing: 0.14em;
     padding: 11px 14px;
     width: 110px;
-    border: 1.5px solid rgba(246,241,232,0.25);
-    background: rgba(246,241,232,0.07);
-    color: var(--paper);
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
     outline: none;
     transition: border-color 120ms;
   }
-  .bottom-zip-input::placeholder { color: rgba(246,241,232,0.25); letter-spacing: 0.1em; }
-  .bottom-zip-input:focus { border-color: rgba(246,241,232,0.55); }
+  .bottom-zip-input::placeholder { color: var(--ink-mute); letter-spacing: 0.1em; }
+  .bottom-zip-input:focus { border-color: var(--accent); }
   .cta-btn {
     font-family: var(--sans);
     font-size: 13px;
