@@ -3,6 +3,17 @@ _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
 
 ## This session (2026-06-15, Opus 4.8) — shipped
 
+- **CONTENT: de-duplicated auto metro pages (66 of 95).** Audit flagged the 95
+  auto metros as the near-duplicate thin-content risk (~600 words, tight range,
+  template + name/number swap). NOTE: the COMPARE pages (81) looked thin by word
+  count but are actually strong (interactive "who wins" profile tool + 11-row
+  real-data table) — NOT rebuilt. For metros, added a real per-metro section "How
+  <Metro> compares to other <State> metros" (rank in state, % vs state avg, linked
+  sibling table) via gen_metro_compare.js — model data only, adds metro↔metro
+  internal links. 66 multi-metro-state metros enriched; the 29 single-metro states
+  have no siblings (not a duplicate risk). OPEN follow-ups: same treatment for
+  renters metros (83); optional noindex/prune of any genuinely low-demand metro
+  (needs demand judgment — user call, not blanket).
 - **FIX: dropdown nav broken on desktop (351 article pages).** A malformed
   `@media(max-width:900px){nav.primary` that never closed trapped the ENTIRE
   dropdown stylesheet inside the mobile breakpoint — so on desktop the Tools/
