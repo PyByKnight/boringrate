@@ -36,10 +36,28 @@ _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
     left untouched. jsdom-verified across sample pages.
   - **Net: both highest-value tools (rate comparison + coverage) now exist and
     are reachable from every page for all three products (auto/renters/home).**
-  - NEXT / still open (user-scope, do NOT do unprompted): home-specific SEO
-    content (home state/metro/carrier article trees + pre-rendered rankings like
-    auto/renters have) — home currently has the two tools but no article tree;
-    home product's footer per-product columns could later add coverage links.
+- **HOME ARTICLE TREE (SEO) — completed this session (user: "home article tree
+  for SEO").**
+  - 51 `home/state/*.html` pages (`gen_home_state_pages.py`) — pre-rendered
+    cheapest-carrier ranking + ZIP CTA→/home/, TLDR, avg-cost / cheapest /
+    rate-drivers / requirements sections, FAQ + FAQPage/Breadcrumb/Article
+    JSON-LD. Differentiated per state by catastrophe profile (RISK map:
+    hurricanes/tornado-hail/wildfire/etc.) so pages are genuinely distinct, not
+    thin. Reuses the renters state-page scaffold for exact CSS/nav/footer parity.
+  - 12 `home/carrier/*.html` reviews (`gen_home_carrier_pages.py`) — per-carrier
+    content from HOME_CARRIERS metadata (est cost vs national, NAIC ratio,
+    strength grade, availability, about/who-for, 3+3 pros-cons, bottom line),
+    each linking 15 state pages + the coverage calc.
+  - WIRING: home tool below-fold state grid now links the 51 pages; +63 sitemap
+    entries (51 state + 12 carrier); site-wide **Home Insurance mega-nav
+    section** on 501 pages (mirrors Renters section — links tool, coverage calc,
+    12 carriers, 51 states from every page → internal-link equity for indexing).
+  - All jsdom-verified, 0 JS errors. Rankings are baked at generation time
+    (re-run the gen scripts to refresh if HOME_CARRIERS/averages change).
+  - NEXT / still open (user-scope, do NOT do unprompted): home METRO pages (auto
+    + renters have them; skipped for home as lower-value per quality-over-quantity
+    — revisit if metro home-insurance queries matter); a dedicated home rankings
+    hub page; refreshing the baked rankings if the home model changes.
 
 ---
 _Earlier (2026-06-11):_
