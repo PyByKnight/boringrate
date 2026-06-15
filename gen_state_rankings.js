@@ -112,7 +112,17 @@ function injectMetro(key) {
 const METRO_EXTRA = { "portland-me": ["ME", "Portland, ME"] };
 
 const args = process.argv.slice(2);
-if (args[0] === "--metros") {
+if (args[0] === "--export") {
+  // Export state ranking data for the rate-change tracker generator (Python) to embed.
+  const out = {};
+  for (const c of Object.keys(SD).filter(c => SD[c] && SD[c].avg)) {
+    const { avg, top, median } = rankState(c);
+    out[c] = { name: SD[c].name, avg, median, top: top.map(r => ({ name: r.name, price: r.price })) };
+  }
+  fs.writeFileSync("state_rankings.json", JSON.stringify(out));
+  console.log("wrote state_rankings.json (" + Object.keys(out).length + " states)");
+}
+else if (args[0] === "--metros") {
   Object.keys(MADJ).forEach(injectMetro);
   for (const slug in METRO_EXTRA) { const [st, nm] = METRO_EXTRA[slug]; inject(`article/metro/${slug}.html`, nm, rankState(st), `${nm} average`); }
 }

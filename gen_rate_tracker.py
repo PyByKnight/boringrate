@@ -15,6 +15,38 @@ TEMPLATE = ROOT / "article" / "metro" / "atlanta.html"
 OUTDIR = ROOT / "article" / "rate-changes"
 RED, GREEN = "#b4321a", "#2f6b3a"
 MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+# cheapest-carrier rankings, exported by `node gen_state_rankings.js --export`
+_RANKF = ROOT / "state_rankings.json"
+RANKINGS = json.loads(_RANKF.read_text()) if _RANKF.exists() else {}
+
+
+def ranking_block(code, name):
+    """Embed the 'cheapest carriers' ranking + a ZIP entry box on a tracker page."""
+    r = RANKINGS.get(code)
+    if not r:
+        return ""
+    rows = []
+    for i, c in enumerate(r["top"]):
+        d = c["price"] - r["median"]
+        vs = (f'<span style="color:{GREEN};font-weight:600;">Save ${abs(d):,}</span>' if d <= 0
+              else f'<span style="color:{RED};font-weight:600;">+${d:,}</span>')
+        rows.append(f'<tr style="border-bottom:1px solid var(--rule);"><td style="padding:8px 6px;color:var(--ink-mute);">{i+1}</td>'
+                    f'<td style="padding:8px 6px;"><strong>{esc(c["name"])}</strong></td>'
+                    f'<td style="padding:8px 6px;">${c["price"]:,}/yr</td><td style="padding:8px 6px;">{vs}</td></tr>')
+    table = ('<table style="width:100%;border-collapse:collapse;font-size:16px;margin:14px 0;max-width:660px;">'
+             '<thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">'
+             '<th style="padding:8px 6px;">#</th><th style="padding:8px 6px;">Carrier</th><th style="padding:8px 6px;">Est. annual</th><th style="padding:8px 6px;">vs avg</th></tr></thead>'
+             '<tbody>' + "".join(rows) + '</tbody></table>')
+    zipbox = ('<form onsubmit="event.preventDefault();var z=(this.zc.value||\'\').replace(/\\D/g,\'\').slice(0,5);'
+              'if(/^\\d{5}$/.test(z)){location.href=\'/?zip=\'+z}else{this.zc.focus()}" '
+              'style="display:flex;gap:0;max-width:360px;margin:16px 0;">'
+              '<input name="zc" type="text" inputmode="numeric" maxlength="5" placeholder="Enter your ZIP" aria-label="ZIP code" '
+              'style="flex:1;min-width:0;font-family:var(--mono);font-size:16px;letter-spacing:0.12em;padding:12px 14px;border:2px solid var(--ink);border-right:none;background:var(--paper);color:var(--ink);outline:none;" />'
+              '<button type="submit" style="font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:0 20px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;white-space:nowrap;">See rates &rarr;</button></form>')
+    return (f'<h2>Cheapest car insurance carriers in {esc(name)} right now</h2>'
+            f'<p>Estimated annual premiums for a standard profile, cheapest first &mdash; {esc(name)} averages about '
+            f'<strong>${r["avg"]:,}/yr</strong>. The spread between carriers is wide, so shopping is how you beat a rate hike.</p>'
+            + table + zipbox)
 
 
 def fdate(iso):
@@ -65,11 +97,13 @@ def render(slug, title, desc, h1, dek, body_html, faq, in_subdir=True):
         f'    <p class="article-dek">{dek}</p>\n'
         '    <div class="article-byline">BoringRate Editorial &nbsp;&middot;&nbsp; sourced from state DOI filings</div>\n'
         '  </div>\n  <div class="article-body">')
+    # lambda replacements so backslashes in the HTML (e.g. \d in the ZIP form onsubmit)
+    # aren't interpreted as regex escapes
     html = re.sub(r'<div class="article-header">.*?</div>\s*<div class="article-body">',
-                  header, html, count=1, flags=re.DOTALL)
+                  lambda _m: header, html, count=1, flags=re.DOTALL)
+    body_repl = '<div class="article-body">\n' + body_html + '\n    <div class="article-email">'
     html = re.sub(r'<div class="article-body">.*?<div class="article-email">',
-                  '<div class="article-body">\n' + body_html + '\n    <div class="article-email">',
-                  html, count=1, flags=re.DOTALL)
+                  lambda _m: body_repl, html, count=1, flags=re.DOTALL)
     html = html.replace("when Atlanta rates move", "when rates move in your area")
     html = html.replace("Compare Atlanta rates", "Compare rates")
 
@@ -110,6 +144,25 @@ def state_page(code, changes):
     dek = (f"{summary[0].upper() + summary[1:]} rates in {name} this year &mdash; from approved DOI filings. "
            "Here&rsquo;s who, by how much, and whether your renewal reflects it.")
     parts = []
+    # 1) data-driven headline + "shop for a better rate" CTA
+    max_inc = max((c["pct"] for c in incs), default=0)
+    if incs and decs:
+        lead = f"{phrase(len(incs), 'raised')} and {phrase(len(decs), 'cut')} {name} auto rates in 2026."
+    elif incs:
+        upto = f" by up to {max_inc:g}%" if max_inc else ""
+        lead = f"{phrase(len(incs), 'raised')} {name} auto rates{upto} in 2026 — you may be overpaying."
+    else:
+        lead = f"{phrase(len(decs), 'cut')} {name} auto rates in 2026 — make sure you're actually getting it."
+    parts.append(f'<p style="font-size:20px;line-height:1.45;color:var(--ink);max-width:660px;"><strong>{lead}</strong> '
+                 f'The fastest way to stop overpaying is to compare carriers for your ZIP &mdash; the cheapest options in {esc(name)} are below.</p>')
+    # 2) cheapest carriers + ZIP entry box
+    parts.append(ranking_block(code, name))
+    # 3) the filing detail (who changed, by how much, sourced)
+    if incs:
+        parts.append(f'<h2>Carriers that raised {esc(name)} rates in 2026</h2>' + rows_table(incs))
+    if decs:
+        parts.append(f'<h2>Carriers that cut {esc(name)} rates in 2026</h2>' + rows_table(decs))
+    # 4) the existing-customer catch
     decline_note = ""
     if decs:
         ex = decs[0]
@@ -122,21 +175,9 @@ def state_page(code, changes):
         'Approved changes are statewide averages, and a cut usually reaches <em>new</em> buyers first &mdash; '
         'existing customers often don&rsquo;t see it until their next renewal, if at all.' + decline_note +
         ' The only way to know you&rsquo;re on the best current price is to re-shop.</p></div>')
-    if incs:
-        parts.append(f'<h2>Carriers that raised {esc(name)} rates in 2026</h2>' + rows_table(incs))
-    if decs:
-        parts.append(f'<h2>Carriers that cut {esc(name)} rates in 2026</h2>' + rows_table(decs))
-    parts.append(
-        '<div class="zip-embed"><div class="zip-embed-label">Compare rates in ' + esc(name) + '</div>'
-        '<h3>See who&rsquo;s cheapest <em>for you</em> right now.</h3>'
-        '<div class="zip-embed-sub">Enter your ZIP &mdash; we rank every major carrier for your area. '
-        'No phone. No spam. No selling your information.</div>'
-        '<form class="zip-embed-form" id="embedZipForm" autocomplete="off">'
-        '<input class="zip-embed-input" id="embedZipInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />'
-        '<button type="submit" class="zip-embed-btn">Compare &rarr;</button></form></div>')
-    parts.append('<p style="font-size:13px;color:var(--ink-mute);">Figures are filed/approved statewide '
-                 'averages from each state&rsquo;s Department of Insurance; your individual change varies by '
-                 'risk profile. Each row links to its source. Not a quote.</p>')
+    parts.append('<p style="font-size:13px;color:var(--ink-mute);">Filing figures are filed/approved statewide '
+                 'averages from each state&rsquo;s Department of Insurance; rankings are directional estimates. '
+                 'Your individual rate varies by risk profile. Each filing links to its source. Not a quote.</p>')
     faq = []
     if incs:
         faq.append((f"Which carriers raised car insurance rates in {name} in 2026?",
