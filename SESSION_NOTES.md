@@ -1,5 +1,31 @@
 # BoringRate — Session Notes
-_Last updated: 2026-06-11 (follow-up session, Opus 4.8)_
+_Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
+
+## This session (2026-06-15, Opus 4.8) — shipped
+
+- **NEW: renters coverage calculator (`/renters/coverage.html`)** — pushed/live.
+  Coverage tool was auto-only; this is the renters counterpart (user picked
+  "approach A": purpose-built renters engine reusing the auto tool's design
+  system, not a line-by-line clone of the intricate auto engine). Inputs:
+  personal-property + assets sliders, deductible / bundle / high-value-items
+  pills, ZIP. 6 coverage cards (Personal Property C, Liability E, Loss of Use D,
+  Medical Payments F, Replacement Cost, Scheduled Items) with recommendations
+  that respond to assets/valuables. Live premium off real renters state averages
+  (national $168/yr, `RENTERS_STATE_DATA`); CTAs carry ZIP → `/renters/`.
+  Built by `build_renters_coverage.py` (surgical body/script/JSON-LD swap,
+  preserves `ZIP3_TO_STATE`). jsdom-verified `verify_renters_cov.js`: 0 JS
+  errors, 6 cards, ZIP→state, premium responds to every input. Wired from the
+  renters rate tool (below-fold contextual link) + sitemap.
+  - **NEXT (coverage tools):** build the HOME coverage calculator (same pattern).
+    Then global-nav discoverability — add a "Coverage Calculator" entry to each
+    product's nav section so both tools (rate compare + coverage) are reachable
+    from every page for auto/home/renters. That nav touches ~200+ pages, so it's
+    a dedicated regen task, NOT a heartbeat sliver — do it in a focused pass or
+    on user direction (the renters tool is already reachable via the contextual
+    link + sitemap in the meantime).
+
+---
+_Earlier (2026-06-11):_
 
 ## This session (2026-06-11, Opus 4.8) — shipped
 
