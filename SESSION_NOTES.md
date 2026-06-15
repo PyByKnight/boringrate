@@ -3,6 +3,16 @@ _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
 
 ## This session (2026-06-15, Opus 4.8) — shipped
 
+- **QA pass — funnel to the two tools.** (a) Added the two-tile paired CTA to 85
+  high-intent AUTO pages that had no in-body tool CTA: ~68 carrier compare pages,
+  6 guides, 10 rate-change trackers, 3 hubs (`insert_tool_tiles.py`, self-contained
+  inline-ZIP). Every article-tree page (494) now surfaces both tools in-body.
+  (b) Fixed a PRE-EXISTING JS bug: auto ZIP-redirect + email scripts called
+  `.addEventListener` on `zipBarForm`/`embedZipForm`/`articleEmail*`/`rankingsBody`
+  with no null guard, throwing on pages lacking those elements (compare, state-
+  rankings, hubs) and killing the rest of that script block. Guarded all attach
+  points site-wide. (c) Full jsdom sweep `qa_sweep.js`: **501/501 pages 0 JS
+  errors**; `qa_funnel.py`: no dead tool links, every content page links both tools.
 - **UX: paired two-tool CTA replaces the dark zip-embed box (409 article pages).**
   User feedback: the dark `zip-embed` CTA was "not very inviting to click," and the
   coverage tool was a buried text link while the rate tool got a big visual CTA.
