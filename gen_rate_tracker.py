@@ -175,9 +175,14 @@ def hub_page(data):
         'A rate <em>hike</em>, though, hits at your next renewal. Either way, re-shopping is how you stay on the best price.</p></div>',
     ]
     if m.get("dividend_note"):
+        extra = ""
+        if m.get("statefarm_cuts"):
+            extra = (" " + esc(m["statefarm_cuts"]) +
+                     f' (<a class="ca-link" href="{m["statefarm_cuts_url"]}" target="_blank" rel="noopener nofollow">State Farm</a>)')
         parts.append('<div class="callout"><p><strong>Biggest 2026 story:</strong> '
                      + esc(m["dividend_note"]) +
-                     f' (<a class="ca-link" href="{m["dividend_url"]}" target="_blank" rel="noopener nofollow">State Farm</a>)</p></div>')
+                     f' (<a class="ca-link" href="{m["dividend_url"]}" target="_blank" rel="noopener nofollow">State Farm</a>).'
+                     + extra + '</p></div>')
     # deep-dive states (carrier-by-carrier filings)
     if states:
         parts.append('<h2>States we track carrier-by-carrier</h2>')

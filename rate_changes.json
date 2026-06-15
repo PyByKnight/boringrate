@@ -5,7 +5,9 @@
     "national_source": "Insurify 2026 Auto Insurance Report",
     "national_url": "https://insurify.com/car-insurance/report/",
     "dividend_note": "State Farm is returning a record $5 billion to auto customers in summer 2026 — about $100 per vehicle across 49M+ vehicles, the largest dividend in its 104-year history.",
-    "dividend_url": "https://newsroom.statefarm.com/state-farm-mutual-announces-5-billion-cash-back-to-auto-customers-through-largest-dividend-in-company-history/"
+    "dividend_url": "https://newsroom.statefarm.com/state-farm-mutual-announces-5-billion-cash-back-to-auto-customers-through-largest-dividend-in-company-history/",
+    "statefarm_cuts": "Beyond the dividend, State Farm has cut auto rates in about 40 states — averaging roughly 10% — for about $4.6 billion in annual savings, citing fewer and less-expensive claims.",
+    "statefarm_cuts_url": "https://newsroom.statefarm.com/state-farm-announces-new-auto-rate-reductions/"
   },
   "statewide_2026": {
     "_source": "Insurify 2026 Auto Insurance Report (projected average change)",
