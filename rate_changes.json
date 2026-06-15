@@ -46,6 +46,8 @@
 
     {"carrier":"State Farm","state":"GA","pct":3.0,"dir":"decrease","effective":"2025-11-28","renewal":"2025-12-28","source":"State Farm Newsroom","url":"https://newsroom.statefarm.com/state-farm-announces-new-auto-rate-reduction-for-georgia-drivers/","note":"Latest of several cuts totaling ~10% avg over the past year (~$400M/yr saved, ~$190/vehicle); new business Nov 28, renewals Dec 28. Cites fewer claims + GA legal reforms."},
 
-    {"carrier":"State Farm","state":"SC","pct":8.0,"dir":"decrease","effective":"2026-02-16","source":"State Farm Newsroom","url":"https://newsroom.statefarm.com/state-farm-announces-new-auto-rate-reduction-for-south-carolina-drivers/","note":"Effective Feb 16; >$127M saved (~$100/vehicle). Plus an average $131/vehicle dividend ($151M statewide)."}
+    {"carrier":"State Farm","state":"SC","pct":8.0,"dir":"decrease","effective":"2026-02-16","source":"State Farm Newsroom","url":"https://newsroom.statefarm.com/state-farm-announces-new-auto-rate-reduction-for-south-carolina-drivers/","note":"Effective Feb 16; >$127M saved (~$100/vehicle). Plus an average $131/vehicle dividend ($151M statewide)."},
+
+    {"carrier":"State Farm","state":"TN","pct":10.0,"dir":"decrease","effective":"2025-12-15","renewal":"2026-01-15","source":"State Farm Newsroom","url":"https://newsroom.statefarm.com/state-farm-announces-new-auto-rate-reduction-for-tennessee-drivers/","note":"Latest cut of -10% (combined ~-17% across 2025); $252M saved, ~$200/vehicle. New business Dec 15, renewals Jan 15."}
   ]
 }
