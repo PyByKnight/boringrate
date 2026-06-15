@@ -177,6 +177,8 @@
     .nav-res-metros{grid-template-columns:repeat(2,1fr);}
     .nav-res-carriers{grid-template-columns:1fr;}
   }
+
+.tooltiles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:40px 0;max-width:660px;}.tile{border:1px solid var(--rule);background:var(--paper-deep);padding:22px 22px 20px;display:flex;flex-direction:column;}.tile-kicker{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin-bottom:10px;}.tile-name{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:-0.01em;margin-bottom:6px;line-height:1.15;color:var(--ink);}.tile-desc{font-size:14px;color:var(--ink-soft);line-height:1.5;margin-bottom:18px;flex:1;}.tbtn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:0.02em;padding:13px 18px;text-decoration:none;white-space:nowrap;border:2px solid var(--ink);transition:background 120ms,color 120ms;text-align:center;line-height:1.25;}.tbtn.secondary{background:transparent;color:var(--ink);}.tbtn.secondary:hover{background:var(--ink);color:var(--paper);}.tile-zipform{display:flex;gap:0;align-items:stretch;}.tile-zip-input{flex:1;min-width:0;font-family:var(--mono);font-size:18px;letter-spacing:0.12em;text-align:center;padding:11px 12px;border:2px solid var(--ink);border-right:none;background:var(--paper);color:var(--ink);outline:none;}.tile-zip-input::placeholder{color:var(--ink-mute);}.tile-zip-btn{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:0 18px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;white-space:nowrap;}.tile-zip-btn:hover{background:#8a1f0f;}@media(max-width:560px){.tooltiles{grid-template-columns:1fr;}}
 </style>
 
 <meta property="og:type" content="article" />
@@ -340,15 +342,7 @@
 
     <div class="callout"><p><strong>Las Vegas renters insurance average:</strong> $195/year ($16/month) &mdash; 16% above the national average of $168. Personal property theft is the most common claim in this market — ensure your contents limit covers your electronics, bike, and valuables.</p></div>
 
-    <div class="zip-embed">
-      <div class="zip-embed-label">Compare renters insurance in Las Vegas</div>
-      <h3>Find the cheapest rate <em>in your part of Las Vegas.</em></h3>
-      <div class="zip-embed-sub">Enter your ZIP &mdash; see carrier rankings for your area in seconds.<br>No phone. No spam. No selling your information.</div>
-      <form class="zip-embed-form" id="embedZipForm" autocomplete="off">
-        <input class="zip-embed-input" id="embedZipInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />
-        <button type="submit" class="zip-embed-btn">Compare &rarr;</button>
-      </form>
-    </div>
+    <div class="tooltiles"><div class="tile"><div class="tile-kicker">Compare rates</div><div class="tile-name">Cheapest renters insurance for your ZIP</div><div class="tile-desc">Rank every carrier by estimated price for your exact ZIP and profile &mdash; in seconds, no calls.</div><form class="tile-zipform" id="embedZipForm" autocomplete="off"><input class="tile-zip-input" id="embedZipInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="tile-zip-btn">Compare &rarr;</button></form></div><div class="tile"><div class="tile-kicker">Coverage calculator</div><div class="tile-name">Not sure how much you need?</div><div class="tile-desc">See what to buy and what to skip &mdash; and how each choice changes your price.</div><a class="tbtn secondary" href="/renters/coverage.html">Help me choose my coverage options &rarr;</a></div></div>
 
     <h2>Frequently asked questions</h2>
     <div class="callout"><p><strong>What is the average cost of renters insurance in Las Vegas?</strong><br>The average cost of renters insurance in Las Vegas is $195/year (about $16/month) — 16% above the national average of $168. Rates vary by ZIP code, coverage amount, and insurer.</p></div>
