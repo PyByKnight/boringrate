@@ -369,7 +369,7 @@
   var _sb=supabase.createClient("https://uayypfeqltlrxkdqgvcz.supabase.co","sb_publishable_gAKR-IoPDphx8Zp0GlVt7Q_JeYKeU5f");
   var btn=document.getElementById("articleEmailBtn");
   if(!btn)return;
-  document.getElementById("articleEmailZip").addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
+  (document.getElementById("articleEmailZip")||{addEventListener:function(){}}).addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
   btn.addEventListener("click",async function(){
     var email=document.getElementById("articleEmailInput").value.trim();
     var zip=document.getElementById("articleEmailZip").value.trim();

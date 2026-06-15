@@ -366,10 +366,10 @@
 <script>
 (function(){
   try{var p=JSON.parse(localStorage.getItem("br_profile"));if(p&&p.zip){var zi=document.getElementById("zipBarInput");if(zi)zi.value=p.zip;var btn=document.querySelector(".zip-bar-btn");if(btn)btn.textContent="Return to Rates →";}}catch(e){}
-  document.getElementById("zipBarForm").addEventListener("submit",function(e){e.preventDefault();var zip=document.getElementById("zipBarInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("zipBarInput").focus();return;}window.location.href="/?zip="+zip;});
-  document.getElementById("zipBarInput").addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
-  document.getElementById("embedZipForm").addEventListener("submit",function(e){e.preventDefault();var zip=document.getElementById("embedZipInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("embedZipInput").focus();return;}window.location.href="/?zip="+zip;});
-  document.getElementById("embedZipInput").addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
+  (document.getElementById("zipBarForm")||{addEventListener:function(){}}).addEventListener("submit",function(e){e.preventDefault();var zip=document.getElementById("zipBarInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("zipBarInput").focus();return;}window.location.href="/?zip="+zip;});
+  (document.getElementById("zipBarInput")||{addEventListener:function(){}}).addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
+  (document.getElementById("embedZipForm")||{addEventListener:function(){}}).addEventListener("submit",function(e){e.preventDefault();var zip=document.getElementById("embedZipInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("embedZipInput").focus();return;}window.location.href="/?zip="+zip;});
+  (document.getElementById("embedZipInput")||{addEventListener:function(){}}).addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
 })();
 </script>
 <script>(function(){var dds=document.querySelectorAll('.nav-dd-btn');dds.forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();var panel=document.getElementById(btn.id+'Panel');if(!panel)return;var wasOpen=panel.classList.contains('open');document.querySelectorAll('.nav-dd-panel').forEach(function(p){p.classList.remove('open');});document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.setAttribute('aria-expanded','false');});if(!wasOpen){panel.classList.add('open');btn.setAttribute('aria-expanded','true');}});});document.addEventListener('click',function(){document.querySelectorAll('.nav-dd-panel').forEach(function(p){p.classList.remove('open');});document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.setAttribute('aria-expanded','false');});});})();</script>
@@ -380,7 +380,7 @@
   var _sb=supabase.createClient("https://uayypfeqltlrxkdqgvcz.supabase.co","sb_publishable_gAKR-IoPDphx8Zp0GlVt7Q_JeYKeU5f");
   var btn=document.getElementById("articleEmailBtn");
   if(!btn)return;
-  document.getElementById("articleEmailZip").addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
+  (document.getElementById("articleEmailZip")||{addEventListener:function(){}}).addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
   btn.addEventListener("click",async function(){
     var email=document.getElementById("articleEmailInput").value.trim();
     var zip=document.getElementById("articleEmailZip").value.trim();

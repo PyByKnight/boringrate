@@ -232,10 +232,10 @@
 <footer><div class="wrap"><div class="foot-grid"><div><div class="brand"><span class="brand-mark"></span>BoringRate</div><p>Independent insurance research. Boring on purpose.</p></div><div class="foot-col"><h5>Research</h5><a href="/article/state-rankings.html">State Rankings</a><a href="/article/rate-changes/">Rate Change Tracker</a><a href="/article/state-rankings.html">By state</a><a href="../../methodology.html">Methodology</a></div><div class="foot-col"><h5>About</h5><a href="/methodology.html">Editorial standards</a><a href="mailto:hello@boringrate.com">Contact</a></div><div class="foot-col"><h5>Subscribe</h5><a href="#articleEmailForm">Rate change alerts</a></div></div><div class="legal">© 2026 BORINGRATE. NOT AN INSURANCE PRODUCER. NOT A LICENSED AGENT. NO COMMISSIONED RELATIONSHIPS WITH ANY CARRIER LISTED ABOVE. ESTIMATES ARE EDITORIAL OPINION BASED ON PUBLIC DATA AND ARE NOT QUOTES. SHOP AT YOUR OWN DISCRETION.</div></div></footer>
 <script>
 (function(){try{var p=JSON.parse(localStorage.getItem("br_profile"));if(p&&p.zip){document.getElementById("zipBarInput").value=p.zip;var btn=document.querySelector(".zip-bar-btn");if(btn)btn.textContent="Return to Rates →";}}catch(e){}})();
-document.getElementById("zipBarForm").addEventListener("submit",e=>{e.preventDefault();const zip=document.getElementById("zipBarInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("zipBarInput").focus();return;}window.location.href="../../index.html?zip="+zip;});
-document.getElementById("zipBarInput").addEventListener("input",e=>{e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
-document.getElementById("embedZipForm").addEventListener("submit",e=>{e.preventDefault();const zip=document.getElementById("embedZipInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("embedZipInput").focus();return;}window.location.href="../../index.html?zip="+zip;});
-document.getElementById("embedZipInput").addEventListener("input",e=>{e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
+(document.getElementById("zipBarForm")||{addEventListener:function(){}}).addEventListener("submit",e=>{e.preventDefault();const zip=document.getElementById("zipBarInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("zipBarInput").focus();return;}window.location.href="../../index.html?zip="+zip;});
+(document.getElementById("zipBarInput")||{addEventListener:function(){}}).addEventListener("input",e=>{e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
+(document.getElementById("embedZipForm")||{addEventListener:function(){}}).addEventListener("submit",e=>{e.preventDefault();const zip=document.getElementById("embedZipInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("embedZipInput").focus();return;}window.location.href="../../index.html?zip="+zip;});
+(document.getElementById("embedZipInput")||{addEventListener:function(){}}).addEventListener("input",e=>{e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
 
 document.addEventListener('DOMContentLoaded',function(){var btn=document.getElementById('navHamburger');var mega=document.getElementById('navMega');if(!btn||!mega)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));if(!open)mega.querySelectorAll('.nav-mega-col').forEach(function(c){c.classList.remove('open');});});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});});</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
   var _sb=supabase.createClient("https://uayypfeqltlrxkdqgvcz.supabase.co","sb_publishable_gAKR-IoPDphx8Zp0GlVt7Q_JeYKeU5f");
   var btn=document.getElementById("articleEmailBtn");
   if(!btn)return;
-  document.getElementById("articleEmailZip").addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
+  (document.getElementById("articleEmailZip")||{addEventListener:function(){}}).addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
   btn.addEventListener("click",async function(){
     var email=document.getElementById("articleEmailInput").value.trim();
     var zip=document.getElementById("articleEmailZip").value.trim();
