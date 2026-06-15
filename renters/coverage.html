@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="canonical" href="https://boringrate.com/renters/coverage.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How much renters insurance do you actually need? — BoringRate</title>
+<meta name="description" content="Estimate how much personal property and liability coverage you need as a renter — and what it should cost. Know what to buy and what to skip." />
+<meta property="og:title" content="How much renters insurance do you actually need? — BoringRate" />
+<meta property="og:image" content="https://boringrate.com/og-default.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How much renters insurance do you actually need? — BoringRate" />
+<meta name="twitter:description" content="Estimate how much personal property and liability coverage you need as a renter — and what it should cost. Know what to buy and what to skip." />
+<meta name="twitter:image" content="https://boringrate.com/og-default.png" />
+<meta property="og:description" content="Estimate how much personal property and liability coverage you need as a renter — and what it should cost. Know what to buy and what to skip." />
+<meta property="og:url" content="https://boringrate.com/renters/coverage.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink: #161512;
+    --ink-soft: #3a3631;
+    --ink-mute: #6b665e;
+    --paper: #f6f1e8;
+    --paper-deep: #ece5d6;
+    --rule: #d8d0bd;
+    --accent: #b4321a;
+    --accent-deep: #8a1f0f;
+    --good: #2f6b3a;
+    --warn: #8a5a0f;
+    --serif: 'Fraunces', 'Georgia', serif;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.06 0 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.55;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+  .wrap-narrow { max-width: 740px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+
+  /* ── Header ── */
+  header.top {
+    border-bottom: 1px solid var(--rule);
+    padding: 18px 0;
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(6px);
+  }
+  .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .brand-mark { display: inline-block; width: 10px; height: 10px; background: var(--accent); border-radius: 2px; transform: translateY(-2px); }
+  nav.primary { display: flex; align-items: center; gap: 20px; margin-left: auto; margin-right: 0; }
+  .nav-tabs { display: flex; border: 1px solid var(--rule); }
+  .nav-tabs a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; padding: 6px 13px; border-right: 1px solid var(--rule); transition: all 120ms; white-space: nowrap; }
+  .nav-tabs a:last-child { border-right: none; }
+  .nav-tabs a.active { background: var(--ink); color: var(--paper); }
+  .nav-tabs a:not(.active):hover { color: var(--ink); background: var(--paper-deep); }
+  .nav-method { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; }
+  .nav-method:hover { color: var(--ink); }
+
+  /* ── Page header ── */
+  .page-header { padding: 52px 0 38px; border-bottom: 1px solid var(--rule); }
+  .page-kicker { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 16px; }
+  .page-kicker a { color: var(--accent); text-decoration: none; }
+  .page-kicker a:hover { text-decoration: underline; }
+  h1.page-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+    max-width: 600px;
+    margin-bottom: 16px;
+  }
+  .page-dek { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); max-width: 540px; line-height: 1.45; font-style: italic; }
+
+  /* ── Profile widget ── */
+  .profile-section { padding: 40px 0 0; }
+  .profile-widget {
+    background: var(--paper-deep);
+    border: 1px solid var(--rule);
+    padding: 28px 32px 32px;
+    margin-bottom: 0;
+  }
+  .profile-widget-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 28px; }
+
+  /* Sliders */
+  .slider-q { margin-bottom: 26px; }
+  .slider-q-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; gap: 12px; }
+  .slider-q-label { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+  .slider-q-value { font-family: var(--mono); font-size: 15px; font-weight: 500; color: var(--ink); letter-spacing: 0.02em; white-space: nowrap; }
+  input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--ink) 0%, var(--ink) var(--pct, 21%), var(--rule) var(--pct, 21%), var(--rule) 100%);
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+    display: block;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px; height: 22px;
+    background: var(--ink);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 1.5px var(--ink);
+    transition: background 120ms, box-shadow 120ms;
+  }
+  input[type=range]:hover::-webkit-slider-thumb { background: var(--accent); box-shadow: 0 0 0 1.5px var(--accent); }
+  input[type=range]::-moz-range-thumb { width: 22px; height: 22px; background: var(--ink); border-radius: 50%; cursor: pointer; border: 3px solid var(--paper); box-shadow: 0 0 0 1.5px var(--ink); }
+  .slider-ticks { display: flex; justify-content: space-between; margin-top: 8px; font-family: var(--mono); font-size: 10px; color: var(--ink-mute); letter-spacing: 0.06em; }
+
+  /* ZIP input */
+  .zip-q { margin-bottom: 26px; }
+  .zip-q-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 12px; }
+  .zip-q-label { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+  .zip-state-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--good);
+    background: #d4edda;
+    padding: 3px 8px;
+    display: none;
+  }
+  .zip-input-row { display: flex; gap: 0; align-items: stretch; }
+  .zip-field {
+    font-family: var(--mono);
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    padding: 9px 14px;
+    width: 110px;
+    border: 1.5px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 120ms;
+  }
+  .zip-field:focus { border-color: var(--ink); }
+  .zip-hint { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.06em; padding: 9px 14px; border: 1.5px solid var(--rule); border-left: none; background: var(--paper-deep); display: flex; align-items: center; }
+
+  /* Pills */
+  .profile-pills-row { display: flex; gap: 32px; flex-wrap: wrap; }
+  .profile-pill-q { display: flex; flex-direction: column; gap: 9px; }
+  .profile-pill-label { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+  .pill-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pill {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 7px 16px;
+    border: 1.5px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink-mute);
+    cursor: pointer;
+    transition: all 120ms;
+    user-select: none;
+  }
+  .pill:hover { border-color: var(--ink-soft); color: var(--ink); }
+  .pill.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+  /* ── Summary bar ── */
+  .summary-bar {
+    border: 1px solid var(--rule);
+    border-top: none;
+    background: var(--paper-deep);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
+  .summary-total { font-size: 15px; color: var(--ink-soft); }
+  .summary-total strong { font-family: var(--mono); font-size: 17px; color: var(--ink); font-weight: 600; }
+  .summary-delta { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; }
+  .summary-delta.plus  { background: #fde8e3; color: var(--accent); }
+  .summary-delta.minus { background: #d4edda; color: var(--good); }
+  .summary-delta.at-rec { background: #d4edda; color: var(--good); }
+  .summary-note { font-family: var(--mono); font-size: 10px; color: var(--ink-mute); letter-spacing: 0.06em; width: 100%; }
+  .summary-note a { color: var(--ink-mute); }
+  .summary-note a:hover { color: var(--accent); }
+
+  /* ── Coverage cards ── */
+  .cov-cards { margin-bottom: 72px; }
+  .cov-card { border: 1px solid var(--rule); border-top: none; padding: 22px 24px 16px; background: var(--paper); }
+  .cov-card:first-child { border-top: 1px solid var(--rule); }
+  .cov-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 4px; }
+  .cov-card-name { font-family: var(--serif); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+  .cov-card-tagline { font-size: 13px; color: var(--ink-mute); font-style: italic; margin-bottom: 7px; }
+  .cov-rate-note { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
+  .cov-card-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.55; max-width: 520px; }
+
+  /* Delta badge — fixed height, no layout shift */
+  .delta-display { flex-shrink: 0; text-align: right; }
+  .delta-badge {
+    display: inline-block; font-family: var(--mono); font-size: 11px;
+    font-weight: 600; letter-spacing: 0.05em; padding: 4px 9px;
+    white-space: nowrap; line-height: 1;
+  }
+  .delta-badge.plus  { background: #fde8e3; color: var(--accent); }
+  .delta-badge.minus { background: #d4edda; color: var(--good); }
+  .delta-badge.zero  { background: #d4edda; color: var(--good); }
+
+  /* Toggle switch */
+  .cov-toggle-row { margin: 14px 0 4px; }
+  .cov-toggle { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; }
+  .cov-toggle-track {
+    width: 40px; height: 22px; background: var(--rule); border-radius: 11px;
+    position: relative; transition: background 200ms; flex-shrink: 0;
+  }
+  .cov-toggle-track.on { background: var(--good); }
+  .cov-toggle-thumb {
+    position: absolute; top: 3px; left: 3px;
+    width: 16px; height: 16px; background: var(--paper); border-radius: 50%;
+    transition: left 200ms; box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  }
+  .cov-toggle-track.on .cov-toggle-thumb { left: 21px; }
+  .cov-toggle-label { font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--ink-soft); letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.5; }
+  .tgl-hint { font-weight: 400; color: var(--ink-mute); text-transform: none; letter-spacing: 0.04em; }
+
+  /* Coverage sliders */
+  .cov-slider-body { margin-top: 12px; transition: opacity 150ms; }
+  .cov-slider-body.off { opacity: 0.28; pointer-events: none; }
+  .cov-slider-wrap { margin-bottom: 0; }
+  .slider-tick-marks-wrap { position: relative; height: 8px; margin: 3px 11px 0; }
+  .slider-tick-mark {
+    position: absolute; width: 1.5px; height: 7px;
+    background: var(--rule); top: 0; transform: translateX(-50%);
+  }
+  .slider-tick-mark.at-sel { background: var(--ink); height: 8px; }
+  .cov-ticks { position: relative; height: 32px; margin: 5px 11px 0; }
+  .cov-tick-item {
+    position: absolute; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 1px;
+  }
+  .cov-tick-label { font-family: var(--mono); font-size: 10px; color: var(--ink-mute); letter-spacing: 0.03em; white-space: nowrap; line-height: 1.3; }
+  .cov-tick-label.is-rec { color: var(--accent); }
+  .cov-tick-label.is-sel { color: var(--ink); font-weight: 600; }
+  .cov-tick-delta { font-family: var(--mono); font-size: 9px; letter-spacing: 0.02em; color: transparent; }
+  .cov-tick-delta.more { color: var(--accent); }
+  .cov-tick-delta.less { color: var(--good); }
+  .cov-tick-delta.at-sel { color: var(--ink-mute); }
+  .cov-cost { font-family: var(--mono); font-size: 11px; color: var(--ink-soft); letter-spacing: 0.04em; margin-top: 10px; }
+  .cov-cost .vs-rec { color: var(--ink-mute); }
+  .cov-cost .vs-rec.plus { color: var(--accent); }
+  .cov-cost .vs-rec.minus { color: var(--good); }
+  /* Expand/collapse description */
+  .cov-expand { margin: 6px 0 0; }
+  .cov-expand-btn {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-mute); background: none; border: none; cursor: pointer; padding: 0;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .cov-expand-btn:hover { color: var(--accent); }
+  .cov-desc-body { margin-top: 8px; padding: 12px 14px; background: var(--paper-deep); border-left: 2px solid var(--rule); }
+  .cov-desc-body p { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 0; }
+  .cov-full-guide { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: var(--ink-mute); text-decoration: none; display: inline-block; margin-top: 8px; }
+  .cov-full-guide:hover { color: var(--accent); }
+  .guide-back-link { display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-mute); text-decoration: none; margin-top: 20px; padding: 6px 0; }
+  .guide-back-link:hover { color: var(--accent); }
+
+  /* ── Sticky floating total ── */
+  .sticky-total {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 40;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 16px 22px;
+    min-width: 200px;
+    box-shadow: 0 4px 24px rgba(22,21,18,0.18);
+  }
+  .sticky-compare-link {
+    display: none;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--paper);
+    text-decoration: none;
+    margin-top: 14px;
+    background: var(--accent);
+    padding: 10px 14px;
+    text-align: center;
+    transition: opacity 120ms;
+  }
+  .sticky-compare-link:hover { opacity: 0.85; }
+
+  /* ── CTA card at end of coverage cards ── */
+  .cov-cta-card {
+    border: 1px solid var(--rule);
+    border-top: 2px solid var(--ink);
+    background: var(--ink);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .cov-cta-left {}
+  .cov-cta-total-label { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(246,241,232,0.4); margin-bottom: 4px; }
+  .cov-cta-total-amt { font-family: var(--mono); font-size: 28px; font-weight: 600; letter-spacing: -0.02em; color: var(--paper); line-height: 1; }
+  .cov-cta-total-sub { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.35); margin-top: 4px; letter-spacing: 0.04em; }
+  .cov-cta-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: var(--accent);
+    color: var(--paper);
+    padding: 13px 22px;
+    text-decoration: none;
+    transition: opacity 120ms;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .cov-cta-btn:hover { opacity: 0.85; }
+  .sticky-total-label { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(246,241,232,0.4); margin-bottom: 5px; }
+  .sticky-total-amount { font-family: var(--mono); font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
+  .sticky-total-delta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; margin-top: 6px; }
+  .sticky-total-delta.plus  { color: #f5a58c; }
+  .sticky-total-delta.minus { color: #7fd4a0; }
+  .sticky-total-delta.zero  { color: #7fd4a0; }
+
+  /* ── CTA at bottom ── */
+  .bottom-cta {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px;
+    margin-bottom: 72px;
+  }
+  .bottom-cta-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(246,241,232,0.4); margin-bottom: 16px; }
+  .bottom-cta-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .bottom-cta-text h3 { font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 6px; color: var(--paper); }
+  .bottom-cta-text p { font-size: 14px; color: rgba(246,241,232,0.6); line-height: 1.5; }
+  .bottom-cta-selections { font-family: var(--mono); font-size: 11px; color: rgba(246,241,232,0.4); letter-spacing: 0.05em; line-height: 1.8; margin-top: 12px; }
+  .bottom-zip-row { display: flex; gap: 0; margin-top: 20px; align-items: stretch; flex-wrap: wrap; }
+  .bottom-zip-input {
+    font-family: var(--mono);
+    font-size: 16px;
+    letter-spacing: 0.14em;
+    padding: 11px 14px;
+    width: 110px;
+    border: 1.5px solid rgba(246,241,232,0.25);
+    background: rgba(246,241,232,0.07);
+    color: var(--paper);
+    outline: none;
+    transition: border-color 120ms;
+  }
+  .bottom-zip-input::placeholder { color: rgba(246,241,232,0.25); letter-spacing: 0.1em; }
+  .bottom-zip-input:focus { border-color: rgba(246,241,232,0.55); }
+  .cta-btn {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: var(--paper);
+    text-decoration: none;
+    display: inline-block;
+    transition: background 120ms;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .cta-btn:hover { background: var(--accent-deep); }
+
+  /* ── Guide section ── */
+  .guide-section { padding: 72px 0; border-top: 1px solid var(--rule); }
+  .guide-head { margin-bottom: 52px; }
+  .section-num { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 10px; }
+  h2.section-title { font-family: var(--serif); font-size: clamp(22px, 3vw, 32px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); max-width: 540px; }
+  h2.section-title em { font-style: italic; }
+
+  .coverage-type { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--rule); }
+  .coverage-type:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .coverage-type-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+  h3.coverage-name { font-family: var(--serif); font-size: 21px; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+  .coverage-tag { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; padding: 3px 8px; background: var(--paper-deep); color: var(--ink-mute); border: 1px solid var(--rule); }
+  .coverage-tag.req { background: #fde8e3; color: var(--accent); border-color: #f5bfb3; }
+  .coverage-tag.lender { background: #fef3cd; color: var(--warn); border-color: #f0d060; }
+
+  .coverage-body p { font-size: 16px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 16px; max-width: 640px; }
+  .coverage-body p:last-child { margin-bottom: 0; }
+  .coverage-body strong { color: var(--ink); font-weight: 600; }
+  .coverage-body .callout { border-left: 3px solid var(--rule); padding: 14px 20px; margin: 20px 0; background: var(--paper-deep); max-width: 640px; }
+  .coverage-body .callout p { font-size: 15px; margin-bottom: 0; line-height: 1.6; }
+
+  /* ── Footer CTA strip ── */
+  .cta-section { border-top: 2px solid var(--accent); background: var(--paper-deep); padding: 52px 0; }
+  .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .cta-text h3 { font-family: var(--serif); font-size: 26px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 8px; }
+  .cta-text p { font-size: 15px; color: var(--ink-soft); max-width: 440px; line-height: 1.5; }
+
+  footer.site-foot { border-top: 1px solid var(--rule); padding: 32px 0; }
+  .foot-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .foot-copy { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.06em; }
+  .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
+  .foot-links a { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); text-decoration: none; letter-spacing: 0.06em; transition: color 120ms; }
+  .foot-links a:hover { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .page-header { padding: 32px 0 24px; }
+    .profile-widget { padding: 20px 18px 24px; }
+    .profile-pills-row { gap: 20px; }
+    .bottom-cta { padding: 22px 20px; }
+    .bottom-cta-row { flex-direction: column; align-items: flex-start; }
+    .sticky-total { bottom: 16px; right: 16px; padding: 12px 16px; min-width: 160px; }
+    .sticky-total-amount { font-size: 20px; }
+    nav.primary .nav-tabs { display: none; }.nav-dd-group{display:none;}
+  }
+  /* ── Hamburger / Mega Nav ─────────────────────────── */
+  .nav-hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px 6px; margin-left: 4px; }
+  .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--ink); transition: transform 200ms, opacity 200ms; transform-origin: center; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mega { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--ink); color: var(--paper); border-top: 2px solid var(--accent); z-index: 200; box-shadow: 0 8px 32px rgba(0,0,0,0.18); }
+  .nav-mega.open { display: block; }
+  .nav-mega-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 0; padding: 28px; max-width: 1180px; margin: 0 auto; }
+  .nav-mega-col + .nav-mega-col { border-left: 1px solid rgba(246,241,232,0.1); padding-left: 28px; }
+  .nav-mega-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(246,241,232,0.35); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid rgba(246,241,232,0.1); }
+  .nav-mega-states { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px 0; }
+  .nav-mega-states a { font-family: var(--mono); font-size: 11px; color: rgba(246,241,232,0.65); text-decoration: none; padding: 3px 0; transition: color 120ms; letter-spacing: 0.02em; }
+  .nav-mega-states a:hover { color: var(--paper); }
+  .nav-mega-state-spotlight { border-top: 1px solid rgba(246,241,232,0.1); margin-top: 10px; padding-top: 10px; }
+  .nav-mega-state-spotlight a { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.5); text-decoration: none; letter-spacing: 0.04em; transition: color 120ms; }
+  .nav-mega-state-spotlight a:hover { color: var(--paper); }
+  .nav-mega-carriers { display: flex; flex-direction: column; }
+  .nav-mega-carriers a { font-family: var(--sans); font-size: 14px; font-weight: 500; color: rgba(246,241,232,0.8); text-decoration: none; padding: 8px 0; border-bottom: 1px solid rgba(246,241,232,0.08); display: flex; justify-content: space-between; align-items: center; transition: color 120ms; }
+  .nav-mega-carriers a:last-child { border-bottom: none; }
+  .nav-mega-carriers a:hover { color: var(--paper); }
+  .nav-mega-tag { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.3); letter-spacing: 0.04em; }
+  .nav-mega-head-link { display: block; text-decoration: none; color: inherit; transition: color 120ms; }
+  .nav-mega-head-link:hover { color: var(--paper); }
+  .nav-mega-metros { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px 0; }
+  .nav-mega-metros a { font-family: var(--mono); font-size: 10px; color: rgba(246,241,232,0.65); text-decoration: none; padding: 3px 0; transition: color 120ms; letter-spacing: 0.02em; }
+  .nav-mega-metros a:hover { color: var(--paper); }
+  @media (max-width: 800px) {
+    .nav-mega { max-height: calc(100vh - 65px); overflow-y: auto; }
+    .nav-mega-inner { grid-template-columns: 1fr; padding: 0; }
+    .nav-mega-col { padding: 0; border-bottom: 1px solid rgba(246,241,232,0.1); }
+    .nav-mega-col + .nav-mega-col { border-left: none; margin-top: 0; padding-top: 0; }
+    .nav-mega-head { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; margin: 0; border-bottom: none; font-size: 11px; }
+    .nav-mega-col-arrow { font-size: 18px; color: rgba(246,241,232,0.4); transition: transform 200ms; display: inline-block; }
+    .nav-mega-col.open .nav-mega-col-arrow { transform: rotate(180deg); }
+    .nav-mega-col-body { display: none; padding: 0 20px 16px; }
+    .nav-mega-col.open .nav-mega-col-body { display: block; }
+    .nav-mega-states { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 480px) { .nav-tabs { display: none; } .nav-mega-states { grid-template-columns: repeat(2, 1fr); } }
+  .nav-mega-inner{display:block;padding:24px 28px;max-width:1180px;margin:0 auto;}
+  .nav-section{margin-bottom:22px;}
+  .nav-section:last-child{margin-bottom:0;}
+  .nav-section-label{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(246,241,232,0.35);margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid rgba(246,241,232,0.12);}
+  .nav-tools{display:flex;gap:2px;flex-wrap:wrap;}
+  .nav-tool{display:flex;flex-direction:column;gap:3px;padding:11px 14px;text-decoration:none;color:var(--paper);flex:1;min-width:150px;background:rgba(246,241,232,0.04);border:1px solid rgba(246,241,232,0.08);transition:background 120ms;}
+  .nav-tool:hover{background:rgba(246,241,232,0.1);}
+  .nav-tool-name{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--paper);}
+  .nav-tool-desc{font-family:var(--mono);font-size:10px;color:rgba(246,241,232,0.38);letter-spacing:0.03em;}
+  .nav-res-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px;}
+  .nav-res-tab{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;background:none;border:1px solid rgba(246,241,232,0.15);color:rgba(246,241,232,0.5);padding:6px 12px;cursor:pointer;transition:all 120ms;}
+  .nav-res-tab:hover,.nav-res-tab.active{color:var(--paper);border-color:rgba(246,241,232,0.4);background:rgba(246,241,232,0.08);}
+  .nav-res-panel{display:none;}
+  .nav-res-panel.active{display:block;}
+  .nav-res-metros{display:grid;grid-template-columns:repeat(7,1fr);gap:1px 0;}
+  .nav-res-metros a{font-family:var(--mono);font-size:11px;color:rgba(246,241,232,0.65);text-decoration:none;padding:3px 0;transition:color 120ms;letter-spacing:0.02em;}
+  .nav-res-metros a:hover{color:var(--paper);}
+  .nav-res-subhead{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(246,241,232,0.3);margin:0 0 6px;}
+  .nav-res-carriers{display:grid;grid-template-columns:repeat(4,1fr);gap:0 16px;}
+  .nav-res-carriers a{font-family:var(--sans);font-size:12px;color:rgba(246,241,232,0.72);text-decoration:none;padding:5px 0;border-bottom:1px solid rgba(246,241,232,0.06);display:flex;justify-content:space-between;transition:color 120ms;}
+  .nav-res-carriers a:hover{color:var(--paper);}
+  .nav-res-guides a{display:block;font-family:var(--sans);font-size:13px;color:rgba(246,241,232,0.75);text-decoration:none;padding:7px 0;border-bottom:1px solid rgba(246,241,232,0.08);transition:color 120ms;}
+  .nav-res-guides a:last-child{border-bottom:none;}
+  .nav-res-guides a:hover{color:var(--paper);}
+  @media(max-width:900px){
+    .nav-mega-inner{padding:0;}
+    .nav-section{margin:0;border-bottom:1px solid rgba(246,241,232,0.12);}
+    .nav-section-label{padding:14px 20px;margin:0;border-bottom:none;}
+    .nav-tools{flex-direction:column;gap:0;}
+    .nav-tool{border:none;border-bottom:1px solid rgba(246,241,232,0.06);min-width:0;padding:12px 20px;}
+    .nav-res-tabs{flex-direction:column;gap:0;margin:0;padding:0 20px 10px;}
+    .nav-res-tab{border:none;border-bottom:1px solid rgba(246,241,232,0.08);text-align:left;padding:12px 0;}
+    .nav-res-panel{padding:0 20px 14px;}
+    .nav-mega-states{grid-template-columns:repeat(3,1fr);}
+    .nav-res-metros{grid-template-columns:repeat(2,1fr);}
+    .nav-res-carriers{grid-template-columns:1fr 1fr;gap:0 10px;}
+  }
+  @media(max-width:480px){
+    .nav-mega-states{grid-template-columns:repeat(2,1fr);}
+    .nav-res-metros{grid-template-columns:repeat(2,1fr);}
+    .nav-res-carriers{grid-template-columns:1fr;}
+  }
+
+  /* ── Nav dropdowns ──────────────────────────────────────── */
+  .nav-dd-group{position:relative;}
+  .nav-dd-btn{font-family:var(--mono);font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-soft);background:none;border:1px solid var(--rule);padding:6px 12px;cursor:pointer;white-space:nowrap;transition:all 120ms;}
+  .nav-dd-btn:hover,.nav-dd-btn[aria-expanded="true"]{color:var(--ink);border-color:var(--ink);background:var(--paper-deep);}
+  .nav-dd-panel{display:none;position:absolute;top:calc(100% + 6px);left:0;background:var(--paper);border:1px solid var(--ink);min-width:180px;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.08);}
+  .nav-dd-panel.open{display:flex;flex-direction:column;}
+  .nav-dd-panel a{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;padding:9px 14px;border-bottom:1px solid var(--rule);white-space:nowrap;transition:background 100ms,color 100ms;}
+  .nav-dd-panel a:last-child{border-bottom:none;}
+  .nav-dd-panel a:hover{background:var(--paper-deep);color:var(--ink);}
+  .nav-dd-panel a.active{background:var(--ink);color:var(--paper);}
+  .nav-dd-panel-dim{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-mute);padding:9px 14px;opacity:0.4;border-top:1px solid var(--rule);cursor:default;}
+  .nav-dd-soon{font-size:9px;letter-spacing:0.04em;vertical-align:super;margin-left:3px;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-inner">
+      <a href="/" class="brand"><span class="brand-mark"></span>BoringRate</a>
+      <nav class="primary">
+        <div class="nav-dd-group">
+        <button class="nav-dd-btn" id="navDdTools" aria-expanded="false">Tools &#9662;</button>
+        <div class="nav-dd-panel" id="navDdToolsPanel">
+          <a href="/">Rate Comparison</a>
+          <a href="/coverage.html" class="active">Coverage Calculator</a>
+          <a href="/article/compare/index.html">Carrier Comparison</a>
+        </div>
+      </div>
+      <div class="nav-dd-group">
+        <button class="nav-dd-btn" id="navDdProduct" aria-expanded="false">Product &#9662;</button>
+        <div class="nav-dd-panel" id="navDdProductPanel">
+          <a href="/">Auto</a>
+          <a href="/renters/index.html">Renters</a>
+          <span class="nav-dd-panel-dim">Home<span class="nav-dd-soon">soon</span></span>
+        </div>
+      </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Browse site" aria-expanded="false"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </div>
+  <div class="nav-mega" id="navMega"><div class="nav-mega-inner"><div class="nav-section"><p class="nav-section-label">Tools</p><div class="nav-tools"><a href="/" class="nav-tool"><span class="nav-tool-name">Rate Comparison</span><span class="nav-tool-desc">Rank every carrier for your ZIP</span></a><a href="/coverage.html" class="nav-tool"><span class="nav-tool-name">Coverage Calculator</span><span class="nav-tool-desc">Find the right coverage level</span></a><a href="/article/compare/index.html" class="nav-tool"><span class="nav-tool-name">Carrier Comparison</span><span class="nav-tool-desc">Head-to-head any two carriers</span></a></div></div><div class="nav-section"><p class="nav-section-label">Research</p><div class="nav-res-tabs"><button type="button" class="nav-res-tab active" data-panel="res-state">State</button><button type="button" class="nav-res-tab" data-panel="res-metro">Metro</button><button type="button" class="nav-res-tab" data-panel="res-carrier">Carrier</button><button type="button" class="nav-res-tab" data-panel="res-market">Market Share</button><button type="button" class="nav-res-tab" data-panel="res-guides">Guides</button></div><div class="nav-res-panels"><div class="nav-res-panel active" id="res-state"><div class="nav-mega-states"><a href="/article/state/alabama.html">Alabama</a><a href="/article/state/alaska.html">Alaska</a><a href="/article/state/arizona.html">Arizona</a><a href="/article/state/arkansas.html">Arkansas</a><a href="/article/state/california.html">California</a><a href="/article/state/colorado.html">Colorado</a><a href="/article/state/connecticut.html">Connecticut</a><a href="/article/state/delaware.html">Delaware</a><a href="/article/state/florida.html">Florida</a><a href="/article/state/georgia.html">Georgia</a><a href="/article/state/hawaii.html">Hawaii</a><a href="/article/state/idaho.html">Idaho</a><a href="/article/state/illinois.html">Illinois</a><a href="/article/state/indiana.html">Indiana</a><a href="/article/state/iowa.html">Iowa</a><a href="/article/state/kansas.html">Kansas</a><a href="/article/state/kentucky.html">Kentucky</a><a href="/article/state/louisiana.html">Louisiana</a><a href="/article/state/maine.html">Maine</a><a href="/article/state/maryland.html">Maryland</a><a href="/article/state/massachusetts.html">Massachusetts</a><a href="/article/state/michigan.html">Michigan</a><a href="/article/state/minnesota.html">Minnesota</a><a href="/article/state/mississippi.html">Mississippi</a><a href="/article/state/missouri.html">Missouri</a><a href="/article/state/montana.html">Montana</a><a href="/article/state/nebraska.html">Nebraska</a><a href="/article/state/nevada.html">Nevada</a><a href="/article/state/new-hampshire.html">New Hampshire</a><a href="/article/state/new-jersey.html">New Jersey</a><a href="/article/state/new-mexico.html">New Mexico</a><a href="/article/state/new-york.html">New York</a><a href="/article/state/north-carolina.html">North Carolina</a><a href="/article/state/north-dakota.html">North Dakota</a><a href="/article/state/ohio.html">Ohio</a><a href="/article/state/oklahoma.html">Oklahoma</a><a href="/article/state/oregon.html">Oregon</a><a href="/article/state/pennsylvania.html">Pennsylvania</a><a href="/article/state/rhode-island.html">Rhode Island</a><a href="/article/state/south-carolina.html">South Carolina</a><a href="/article/state/south-dakota.html">South Dakota</a><a href="/article/state/tennessee.html">Tennessee</a><a href="/article/state/texas.html">Texas</a><a href="/article/state/utah.html">Utah</a><a href="/article/state/vermont.html">Vermont</a><a href="/article/state/virginia.html">Virginia</a><a href="/article/state/washington.html">Washington</a><a href="/article/state/washington-dc.html">Washington D.C.</a><a href="/article/state/west-virginia.html">West Virginia</a><a href="/article/state/wisconsin.html">Wisconsin</a><a href="/article/state/wyoming.html">Wyoming</a></div></div><div class="nav-res-panel" id="res-metro"><div class="nav-res-metros"><a href="/article/metro/akron.html">Akron</a><a href="/article/metro/albany.html">Albany</a><a href="/article/metro/albuquerque.html">Albuquerque</a><a href="/article/metro/allentown.html">Allentown</a><a href="/article/metro/anchorage.html">Anchorage</a><a href="/article/metro/asheville.html">Asheville</a><a href="/article/metro/atlanta.html">Atlanta</a><a href="/article/metro/austin.html">Austin</a><a href="/article/metro/bakersfield.html">Bakersfield</a><a href="/article/metro/baltimore.html">Baltimore</a><a href="/article/metro/baton-rouge.html">Baton Rouge</a><a href="/article/metro/billings.html">Billings</a><a href="/article/metro/birmingham.html">Birmingham</a><a href="/article/metro/boise.html">Boise</a><a href="/article/metro/boston.html">Boston</a><a href="/article/metro/buffalo.html">Buffalo</a><a href="/article/metro/burlington-vt.html">Burlington, VT</a><a href="/article/metro/charleston-wv.html">Charleston, WV</a><a href="/article/metro/charlotte.html">Charlotte</a><a href="/article/metro/chattanooga.html">Chattanooga</a><a href="/article/metro/cheyenne.html">Cheyenne</a><a href="/article/metro/chicago.html">Chicago</a><a href="/article/metro/cincinnati.html">Cincinnati</a><a href="/article/metro/cleveland.html">Cleveland</a><a href="/article/metro/colorado-springs.html">Colorado Springs</a><a href="/article/metro/columbia-sc.html">Columbia, SC</a><a href="/article/metro/columbus.html">Columbus</a><a href="/article/metro/dallas-fort-worth.html">Dallas–Ft. Worth</a><a href="/article/metro/dayton.html">Dayton</a><a href="/article/metro/denver.html">Denver</a><a href="/article/metro/des-moines.html">Des Moines</a><a href="/article/metro/detroit.html">Detroit</a><a href="/article/metro/el-paso.html">El Paso</a><a href="/article/metro/fargo.html">Fargo</a><a href="/article/metro/fresno.html">Fresno</a><a href="/article/metro/grand-rapids.html">Grand Rapids</a><a href="/article/metro/greensboro.html">Greensboro</a><a href="/article/metro/greenville-spartanburg.html">Greenville, SC</a><a href="/article/metro/hartford.html">Hartford</a><a href="/article/metro/honolulu.html">Honolulu</a><a href="/article/metro/houston.html">Houston</a><a href="/article/metro/indianapolis.html">Indianapolis</a><a href="/article/metro/jackson-ms.html">Jackson, MS</a><a href="/article/metro/jacksonville.html">Jacksonville</a><a href="/article/metro/kansas-city.html">Kansas City</a><a href="/article/metro/knoxville.html">Knoxville</a><a href="/article/metro/las-vegas.html">Las Vegas</a><a href="/article/metro/lexington.html">Lexington</a><a href="/article/metro/little-rock.html">Little Rock</a><a href="/article/metro/los-angeles.html">Los Angeles</a><a href="/article/metro/louisville.html">Louisville</a><a href="/article/metro/madison.html">Madison</a><a href="/article/metro/manchester-nh.html">Manchester, NH</a><a href="/article/metro/memphis.html">Memphis</a><a href="/article/metro/miami.html">Miami</a><a href="/article/metro/milwaukee.html">Milwaukee</a><a href="/article/metro/minneapolis-st-paul.html">Minneapolis–St. Paul</a><a href="/article/metro/nashville.html">Nashville</a><a href="/article/metro/new-jersey.html">New Jersey</a><a href="/article/metro/new-orleans.html">New Orleans</a><a href="/article/metro/new-york-city.html">New York City</a><a href="/article/metro/norfolk.html">Norfolk</a><a href="/article/metro/oklahoma-city.html">Oklahoma City</a><a href="/article/metro/omaha.html">Omaha</a><a href="/article/metro/orlando.html">Orlando</a><a href="/article/metro/pensacola.html">Pensacola</a><a href="/article/metro/philadelphia.html">Philadelphia</a><a href="/article/metro/phoenix.html">Phoenix</a><a href="/article/metro/pittsburgh.html">Pittsburgh</a><a href="/article/metro/portland.html">Portland</a><a href="/article/metro/portland-me.html">Portland, ME</a><a href="/article/metro/providence.html">Providence</a><a href="/article/metro/raleigh-durham.html">Raleigh–Durham</a><a href="/article/metro/reno.html">Reno</a><a href="/article/metro/richmond.html">Richmond</a><a href="/article/metro/riverside-inland-empire.html">Riverside–IE</a><a href="/article/metro/rochester.html">Rochester</a><a href="/article/metro/sacramento.html">Sacramento</a><a href="/article/metro/salt-lake-city.html">Salt Lake City</a><a href="/article/metro/san-antonio.html">San Antonio</a><a href="/article/metro/san-diego.html">San Diego</a><a href="/article/metro/san-jose.html">San Jose</a><a href="/article/metro/savannah.html">Savannah</a><a href="/article/metro/seattle.html">Seattle</a><a href="/article/metro/sioux-falls.html">Sioux Falls</a><a href="/article/metro/spokane.html">Spokane</a><a href="/article/metro/st-louis.html">St. Louis</a><a href="/article/metro/syracuse.html">Syracuse</a><a href="/article/metro/tampa.html">Tampa</a><a href="/article/metro/tucson.html">Tucson</a><a href="/article/metro/tulsa.html">Tulsa</a><a href="/article/metro/washington-dc.html">Washington, D.C.</a><a href="/article/metro/wichita.html">Wichita</a><a href="/article/metro/wilmington-de.html">Wilmington, DE</a><a href="/article/metro/worcester.html">Worcester</a></div></div><div class="nav-res-panel" id="res-carrier"><p class="nav-res-subhead">National carriers</p><div class="nav-res-carriers"><a href="/article/carrier/usaa.html">USAA <span class="nav-mega-tag">Military &amp; family</span></a><a href="/article/carrier/geico.html">GEICO <span class="nav-mega-tag">Online shoppers</span></a><a href="/article/carrier/state-farm.html">State Farm <span class="nav-mega-tag">Local agents</span></a><a href="/article/carrier/progressive.html">Progressive <span class="nav-mega-tag">High-risk &amp; incidents</span></a><a href="/article/carrier/allstate.html">Allstate <span class="nav-mega-tag">Accident forgiveness</span></a><a href="/article/carrier/liberty-mutual.html">Liberty Mutual <span class="nav-mega-tag">New car replacement</span></a><a href="/article/carrier/farmers.html">Farmers <span class="nav-mega-tag">Full-service agents</span></a><a href="/article/carrier/nationwide.html">Nationwide <span class="nav-mega-tag">Vanishing deductible</span></a><a href="/article/carrier/erie.html">Erie <span class="nav-mega-tag">Mid-Atlantic &amp; Midwest</span></a><a href="/article/carrier/american-family.html">American Family <span class="nav-mega-tag">Midwest families</span></a><a href="/article/carrier/amica.html">Amica <span class="nav-mega-tag">Claims service</span></a><a href="/article/carrier/auto-owners.html">Auto-Owners <span class="nav-mega-tag">26-state agent</span></a><a href="/article/carrier/travelers.html">Travelers <span class="nav-mega-tag">Homeowner bundles</span></a><a href="/article/carrier/safeco.html">Safeco <span class="nav-mega-tag">Independent agents</span></a><a href="/article/carrier/the-hartford.html">The Hartford <span class="nav-mega-tag">AARP &amp; 50+ drivers</span></a><a href="/article/carrier/root-insurance.html">Root Insurance <span class="nav-mega-tag">Telematics · safe drivers</span></a><a href="/article/carrier/aaa.html">AAA / CSAA <span class="nav-mega-tag">Members &amp; roadside</span></a></div><p class="nav-res-subhead" style="margin-top:14px;">Regional &amp; local</p><div class="nav-res-carriers"><a href="/article/carrier/texas-farm-bureau.html">Texas Farm Bureau <span class="nav-mega-tag">Texas only</span></a><a href="/article/carrier/georgia-farm-bureau.html">Georgia Farm Bureau <span class="nav-mega-tag">Georgia only</span></a><a href="/article/carrier/tennessee-farm-bureau.html">Tennessee Farm Bureau <span class="nav-mega-tag">Tennessee only</span></a><a href="/article/carrier/nc-farm-bureau.html">NC Farm Bureau <span class="nav-mega-tag">North Carolina</span></a><a href="/article/carrier/kentucky-farm-bureau.html">Kentucky Farm Bureau <span class="nav-mega-tag">Kentucky only</span></a><a href="/article/carrier/louisiana-farm-bureau.html">Louisiana Farm Bureau <span class="nav-mega-tag">Louisiana only</span></a><a href="/article/carrier/pemco.html">PEMCO <span class="nav-mega-tag">WA &amp; OR</span></a><a href="/article/carrier/njm.html">NJM Insurance <span class="nav-mega-tag">NJ / CT / PA</span></a><a href="/article/carrier/wawanesa.html">Wawanesa <span class="nav-mega-tag">California only</span></a><a href="/article/carrier/mercury.html">Mercury Insurance <span class="nav-mega-tag">CA &amp; 10 states</span></a><a href="/article/carrier/shelter.html">Shelter Insurance <span class="nav-mega-tag">15-state Central</span></a><a href="/article/carrier/mapfre.html">MAPFRE Insurance <span class="nav-mega-tag">Massachusetts</span></a><a href="/article/carrier/nycm.html">NYCM Insurance <span class="nav-mega-tag">New York only</span></a><a href="/article/carrier/alfa.html">Alfa Insurance <span class="nav-mega-tag">Southeast</span></a><a href="/article/carrier/country-financial.html">Country Financial <span class="nav-mega-tag">Midwest</span></a></div></div><div class="nav-res-panel" id="res-market"><p class="nav-res-subhead">Rankings &amp; data</p><div class="nav-res-guides"><a href="/article/market-share.html">National Carrier Market Share — who controls the U.S. market</a><a href="/article/state-rankings.html">State-by-State Rate Rankings — avg. premium + top carriers per state</a></div></div><div class="nav-res-panel nav-res-guides" id="res-guides"><a href="/article/rate-changes/">2026 Rate Change Tracker &mdash; Who Raised, Who Cut</a><a href="/article/coverage-guide.html">Coverage Guide — How Much Do You Actually Need?</a><a href="/article/credit-score-insurance.html">Credit Score &amp; Car Insurance — What's the Link?</a><a href="/article/premium-went-up.html">Why Your Premium Went Up (And What To Do)</a><a href="/article/shopping-strategy.html">Car Insurance Shopping Strategy</a><a href="/article/sr22-insurance.html">SR-22 Insurance Explained</a><a href="/article/young-drivers.html">Young Driver Insurance Guide</a><a href="/article/state-rankings.html">State-by-State Rate Rankings</a><a href="/article/florida-rates-dropping.html">Florida Rates — What's Changing in 2026</a></div></div></div><div class="nav-section"><p class="nav-section-label">Renters Insurance</p><div class="nav-tools"><a href="/renters/index.html" class="nav-tool"><span class="nav-tool-name">Renters Insurance</span><span class="nav-tool-desc">Compare carriers for your ZIP — national avg $168/yr</span></a></div><p class="nav-res-subhead" style="margin-top:14px;margin-bottom:8px;">Renters carriers</p><div class="nav-mega-states"><a href="/renters/carrier/lemonade.html">Lemonade</a><a href="/renters/carrier/state-farm.html">State Farm</a><a href="/renters/carrier/geico.html">GEICO</a><a href="/renters/carrier/allstate.html">Allstate</a><a href="/renters/carrier/progressive.html">Progressive</a><a href="/renters/carrier/farmers.html">Farmers</a><a href="/renters/carrier/nationwide.html">Nationwide</a><a href="/renters/carrier/liberty-mutual.html">Liberty Mutual</a><a href="/renters/carrier/travelers.html">Travelers</a><a href="/renters/carrier/american-family.html">American Family</a><a href="/renters/carrier/erie.html">Erie</a><a href="/renters/carrier/amica.html">Amica</a><a href="/renters/carrier/usaa.html">USAA</a></div><p class="nav-res-subhead" style="margin-top:14px;margin-bottom:8px;">Renters rates by state</p><div class="nav-mega-states"><a href="/renters/state/alabama.html">Alabama</a><a href="/renters/state/alaska.html">Alaska</a><a href="/renters/state/arizona.html">Arizona</a><a href="/renters/state/arkansas.html">Arkansas</a><a href="/renters/state/california.html">California</a><a href="/renters/state/colorado.html">Colorado</a><a href="/renters/state/connecticut.html">Connecticut</a><a href="/renters/state/delaware.html">Delaware</a><a href="/renters/state/florida.html">Florida</a><a href="/renters/state/georgia.html">Georgia</a><a href="/renters/state/hawaii.html">Hawaii</a><a href="/renters/state/idaho.html">Idaho</a><a href="/renters/state/illinois.html">Illinois</a><a href="/renters/state/indiana.html">Indiana</a><a href="/renters/state/iowa.html">Iowa</a><a href="/renters/state/kansas.html">Kansas</a><a href="/renters/state/kentucky.html">Kentucky</a><a href="/renters/state/louisiana.html">Louisiana</a><a href="/renters/state/maine.html">Maine</a><a href="/renters/state/maryland.html">Maryland</a><a href="/renters/state/massachusetts.html">Massachusetts</a><a href="/renters/state/michigan.html">Michigan</a><a href="/renters/state/minnesota.html">Minnesota</a><a href="/renters/state/mississippi.html">Mississippi</a><a href="/renters/state/missouri.html">Missouri</a><a href="/renters/state/montana.html">Montana</a><a href="/renters/state/nebraska.html">Nebraska</a><a href="/renters/state/nevada.html">Nevada</a><a href="/renters/state/new-hampshire.html">New Hampshire</a><a href="/renters/state/new-jersey.html">New Jersey</a><a href="/renters/state/new-mexico.html">New Mexico</a><a href="/renters/state/new-york.html">New York</a><a href="/renters/state/north-carolina.html">North Carolina</a><a href="/renters/state/north-dakota.html">North Dakota</a><a href="/renters/state/ohio.html">Ohio</a><a href="/renters/state/oklahoma.html">Oklahoma</a><a href="/renters/state/oregon.html">Oregon</a><a href="/renters/state/pennsylvania.html">Pennsylvania</a><a href="/renters/state/rhode-island.html">Rhode Island</a><a href="/renters/state/south-carolina.html">South Carolina</a><a href="/renters/state/south-dakota.html">South Dakota</a><a href="/renters/state/tennessee.html">Tennessee</a><a href="/renters/state/texas.html">Texas</a><a href="/renters/state/utah.html">Utah</a><a href="/renters/state/vermont.html">Vermont</a><a href="/renters/state/virginia.html">Virginia</a><a href="/renters/state/washington.html">Washington</a><a href="/renters/state/washington-dc.html">Washington D.C.</a><a href="/renters/state/west-virginia.html">West Virginia</a><a href="/renters/state/wisconsin.html">Wisconsin</a><a href="/renters/state/wyoming.html">Wyoming</a></div></div><div class="nav-section"><p class="nav-section-label">About</p><div class="nav-res-guides"><a href="/methodology.html">Methodology — how we collect and rank rate data</a></div></div></div></div>
+</header>
+
+<div class="wrap-narrow">
+  <div class="page-header">
+    <div class="page-kicker"><a href="/renters/">← BoringRate Renters</a> &nbsp;·&nbsp; Coverage Guide</div>
+    <h1 class="page-title">How much renters insurance do you actually need?</h1>
+    <p class="page-dek">Renters insurance is cheap — the national average is about <strong>$168/yr</strong>. The real question is how much personal property and liability coverage to carry, and what to skip. Tell us a few things and we'll show you what to buy and roughly what it should cost.</p>
+  </div>
+</div>
+
+<div class="profile-section">
+  <div class="wrap-narrow">
+
+    <div class="profile-widget">
+      <div class="profile-widget-label">Your situation</div>
+
+      <div class="slider-q">
+        <div class="slider-q-header">
+          <div class="slider-q-label">Value of your stuff</div>
+          <div class="slider-q-value" id="propDisplay">$30,000</div>
+        </div>
+        <input type="range" id="propSlider" min="0" max="10" step="1" value="3" />
+        <div class="slider-ticks"><span>$10k</span><span>$30k</span><span>$75k</span><span>$150k</span><span>$300k+</span></div>
+      </div>
+
+      <div class="slider-q">
+        <div class="slider-q-header">
+          <div class="slider-q-label">Assets to protect (net worth)</div>
+          <div class="slider-q-value" id="assetsDisplay">$100,000</div>
+        </div>
+        <input type="range" id="assetsSlider" min="0" max="7" step="1" value="2" />
+        <div class="slider-ticks"><span>&lt; $50k</span><span>$100k</span><span>$300k</span><span>$500k</span><span>$1M+</span></div>
+      </div>
+
+      <div class="zip-q">
+        <div class="zip-q-header">
+          <div class="zip-q-label">Your ZIP code</div>
+          <div class="zip-state-badge" id="zipStateBadge"></div>
+        </div>
+        <div class="zip-input-row">
+          <input type="text" id="zipInput" class="zip-field" maxlength="5" inputmode="numeric" placeholder="e.g. 90210" />
+          <div class="zip-hint" id="zipHint">rates adjust by state</div>
+        </div>
+      </div>
+
+      <div class="profile-pills-row">
+        <div class="profile-pill-q">
+          <div class="profile-pill-label">Deductible</div>
+          <div class="pill-row">
+            <button class="pill" data-q="deductible" data-v="250">$250</button>
+            <button class="pill" data-q="deductible" data-v="500">$500</button>
+            <button class="pill active" data-q="deductible" data-v="1000">$1,000</button>
+          </div>
+        </div>
+        <div class="profile-pill-q">
+          <div class="profile-pill-label">Bundle with auto?</div>
+          <div class="pill-row">
+            <button class="pill active" data-q="bundle" data-v="no">No</button>
+            <button class="pill" data-q="bundle" data-v="yes">Yes</button>
+          </div>
+        </div>
+        <div class="profile-pill-q">
+          <div class="profile-pill-label">High-value items?</div>
+          <div class="pill-row">
+            <button class="pill active" data-q="valuables" data-v="no">No</button>
+            <button class="pill" data-q="valuables" data-v="yes">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-bar" id="summaryBar">
+      <div class="summary-total">Est. annual premium: <strong id="summaryTotal">—</strong></div>
+      <div id="summaryDelta"></div>
+      <div class="summary-note">Directional estimates only — not a quote. Actual premiums vary by carrier, building, and claims history. <a href="/methodology.html">How we estimate →</a></div>
+    </div>
+
+    <div class="cov-cards" id="covCards"></div>
+
+    <div class="bottom-cta" id="bottomCta">
+      <div class="bottom-cta-label">Compare renters rates</div>
+      <div class="bottom-cta-row">
+        <div class="bottom-cta-text">
+          <h3>See who's cheapest<br>for your coverage.</h3>
+          <p>Carriers ranked by estimated renters premium for your state and the coverage you picked — carried over automatically.</p>
+          <div class="bottom-cta-selections" id="ctaSelectionsSummary"></div>
+          <div class="bottom-zip-row">
+            <input type="text" id="bottomZipInput" class="bottom-zip-input" maxlength="5" inputmode="numeric" placeholder="ZIP" />
+            <a href="/renters/" class="cta-btn" id="ctaBtn">Compare rates →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Static coverage primer ── -->
+<section class="guide-section">
+  <div class="wrap-narrow">
+    <div class="guide-head">
+      <div class="section-num">§ Coverage primer</div>
+      <h2 class="section-title">Every renters coverage, <em>actually explained.</em></h2>
+    </div>
+
+    <div class="coverage-type" id="guide-personal">
+      <div class="coverage-type-header">
+        <h3 class="coverage-name">Personal Property (Coverage C)</h3>
+        <span class="coverage-tag req">The core of the policy</span>
+      </div>
+      <div class="coverage-body">
+        <p>This pays to replace <strong>your belongings</strong> — furniture, electronics, clothing, kitchenware — when they're stolen or destroyed by a covered peril (fire, theft, most water damage, windstorm). It follows you off-premises too: a laptop stolen from your car or a hotel is usually covered.</p>
+        <p>Add it up faster than you'd think: a couch, a TV, a laptop, a phone, a bed, and a closet of clothes already clears $15–20k. Most renters under-insure here. <strong>Walk through each room and total the replacement cost</strong> — that number is your Coverage C.</p>
+        <div class="callout"><p><strong>Set it to what it would cost to re-buy everything new</strong>, not what you paid or what it's worth used. That's only true if you carry replacement-cost coverage (below) — otherwise you're paid depreciated value.</p></div>
+      </div>
+      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
+    </div>
+
+    <div class="coverage-type" id="guide-liability">
+      <div class="coverage-type-header">
+        <h3 class="coverage-name">Personal Liability (Coverage E)</h3>
+        <span class="coverage-tag req">Bigger than most people realize</span>
+      </div>
+      <div class="coverage-body">
+        <p>Liability covers <strong>you</strong> when someone is hurt in your unit or you damage someone else's property — a guest slips and breaks an arm, your dog bites someone, a kitchen fire spreads to the next apartment. It pays their bills <em>and</em> your legal defense.</p>
+        <p>The standard limit is $100k, but the jump to $300k or $500k costs only a few dollars a year. Rule of thumb: <strong>carry at least as much as your net worth</strong> — a judgment above your limit comes out of your savings and future wages.</p>
+        <div class="callout"><p>If you have real assets to protect, a $1–2M umbrella policy (~$150–300/yr) stacks on top and is the cheapest liability you can buy per dollar of protection.</p></div>
+      </div>
+      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
+    </div>
+
+    <div class="coverage-type" id="guide-lossofuse">
+      <div class="coverage-type-header">
+        <h3 class="coverage-name">Loss of Use (Coverage D)</h3>
+        <span class="coverage-tag">Included — don't skip it</span>
+      </div>
+      <div class="coverage-body">
+        <p>If a covered loss makes your place unlivable, Loss of Use pays for <strong>hotels, restaurant meals above your normal grocery bill, and other extra living costs</strong> while you're displaced.</p>
+        <p>It's bundled into nearly every policy at roughly 20–40% of your Coverage C, so there's usually nothing to buy — just confirm the limit is there. After a fire, this is the coverage that keeps you off a friend's couch for three months.</p>
+      </div>
+      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
+    </div>
+
+    <div class="coverage-type" id="guide-medpay">
+      <div class="coverage-type-header">
+        <h3 class="coverage-name">Medical Payments to Others (Coverage F)</h3>
+        <span class="coverage-tag">Small limit, smooths small claims</span>
+      </div>
+      <div class="coverage-body">
+        <p>This pays <strong>minor medical bills for guests hurt in your home</strong>, regardless of fault, without anyone having to file a liability claim. Think a friend who trips and needs stitches.</p>
+        <p>Limits are small ($1k–$5k) and the cost is trivial. Bumping it to $5k is usually a few dollars and avoids turning a small injury into a liability dispute.</p>
+      </div>
+      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
+    </div>
+
+    <div class="coverage-type" id="guide-replacementcost">
+      <div class="coverage-type-header">
+        <h3 class="coverage-name">Replacement Cost vs. Actual Cash Value</h3>
+        <span class="coverage-tag req">The most important checkbox</span>
+      </div>
+      <div class="coverage-body">
+        <p><strong>Actual Cash Value (ACV)</strong> pays what your stuff is worth used — a 5-year-old TV gets you maybe $80. <strong>Replacement Cost (RCV)</strong> pays what it costs to buy new. The difference on a full apartment can be thousands.</p>
+        <div class="callout"><p>RCV typically adds only ~10–15% to the premium and is almost always worth it. On a cheap policy that's $15–25/yr to turn a depreciated payout into a full one. <strong>Don't buy ACV to save $20.</strong></p></div>
+      </div>
+      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
+    </div>
+
+    <div class="coverage-type" id="guide-scheduled">
+      <div class="coverage-type-header">
+        <h3 class="coverage-name">Scheduled Personal Property</h3>
+        <span class="coverage-tag">Only if you own valuables</span>
+      </div>
+      <div class="coverage-body">
+        <p>Standard policies <strong>cap certain categories</strong> — jewelry, watches, cameras, bikes, firearms, fine art — often at $1,000–$2,500 total, and theft of jewelry may be capped even lower. A scheduled endorsement (a "rider") insures a specific item for its appraised value, usually with no deductible.</p>
+        <p>If you own an engagement ring, a nice camera kit, or a high-end bike, schedule it. If you don't, skip this entirely — it adds cost for protection you don't need.</p>
+      </div>
+      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap-narrow">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h3>Now see who's cheapest<br>for the coverage you need.</h3>
+        <p>Enter your ZIP to rank renters carriers by likely premium — adjusted for your coverage level and state.</p>
+        <p style="font-size:14px;margin-top:10px;">Want the full picture? See <a href="/renters/" style="color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;">renters rate comparison →</a></p>
+      </div>
+      <a href="/renters/" class="cta-btn">Compare rates →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-copy">© 2026 BoringRate · Not an insurer · Not a licensed agent</div>
+      <div class="foot-links">
+        <a href="/">Compare rates</a>
+        <a href="/article/carrier/geico.html">GEICO</a>
+        <a href="/article/carrier/state-farm.html">State Farm</a>
+        <a href="/article/carrier/progressive.html">Progressive</a>
+        <a href="/article/carrier/allstate.html">Allstate</a>
+        <a href="/methodology.html">Methodology</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky floating total -->
+<div class="sticky-total" id="stickyTotal">
+  <div class="sticky-total-label">Est. annual premium</div>
+  <div class="sticky-total-amount" id="stickyAmount">—</div>
+  <div class="sticky-total-delta" id="stickyDelta"></div>
+  <a href="/renters/" class="sticky-compare-link" id="stickyCompareLink">Compare rates →</a>
+</div>
+
+<script>
+// ── Renters coverage calculator ──────────────────────────
+const RENTERS_STATE_DATA = {
+  "AL":{name:"Alabama",avg:202},"AK":{name:"Alaska",avg:149},"AZ":{name:"Arizona",avg:178},
+  "AR":{name:"Arkansas",avg:194},"CA":{name:"California",avg:196},"CO":{name:"Colorado",avg:163},
+  "CT":{name:"Connecticut",avg:157},"DC":{name:"Washington D.C.",avg:198},"DE":{name:"Delaware",avg:160},
+  "FL":{name:"Florida",avg:258},"GA":{name:"Georgia",avg:222},"HI":{name:"Hawaii",avg:148},
+  "ID":{name:"Idaho",avg:138},"IL":{name:"Illinois",avg:187},"IN":{name:"Indiana",avg:152},
+  "IA":{name:"Iowa",avg:131},"KS":{name:"Kansas",avg:182},"KY":{name:"Kentucky",avg:168},
+  "LA":{name:"Louisiana",avg:268},"ME":{name:"Maine",avg:127},"MD":{name:"Maryland",avg:178},
+  "MA":{name:"Massachusetts",avg:185},"MI":{name:"Michigan",avg:153},"MN":{name:"Minnesota",avg:145},
+  "MS":{name:"Mississippi",avg:248},"MO":{name:"Missouri",avg:192},"MT":{name:"Montana",avg:155},
+  "NE":{name:"Nebraska",avg:156},"NV":{name:"Nevada",avg:202},"NH":{name:"New Hampshire",avg:127},
+  "NJ":{name:"New Jersey",avg:162},"NM":{name:"New Mexico",avg:185},"NY":{name:"New York",avg:198},
+  "NC":{name:"North Carolina",avg:188},"ND":{name:"North Dakota",avg:133},"OH":{name:"Ohio",avg:162},
+  "OK":{name:"Oklahoma",avg:212},"OR":{name:"Oregon",avg:158},"PA":{name:"Pennsylvania",avg:162},
+  "RI":{name:"Rhode Island",avg:168},"SC":{name:"South Carolina",avg:204},"SD":{name:"South Dakota",avg:138},
+  "TN":{name:"Tennessee",avg:192},"TX":{name:"Texas",avg:238},"UT":{name:"Utah",avg:142},
+  "VT":{name:"Vermont",avg:134},"VA":{name:"Virginia",avg:176},"WA":{name:"Washington",avg:164},
+  "WV":{name:"West Virginia",avg:152},"WI":{name:"Wisconsin",avg:142},"WY":{name:"Wyoming",avg:148}
+};
+const NATIONAL_AVG = 168;
+
+const ZIP3_TO_STATE = {
+  "005":"NY","006":"PR","007":"PR","008":"VI","009":"PR",
+  "010":"MA","011":"MA","012":"MA","013":"MA","014":"MA","015":"MA","016":"MA","017":"MA","018":"MA","019":"MA",
+  "020":"MA","021":"MA","022":"MA","023":"MA","024":"MA","025":"MA","026":"MA","027":"MA",
+  "028":"RI","029":"RI",
+  "030":"NH","031":"NH","032":"NH","033":"NH","034":"NH","035":"NH","036":"NH","037":"NH","038":"NH",
+  "039":"ME","040":"ME","041":"ME","042":"ME","043":"ME","044":"ME","045":"ME","046":"ME","047":"ME","048":"ME","049":"ME",
+  "050":"VT","051":"VT","052":"VT","053":"VT","054":"VT","055":"VT","056":"VT","057":"VT","058":"VT","059":"VT",
+  "060":"CT","061":"CT","062":"CT","063":"CT","064":"CT","065":"CT","066":"CT","067":"CT","068":"CT","069":"CT",
+  "070":"NJ","071":"NJ","072":"NJ","073":"NJ","074":"NJ","075":"NJ","076":"NJ","077":"NJ","078":"NJ","079":"NJ",
+  "080":"NJ","081":"NJ","082":"NJ","083":"NJ","084":"NJ","085":"NJ","086":"NJ","087":"NJ","088":"NJ","089":"NJ",
+  "090":"NY","091":"NY","092":"NY","093":"NY","094":"NY","095":"NY","096":"NY","097":"NY","098":"NY",
+  "100":"NY","101":"NY","102":"NY","103":"NY","104":"NY","105":"NY","106":"NY","107":"NY","108":"NY","109":"NY",
+  "110":"NY","111":"NY","112":"NY","113":"NY","114":"NY","115":"NY","116":"NY","117":"NY","118":"NY","119":"NY",
+  "120":"NY","121":"NY","122":"NY","123":"NY","124":"NY","125":"NY","126":"NY","127":"NY","128":"NY","129":"NY",
+  "130":"NY","131":"NY","132":"NY","133":"NY","134":"NY","135":"NY","136":"NY","137":"NY","138":"NY","139":"NY",
+  "140":"NY","141":"NY","142":"NY","143":"NY","144":"NY","145":"NY","146":"NY","147":"NY","148":"NY","149":"NY",
+  "150":"PA","151":"PA","152":"PA","153":"PA","154":"PA","155":"PA","156":"PA","157":"PA","158":"PA","159":"PA",
+  "160":"PA","161":"PA","162":"PA","163":"PA","164":"PA","165":"PA","166":"PA","167":"PA","168":"PA","169":"PA",
+  "170":"PA","171":"PA","172":"PA","173":"PA","174":"PA","175":"PA","176":"PA","177":"PA","178":"PA","179":"PA",
+  "180":"PA","181":"PA","182":"PA","183":"PA","184":"PA","185":"PA","186":"PA","187":"PA","188":"PA","189":"PA",
+  "190":"PA","191":"PA","192":"PA","193":"PA","194":"PA","195":"PA","196":"PA",
+  "197":"DE","198":"DE","199":"DE",
+  "200":"DC","201":"DC","202":"DC","203":"DC","204":"DC","205":"DC","206":"DC",
+  "207":"MD","208":"MD","209":"MD","210":"MD","211":"MD","212":"MD","214":"MD","215":"MD","216":"MD","217":"MD","218":"MD","219":"MD",
+  "220":"VA","221":"VA","222":"VA","223":"VA","224":"VA","225":"VA","226":"VA","227":"VA","228":"VA","229":"VA",
+  "230":"VA","231":"VA","232":"VA","233":"VA","234":"VA","235":"VA","236":"VA","237":"VA","238":"VA","239":"VA",
+  "240":"VA","241":"VA","242":"VA","243":"VA","244":"VA","245":"VA","246":"VA",
+  "247":"WV","248":"WV","249":"WV","250":"WV","251":"WV","252":"WV","253":"WV","254":"WV","255":"WV","256":"WV","257":"WV","258":"WV","259":"WV","260":"WV","261":"WV","262":"WV","263":"WV","264":"WV","265":"WV","266":"WV","267":"WV","268":"WV",
+  "270":"NC","271":"NC","272":"NC","273":"NC","274":"NC","275":"NC","276":"NC","277":"NC","278":"NC","279":"NC",
+  "280":"NC","281":"NC","282":"NC","283":"NC","284":"NC","285":"NC","286":"NC","287":"NC","288":"NC","289":"NC",
+  "290":"SC","291":"SC","292":"SC","293":"SC","294":"SC","295":"SC","296":"SC","297":"SC","298":"SC","299":"SC",
+  "300":"GA","301":"GA","302":"GA","303":"GA","304":"GA","305":"GA","306":"GA","307":"GA","308":"GA","309":"GA",
+  "310":"GA","311":"GA","312":"GA","313":"GA","314":"GA","315":"GA","316":"GA","317":"GA","318":"GA","319":"GA",
+  "320":"FL","321":"FL","322":"FL","323":"FL","324":"FL","325":"FL","326":"FL","327":"FL","328":"FL","329":"FL",
+  "330":"FL","331":"FL","332":"FL","333":"FL","334":"FL","335":"FL","336":"FL","337":"FL","338":"FL","339":"FL",
+  "340":"FL","341":"FL","342":"FL","344":"FL","346":"FL","347":"FL","349":"FL",
+  "350":"AL","351":"AL","352":"AL","354":"AL","355":"AL","356":"AL","357":"AL","358":"AL","359":"AL",
+  "360":"AL","361":"AL","362":"AL","363":"AL","364":"AL","365":"AL","366":"AL","367":"AL","368":"AL","369":"AL",
+  "370":"TN","371":"TN","372":"TN","373":"TN","374":"TN","375":"TN","376":"TN","377":"TN","378":"TN","379":"TN",
+  "380":"TN","381":"TN","382":"TN","383":"TN","384":"TN","385":"TN",
+  "386":"MS","387":"MS","388":"MS","389":"MS","390":"MS","391":"MS","392":"MS","393":"MS","394":"MS","395":"MS","396":"MS","397":"MS",
+  "398":"GA","399":"GA",
+  "400":"KY","401":"KY","402":"KY","403":"KY","404":"KY","405":"KY","406":"KY","407":"KY","408":"KY","409":"KY",
+  "410":"KY","411":"KY","412":"KY","413":"KY","414":"KY","415":"KY","416":"KY","417":"KY","418":"KY",
+  "420":"KY","421":"KY","422":"KY","423":"KY","424":"KY","425":"KY","426":"KY","427":"KY",
+  "430":"OH","431":"OH","432":"OH","433":"OH","434":"OH","435":"OH","436":"OH","437":"OH","438":"OH","439":"OH",
+  "440":"OH","441":"OH","442":"OH","443":"OH","444":"OH","445":"OH","446":"OH","447":"OH","448":"OH","449":"OH",
+  "450":"OH","451":"OH","452":"OH","453":"OH","454":"OH","455":"OH","456":"OH","457":"OH","458":"OH",
+  "460":"IN","461":"IN","462":"IN","463":"IN","464":"IN","465":"IN","466":"IN","467":"IN","468":"IN","469":"IN",
+  "470":"IN","471":"IN","472":"IN","473":"IN","474":"IN","475":"IN","476":"IN","477":"IN","478":"IN","479":"IN",
+  "480":"MI","481":"MI","482":"MI","483":"MI","484":"MI","485":"MI","486":"MI","487":"MI","488":"MI","489":"MI",
+  "490":"MI","491":"MI","492":"MI","493":"MI","494":"MI","495":"MI","496":"MI","497":"MI","498":"MI","499":"MI",
+  "500":"IA","501":"IA","502":"IA","503":"IA","504":"IA","505":"IA","506":"IA","507":"IA","508":"IA","509":"IA",
+  "510":"IA","511":"IA","512":"IA","513":"IA","514":"IA","515":"IA","516":"IA","520":"IA","521":"IA","522":"IA","523":"IA","524":"IA","525":"IA","526":"IA","527":"IA","528":"IA",
+  "530":"WI","531":"WI","532":"WI","534":"WI","535":"WI","537":"WI","538":"WI","539":"WI",
+  "540":"WI","541":"WI","542":"WI","543":"WI","544":"WI","545":"WI","546":"WI","547":"WI","548":"WI","549":"WI",
+  "550":"MN","551":"MN","553":"MN","554":"MN","555":"MN","556":"MN","557":"MN","558":"MN","559":"MN",
+  "560":"MN","561":"MN","562":"MN","563":"MN","564":"MN","565":"MN","566":"MN","567":"MN",
+  "570":"SD","571":"SD","572":"SD","573":"SD","574":"SD","575":"SD","576":"SD","577":"SD",
+  "580":"ND","581":"ND","582":"ND","583":"ND","584":"ND","585":"ND","586":"ND","587":"ND","588":"ND",
+  "590":"MT","591":"MT","592":"MT","593":"MT","594":"MT","595":"MT","596":"MT","597":"MT","598":"MT","599":"MT",
+  "600":"IL","601":"IL","602":"IL","603":"IL","604":"IL","605":"IL","606":"IL","607":"IL","608":"IL","609":"IL",
+  "610":"IL","611":"IL","612":"IL","613":"IL","614":"IL","615":"IL","616":"IL","617":"IL","618":"IL","619":"IL",
+  "620":"IL","621":"IL","622":"IL","623":"IL","624":"IL","625":"IL","626":"IL","627":"IL","628":"IL","629":"IL",
+  "630":"MO","631":"MO","633":"MO","634":"MO","635":"MO","636":"MO","637":"MO","638":"MO","639":"MO",
+  "640":"MO","641":"MO","644":"MO","645":"MO","646":"MO","647":"MO","648":"MO","649":"MO",
+  "650":"MO","651":"MO","652":"MO","653":"MO","654":"MO","655":"MO","656":"MO","657":"MO","658":"MO",
+  "660":"KS","661":"KS","662":"KS","664":"KS","665":"KS","666":"KS","667":"KS","668":"KS","669":"KS",
+  "670":"KS","671":"KS","672":"KS","673":"KS","674":"KS","675":"KS","676":"KS","677":"KS","678":"KS","679":"KS",
+  "680":"NE","681":"NE","683":"NE","684":"NE","685":"NE","686":"NE","687":"NE","688":"NE","689":"NE","690":"NE","691":"NE","692":"NE","693":"NE",
+  "700":"LA","701":"LA","703":"LA","704":"LA","705":"LA","706":"LA","707":"LA","708":"LA",
+  "710":"AR","711":"AR","712":"AR","713":"AR","714":"AR","716":"AR","717":"AR","718":"AR","719":"AR",
+  "720":"AR","721":"AR","722":"AR","723":"AR","724":"AR","725":"AR","726":"AR","727":"AR","728":"AR","729":"AR",
+  "730":"OK","731":"OK","733":"OK","734":"OK","735":"OK","736":"OK","737":"OK","738":"OK","739":"OK",
+  "740":"OK","741":"OK","743":"OK","744":"OK","745":"OK","746":"OK","747":"OK","748":"OK","749":"OK",
+  "750":"TX","751":"TX","752":"TX","753":"TX","754":"TX","755":"TX","756":"TX","757":"TX","758":"TX","759":"TX",
+  "760":"TX","761":"TX","762":"TX","763":"TX","764":"TX","765":"TX","766":"TX","767":"TX","768":"TX","769":"TX",
+  "770":"TX","771":"TX","772":"TX","773":"TX","774":"TX","775":"TX","776":"TX","777":"TX","778":"TX","779":"TX",
+  "780":"TX","781":"TX","782":"TX","783":"TX","784":"TX","785":"TX","786":"TX","787":"TX","788":"TX","789":"TX",
+  "790":"TX","791":"TX","792":"TX","793":"TX","794":"TX","795":"TX","796":"TX","797":"TX","798":"TX","799":"TX",
+  "800":"CO","801":"CO","802":"CO","803":"CO","804":"CO","805":"CO","806":"CO","807":"CO","808":"CO","809":"CO",
+  "810":"CO","811":"CO","812":"CO","813":"CO","814":"CO","815":"CO","816":"CO",
+  "820":"WY","821":"WY","822":"WY","823":"WY","824":"WY","825":"WY","826":"WY","827":"WY","828":"WY","829":"WY","830":"WY","831":"WY",
+  "832":"ID","833":"ID","834":"ID","835":"ID","836":"ID","837":"ID","838":"ID",
+  "840":"UT","841":"UT","842":"UT","843":"UT","844":"UT","845":"UT","846":"UT","847":"UT",
+  "850":"AZ","851":"AZ","852":"AZ","853":"AZ","855":"AZ","856":"AZ","857":"AZ","859":"AZ","860":"AZ","861":"AZ","863":"AZ","864":"AZ","865":"AZ",
+  "870":"NM","871":"NM","872":"NM","873":"NM","874":"NM","875":"NM","876":"NM","877":"NM","878":"NM","879":"NM",
+  "880":"NM","881":"NM","882":"NM","883":"NM","884":"NM","885":"TX",
+  "889":"NV","890":"NV","891":"NV","893":"NV","894":"NV","895":"NV","896":"NV","897":"NV","898":"NV",
+  "900":"CA","901":"CA","902":"CA","903":"CA","904":"CA","905":"CA","906":"CA","907":"CA","908":"CA","909":"CA",
+  "910":"CA","911":"CA","912":"CA","913":"CA","914":"CA","915":"CA","916":"CA","917":"CA","918":"CA","919":"CA",
+  "920":"CA","921":"CA","922":"CA","923":"CA","924":"CA","925":"CA","926":"CA","927":"CA","928":"CA","929":"CA",
+  "930":"CA","931":"CA","932":"CA","933":"CA","934":"CA","935":"CA","936":"CA","937":"CA","938":"CA","939":"CA",
+  "940":"CA","941":"CA","942":"CA","943":"CA","944":"CA","945":"CA","946":"CA","947":"CA","948":"CA","949":"CA",
+  "950":"CA","951":"CA","952":"CA","953":"CA","954":"CA","955":"CA","956":"CA","957":"CA","958":"CA","959":"CA",
+  "960":"CA","961":"CA","967":"HI","968":"HI",
+  "970":"OR","971":"OR","972":"OR","973":"OR","974":"OR","975":"OR","976":"OR","977":"OR","978":"OR","979":"OR",
+  "980":"WA","981":"WA","982":"WA","983":"WA","984":"WA","985":"WA","986":"WA","988":"WA","989":"WA",
+  "990":"WA","991":"WA","992":"WA","993":"WA","994":"WA",
+  "995":"AK","996":"AK","997":"AK","998":"AK","999":"AK"
+};
+
+// ── Steps & config ──
+const PROP_STEPS   = [10000,15000,20000,30000,40000,50000,75000,100000,150000,200000,300000];
+const ASSET_STEPS  = [25000,50000,100000,200000,300000,500000,750000,1000000];
+const LIAB_OPTS    = [100000,300000,500000];
+const MEDPAY_OPTS  = [1000,5000];
+const DED_FACTOR   = {250:1.15, 500:1.05, 1000:0.93};
+
+const profile = {
+  property: 30000, assets: 100000, deductible: 1000,
+  bundle: false, valuables: false,
+  code: null, stateName: null, stateAvg: NATIONAL_AVG
+};
+// selections (user-adjustable in cards)
+const sels = { liability: 0, medpay: 1, rcv: true, scheduled: false };
+
+function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
+function stateFromZip(z){
+  if(!/^\d/.test(z)) return null;
+  const p3 = z.slice(0,3);
+  return ZIP3_TO_STATE[p3] || ZIP3_TO_STATE[('00'+z).slice(0,3)] || null;
+}
+
+// ── Recommendations ──
+function computeRecs(){
+  let liab = 0;
+  if(profile.assets > 300000) liab = 2;
+  else if(profile.assets > 100000) liab = 1;
+  else liab = 0;
+  return { liability: liab, medpay: 1, rcv: true, scheduled: profile.valuables };
+}
+function applyRecs(){
+  const r = computeRecs();
+  sels.liability = r.liability; sels.medpay = r.medpay;
+  sels.rcv = r.rcv; sels.scheduled = r.scheduled;
+}
+
+// ── Premium model (component costs) ──
+function components(){
+  const sm = profile.stateAvg / NATIONAL_AVG;
+  const propFactor = profile.property / 30000;
+  const ded = DED_FACTOR[profile.deductible] || 1.0;
+  const rcMult = sels.rcv ? 1.10 : 0.92;
+  const bundleMult = profile.bundle ? 0.85 : 1.0;
+  // base policy = personal property + loss of use (bundled)
+  let base = profile.stateAvg * propFactor * ded * rcMult * bundleMult;
+  base = Math.max(78, base);
+  const liabAdd = [0, 6, 15][sels.liability] * sm;
+  const medpayAdd = [0, 6][sels.medpay] * sm;
+  const schedAdd = sels.scheduled ? 42 : 0;
+  return {
+    base: base, liab: liabAdd, medpay: medpayAdd, sched: schedAdd,
+    total: Math.round(base + liabAdd + medpayAdd + schedAdd)
+  };
+}
+function totalEstimate(){ return components().total; }
+
+// ── Cards ──
+const CARDS = ['personal','liability','lossOfUse','medpay','replacementCost','scheduled'];
+const META = {
+  personal:        { name:'Personal Property (Coverage C)', tag:'Replace everything you own', guide:'guide-personal' },
+  liability:       { name:'Personal Liability (Coverage E)', tag:'Covers injuries & damage you cause', guide:'guide-liability' },
+  lossOfUse:       { name:'Loss of Use (Coverage D)', tag:'Hotels & extra costs if displaced', guide:'guide-lossofuse' },
+  medpay:          { name:'Medical Payments (Coverage F)', tag:"Guests' minor medical bills", guide:'guide-medpay' },
+  replacementCost: { name:'Replacement Cost', tag:'Paid new, not depreciated', guide:'guide-replacementcost' },
+  scheduled:       { name:'Scheduled Items', tag:'Jewelry, cameras, bikes, art', guide:'guide-scheduled' }
+};
+
+function deltaBadge(kind, text){
+  return '<div class="delta-display"><span class="delta-badge ' + kind + '">' + text + '</span></div>';
+}
+function pillBtns(cov, opts, labels, selIdx, recIdx){
+  return '<div class="pill-row" style="margin-top:12px;">' + opts.map(function(o,i){
+    const cls = 'pill' + (i===selIdx ? ' active' : '');
+    const rec = i===recIdx ? ' <span style="font-size:10px;opacity:.7;">★</span>' : '';
+    return '<button class="' + cls + '" data-cov="' + cov + '" data-i="' + i + '">' + labels[i] + rec + '</button>';
+  }).join('') + '</div>';
+}
+function toggleRow(cov, on, label){
+  return '<div class="cov-toggle-row"><label class="cov-toggle" data-tgl="' + cov + '">'
+    + '<span class="cov-toggle-track' + (on?' on':'') + '"><span class="cov-toggle-thumb"></span></span>'
+    + '<span class="cov-toggle-label">' + label + '</span></label></div>';
+}
+function costLine(n){
+  if(n <= 0) return '<div class="cov-cost">Included in your base policy</div>';
+  return '<div class="cov-cost">≈ ' + fmt(n) + '/yr of your premium</div>';
+}
+
+function renderCards(){
+  const c = components();
+  const recs = computeRecs();
+  const lossOfUse = Math.round(profile.property * 0.30);
+  let html = '';
+
+  // Personal Property — driven by slider
+  html += card('personal',
+    deltaBadge('zero','Set to ' + fmt(profile.property)),
+    '<div class="cov-card-desc">Cover what it would cost to <strong>re-buy everything new</strong>. Based on your slider, we suggest <strong>' + fmt(profile.property) + '</strong> of personal property. Adjust the "value of your stuff" slider above to change it.</div>'
+    + costLine(c.base));
+
+  // Liability — options
+  html += card('liability',
+    deltaBadge(sels.liability >= recs.liability ? 'minus' : 'plus',
+      sels.liability >= recs.liability ? 'Covered' : 'Below rec'),
+    '<div class="cov-card-desc">For your assets (' + fmt(profile.assets) + '), carry at least <strong>' + fmt(LIAB_OPTS[recs.liability]) + '</strong>. The jump in limits costs only a few dollars a year.</div>'
+    + pillBtns('liability', LIAB_OPTS, LIAB_OPTS.map(function(v){return fmt(v);}), sels.liability, recs.liability)
+    + costLine(c.liab));
+
+  // Loss of Use — info
+  html += card('lossOfUse',
+    deltaBadge('zero','Included'),
+    '<div class="cov-card-desc">Bundled at roughly 20–40% of your personal property — about <strong>' + fmt(lossOfUse) + '</strong> here. Confirm the limit is on your policy; there\'s usually nothing extra to buy.</div>'
+    + costLine(0));
+
+  // Medical Payments — options
+  html += card('medpay',
+    deltaBadge(sels.medpay >= recs.medpay ? 'minus' : 'plus',
+      sels.medpay >= recs.medpay ? 'Covered' : 'Low'),
+    '<div class="cov-card-desc">Pays guests\' minor medical bills without a liability claim. We suggest <strong>' + fmt(MEDPAY_OPTS[recs.medpay]) + '</strong> — it\'s only a few dollars.</div>'
+    + pillBtns('medpay', MEDPAY_OPTS, MEDPAY_OPTS.map(function(v){return fmt(v);}), sels.medpay, recs.medpay)
+    + costLine(c.medpay));
+
+  // Replacement Cost — toggle
+  html += card('replacementCost',
+    deltaBadge(sels.rcv ? 'minus' : 'plus', sels.rcv ? 'On (recommended)' : 'Off (ACV)'),
+    '<div class="cov-card-desc">Get paid what it costs to <strong>buy new</strong>, not the depreciated used value. Adds ~10–15% — almost always worth it.</div>'
+    + toggleRow('rcv', sels.rcv, sels.rcv ? 'Replacement cost — ON' : 'Actual cash value (cheaper, pays less)'));
+
+  // Scheduled — toggle
+  html += card('scheduled',
+    deltaBadge(sels.scheduled ? 'minus' : 'zero', sels.scheduled ? 'Added' : (recs.scheduled ? 'Recommended' : 'Skip')),
+    '<div class="cov-card-desc">Standard policies cap jewelry, cameras, bikes, and art. Add a rider only if you own something valuable. ' + (recs.scheduled ? 'You said you have high-value items — schedule them.' : 'You can skip this if you don\'t.') + '</div>'
+    + toggleRow('scheduled', sels.scheduled, sels.scheduled ? 'Scheduled items — ON' : 'Add scheduled items')
+    + costLine(c.sched));
+
+  document.getElementById('covCards').innerHTML = html;
+}
+
+function card(key, badge, body){
+  const m = META[key];
+  return '<div class="cov-card">'
+    + '<div class="cov-card-top"><div>'
+    + '<div class="cov-card-name">' + m.name + '</div></div>'
+    + badge + '</div>'
+    + '<div class="cov-card-tagline">' + m.tag + '</div>'
+    + body
+    + '<a href="#' + m.guide + '" class="cov-full-guide">Read more →</a>'
+    + '</div>';
+}
+
+// ── Summary, sticky, CTA ──
+function renderSummary(){
+  const total = totalEstimate();
+  document.getElementById('summaryTotal').textContent = fmt(total) + '/yr';
+  const d = total - profile.stateAvg;
+  const dEl = document.getElementById('summaryDelta');
+  const label = profile.code ? profile.stateName : 'national';
+  if(Math.abs(d) < 6){
+    dEl.innerHTML = '<span style="color:var(--ink-mute);font-size:13px;">about the ' + label + ' average (' + fmt(profile.stateAvg) + '/yr)</span>';
+  } else if(d < 0){
+    dEl.innerHTML = '<span style="color:var(--good);font-size:13px;font-weight:600;">' + fmt(Math.abs(d)) + '/yr below the ' + label + ' average</span>';
+  } else {
+    dEl.innerHTML = '<span style="color:var(--accent);font-size:13px;font-weight:600;">' + fmt(d) + '/yr above the ' + label + ' average</span>';
+  }
+  // sticky
+  document.getElementById('stickyAmount').textContent = fmt(total) + '/yr';
+  const sd = document.getElementById('stickyDelta');
+  if(profile.code){ sd.textContent = profile.stateName; }
+  else { sd.textContent = 'national avg'; }
+  updateCta();
+}
+
+function updateCta(){
+  const parts = [];
+  parts.push(fmt(profile.property) + ' property');
+  parts.push(fmt(LIAB_OPTS[sels.liability]) + ' liability');
+  parts.push(sels.rcv ? 'replacement cost' : 'actual cash value');
+  if(sels.scheduled) parts.push('scheduled items');
+  document.getElementById('ctaSelectionsSummary').textContent = 'Carrying over: ' + parts.join(' · ');
+  refreshCtaLink();
+}
+function refreshCtaLink(){
+  const zip = (document.getElementById('zipInput').value || '').replace(/\D/g,'').slice(0,5);
+  const q = zip.length === 5 ? ('?zip=' + zip) : '';
+  ['ctaBtn','stickyCompareLink'].forEach(function(id){
+    const el = document.getElementById(id); if(el) el.href = '/renters/' + q;
+  });
+}
+
+// ── ZIP handling ──
+function setZip(z){
+  z = (z||'').replace(/\D/g,'').slice(0,5);
+  const badge = document.getElementById('zipStateBadge');
+  const code = z.length >= 3 ? stateFromZip(z) : null;
+  if(code && RENTERS_STATE_DATA[code]){
+    profile.code = code;
+    profile.stateName = RENTERS_STATE_DATA[code].name;
+    profile.stateAvg = RENTERS_STATE_DATA[code].avg;
+    badge.textContent = profile.stateName + ' · avg ' + fmt(profile.stateAvg) + '/yr';
+    badge.style.display = '';
+  } else {
+    profile.code = null; profile.stateName = null; profile.stateAvg = NATIONAL_AVG;
+    badge.textContent = '';
+    badge.style.display = 'none';
+  }
+  refreshCtaLink();
+  renderAll();
+}
+
+function renderAll(){ renderCards(); renderSummary(); }
+
+// ── Events ──
+function initEvents(){
+  const propSlider = document.getElementById('propSlider');
+  propSlider.addEventListener('input', function(){
+    profile.property = PROP_STEPS[+this.value];
+    document.getElementById('propDisplay').textContent = fmt(profile.property);
+    renderAll();
+  });
+  const assetsSlider = document.getElementById('assetsSlider');
+  assetsSlider.addEventListener('input', function(){
+    profile.assets = ASSET_STEPS[+this.value];
+    const lbl = (+this.value === 0) ? '< $50,000' : (profile.assets >= 1000000 ? '$1,000,000+' : fmt(profile.assets));
+    document.getElementById('assetsDisplay').textContent = lbl;
+    applyRecs();
+    renderAll();
+  });
+
+  document.getElementById('zipInput').addEventListener('input', function(){
+    this.value = this.value.replace(/\D/g,'').slice(0,5);
+    setZip(this.value);
+  });
+  const bz = document.getElementById('bottomZipInput');
+  if(bz) bz.addEventListener('input', function(){
+    this.value = this.value.replace(/\D/g,'').slice(0,5);
+    document.getElementById('zipInput').value = this.value;
+    setZip(this.value);
+  });
+
+  // profile pills
+  document.querySelectorAll('.profile-pills-row .pill').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const q = this.dataset.q, v = this.dataset.v;
+      this.parentElement.querySelectorAll('.pill').forEach(function(p){ p.classList.remove('active'); });
+      this.classList.add('active');
+      if(q === 'deductible') profile.deductible = +v;
+      else if(q === 'bundle') profile.bundle = (v === 'yes');
+      else if(q === 'valuables'){ profile.valuables = (v === 'yes'); applyRecs(); }
+      renderAll();
+    });
+  });
+
+  // card option pills + toggles (delegated — cards re-render)
+  document.getElementById('covCards').addEventListener('click', function(e){
+    const pill = e.target.closest('.pill[data-cov]');
+    if(pill){ sels[pill.dataset.cov] = +pill.dataset.i; renderAll(); return; }
+    const tgl = e.target.closest('[data-tgl]');
+    if(tgl){ const k = tgl.dataset.tgl; sels[k] = !sels[k]; renderAll(); return; }
+  });
+}
+
+// ── Init ──
+(function init(){
+  applyRecs();
+  initEvents();
+  const params = new URLSearchParams(location.search);
+  const z = params.get('zip');
+  if(z && /^\d{3,5}$/.test(z)){
+    document.getElementById('zipInput').value = z.slice(0,5);
+    setZip(z);
+  } else {
+    renderAll();
+  }
+})();
+</script>
+
+<script>(function(){var dds=document.querySelectorAll('.nav-dd-btn');dds.forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();var panel=document.getElementById(btn.id+'Panel');if(!panel)return;var wasOpen=panel.classList.contains('open');document.querySelectorAll('.nav-dd-panel').forEach(function(p){p.classList.remove('open');});document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.setAttribute('aria-expanded','false');});if(!wasOpen){panel.classList.add('open');btn.setAttribute('aria-expanded','true');}});});document.addEventListener('click',function(){document.querySelectorAll('.nav-dd-panel').forEach(function(p){p.classList.remove('open');});document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.setAttribute('aria-expanded','false');});});})();</script>
+<script>(function(){var btn=document.getElementById('navHamburger');var mega=document.getElementById('navMega');if(!btn||!mega)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});mega.addEventListener('click',function(e){var tab=e.target.closest('.nav-res-tab');if(!tab)return;e.stopPropagation();var pid=tab.dataset.panel;var isActive=tab.classList.contains('active');mega.querySelectorAll('.nav-res-tab').forEach(function(t){t.classList.remove('active');});mega.querySelectorAll('.nav-res-panel').forEach(function(p){p.classList.remove('active');});if(!isActive&&pid){tab.classList.add('active');var panel=document.getElementById(pid);if(panel)panel.classList.add('active');}});})();</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much renters insurance do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Set your personal property (Coverage C) to what it would cost to re-buy everything you own new — walk room by room and total it; most renters land between $20,000 and $50,000. Carry personal liability (Coverage E) of at least as much as your net worth, with $100,000 the practical minimum and $300,000 only a few dollars more. Add replacement-cost coverage so you're paid for new items rather than depreciated value. The national average renters policy is about $168 per year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is replacement cost vs. actual cash value on renters insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Actual cash value (ACV) pays what your belongings are worth used after depreciation — a five-year-old TV might be valued at $80. Replacement cost value (RCV) pays what it costs to buy the item new. RCV typically adds only about 10–15% to the premium and is almost always worth it; do not choose ACV to save $20 a year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does renters insurance cover jewelry and other valuables?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard renters policies cap categories like jewelry, watches, cameras, bicycles, firearms, and fine art — often at $1,000 to $2,500 total, and theft of jewelry may be capped lower. To fully cover a valuable item, add a scheduled personal property endorsement (a rider) that insures it for its appraised value, usually with no deductible. If you don't own high-value items, you can skip this."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does renters insurance cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The national average is roughly $168 per year, or about $14 a month, but it ranges from around $127 in low-cost states to over $250 in Florida and Louisiana. Premiums are driven mainly by how much personal property you insure, your deductible, whether you carry replacement-cost coverage, and your state. Bundling renters with an auto policy typically cuts the renters premium by 10–15%."
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
