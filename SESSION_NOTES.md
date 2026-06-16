@@ -1,6 +1,21 @@
 # BoringRate — Session Notes
 _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
 
+## This session (2026-06-16d, Opus 4.8) — shipped
+
+- **Coverage calculator UX rebuild (home + renters).** User flagged the home tool
+  as confusing; root cause = the renters/home tools used a simpler engine than the
+  auto tool. Rebuilt BOTH (renters shares the engine):
+  per-card PRICE-IMPACT chips with exact deltas (totalWith/deltaVs helper);
+  inline expand/collapse 'What is this?' (no page jump) + removed the redundant
+  bottom primer; previously-locked coverages now adjustable (home: Other
+  Structures 10/20% + Loss of Use 20/30%; renters: Loss of Use 20/30%); ⓘ tooltips
+  on every input; sticky premium box now has a ZIP entry + Compare CTA; ZIP
+  auto-fills across profile/bottom/sticky and carries selections to the rate tool.
+  Also fixed the clipped ZIP placeholder (110px->150px) on all 3 coverage tools.
+  jsdom: 0 JS errors; full sweep 526/526. (Auto coverage.html already had deltas/
+  inline-expand — all 3 now consistent.)
+
 ## This session (2026-06-16c, Opus 4.8) — shipped
 
 - **Guide/FAQ parity across all 3 products.** Renters cluster -> 6 guides
