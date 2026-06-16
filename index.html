@@ -4978,7 +4978,9 @@ function estimatePremium(carrier, avg) {
     if (refinement.credit === "excellent") m *= (1 + s.credit.excellent);
     else if (refinement.credit === "fair")  m *= (1 + s.credit.fair);
   }
-  if (refinement.accident && s.accident !== undefined) m *= (1 + s.accident);
+  // At-fault accident surcharge. National carriers have tuned per-carrier values;
+  // regional/local carriers fall back to a neutral default so none dodge the surcharge.
+  if (refinement.accident) m *= (1 + (s.accident !== undefined ? s.accident : 0.28));
   if (!refinement.insured) { m *= (1 + s.lapsed); }
   else if (refinement.curCarrier === carrier.name) { m *= (1 + s.renewal); }
   else if (refinement.curCarrier === "none") { m *= (1 + s.lapsed); }
