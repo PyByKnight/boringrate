@@ -89,6 +89,68 @@ ARTICLES = {
   ("Does renters insurance cover my roommate?","No. Each renter needs their own policy; a standard policy covers only the named policyholder and family members."),
  ],
  cross=("/renters/coverage.html","Renters Coverage Calculator")),
+
+"is-renters-insurance-required": dict(
+ title="Is Renters Insurance Required? (2026)",
+ h1="Is renters insurance required?",
+ dek="Not by any state law — but your landlord almost certainly requires it in the lease, and there are good reasons to carry it even when no one's making you.",
+ kicker="Renters Basics",
+ lead="<p>No U.S. state legally requires renters insurance. But that's not the whole story: <strong>landlords can require it as a condition of your lease, and most now do</strong> — typically $100,000 in liability, with proof before you get the keys.</p>",
+ sections=[
+  ("Why landlords require it","<p>Your landlord's policy covers the <em>building</em>, not your belongings or your liability. Requiring renters insurance shifts responsibility for tenant-caused damage and injuries onto your policy — and protects them from being dragged into your claims. Larger and professionally managed buildings almost always require it; smaller landlords increasingly do too.</p>"),
+  ("What the lease usually asks for","<p>Commonly <strong>$100,000 in personal liability</strong> (sometimes $300,000), proof of coverage before move-in, and occasionally that the landlord be named as an 'interested party' so they're notified if your policy lapses. Read the lease — some specify minimum limits.</p>"),
+  ("What happens if you don't carry it","<p>If your lease requires it and you let it lapse, you're in <strong>breach of the lease</strong> — grounds for penalties or, in the worst case, eviction. Even without a requirement, going without means a fire, theft, or liability claim comes entirely out of your pocket.</p>"),
+  ("Should you carry it anyway?","<p>Almost always yes. At ~$14/month it covers your belongings, your liability, and temporary living costs. The only real question is which carrier is cheapest for you — enter your ZIP to compare.</p>"),
+ ],
+ callout="<strong>Bottom line:</strong> it's not required by law, but it's required by most leases — and worth carrying regardless. Compare carriers so you meet the requirement at the lowest price.",
+ faq=[
+  ("Is renters insurance required by law?","No state legally requires it. However, landlords can and usually do require it in the lease, typically $100,000 in liability."),
+  ("Can a landlord require renters insurance?","Yes. It's a legal lease condition, and most landlords require proof of coverage before move-in."),
+  ("What happens if I don't have required renters insurance?","If your lease requires it and you don't maintain it, you're in breach of the lease — which can lead to penalties or eviction."),
+  ("How much liability coverage do landlords require?","Usually $100,000, sometimes $300,000. Check your lease for the exact minimum."),
+ ],
+ cross=("/renters/coverage.html","Renters Coverage Calculator")),
+
+"how-much-renters-insurance-do-i-need": dict(
+ title="How Much Renters Insurance Do You Need? (2026)",
+ h1="How much renters insurance do you actually need?",
+ dek="Set your personal property to what it costs to re-buy everything, your liability to at least your net worth, and add replacement cost. Here's how to land on the right numbers.",
+ kicker="Renters Basics",
+ lead="<p>Renters insurance has a few dials, and most people set them by guessing. The right amounts aren't hard to figure out — and our <a class=\"ca-link\" href=\"/renters/coverage.html\">coverage calculator</a> does the math for you in two minutes. Here's the logic behind it.</p>",
+ sections=[
+  ("Personal property: what it costs to re-buy everything","<p>Walk room by room and total the <strong>replacement cost</strong> of your belongings — furniture, electronics, clothes, kitchenware. Most renters land between $20,000 and $50,000, and most <em>under</em>-estimate. Set Coverage C to that number, and choose <strong>replacement cost</strong> (not actual cash value) so you're paid to buy new.</p>"),
+  ("Liability: at least your net worth","<p>Carry liability at least equal to what you'd want protected if you were sued — $100,000 is the practical floor, and $300,000 costs only a little more. If you have real savings, a $1–2M umbrella policy stacks cheaply on top.</p>"),
+  ("Loss of use and medical payments","<p>Loss of use is usually bundled at 20–40% of your property coverage — just confirm it's there. Medical payments ($1,000–$5,000) covers minor guest injuries without a liability claim; bump it to $5,000 for a few dollars.</p>"),
+  ("High-value items: schedule them","<p>Standard policies cap categories like jewelry, watches, cameras, and bikes (often $1,000–$2,500 total). If you own something valuable, add a <strong>scheduled endorsement</strong> for it — appraised value, usually no deductible.</p>"),
+ ],
+ callout="<strong>Fastest path:</strong> the renters coverage calculator turns your stuff, assets, and deductible into the right Coverage C / liability / add-ons — then sends you straight to compare carriers for that coverage.",
+ faq=[
+  ("How much personal property coverage do I need?","Enough to re-buy everything you own new — usually $20,000–$50,000 for most renters. Do a quick room-by-room total and choose replacement-cost coverage."),
+  ("How much liability coverage do I need for renters insurance?","At least $100,000, with $300,000 only slightly more. Carry at least as much as your net worth; add an umbrella policy if you have significant assets."),
+  ("Is $100,000 of renters liability enough?","For most renters, yes. If you have substantial savings or assets, step up to $300,000 or add an umbrella policy."),
+  ("Do I need replacement cost coverage?","Yes — it pays to buy items new instead of their depreciated value, usually for only a small premium increase."),
+ ],
+ cross=("/renters/coverage.html","Renters Coverage Calculator")),
+
+"how-much-does-renters-insurance-cost": dict(
+ title="How Much Does Renters Insurance Cost? (2026)",
+ h1="How much does renters insurance cost?",
+ dek="About $168 a year nationally — roughly $14 a month — but it ranges from ~$127 to over $250 by state. Here's what drives the price and how to pay less.",
+ kicker="Renters Basics",
+ lead="<p>Renters insurance is cheap. The national average is around <strong>$168 a year (~$14/month)</strong> for about $30,000 in personal property and $100,000 in liability. Where you land depends mostly on your state, how much you insure, and your deductible.</p>",
+ sections=[
+  ("What it costs by state","<p>State averages run from roughly <strong>$127</strong> in low-cost states (Maine, New Hampshire, Vermont) to over <strong>$250</strong> in Florida and Louisiana, where catastrophe risk pushes every line of insurance up. See your state's average and the cheapest carriers on our <a class=\"ca-link\" href=\"/renters/index.html\">renters rate comparison</a>.</p>"),
+  ("What drives your price","<p>The biggest factors: <strong>your location</strong> (crime and weather risk by ZIP), <strong>how much personal property you insure</strong>, your <strong>deductible</strong> ($250 vs $1,000), whether you pick <strong>replacement cost</strong>, and in most states your <strong>credit-based insurance score</strong>. Add-ons like scheduled jewelry or water-backup raise it slightly.</p>"),
+  ("How to pay less","<p><strong>Bundle</strong> with your auto policy (often 10–15% off the renters premium), <strong>raise your deductible</strong> if you can cover it, skip coverage you don't need, and — the big one — <strong>compare carriers</strong>. The same coverage can vary $80–180/year between insurers for the same renter.</p>"),
+ ],
+ callout="<strong>The cheapest move:</strong> bundling and a higher deductible help, but comparing carriers is where the real spread is. Enter your ZIP to see the lowest-priced renters carriers for your area.",
+ faq=[
+  ("How much does renters insurance cost per month?","About $14/month on average nationally (~$168/year) for ~$30,000 in property and $100,000 in liability. It ranges from ~$10 to over $20/month by state."),
+  ("Why is renters insurance so cheap?","It only covers your belongings and liability — not a building — so the insurer's exposure is small compared to home or auto insurance."),
+  ("What's the cheapest way to get renters insurance?","Bundle it with auto, raise your deductible, and compare carriers — the same coverage can vary $80–180/year between companies."),
+  ("Does renters insurance cost more in some states?","Yes — from ~$127 in low-risk states to over $250 in Florida and Louisiana, driven by local crime and catastrophe risk."),
+ ],
+ cross=("/renters/index.html","Renters Rate Comparison")),
 }
 
 def build(slug, c):
