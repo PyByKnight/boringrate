@@ -216,7 +216,7 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 @media(max-width:600px){
   /* Streamlined mobile rank row: carrier + tagline, rate stability, rate/quote box. */
   .rank-col-head{display:none!important;}
-  .boring-rec-wrap{position:relative;border:2px solid var(--accent);border-radius:6px;margin:14px 0;}.boring-rec-tagline{position:absolute;top:-8px;left:16px;background:var(--paper);padding:0 8px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:700;}.boring-rec-wrap .rank-row{border:none;}.rank-row{grid-template-columns:30px 1fr auto;grid-template-rows:auto auto;padding:14px;gap:6px 12px;}
+  .boring-rec-wrap{position:relative;border:2px solid var(--accent);border-radius:6px;margin:14px 0;}.boring-rec-tagline{position:absolute;top:-8px;left:16px;background:var(--paper);padding:0 8px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:700;}.boring-rec-wrap .rank-row{border:none;}.boring-rec-wrap.usaa-rec{border-color:#4b5320;}.boring-rec-tagline.usaa-rec{color:#4b5320;}.rank-row{grid-template-columns:30px 1fr auto;grid-template-rows:auto auto;padding:14px;gap:6px 12px;}
   .rank-num{grid-column:1;grid-row:1;align-self:start;}
   .rank-name-wrap{grid-column:2;grid-row:1;min-width:0;}
   .rank-name{overflow-wrap:anywhere;}
@@ -1099,8 +1099,10 @@ function renderRanking() {
   // Candidates: top 4 meeting CS B+ and 4+ stability. Prefer a non-USAA pick; fall back to USAA.
   const recCands = ranked.slice(0, 4).filter(function(r){ return (GRADE_RANK[r.carrier.csGrade]||0) >= 6 && (r.carrier.stability||3) >= 4; });
   const recNonUsaa = recCands.filter(function(r){ return r.carrier.name !== "USAA"; });
-  const boringRec = recNonUsaa.length ? bestRec(recNonUsaa) : bestRec(recCands);
+  const overallBest = bestRec(recCands);
+  const boringRec = bestRec(recNonUsaa);
   const boringRecName = boringRec ? boringRec.carrier.name : null;
+  const usaaRecName = (overallBest && overallBest.carrier.name === "USAA") ? "USAA" : null;
   ranked.forEach((row, idx) => {
     if (idx === 5 && ranked.length > 5) {
       const div = document.createElement("div");
@@ -1140,9 +1142,12 @@ function renderRanking() {
         availHtml +
       '</div>' +
       gradeHtml + stabHtml + markHtml + ctaHtml;
-    if (boringRecName && c.name === boringRecName) {
-      const wrap = document.createElement("div"); wrap.className = "boring-rec-wrap";
-      const tl = document.createElement("span"); tl.className = "boring-rec-tagline"; tl.innerHTML = "\u2605 The Boring Rec";
+    let recKind = null;
+    if (boringRecName && c.name === boringRecName) recKind = ["", "\u2605 The Boring Rec"];
+    else if (usaaRecName && c.name === usaaRecName) recKind = [" usaa-rec", "\u2605 Rec for Military Families"];
+    if (recKind) {
+      const wrap = document.createElement("div"); wrap.className = "boring-rec-wrap" + recKind[0];
+      const tl = document.createElement("span"); tl.className = "boring-rec-tagline" + recKind[0]; tl.innerHTML = recKind[1];
       wrap.appendChild(tl); wrap.appendChild(a); list.appendChild(wrap);
     } else { list.appendChild(a); }
   });
