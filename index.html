@@ -897,11 +897,8 @@
     .nav-method { display: none; }
     /* Streamlined mobile rank row: carrier + tagline, rate stability,
        and the rate/quote box. Secondary signals hidden (see below). */
-    .boring-rec-wrap { position: relative; border: 2px solid var(--accent); border-radius: 6px; margin: 16px 0; background: var(--paper); box-shadow: 0 2px 14px rgba(180,50,26,0.10); }
-  .boring-rec-tagline { position: absolute; top: -8px; left: 18px; background: var(--paper); padding: 0 7px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
-  .boring-rec-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 10px; padding: 11px 14px 0; }
-  .brh-title { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
-  .brh-sub { font-family: var(--sans); font-size: 12.5px; color: var(--ink-soft); }
+    .boring-rec-wrap { position: relative; border: 2px solid var(--accent); border-radius: 6px; margin: 14px 0; }
+  .boring-rec-tagline { position: absolute; top: -8px; left: 16px; background: var(--paper); padding: 0 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
   .boring-rec-wrap .rank-row { border: none; }
   .rank-row { grid-template-columns: 30px 1fr auto; grid-template-rows: auto auto; column-gap: 12px; row-gap: 6px; padding: 14px; }
     .rank-num { grid-column: 1; grid-row: 1; align-self: start; }
@@ -5196,13 +5193,8 @@ function renderRanking() {
       wrap.className = "boring-rec-wrap";
       const tl = document.createElement("span");
       tl.className = "boring-rec-tagline";
-      tl.textContent = "Boring on purpose.";
-      const rh = document.createElement("div");
-      rh.className = "boring-rec-head";
-      rh.innerHTML = '<span class="brh-title">★ The Boring Rec</span>' +
-        '<span class="brh-sub">Competitive rate &middot; Superior service (' + (c.csGrade || '') + ') &middot; Stable rates (' + (c.stability || 3) + '/5)</span>';
+      tl.innerHTML = "★ The Boring Rec";
       wrap.appendChild(tl);
-      wrap.appendChild(rh);
       wrap.appendChild(a);
       list.appendChild(wrap);
     } else {
