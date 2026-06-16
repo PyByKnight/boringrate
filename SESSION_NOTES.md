@@ -3,6 +3,14 @@ _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
 
 ## This session (2026-06-15, Opus 4.8) — shipped
 
+- **NAV: single-source mega menu + regrouped Guides.** Extracted the hamburger
+  mega menu to `partials/nav-mega.html`; `build_nav.py` stamps it into all 506
+  pages (idempotent). Future nav edits = edit partial + run build_nav.py (nav
+  stays in static HTML for SEO). Unified 7 drifted nav variants -> 1. Guides panel
+  regrouped into subsections: Cheapest for… / How-to guides / Data & tools (incl.
+  the 5 new high-intent pages). 0 JS errors. See [[boringrate-nav-singlesource]].
+
+
 - **HIGH-INTENT "cheapest for [situation]" articles + model alignment.** Built 5
   ranking-led pages (`article/cheapest-car-insurance-*`): young-drivers, after-
   accident, after-dui (SR-22), bad-credit, seniors. Each leads with **top-3 +
