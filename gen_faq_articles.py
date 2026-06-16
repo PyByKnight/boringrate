@@ -140,6 +140,38 @@ ARTICLES = {
   ("What's the cheapest way to get legal again?","Minimum-liability coverage is the lowest-cost policy. Compare carriers (including non-standard insurers for post-lapse drivers) to find the cheapest — it's almost always less than the fine."),
  ],
  cross=("/article/sr22-insurance.html","SR-22 Insurance Explained")),
+
+"car-insurance-discounts": dict(
+ title="Car Insurance Discounts You're Probably Missing (2026)",
+ h1="The car insurance discounts most drivers leave on the table.",
+ dek="Carriers offer dozens of discounts — but they rarely volunteer them, and the same discount is worth different amounts at different companies. Here's the full list, what each typically saves, and the one 'discount' that beats them all.",
+ kicker="Shopping &amp; Saving",
+ lead="<p>Stacked together, discounts can knock <strong>20–35%</strong> off a premium. But two things trip people up: carriers don't always apply every discount you qualify for unless you ask, and a big discount on a high base rate can still cost more than a smaller discount on a low one. Here's what's out there — and why comparing the <em>after-discount</em> price is what actually matters.</p>",
+ sections=[
+  ("The biggest discounts","<p>These move the needle most:</p>"
+   "<table style=\"width:100%;border-collapse:collapse;font-size:16px;margin:16px 0;max-width:660px;\">"
+   "<thead><tr style=\"text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;\"><th style=\"padding:8px 6px;\">Discount</th><th style=\"padding:8px 6px;\">Typical savings</th></tr></thead>"
+   "<tbody>"
+   "<tr style=\"border-bottom:1px solid var(--rule);\"><td style=\"padding:8px 6px;\">Bundle (auto + home/renters)</td><td style=\"padding:8px 6px;\">10–25%</td></tr>"
+   "<tr style=\"border-bottom:1px solid var(--rule);\"><td style=\"padding:8px 6px;\">Multi-car</td><td style=\"padding:8px 6px;\">10–25%</td></tr>"
+   "<tr style=\"border-bottom:1px solid var(--rule);\"><td style=\"padding:8px 6px;\">Telematics / usage-based (safe driving)</td><td style=\"padding:8px 6px;\">up to 30–40%</td></tr>"
+   "<tr style=\"border-bottom:1px solid var(--rule);\"><td style=\"padding:8px 6px;\">Claims-free / safe driver</td><td style=\"padding:8px 6px;\">10–25%</td></tr>"
+   "<tr style=\"border-bottom:1px solid var(--rule);\"><td style=\"padding:8px 6px;\">Pay-in-full</td><td style=\"padding:8px 6px;\">5–10%</td></tr>"
+   "</tbody></table>"
+   "<p>Bundling and multi-car are the easiest big wins; telematics is the biggest if you actually drive safely (but it can <em>raise</em> your rate if you brake hard or drive late at night — read the terms).</p>"),
+  ("Driver &amp; household discounts","<p><strong>Good student</strong> (B average, ~10–25% for under-25 drivers), <strong>defensive-driving course</strong> (5–10%, often required to be offered for older drivers), <strong>good credit</strong> (huge in most states — see our <a class=\"ca-link\" href=\"/article/credit-score-insurance.html\">credit &amp; insurance guide</a>), and <strong>away-at-school</strong> (a student who keeps a car at home but studies 100+ miles away).</p>"),
+  ("Billing &amp; paperless","<p>Small but free: <strong>autopay</strong> (1–3%), <strong>paperless documents</strong> (1–3%), and <strong>early-shopping/sign-before-expiration</strong> (some carriers reward quoting a week before your current policy ends). None are large alone, but they stack.</p>"),
+  ("Vehicle &amp; membership","<p><strong>Anti-theft and safety features</strong>, <strong>new-car</strong> discounts, <strong>low-mileage or pay-per-mile</strong> (great for remote workers and retirees), and <strong>affinity discounts</strong> through employers, alumni associations, the military (USAA), or AARP (The Hartford). Always mention every group you belong to.</p>"),
+  ("The 'discount' that beats them all","<p>Here's the catch with discounts: they vary so much by carrier that the company with the most discounts isn't necessarily the cheapest. A 25% discount on a high base rate loses to a 10% discount on a low one. The only way to find your real lowest price is to <strong>compare the after-discount premium across carriers</strong> — which is exactly what the tool below does for your ZIP.</p>"),
+ ],
+ callout="<strong>Two rules:</strong> (1) ask your carrier to run <em>every</em> discount you might qualify for — they don't always apply them automatically. (2) Don't let a flashy discount distract you from a high starting price; compare the final number, not the percentage off.",
+ faq=[
+  ("How much can car insurance discounts save?","Stacked, commonly 20–35% off. The biggest individual levers are bundling, multi-car, and telematics for safe drivers — but savings vary a lot by carrier."),
+  ("What is the biggest car insurance discount?","Usually bundling auto with home or renters (10–25%) or a multi-car discount, and telematics can be even larger for safe drivers. Good credit also has an outsized effect in most states."),
+  ("Do insurers apply discounts automatically?","Not always. Ask your carrier or agent to review every discount you qualify for — affinity, good-student, low-mileage, and safety-feature discounts are often missed."),
+  ("Does the carrier with the most discounts have the cheapest rate?","Not necessarily. A big discount on a high base rate can still cost more than a small discount on a low one — compare the final after-discount price across carriers."),
+ ],
+ cross=("/article/cost-of-not-shopping-car-insurance.html","The Hidden Cost of Not Shopping")),
 }
 
 def build(slug, c):
