@@ -1436,15 +1436,20 @@ function renderRanking() {
   list.appendChild(medTop);
 
   const GRADE_RANK = { 'A+':9,'A':8,'A-':7,'B+':6,'B':5,'B-':4,'C+':3,'C':2,'F':0 };
-  let boringRec = null;
-  ranked.slice(0, 3).forEach(function(r) {
-    const g = GRADE_RANK[r.carrier.csGrade] || 0; const stab = r.carrier.stability || 3;
-    if (g >= 6 && stab >= 4) {
-      if (!boringRec) { boringRec = r; return; }
-      const bg = GRADE_RANK[boringRec.carrier.csGrade] || 0, bs = boringRec.carrier.stability || 3;
-      if (g > bg || (g === bg && stab > bs) || (g === bg && stab === bs && r.price < boringRec.price)) boringRec = r;
-    }
-  });
+  function bestRec(list){
+    let b = null;
+    list.forEach(function(r){
+      const g = GRADE_RANK[r.carrier.csGrade] || 0, stab = r.carrier.stability || 3;
+      if (!b) { b = r; return; }
+      const bg = GRADE_RANK[b.carrier.csGrade] || 0, bs = b.carrier.stability || 3;
+      if (g > bg || (g === bg && stab > bs) || (g === bg && stab === bs && r.price < b.price)) b = r;
+    });
+    return b;
+  }
+  // Candidates: top 4 meeting CS B+ and 4+ stability. Prefer a non-USAA pick; fall back to USAA.
+  const recCands = ranked.slice(0, 4).filter(function(r){ return (GRADE_RANK[r.carrier.csGrade]||0) >= 6 && (r.carrier.stability||3) >= 4; });
+  const recNonUsaa = recCands.filter(function(r){ return r.carrier.name !== "USAA"; });
+  const boringRec = recNonUsaa.length ? bestRec(recNonUsaa) : bestRec(recCands);
   const boringRecName = boringRec ? boringRec.carrier.name : null;
   ranked.forEach((row, idx) => {
     if (idx === 5 && ranked.length > 5) {
