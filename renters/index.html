@@ -153,7 +153,7 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .profile-restored{font-family:var(--mono);font-size:11px;color:var(--ink-mute);margin-top:10px;letter-spacing:0.05em;display:none;}
 
 /* ── Refine bar ── */
-.refine-bar{padding:14px 0 0;background:var(--paper);}
+.refine-bar{padding:14px 0 0;background:var(--paper);box-shadow:0 0 0 0 rgba(22,21,18,0);transition:box-shadow 280ms ease;}.refine-bar.open{box-shadow:0 0 0 2px var(--ink);}
 .refine-inner{background:var(--paper-deep);border:1px solid var(--rule);padding:14px 18px;margin-bottom:16px;display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;}
 /* Refine collapsed by default; click trigger to expand */
 .refine-bar:not(.open) .refine-inner{display:none;}
@@ -171,7 +171,7 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .refine-bar.open .refine-trigger:hover{background:var(--paper-deep);color:var(--ink);}
 .refine-bar.open .refine-trigger:hover .refine-trigger-action{color:var(--ink);text-decoration-color:var(--accent);}
 .refine-bar.open .refine-trigger:hover .refine-trigger-arrow{color:var(--accent);}
-.refine-bar.open .refine-trigger-arrow{transform:rotate(180deg);}
+.refine-bar.open .refine-trigger-arrow{background:var(--ink);color:var(--paper);border-color:var(--ink);}
 
 /* Persistent ZIP confirmation chip + inline personalization progress bar */
 .refine-zip-row{scroll-margin-top:84px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0 14px;margin:14px 0 6px;}

@@ -288,7 +288,7 @@
     border: 1px solid var(--rule);
     padding: 14px 18px;
     margin: 0 0 10px;
-  }
+   box-shadow: 0 0 0 0 rgba(22,21,18,0); transition: box-shadow 280ms ease, border-color 280ms ease;}.refine.open{border-color:var(--ink);box-shadow:0 0 0 2px var(--ink);}
   .refine-always {
     display: flex;
     align-items: flex-end;
@@ -1333,7 +1333,7 @@
 .refine.open .refine-trigger:hover { background: var(--paper-deep); color: var(--ink); }
 .refine.open .refine-trigger:hover .refine-trigger-action { color: var(--ink); text-decoration-color: var(--accent); }
 .refine.open .refine-trigger:hover .refine-trigger-arrow { color: var(--accent); }
-.refine.open .refine-trigger-arrow { transform: rotate(180deg); }
+.refine.open .refine-trigger-arrow{background:var(--ink);color:var(--paper);border-color:var(--ink);}
 
 /* Collapsed state hides the chip rows; open state forces them visible
    so we never inherit a stale display:none from somewhere else. */
