@@ -123,6 +123,8 @@
   .slider-q { margin-bottom: 26px; }
   .slider-q-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; gap: 12px; }
   .slider-q-label { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+  .lbl-i { display:inline-block; margin-left:6px; width:15px; height:15px; line-height:14px; text-align:center; font-size:10px; font-weight:600; font-family:var(--sans); color:var(--ink-mute); border:1px solid var(--ink-mute); border-radius:50%; cursor:help; vertical-align:middle; }
+  .lbl-i:hover { color:var(--accent); border-color:var(--accent); }
   .slider-q-value { font-family: var(--mono); font-size: 15px; font-weight: 500; color: var(--ink); letter-spacing: 0.02em; white-space: nowrap; }
   input[type=range] {
     -webkit-appearance: none;
@@ -330,6 +332,10 @@
     transition: opacity 120ms;
   }
   .sticky-compare-link:hover { opacity: 0.85; }
+  .sticky-zip-row { display:flex; gap:0; margin-top:12px; align-items:stretch; }
+  .sticky-zip-input { width:62px; flex-shrink:0; font-family:var(--mono); font-size:14px; letter-spacing:0.06em; text-align:center; padding:8px 4px; border:1.5px solid rgba(246,241,232,0.3); border-right:none; background:rgba(246,241,232,0.08); color:var(--paper); outline:none; }
+  .sticky-zip-input::placeholder { color:rgba(246,241,232,0.4); }
+  .sticky-zip-row .sticky-compare-link { display:inline-flex; align-items:center; justify-content:center; margin-top:0; flex:1; }
 
   /* ── CTA card at end of coverage cards ── */
   .cov-cta-card {
@@ -602,7 +608,7 @@
 
       <div class="slider-q">
         <div class="slider-q-header">
-          <div class="slider-q-label">Dwelling rebuild cost (Coverage A)</div>
+          <div class="slider-q-label">Dwelling rebuild cost (Coverage A)<span class="lbl-i" title="What a contractor would charge to rebuild your home today — not its market value or what you paid. This is the most important number; it drives most of your premium.">i</span></div>
           <div class="slider-q-value" id="dwellDisplay">$300,000</div>
         </div>
         <input type="range" id="dwellSlider" min="0" max="8" step="1" value="3" />
@@ -611,7 +617,7 @@
 
       <div class="slider-q">
         <div class="slider-q-header">
-          <div class="slider-q-label">Assets to protect (net worth)</div>
+          <div class="slider-q-label">Assets to protect (net worth)<span class="lbl-i" title="Your net worth. We use it to recommend a liability limit — carry at least as much liability coverage as you would want protected if you were sued.">i</span></div>
           <div class="slider-q-value" id="assetsDisplay">$200,000</div>
         </div>
         <input type="range" id="assetsSlider" min="0" max="7" step="1" value="3" />
@@ -620,7 +626,7 @@
 
       <div class="zip-q">
         <div class="zip-q-header">
-          <div class="zip-q-label">Your ZIP code</div>
+          <div class="zip-q-label">Your ZIP code<span class="lbl-i" title="We use your ZIP to pull your state\u2019s average home insurance rate, so the estimate reflects your area.">i</span></div>
           <div class="zip-state-badge" id="zipStateBadge"></div>
         </div>
         <div class="zip-input-row">
@@ -631,7 +637,7 @@
 
       <div class="profile-pills-row">
         <div class="profile-pill-q">
-          <div class="profile-pill-label">Deductible</div>
+          <div class="profile-pill-label">Deductible<span class="lbl-i" title="What you pay out of pocket per claim. A higher deductible lowers your premium.">i</span></div>
           <div class="pill-row">
             <button class="pill active" data-q="deductible" data-v="1000">$1,000</button>
             <button class="pill" data-q="deductible" data-v="2500">$2,500</button>
@@ -639,14 +645,14 @@
           </div>
         </div>
         <div class="profile-pill-q">
-          <div class="profile-pill-label">Bundle with auto?</div>
+          <div class="profile-pill-label">Bundle with auto?<span class="lbl-i" title="Buying home and auto from the same insurer typically cuts the home premium 10–20%.">i</span></div>
           <div class="pill-row">
             <button class="pill active" data-q="bundle" data-v="no">No</button>
             <button class="pill" data-q="bundle" data-v="yes">Yes</button>
           </div>
         </div>
         <div class="profile-pill-q">
-          <div class="profile-pill-label">High-value items?</div>
+          <div class="profile-pill-label">High-value items?<span class="lbl-i" title="Jewelry, watches, cameras, art, bikes. Standard policies cap these categories, so if yes we recommend scheduling them.">i</span></div>
           <div class="pill-row">
             <button class="pill active" data-q="valuables" data-v="no">No</button>
             <button class="pill" data-q="valuables" data-v="yes">Yes</button>
@@ -680,123 +686,6 @@
 
   </div>
 </div>
-
-<!-- ── Static coverage primer ── -->
-<section class="guide-section">
-  <div class="wrap-narrow">
-    <div class="guide-head">
-      <div class="section-num">§ Coverage primer</div>
-      <h2 class="section-title">Every homeowners coverage, <em>actually explained.</em></h2>
-    </div>
-
-    <div class="coverage-type" id="guide-dwelling">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Dwelling (Coverage A)</h3>
-        <span class="coverage-tag req">The number that matters most</span>
-      </div>
-      <div class="coverage-body">
-        <p>This pays to <strong>rebuild your home</strong> after a covered loss — structure, built-ins, and attached features. It should equal your <strong>rebuild cost</strong>, which is what a contractor would charge to reconstruct the house today. That's <em>not</em> the market price (which includes land) and not what you paid.</p>
-        <p>In hot markets rebuild cost is often well below market value; after a construction-cost spike it can be above it. <strong>Under-insuring here is the most common and most expensive mistake.</strong> Many policies also enforce an 80% rule — insure for less than 80% of rebuild cost and they pro-rate even partial claims.</p>
-        <div class="callout"><p><strong>Ask your insurer to run a replacement-cost estimate</strong> (most do it free) and revisit it after any renovation or a few years of inflation.</p></div>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-otherstructures">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Other Structures (Coverage B)</h3>
-        <span class="coverage-tag">Usually 10% of dwelling</span>
-      </div>
-      <div class="coverage-body">
-        <p>Covers structures <strong>not attached to the house</strong> — a detached garage, shed, fence, deck, or pool. It defaults to 10% of your Coverage A and most homeowners never touch it.</p>
-        <p>Bump it up only if you have something substantial detached: a large workshop, a guest house, or extensive fencing. Skip the increase if you don't.</p>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-personal">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Personal Property (Coverage C)</h3>
-        <span class="coverage-tag req">Buy replacement cost, not ACV</span>
-      </div>
-      <div class="coverage-body">
-        <p>Covers your <strong>belongings</strong> — furniture, electronics, clothing, appliances. It defaults to 50% of Coverage A, which is plenty for most homes; do a quick room-by-room total to sanity-check it.</p>
-        <div class="callout"><p><strong>Actual Cash Value</strong> pays depreciated value (a 5-year-old TV gets you $80). <strong>Replacement Cost</strong> pays to buy new. The upgrade adds only a few percent and is almost always worth it — don't skip it to save a little.</p></div>
-        <p>Certain categories — jewelry, watches, cameras, firearms, fine art — are capped (often $1,000–$2,500). Schedule them separately if you own anything valuable.</p>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-lossofuse">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Loss of Use (Coverage D)</h3>
-        <span class="coverage-tag">Included — confirm the limit</span>
-      </div>
-      <div class="coverage-body">
-        <p>If a covered loss makes your home unlivable, this pays for <strong>hotels, meals, and other extra living costs</strong> while you're displaced — typically up to 20–30% of Coverage A. After a fire, this is what keeps a months-long rebuild from draining your savings.</p>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-liability">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Personal Liability (Coverage E)</h3>
-        <span class="coverage-tag req">Carry at least your net worth</span>
-      </div>
-      <div class="coverage-body">
-        <p>Covers <strong>you</strong> when someone is injured on your property or you damage someone else's — a guest's fall, a dog bite, a tree that hits a neighbor's car. It pays their costs and your legal defense.</p>
-        <p>The standard limit is $100k, but $300k–$500k costs only a little more. Rule of thumb: carry <strong>at least as much as your net worth</strong>. With real assets, add a $1–2M umbrella (~$150–300/yr) on top — the cheapest liability per dollar you can buy.</p>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-medpay">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Medical Payments (Coverage F)</h3>
-        <span class="coverage-tag">Small limit, smooths small claims</span>
-      </div>
-      <div class="coverage-body">
-        <p>Pays <strong>minor medical bills for guests hurt on your property</strong>, regardless of fault, without anyone filing a liability claim. Limits are small ($1k–$5k) and the cost is trivial — $5k is the sensible default.</p>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-waterbackup">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Water Backup Endorsement</h3>
-        <span class="coverage-tag">Cheap, commonly needed</span>
-      </div>
-      <div class="coverage-body">
-        <p>A standard policy <strong>does not cover</strong> water that backs up through sewers or drains, or a failed sump pump — a common and messy basement claim. This endorsement adds it back, usually for $50–$100/yr.</p>
-        <div class="callout"><p>If you have a finished basement or a sump pump, this is almost always worth adding.</p></div>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-scheduled">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Scheduled Personal Property</h3>
-        <span class="coverage-tag">Only if you own valuables</span>
-      </div>
-      <div class="coverage-body">
-        <p>Insures a <strong>specific high-value item</strong> — an engagement ring, a camera kit, a watch, fine art — for its appraised value, usually with no deductible and broader coverage than the capped base limit. Add it only if you own something worth scheduling; skip it otherwise.</p>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-flood">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Flood &amp; Earthquake — NOT included</h3>
-        <span class="coverage-tag lender">Separate policy required</span>
-      </div>
-      <div class="coverage-body">
-        <p><strong>Homeowners insurance does not cover flood or earthquake.</strong> Flood is a separate policy through the NFIP or a private insurer; earthquake is a separate endorsement or policy. If you're in a flood-prone or seismic area, the base policy alone will leave you exposed on the very loss most likely to total your home.</p>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-  </div>
-</section>
 
 <section class="cta-section">
   <div class="wrap-narrow">
@@ -832,7 +721,10 @@
   <div class="sticky-total-label">Est. annual premium</div>
   <div class="sticky-total-amount" id="stickyAmount">—</div>
   <div class="sticky-total-delta" id="stickyDelta"></div>
-  <a href="/home/" class="sticky-compare-link" id="stickyCompareLink">Compare rates →</a>
+  <div class="sticky-zip-row">
+    <input type="text" id="stickyZip" class="sticky-zip-input" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />
+    <a href="/home/" class="sticky-compare-link" id="stickyCompareLink">Compare →</a>
+  </div>
 </div>
 
 <script>
@@ -965,14 +857,18 @@ const DWELL_STEPS  = [150000,200000,250000,300000,400000,500000,750000,1000000,1
 const ASSET_STEPS  = [25000,50000,100000,200000,300000,500000,750000,1000000];
 const LIAB_OPTS    = [100000,300000,500000];
 const MEDPAY_OPTS  = [1000,5000];
+const OS_OPTS      = [0.10,0.20];   // Other Structures, % of dwelling
+const LOU_OPTS     = [0.20,0.30];   // Loss of Use, % of dwelling
 const DED_FACTOR   = {1000:1.0, 2500:0.90, 5000:0.82};
+const OS_MULT      = [1.0,1.03];    // premium effect of raising Other Structures
+const LOU_MULT     = [0.98,1.0];    // premium effect of Loss of Use (30% is standard)
 
 const profile = {
   dwelling: 300000, assets: 200000, deductible: 1000,
   bundle: false, valuables: false,
   code: null, stateName: null, stateAvg: NATIONAL_AVG
 };
-const sels = { liability: 0, medpay: 1, contentsRcv: true, waterBackup: true, scheduled: false };
+const sels = { liability: 0, medpay: 1, contentsRcv: true, waterBackup: true, scheduled: false, osPct: 0, louPct: 1 };
 
 function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
 function stateFromZip(z){
@@ -993,25 +889,30 @@ function applyRecs(){
   sels.contentsRcv = r.contentsRcv; sels.waterBackup = r.waterBackup; sels.scheduled = r.scheduled;
 }
 
-function components(){
+function components(s){
+  s = s || sels;
   const sm = profile.stateAvg / NATIONAL_AVG;
   const dwellFactor = profile.dwelling / 300000;
   const ded = DED_FACTOR[profile.deductible] || 1.0;
-  const contentsMult = sels.contentsRcv ? 1.0 : 0.93;
+  const contentsMult = s.contentsRcv ? 1.0 : 0.93;
   const bundleMult = profile.bundle ? 0.88 : 1.0;
   // base policy = dwelling + other structures + personal property + loss of use
-  let base = profile.stateAvg * dwellFactor * ded * contentsMult * bundleMult;
+  let base = profile.stateAvg * dwellFactor * ded * contentsMult * bundleMult
+             * OS_MULT[s.osPct] * LOU_MULT[s.louPct];
   base = Math.max(400, base);
-  const liabAdd = [0, 12, 28][sels.liability] * sm;
-  const medpayAdd = [0, 8][sels.medpay] * sm;
-  const waterAdd = sels.waterBackup ? 60 : 0;
-  const schedAdd = sels.scheduled ? 50 : 0;
+  const liabAdd = [0, 12, 28][s.liability] * sm;
+  const medpayAdd = [0, 8][s.medpay] * sm;
+  const waterAdd = s.waterBackup ? 60 : 0;
+  const schedAdd = s.scheduled ? 50 : 0;
   return {
     base: base, liab: liabAdd, medpay: medpayAdd, water: waterAdd, sched: schedAdd,
     total: Math.round(base + liabAdd + medpayAdd + waterAdd + schedAdd)
   };
 }
 function totalEstimate(){ return components().total; }
+// Exact marginal price of a setting: difference vs a flipped/baseline version.
+function totalWith(ov){ return components(Object.assign({}, sels, ov)).total; }
+function deltaVs(ov){ return totalEstimate() - totalWith(ov); }
 
 const CARDS = ['dwelling','otherStructures','personalProperty','lossOfUse','liability','medpay','waterBackup','scheduled'];
 const META = {
@@ -1025,13 +926,13 @@ const META = {
   scheduled:        { name:'Scheduled Items', tag:'Jewelry, cameras, art', guide:'guide-scheduled' }
 };
 
-function deltaBadge(kind, text){
+function priceChip(text, kind){
   return '<div class="delta-display"><span class="delta-badge ' + kind + '">' + text + '</span></div>';
 }
 function pillBtns(cov, opts, labels, selIdx, recIdx){
   return '<div class="pill-row" style="margin-top:12px;">' + opts.map(function(o,i){
     const cls = 'pill' + (i===selIdx ? ' active' : '');
-    const rec = i===recIdx ? ' <span style="font-size:10px;opacity:.7;">★</span>' : '';
+    const rec = (recIdx!=null && i===recIdx) ? ' <span style="font-size:10px;opacity:.7;">\u2605</span>' : '';
     return '<button class="' + cls + '" data-cov="' + cov + '" data-i="' + i + '">' + labels[i] + rec + '</button>';
   }).join('') + '</div>';
 }
@@ -1040,78 +941,86 @@ function toggleRow(cov, on, label){
     + '<span class="cov-toggle-track' + (on?' on':'') + '"><span class="cov-toggle-thumb"></span></span>'
     + '<span class="cov-toggle-label">' + label + '</span></label></div>';
 }
-function costLine(n){
-  if(n <= 0) return '<div class="cov-cost">Included in your base policy</div>';
-  return '<div class="cov-cost">≈ ' + fmt(n) + '/yr of your premium</div>';
-}
+function amtNote(text){ return '<div class="cov-cost">' + text + '</div>'; }
+
+const DESC = {
+  dwelling: "Pays to rebuild your home after a covered loss. Set it to your <strong>rebuild cost</strong> \u2014 what a contractor would charge to reconstruct it today \u2014 not its market value (which includes land). Insure for at least 80% of rebuild cost or insurers may pro-rate even partial claims. Adjust it with the dwelling slider at the top.",
+  otherStructures: "Covers detached structures \u2014 a garage, shed, fence, or deck. Standard is 10% of your dwelling; bump it to 20% if you have a large detached garage, workshop, or guest house.",
+  personalProperty: "Covers your belongings, defaulted to 50% of dwelling and following you off-premises. <strong>Replacement cost</strong> pays to buy items new; actual cash value pays the depreciated amount \u2014 the upgrade is usually small and worth it.",
+  lossOfUse: "Pays for hotels and extra living costs if a covered loss makes your home unlivable during the rebuild. Standard is about 30% of your dwelling.",
+  liability: "Covers injuries to others and damage you cause, plus your legal defense. Carry at least as much as your net worth \u2014 $300k+ costs only a little more, and an umbrella policy stacks cheaply for big assets.",
+  medpay: "Pays minor medical bills for a guest hurt in your home, regardless of fault, without a liability claim \u2014 usually $1,000\u2013$5,000.",
+  waterBackup: "A standard policy <strong>excludes</strong> sewer/drain backup and sump-pump failure \u2014 a common, messy basement claim. This endorsement adds it back, usually for $50\u2013100/yr. Worth it with a finished basement or sump pump.",
+  scheduled: "Standard policies cap categories like jewelry, watches, cameras, and art (often $1,000\u2013$2,500). A scheduled endorsement insures a specific item for its appraised value, usually with no deductible."
+};
 
 function renderCards(){
   const c = components();
   const recs = computeRecs();
   const A = profile.dwelling;
-  const covB = Math.round(A * 0.10);
+  const covB = Math.round(A * OS_OPTS[sels.osPct]);
   const covC = Math.round(A * 0.50);
-  const covD = Math.round(A * 0.30);
+  const covD = Math.round(A * LOU_OPTS[sels.louPct]);
   let html = '';
 
-  html += card('dwelling',
-    deltaBadge('zero','Set to ' + fmt(A)),
-    '<div class="cov-card-desc">Set this to your <strong>rebuild cost</strong> — what a contractor would charge to reconstruct your home today, <em>not</em> its market price. Based on your slider we\'re using <strong>' + fmt(A) + '</strong>. Adjust the dwelling slider above to change it.</div>'
-    + costLine(c.base));
+  // Dwelling \u2014 driven by the slider above
+  html += card('dwelling', priceChip('~' + fmt(c.base) + '/yr', 'zero'),
+    amtNote('Coverage amount: <strong>' + fmt(A) + '</strong> (set by the slider above) \u2014 the bulk of your premium.'));
 
+  // Other Structures \u2014 adjustable % of dwelling
+  var osDelta = deltaVs({osPct:0});
   html += card('otherStructures',
-    deltaBadge('zero','Auto: ' + fmt(covB)),
-    '<div class="cov-card-desc">Defaults to 10% of dwelling — about <strong>' + fmt(covB) + '</strong>. Enough for most homes; raise it only for a large detached garage, workshop, or guest house.</div>'
-    + costLine(0));
+    priceChip(sels.osPct===0 ? 'Included' : '+' + fmt(osDelta) + '/yr', sels.osPct===0 ? 'zero' : 'plus'),
+    amtNote('Coverage amount: <strong>' + fmt(covB) + '</strong> (' + Math.round(OS_OPTS[sels.osPct]*100) + '% of dwelling).')
+    + pillBtns('osPct', OS_OPTS, ['10% (standard)','20% (more)'], sels.osPct, 0));
 
+  // Personal Property \u2014 replacement cost toggle
+  var rcvDelta = sels.contentsRcv ? deltaVs({contentsRcv:false}) : (totalWith({contentsRcv:true}) - totalEstimate());
   html += card('personalProperty',
-    deltaBadge(sels.contentsRcv ? 'minus' : 'plus', sels.contentsRcv ? 'Replacement cost' : 'ACV (pays less)'),
-    '<div class="cov-card-desc">Defaults to 50% of dwelling — about <strong>' + fmt(covC) + '</strong>. Choose <strong>replacement cost</strong> so you\'re paid to buy new, not depreciated value.</div>'
-    + toggleRow('contentsRcv', sels.contentsRcv, sels.contentsRcv ? 'Replacement cost — ON' : 'Actual cash value (cheaper, pays less)'));
+    priceChip(sels.contentsRcv ? '+' + fmt(rcvDelta) + '/yr' : 'ACV \u2014 pays less', sels.contentsRcv ? 'plus' : 'zero'),
+    amtNote('Coverage amount: <strong>' + fmt(covC) + '</strong> (50% of dwelling).')
+    + toggleRow('contentsRcv', sels.contentsRcv, sels.contentsRcv ? 'Replacement cost \u2014 ON (recommended)' : 'Actual cash value (cheaper, pays depreciated value)'));
 
+  // Loss of Use \u2014 adjustable
+  var louDelta = deltaVs({louPct:1});
   html += card('lossOfUse',
-    deltaBadge('zero','Auto: ' + fmt(covD)),
-    '<div class="cov-card-desc">Bundled at roughly 30% of dwelling — about <strong>' + fmt(covD) + '</strong>. Covers hotels and extra living costs during a rebuild; usually nothing extra to buy.</div>'
-    + costLine(0));
+    priceChip(sels.louPct===1 ? 'Included' : (louDelta<0 ? '\u2212' + fmt(Math.abs(louDelta)) + '/yr' : 'Included'), 'minus'),
+    amtNote('Coverage amount: <strong>' + fmt(covD) + '</strong> (' + Math.round(LOU_OPTS[sels.louPct]*100) + '% of dwelling).')
+    + pillBtns('louPct', LOU_OPTS, ['20% (less)','30% (standard)'], sels.louPct, 1));
 
+  // Liability
   html += card('liability',
-    deltaBadge(sels.liability >= recs.liability ? 'minus' : 'plus',
-      sels.liability >= recs.liability ? 'Covered' : 'Below rec'),
-    '<div class="cov-card-desc">For your assets (' + fmt(profile.assets) + '), carry at least <strong>' + fmt(LIAB_OPTS[recs.liability]) + '</strong>. Higher limits cost only a little more.</div>'
-    + pillBtns('liability', LIAB_OPTS, LIAB_OPTS.map(function(v){return fmt(v);}), sels.liability, recs.liability)
-    + costLine(c.liab));
+    priceChip(c.liab > 0 ? '+' + fmt(c.liab) + '/yr' : 'Included', c.liab > 0 ? 'plus' : 'zero'),
+    amtNote('For your assets (' + fmt(profile.assets) + '), carry at least <strong>' + fmt(LIAB_OPTS[recs.liability]) + '</strong>.')
+    + pillBtns('liability', LIAB_OPTS, LIAB_OPTS.map(function(v){return fmt(v);}), sels.liability, recs.liability));
 
+  // Medical Payments
   html += card('medpay',
-    deltaBadge(sels.medpay >= recs.medpay ? 'minus' : 'plus',
-      sels.medpay >= recs.medpay ? 'Covered' : 'Low'),
-    '<div class="cov-card-desc">Pays guests\' minor medical bills without a liability claim. <strong>' + fmt(MEDPAY_OPTS[recs.medpay]) + '</strong> is the sensible default — only a few dollars.</div>'
-    + pillBtns('medpay', MEDPAY_OPTS, MEDPAY_OPTS.map(function(v){return fmt(v);}), sels.medpay, recs.medpay)
-    + costLine(c.medpay));
+    priceChip(c.medpay > 0 ? '+' + fmt(c.medpay) + '/yr' : 'Included', c.medpay > 0 ? 'plus' : 'zero'),
+    pillBtns('medpay', MEDPAY_OPTS, MEDPAY_OPTS.map(function(v){return fmt(v);}), sels.medpay, recs.medpay));
 
+  // Water Backup
   html += card('waterBackup',
-    deltaBadge(sels.waterBackup ? 'minus' : (recs.waterBackup ? 'plus' : 'zero'), sels.waterBackup ? 'Added' : 'Recommended'),
-    '<div class="cov-card-desc">A standard policy <strong>excludes</strong> sewer/drain backup and sump-pump failure — a common basement claim. Add it for ~$50–100/yr.</div>'
-    + toggleRow('waterBackup', sels.waterBackup, sels.waterBackup ? 'Water backup — ON' : 'Add water backup')
-    + costLine(c.water));
+    priceChip(sels.waterBackup ? '+' + fmt(c.water) + '/yr' : 'Not added', sels.waterBackup ? 'plus' : 'zero'),
+    toggleRow('waterBackup', sels.waterBackup, sels.waterBackup ? 'Water backup \u2014 ON (recommended)' : 'Add water backup'));
 
+  // Scheduled Items
   html += card('scheduled',
-    deltaBadge(sels.scheduled ? 'minus' : 'zero', sels.scheduled ? 'Added' : (recs.scheduled ? 'Recommended' : 'Skip')),
-    '<div class="cov-card-desc">Standard policies cap jewelry, cameras, and art. Schedule a specific item for its appraised value. ' + (recs.scheduled ? 'You said you have high-value items — schedule them.' : 'Skip this if you don\'t own anything valuable.') + '</div>'
-    + toggleRow('scheduled', sels.scheduled, sels.scheduled ? 'Scheduled items — ON' : 'Add scheduled items')
-    + costLine(c.sched));
+    priceChip(sels.scheduled ? '+' + fmt(c.sched) + '/yr' : 'Not added', sels.scheduled ? 'plus' : 'zero'),
+    toggleRow('scheduled', sels.scheduled, sels.scheduled ? 'Scheduled items \u2014 ON' : (recs.scheduled ? 'Add scheduled items (recommended)' : 'Add scheduled items')));
 
   document.getElementById('covCards').innerHTML = html;
 }
 
-function card(key, badge, body){
-  const m = META[key];
+function card(key, chip, controlHtml){
+  const m = META[key], d = DESC[key];
   return '<div class="cov-card">'
-    + '<div class="cov-card-top"><div>'
-    + '<div class="cov-card-name">' + m.name + '</div></div>'
-    + badge + '</div>'
+    + '<div class="cov-card-top"><div><div class="cov-card-name">' + m.name + '</div></div>'
+    + chip + '</div>'
     + '<div class="cov-card-tagline">' + m.tag + '</div>'
-    + body
-    + '<a href="#' + m.guide + '" class="cov-full-guide">Read more →</a>'
+    + controlHtml
+    + '<div class="cov-expand"><button class="cov-expand-btn" data-exp="' + key + '">What is this? <span>\u25be</span></button>'
+    + '<div class="cov-desc-body" id="exp-' + key + '" style="display:none;"><p>' + d + '</p></div></div>'
     + '</div>';
 }
 
@@ -1154,6 +1063,10 @@ function refreshCtaLink(){
 
 function setZip(z){
   z = (z||'').replace(/\D/g,'').slice(0,5);
+  // keep all ZIP inputs in sync (auto-fill the bottom + sticky CTAs)
+  ['zipInput','bottomZipInput','stickyZip'].forEach(function(id){
+    const el = document.getElementById(id); if(el && el.value !== z) el.value = z;
+  });
   const badge = document.getElementById('zipStateBadge');
   const code = z.length >= 3 ? stateFromZip(z) : null;
   if(code && HOME_STATE_DATA[code]){
@@ -1192,11 +1105,12 @@ function initEvents(){
     this.value = this.value.replace(/\D/g,'').slice(0,5);
     setZip(this.value);
   });
-  const bz = document.getElementById('bottomZipInput');
-  if(bz) bz.addEventListener('input', function(){
-    this.value = this.value.replace(/\D/g,'').slice(0,5);
-    document.getElementById('zipInput').value = this.value;
-    setZip(this.value);
+  ['bottomZipInput','stickyZip'].forEach(function(id){
+    const el = document.getElementById(id);
+    if(el) el.addEventListener('input', function(){
+      this.value = this.value.replace(/\D/g,'').slice(0,5);
+      setZip(this.value);
+    });
   });
 
   document.querySelectorAll('.profile-pills-row .pill').forEach(function(btn){
@@ -1212,6 +1126,13 @@ function initEvents(){
   });
 
   document.getElementById('covCards').addEventListener('click', function(e){
+    const exp = e.target.closest('[data-exp]');
+    if(exp){
+      const body = document.getElementById('exp-' + exp.dataset.exp);
+      if(body){ const open = body.style.display !== 'none'; body.style.display = open ? 'none' : 'block';
+        const a = exp.querySelector('span'); if(a) a.textContent = open ? '▾' : '▴'; }
+      return;
+    }
     const pill = e.target.closest('.pill[data-cov]');
     if(pill){ sels[pill.dataset.cov] = +pill.dataset.i; renderAll(); return; }
     const tgl = e.target.closest('[data-tgl]');
