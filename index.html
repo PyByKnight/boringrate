@@ -288,7 +288,7 @@
     border: 1px solid var(--rule);
     padding: 14px 18px;
     margin: 0 0 10px;
-   box-shadow: 0 0 0 0 rgba(22,21,18,0); transition: box-shadow 280ms ease, border-color 280ms ease;}.refine.open{border-color:var(--ink);box-shadow:0 0 0 2px var(--ink);}
+   box-shadow: 0 0 0 0 rgba(22,21,18,0); transition: box-shadow 280ms ease, border-color 280ms ease;}.refine.open{border-color:var(--ink);}
   .refine-always {
     display: flex;
     align-items: flex-end;
@@ -5596,10 +5596,6 @@ document.getElementById("zipInput").addEventListener("input", e => {
       if (_ic) _ic.textContent = nowOpen ? '\u2212' : '+';
       var ra = rb.querySelector('.refine-always');
       if (ra) ra.style.display = nowOpen ? 'flex' : 'none';
-      if (nowOpen && ra && ra.scrollIntoView) {
-        // Ensure the chips are visible in the viewport after expand
-        setTimeout(function() { ra.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 80);
-      }
     });
   }
   // Banner CTA scrolls + focuses the ZIP input.

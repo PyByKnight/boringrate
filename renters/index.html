@@ -1686,9 +1686,6 @@ document.getElementById("zipInput").addEventListener("input", e => {
     if (_ic) _ic.textContent = nowOpen ? '\u2212' : '+';
     var ri = rb.querySelector('.refine-inner');
     if (ri) ri.style.display = nowOpen ? 'flex' : 'none';
-    if (nowOpen && ri && ri.scrollIntoView) {
-      setTimeout(function() { ri.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 80);
-    }
   });
 })();
 
