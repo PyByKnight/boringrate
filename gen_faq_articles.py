@@ -65,6 +65,81 @@ ARTICLES = {
   ("Do I have to list everyone in my household?","Yes. Insurers expect all regular drivers in your household to be listed. Leaving off a regular driver to lower your rate can get a claim denied."),
  ],
  cross=("/coverage.html","Coverage Calculator")),
+
+"how-long-does-an-accident-stay-on-your-insurance": dict(
+ title="How Long Does an Accident, Ticket, or DUI Stay on Your Insurance? (2026)",
+ h1="How long do accidents, tickets, and DUIs follow your insurance?",
+ dek="Most surcharges fade after 3 years — but a DUI can haunt your rate for up to 10. Here's the timeline for each, and the move that saves you money: re-shopping the moment it drops off.",
+ kicker="Rates &amp; Records",
+ lead="<p>Insurers price your premium on a <strong>look-back period</strong> — a window of recent driving history. Once an incident ages past that window, its surcharge disappears and your rate should fall. The catch: <strong>your carrier won't always drop it automatically or competitively</strong>, which is exactly why the smart move is to re-compare carriers the moment something falls off your record.</p>",
+ sections=[
+  ("The timeline, by incident","<p>How long each typically affects your insurance rate (the surcharge window, which differs from how long it stays on your DMV record):</p>"
+   "<table style=\"width:100%;border-collapse:collapse;font-size:16px;margin:16px 0;max-width:660px;\">"
+   "<thead><tr style=\"text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;\"><th style=\"padding:8px 6px;\">Incident</th><th style=\"padding:8px 6px;\">Typical rate impact</th></tr></thead>"
+   "<tbody>"
+   "<tr style=\"border-bottom:1px solid var(--rule);\"><td style=\"padding:8px 6px;\">At-fault accident</td><td style=\"padding:8px 6px;\">3–5 years</td></tr>"
+   "<tr style=\"border-bottom:1px solid var(--rule);\"><td style=\"padding:8px 6px;\">Speeding / minor ticket</td><td style=\"padding:8px 6px;\">~3 years</td></tr>"
+   "<tr style=\"border-bottom:1px solid var(--rule);\"><td style=\"padding:8px 6px;\">DUI / major violation</td><td style=\"padding:8px 6px;\">3–10 years (varies widely by state)</td></tr>"
+   "<tr style=\"border-bottom:1px solid var(--rule);\"><td style=\"padding:8px 6px;\">Comprehensive claim (theft, weather)</td><td style=\"padding:8px 6px;\">Usually little to none</td></tr>"
+   "<tr style=\"border-bottom:1px solid var(--rule);\"><td style=\"padding:8px 6px;\">Coverage lapse</td><td style=\"padding:8px 6px;\">~6 months–1 year, but can be steep</td></tr>"
+   "</tbody></table>"
+   "<p>Exact windows vary by carrier and state — California, for example, surcharges accidents for ~3 years, while a DUI can affect rates for 10. The point is that none of it is permanent.</p>"),
+  ("Why your rate doesn't always drop on its own","<p>When an incident ages out, your premium <em>should</em> fall — but carriers don't compete for their existing customers. The surcharge may come off while other quiet renewal increases stay. The only way to capture the drop is to <strong>get fresh quotes</strong> right after the anniversary when the incident falls outside the look-back window.</p>"),
+  ("Cheaper options while it's still on your record","<p>Even during the surcharge period, carriers weigh incidents very differently — the cheapest carrier after an accident or DUI can be hundreds less than the priciest. See our rankings for <a class=\"ca-link\" href=\"/article/cheapest-car-insurance-after-accident.html\">cheapest after an accident</a> and <a class=\"ca-link\" href=\"/article/cheapest-car-insurance-after-dui.html\">cheapest after a DUI / SR-22</a>, or enter your ZIP below to compare for your exact situation.</p>"),
+ ],
+ callout="<strong>The money move:</strong> set a reminder for the 3-year mark after any incident. The day it ages out of the look-back window, re-compare carriers — that's when switching often unlocks a real drop your current insurer won't volunteer.",
+ faq=[
+  ("How long does an at-fault accident raise your insurance?","Typically 3–5 years, depending on your carrier and state. After that the surcharge should come off — re-shop to make sure you're getting the lower rate."),
+  ("How long does a DUI affect car insurance?","Commonly 3–10 years depending on the state — far longer than most violations, and it usually moves you to the non-standard market with an SR-22 requirement for ~3 years."),
+  ("How long do speeding tickets affect insurance?","Most minor violations affect your rate for about 3 years, then drop off the look-back window insurers use for pricing."),
+  ("Will my rate automatically go down when it falls off?","Not always competitively. Carriers rarely lower a loyal customer's rate on their own — comparing quotes when the incident ages out is how you actually capture the savings."),
+ ],
+ cross=("/article/cheapest-car-insurance-after-accident.html","Cheapest Car Insurance After an Accident")),
+
+"does-car-insurance-cover": dict(
+ title="What Does Car Insurance Actually Cover? (Rentals, Deer, Theft &amp; More)",
+ h1="Does car insurance cover that? The common scenarios.",
+ dek="Rental cars, hitting a deer, theft, a friend borrowing your car, weather damage — what's covered depends on which coverages you carry. Here's the plain-English breakdown.",
+ kicker="Coverage Basics",
+ lead="<p>Whether something is covered comes down to which of three coverages you carry: <strong>liability</strong> (damage you cause to others), <strong>collision</strong> (your car in a crash), and <strong>comprehensive</strong> (your car from non-crash events — theft, weather, animals). 'Full coverage' just means you carry all three. Here's how that plays out in the situations people actually search for.</p>",
+ sections=[
+  ("Hitting a deer or animal","<p>Covered by <strong>comprehensive</strong>, not collision — animal strikes are treated as an unavoidable event. You'll pay your comprehensive deductible. If you only carry liability, it's not covered.</p>"),
+  ("A rental car","<p>Your <strong>liability</strong> typically extends to a rental, and if you carry collision and comprehensive, those usually do too — so you can often decline the rental counter's pricey coverage. Confirm your limits first, and note this applies to personal rentals, not business use.</p>"),
+  ("Someone else driving your car","<p>Generally covered — car insurance follows the car, so a licensed friend driving with your permission is covered by <em>your</em> policy. See <a class=\"ca-link\" href=\"/article/does-car-insurance-follow-the-car-or-driver.html\">does insurance follow the car or the driver</a> for the exceptions (excluded and unlisted drivers).</p>"),
+  ("Theft and vandalism","<p>Covered by <strong>comprehensive</strong> — theft of the vehicle, broken windows, and vandalism. Personal belongings stolen <em>from</em> the car are not covered by auto insurance; that's a renters or homeowners claim.</p>"),
+  ("Weather, floods, and falling trees","<p><strong>Comprehensive</strong> covers hail, flood, fire, falling trees, and storm damage to your car — yes, including flood (unlike a home policy, where flood is separate). Without comprehensive, weather damage is on you.</p>"),
+  ("Your own injuries","<p>Covered by <strong>medical payments (MedPay)</strong> or <strong>personal injury protection (PIP)</strong> in no-fault states — not by liability, which only pays for the <em>other</em> party. If the other driver is at fault and uninsured, <strong>uninsured-motorist</strong> coverage steps in.</p>"),
+  ("What car insurance never covers","<p>Mechanical breakdown and normal wear, intentional damage, using your personal car for delivery/rideshare without an endorsement, and personal items inside the car. Those need other products (warranty, rideshare endorsement, renters/home insurance).</p>"),
+ ],
+ callout="<strong>The takeaway:</strong> most 'is this covered?' answers come down to whether you carry comprehensive and collision on top of liability. Use the coverage calculator to see exactly what to carry — and skip — for your situation.",
+ faq=[
+  ("Does car insurance cover hitting a deer?","Yes, under comprehensive coverage (minus your deductible). It's not covered if you only carry liability."),
+  ("Does my car insurance cover a rental car?","Usually — your liability extends to rentals, and collision/comprehensive carry over if you have them. Check your limits before paying for the rental company's coverage."),
+  ("Does car insurance cover theft?","Comprehensive covers theft of the vehicle and vandalism. Items stolen from inside the car fall under renters or homeowners insurance, not auto."),
+  ("Does car insurance cover flood or weather damage?","Yes — comprehensive covers flood, hail, fire, and storm damage to your vehicle. (Home insurance, by contrast, excludes flood.)"),
+ ],
+ cross=("/coverage.html","Coverage Calculator")),
+
+"driving-without-car-insurance": dict(
+ title="What Happens If You Drive Without Car Insurance? (2026)",
+ h1="What happens if you drive without car insurance?",
+ dek="It's illegal in 48 states, and the penalties stack fast: fines, a suspended license and registration, an SR-22 requirement, and full personal liability for any crash. Here's the real cost — and the cheap fix.",
+ kicker="Requirements",
+ lead="<p>Every state except New Hampshire (and, loosely, Virginia) requires car insurance or proof of financial responsibility. Driving without it isn't a gray area — it triggers escalating penalties, and a single at-fault accident while uninsured can be financially ruinous. The good news: getting at least minimum coverage is fast and cheap relative to the risk.</p>",
+ sections=[
+  ("The immediate penalties","<p>Get caught driving uninsured and you can face <strong>fines</strong> (from ~$150 to over $1,500 for repeat offenses), <strong>license and registration suspension</strong>, reinstatement fees, and in many states an <strong>SR-22 filing</strong> requirement for ~3 years afterward. Some states impound the vehicle. Penalties escalate sharply on a second offense.</p>"),
+  ("The real risk: an at-fault accident","<p>The penalties are minor next to this: if you cause a crash while uninsured, <strong>you pay for everything out of pocket</strong> — the other party's car, medical bills, and any lawsuit. That can mean wage garnishment and liens for years. Liability coverage exists precisely to cap that exposure.</p>"),
+  ("The hidden cost: higher rates later","<p>A coverage lapse follows you. When you do buy insurance, carriers surcharge a recent gap — sometimes for a year or more — so going uninsured to 'save' money usually costs more once you're insured again. See <a class=\"ca-link\" href=\"/article/cost-of-not-shopping-car-insurance.html\">the hidden cost of not shopping</a> for how lapses and loyalty quietly inflate premiums.</p>"),
+  ("The fix is cheaper than the fine","<p>Minimum-liability coverage is the cheapest policy you can buy, and it's almost always less than a single uninsured-driving fine — let alone an at-fault accident. Enter your ZIP below to see the lowest-priced carriers in your area, including the non-standard insurers that specialize in drivers reinstating after a lapse.</p>"),
+ ],
+ callout="<strong>Bottom line:</strong> the fine is the small risk; an uninsured at-fault accident is the one that wrecks finances. Even state-minimum liability caps that exposure for a few dollars a month — compare carriers and get covered before you drive.",
+ faq=[
+  ("Is it illegal to drive without car insurance?","Yes, in 48 states. New Hampshire and Virginia are partial exceptions, but you're still personally liable for any damage you cause, so coverage is strongly advised everywhere."),
+  ("What happens if you get caught driving without insurance?","Expect fines, possible license and registration suspension, reinstatement fees, and often an SR-22 requirement for about 3 years. Penalties increase for repeat offenses."),
+  ("Will driving uninsured raise my rates?","Yes. A coverage lapse is a surcharge factor when you buy insurance again, often for a year or more — so a gap usually costs more than it 'saves.'"),
+  ("What's the cheapest way to get legal again?","Minimum-liability coverage is the lowest-cost policy. Compare carriers (including non-standard insurers for post-lapse drivers) to find the cheapest — it's almost always less than the fine."),
+ ],
+ cross=("/article/sr22-insurance.html","SR-22 Insurance Explained")),
 }
 
 def build(slug, c):
