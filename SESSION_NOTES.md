@@ -1,6 +1,21 @@
 # BoringRate — Session Notes
 _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
 
+## This session (2026-06-16b, Opus 4.8) — shipped
+
+- **Auto: discounts guide** (`/article/car-insurance-discounts.html`) — last clean
+  auto FAQ gap. Auto is now considered complete for the funnel (methodology page
+  already solid at 2.3k words; remaining ideas — bundling, per-state minimums,
+  minor-ticket factor — are defer/low-value).
+- **RENTERS guides STARTED** (renters had tools, zero content). `gen_renters_faq.py`
+  built the first 3: is-renters-insurance-worth-it, what-does-renters-insurance-
+  cover, does-renters-insurance-cover (scenario long-tail). Renters two-tile CTA
+  (-> /renters/ + /renters/coverage.html), FAQPage JSON-LD. Wired via new "Renters
+  guides" nav subsection (single-source) + sitemap + renters-tool link.
+  NEXT for renters: is-renters-insurance-required, how-much-do-i-need (complement
+  the calc), cost/by-state angle; then HOME guides (also zero content); then a
+  cross-product bundling guide. All 518 pages 0 JS errors.
+
 ## This session (2026-06-16, Opus 4.8) — shipped
 
 - **FAQ / high-intent content cluster (6 auto articles).** Tool-driving FAQ pages,
