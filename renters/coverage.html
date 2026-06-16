@@ -123,6 +123,8 @@
   .slider-q { margin-bottom: 26px; }
   .slider-q-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; gap: 12px; }
   .slider-q-label { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+  .lbl-i { display:inline-block; margin-left:6px; width:15px; height:15px; line-height:14px; text-align:center; font-size:10px; font-weight:600; font-family:var(--sans); color:var(--ink-mute); border:1px solid var(--ink-mute); border-radius:50%; cursor:help; vertical-align:middle; }
+  .lbl-i:hover { color:var(--accent); border-color:var(--accent); }
   .slider-q-value { font-family: var(--mono); font-size: 15px; font-weight: 500; color: var(--ink); letter-spacing: 0.02em; white-space: nowrap; }
   input[type=range] {
     -webkit-appearance: none;
@@ -330,6 +332,10 @@
     transition: opacity 120ms;
   }
   .sticky-compare-link:hover { opacity: 0.85; }
+  .sticky-zip-row { display:flex; gap:0; margin-top:12px; align-items:stretch; }
+  .sticky-zip-input { width:62px; flex-shrink:0; font-family:var(--mono); font-size:14px; letter-spacing:0.06em; text-align:center; padding:8px 4px; border:1.5px solid rgba(246,241,232,0.3); border-right:none; background:rgba(246,241,232,0.08); color:var(--paper); outline:none; }
+  .sticky-zip-input::placeholder { color:rgba(246,241,232,0.4); }
+  .sticky-zip-row .sticky-compare-link { display:inline-flex; align-items:center; justify-content:center; margin-top:0; flex:1; }
 
   /* ── CTA card at end of coverage cards ── */
   .cov-cta-card {
@@ -602,7 +608,7 @@
 
       <div class="slider-q">
         <div class="slider-q-header">
-          <div class="slider-q-label">Value of your stuff</div>
+          <div class="slider-q-label">Value of your stuff<span class="lbl-i" title="Add up what it would cost to re-buy everything you own new. This sets your personal property (Coverage C) amount.">i</span></div>
           <div class="slider-q-value" id="propDisplay">$30,000</div>
         </div>
         <input type="range" id="propSlider" min="0" max="10" step="1" value="3" />
@@ -611,7 +617,7 @@
 
       <div class="slider-q">
         <div class="slider-q-header">
-          <div class="slider-q-label">Assets to protect (net worth)</div>
+          <div class="slider-q-label">Assets to protect (net worth)<span class="lbl-i" title="Your net worth. We use it to recommend a liability limit \u2014 carry at least as much liability as you would want protected if you were sued.">i</span></div>
           <div class="slider-q-value" id="assetsDisplay">$100,000</div>
         </div>
         <input type="range" id="assetsSlider" min="0" max="7" step="1" value="2" />
@@ -620,7 +626,7 @@
 
       <div class="zip-q">
         <div class="zip-q-header">
-          <div class="zip-q-label">Your ZIP code</div>
+          <div class="zip-q-label">Your ZIP code<span class="lbl-i" title="We use your ZIP to pull your state\u2019s average renters rate, so the estimate reflects your area.">i</span></div>
           <div class="zip-state-badge" id="zipStateBadge"></div>
         </div>
         <div class="zip-input-row">
@@ -631,7 +637,7 @@
 
       <div class="profile-pills-row">
         <div class="profile-pill-q">
-          <div class="profile-pill-label">Deductible</div>
+          <div class="profile-pill-label">Deductible<span class="lbl-i" title="What you pay out of pocket per claim. A higher deductible lowers your premium.">i</span></div>
           <div class="pill-row">
             <button class="pill" data-q="deductible" data-v="250">$250</button>
             <button class="pill" data-q="deductible" data-v="500">$500</button>
@@ -639,14 +645,14 @@
           </div>
         </div>
         <div class="profile-pill-q">
-          <div class="profile-pill-label">Bundle with auto?</div>
+          <div class="profile-pill-label">Bundle with auto?<span class="lbl-i" title="Bundling renters with auto typically cuts the renters premium 10\u201315%.">i</span></div>
           <div class="pill-row">
             <button class="pill active" data-q="bundle" data-v="no">No</button>
             <button class="pill" data-q="bundle" data-v="yes">Yes</button>
           </div>
         </div>
         <div class="profile-pill-q">
-          <div class="profile-pill-label">High-value items?</div>
+          <div class="profile-pill-label">High-value items?<span class="lbl-i" title="Jewelry, watches, cameras, bikes, art. Standard policies cap these categories, so if yes we recommend scheduling them.">i</span></div>
           <div class="pill-row">
             <button class="pill active" data-q="valuables" data-v="no">No</button>
             <button class="pill" data-q="valuables" data-v="yes">Yes</button>
@@ -680,91 +686,6 @@
 
   </div>
 </div>
-
-<!-- ── Static coverage primer ── -->
-<section class="guide-section">
-  <div class="wrap-narrow">
-    <div class="guide-head">
-      <div class="section-num">§ Coverage primer</div>
-      <h2 class="section-title">Every renters coverage, <em>actually explained.</em></h2>
-    </div>
-
-    <div class="coverage-type" id="guide-personal">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Personal Property (Coverage C)</h3>
-        <span class="coverage-tag req">The core of the policy</span>
-      </div>
-      <div class="coverage-body">
-        <p>This pays to replace <strong>your belongings</strong> — furniture, electronics, clothing, kitchenware — when they're stolen or destroyed by a covered peril (fire, theft, most water damage, windstorm). It follows you off-premises too: a laptop stolen from your car or a hotel is usually covered.</p>
-        <p>Add it up faster than you'd think: a couch, a TV, a laptop, a phone, a bed, and a closet of clothes already clears $15–20k. Most renters under-insure here. <strong>Walk through each room and total the replacement cost</strong> — that number is your Coverage C.</p>
-        <div class="callout"><p><strong>Set it to what it would cost to re-buy everything new</strong>, not what you paid or what it's worth used. That's only true if you carry replacement-cost coverage (below) — otherwise you're paid depreciated value.</p></div>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-liability">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Personal Liability (Coverage E)</h3>
-        <span class="coverage-tag req">Bigger than most people realize</span>
-      </div>
-      <div class="coverage-body">
-        <p>Liability covers <strong>you</strong> when someone is hurt in your unit or you damage someone else's property — a guest slips and breaks an arm, your dog bites someone, a kitchen fire spreads to the next apartment. It pays their bills <em>and</em> your legal defense.</p>
-        <p>The standard limit is $100k, but the jump to $300k or $500k costs only a few dollars a year. Rule of thumb: <strong>carry at least as much as your net worth</strong> — a judgment above your limit comes out of your savings and future wages.</p>
-        <div class="callout"><p>If you have real assets to protect, a $1–2M umbrella policy (~$150–300/yr) stacks on top and is the cheapest liability you can buy per dollar of protection.</p></div>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-lossofuse">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Loss of Use (Coverage D)</h3>
-        <span class="coverage-tag">Included — don't skip it</span>
-      </div>
-      <div class="coverage-body">
-        <p>If a covered loss makes your place unlivable, Loss of Use pays for <strong>hotels, restaurant meals above your normal grocery bill, and other extra living costs</strong> while you're displaced.</p>
-        <p>It's bundled into nearly every policy at roughly 20–40% of your Coverage C, so there's usually nothing to buy — just confirm the limit is there. After a fire, this is the coverage that keeps you off a friend's couch for three months.</p>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-medpay">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Medical Payments to Others (Coverage F)</h3>
-        <span class="coverage-tag">Small limit, smooths small claims</span>
-      </div>
-      <div class="coverage-body">
-        <p>This pays <strong>minor medical bills for guests hurt in your home</strong>, regardless of fault, without anyone having to file a liability claim. Think a friend who trips and needs stitches.</p>
-        <p>Limits are small ($1k–$5k) and the cost is trivial. Bumping it to $5k is usually a few dollars and avoids turning a small injury into a liability dispute.</p>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-replacementcost">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Replacement Cost vs. Actual Cash Value</h3>
-        <span class="coverage-tag req">The most important checkbox</span>
-      </div>
-      <div class="coverage-body">
-        <p><strong>Actual Cash Value (ACV)</strong> pays what your stuff is worth used — a 5-year-old TV gets you maybe $80. <strong>Replacement Cost (RCV)</strong> pays what it costs to buy new. The difference on a full apartment can be thousands.</p>
-        <div class="callout"><p>RCV typically adds only ~10–15% to the premium and is almost always worth it. On a cheap policy that's $15–25/yr to turn a depreciated payout into a full one. <strong>Don't buy ACV to save $20.</strong></p></div>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-    <div class="coverage-type" id="guide-scheduled">
-      <div class="coverage-type-header">
-        <h3 class="coverage-name">Scheduled Personal Property</h3>
-        <span class="coverage-tag">Only if you own valuables</span>
-      </div>
-      <div class="coverage-body">
-        <p>Standard policies <strong>cap certain categories</strong> — jewelry, watches, cameras, bikes, firearms, fine art — often at $1,000–$2,500 total, and theft of jewelry may be capped even lower. A scheduled endorsement (a "rider") insures a specific item for its appraised value, usually with no deductible.</p>
-        <p>If you own an engagement ring, a nice camera kit, or a high-end bike, schedule it. If you don't, skip this entirely — it adds cost for protection you don't need.</p>
-      </div>
-      <a href="#covCards" class="guide-back-link">↑ Back to selection</a>
-    </div>
-
-  </div>
-</section>
 
 <section class="cta-section">
   <div class="wrap-narrow">
@@ -800,7 +721,10 @@
   <div class="sticky-total-label">Est. annual premium</div>
   <div class="sticky-total-amount" id="stickyAmount">—</div>
   <div class="sticky-total-delta" id="stickyDelta"></div>
-  <a href="/renters/" class="sticky-compare-link" id="stickyCompareLink">Compare rates →</a>
+  <div class="sticky-zip-row">
+    <input type="text" id="stickyZip" class="sticky-zip-input" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />
+    <a href="/renters/" class="sticky-compare-link" id="stickyCompareLink">Compare →</a>
+  </div>
 </div>
 
 <script>
@@ -934,7 +858,9 @@ const PROP_STEPS   = [10000,15000,20000,30000,40000,50000,75000,100000,150000,20
 const ASSET_STEPS  = [25000,50000,100000,200000,300000,500000,750000,1000000];
 const LIAB_OPTS    = [100000,300000,500000];
 const MEDPAY_OPTS  = [1000,5000];
+const LOU_OPTS     = [0.20,0.30];   // Loss of Use, % of personal property
 const DED_FACTOR   = {250:1.15, 500:1.05, 1000:0.93};
+const LOU_MULT     = [0.97,1.0];    // premium effect of Loss of Use (30% standard)
 
 const profile = {
   property: 30000, assets: 100000, deductible: 1000,
@@ -942,7 +868,7 @@ const profile = {
   code: null, stateName: null, stateAvg: NATIONAL_AVG
 };
 // selections (user-adjustable in cards)
-const sels = { liability: 0, medpay: 1, rcv: true, scheduled: false };
+const sels = { liability: 0, medpay: 1, rcv: true, scheduled: false, louPct: 1 };
 
 function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
 function stateFromZip(z){
@@ -966,24 +892,27 @@ function applyRecs(){
 }
 
 // ── Premium model (component costs) ──
-function components(){
+function components(s){
+  s = s || sels;
   const sm = profile.stateAvg / NATIONAL_AVG;
   const propFactor = profile.property / 30000;
   const ded = DED_FACTOR[profile.deductible] || 1.0;
-  const rcMult = sels.rcv ? 1.10 : 0.92;
+  const rcMult = s.rcv ? 1.10 : 0.92;
   const bundleMult = profile.bundle ? 0.85 : 1.0;
   // base policy = personal property + loss of use (bundled)
-  let base = profile.stateAvg * propFactor * ded * rcMult * bundleMult;
+  let base = profile.stateAvg * propFactor * ded * rcMult * bundleMult * LOU_MULT[s.louPct];
   base = Math.max(78, base);
-  const liabAdd = [0, 6, 15][sels.liability] * sm;
-  const medpayAdd = [0, 6][sels.medpay] * sm;
-  const schedAdd = sels.scheduled ? 42 : 0;
+  const liabAdd = [0, 6, 15][s.liability] * sm;
+  const medpayAdd = [0, 6][s.medpay] * sm;
+  const schedAdd = s.scheduled ? 42 : 0;
   return {
     base: base, liab: liabAdd, medpay: medpayAdd, sched: schedAdd,
     total: Math.round(base + liabAdd + medpayAdd + schedAdd)
   };
 }
 function totalEstimate(){ return components().total; }
+function totalWith(ov){ return components(Object.assign({}, sels, ov)).total; }
+function deltaVs(ov){ return totalEstimate() - totalWith(ov); }
 
 // ── Cards ──
 const CARDS = ['personal','liability','lossOfUse','medpay','replacementCost','scheduled'];
@@ -996,13 +925,13 @@ const META = {
   scheduled:       { name:'Scheduled Items', tag:'Jewelry, cameras, bikes, art', guide:'guide-scheduled' }
 };
 
-function deltaBadge(kind, text){
+function priceChip(text, kind){
   return '<div class="delta-display"><span class="delta-badge ' + kind + '">' + text + '</span></div>';
 }
 function pillBtns(cov, opts, labels, selIdx, recIdx){
   return '<div class="pill-row" style="margin-top:12px;">' + opts.map(function(o,i){
     const cls = 'pill' + (i===selIdx ? ' active' : '');
-    const rec = i===recIdx ? ' <span style="font-size:10px;opacity:.7;">★</span>' : '';
+    const rec = (recIdx!=null && i===recIdx) ? ' <span style="font-size:10px;opacity:.7;">\u2605</span>' : '';
     return '<button class="' + cls + '" data-cov="' + cov + '" data-i="' + i + '">' + labels[i] + rec + '</button>';
   }).join('') + '</div>';
 }
@@ -1011,74 +940,71 @@ function toggleRow(cov, on, label){
     + '<span class="cov-toggle-track' + (on?' on':'') + '"><span class="cov-toggle-thumb"></span></span>'
     + '<span class="cov-toggle-label">' + label + '</span></label></div>';
 }
-function costLine(n){
-  if(n <= 0) return '<div class="cov-cost">Included in your base policy</div>';
-  return '<div class="cov-cost">≈ ' + fmt(n) + '/yr of your premium</div>';
-}
+function amtNote(text){ return '<div class="cov-cost">' + text + '</div>'; }
+
+const DESC = {
+  personal: "Covers your belongings \u2014 furniture, electronics, clothing \u2014 replaced if stolen or destroyed by a covered peril, and off-premises too (a laptop taken from your car). Set it to what it would cost to <strong>re-buy everything new</strong>. Adjust it with the slider at the top.",
+  liability: "Covers you when a guest is hurt in your unit or you damage someone else\u2019s property (a dog bite, an overflowing tub), plus your legal defense. Carry at least as much as your net worth \u2014 $300k costs only a little more.",
+  lossOfUse: "Pays for hotels and extra living costs if a covered loss makes your place unlivable. Bundled at about 20\u201340% of your personal property.",
+  medpay: "Pays minor medical bills for a guest hurt in your home, regardless of fault, without a liability claim \u2014 usually $1,000\u2013$5,000.",
+  replacementCost: "Replacement cost pays to buy items <strong>new</strong>; actual cash value pays the depreciated amount (a 5-year-old TV \u2192 ~$80). The upgrade adds only ~10\u201315% and is almost always worth it.",
+  scheduled: "Standard policies cap jewelry, watches, cameras, bikes, and art (often $1,000\u2013$2,500). A scheduled endorsement insures a specific item for its appraised value, usually with no deductible."
+};
 
 function renderCards(){
   const c = components();
   const recs = computeRecs();
-  const lossOfUse = Math.round(profile.property * 0.30);
+  const covD = Math.round(profile.property * LOU_OPTS[sels.louPct]);
   let html = '';
 
-  // Personal Property — driven by slider
-  html += card('personal',
-    deltaBadge('zero','Set to ' + fmt(profile.property)),
-    '<div class="cov-card-desc">Cover what it would cost to <strong>re-buy everything new</strong>. Based on your slider, we suggest <strong>' + fmt(profile.property) + '</strong> of personal property. Adjust the "value of your stuff" slider above to change it.</div>'
-    + costLine(c.base));
+  // Personal Property \u2014 driven by slider
+  html += card('personal', priceChip('~' + fmt(c.base) + '/yr', 'zero'),
+    amtNote('Coverage amount: <strong>' + fmt(profile.property) + '</strong> (set by the slider above) \u2014 the bulk of your premium.'));
 
-  // Liability — options
+  // Liability
   html += card('liability',
-    deltaBadge(sels.liability >= recs.liability ? 'minus' : 'plus',
-      sels.liability >= recs.liability ? 'Covered' : 'Below rec'),
-    '<div class="cov-card-desc">For your assets (' + fmt(profile.assets) + '), carry at least <strong>' + fmt(LIAB_OPTS[recs.liability]) + '</strong>. The jump in limits costs only a few dollars a year.</div>'
-    + pillBtns('liability', LIAB_OPTS, LIAB_OPTS.map(function(v){return fmt(v);}), sels.liability, recs.liability)
-    + costLine(c.liab));
+    priceChip(c.liab > 0 ? '+' + fmt(c.liab) + '/yr' : 'Included', c.liab > 0 ? 'plus' : 'zero'),
+    amtNote('For your assets (' + fmt(profile.assets) + '), carry at least <strong>' + fmt(LIAB_OPTS[recs.liability]) + '</strong>.')
+    + pillBtns('liability', LIAB_OPTS, LIAB_OPTS.map(function(v){return fmt(v);}), sels.liability, recs.liability));
 
-  // Loss of Use — info
+  // Loss of Use \u2014 adjustable
+  var louDelta = deltaVs({louPct:1});
   html += card('lossOfUse',
-    deltaBadge('zero','Included'),
-    '<div class="cov-card-desc">Bundled at roughly 20–40% of your personal property — about <strong>' + fmt(lossOfUse) + '</strong> here. Confirm the limit is on your policy; there\'s usually nothing extra to buy.</div>'
-    + costLine(0));
+    priceChip(sels.louPct===1 ? 'Included' : (louDelta<0 ? '\u2212' + fmt(Math.abs(louDelta)) + '/yr' : 'Included'), 'minus'),
+    amtNote('Coverage amount: <strong>' + fmt(covD) + '</strong> (' + Math.round(LOU_OPTS[sels.louPct]*100) + '% of personal property).')
+    + pillBtns('louPct', LOU_OPTS, ['20% (less)','30% (standard)'], sels.louPct, 1));
 
-  // Medical Payments — options
+  // Medical Payments
   html += card('medpay',
-    deltaBadge(sels.medpay >= recs.medpay ? 'minus' : 'plus',
-      sels.medpay >= recs.medpay ? 'Covered' : 'Low'),
-    '<div class="cov-card-desc">Pays guests\' minor medical bills without a liability claim. We suggest <strong>' + fmt(MEDPAY_OPTS[recs.medpay]) + '</strong> — it\'s only a few dollars.</div>'
-    + pillBtns('medpay', MEDPAY_OPTS, MEDPAY_OPTS.map(function(v){return fmt(v);}), sels.medpay, recs.medpay)
-    + costLine(c.medpay));
+    priceChip(c.medpay > 0 ? '+' + fmt(c.medpay) + '/yr' : 'Included', c.medpay > 0 ? 'plus' : 'zero'),
+    pillBtns('medpay', MEDPAY_OPTS, MEDPAY_OPTS.map(function(v){return fmt(v);}), sels.medpay, recs.medpay));
 
-  // Replacement Cost — toggle
+  // Replacement Cost \u2014 toggle
+  var rcvDelta = sels.rcv ? deltaVs({rcv:false}) : (totalWith({rcv:true}) - totalEstimate());
   html += card('replacementCost',
-    deltaBadge(sels.rcv ? 'minus' : 'plus', sels.rcv ? 'On (recommended)' : 'Off (ACV)'),
-    '<div class="cov-card-desc">Get paid what it costs to <strong>buy new</strong>, not the depreciated used value. Adds ~10–15% — almost always worth it.</div>'
-    + toggleRow('rcv', sels.rcv, sels.rcv ? 'Replacement cost — ON' : 'Actual cash value (cheaper, pays less)'));
+    priceChip(sels.rcv ? '+' + fmt(rcvDelta) + '/yr' : 'ACV \u2014 pays less', sels.rcv ? 'plus' : 'zero'),
+    toggleRow('rcv', sels.rcv, sels.rcv ? 'Replacement cost \u2014 ON (recommended)' : 'Actual cash value (cheaper, pays depreciated value)'));
 
-  // Scheduled — toggle
+  // Scheduled Items
   html += card('scheduled',
-    deltaBadge(sels.scheduled ? 'minus' : 'zero', sels.scheduled ? 'Added' : (recs.scheduled ? 'Recommended' : 'Skip')),
-    '<div class="cov-card-desc">Standard policies cap jewelry, cameras, bikes, and art. Add a rider only if you own something valuable. ' + (recs.scheduled ? 'You said you have high-value items — schedule them.' : 'You can skip this if you don\'t.') + '</div>'
-    + toggleRow('scheduled', sels.scheduled, sels.scheduled ? 'Scheduled items — ON' : 'Add scheduled items')
-    + costLine(c.sched));
+    priceChip(sels.scheduled ? '+' + fmt(c.sched) + '/yr' : 'Not added', sels.scheduled ? 'plus' : 'zero'),
+    toggleRow('scheduled', sels.scheduled, sels.scheduled ? 'Scheduled items \u2014 ON' : (recs.scheduled ? 'Add scheduled items (recommended)' : 'Add scheduled items')));
 
   document.getElementById('covCards').innerHTML = html;
 }
 
-function card(key, badge, body){
-  const m = META[key];
+function card(key, chip, controlHtml){
+  const m = META[key], d = DESC[key];
   return '<div class="cov-card">'
-    + '<div class="cov-card-top"><div>'
-    + '<div class="cov-card-name">' + m.name + '</div></div>'
-    + badge + '</div>'
+    + '<div class="cov-card-top"><div><div class="cov-card-name">' + m.name + '</div></div>'
+    + chip + '</div>'
     + '<div class="cov-card-tagline">' + m.tag + '</div>'
-    + body
-    + '<a href="#' + m.guide + '" class="cov-full-guide">Read more →</a>'
+    + controlHtml
+    + '<div class="cov-expand"><button class="cov-expand-btn" data-exp="' + key + '">What is this? <span>\u25be</span></button>'
+    + '<div class="cov-desc-body" id="exp-' + key + '" style="display:none;"><p>' + d + '</p></div></div>'
     + '</div>';
 }
 
-// ── Summary, sticky, CTA ──
 function renderSummary(){
   const total = totalEstimate();
   document.getElementById('summaryTotal').textContent = fmt(total) + '/yr';
@@ -1120,6 +1046,9 @@ function refreshCtaLink(){
 // ── ZIP handling ──
 function setZip(z){
   z = (z||'').replace(/\D/g,'').slice(0,5);
+  ['zipInput','bottomZipInput','stickyZip'].forEach(function(id){
+    const el = document.getElementById(id); if(el && el.value !== z) el.value = z;
+  });
   const badge = document.getElementById('zipStateBadge');
   const code = z.length >= 3 ? stateFromZip(z) : null;
   if(code && RENTERS_STATE_DATA[code]){
@@ -1160,11 +1089,12 @@ function initEvents(){
     this.value = this.value.replace(/\D/g,'').slice(0,5);
     setZip(this.value);
   });
-  const bz = document.getElementById('bottomZipInput');
-  if(bz) bz.addEventListener('input', function(){
-    this.value = this.value.replace(/\D/g,'').slice(0,5);
-    document.getElementById('zipInput').value = this.value;
-    setZip(this.value);
+  ['bottomZipInput','stickyZip'].forEach(function(id){
+    const el = document.getElementById(id);
+    if(el) el.addEventListener('input', function(){
+      this.value = this.value.replace(/\D/g,'').slice(0,5);
+      setZip(this.value);
+    });
   });
 
   // profile pills
@@ -1182,6 +1112,13 @@ function initEvents(){
 
   // card option pills + toggles (delegated — cards re-render)
   document.getElementById('covCards').addEventListener('click', function(e){
+    const exp = e.target.closest('[data-exp]');
+    if(exp){
+      const body = document.getElementById('exp-' + exp.dataset.exp);
+      if(body){ const open = body.style.display !== 'none'; body.style.display = open ? 'none' : 'block';
+        const a = exp.querySelector('span'); if(a) a.textContent = open ? '\u25be' : '\u25b4'; }
+      return;
+    }
     const pill = e.target.closest('.pill[data-cov]');
     if(pill){ sels[pill.dataset.cov] = +pill.dataset.i; renderAll(); return; }
     const tgl = e.target.closest('[data-tgl]');
