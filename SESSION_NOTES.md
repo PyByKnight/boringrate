@@ -1,6 +1,21 @@
 # BoringRate — Session Notes
 _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
 
+## This session (2026-06-16c, Opus 4.8) — shipped
+
+- **Guide/FAQ parity across all 3 products.** Renters cluster -> 6 guides
+  (worth-it, covers, does-it-cover, required, how-much-needed, cost). Home cluster
+  -> 5 guides (how-much-needed [rebuild cost/80% rule], covers, does-it-cover,
+  required [mortgage/HO-6], cost). Built by gen_renters_faq.py / gen_home_faq.py
+  (config-driven). Each: product two-tile CTA + FAQPage JSON-LD. Wired via new
+  'Renters guides' / 'Home guides' nav subsections (single-source partial +
+  build_nav.py) + sitemap + tool contextual links.
+  MILESTONE: every product (auto/renters/home) now has rate tool + coverage tool +
+  article tree + guide cluster. 526 pages, 0 JS errors.
+  NEXT: cross-product BUNDLING guide (now that all 3 have content it can link them);
+  optional home metro tree / renters metro de-dup; per-product 'cheapest for' if
+  demand warrants.
+
 ## This session (2026-06-16b, Opus 4.8) — shipped
 
 - **Auto: discounts guide** (`/article/car-insurance-discounts.html`) — last clean
