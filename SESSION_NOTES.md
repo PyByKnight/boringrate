@@ -1,6 +1,20 @@
 # BoringRate — Session Notes
 _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
 
+## This session (2026-06-16, Opus 4.8) — shipped
+
+- **FAQ / high-intent content cluster (6 auto articles).** Tool-driving FAQ pages,
+  all funneling to the ZIP tool, via reusable generators:
+  - `cost-of-not-shopping-car-insurance` (interactive estimator; ~$550 spread from
+    OUR model) — `gen_hidden_cost.py`
+  - `how-to-switch-car-insurance`, `does-car-insurance-follow-the-car-or-driver`,
+    `how-long-does-an-accident-stay-on-your-insurance`, `does-car-insurance-cover`,
+    `driving-without-car-insurance` — `gen_faq_articles.py` (config-driven, easy to
+    extend). Each has FAQPage JSON-LD + two-tile CTA.
+  All wired via the single-source guides panel (edit `partials/nav-mega.html` →
+  `build_nav.py`), article hub cards, + sitemap. 514/514 pages 0 JS errors.
+  OPEN FAQ ideas: renters/home FAQ equivalents; "does it cover" deep-dives.
+
 ## This session (2026-06-15, Opus 4.8) — shipped
 
 - **NAV: single-source mega menu + regrouped Guides.** Extracted the hamburger
