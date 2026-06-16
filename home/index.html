@@ -138,7 +138,7 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .refine-trigger:hover{background:var(--ink);color:var(--paper);}
 .refine-trigger-action{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px;}
 .refine-trigger:hover .refine-trigger-action{color:var(--paper);text-decoration-color:var(--paper);}
-.refine-trigger-arrow{color:var(--accent);font-size:16px;line-height:1;font-weight:700;display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;border:1.5px solid currentColor;border-radius:5px;flex-shrink:0;}
+.refine-trigger-arrow{position:relative;display:inline-block;width:21px;height:21px;border:1.5px solid currentColor;border-radius:5px;flex-shrink:0;color:var(--accent);font-size:0;}.refine-trigger-arrow::before{content:"";position:absolute;top:50%;left:50%;width:9px;height:2px;background:currentColor;transform:translate(-50%,-50%);}.refine-trigger-arrow::after{content:"";position:absolute;top:50%;left:50%;width:2px;height:9px;background:currentColor;transform:translate(-50%,-50%);transition:opacity 160ms;}
 .refine-trigger:hover .refine-trigger-arrow{color:var(--paper);}
 .refine-trigger-closed{display:inline;}
 .refine-trigger-open{display:none;}
@@ -148,7 +148,7 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .refine-bar.open .refine-trigger:hover{background:var(--paper-deep);color:var(--ink);}
 .refine-bar.open .refine-trigger:hover .refine-trigger-action{color:var(--ink);text-decoration-color:var(--accent);}
 .refine-bar.open .refine-trigger:hover .refine-trigger-arrow{color:var(--accent);}
-.refine-bar.open .refine-trigger-arrow{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.refine-bar.open .refine-trigger-arrow{background:var(--ink);color:var(--paper);border-color:var(--ink);}.refine-bar.open .refine-trigger-arrow::after{opacity:0;}
 
 /* Persistent ZIP confirmation chip + inline personalization progress bar */
 .refine-zip-row{scroll-margin-top:84px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0 14px;margin:14px 0 6px;}
@@ -448,7 +448,7 @@ window.track = function (name, props) {
       <span class="refine-trigger-closed">Edit Personal Profile</span>
       <span class="refine-trigger-open">Hide Personal Profile</span>
     </span>
-    <span class="refine-trigger-arrow" id="refineTriggerIcon" aria-hidden="true">+</span>
+    <span class="refine-trigger-arrow" id="refineTriggerIcon" aria-hidden="true"></span>
   </button>
   <div class="refine-inner">
     <div class="refine-group">
@@ -1286,8 +1286,6 @@ document.getElementById("zipInput").addEventListener("input", e => {
     if (!rb) return;
     var nowOpen = rb.classList.toggle('open');
     refineTrigger.setAttribute('aria-expanded', String(nowOpen));
-    var _ic = document.getElementById('refineTriggerIcon');
-    if (_ic) _ic.textContent = nowOpen ? '\u2212' : '+';
     var ri = rb.querySelector('.refine-inner');
     if (ri) ri.style.display = nowOpen ? 'flex' : 'none';
   });
