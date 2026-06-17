@@ -1,0 +1,885 @@
+{
+  "_meta": {
+    "product": "home",
+    "note": "Verification ledger for every home rate atom. Integrity SLA: each atom must be re-verified against a real source at least every 30 days. A value snapshot is stored; if the source HTML later differs, the atom is DRIFTED and must be re-verified. Update dates only via `audit_rates.py --mark` after an actual check.",
+    "sla_days": 30,
+    "baseline": "2026-06-17",
+    "last_run": "2026-06-17"
+  },
+  "items": {
+    "carrier/Allstate": {
+      "category": "carrier",
+      "name": "Allstate",
+      "snapshot": {
+        "base": 1.15,
+        "csGrade": "C+",
+        "stability": 2,
+        "naic": 1.24
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/American Family": {
+      "category": "carrier",
+      "name": "American Family",
+      "snapshot": {
+        "base": 0.93,
+        "csGrade": "B+",
+        "stability": 4,
+        "naic": 0.86
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Amica Mutual": {
+      "category": "carrier",
+      "name": "Amica Mutual",
+      "snapshot": {
+        "base": 0.86,
+        "csGrade": "A+",
+        "stability": 5,
+        "naic": 0.38
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Auto Club Group (AAA)": {
+      "category": "carrier",
+      "name": "Auto Club Group (AAA)",
+      "snapshot": {
+        "base": 0.9,
+        "csGrade": "B+",
+        "stability": 3,
+        "naic": 0.85
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Auto-Owners": {
+      "category": "carrier",
+      "name": "Auto-Owners",
+      "snapshot": {
+        "base": 0.82,
+        "csGrade": "A",
+        "stability": 5,
+        "naic": 0.68
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/CSAA / AAA": {
+      "category": "carrier",
+      "name": "CSAA / AAA",
+      "snapshot": {
+        "base": 0.92,
+        "csGrade": "B+",
+        "stability": 3,
+        "naic": 0.8
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Chubb": {
+      "category": "carrier",
+      "name": "Chubb",
+      "snapshot": {
+        "base": 1.4,
+        "csGrade": "A",
+        "stability": 5,
+        "naic": 0.28
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Cincinnati Insurance": {
+      "category": "carrier",
+      "name": "Cincinnati Insurance",
+      "snapshot": {
+        "base": 0.88,
+        "csGrade": "A",
+        "stability": 4,
+        "naic": 0.55
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Country Financial": {
+      "category": "carrier",
+      "name": "Country Financial",
+      "snapshot": {
+        "base": 0.86,
+        "csGrade": "B+",
+        "stability": 4,
+        "naic": 0.65
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Erie Insurance": {
+      "category": "carrier",
+      "name": "Erie Insurance",
+      "snapshot": {
+        "base": 0.84,
+        "csGrade": "A",
+        "stability": 4,
+        "naic": 0.72
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Farm Bureau Financial Services": {
+      "category": "carrier",
+      "name": "Farm Bureau Financial Services",
+      "snapshot": {
+        "base": 0.82,
+        "csGrade": "A-",
+        "stability": 4,
+        "naic": 0.6
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Farmers": {
+      "category": "carrier",
+      "name": "Farmers",
+      "snapshot": {
+        "base": 1.12,
+        "csGrade": "B",
+        "stability": 3,
+        "naic": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Frankenmuth Insurance": {
+      "category": "carrier",
+      "name": "Frankenmuth Insurance",
+      "snapshot": {
+        "base": 0.85,
+        "csGrade": "A-",
+        "stability": 4,
+        "naic": 0.6
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Grinnell Mutual": {
+      "category": "carrier",
+      "name": "Grinnell Mutual",
+      "snapshot": {
+        "base": 0.86,
+        "csGrade": "A",
+        "stability": 4,
+        "naic": 0.65
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Kemper": {
+      "category": "carrier",
+      "name": "Kemper",
+      "snapshot": {
+        "base": 1.08,
+        "csGrade": "C+",
+        "stability": 2,
+        "naic": 1.1
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Liberty Mutual": {
+      "category": "carrier",
+      "name": "Liberty Mutual",
+      "snapshot": {
+        "base": 1.18,
+        "csGrade": "C+",
+        "stability": 2,
+        "naic": 1.18
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Mercury Insurance": {
+      "category": "carrier",
+      "name": "Mercury Insurance",
+      "snapshot": {
+        "base": 0.9,
+        "csGrade": "B",
+        "stability": 3,
+        "naic": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/NJM Insurance": {
+      "category": "carrier",
+      "name": "NJM Insurance",
+      "snapshot": {
+        "base": 0.8,
+        "csGrade": "A+",
+        "stability": 5,
+        "naic": 0.4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Nationwide": {
+      "category": "carrier",
+      "name": "Nationwide",
+      "snapshot": {
+        "base": 0.96,
+        "csGrade": "B+",
+        "stability": 4,
+        "naic": 0.76
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Progressive": {
+      "category": "carrier",
+      "name": "Progressive",
+      "snapshot": {
+        "base": 1.04,
+        "csGrade": "B",
+        "stability": 3,
+        "naic": 1.12
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Safeco": {
+      "category": "carrier",
+      "name": "Safeco",
+      "snapshot": {
+        "base": 1.06,
+        "csGrade": "B",
+        "stability": 3,
+        "naic": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Shelter Insurance": {
+      "category": "carrier",
+      "name": "Shelter Insurance",
+      "snapshot": {
+        "base": 0.85,
+        "csGrade": "A-",
+        "stability": 4,
+        "naic": 0.72
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/State Farm": {
+      "category": "carrier",
+      "name": "State Farm",
+      "snapshot": {
+        "base": 1.0,
+        "csGrade": "B+",
+        "stability": 3,
+        "naic": 1.08
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Texas Farm Bureau": {
+      "category": "carrier",
+      "name": "Texas Farm Bureau",
+      "snapshot": {
+        "base": 0.78,
+        "csGrade": "A",
+        "stability": 5,
+        "naic": 0.55
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/The Hartford": {
+      "category": "carrier",
+      "name": "The Hartford",
+      "snapshot": {
+        "base": 1.05,
+        "csGrade": "A-",
+        "stability": 4,
+        "naic": 0.72
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Travelers": {
+      "category": "carrier",
+      "name": "Travelers",
+      "snapshot": {
+        "base": 0.91,
+        "csGrade": "B+",
+        "stability": 4,
+        "naic": 0.82
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/USAA": {
+      "category": "carrier",
+      "name": "USAA",
+      "snapshot": {
+        "base": 0.72,
+        "csGrade": "A+",
+        "stability": 5,
+        "naic": 0.52
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "carrier/Westfield Insurance": {
+      "category": "carrier",
+      "name": "Westfield Insurance",
+      "snapshot": {
+        "base": 0.88,
+        "csGrade": "B+",
+        "stability": 4,
+        "naic": 0.7
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/AK": {
+      "category": "state_avg",
+      "name": "Alaska",
+      "snapshot": {
+        "avg": 1245
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/AL": {
+      "category": "state_avg",
+      "name": "Alabama",
+      "snapshot": {
+        "avg": 2150
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/AR": {
+      "category": "state_avg",
+      "name": "Arkansas",
+      "snapshot": {
+        "avg": 2280
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/AZ": {
+      "category": "state_avg",
+      "name": "Arizona",
+      "snapshot": {
+        "avg": 1680
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/CA": {
+      "category": "state_avg",
+      "name": "California",
+      "snapshot": {
+        "avg": 1840
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/CO": {
+      "category": "state_avg",
+      "name": "Colorado",
+      "snapshot": {
+        "avg": 2820
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/CT": {
+      "category": "state_avg",
+      "name": "Connecticut",
+      "snapshot": {
+        "avg": 1540
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/DC": {
+      "category": "state_avg",
+      "name": "Washington D.C.",
+      "snapshot": {
+        "avg": 1310
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/DE": {
+      "category": "state_avg",
+      "name": "Delaware",
+      "snapshot": {
+        "avg": 1090
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/FL": {
+      "category": "state_avg",
+      "name": "Florida",
+      "snapshot": {
+        "avg": 4218
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/GA": {
+      "category": "state_avg",
+      "name": "Georgia",
+      "snapshot": {
+        "avg": 1976
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/HI": {
+      "category": "state_avg",
+      "name": "Hawaii",
+      "snapshot": {
+        "avg": 1118
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/IA": {
+      "category": "state_avg",
+      "name": "Iowa",
+      "snapshot": {
+        "avg": 1630
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/ID": {
+      "category": "state_avg",
+      "name": "Idaho",
+      "snapshot": {
+        "avg": 1155
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/IL": {
+      "category": "state_avg",
+      "name": "Illinois",
+      "snapshot": {
+        "avg": 1862
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/IN": {
+      "category": "state_avg",
+      "name": "Indiana",
+      "snapshot": {
+        "avg": 1750
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/KS": {
+      "category": "state_avg",
+      "name": "Kansas",
+      "snapshot": {
+        "avg": 2860
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/KY": {
+      "category": "state_avg",
+      "name": "Kentucky",
+      "snapshot": {
+        "avg": 2170
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/LA": {
+      "category": "state_avg",
+      "name": "Louisiana",
+      "snapshot": {
+        "avg": 3635
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/MA": {
+      "category": "state_avg",
+      "name": "Massachusetts",
+      "snapshot": {
+        "avg": 1650
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/MD": {
+      "category": "state_avg",
+      "name": "Maryland",
+      "snapshot": {
+        "avg": 1490
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/ME": {
+      "category": "state_avg",
+      "name": "Maine",
+      "snapshot": {
+        "avg": 1295
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/MI": {
+      "category": "state_avg",
+      "name": "Michigan",
+      "snapshot": {
+        "avg": 1680
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/MN": {
+      "category": "state_avg",
+      "name": "Minnesota",
+      "snapshot": {
+        "avg": 2090
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/MO": {
+      "category": "state_avg",
+      "name": "Missouri",
+      "snapshot": {
+        "avg": 2050
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/MS": {
+      "category": "state_avg",
+      "name": "Mississippi",
+      "snapshot": {
+        "avg": 2480
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/MT": {
+      "category": "state_avg",
+      "name": "Montana",
+      "snapshot": {
+        "avg": 1880
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/NC": {
+      "category": "state_avg",
+      "name": "North Carolina",
+      "snapshot": {
+        "avg": 1845
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/ND": {
+      "category": "state_avg",
+      "name": "North Dakota",
+      "snapshot": {
+        "avg": 1635
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/NE": {
+      "category": "state_avg",
+      "name": "Nebraska",
+      "snapshot": {
+        "avg": 2480
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/NH": {
+      "category": "state_avg",
+      "name": "New Hampshire",
+      "snapshot": {
+        "avg": 1070
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/NJ": {
+      "category": "state_avg",
+      "name": "New Jersey",
+      "snapshot": {
+        "avg": 1492
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/NM": {
+      "category": "state_avg",
+      "name": "New Mexico",
+      "snapshot": {
+        "avg": 1860
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/NV": {
+      "category": "state_avg",
+      "name": "Nevada",
+      "snapshot": {
+        "avg": 1380
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/NY": {
+      "category": "state_avg",
+      "name": "New York",
+      "snapshot": {
+        "avg": 1676
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/OH": {
+      "category": "state_avg",
+      "name": "Ohio",
+      "snapshot": {
+        "avg": 1580
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/OK": {
+      "category": "state_avg",
+      "name": "Oklahoma",
+      "snapshot": {
+        "avg": 3285
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/OR": {
+      "category": "state_avg",
+      "name": "Oregon",
+      "snapshot": {
+        "avg": 1200
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/PA": {
+      "category": "state_avg",
+      "name": "Pennsylvania",
+      "snapshot": {
+        "avg": 1492
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/RI": {
+      "category": "state_avg",
+      "name": "Rhode Island",
+      "snapshot": {
+        "avg": 1760
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/SC": {
+      "category": "state_avg",
+      "name": "South Carolina",
+      "snapshot": {
+        "avg": 1890
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/SD": {
+      "category": "state_avg",
+      "name": "South Dakota",
+      "snapshot": {
+        "avg": 1860
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/TN": {
+      "category": "state_avg",
+      "name": "Tennessee",
+      "snapshot": {
+        "avg": 2090
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/TX": {
+      "category": "state_avg",
+      "name": "Texas",
+      "snapshot": {
+        "avg": 3429
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/UT": {
+      "category": "state_avg",
+      "name": "Utah",
+      "snapshot": {
+        "avg": 1280
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/VA": {
+      "category": "state_avg",
+      "name": "Virginia",
+      "snapshot": {
+        "avg": 1558
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/VT": {
+      "category": "state_avg",
+      "name": "Vermont",
+      "snapshot": {
+        "avg": 1140
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/WA": {
+      "category": "state_avg",
+      "name": "Washington",
+      "snapshot": {
+        "avg": 1250
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/WI": {
+      "category": "state_avg",
+      "name": "Wisconsin",
+      "snapshot": {
+        "avg": 1090
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/WV": {
+      "category": "state_avg",
+      "name": "West Virginia",
+      "snapshot": {
+        "avg": 1560
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    },
+    "state_avg/WY": {
+      "category": "state_avg",
+      "name": "Wyoming",
+      "snapshot": {
+        "avg": 1390
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline at parity roster expansion; pending source verification"
+    }
+  }
+}
