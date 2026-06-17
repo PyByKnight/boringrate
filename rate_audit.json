@@ -2665,30 +2665,30 @@
       "category": "state_avg",
       "name": "California",
       "snapshot": {
-        "avg": 3668
+        "avg": 2652
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/car-insurance-by-state",
-      "notes": "REVIEWED 2026-06-17 — diverges +38% vs source; pending keep/update decision",
+      "notes": "Updated to source value 2026-06-17 (was 3668, +38% off)",
       "reference": {
         "value": 2652,
         "source": "ValuePenguin 2026-06-16",
-        "delta_pct": 38
+        "delta_pct": 0
       }
     },
     "state_avg/CO": {
       "category": "state_avg",
       "name": "Colorado",
       "snapshot": {
-        "avg": 1706
+        "avg": 3264
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/car-insurance-by-state",
-      "notes": "REVIEWED 2026-06-17 — diverges -48% vs source; pending keep/update decision",
+      "notes": "Updated to source value 2026-06-17 (was 1706, -48% off)",
       "reference": {
         "value": 3264,
         "source": "ValuePenguin 2026-06-16",
-        "delta_pct": -48
+        "delta_pct": 0
       }
     },
     "state_avg/CT": {
@@ -2740,60 +2740,60 @@
       "category": "state_avg",
       "name": "Florida",
       "snapshot": {
-        "avg": 4848
+        "avg": 3732
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/car-insurance-by-state",
-      "notes": "REVIEWED 2026-06-17 — diverges +30% vs source; pending keep/update decision",
+      "notes": "Updated to source value 2026-06-17 (was 4848, +30% off)",
       "reference": {
         "value": 3732,
         "source": "ValuePenguin 2026-06-16",
-        "delta_pct": 30
+        "delta_pct": 0
       }
     },
     "state_avg/GA": {
       "category": "state_avg",
       "name": "Georgia",
       "snapshot": {
-        "avg": 3224
+        "avg": 2208
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/car-insurance-by-state",
-      "notes": "REVIEWED 2026-06-17 — diverges +46% vs source; pending keep/update decision",
+      "notes": "Updated to source value 2026-06-17 (was 3224, +46% off)",
       "reference": {
         "value": 2208,
         "source": "ValuePenguin 2026-06-16",
-        "delta_pct": 46
+        "delta_pct": 0
       }
     },
     "state_avg/HI": {
       "category": "state_avg",
       "name": "Hawaii",
       "snapshot": {
-        "avg": 1446
+        "avg": 1812
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/car-insurance-by-state",
-      "notes": "REVIEWED 2026-06-17 — diverges -20% vs source; pending keep/update decision",
+      "notes": "Updated to source value 2026-06-17 (was 1446, -20% off)",
       "reference": {
         "value": 1812,
         "source": "ValuePenguin 2026-06-16",
-        "delta_pct": -20
+        "delta_pct": 0
       }
     },
     "state_avg/IA": {
       "category": "state_avg",
       "name": "Iowa",
       "snapshot": {
-        "avg": 1586
+        "avg": 2040
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/car-insurance-by-state",
-      "notes": "REVIEWED 2026-06-17 — diverges -22% vs source; pending keep/update decision",
+      "notes": "Updated to source value 2026-06-17 (was 1586, -22% off)",
       "reference": {
         "value": 2040,
         "source": "ValuePenguin 2026-06-16",
-        "delta_pct": -22
+        "delta_pct": 0
       }
     },
     "state_avg/ID": {
@@ -2845,15 +2845,15 @@
       "category": "state_avg",
       "name": "Kansas",
       "snapshot": {
-        "avg": 2124
+        "avg": 2700
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/car-insurance-by-state",
-      "notes": "REVIEWED 2026-06-17 — diverges -21% vs source; pending keep/update decision",
+      "notes": "Updated to source value 2026-06-17 (was 2124, -21% off)",
       "reference": {
         "value": 2700,
         "source": "ValuePenguin 2026-06-16",
-        "delta_pct": -21
+        "delta_pct": 0
       }
     },
     "state_avg/KY": {
@@ -2890,15 +2890,15 @@
       "category": "state_avg",
       "name": "Massachusetts",
       "snapshot": {
-        "avg": 2842
+        "avg": 2172
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/car-insurance-by-state",
-      "notes": "REVIEWED 2026-06-17 — diverges +31% vs source; pending keep/update decision",
+      "notes": "Updated to source value 2026-06-17 (was 2842, +31% off)",
       "reference": {
         "value": 2172,
         "source": "ValuePenguin 2026-06-16",
-        "delta_pct": 31
+        "delta_pct": 0
       }
     },
     "state_avg/MD": {
@@ -2935,15 +2935,15 @@
       "category": "state_avg",
       "name": "Michigan",
       "snapshot": {
-        "avg": 4724
+        "avg": 3120
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/car-insurance-by-state",
-      "notes": "REVIEWED 2026-06-17 — diverges +51% vs source; pending keep/update decision",
+      "notes": "Updated to source value 2026-06-17 (was 4724, +51% off)",
       "reference": {
         "value": 3120,
         "source": "ValuePenguin 2026-06-16",
-        "delta_pct": 51
+        "delta_pct": 0
       }
     },
     "state_avg/MN": {
@@ -3115,15 +3115,15 @@
       "category": "state_avg",
       "name": "New York",
       "snapshot": {
-        "avg": 3484
+        "avg": 2712
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/car-insurance-by-state",
-      "notes": "REVIEWED 2026-06-17 — diverges +28% vs source; pending keep/update decision",
+      "notes": "Updated to source value 2026-06-17 (was 3484, +28% off)",
       "reference": {
         "value": 2712,
         "source": "ValuePenguin 2026-06-16",
-        "delta_pct": 28
+        "delta_pct": 0
       }
     },
     "state_avg/OH": {
@@ -3355,15 +3355,15 @@
       "category": "state_avg",
       "name": "Wyoming",
       "snapshot": {
-        "avg": 1986
+        "avg": 1572
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/car-insurance-by-state",
-      "notes": "REVIEWED 2026-06-17 — diverges +26% vs source; pending keep/update decision",
+      "notes": "Updated to source value 2026-06-17 (was 1986, +26% off)",
       "reference": {
         "value": 1572,
         "source": "ValuePenguin 2026-06-16",
-        "delta_pct": 26
+        "delta_pct": 0
       }
     }
   }
