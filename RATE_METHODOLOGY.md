@@ -213,6 +213,32 @@ Atom id scheme: `carrier/<national|nonstandard|regional>/<Name>`,
 - [ ] Source list to standardize on: NAIC (grades), ValuePenguin/Bankrate
       (state avgs), Insurify/MoneyGeek (carrier rankings).
 
+## 7. Renters & home (parity, 2026-06-17)
+
+Both use a simpler model than auto: one carrier array each
+(`RENTERS_CARRIERS` / `HOME_CARRIERS`) with a per-carrier `states` array for
+regional availability (no offset table). Premium = `avg × base × m` (already
+per-vehicle/per-policy; no `/2`). Each carrier carries its own `naic` ratio +
+quote link.
+
+- **Rosters expanded** toward parity: renters 13→25, home 12→28 (real nationals
+  + regionals scoped by footprint).
+- **Ledgers:** `rate_audit_renters.json` (76), `rate_audit_home.json` (79) via
+  `audit_rates.py --product renters|home`.
+- **State averages reconciled by ratio-to-national** (our coverage basis is
+  lighter than the published full-coverage figures, so raw values aren't
+  comparable — we compare each state's share of the national average):
+  - Renters vs ValuePenguin (2026-06-02, natl $276): 39/50 within tolerance,
+    **11 distribution outliers** (NC/NY/CA/MA/SC overstated; MI/AR understated).
+  - Home vs Insurance.com (2026-03-20, $300k dwelling, natl $2,543): 35/51 within
+    tolerance, **16 outliers** — worst is **HI (+133%; HI is actually the
+    cheapest home state)**, plus CA/MA/VT/NJ/NY overstated, SD/MO/ID/KY/KS/NE
+    understated.
+  - Each `state_avg` atom now stores `reference.ratio_fix` (the
+    basis-preserving corrected value) + `delta_pct`; outliers (>25%) flagged
+    "PENDING decision". **Not yet applied** — overwriting cascades to each tool +
+    its coverage page + generated per-state SEO pages, so it awaits a go-ahead.
+
 ### Canonical sources
 - State averages: https://www.valuepenguin.com/car-insurance-by-state
 - Cross-check: https://www.bankrate.com/insurance/car/states/ ·
