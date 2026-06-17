@@ -3365,6 +3365,4186 @@
         "source": "ValuePenguin 2026-06-16",
         "delta_pct": 0
       }
+    },
+    "offset/AL/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in AL",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AL/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in AL",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AL/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in AL",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AL/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in AL",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AL/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in AL",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AL/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in AL",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AL/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in AL",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AL/National General": {
+      "category": "state_offset",
+      "name": "National General in AL",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AZ/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in AZ",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AZ/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in AZ",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AZ/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in AZ",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AZ/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in AZ",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AZ/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in AZ",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AZ/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in AZ",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AZ/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in AZ",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AZ/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in AZ",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/AZ/National General": {
+      "category": "state_offset",
+      "name": "National General in AZ",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in CA",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in CA",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in CA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in CA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in CA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in CA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CA/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in CA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in CA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CA/National General": {
+      "category": "state_offset",
+      "name": "National General in CA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CO/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in CO",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CO/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in CO",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CO/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in CO",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CO/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in CO",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CO/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in CO",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CO/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in CO",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CO/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in CO",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CO/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in CO",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CO/National General": {
+      "category": "state_offset",
+      "name": "National General in CO",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CT/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in CT",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CT/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in CT",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CT/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in CT",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CT/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in CT",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CT/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in CT",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CT/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in CT",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CT/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in CT",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CT/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in CT",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/CT/National General": {
+      "category": "state_offset",
+      "name": "National General in CT",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DC/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in DC",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DC/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in DC",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DC/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in DC",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DC/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in DC",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DC/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in DC",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DC/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in DC",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DC/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in DC",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DC/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in DC",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DC/National General": {
+      "category": "state_offset",
+      "name": "National General in DC",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DE/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in DE",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DE/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in DE",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DE/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in DE",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DE/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in DE",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DE/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in DE",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DE/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in DE",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DE/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in DE",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DE/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in DE",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/DE/National General": {
+      "category": "state_offset",
+      "name": "National General in DE",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/FL/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in FL",
+      "snapshot": {
+        "mult": 1.09
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/FL/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in FL",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/FL/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in FL",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/FL/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in FL",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/FL/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in FL",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/FL/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in FL",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/FL/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in FL",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/FL/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in FL",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/FL/National General": {
+      "category": "state_offset",
+      "name": "National General in FL",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/GA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in GA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/GA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in GA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/GA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in GA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/GA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in GA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/GA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in GA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/GA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in GA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/GA/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in GA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/GA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in GA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/GA/National General": {
+      "category": "state_offset",
+      "name": "National General in GA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/HI/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in HI",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/HI/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in HI",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/HI/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in HI",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/HI/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in HI",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/HI/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in HI",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/HI/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in HI",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/HI/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in HI",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/HI/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in HI",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/HI/National General": {
+      "category": "state_offset",
+      "name": "National General in HI",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ID/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in ID",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ID/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in ID",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ID/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in ID",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ID/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in ID",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ID/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in ID",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ID/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in ID",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ID/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in ID",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ID/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in ID",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ID/National General": {
+      "category": "state_offset",
+      "name": "National General in ID",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IL/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in IL",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IL/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in IL",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IL/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in IL",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IL/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in IL",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IL/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in IL",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IL/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in IL",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IL/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in IL",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IL/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in IL",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IL/National General": {
+      "category": "state_offset",
+      "name": "National General in IL",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IN/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in IN",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IN/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in IN",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IN/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in IN",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IN/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in IN",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IN/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in IN",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IN/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in IN",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IN/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in IN",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IN/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in IN",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IN/National General": {
+      "category": "state_offset",
+      "name": "National General in IN",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in IA",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in IA",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in IA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in IA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in IA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in IA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IA/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in IA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in IA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/IA/National General": {
+      "category": "state_offset",
+      "name": "National General in IA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KS/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in KS",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KS/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in KS",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KS/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in KS",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KS/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in KS",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KS/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in KS",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KS/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in KS",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KS/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in KS",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KS/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in KS",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KS/National General": {
+      "category": "state_offset",
+      "name": "National General in KS",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KY/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in KY",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KY/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in KY",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KY/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in KY",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KY/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in KY",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KY/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in KY",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KY/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in KY",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KY/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in KY",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KY/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in KY",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/KY/National General": {
+      "category": "state_offset",
+      "name": "National General in KY",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/LA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in LA",
+      "snapshot": {
+        "mult": 1.1
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/LA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in LA",
+      "snapshot": {
+        "mult": 1.09
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/LA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in LA",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/LA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in LA",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/LA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in LA",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/LA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in LA",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/LA/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in LA",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/LA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in LA",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/LA/National General": {
+      "category": "state_offset",
+      "name": "National General in LA",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ME/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in ME",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ME/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in ME",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ME/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in ME",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ME/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in ME",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ME/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in ME",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ME/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in ME",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ME/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in ME",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ME/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in ME",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ME/National General": {
+      "category": "state_offset",
+      "name": "National General in ME",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MD/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MD",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MD/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MD",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MD/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in MD",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MD/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in MD",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MD/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in MD",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MD/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MD",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MD/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in MD",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MD/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in MD",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MD/National General": {
+      "category": "state_offset",
+      "name": "National General in MD",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in MA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in MA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in MA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MA/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in MA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in MA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MA/National General": {
+      "category": "state_offset",
+      "name": "National General in MA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MI/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MI",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MI/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MI",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MI/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in MI",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MI/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in MI",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MI/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in MI",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MI/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MI",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MI/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in MI",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MI/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in MI",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MI/National General": {
+      "category": "state_offset",
+      "name": "National General in MI",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MN/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MN",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MN/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MN",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MN/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in MN",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MN/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in MN",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MN/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in MN",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MN/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MN",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MN/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in MN",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MN/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in MN",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MN/National General": {
+      "category": "state_offset",
+      "name": "National General in MN",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MS/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MS",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MS/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MS",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MS/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MS",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MO/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MO",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MO/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MO",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MO/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in MO",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MO/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in MO",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MO/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in MO",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MO/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MO",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MO/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in MO",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MO/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in MO",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MO/National General": {
+      "category": "state_offset",
+      "name": "National General in MO",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MT/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MT/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MT/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in MT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MT/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in MT",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MT/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MT",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MT/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in MT",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MT/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in MT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/MT/National General": {
+      "category": "state_offset",
+      "name": "National General in MT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NE/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NE",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NE/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NE",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NE/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NE",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NE/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NE",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NE/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NE",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NE/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NE",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NE/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in NE",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NE/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NE",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NE/National General": {
+      "category": "state_offset",
+      "name": "National General in NE",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NV/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NV",
+      "snapshot": {
+        "mult": 1.1
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NV/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NV",
+      "snapshot": {
+        "mult": 1.09
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NV/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NV",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NV/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NV",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NV/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NV",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NV/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NV",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NV/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in NV",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NV/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NV",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NV/National General": {
+      "category": "state_offset",
+      "name": "National General in NV",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NH/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NH",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NH/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NH",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NH/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NH",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NH/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NH",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NH/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NH",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NH/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NH",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NH/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in NH",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NH/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NH",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NH/National General": {
+      "category": "state_offset",
+      "name": "National General in NH",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NJ/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NJ",
+      "snapshot": {
+        "mult": 1.09
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NJ/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NJ",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NJ/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NJ",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NJ/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NJ",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NJ/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NJ",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NJ/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NJ",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NJ/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in NJ",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NJ/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NJ",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NJ/National General": {
+      "category": "state_offset",
+      "name": "National General in NJ",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NY/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NY",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NY/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NY",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NY/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NY",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NY/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NY",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NY/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NY",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NY/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NY",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NY/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in NY",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NY/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NY",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NY/National General": {
+      "category": "state_offset",
+      "name": "National General in NY",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NC/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NC",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NC/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NC",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NC/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NC",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NC/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NC",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NC/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NC",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NC/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NC",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NC/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in NC",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NC/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NC",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/NC/National General": {
+      "category": "state_offset",
+      "name": "National General in NC",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ND/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in ND",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ND/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in ND",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ND/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in ND",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ND/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in ND",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ND/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in ND",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ND/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in ND",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ND/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in ND",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ND/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in ND",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/ND/National General": {
+      "category": "state_offset",
+      "name": "National General in ND",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OH/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in OH",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OH/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in OH",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OH/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in OH",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OH/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in OH",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OH/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in OH",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OH/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in OH",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OH/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in OH",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OH/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in OH",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OH/National General": {
+      "category": "state_offset",
+      "name": "National General in OH",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OK/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in OK",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OK/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in OK",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OK/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in OK",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OK/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in OK",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OK/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in OK",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OK/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in OK",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OK/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in OK",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OK/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in OK",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OK/National General": {
+      "category": "state_offset",
+      "name": "National General in OK",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OR/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in OR",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OR/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in OR",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OR/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in OR",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OR/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in OR",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OR/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in OR",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OR/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in OR",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OR/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in OR",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OR/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in OR",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/OR/National General": {
+      "category": "state_offset",
+      "name": "National General in OR",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/PA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in PA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/PA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in PA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/PA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in PA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/PA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in PA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/PA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in PA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/PA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in PA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/PA/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in PA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/PA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in PA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/PA/National General": {
+      "category": "state_offset",
+      "name": "National General in PA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/RI/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in RI",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/RI/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in RI",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/RI/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in RI",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/RI/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in RI",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/RI/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in RI",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/RI/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in RI",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/RI/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in RI",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/RI/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in RI",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/RI/National General": {
+      "category": "state_offset",
+      "name": "National General in RI",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SC/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in SC",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SC/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in SC",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SC/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in SC",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SC/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in SC",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SC/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in SC",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SC/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in SC",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SC/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in SC",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SC/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in SC",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SC/National General": {
+      "category": "state_offset",
+      "name": "National General in SC",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SD/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in SD",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SD/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in SD",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SD/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in SD",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SD/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in SD",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SD/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in SD",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SD/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in SD",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SD/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in SD",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SD/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in SD",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/SD/National General": {
+      "category": "state_offset",
+      "name": "National General in SD",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TN/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in TN",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TN/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in TN",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TN/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in TN",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TN/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in TN",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TN/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in TN",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TN/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in TN",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TN/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in TN",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TN/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in TN",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TN/National General": {
+      "category": "state_offset",
+      "name": "National General in TN",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TX/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in TX",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TX/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in TX",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TX/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in TX",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TX/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in TX",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TX/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in TX",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TX/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in TX",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TX/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in TX",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TX/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in TX",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/TX/National General": {
+      "category": "state_offset",
+      "name": "National General in TX",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/UT/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in UT",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/UT/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in UT",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/UT/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in UT",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/UT/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in UT",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/UT/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in UT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/UT/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in UT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/UT/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in UT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/UT/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in UT",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/UT/National General": {
+      "category": "state_offset",
+      "name": "National General in UT",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VT/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in VT",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VT/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in VT",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VT/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in VT",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VT/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in VT",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VT/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in VT",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VT/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in VT",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VT/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in VT",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VT/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in VT",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VT/National General": {
+      "category": "state_offset",
+      "name": "National General in VT",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in VA",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in VA",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in VA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in VA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in VA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in VA",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VA/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in VA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in VA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/VA/National General": {
+      "category": "state_offset",
+      "name": "National General in VA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in WA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in WA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in WA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WV/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in WV",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WV/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in WV",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WV/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in WV",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WV/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in WV",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WV/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in WV",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WV/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in WV",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WV/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in WV",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WV/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in WV",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WV/National General": {
+      "category": "state_offset",
+      "name": "National General in WV",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WI/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in WI",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WI/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in WI",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WI/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in WI",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WI/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in WI",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WI/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in WI",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WI/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in WI",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WI/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in WI",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WI/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in WI",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WI/National General": {
+      "category": "state_offset",
+      "name": "National General in WI",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WY/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in WY",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WY/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in WY",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WY/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in WY",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WY/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in WY",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WY/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in WY",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WY/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in WY",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WY/Root Insurance": {
+      "category": "state_offset",
+      "name": "Root Insurance in WY",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WY/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in WY",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
+    },
+    "offset/WY/National General": {
+      "category": "state_offset",
+      "name": "National General in WY",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "modeled — RATE_METHODOLOGY.md §3",
+      "notes": "Modeled cost-responsiveness tilt (RATE_METHODOLOGY.md §3); directional, not citation-exact"
     }
   }
 }

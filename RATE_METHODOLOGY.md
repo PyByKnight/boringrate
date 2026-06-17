@@ -101,6 +101,36 @@ nationals, prioritized by population/traffic. (See §6.)
 
 Every documented offset is tracked in the ledger as `offset/<state>/<carrier>`.
 
+### Closing the gap (2026-06-17) — modeled cost-responsiveness tilt
+The 9 untuned nationals now get a per-state offset from a transparent, documented
+model (manual offsets for USAA/GEICO/State Farm/Progressive/Farmers are left
+intact). For each state:
+
+```
+offset = round( 1 + k × (2 × costPercentile − 1), 2 )     # dropped if it rounds to 1.00
+costPercentile = rank of the state's corrected STATE_DATA.avg, 0 (cheapest) … 1 (priciest)
+```
+
+`k` is the carrier's relative-price slope vs. state cost — **agent/traditional
+carriers load high-cost states (k > 0); direct/value carriers hold the line
+(k < 0)**, per the evidence in §0 sources (Allstate most expensive major;
+Travelers cheapest large national; Nationwide competitive):
+
+| Carrier | k | Carrier | k |
+|---|---|---|---|
+| Allstate | +0.10 | Nationwide | −0.05 |
+| Liberty Mutual | +0.09 | Travelers | −0.07 |
+| The Hartford | +0.05 | Root Insurance | −0.05 |
+| Safeco | +0.04 | National General | +0.06 |
+| Kemper | +0.05 | | |
+
+Result: offset coverage rose from 22% → **80.5%** of national cells (575/714).
+These are **modeled/directional** (same status as the existing manual offsets),
+not citation-exact; verify by confirming the high-cost/low-cost ordering still
+holds against carrier-by-state research. Mid-cost states intentionally carry no
+offset (tilt ≈ neutral). Still partial and improvable later: State Farm (36/51),
+Progressive (17/51), Farmers (5/51).
+
 ---
 
 ## 4. State-average verification — 2026-06-17 pass
