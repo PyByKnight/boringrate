@@ -5098,7 +5098,9 @@ function estimatePremium(carrier, avg) {
   }
   const shop = shopTable[carrier.name];
   if (shop) m *= shop[refinement.shopPref] || 1.0;
-  return Math.round((avg / 2) * m);
+  // Per-vehicle, standard-coverage annual estimate (consistent with renters/home tools,
+  // which also use avg * m, and with the per-vehicle STATE_DATA averages).
+  return Math.round(avg * m);
 }
 
 function formatDelta(amount) {

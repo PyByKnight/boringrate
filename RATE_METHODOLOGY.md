@@ -30,26 +30,25 @@ premium = round( (stateAvg / 2)
 Ranking = sort all active carriers for the ZIP by `premium`; the "median" line
 is the median of the top 10.
 
-### The `/ 2` calibration (important)
-`stateAvg` (`STATE_DATA[code].avg`) is on the scale of a **published
-full-coverage state average** (our national mean ≈ $2,529 vs ValuePenguin's
-$2,496 — see §4). The live tool then **halves it**, so displayed per-carrier
-prices land ~45–50% of the full-coverage average.
+### Per-vehicle calibration — RESOLVED 2026-06-17
+`stateAvg` (`STATE_DATA[code].avg`) is the **published full-coverage, per-vehicle
+state average** (national mean ≈ $2,529 vs ValuePenguin's $2,496 — see §4). The
+tool returns `round(avg × m)` — **the legacy `/2` was removed** so every premium
+on the site is on one consistent per-vehicle basis.
 
-Example (CA, 2026-06-17): `STATE_DATA.avg = 3668`, displayed **median $1,822**,
-top carriers $1,431–$1,553 — i.e. roughly half the published CA full-coverage
-average (~$2,652).
+Now consistent (all `avg × base × …`, no halving): the auto rate tool
+(`index.html`), the renters/home tools, `state_rankings.json` (regenerated via
+`node gen_state_rankings.js --export`), the per-state/metro article tables
+(`--states` / `--metros`), the rate-change pages (`gen_rate_tracker.py`), the
+interactive `article/state-rankings.html` (STATES array + embedded `rates` +
+`MAX_PRICE`), and `coverage.html`'s `STATE_DATA`.
 
-**Implication:** the displayed defaults read like *minimum / light* coverage,
-not full coverage, even though the default coverage tier is "standard"
-(`COVERAGE_MULT.standard = 1.00`). This is an internal-consistency decision to
-revisit (see §6 action items) — either `stateAvg` should represent the
-light-coverage baseline directly (drop the `/2`), or the displayed prices should
-be labeled/standardized to the coverage level they actually represent.
+Sanity (CA, post-fix): `STATE_DATA.avg = 2652`, tool median **$2,628** — lands on
+the published CA full-coverage average, as it should.
 
-> ⚠️ Note: `state_rankings.json` (static, used by the rate-tracker pages) was
-> generated with **un-halved** math (`avg × base`-scale), so its prices differ
-> from the live tool. Reconcile these to one calibration.
+> If any state average changes, re-run `node gen_state_rankings.js --export
+> --states --metros` then `python3 gen_rate_tracker.py`, and sync the
+> `STATE_DATA` copies in `coverage.html` and `article/state-rankings.html`.
 
 ---
 
@@ -203,11 +202,14 @@ Atom id scheme: `carrier/<national|nonstandard|regional>/<Name>`,
    research URL used.
 5. Commit ledger + this doc.
 
-### Open action items (carried forward)
-- [ ] **Resolve the `/2` calibration** and the `state_rankings.json` mismatch (§1).
-- [ ] **Fix CO state average** (clear error) and decide on the other >20% states (§4).
-- [ ] **Add `STATE_CARRIER_ADJ` rows for the 9 untuned nationals** (§3), top
-      states first, to capture carrier-by-state variation.
+### Open action items
+- [x] **Resolved the `/2` calibration** + reconciled all per-vehicle displays (§1). _2026-06-17_
+- [x] **Fixed CO + the 11 states >20% off** vs source (§4). _2026-06-17_
+- [x] **Added `STATE_CARRIER_ADJ` for the 9 untuned nationals** → 80.5% coverage (§3). _2026-06-17_
+- [ ] Deepen partial offsets: State Farm (36/51), Progressive (17/51), Farmers (5/51).
+- [ ] Decide on the 10–20% state-average divergences (left as-is for now, §4).
+- [ ] **Verify CS grades vs NAIC complaint index** (next sourceable batch).
+- [ ] Apply the same per-vehicle + carrier-by-state passes to renters/home.
 - [ ] Source list to standardize on: NAIC (grades), ValuePenguin/Bankrate
       (state avgs), Insurify/MoneyGeek (carrier rankings).
 

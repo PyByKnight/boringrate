@@ -32,9 +32,21 @@ _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
   but 11 states >20% off — CO is −48% and almost certainly wrong);
   (c) `/2` calibration makes displayed prices ~half full-coverage average, and
   `state_rankings.json` uses un-halved math — needs reconciliation.
-  NOT auto-applied: state-avg overwrites + /2 fix (site-wide rate changes,
-  pending decision). NEXT BATCH: NAIC complaint ratios for CS grades; add
-  STATE_CARRIER_ADJ rows for the 9 untuned nationals.
+  NEXT BATCH: NAIC complaint ratios for CS grades.
+- **Rate corrections + per-vehicle consistency (3-part).**
+  (1) Fixed 11 state averages >20% off vs ValuePenguin (CO 1706->3264, MI
+  4724->3120 cross-checked, GA/CA/MA/FL/NY/WY/IA/KS/HI).
+  (2) Closed the carrier-by-state gap: modeled cost-responsiveness offsets for
+  the 9 untuned nationals -> STATE_CARRIER_ADJ coverage 22%->80.5% (711 atoms).
+  (3) Removed the legacy `/2` in index.html so auto is per-vehicle like
+  renters/home; regenerated state_rankings.json (gen_state_rankings.js --export),
+  state+metro article tables (--states/--metros), rate-change pages
+  (gen_rate_tracker.py), and synced STATE_DATA in coverage.html +
+  article/state-rankings.html (STATES array + embedded rates + MAX_PRICE 4612).
+  All state-avg sources now agree; CA tool median $2,628 ≈ published $2,652.
+  526/526 sweep clean. See RATE_METHODOLOGY.md (action items checked off).
+  NEXT: deepen partial offsets (State Farm/Progressive/Farmers); NAIC grade
+  verification; replicate per-vehicle + offset passes for renters/home.
 
 ## This session (2026-06-16d, Opus 4.8) — shipped
 
