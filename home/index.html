@@ -894,6 +894,159 @@ const HOME_CARRIERS = [
     links:"https://www.libertymutual.com",
     sens:{bundle:-0.16, claims1:0.50, claims2:0.96, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.13}
   }
+,
+  {
+    name:"Chubb", base:1.4,
+    tag:"High-value &amp; luxury homes · premium coverage",
+    bestFor:"Higher-value homes",
+    naic:0.28, csGrade:"A", stability:5,
+    links:"https://www.chubb.com",
+    sens:{bundle:-0.10, claims1:0.30, claims2:0.60, covLow:-0.30, covHigh:0.55, dedLow:0.10, dedHigh:-0.10}
+  },
+  {
+    name:"The Hartford", base:1.05,
+    tag:"AARP home program · 50+ focus",
+    bestFor:"Homeowners 50+ &amp; AARP members",
+    naic:0.72, csGrade:"A-", stability:4,
+    links:"https://www.thehartford.com",
+    sens:{bundle:-0.09, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.40, dedLow:0.14, dedHigh:-0.14}
+  },
+  {
+    name:"Safeco", base:1.06,
+    tag:"Independent-agent home · easy auto bundle",
+    bestFor:"Independent-agent shoppers",
+    naic:0.9, csGrade:"B", stability:3,
+    links:"https://www.safeco.com",
+    sens:{bundle:-0.09, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.40, dedLow:0.14, dedHigh:-0.14}
+  },
+  {
+    name:"Kemper", base:1.08,
+    tag:"Value home · standard market",
+    bestFor:"Budget homeowners",
+    naic:1.1, csGrade:"C+", stability:2,
+    links:"https://www.kemper.com",
+    sens:{bundle:-0.09, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.40, dedLow:0.14, dedHigh:-0.14}
+  },
+  {
+    name:"Cincinnati Insurance", base:0.88,
+    tag:"Independent-agent specialist · strong home book",
+    bestFor:"Agent-based service",
+    naic:0.55, csGrade:"A", stability:4,
+    restricted:true, availNote:"Not available in all states — check availability",
+    states:["AL","GA","IL","IN","KY","MI","NC","OH","PA","SC","TN","VA","WI"],
+    links:"https://www.cinfin.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    name:"Country Financial", base:0.86,
+    tag:"Insurance &amp; financial services · Midwest",
+    bestFor:"Midwest bundlers",
+    naic:0.65, csGrade:"B+", stability:4,
+    restricted:true, availNote:"Not available in all states — check availability",
+    states:["AL","AZ","CO","GA","IL","IN","IA","KS","MN","MO","NV","OK","OR","TN","WA","WI"],
+    links:"https://www.countryfinancial.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    name:"CSAA / AAA", base:0.92,
+    tag:"AAA member home pricing · Western states",
+    bestFor:"AAA members",
+    naic:0.8, csGrade:"B+", stability:3,
+    restricted:true, availNote:"Not available in all states — check availability",
+    states:["AZ","CA","CO","CT","DE","IN","KS","MD","MT","NV","NJ","NY","OK","OR","PA","SD","UT","VA","WV","WY"],
+    links:"https://www.csaa-insurance.aaa.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    name:"NJM Insurance", base:0.8,
+    tag:"Top-rated Mid-Atlantic mutual",
+    bestFor:"Mid-Atlantic value",
+    naic:0.4, csGrade:"A+", stability:5,
+    restricted:true, availNote:"Not available in all states — check availability",
+    states:["CT","MD","NJ","NY","OH","PA"],
+    links:"https://www.njm.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    name:"Mercury Insurance", base:0.9,
+    tag:"Competitive in Western states",
+    bestFor:"Budget homeowners out West",
+    naic:0.95, csGrade:"B", stability:3,
+    restricted:true, availNote:"Not available in all states — check availability",
+    states:["AZ","CA","FL","GA","IL","MI","NV","NJ","NY","OK","TX","VA"],
+    links:"https://www.mercuryinsurance.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    name:"Westfield Insurance", base:0.88,
+    tag:"Ohio-based regional · Midwest &amp; Mid-Atlantic",
+    bestFor:"Midwest agent service",
+    naic:0.7, csGrade:"B+", stability:4,
+    restricted:true, availNote:"Not available in all states — check availability",
+    states:["IL","IN","KY","MN","NC","OH","PA","TN","VA","WV"],
+    links:"https://www.westfieldinsurance.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    name:"Shelter Insurance", base:0.85,
+    tag:"Central-region leader · strong agent network",
+    bestFor:"Bundled agent service",
+    naic:0.72, csGrade:"A-", stability:4,
+    restricted:true, availNote:"Not available in all states — check availability",
+    states:["AR","CO","IL","IN","IA","KS","KY","LA","MS","MO","NE","NV","OH","OK","TN"],
+    links:"https://www.shelterinsurance.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    name:"Farm Bureau Financial Services", base:0.82,
+    tag:"Western &amp; Plains Farm Bureau · agent-based",
+    bestFor:"Members in Western/Plains states",
+    naic:0.6, csGrade:"A-", stability:4,
+    restricted:true, availNote:"Not available in all states — check availability",
+    states:["AZ","CO","ID","IA","KS","MN","NE","NM","NV","OK","SD","UT","WY"],
+    links:"https://www.fbfs.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    name:"Auto Club Group (AAA)", base:0.9,
+    tag:"AAA member home pricing · Midwest &amp; Southeast",
+    bestFor:"AAA members",
+    naic:0.85, csGrade:"B+", stability:3,
+    restricted:true, availNote:"Not available in all states — check availability",
+    states:["FL","GA","IL","MI","MN","NC","SC","TN","WI"],
+    links:"https://www.acg.aaa.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    name:"Grinnell Mutual", base:0.86,
+    tag:"Farmer-focused · strong Midwest network",
+    bestFor:"Rural &amp; Midwest homes",
+    naic:0.65, csGrade:"A", stability:4,
+    restricted:true, availNote:"Not available in all states — check availability",
+    states:["IA","IL","IN","KS","MN","MO","NE","ND","SD","WI"],
+    links:"https://www.grinnellmutual.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    name:"Frankenmuth Insurance", base:0.85,
+    tag:"Michigan-based mutual · agent network",
+    bestFor:"Midwest agent service",
+    naic:0.6, csGrade:"A-", stability:4,
+    restricted:true, availNote:"Not available in all states — check availability",
+    states:["IN","MI","OH","TN","WI"],
+    links:"https://www.fmins.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    name:"Texas Farm Bureau", base:0.78,
+    tag:"State-exclusive · strong Texas home book",
+    bestFor:"Texas members",
+    naic:0.55, csGrade:"A", stability:5,
+    restricted:true, availNote:"Not available in all states — check availability",
+    states:["TX"],
+    links:"https://www.txfb-ins.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  }
 ];
 
 const STATE_AGENTS = {

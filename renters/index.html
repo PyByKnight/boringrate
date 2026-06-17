@@ -1328,6 +1328,115 @@ const RENTERS_CARRIERS = [
     links:"https://www.farmers.com",
     sens:{bundle:-0.16, claims1:0.30, claims2:0.56, covLow:-0.21, covHigh:0.27, dedLow:0.15, dedHigh:-0.19}
   }
+,
+  {
+    name:"Safeco", base:0.98,
+    tag:"Independent-agent renters · easy auto bundle",
+    bestFor:"Independent-agent shoppers",
+    naic:0.9, slug:"safeco", csGrade:"B", stability:3,
+    links:"https://www.safeco.com",
+    sens:{bundle:-0.08, claims1:0.40, claims2:0.80, covLow:-0.24, covHigh:0.36, dedLow:0.16, dedHigh:-0.16}
+  },
+  {
+    name:"The Hartford", base:1.0,
+    tag:"AARP renters program · 50+ focus",
+    bestFor:"Renters 50+ &amp; AARP members",
+    naic:0.7, slug:"the-hartford", csGrade:"A-", stability:4,
+    links:"https://www.thehartford.com",
+    sens:{bundle:-0.08, claims1:0.40, claims2:0.80, covLow:-0.24, covHigh:0.36, dedLow:0.16, dedHigh:-0.16}
+  },
+  {
+    name:"Chubb", base:1.3,
+    tag:"High-value renters · superior coverage limits",
+    bestFor:"Higher-value belongings",
+    naic:0.3, slug:"chubb", csGrade:"A", stability:5,
+    links:"https://www.chubb.com",
+    sens:{bundle:-0.08, claims1:0.40, claims2:0.80, covLow:-0.24, covHigh:0.36, dedLow:0.16, dedHigh:-0.16}
+  },
+  {
+    name:"Toggle", base:0.58,
+    tag:"By Farmers · flexible, customizable renters",
+    bestFor:"Budget &amp; flexible terms",
+    naic:1.2, slug:"toggle", csGrade:"B-", stability:2,
+    links:"https://www.gettoggle.com",
+    sens:{bundle:-0.08, claims1:0.40, claims2:0.80, covLow:-0.24, covHigh:0.36, dedLow:0.16, dedHigh:-0.16}
+  },
+  {
+    name:"Assurant", base:0.72,
+    tag:"Renters specialist · widely available",
+    bestFor:"Simple, low-cost renters",
+    naic:0.95, slug:"assurant", csGrade:"B", stability:3,
+    links:"https://www.assurant.com",
+    sens:{bundle:-0.08, claims1:0.40, claims2:0.80, covLow:-0.24, covHigh:0.36, dedLow:0.16, dedHigh:-0.16}
+  },
+  {
+    name:"Kemper", base:0.95,
+    tag:"Value renters · standard market",
+    bestFor:"Budget renters",
+    naic:1.1, slug:"kemper", csGrade:"C+", stability:2,
+    links:"https://www.kemper.com",
+    sens:{bundle:-0.08, claims1:0.40, claims2:0.80, covLow:-0.24, covHigh:0.36, dedLow:0.16, dedHigh:-0.16}
+  },
+  {
+    name:"Auto-Owners", base:0.78,
+    tag:"Agent-only · top satisfaction scores",
+    bestFor:"Bundled agent service",
+    naic:0.68, slug:"auto-owners", csGrade:"A", stability:5,
+    availNote:"Not available in all states — check availability", restricted:true,
+    states:["AL","AZ","AR","CO","FL","GA","IA","ID","IL","IN","KS","KY","MI","MN","MO","NC","ND","NE","OH","PA","SC","SD","TN","UT","VA","WI"],
+    links:"https://www.auto-owners.com",
+    sens:{bundle:-0.10, claims1:0.40, claims2:0.80, covLow:-0.24, covHigh:0.38, dedLow:0.15, dedHigh:-0.16}
+  },
+  {
+    name:"Country Financial", base:0.9,
+    tag:"Insurance &amp; financial services · Midwest",
+    bestFor:"Midwest bundlers",
+    naic:0.65, slug:"country-financial", csGrade:"B+", stability:4,
+    availNote:"Not available in all states — check availability", restricted:true,
+    states:["AL","AZ","CO","GA","IL","IN","IA","KS","MN","MO","NV","OK","OR","TN","WA","WI"],
+    links:"https://www.countryfinancial.com",
+    sens:{bundle:-0.10, claims1:0.40, claims2:0.80, covLow:-0.24, covHigh:0.38, dedLow:0.15, dedHigh:-0.16}
+  },
+  {
+    name:"CSAA / AAA", base:0.92,
+    tag:"AAA member renters pricing · Western states",
+    bestFor:"AAA members",
+    naic:0.8, slug:"csaa-aaa", csGrade:"B+", stability:3,
+    availNote:"Not available in all states — check availability", restricted:true,
+    states:["AZ","CA","CO","CT","DE","IN","KS","MD","MT","NV","NJ","NY","OK","OR","PA","SD","UT","VA","WV","WY"],
+    links:"https://www.csaa-insurance.aaa.com",
+    sens:{bundle:-0.10, claims1:0.40, claims2:0.80, covLow:-0.24, covHigh:0.38, dedLow:0.15, dedHigh:-0.16}
+  },
+  {
+    name:"NJM Insurance", base:0.7,
+    tag:"Top-rated Mid-Atlantic mutual",
+    bestFor:"Mid-Atlantic value",
+    naic:0.4, slug:"njm", csGrade:"A+", stability:5,
+    availNote:"Not available in all states — check availability", restricted:true,
+    states:["CT","MD","NJ","NY","OH","PA"],
+    links:"https://www.njm.com",
+    sens:{bundle:-0.10, claims1:0.40, claims2:0.80, covLow:-0.24, covHigh:0.38, dedLow:0.15, dedHigh:-0.16}
+  },
+  {
+    name:"Cincinnati Insurance", base:0.95,
+    tag:"Independent-agent specialist",
+    bestFor:"Agent-based service",
+    naic:0.55, slug:"cincinnati", csGrade:"A", stability:4,
+    availNote:"Not available in all states — check availability", restricted:true,
+    states:["AL","GA","IL","IN","KY","MI","NC","OH","PA","SC","TN","VA","WI"],
+    links:"https://www.cinfin.com",
+    sens:{bundle:-0.10, claims1:0.40, claims2:0.80, covLow:-0.24, covHigh:0.38, dedLow:0.15, dedHigh:-0.16}
+  },
+  {
+    name:"Mercury Insurance", base:0.85,
+    tag:"Competitive in Western states",
+    bestFor:"Budget renters out West",
+    naic:0.95, slug:"mercury", csGrade:"B", stability:3,
+    availNote:"Not available in all states — check availability", restricted:true,
+    states:["AZ","CA","FL","GA","IL","MI","NV","NJ","NY","OK","TX","VA"],
+    links:"https://www.mercuryinsurance.com",
+    sens:{bundle:-0.10, claims1:0.40, claims2:0.80, covLow:-0.24, covHigh:0.38, dedLow:0.15, dedHigh:-0.16}
+  }
 ];
 
 // ── Tool state ──
