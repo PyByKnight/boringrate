@@ -239,14 +239,16 @@ quote link.
     `STATE_DATA`, `gen_home_state_pages.py` STATES, regenerated `home/state/*`
     (51) and `renters/state/*` ranking blocks. Ledgers marked verified.
     Verified: renters CA median $119, home HI median $489 (now cheapest state).
-  - **KNOWN FOLLOW-UP — renters/state page BODY averages.** The dek/TLDR/FAQ
-    text in `renters/state/*.html` uses a SEPARATE baked-in dataset (e.g. CA
-    "$215/yr, 28% above national") with **no available generator** and a
-    wrong-direction error (CA renters is ~17% *below* national). Pre-existing,
-    independent of the tool. Needs a renters/state body regenerator (the
-    ranking block within each page is already correct). `gen_home_state_pages.py`
-    CARRIERS list is also still the old 12-carrier home roster (rankings on
-    home/state pages don't yet show the new regionals).
+  - **renters/state page BODY averages — FIXED 2026-06-17.** The body text
+    (meta/OG/twitter/schema descriptions, dek, TLDR, FAQ, callouts, stat-pill
+    tier) had a stale baked-in dataset out of sync on 44/51 pages (e.g. CA
+    "$215/yr, 28% above" → now "$144/yr, 14% below"). Resynced **all 51** to
+    `RENTERS_STATE_DATA` via in-place token patch: avg, $/month, %-vs-national
+    ($168), and tier pill recomputed; hand-tuned per-state prose preserved.
+    Validated 0 body/tool mismatches; sweep 526/526.
+  - **Remaining follow-up:** `gen_home_state_pages.py` CARRIERS list is still the
+    old 12-carrier home roster (home/state ranking tables don't yet show the new
+    regionals); same applies to the renters/state ranking carrier set.
 
 ### Canonical sources
 - State averages: https://www.valuepenguin.com/car-insurance-by-state
