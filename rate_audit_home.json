@@ -446,16 +446,16 @@
       "category": "state_avg",
       "name": "California",
       "snapshot": {
-        "avg": 1840
+        "avg": 1174
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution +57% vs source; ratio-fix=1174; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 1616,
         "ratio_fix": 1174,
-        "delta_pct": 57,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -565,16 +565,16 @@
       "category": "state_avg",
       "name": "Hawaii",
       "snapshot": {
-        "avg": 1118
+        "avg": 479
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution +133% vs source; ratio-fix=479; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 659,
         "ratio_fix": 479,
-        "delta_pct": 133,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -599,16 +599,16 @@
       "category": "state_avg",
       "name": "Idaho",
       "snapshot": {
-        "avg": 1155
+        "avg": 1628
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution -29% vs source; ratio-fix=1628; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 2240,
         "ratio_fix": 1628,
-        "delta_pct": -29,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -650,16 +650,16 @@
       "category": "state_avg",
       "name": "Kansas",
       "snapshot": {
-        "avg": 2860
+        "avg": 3822
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution -25% vs source; ratio-fix=3822; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 5260,
         "ratio_fix": 3822,
-        "delta_pct": -25,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -667,16 +667,16 @@
       "category": "state_avg",
       "name": "Kentucky",
       "snapshot": {
-        "avg": 2170
+        "avg": 2937
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution -26% vs source; ratio-fix=2937; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 4042,
         "ratio_fix": 2937,
-        "delta_pct": -26,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -701,16 +701,16 @@
       "category": "state_avg",
       "name": "Massachusetts",
       "snapshot": {
-        "avg": 1650
+        "avg": 1078
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution +53% vs source; ratio-fix=1078; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 1483,
         "ratio_fix": 1078,
-        "delta_pct": 53,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -735,16 +735,16 @@
       "category": "state_avg",
       "name": "Maine",
       "snapshot": {
-        "avg": 1295
+        "avg": 970
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution +34% vs source; ratio-fix=970; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 1335,
         "ratio_fix": 970,
-        "delta_pct": 34,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -786,16 +786,16 @@
       "category": "state_avg",
       "name": "Missouri",
       "snapshot": {
-        "avg": 2050
+        "avg": 2891
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution -29% vs source; ratio-fix=2891; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 3979,
         "ratio_fix": 2891,
-        "delta_pct": -29,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -803,16 +803,16 @@
       "category": "state_avg",
       "name": "Mississippi",
       "snapshot": {
-        "avg": 2480
+        "avg": 1838
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution +35% vs source; ratio-fix=1838; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 2529,
         "ratio_fix": 1838,
-        "delta_pct": 35,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -854,16 +854,16 @@
       "category": "state_avg",
       "name": "North Dakota",
       "snapshot": {
-        "avg": 1635
+        "avg": 2167
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution -25% vs source; ratio-fix=2167; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 2982,
         "ratio_fix": 2167,
-        "delta_pct": -25,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -871,16 +871,16 @@
       "category": "state_avg",
       "name": "Nebraska",
       "snapshot": {
-        "avg": 2480
+        "avg": 3308
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution -25% vs source; ratio-fix=3308; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 4553,
         "ratio_fix": 3308,
-        "delta_pct": -25,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -905,16 +905,16 @@
       "category": "state_avg",
       "name": "New Jersey",
       "snapshot": {
-        "avg": 1492
+        "avg": 1033
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution +45% vs source; ratio-fix=1033; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 1421,
         "ratio_fix": 1033,
-        "delta_pct": 45,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -956,16 +956,16 @@
       "category": "state_avg",
       "name": "New York",
       "snapshot": {
-        "avg": 1676
+        "avg": 1223
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution +37% vs source; ratio-fix=1223; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 1683,
         "ratio_fix": 1223,
-        "delta_pct": 37,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -1024,16 +1024,16 @@
       "category": "state_avg",
       "name": "Pennsylvania",
       "snapshot": {
-        "avg": 1492
+        "avg": 1111
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution +34% vs source; ratio-fix=1111; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 1529,
         "ratio_fix": 1111,
-        "delta_pct": 34,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -1075,16 +1075,16 @@
       "category": "state_avg",
       "name": "South Dakota",
       "snapshot": {
-        "avg": 1860
+        "avg": 2732
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution -32% vs source; ratio-fix=2732; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 3760,
         "ratio_fix": 2732,
-        "delta_pct": -32,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -1160,16 +1160,16 @@
       "category": "state_avg",
       "name": "Vermont",
       "snapshot": {
-        "avg": 1140
+        "avg": 772
       },
       "last_verified": "2026-06-17",
       "source": "https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state",
-      "notes": "REVIEWED 2026-06-17 — distribution +48% vs source; ratio-fix=772; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "Insurance.com home 2026-03-20 ($300k dwelling)",
         "src_value": 1063,
         "ratio_fix": 772,
-        "delta_pct": 48,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },

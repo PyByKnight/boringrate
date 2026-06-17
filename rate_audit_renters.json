@@ -373,16 +373,16 @@
       "category": "state_avg",
       "name": "Arkansas",
       "snapshot": {
-        "avg": 194
+        "avg": 265
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/average-cost-renters-insurance",
-      "notes": "REVIEWED 2026-06-17 — distribution -27% vs source; ratio-fix=265; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "ValuePenguin renters 2026-06-02",
         "src_value": 420,
         "ratio_fix": 265,
-        "delta_pct": -27,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -407,16 +407,16 @@
       "category": "state_avg",
       "name": "California",
       "snapshot": {
-        "avg": 196
+        "avg": 144
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/average-cost-renters-insurance",
-      "notes": "REVIEWED 2026-06-17 — distribution +36% vs source; ratio-fix=144; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "ValuePenguin renters 2026-06-02",
         "src_value": 228,
         "ratio_fix": 144,
-        "delta_pct": 36,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -485,16 +485,16 @@
       "category": "state_avg",
       "name": "Florida",
       "snapshot": {
-        "avg": 258
+        "avg": 204
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/average-cost-renters-insurance",
-      "notes": "REVIEWED 2026-06-17 — distribution +26% vs source; ratio-fix=204; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "ValuePenguin renters 2026-06-02",
         "src_value": 324,
         "ratio_fix": 204,
-        "delta_pct": 26,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -655,16 +655,16 @@
       "category": "state_avg",
       "name": "Massachusetts",
       "snapshot": {
-        "avg": 185
+        "avg": 136
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/average-cost-renters-insurance",
-      "notes": "REVIEWED 2026-06-17 — distribution +36% vs source; ratio-fix=136; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "ValuePenguin renters 2026-06-02",
         "src_value": 216,
         "ratio_fix": 136,
-        "delta_pct": 36,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -706,16 +706,16 @@
       "category": "state_avg",
       "name": "Michigan",
       "snapshot": {
-        "avg": 153
+        "avg": 227
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/average-cost-renters-insurance",
-      "notes": "REVIEWED 2026-06-17 — distribution -33% vs source; ratio-fix=227; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "ValuePenguin renters 2026-06-02",
         "src_value": 360,
         "ratio_fix": 227,
-        "delta_pct": -33,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -774,16 +774,16 @@
       "category": "state_avg",
       "name": "Montana",
       "snapshot": {
-        "avg": 155
+        "avg": 121
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/average-cost-renters-insurance",
-      "notes": "REVIEWED 2026-06-17 — distribution +28% vs source; ratio-fix=121; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "ValuePenguin renters 2026-06-02",
         "src_value": 192,
         "ratio_fix": 121,
-        "delta_pct": 28,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -791,16 +791,16 @@
       "category": "state_avg",
       "name": "North Carolina",
       "snapshot": {
-        "avg": 188
+        "avg": 129
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/average-cost-renters-insurance",
-      "notes": "REVIEWED 2026-06-17 — distribution +46% vs source; ratio-fix=129; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "ValuePenguin renters 2026-06-02",
         "src_value": 204,
         "ratio_fix": 129,
-        "delta_pct": 46,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -910,16 +910,16 @@
       "category": "state_avg",
       "name": "New York",
       "snapshot": {
-        "avg": 198
+        "avg": 144
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/average-cost-renters-insurance",
-      "notes": "REVIEWED 2026-06-17 — distribution +38% vs source; ratio-fix=144; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "ValuePenguin renters 2026-06-02",
         "src_value": 228,
         "ratio_fix": 144,
-        "delta_pct": 38,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -1012,16 +1012,16 @@
       "category": "state_avg",
       "name": "South Carolina",
       "snapshot": {
-        "avg": 204
+        "avg": 151
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/average-cost-renters-insurance",
-      "notes": "REVIEWED 2026-06-17 — distribution +35% vs source; ratio-fix=151; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "ValuePenguin renters 2026-06-02",
         "src_value": 240,
         "ratio_fix": 151,
-        "delta_pct": 35,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -1063,16 +1063,16 @@
       "category": "state_avg",
       "name": "Texas",
       "snapshot": {
-        "avg": 238
+        "avg": 189
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/average-cost-renters-insurance",
-      "notes": "REVIEWED 2026-06-17 — distribution +26% vs source; ratio-fix=189; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "ValuePenguin renters 2026-06-02",
         "src_value": 300,
         "ratio_fix": 189,
-        "delta_pct": 26,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },
@@ -1131,16 +1131,16 @@
       "category": "state_avg",
       "name": "Washington",
       "snapshot": {
-        "avg": 164
+        "avg": 129
       },
       "last_verified": "2026-06-17",
       "source": "https://www.valuepenguin.com/average-cost-renters-insurance",
-      "notes": "REVIEWED 2026-06-17 — distribution +27% vs source; ratio-fix=129; PENDING decision",
+      "notes": "Applied ratio-fix to source distribution 2026-06-17",
       "reference": {
         "source": "ValuePenguin renters 2026-06-02",
         "src_value": 204,
         "ratio_fix": 129,
-        "delta_pct": 27,
+        "delta_pct": 0,
         "basis": "distribution-normalized (our national basis preserved)"
       }
     },

@@ -12,17 +12,17 @@ RED, GREEN = "#b4321a", "#2f6b3a"
 # ── Home premium averages (mirrors HOME_STATE_DATA in home/index.html) ──
 STATES = {
  "AL":("Alabama",2150),"AK":("Alaska",1245),"AZ":("Arizona",1680),"AR":("Arkansas",2280),
- "CA":("California",1840),"CO":("Colorado",2820),"CT":("Connecticut",1540),"DC":("Washington D.C.",1310),
- "DE":("Delaware",1090),"FL":("Florida",4218),"GA":("Georgia",1976),"HI":("Hawaii",1118),
- "ID":("Idaho",1155),"IL":("Illinois",1862),"IN":("Indiana",1750),"IA":("Iowa",1630),
- "KS":("Kansas",2860),"KY":("Kentucky",2170),"LA":("Louisiana",3635),"ME":("Maine",1295),
- "MD":("Maryland",1490),"MA":("Massachusetts",1650),"MI":("Michigan",1680),"MN":("Minnesota",2090),
- "MS":("Mississippi",2480),"MO":("Missouri",2050),"MT":("Montana",1880),"NE":("Nebraska",2480),
- "NV":("Nevada",1380),"NH":("New Hampshire",1070),"NJ":("New Jersey",1492),"NM":("New Mexico",1860),
- "NY":("New York",1676),"NC":("North Carolina",1845),"ND":("North Dakota",1635),"OH":("Ohio",1580),
- "OK":("Oklahoma",3285),"OR":("Oregon",1200),"PA":("Pennsylvania",1492),"RI":("Rhode Island",1760),
- "SC":("South Carolina",1890),"SD":("South Dakota",1860),"TN":("Tennessee",2090),"TX":("Texas",3429),
- "UT":("Utah",1280),"VT":("Vermont",1140),"VA":("Virginia",1558),"WA":("Washington",1250),
+ "CA":("California",1174),"CO":("Colorado",2820),"CT":("Connecticut",1540),"DC":("Washington D.C.",1310),
+ "DE":("Delaware",1090),"FL":("Florida",4218),"GA":("Georgia",1976),"HI":("Hawaii",479),
+ "ID":("Idaho",1628),"IL":("Illinois",1862),"IN":("Indiana",1750),"IA":("Iowa",1630),
+ "KS":("Kansas",3822),"KY":("Kentucky",2937),"LA":("Louisiana",3635),"ME":("Maine",970),
+ "MD":("Maryland",1490),"MA":("Massachusetts",1078),"MI":("Michigan",1680),"MN":("Minnesota",2090),
+ "MS":("Mississippi",1838),"MO":("Missouri",2891),"MT":("Montana",1880),"NE":("Nebraska",3308),
+ "NV":("Nevada",1380),"NH":("New Hampshire",1070),"NJ":("New Jersey",1033),"NM":("New Mexico",1860),
+ "NY":("New York",1223),"NC":("North Carolina",1845),"ND":("North Dakota",2167),"OH":("Ohio",1580),
+ "OK":("Oklahoma",3285),"OR":("Oregon",1200),"PA":("Pennsylvania",1111),"RI":("Rhode Island",1760),
+ "SC":("South Carolina",1890),"SD":("South Dakota",2732),"TN":("Tennessee",2090),"TX":("Texas",3429),
+ "UT":("Utah",1280),"VT":("Vermont",772),"VA":("Virginia",1558),"WA":("Washington",1250),
  "WV":("West Virginia",1560),"WI":("Wisconsin",1090),"WY":("Wyoming",1390),
 }
 

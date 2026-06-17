@@ -234,10 +234,19 @@ quote link.
     tolerance, **16 outliers** — worst is **HI (+133%; HI is actually the
     cheapest home state)**, plus CA/MA/VT/NJ/NY overstated, SD/MO/ID/KY/KS/NE
     understated.
-  - Each `state_avg` atom now stores `reference.ratio_fix` (the
-    basis-preserving corrected value) + `delta_pct`; outliers (>25%) flagged
-    "PENDING decision". **Not yet applied** — overwriting cascades to each tool +
-    its coverage page + generated per-state SEO pages, so it awaits a go-ahead.
+  - **APPLIED 2026-06-17** (ratio-fix, basis preserved): renters 11 outliers,
+    home 16 outliers. Cascaded to: renters/home `index.html` + `coverage.html`
+    `STATE_DATA`, `gen_home_state_pages.py` STATES, regenerated `home/state/*`
+    (51) and `renters/state/*` ranking blocks. Ledgers marked verified.
+    Verified: renters CA median $119, home HI median $489 (now cheapest state).
+  - **KNOWN FOLLOW-UP — renters/state page BODY averages.** The dek/TLDR/FAQ
+    text in `renters/state/*.html` uses a SEPARATE baked-in dataset (e.g. CA
+    "$215/yr, 28% above national") with **no available generator** and a
+    wrong-direction error (CA renters is ~17% *below* national). Pre-existing,
+    independent of the tool. Needs a renters/state body regenerator (the
+    ranking block within each page is already correct). `gen_home_state_pages.py`
+    CARRIERS list is also still the old 12-carrier home roster (rankings on
+    home/state pages don't yet show the new regionals).
 
 ### Canonical sources
 - State averages: https://www.valuepenguin.com/car-insurance-by-state
