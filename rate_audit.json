@@ -3,7 +3,12 @@
     "note": "Verification ledger for every auto rate atom. Integrity SLA: each atom must be re-verified against a real source at least every 30 days. A snapshot of each value is stored; if index.html later differs, the atom is DRIFTED and must be re-verified. Update dates only via `audit_rates.py --mark`/`--mark-all` after an actual source check.",
     "sla_days": 30,
     "baseline": "2026-06-17",
-    "last_run": "2026-06-17"
+    "last_run": "2026-06-17",
+    "sources": {
+      "state_avg": "ValuePenguin 'Car Insurance Rates by State' (full-coverage annual), pub 2026-06-16 — https://www.valuepenguin.com/car-insurance-by-state",
+      "cs_grade": "NAIC complaint index — PENDING verification (next batch)",
+      "modeled": "carrier base / state & metro offsets / sens are MODELED; verify relative ordering vs Insurify/MoneyGeek/Bankrate carrier rankings"
+    }
   },
   "items": {
     "carrier/national/Allstate": {
@@ -16,7 +21,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/Farmers": {
       "category": "national",
@@ -28,7 +33,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/GEICO": {
       "category": "national",
@@ -40,7 +45,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/Kemper": {
       "category": "national",
@@ -52,7 +57,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/Liberty Mutual": {
       "category": "national",
@@ -64,7 +69,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/National General": {
       "category": "national",
@@ -76,7 +81,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/Nationwide": {
       "category": "national",
@@ -88,7 +93,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/Progressive": {
       "category": "national",
@@ -100,7 +105,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/Root Insurance": {
       "category": "national",
@@ -112,7 +117,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/Safeco": {
       "category": "national",
@@ -124,7 +129,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/State Farm": {
       "category": "national",
@@ -136,7 +141,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/The Hartford": {
       "category": "national",
@@ -148,7 +153,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/Travelers": {
       "category": "national",
@@ -160,7 +165,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/national/USAA": {
       "category": "national",
@@ -172,7 +177,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/nonstandard/Bristol West": {
       "category": "nonstandard",
@@ -184,7 +189,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/nonstandard/Dairyland": {
       "category": "nonstandard",
@@ -196,7 +201,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/nonstandard/Direct Auto": {
       "category": "nonstandard",
@@ -208,7 +213,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/nonstandard/GEICO": {
       "category": "nonstandard",
@@ -220,7 +225,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/nonstandard/Kemper": {
       "category": "nonstandard",
@@ -232,7 +237,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/nonstandard/Progressive": {
       "category": "nonstandard",
@@ -244,7 +249,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/nonstandard/Safe Auto": {
       "category": "nonstandard",
@@ -256,7 +261,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/nonstandard/The General": {
       "category": "nonstandard",
@@ -268,7 +273,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Acuity Insurance": {
       "category": "regional",
@@ -280,7 +285,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Alfa Insurance": {
       "category": "regional",
@@ -292,7 +297,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/American Family": {
       "category": "regional",
@@ -304,7 +309,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Amica Mutual": {
       "category": "regional",
@@ -316,7 +321,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Arbella Insurance": {
       "category": "regional",
@@ -328,7 +333,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Arkansas Farm Bureau": {
       "category": "regional",
@@ -340,7 +345,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Auto Club Group (AAA)": {
       "category": "regional",
@@ -352,7 +357,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Auto-Owners": {
       "category": "regional",
@@ -364,7 +369,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/CSAA / AAA": {
       "category": "regional",
@@ -376,7 +381,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/California Casualty": {
       "category": "regional",
@@ -388,7 +393,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Cincinnati Insurance": {
       "category": "regional",
@@ -400,7 +405,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Concord Group": {
       "category": "regional",
@@ -412,7 +417,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Country Financial": {
       "category": "regional",
@@ -424,7 +429,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Cumberland Insurance": {
       "category": "regional",
@@ -436,7 +441,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/DTRIC Insurance": {
       "category": "regional",
@@ -448,7 +453,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Donegal Insurance": {
       "category": "regional",
@@ -460,7 +465,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/EMC Insurance": {
       "category": "regional",
@@ -472,7 +477,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Erie Insurance": {
       "category": "regional",
@@ -484,7 +489,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Farm Bureau Financial Services": {
       "category": "regional",
@@ -496,7 +501,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/First Insurance Co. of Hawaii": {
       "category": "regional",
@@ -508,7 +513,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Florida Farm Bureau": {
       "category": "regional",
@@ -520,7 +525,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Frankenmuth Insurance": {
       "category": "regional",
@@ -532,7 +537,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Georgia Farm Bureau": {
       "category": "regional",
@@ -544,7 +549,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Germania Insurance": {
       "category": "regional",
@@ -556,7 +561,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Grinnell Mutual": {
       "category": "regional",
@@ -568,7 +573,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Hastings Mutual": {
       "category": "regional",
@@ -580,7 +585,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Indiana Farm Bureau": {
       "category": "regional",
@@ -592,7 +597,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Iowa Farm Bureau": {
       "category": "regional",
@@ -604,7 +609,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Island Insurance": {
       "category": "regional",
@@ -616,7 +621,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Kansas Farm Bureau": {
       "category": "regional",
@@ -628,7 +633,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Kentucky Farm Bureau": {
       "category": "regional",
@@ -640,7 +645,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Louisiana Farm Bureau": {
       "category": "regional",
@@ -652,7 +657,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/MAPFRE Insurance": {
       "category": "regional",
@@ -664,7 +669,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/MMG Insurance": {
       "category": "regional",
@@ -676,7 +681,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Mercury Insurance": {
       "category": "regional",
@@ -688,7 +693,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Michigan Farm Bureau": {
       "category": "regional",
@@ -700,7 +705,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Mississippi Farm Bureau": {
       "category": "regional",
@@ -712,7 +717,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Mountain West Farm Bureau": {
       "category": "regional",
@@ -724,7 +729,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/NC Farm Bureau": {
       "category": "regional",
@@ -736,7 +741,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/NJM Insurance": {
       "category": "regional",
@@ -748,7 +753,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/NYCM Insurance": {
       "category": "regional",
@@ -760,7 +765,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Nodak Mutual": {
       "category": "regional",
@@ -772,7 +777,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Oklahoma Farm Bureau": {
       "category": "regional",
@@ -784,7 +789,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/PEMCO": {
       "category": "regional",
@@ -796,7 +801,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Pekin Insurance": {
       "category": "regional",
@@ -808,7 +813,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Penn National Insurance": {
       "category": "regional",
@@ -820,7 +825,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Pioneer State Mutual": {
       "category": "regional",
@@ -832,7 +837,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Plymouth Rock Assurance": {
       "category": "regional",
@@ -844,7 +849,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Quincy Mutual": {
       "category": "regional",
@@ -856,7 +861,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/SC Farm Bureau": {
       "category": "regional",
@@ -868,7 +873,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Secura Insurance": {
       "category": "regional",
@@ -880,7 +885,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Selective Insurance": {
       "category": "regional",
@@ -892,7 +897,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Shelter Insurance": {
       "category": "regional",
@@ -904,7 +909,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Tennessee Farm Bureau": {
       "category": "regional",
@@ -916,7 +921,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Texas Farm Bureau": {
       "category": "regional",
@@ -928,7 +933,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/The Hanover": {
       "category": "regional",
@@ -940,7 +945,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Umialik Insurance": {
       "category": "regional",
@@ -952,7 +957,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Vermont Mutual": {
       "category": "regional",
@@ -964,7 +969,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Virginia Farm Bureau": {
       "category": "regional",
@@ -976,7 +981,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Wawanesa": {
       "category": "regional",
@@ -988,7 +993,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/West Bend Mutual": {
       "category": "regional",
@@ -1000,7 +1005,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Westfield Insurance": {
       "category": "regional",
@@ -1012,7 +1017,7 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "carrier/regional/Wolverine Mutual": {
       "category": "regional",
@@ -1024,7 +1029,1577 @@
       },
       "last_verified": "2026-06-17",
       "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/AK/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in AK",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/AK/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in AK",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/AK/USAA": {
+      "category": "state_offset",
+      "name": "USAA in AK",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/AL/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in AL",
+      "snapshot": {
+        "mult": 0.89
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/AL/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in AL",
+      "snapshot": {
+        "mult": 0.86
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/AL/USAA": {
+      "category": "state_offset",
+      "name": "USAA in AL",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/AR/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in AR",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/AR/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in AR",
+      "snapshot": {
+        "mult": 0.85
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/AR/USAA": {
+      "category": "state_offset",
+      "name": "USAA in AR",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/AZ/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in AZ",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/AZ/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in AZ",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/AZ/USAA": {
+      "category": "state_offset",
+      "name": "USAA in AZ",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/CA/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in CA",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/CA/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in CA",
+      "snapshot": {
+        "mult": 1.1
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/CA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in CA",
+      "snapshot": {
+        "mult": 0.84
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/CA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in CA",
+      "snapshot": {
+        "mult": 1.12
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/CA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in CA",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/CO/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in CO",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/CO/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in CO",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/CO/USAA": {
+      "category": "state_offset",
+      "name": "USAA in CO",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/CT/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in CT",
+      "snapshot": {
+        "mult": 0.86
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/CT/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in CT",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/CT/USAA": {
+      "category": "state_offset",
+      "name": "USAA in CT",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/DC/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in DC",
+      "snapshot": {
+        "mult": 0.82
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/DC/USAA": {
+      "category": "state_offset",
+      "name": "USAA in DC",
+      "snapshot": {
+        "mult": 1.1
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/DE/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in DE",
+      "snapshot": {
+        "mult": 0.84
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/DE/USAA": {
+      "category": "state_offset",
+      "name": "USAA in DE",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/FL/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in FL",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/FL/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in FL",
+      "snapshot": {
+        "mult": 0.84
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/FL/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in FL",
+      "snapshot": {
+        "mult": 1.1
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/FL/USAA": {
+      "category": "state_offset",
+      "name": "USAA in FL",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/GA/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in GA",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/GA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in GA",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/GA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in GA",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/GA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in GA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/HI/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in HI",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/HI/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in HI",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/HI/USAA": {
+      "category": "state_offset",
+      "name": "USAA in HI",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/IA/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in IA",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/IA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in IA",
+      "snapshot": {
+        "mult": 0.83
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/IA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in IA",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/ID/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in ID",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/ID/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in ID",
+      "snapshot": {
+        "mult": 0.84
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/ID/USAA": {
+      "category": "state_offset",
+      "name": "USAA in ID",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/IL/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in IL",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/IL/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in IL",
+      "snapshot": {
+        "mult": 0.82
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/IL/USAA": {
+      "category": "state_offset",
+      "name": "USAA in IL",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/IN/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in IN",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/IN/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in IN",
+      "snapshot": {
+        "mult": 0.84
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/IN/USAA": {
+      "category": "state_offset",
+      "name": "USAA in IN",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/KS/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in KS",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/KS/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in KS",
+      "snapshot": {
+        "mult": 0.84
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/KS/USAA": {
+      "category": "state_offset",
+      "name": "USAA in KS",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/KY/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in KY",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/KY/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in KY",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/KY/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in KY",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/KY/USAA": {
+      "category": "state_offset",
+      "name": "USAA in KY",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/LA/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in LA",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/LA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in LA",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/LA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in LA",
+      "snapshot": {
+        "mult": 1.1
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/LA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in LA",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MA/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in MA",
+      "snapshot": {
+        "mult": 0.87
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in MA",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MA",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MD/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in MD",
+      "snapshot": {
+        "mult": 0.84
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MD/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MD",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/ME/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in ME",
+      "snapshot": {
+        "mult": 0.86
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/ME/USAA": {
+      "category": "state_offset",
+      "name": "USAA in ME",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MI/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in MI",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MI/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in MI",
+      "snapshot": {
+        "mult": 0.8
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MI/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in MI",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MI/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MI",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MN/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in MN",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MN/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in MN",
+      "snapshot": {
+        "mult": 0.84
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MN/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MN",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MO/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in MO",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MO/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in MO",
+      "snapshot": {
+        "mult": 0.85
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MO/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MO",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MS/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in MS",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MS/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in MS",
+      "snapshot": {
+        "mult": 0.85
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MS/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MS",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MT/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in MT",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MT/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in MT",
+      "snapshot": {
+        "mult": 0.85
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/MT/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MT",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NC/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in NC",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NC/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in NC",
+      "snapshot": {
+        "mult": 0.85
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NC/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NC",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/ND/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in ND",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/ND/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in ND",
+      "snapshot": {
+        "mult": 0.84
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/ND/USAA": {
+      "category": "state_offset",
+      "name": "USAA in ND",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NE/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in NE",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NE/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in NE",
+      "snapshot": {
+        "mult": 0.84
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NE/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NE",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NH/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in NH",
+      "snapshot": {
+        "mult": 0.86
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NH/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NH",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NJ/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in NJ",
+      "snapshot": {
+        "mult": 0.85
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NJ/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in NJ",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NJ/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NJ",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NM/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in NM",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NM/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in NM",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NM/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NM",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NV/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in NV",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NV/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in NV",
+      "snapshot": {
+        "mult": 0.86
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NV/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NV",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NY/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in NY",
+      "snapshot": {
+        "mult": 0.85
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NY/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in NY",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/NY/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NY",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/OH/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in OH",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/OH/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in OH",
+      "snapshot": {
+        "mult": 0.82
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/OH/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in OH",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/OH/USAA": {
+      "category": "state_offset",
+      "name": "USAA in OH",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/OK/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in OK",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/OK/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in OK",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/OK/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in OK",
+      "snapshot": {
+        "mult": 0.85
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/OK/USAA": {
+      "category": "state_offset",
+      "name": "USAA in OK",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/OR/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in OR",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/OR/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in OR",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/OR/USAA": {
+      "category": "state_offset",
+      "name": "USAA in OR",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/PA/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in PA",
+      "snapshot": {
+        "mult": 0.87
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/PA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in PA",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/PA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in PA",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/PA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in PA",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/RI/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in RI",
+      "snapshot": {
+        "mult": 0.86
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/RI/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in RI",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/RI/USAA": {
+      "category": "state_offset",
+      "name": "USAA in RI",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/SC/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in SC",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/SC/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in SC",
+      "snapshot": {
+        "mult": 0.85
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/SC/USAA": {
+      "category": "state_offset",
+      "name": "USAA in SC",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/SD/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in SD",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/SD/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in SD",
+      "snapshot": {
+        "mult": 0.84
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/SD/USAA": {
+      "category": "state_offset",
+      "name": "USAA in SD",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/TN/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in TN",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/TN/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in TN",
+      "snapshot": {
+        "mult": 0.84
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/TN/USAA": {
+      "category": "state_offset",
+      "name": "USAA in TN",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/TX/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in TX",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/TX/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in TX",
+      "snapshot": {
+        "mult": 0.86
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/TX/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in TX",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/TX/USAA": {
+      "category": "state_offset",
+      "name": "USAA in TX",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/UT/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in UT",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/UT/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in UT",
+      "snapshot": {
+        "mult": 0.87
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/UT/USAA": {
+      "category": "state_offset",
+      "name": "USAA in UT",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/VA/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in VA",
+      "snapshot": {
+        "mult": 0.86
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/VA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in VA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/VT/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in VT",
+      "snapshot": {
+        "mult": 0.87
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/VT/USAA": {
+      "category": "state_offset",
+      "name": "USAA in VT",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/WA/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in WA",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/WA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in WA",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/WA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in WA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/WI/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in WI",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/WI/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in WI",
+      "snapshot": {
+        "mult": 0.83
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/WI/USAA": {
+      "category": "state_offset",
+      "name": "USAA in WI",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/WV/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in WV",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/WV/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in WV",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/WV/USAA": {
+      "category": "state_offset",
+      "name": "USAA in WV",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/WY/GEICO": {
+      "category": "state_offset",
+      "name": "GEICO in WY",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/WY/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in WY",
+      "snapshot": {
+        "mult": 0.85
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
+    },
+    "offset/WY/USAA": {
+      "category": "state_offset",
+      "name": "USAA in WY",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Tracked; pending source verification 2026-06"
     },
     "state_avg/AK": {
       "category": "state_avg",
@@ -1033,8 +2608,13 @@
         "avg": 2314
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +13% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2040,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 13
+      }
     },
     "state_avg/AL": {
       "category": "state_avg",
@@ -1043,8 +2623,13 @@
         "avg": 2468
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +14% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2172,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 14
+      }
     },
     "state_avg/AR": {
       "category": "state_avg",
@@ -1053,8 +2638,13 @@
         "avg": 2362
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -13% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2700,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -13
+      }
     },
     "state_avg/AZ": {
       "category": "state_avg",
@@ -1063,8 +2653,13 @@
         "avg": 2578
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -9%)",
+      "reference": {
+        "value": 2832,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -9
+      }
     },
     "state_avg/CA": {
       "category": "state_avg",
@@ -1073,8 +2668,13 @@
         "avg": 3668
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +38% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2652,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 38
+      }
     },
     "state_avg/CO": {
       "category": "state_avg",
@@ -1083,8 +2683,13 @@
         "avg": 1706
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -48% vs source; pending keep/update decision",
+      "reference": {
+        "value": 3264,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -48
+      }
     },
     "state_avg/CT": {
       "category": "state_avg",
@@ -1093,8 +2698,13 @@
         "avg": 3124
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -15% vs source; pending keep/update decision",
+      "reference": {
+        "value": 3660,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -15
+      }
     },
     "state_avg/DC": {
       "category": "state_avg",
@@ -1103,8 +2713,13 @@
         "avg": 3486
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +19% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2928,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 19
+      }
     },
     "state_avg/DE": {
       "category": "state_avg",
@@ -1113,8 +2728,13 @@
         "avg": 3218
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -11% vs source; pending keep/update decision",
+      "reference": {
+        "value": 3624,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -11
+      }
     },
     "state_avg/FL": {
       "category": "state_avg",
@@ -1123,8 +2743,13 @@
         "avg": 4848
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +30% vs source; pending keep/update decision",
+      "reference": {
+        "value": 3732,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 30
+      }
     },
     "state_avg/GA": {
       "category": "state_avg",
@@ -1133,8 +2758,13 @@
         "avg": 3224
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +46% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2208,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 46
+      }
     },
     "state_avg/HI": {
       "category": "state_avg",
@@ -1143,8 +2773,13 @@
         "avg": 1446
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -20% vs source; pending keep/update decision",
+      "reference": {
+        "value": 1812,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -20
+      }
     },
     "state_avg/IA": {
       "category": "state_avg",
@@ -1153,8 +2788,13 @@
         "avg": 1586
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -22% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2040,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -22
+      }
     },
     "state_avg/ID": {
       "category": "state_avg",
@@ -1163,8 +2803,13 @@
         "avg": 1654
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -7%)",
+      "reference": {
+        "value": 1776,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -7
+      }
     },
     "state_avg/IL": {
       "category": "state_avg",
@@ -1173,8 +2818,13 @@
         "avg": 2194
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -1%)",
+      "reference": {
+        "value": 2220,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -1
+      }
     },
     "state_avg/IN": {
       "category": "state_avg",
@@ -1183,8 +2833,13 @@
         "avg": 1842
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -8%)",
+      "reference": {
+        "value": 1992,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -8
+      }
     },
     "state_avg/KS": {
       "category": "state_avg",
@@ -1193,8 +2848,13 @@
         "avg": 2124
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -21% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2700,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -21
+      }
     },
     "state_avg/KY": {
       "category": "state_avg",
@@ -1203,8 +2863,13 @@
         "avg": 2756
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +10% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2496,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 10
+      }
     },
     "state_avg/LA": {
       "category": "state_avg",
@@ -1213,8 +2878,13 @@
         "avg": 4612
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +18% vs source; pending keep/update decision",
+      "reference": {
+        "value": 3924,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 18
+      }
     },
     "state_avg/MA": {
       "category": "state_avg",
@@ -1223,8 +2893,13 @@
         "avg": 2842
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +31% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2172,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 31
+      }
     },
     "state_avg/MD": {
       "category": "state_avg",
@@ -1233,8 +2908,13 @@
         "avg": 2986
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +18% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2532,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 18
+      }
     },
     "state_avg/ME": {
       "category": "state_avg",
@@ -1243,8 +2923,13 @@
         "avg": 1468
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -5%)",
+      "reference": {
+        "value": 1548,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -5
+      }
     },
     "state_avg/MI": {
       "category": "state_avg",
@@ -1253,8 +2938,13 @@
         "avg": 4724
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +51% vs source; pending keep/update decision",
+      "reference": {
+        "value": 3120,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 51
+      }
     },
     "state_avg/MN": {
       "category": "state_avg",
@@ -1263,8 +2953,13 @@
         "avg": 2214
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -17% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2664,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -17
+      }
     },
     "state_avg/MO": {
       "category": "state_avg",
@@ -1273,8 +2968,13 @@
         "avg": 2648
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within +0%)",
+      "reference": {
+        "value": 2652,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 0
+      }
     },
     "state_avg/MS": {
       "category": "state_avg",
@@ -1283,8 +2983,13 @@
         "avg": 2438
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within +1%)",
+      "reference": {
+        "value": 2412,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 1
+      }
     },
     "state_avg/MT": {
       "category": "state_avg",
@@ -1293,8 +2998,13 @@
         "avg": 2268
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -10% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2532,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -10
+      }
     },
     "state_avg/NC": {
       "category": "state_avg",
@@ -1303,8 +3013,13 @@
         "avg": 1842
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within +4%)",
+      "reference": {
+        "value": 1764,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 4
+      }
     },
     "state_avg/ND": {
       "category": "state_avg",
@@ -1313,8 +3028,13 @@
         "avg": 1748
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -19% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2160,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -19
+      }
     },
     "state_avg/NE": {
       "category": "state_avg",
@@ -1323,8 +3043,13 @@
         "avg": 2012
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -13% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2316,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -13
+      }
     },
     "state_avg/NH": {
       "category": "state_avg",
@@ -1333,8 +3058,13 @@
         "avg": 1624
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within +1%)",
+      "reference": {
+        "value": 1608,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 1
+      }
     },
     "state_avg/NJ": {
       "category": "state_avg",
@@ -1343,8 +3073,13 @@
         "avg": 3486
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +17% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2988,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 17
+      }
     },
     "state_avg/NM": {
       "category": "state_avg",
@@ -1353,8 +3088,13 @@
         "avg": 2314
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -9%)",
+      "reference": {
+        "value": 2544,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -9
+      }
     },
     "state_avg/NV": {
       "category": "state_avg",
@@ -1363,8 +3103,13 @@
         "avg": 3842
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -4%)",
+      "reference": {
+        "value": 4020,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -4
+      }
     },
     "state_avg/NY": {
       "category": "state_avg",
@@ -1373,8 +3118,13 @@
         "avg": 3484
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +28% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2712,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 28
+      }
     },
     "state_avg/OH": {
       "category": "state_avg",
@@ -1383,8 +3133,13 @@
         "avg": 1724
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -3%)",
+      "reference": {
+        "value": 1776,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -3
+      }
     },
     "state_avg/OK": {
       "category": "state_avg",
@@ -1393,8 +3148,13 @@
         "avg": 2648
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within +3%)",
+      "reference": {
+        "value": 2568,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 3
+      }
     },
     "state_avg/OR": {
       "category": "state_avg",
@@ -1403,8 +3163,13 @@
         "avg": 1986
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -17% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2388,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -17
+      }
     },
     "state_avg/PA": {
       "category": "state_avg",
@@ -1413,8 +3178,13 @@
         "avg": 2468
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within +4%)",
+      "reference": {
+        "value": 2376,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 4
+      }
     },
     "state_avg/RI": {
       "category": "state_avg",
@@ -1423,8 +3193,13 @@
         "avg": 3124
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -6%)",
+      "reference": {
+        "value": 3312,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -6
+      }
     },
     "state_avg/SC": {
       "category": "state_avg",
@@ -1433,8 +3208,13 @@
         "avg": 2586
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +13% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2280,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 13
+      }
     },
     "state_avg/SD": {
       "category": "state_avg",
@@ -1443,8 +3223,13 @@
         "avg": 1986
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -16% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2352,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -16
+      }
     },
     "state_avg/TN": {
       "category": "state_avg",
@@ -1453,8 +3238,13 @@
         "avg": 2124
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within +1%)",
+      "reference": {
+        "value": 2112,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 1
+      }
     },
     "state_avg/TX": {
       "category": "state_avg",
@@ -1463,8 +3253,13 @@
         "avg": 3136
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within +6%)",
+      "reference": {
+        "value": 2964,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 6
+      }
     },
     "state_avg/UT": {
       "category": "state_avg",
@@ -1473,8 +3268,13 @@
         "avg": 2468
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -8%)",
+      "reference": {
+        "value": 2688,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -8
+      }
     },
     "state_avg/VA": {
       "category": "state_avg",
@@ -1483,8 +3283,13 @@
         "avg": 1924
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -5%)",
+      "reference": {
+        "value": 2028,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -5
+      }
     },
     "state_avg/VT": {
       "category": "state_avg",
@@ -1493,8 +3298,13 @@
         "avg": 1524
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -1%)",
+      "reference": {
+        "value": 1536,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -1
+      }
     },
     "state_avg/WA": {
       "category": "state_avg",
@@ -1503,8 +3313,13 @@
         "avg": 2312
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -12% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2628,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -12
+      }
     },
     "state_avg/WI": {
       "category": "state_avg",
@@ -1513,8 +3328,13 @@
         "avg": 1724
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges -14% vs source; pending keep/update decision",
+      "reference": {
+        "value": 2016,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -14
+      }
     },
     "state_avg/WV": {
       "category": "state_avg",
@@ -1523,8 +3343,13 @@
         "avg": 2124
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "Verified 2026-06-17 vs source (within -1%)",
+      "reference": {
+        "value": 2148,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": -1
+      }
     },
     "state_avg/WY": {
       "category": "state_avg",
@@ -1533,8 +3358,13 @@
         "avg": 1986
       },
       "last_verified": "2026-06-17",
-      "source": "",
-      "notes": "Baseline established during roster expansion review"
+      "source": "https://www.valuepenguin.com/car-insurance-by-state",
+      "notes": "REVIEWED 2026-06-17 — diverges +26% vs source; pending keep/update decision",
+      "reference": {
+        "value": 1572,
+        "source": "ValuePenguin 2026-06-16",
+        "delta_pct": 26
+      }
     }
   }
 }

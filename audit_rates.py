@@ -74,6 +74,17 @@ def scan_atoms():
         atoms["state_avg/%s" % m.group(1)] = {
             "category": "state_avg", "name": m.group(2), "avg": int(m.group(3)),
         }
+
+    # STATE_CARRIER_ADJ: "OH": { "Progressive": 0.82, "GEICO": 0.97, ... }
+    # Each documented per-state carrier offset is its own tracked atom.
+    sca = _block(s, "STATE_CARRIER_ADJ = {", "\n};")
+    for m in re.finditer(r'"([A-Z]{2})":\s*\{([^}]*)\}', sca):
+        st = m.group(1)
+        for mm in re.finditer(r'"([^"]+)":\s*([0-9.]+)', m.group(2)):
+            atoms["offset/%s/%s" % (st, mm.group(1))] = {
+                "category": "state_offset", "name": "%s in %s" % (mm.group(1), st),
+                "state": st, "carrier": mm.group(1), "mult": float(mm.group(2)),
+            }
     return atoms
 
 
@@ -81,6 +92,8 @@ def snapshot(atom):
     """The value fields tracked for drift, by category."""
     if atom["category"] == "state_avg":
         return {"avg": atom["avg"]}
+    if atom["category"] == "state_offset":
+        return {"mult": atom["mult"]}
     return {"base": atom["base"], "csGrade": atom["csGrade"], "stability": atom["stability"]}
 
 
@@ -208,10 +221,11 @@ def cmd_check(args, today):
     total = len(led["items"])
     ok = total - len(drifted) - len(stale) - len(removed)
     print("Auto rate integrity — %s (SLA %d days)" % (today, sla))
-    print("  tracked atoms : %d  (%d carriers + %d state averages)" % (
-        total,
-        sum(1 for v in led["items"].values() if v["category"] != "state_avg"),
-        sum(1 for v in led["items"].values() if v["category"] == "state_avg")))
+    cats = {}
+    for v in led["items"].values():
+        cats[v["category"]] = cats.get(v["category"], 0) + 1
+    print("  tracked atoms : %d  (%s)" % (
+        total, ", ".join("%d %s" % (n, c) for c, n in sorted(cats.items()))))
     print("  fresh & in-sync: %d" % ok)
 
     def show(label, ids, why):
@@ -259,6 +273,29 @@ def cmd_due(args, today):
     return 0
 
 
+def cmd_coverage(args, today):
+    """Report carrier x state offset coverage: documented vs national-base default."""
+    atoms = scan_atoms()
+    nats = sorted({a["name"] for a in atoms.values() if a["category"] == "national"})
+    states = sorted(a.split("/")[1] for a in atoms if a.startswith("state_avg/"))
+    documented = {}  # carrier -> set(states)
+    for aid, a in atoms.items():
+        if a["category"] == "state_offset":
+            documented.setdefault(a["carrier"], set()).add(a["state"])
+    cells = len(nats) * len(states)
+    doc = sum(len(documented.get(n, set())) for n in nats)
+    print("Carrier x state offset coverage — %s" % today)
+    print("  national cells : %d  (%d nationals x %d states)" % (cells, len(nats), len(states)))
+    print("  documented offset : %d (%.1f%%)" % (doc, 100 * doc / cells))
+    print("  national base only: %d (%.1f%%)" % (cells - doc, 100 * (cells - doc) / cells))
+    print("\n  per national carrier (# states with a documented offset):")
+    for n in sorted(nats, key=lambda x: -len(documented.get(x, set()))):
+        d = len(documented.get(n, set()))
+        flag = "  <-- national base in ALL states (no state variation captured)" if d == 0 else ""
+        print("     %-18s %2d/%d%s" % (n, d, len(states), flag))
+    return 0
+
+
 def main():
     p = argparse.ArgumentParser(description="Auto-rate verification auditor")
     p.add_argument("--init", action="store_true", help="create ledger, baseline all atoms today")
@@ -267,6 +304,7 @@ def main():
     p.add_argument("--mark", nargs="+", metavar="ID", help="mark atom id(s) verified today")
     p.add_argument("--mark-all", action="store_true", help="mark all atoms verified today")
     p.add_argument("--due", nargs="?", const=7, type=int, metavar="DAYS", help="list atoms due within DAYS")
+    p.add_argument("--coverage", action="store_true", help="report carrier x state offset coverage")
     p.add_argument("--source", help="source URL to record")
     p.add_argument("--note", help="note to record")
     p.add_argument("--date", help="override 'today' (YYYY-MM-DD)")
@@ -282,6 +320,8 @@ def main():
         return cmd_mark(args, today)
     if args.due is not None:
         return cmd_due(args, today)
+    if args.coverage:
+        return cmd_coverage(args, today)
     return cmd_check(args, today)
 
 

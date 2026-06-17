@@ -19,6 +19,22 @@ _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
   Workflow: `audit_rates.py` (check) -> re-verify flagged atoms against source
   -> `audit_rates.py --mark <id> --source <url>` (or `--mark-all` after a full
   pass). `--sync` adds/removes atoms when the roster changes.
+- **Rate methodology documented + first verification pass** (`RATE_METHODOLOGY.md`).
+  Full formula, layer-by-layer source map (sourceable vs modeled), the `/2`
+  display calibration finding, and a repeatable monthly process. Ledger now
+  tracks the 157 documented STATE_CARRIER_ADJ offsets too (293 atoms) +
+  `--coverage` report. KEY FINDINGS / open decisions:
+  (a) carrier-by-state gap — only 22% of national carrier×state cells have a
+  documented offset; 9 nationals (Allstate, Liberty Mutual, Nationwide,
+  Travelers, Safeco, The Hartford, Root, Kemper, National General) use the
+  national base in ALL states;
+  (b) state averages reconciled vs ValuePenguin 2026-06-16 (national matches,
+  but 11 states >20% off — CO is −48% and almost certainly wrong);
+  (c) `/2` calibration makes displayed prices ~half full-coverage average, and
+  `state_rankings.json` uses un-halved math — needs reconciliation.
+  NOT auto-applied: state-avg overwrites + /2 fix (site-wide rate changes,
+  pending decision). NEXT BATCH: NAIC complaint ratios for CS grades; add
+  STATE_CARRIER_ADJ rows for the 9 untuned nationals.
 
 ## This session (2026-06-16d, Opus 4.8) — shipped
 
