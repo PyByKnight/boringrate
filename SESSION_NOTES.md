@@ -1,6 +1,25 @@
 # BoringRate — Session Notes
 _Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
 
+## This session (2026-06-17, Opus 4.8) — shipped
+
+- **Auto carrier roster expanded toward 20/state** (locals + nationals). +2
+  nationals (Kemper, National General) shown everywhere; +30 real regionals.
+  STATE_LOCAL_CARRIERS rebuilt from per-carrier state footprints, capped at the
+  6 best regionals/state. Most states now show 20; thin states real-only
+  (AK 15, HI 17, MT 16, NM 15, WY 17 — no filler). Zero dead CTAs; sweep 526/526.
+  NEXT: same footprint-driven expansion for renters/home (their bases/grades
+  need their own pass).
+- **Auto rate verification ledger** (`rate_audit.json` + `audit_rates.py`).
+  Scans all 136 auto rate atoms (85 carrier base/grade/stability + 51 state
+  averages). Integrity SLA: re-verify every atom at least every 30 days.
+  Stores a value snapshot per atom -> detects DRIFT (code changed, not
+  re-verified) and STALE (>30d). `--check` exits 1 if anything needs attention
+  (CI/cron-ready). Baselined 2026-06-17 -> **next checkpoint due 2026-07-17.**
+  Workflow: `audit_rates.py` (check) -> re-verify flagged atoms against source
+  -> `audit_rates.py --mark <id> --source <url>` (or `--mark-all` after a full
+  pass). `--sync` adds/removes atoms when the roster changes.
+
 ## This session (2026-06-16d, Opus 4.8) — shipped
 
 - **Coverage calculator UX rebuild (home + renters).** User flagged the home tool

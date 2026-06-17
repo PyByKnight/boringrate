@@ -1,0 +1,1540 @@
+{
+  "_meta": {
+    "note": "Verification ledger for every auto rate atom. Integrity SLA: each atom must be re-verified against a real source at least every 30 days. A snapshot of each value is stored; if index.html later differs, the atom is DRIFTED and must be re-verified. Update dates only via `audit_rates.py --mark`/`--mark-all` after an actual source check.",
+    "sla_days": 30,
+    "baseline": "2026-06-17",
+    "last_run": "2026-06-17"
+  },
+  "items": {
+    "carrier/national/Allstate": {
+      "category": "national",
+      "name": "Allstate",
+      "snapshot": {
+        "base": 1.08,
+        "csGrade": "B-",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/Farmers": {
+      "category": "national",
+      "name": "Farmers",
+      "snapshot": {
+        "base": 1.04,
+        "csGrade": "B",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/GEICO": {
+      "category": "national",
+      "name": "GEICO",
+      "snapshot": {
+        "base": 0.8,
+        "csGrade": "B+",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/Kemper": {
+      "category": "national",
+      "name": "Kemper",
+      "snapshot": {
+        "base": 1.0,
+        "csGrade": "C+",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/Liberty Mutual": {
+      "category": "national",
+      "name": "Liberty Mutual",
+      "snapshot": {
+        "base": 1.23,
+        "csGrade": "C+",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/National General": {
+      "category": "national",
+      "name": "National General",
+      "snapshot": {
+        "base": 1.02,
+        "csGrade": "C+",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/Nationwide": {
+      "category": "national",
+      "name": "Nationwide",
+      "snapshot": {
+        "base": 0.99,
+        "csGrade": "B+",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/Progressive": {
+      "category": "national",
+      "name": "Progressive",
+      "snapshot": {
+        "base": 0.94,
+        "csGrade": "B",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/Root Insurance": {
+      "category": "national",
+      "name": "Root Insurance",
+      "snapshot": {
+        "base": 0.86,
+        "csGrade": "B-",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/Safeco": {
+      "category": "national",
+      "name": "Safeco",
+      "snapshot": {
+        "base": 1.06,
+        "csGrade": "B",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/State Farm": {
+      "category": "national",
+      "name": "State Farm",
+      "snapshot": {
+        "base": 0.86,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/The Hartford": {
+      "category": "national",
+      "name": "The Hartford",
+      "snapshot": {
+        "base": 0.96,
+        "csGrade": "A-",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/Travelers": {
+      "category": "national",
+      "name": "Travelers",
+      "snapshot": {
+        "base": 0.97,
+        "csGrade": "B+",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/national/USAA": {
+      "category": "national",
+      "name": "USAA",
+      "snapshot": {
+        "base": 0.82,
+        "csGrade": "A+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/nonstandard/Bristol West": {
+      "category": "nonstandard",
+      "name": "Bristol West",
+      "snapshot": {
+        "base": 1.35,
+        "csGrade": "C",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/nonstandard/Dairyland": {
+      "category": "nonstandard",
+      "name": "Dairyland",
+      "snapshot": {
+        "base": 1.42,
+        "csGrade": "C",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/nonstandard/Direct Auto": {
+      "category": "nonstandard",
+      "name": "Direct Auto",
+      "snapshot": {
+        "base": 1.45,
+        "csGrade": "C",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/nonstandard/GEICO": {
+      "category": "nonstandard",
+      "name": "GEICO",
+      "snapshot": {
+        "base": 1.1,
+        "csGrade": "B-",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/nonstandard/Kemper": {
+      "category": "nonstandard",
+      "name": "Kemper",
+      "snapshot": {
+        "base": 1.38,
+        "csGrade": "C",
+        "stability": 1
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/nonstandard/Progressive": {
+      "category": "nonstandard",
+      "name": "Progressive",
+      "snapshot": {
+        "base": 1.15,
+        "csGrade": "B-",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/nonstandard/Safe Auto": {
+      "category": "nonstandard",
+      "name": "Safe Auto",
+      "snapshot": {
+        "base": 1.48,
+        "csGrade": "C",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/nonstandard/The General": {
+      "category": "nonstandard",
+      "name": "The General",
+      "snapshot": {
+        "base": 1.4,
+        "csGrade": "C",
+        "stability": 2
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Acuity Insurance": {
+      "category": "regional",
+      "name": "Acuity Insurance",
+      "snapshot": {
+        "base": 0.82,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Alfa Insurance": {
+      "category": "regional",
+      "name": "Alfa Insurance",
+      "snapshot": {
+        "base": 0.81,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/American Family": {
+      "category": "regional",
+      "name": "American Family",
+      "snapshot": {
+        "base": 0.82,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Amica Mutual": {
+      "category": "regional",
+      "name": "Amica Mutual",
+      "snapshot": {
+        "base": 0.83,
+        "csGrade": "A+",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Arbella Insurance": {
+      "category": "regional",
+      "name": "Arbella Insurance",
+      "snapshot": {
+        "base": 0.85,
+        "csGrade": "A-",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Arkansas Farm Bureau": {
+      "category": "regional",
+      "name": "Arkansas Farm Bureau",
+      "snapshot": {
+        "base": 0.8,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Auto Club Group (AAA)": {
+      "category": "regional",
+      "name": "Auto Club Group (AAA)",
+      "snapshot": {
+        "base": 0.86,
+        "csGrade": "B+",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Auto-Owners": {
+      "category": "regional",
+      "name": "Auto-Owners",
+      "snapshot": {
+        "base": 0.79,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/CSAA / AAA": {
+      "category": "regional",
+      "name": "CSAA / AAA",
+      "snapshot": {
+        "base": 0.83,
+        "csGrade": "B+",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/California Casualty": {
+      "category": "regional",
+      "name": "California Casualty",
+      "snapshot": {
+        "base": 0.88,
+        "csGrade": "B+",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Cincinnati Insurance": {
+      "category": "regional",
+      "name": "Cincinnati Insurance",
+      "snapshot": {
+        "base": 0.9,
+        "csGrade": "A",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Concord Group": {
+      "category": "regional",
+      "name": "Concord Group",
+      "snapshot": {
+        "base": 0.83,
+        "csGrade": "A-",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Country Financial": {
+      "category": "regional",
+      "name": "Country Financial",
+      "snapshot": {
+        "base": 0.83,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Cumberland Insurance": {
+      "category": "regional",
+      "name": "Cumberland Insurance",
+      "snapshot": {
+        "base": 0.84,
+        "csGrade": "A-",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/DTRIC Insurance": {
+      "category": "regional",
+      "name": "DTRIC Insurance",
+      "snapshot": {
+        "base": 0.88,
+        "csGrade": "B",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Donegal Insurance": {
+      "category": "regional",
+      "name": "Donegal Insurance",
+      "snapshot": {
+        "base": 0.86,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/EMC Insurance": {
+      "category": "regional",
+      "name": "EMC Insurance",
+      "snapshot": {
+        "base": 0.88,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Erie Insurance": {
+      "category": "regional",
+      "name": "Erie Insurance",
+      "snapshot": {
+        "base": 0.77,
+        "csGrade": "A+",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Farm Bureau Financial Services": {
+      "category": "regional",
+      "name": "Farm Bureau Financial Services",
+      "snapshot": {
+        "base": 0.79,
+        "csGrade": "A-",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/First Insurance Co. of Hawaii": {
+      "category": "regional",
+      "name": "First Insurance Co. of Hawaii",
+      "snapshot": {
+        "base": 0.85,
+        "csGrade": "A-",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Florida Farm Bureau": {
+      "category": "regional",
+      "name": "Florida Farm Bureau",
+      "snapshot": {
+        "base": 0.84,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Frankenmuth Insurance": {
+      "category": "regional",
+      "name": "Frankenmuth Insurance",
+      "snapshot": {
+        "base": 0.83,
+        "csGrade": "A-",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Georgia Farm Bureau": {
+      "category": "regional",
+      "name": "Georgia Farm Bureau",
+      "snapshot": {
+        "base": 0.7,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Germania Insurance": {
+      "category": "regional",
+      "name": "Germania Insurance",
+      "snapshot": {
+        "base": 0.78,
+        "csGrade": "A-",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Grinnell Mutual": {
+      "category": "regional",
+      "name": "Grinnell Mutual",
+      "snapshot": {
+        "base": 0.8,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Hastings Mutual": {
+      "category": "regional",
+      "name": "Hastings Mutual",
+      "snapshot": {
+        "base": 0.85,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Indiana Farm Bureau": {
+      "category": "regional",
+      "name": "Indiana Farm Bureau",
+      "snapshot": {
+        "base": 0.77,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Iowa Farm Bureau": {
+      "category": "regional",
+      "name": "Iowa Farm Bureau",
+      "snapshot": {
+        "base": 0.79,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Island Insurance": {
+      "category": "regional",
+      "name": "Island Insurance",
+      "snapshot": {
+        "base": 0.86,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Kansas Farm Bureau": {
+      "category": "regional",
+      "name": "Kansas Farm Bureau",
+      "snapshot": {
+        "base": 0.79,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Kentucky Farm Bureau": {
+      "category": "regional",
+      "name": "Kentucky Farm Bureau",
+      "snapshot": {
+        "base": 0.68,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Louisiana Farm Bureau": {
+      "category": "regional",
+      "name": "Louisiana Farm Bureau",
+      "snapshot": {
+        "base": 0.65,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/MAPFRE Insurance": {
+      "category": "regional",
+      "name": "MAPFRE Insurance",
+      "snapshot": {
+        "base": 0.81,
+        "csGrade": "B",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/MMG Insurance": {
+      "category": "regional",
+      "name": "MMG Insurance",
+      "snapshot": {
+        "base": 0.83,
+        "csGrade": "A-",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Mercury Insurance": {
+      "category": "regional",
+      "name": "Mercury Insurance",
+      "snapshot": {
+        "base": 0.82,
+        "csGrade": "B",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Michigan Farm Bureau": {
+      "category": "regional",
+      "name": "Michigan Farm Bureau",
+      "snapshot": {
+        "base": 0.84,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Mississippi Farm Bureau": {
+      "category": "regional",
+      "name": "Mississippi Farm Bureau",
+      "snapshot": {
+        "base": 0.77,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Mountain West Farm Bureau": {
+      "category": "regional",
+      "name": "Mountain West Farm Bureau",
+      "snapshot": {
+        "base": 0.78,
+        "csGrade": "A",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/NC Farm Bureau": {
+      "category": "regional",
+      "name": "NC Farm Bureau",
+      "snapshot": {
+        "base": 0.76,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/NJM Insurance": {
+      "category": "regional",
+      "name": "NJM Insurance",
+      "snapshot": {
+        "base": 0.72,
+        "csGrade": "A+",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/NYCM Insurance": {
+      "category": "regional",
+      "name": "NYCM Insurance",
+      "snapshot": {
+        "base": 0.78,
+        "csGrade": "A",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Nodak Mutual": {
+      "category": "regional",
+      "name": "Nodak Mutual",
+      "snapshot": {
+        "base": 0.78,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Oklahoma Farm Bureau": {
+      "category": "regional",
+      "name": "Oklahoma Farm Bureau",
+      "snapshot": {
+        "base": 0.79,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/PEMCO": {
+      "category": "regional",
+      "name": "PEMCO",
+      "snapshot": {
+        "base": 0.78,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Pekin Insurance": {
+      "category": "regional",
+      "name": "Pekin Insurance",
+      "snapshot": {
+        "base": 0.84,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Penn National Insurance": {
+      "category": "regional",
+      "name": "Penn National Insurance",
+      "snapshot": {
+        "base": 0.85,
+        "csGrade": "A-",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Pioneer State Mutual": {
+      "category": "regional",
+      "name": "Pioneer State Mutual",
+      "snapshot": {
+        "base": 0.84,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Plymouth Rock Assurance": {
+      "category": "regional",
+      "name": "Plymouth Rock Assurance",
+      "snapshot": {
+        "base": 0.92,
+        "csGrade": "B",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Quincy Mutual": {
+      "category": "regional",
+      "name": "Quincy Mutual",
+      "snapshot": {
+        "base": 0.84,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/SC Farm Bureau": {
+      "category": "regional",
+      "name": "SC Farm Bureau",
+      "snapshot": {
+        "base": 0.78,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Secura Insurance": {
+      "category": "regional",
+      "name": "Secura Insurance",
+      "snapshot": {
+        "base": 0.86,
+        "csGrade": "A-",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Selective Insurance": {
+      "category": "regional",
+      "name": "Selective Insurance",
+      "snapshot": {
+        "base": 0.93,
+        "csGrade": "B+",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Shelter Insurance": {
+      "category": "regional",
+      "name": "Shelter Insurance",
+      "snapshot": {
+        "base": 0.79,
+        "csGrade": "A",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Tennessee Farm Bureau": {
+      "category": "regional",
+      "name": "Tennessee Farm Bureau",
+      "snapshot": {
+        "base": 0.71,
+        "csGrade": "A+",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Texas Farm Bureau": {
+      "category": "regional",
+      "name": "Texas Farm Bureau",
+      "snapshot": {
+        "base": 0.7,
+        "csGrade": "A+",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/The Hanover": {
+      "category": "regional",
+      "name": "The Hanover",
+      "snapshot": {
+        "base": 0.95,
+        "csGrade": "B",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Umialik Insurance": {
+      "category": "regional",
+      "name": "Umialik Insurance",
+      "snapshot": {
+        "base": 0.88,
+        "csGrade": "B+",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Vermont Mutual": {
+      "category": "regional",
+      "name": "Vermont Mutual",
+      "snapshot": {
+        "base": 0.8,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Virginia Farm Bureau": {
+      "category": "regional",
+      "name": "Virginia Farm Bureau",
+      "snapshot": {
+        "base": 0.8,
+        "csGrade": "A",
+        "stability": 5
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Wawanesa": {
+      "category": "regional",
+      "name": "Wawanesa",
+      "snapshot": {
+        "base": 0.78,
+        "csGrade": "A",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/West Bend Mutual": {
+      "category": "regional",
+      "name": "West Bend Mutual",
+      "snapshot": {
+        "base": 0.82,
+        "csGrade": "A",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Westfield Insurance": {
+      "category": "regional",
+      "name": "Westfield Insurance",
+      "snapshot": {
+        "base": 0.8,
+        "csGrade": "B+",
+        "stability": 4
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "carrier/regional/Wolverine Mutual": {
+      "category": "regional",
+      "name": "Wolverine Mutual",
+      "snapshot": {
+        "base": 0.85,
+        "csGrade": "B",
+        "stability": 3
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/AK": {
+      "category": "state_avg",
+      "name": "Alaska",
+      "snapshot": {
+        "avg": 2314
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/AL": {
+      "category": "state_avg",
+      "name": "Alabama",
+      "snapshot": {
+        "avg": 2468
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/AR": {
+      "category": "state_avg",
+      "name": "Arkansas",
+      "snapshot": {
+        "avg": 2362
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/AZ": {
+      "category": "state_avg",
+      "name": "Arizona",
+      "snapshot": {
+        "avg": 2578
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/CA": {
+      "category": "state_avg",
+      "name": "California",
+      "snapshot": {
+        "avg": 3668
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/CO": {
+      "category": "state_avg",
+      "name": "Colorado",
+      "snapshot": {
+        "avg": 1706
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/CT": {
+      "category": "state_avg",
+      "name": "Connecticut",
+      "snapshot": {
+        "avg": 3124
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/DC": {
+      "category": "state_avg",
+      "name": "Washington D.C.",
+      "snapshot": {
+        "avg": 3486
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/DE": {
+      "category": "state_avg",
+      "name": "Delaware",
+      "snapshot": {
+        "avg": 3218
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/FL": {
+      "category": "state_avg",
+      "name": "Florida",
+      "snapshot": {
+        "avg": 4848
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/GA": {
+      "category": "state_avg",
+      "name": "Georgia",
+      "snapshot": {
+        "avg": 3224
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/HI": {
+      "category": "state_avg",
+      "name": "Hawaii",
+      "snapshot": {
+        "avg": 1446
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/IA": {
+      "category": "state_avg",
+      "name": "Iowa",
+      "snapshot": {
+        "avg": 1586
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/ID": {
+      "category": "state_avg",
+      "name": "Idaho",
+      "snapshot": {
+        "avg": 1654
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/IL": {
+      "category": "state_avg",
+      "name": "Illinois",
+      "snapshot": {
+        "avg": 2194
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/IN": {
+      "category": "state_avg",
+      "name": "Indiana",
+      "snapshot": {
+        "avg": 1842
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/KS": {
+      "category": "state_avg",
+      "name": "Kansas",
+      "snapshot": {
+        "avg": 2124
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/KY": {
+      "category": "state_avg",
+      "name": "Kentucky",
+      "snapshot": {
+        "avg": 2756
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/LA": {
+      "category": "state_avg",
+      "name": "Louisiana",
+      "snapshot": {
+        "avg": 4612
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/MA": {
+      "category": "state_avg",
+      "name": "Massachusetts",
+      "snapshot": {
+        "avg": 2842
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/MD": {
+      "category": "state_avg",
+      "name": "Maryland",
+      "snapshot": {
+        "avg": 2986
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/ME": {
+      "category": "state_avg",
+      "name": "Maine",
+      "snapshot": {
+        "avg": 1468
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/MI": {
+      "category": "state_avg",
+      "name": "Michigan",
+      "snapshot": {
+        "avg": 4724
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/MN": {
+      "category": "state_avg",
+      "name": "Minnesota",
+      "snapshot": {
+        "avg": 2214
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/MO": {
+      "category": "state_avg",
+      "name": "Missouri",
+      "snapshot": {
+        "avg": 2648
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/MS": {
+      "category": "state_avg",
+      "name": "Mississippi",
+      "snapshot": {
+        "avg": 2438
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/MT": {
+      "category": "state_avg",
+      "name": "Montana",
+      "snapshot": {
+        "avg": 2268
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/NC": {
+      "category": "state_avg",
+      "name": "North Carolina",
+      "snapshot": {
+        "avg": 1842
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/ND": {
+      "category": "state_avg",
+      "name": "North Dakota",
+      "snapshot": {
+        "avg": 1748
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/NE": {
+      "category": "state_avg",
+      "name": "Nebraska",
+      "snapshot": {
+        "avg": 2012
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/NH": {
+      "category": "state_avg",
+      "name": "New Hampshire",
+      "snapshot": {
+        "avg": 1624
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/NJ": {
+      "category": "state_avg",
+      "name": "New Jersey",
+      "snapshot": {
+        "avg": 3486
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/NM": {
+      "category": "state_avg",
+      "name": "New Mexico",
+      "snapshot": {
+        "avg": 2314
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/NV": {
+      "category": "state_avg",
+      "name": "Nevada",
+      "snapshot": {
+        "avg": 3842
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/NY": {
+      "category": "state_avg",
+      "name": "New York",
+      "snapshot": {
+        "avg": 3484
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/OH": {
+      "category": "state_avg",
+      "name": "Ohio",
+      "snapshot": {
+        "avg": 1724
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/OK": {
+      "category": "state_avg",
+      "name": "Oklahoma",
+      "snapshot": {
+        "avg": 2648
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/OR": {
+      "category": "state_avg",
+      "name": "Oregon",
+      "snapshot": {
+        "avg": 1986
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/PA": {
+      "category": "state_avg",
+      "name": "Pennsylvania",
+      "snapshot": {
+        "avg": 2468
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/RI": {
+      "category": "state_avg",
+      "name": "Rhode Island",
+      "snapshot": {
+        "avg": 3124
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/SC": {
+      "category": "state_avg",
+      "name": "South Carolina",
+      "snapshot": {
+        "avg": 2586
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/SD": {
+      "category": "state_avg",
+      "name": "South Dakota",
+      "snapshot": {
+        "avg": 1986
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/TN": {
+      "category": "state_avg",
+      "name": "Tennessee",
+      "snapshot": {
+        "avg": 2124
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/TX": {
+      "category": "state_avg",
+      "name": "Texas",
+      "snapshot": {
+        "avg": 3136
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/UT": {
+      "category": "state_avg",
+      "name": "Utah",
+      "snapshot": {
+        "avg": 2468
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/VA": {
+      "category": "state_avg",
+      "name": "Virginia",
+      "snapshot": {
+        "avg": 1924
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/VT": {
+      "category": "state_avg",
+      "name": "Vermont",
+      "snapshot": {
+        "avg": 1524
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/WA": {
+      "category": "state_avg",
+      "name": "Washington",
+      "snapshot": {
+        "avg": 2312
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/WI": {
+      "category": "state_avg",
+      "name": "Wisconsin",
+      "snapshot": {
+        "avg": 1724
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/WV": {
+      "category": "state_avg",
+      "name": "West Virginia",
+      "snapshot": {
+        "avg": 2124
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    },
+    "state_avg/WY": {
+      "category": "state_avg",
+      "name": "Wyoming",
+      "snapshot": {
+        "avg": 1986
+      },
+      "last_verified": "2026-06-17",
+      "source": "",
+      "notes": "Baseline established during roster expansion review"
+    }
+  }
+}
