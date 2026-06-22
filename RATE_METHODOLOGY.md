@@ -209,7 +209,10 @@ Atom id scheme: `carrier/<national|nonstandard|regional>/<Name>`,
 - [ ] Deepen partial offsets: State Farm (36/51), Progressive (17/51), Farmers (5/51).
 - [ ] Decide on the 10–20% state-average divergences (left as-is for now, §4).
 - [ ] **Verify CS grades vs NAIC complaint index** (next sourceable batch).
-- [ ] Apply the same per-vehicle + carrier-by-state passes to renters/home.
+- [x] Apply the carrier-by-state pass to renters/home → `STATE_CARRIER_ADJ` added
+      to both tools (738 renters + 600 home offset cells, `gen_product_offsets.py`).
+      Renters/home premiums are already per-policy (no `/2`), so only the offset
+      pass was outstanding. _2026-06-22_
 - [ ] Source list to standardize on: NAIC (grades), ValuePenguin/Bankrate
       (state avgs), Insurify/MoneyGeek (carrier rankings).
 
@@ -246,9 +249,25 @@ quote link.
     `RENTERS_STATE_DATA` via in-place token patch: avg, $/month, %-vs-national
     ($168), and tier pill recomputed; hand-tuned per-state prose preserved.
     Validated 0 body/tool mismatches; sweep 526/526.
+  - **Carrier-by-state offsets — ADDED 2026-06-22** (`gen_product_offsets.py`).
+    Both tools previously had NO per-state carrier variation — every national
+    carrier held the same relative rank in all 51 states (only the state avg
+    scaled the board). Closed with auto's §3 modeled cost-responsiveness tilt:
+    `STATE_CARRIER_ADJ` now tilts each national carrier per state
+    (agent carriers load high-cost states k>0; value/direct hold the line k<0),
+    applied in `estimatePremium` as `base × stateM`. Regionals (footprint
+    `states:` array) keep their state-appropriate base and are excluded — same
+    rule as auto. **738 renters offset cells** (16 nationals × 48 states),
+    **600 home cells** (13 × 48); 3 mid-cost states round to neutral.
+    Tracked in the ledgers as `offset/<state>/<carrier>` (`scan_rh` extended).
+    Verified: `verify_offsets.js` (rankings reorder MT↔LA / HI↔CO, Allstate
+    ranks worse in pricier states, 0 JS errors); sweep 526/526.
   - **Remaining follow-up:** `gen_home_state_pages.py` CARRIERS list is still the
     old 12-carrier home roster (home/state ranking tables don't yet show the new
-    regionals); same applies to the renters/state ranking carrier set.
+    regionals); same applies to the renters/state ranking carrier set. **NOTE:**
+    the new offsets live in the *tools* only — the static state ranking pages
+    (`renters/state/*`, `home/state/*`) still show un-tilted order; folding the
+    offset into those generators is the natural next step.
 
 ### Canonical sources
 - State averages: https://www.valuepenguin.com/car-insurance-by-state

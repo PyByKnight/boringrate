@@ -1,5 +1,27 @@
 # BoringRate — Session Notes
-_Last updated: 2026-06-15 (follow-up session, Opus 4.8)_
+_Last updated: 2026-06-22 (Opus 4.8)_
+
+## This session (2026-06-22, Opus 4.8) — shipped
+
+- **Renters/home carrier-by-state offset pass** (closes the auto-parity gap).
+  Both tools had NO per-state carrier variation — every national carrier kept the
+  same relative rank in all 51 states (only the state avg scaled the board). Added
+  auto's modeled cost-responsiveness tilt (`STATE_CARRIER_ADJ`) to renters/home
+  `index.html` via `gen_product_offsets.py`: agent carriers load high-cost states
+  (k>0), value/direct hold the line (k<0); applied in estimatePremium as
+  `base × stateM`. Regionals (footprint `states:` array) excluded — base already
+  state-appropriate, same rule as auto. **738 renters cells** (16 nationals × 48
+  states) + **600 home cells** (13 × 48). Ledger tracking: extended
+  `audit_rates.py scan_rh` to scan offsets; synced + baselined
+  (renters 814 atoms, home 679, all fresh 2026-06-22 → next checkpoint 2026-07-22).
+  Verified `verify_offsets.js` (rankings reorder MT↔LA / HI↔CO, Allstate ranks
+  worse in pricier states, 0 JS errors); full sweep 526/526. Docs: RATE_METHODOLOGY
+  §6 checkbox + §7.
+  NEXT: fold the offset into the STATIC state ranking pages (`renters/state/*`,
+  `home/state/*` still show un-tilted order — and their generators still use the
+  pre-expansion carrier rosters, so this pairs with the existing roster follow-up).
+  Then: deepen auto partial offsets (State Farm/Progressive/Farmers); NAIC grade
+  verification; cross-product bundling guide.
 
 ## This session (2026-06-17, Opus 4.8) — shipped
 

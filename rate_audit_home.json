@@ -4,7 +4,7 @@
     "note": "Verification ledger for every home rate atom. Integrity SLA: each atom must be re-verified against a real source at least every 30 days. A value snapshot is stored; if the source HTML later differs, the atom is DRIFTED and must be re-verified. Update dates only via `audit_rates.py --mark` after an actual check.",
     "sla_days": 30,
     "baseline": "2026-06-17",
-    "last_run": "2026-06-17",
+    "last_run": "2026-06-22",
     "sources": {
       "state_avg": "Insurance.com home 2026-03-20 ($300k dwelling) — https://www.insurance.com/home-and-renters-insurance/home-insurance-basics/average-homeowners-insurance-rates-by-state (basis differs from our baseline; reconciled by ratio-to-national)"
     }
@@ -1240,6 +1240,6006 @@
         "delta_pct": -8,
         "basis": "distribution-normalized (our national basis preserved)"
       }
+    },
+    "offset/AK/USAA": {
+      "category": "state_offset",
+      "name": "USAA in AK",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AK/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in AK",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AK/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in AK",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AK/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in AK",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AK/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in AK",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AK/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in AK",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AK/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in AK",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AK/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in AK",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AK/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in AK",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AK/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in AK",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AK/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in AK",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AK/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in AK",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AK/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in AK",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/USAA": {
+      "category": "state_offset",
+      "name": "USAA in AL",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in AL",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in AL",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in AL",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in AL",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in AL",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in AL",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in AL",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in AL",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in AL",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in AL",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in AL",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AL/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in AL",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/USAA": {
+      "category": "state_offset",
+      "name": "USAA in AR",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in AR",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in AR",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in AR",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in AR",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in AR",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in AR",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in AR",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in AR",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in AR",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in AR",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in AR",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/AR/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in AR",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in CA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in CA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in CA",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in CA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in CA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in CA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in CA",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in CA",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in CA",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in CA",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in CA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in CA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in CA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/USAA": {
+      "category": "state_offset",
+      "name": "USAA in CO",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in CO",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in CO",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in CO",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in CO",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in CO",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in CO",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in CO",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in CO",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in CO",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in CO",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in CO",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in CO",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/USAA": {
+      "category": "state_offset",
+      "name": "USAA in CT",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in CT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in CT",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in CT",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in CT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in CT",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in CT",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in CT",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in CT",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in CT",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in CT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in CT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CT/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in CT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/USAA": {
+      "category": "state_offset",
+      "name": "USAA in DC",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in DC",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in DC",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in DC",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in DC",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in DC",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in DC",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in DC",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in DC",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in DC",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in DC",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in DC",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DC/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in DC",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/USAA": {
+      "category": "state_offset",
+      "name": "USAA in DE",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in DE",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in DE",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in DE",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in DE",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in DE",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in DE",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in DE",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in DE",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in DE",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in DE",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in DE",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/DE/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in DE",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/USAA": {
+      "category": "state_offset",
+      "name": "USAA in FL",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in FL",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in FL",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in FL",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in FL",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in FL",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in FL",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in FL",
+      "snapshot": {
+        "mult": 1.1
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in FL",
+      "snapshot": {
+        "mult": 1.09
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in FL",
+      "snapshot": {
+        "mult": 1.12
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in FL",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in FL",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/FL/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in FL",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in GA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in GA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in GA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in GA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in GA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in GA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in GA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in GA",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in GA",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in GA",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in GA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in GA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/GA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in GA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/USAA": {
+      "category": "state_offset",
+      "name": "USAA in HI",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in HI",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in HI",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in HI",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in HI",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in HI",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in HI",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in HI",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in HI",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in HI",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in HI",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in HI",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/HI/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in HI",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ID/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in ID",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ID/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in ID",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ID/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in ID",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ID/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in ID",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ID/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in ID",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/USAA": {
+      "category": "state_offset",
+      "name": "USAA in IL",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in IL",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in IL",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in IL",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in IL",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in IL",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in IL",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in IL",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in IL",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in IL",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in IL",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in IL",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IL/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in IL",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IN/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in IN",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IN/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in IN",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IN/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in IN",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IN/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in IN",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/IN/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in IN",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/USAA": {
+      "category": "state_offset",
+      "name": "USAA in KS",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in KS",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in KS",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in KS",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in KS",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in KS",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in KS",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in KS",
+      "snapshot": {
+        "mult": 1.1
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in KS",
+      "snapshot": {
+        "mult": 1.09
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in KS",
+      "snapshot": {
+        "mult": 1.12
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in KS",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in KS",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KS/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in KS",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/USAA": {
+      "category": "state_offset",
+      "name": "USAA in KY",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in KY",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in KY",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in KY",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in KY",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in KY",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in KY",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in KY",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in KY",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in KY",
+      "snapshot": {
+        "mult": 1.09
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in KY",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in KY",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/KY/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in KY",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in LA",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in LA",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in LA",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in LA",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in LA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in LA",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in LA",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in LA",
+      "snapshot": {
+        "mult": 1.09
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in LA",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in LA",
+      "snapshot": {
+        "mult": 1.11
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in LA",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in LA",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/LA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in LA",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in MA",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MA",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in MA",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in MA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in MA",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in MA",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MA",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MA",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in MA",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in MA",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in MA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in MA",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MD",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in MD",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MD",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in MD",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in MD",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in MD",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in MD",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MD",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MD",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in MD",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in MD",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in MD",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MD/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in MD",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/USAA": {
+      "category": "state_offset",
+      "name": "USAA in ME",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in ME",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in ME",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in ME",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in ME",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in ME",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in ME",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in ME",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in ME",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in ME",
+      "snapshot": {
+        "mult": 0.89
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in ME",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in ME",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ME/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in ME",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MN",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in MN",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MN",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in MN",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in MN",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in MN",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in MN",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MN",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MN",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in MN",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in MN",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in MN",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MN/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in MN",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MO",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in MO",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MO",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in MO",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in MO",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in MO",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in MO",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MO",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MO",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in MO",
+      "snapshot": {
+        "mult": 1.09
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in MO",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in MO",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MO/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in MO",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MS/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MS",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MS/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in MS",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MS/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MS",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MS/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in MS",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MS/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in MS",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MS/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in MS",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MS/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MS",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MS/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MS",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MS/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in MS",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MS/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in MS",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MS/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in MS",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MS/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in MS",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/USAA": {
+      "category": "state_offset",
+      "name": "USAA in MT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in MT",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in MT",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in MT",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in MT",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in MT",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in MT",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in MT",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in MT",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in MT",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in MT",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in MT",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/MT/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in MT",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NC",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in NC",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NC",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NC",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in NC",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in NC",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in NC",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NC",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NC",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in NC",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NC",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NC",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NC",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/USAA": {
+      "category": "state_offset",
+      "name": "USAA in ND",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in ND",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in ND",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in ND",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in ND",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in ND",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in ND",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in ND",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in ND",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in ND",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in ND",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in ND",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/ND/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in ND",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NE",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in NE",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NE",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NE",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in NE",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in NE",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in NE",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NE",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NE",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in NE",
+      "snapshot": {
+        "mult": 1.1
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NE",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NE",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NE/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NE",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NH",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in NH",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NH",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NH",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in NH",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in NH",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in NH",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NH",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NH",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in NH",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NH",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NH",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NH/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NH",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NJ",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in NJ",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NJ",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NJ",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in NJ",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in NJ",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in NJ",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NJ",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NJ",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in NJ",
+      "snapshot": {
+        "mult": 0.89
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NJ",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NJ",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NJ/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NJ",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NM",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in NM",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NM",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NM",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in NM",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in NM",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in NM",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NM",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NM",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in NM",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NM",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NM",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NM/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NM",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NV",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in NV",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NV",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NV",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in NV",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in NV",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in NV",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NV",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NV",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in NV",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NV",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NV",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NV/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NV",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/USAA": {
+      "category": "state_offset",
+      "name": "USAA in NY",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in NY",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in NY",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in NY",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in NY",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in NY",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in NY",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in NY",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in NY",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in NY",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in NY",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in NY",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NY/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in NY",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OH/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in OH",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OH/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in OH",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OH/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in OH",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OH/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in OH",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OH/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in OH",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OH/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in OH",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OH/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in OH",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OH/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in OH",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OH/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in OH",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OH/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in OH",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/USAA": {
+      "category": "state_offset",
+      "name": "USAA in OK",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in OK",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in OK",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in OK",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in OK",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in OK",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in OK",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in OK",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in OK",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in OK",
+      "snapshot": {
+        "mult": 1.1
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in OK",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in OK",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OK/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in OK",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/USAA": {
+      "category": "state_offset",
+      "name": "USAA in OR",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in OR",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in OR",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in OR",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in OR",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in OR",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in OR",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in OR",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in OR",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in OR",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in OR",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in OR",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/OR/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in OR",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in PA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in PA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in PA",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in PA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in PA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in PA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in PA",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in PA",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in PA",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in PA",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in PA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in PA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/PA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in PA",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/RI/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in RI",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/RI/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in RI",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/RI/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in RI",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/RI/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in RI",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/RI/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in RI",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/RI/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in RI",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/RI/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in RI",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/RI/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in RI",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/RI/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in RI",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/RI/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in RI",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/USAA": {
+      "category": "state_offset",
+      "name": "USAA in SC",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in SC",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in SC",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in SC",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in SC",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in SC",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in SC",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in SC",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in SC",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in SC",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in SC",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in SC",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SC/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in SC",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/USAA": {
+      "category": "state_offset",
+      "name": "USAA in SD",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in SD",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in SD",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in SD",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in SD",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in SD",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in SD",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in SD",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in SD",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in SD",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in SD",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in SD",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/SD/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in SD",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/USAA": {
+      "category": "state_offset",
+      "name": "USAA in TN",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in TN",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in TN",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in TN",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in TN",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in TN",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in TN",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in TN",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in TN",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in TN",
+      "snapshot": {
+        "mult": 1.06
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in TN",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in TN",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TN/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in TN",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/USAA": {
+      "category": "state_offset",
+      "name": "USAA in TX",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in TX",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in TX",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in TX",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in TX",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in TX",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in TX",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in TX",
+      "snapshot": {
+        "mult": 1.09
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in TX",
+      "snapshot": {
+        "mult": 1.08
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in TX",
+      "snapshot": {
+        "mult": 1.11
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in TX",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in TX",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/TX/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in TX",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/USAA": {
+      "category": "state_offset",
+      "name": "USAA in UT",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in UT",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in UT",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in UT",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in UT",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in UT",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in UT",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in UT",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in UT",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in UT",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in UT",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in UT",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/UT/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in UT",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in VA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in VA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in VA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in VA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in VA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in VA",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in VA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in VA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in VA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in VA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in VA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in VA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in VA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/USAA": {
+      "category": "state_offset",
+      "name": "USAA in VT",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in VT",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in VT",
+      "snapshot": {
+        "mult": 1.07
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in VT",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in VT",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in VT",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in VT",
+      "snapshot": {
+        "mult": 0.92
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in VT",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in VT",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in VT",
+      "snapshot": {
+        "mult": 0.88
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in VT",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in VT",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VT/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in VT",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/USAA": {
+      "category": "state_offset",
+      "name": "USAA in WA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in WA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in WA",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in WA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in WA",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in WA",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in WA",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in WA",
+      "snapshot": {
+        "mult": 0.95
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in WA",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in WA",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in WA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in WA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WA/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in WA",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/USAA": {
+      "category": "state_offset",
+      "name": "USAA in WI",
+      "snapshot": {
+        "mult": 1.03
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in WI",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in WI",
+      "snapshot": {
+        "mult": 1.05
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in WI",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in WI",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in WI",
+      "snapshot": {
+        "mult": 1.04
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in WI",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in WI",
+      "snapshot": {
+        "mult": 0.93
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in WI",
+      "snapshot": {
+        "mult": 0.94
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in WI",
+      "snapshot": {
+        "mult": 0.91
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in WI",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in WI",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WI/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in WI",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WV/USAA": {
+      "category": "state_offset",
+      "name": "USAA in WV",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WV/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in WV",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WV/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in WV",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WV/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in WV",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WV/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in WV",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WV/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in WV",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WV/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in WV",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WV/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in WV",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WV/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in WV",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WV/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in WV",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WV/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in WV",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WV/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in WV",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/USAA": {
+      "category": "state_offset",
+      "name": "USAA in WY",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/Amica Mutual": {
+      "category": "state_offset",
+      "name": "Amica Mutual in WY",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/Travelers": {
+      "category": "state_offset",
+      "name": "Travelers in WY",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/Nationwide": {
+      "category": "state_offset",
+      "name": "Nationwide in WY",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/State Farm": {
+      "category": "state_offset",
+      "name": "State Farm in WY",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in WY",
+      "snapshot": {
+        "mult": 1.02
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/Farmers": {
+      "category": "state_offset",
+      "name": "Farmers in WY",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/Allstate": {
+      "category": "state_offset",
+      "name": "Allstate in WY",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/Liberty Mutual": {
+      "category": "state_offset",
+      "name": "Liberty Mutual in WY",
+      "snapshot": {
+        "mult": 0.97
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/Chubb": {
+      "category": "state_offset",
+      "name": "Chubb in WY",
+      "snapshot": {
+        "mult": 0.96
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/The Hartford": {
+      "category": "state_offset",
+      "name": "The Hartford in WY",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/Safeco": {
+      "category": "state_offset",
+      "name": "Safeco in WY",
+      "snapshot": {
+        "mult": 0.99
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/WY/Kemper": {
+      "category": "state_offset",
+      "name": "Kemper in WY",
+      "snapshot": {
+        "mult": 0.98
+      },
+      "last_verified": "2026-06-22",
+      "source": "",
+      "notes": "(added via --sync)"
     }
   }
 }

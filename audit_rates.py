@@ -102,6 +102,15 @@ def scan_rh(s, arr_marker, sd_marker):
     # inner keys are unquoted in renters/home state data: {name:"Alabama",avg:202,...}
     for m in re.finditer(r'"([A-Z]{2})":\s*\{\s*"?name"?:\s*"([^"]+)"[^}]*?"?avg"?:\s*(\d+)', sd):
         atoms["state_avg/%s" % m.group(1)] = {"category": "state_avg", "name": m.group(2), "avg": int(m.group(3))}
+    # Per-state carrier offsets (gen_product_offsets.py) — same atom scheme as auto.
+    if "STATE_CARRIER_ADJ = {" in s:
+        sca = _block(s, "STATE_CARRIER_ADJ = {", "\n};")
+        for m in re.finditer(r'"([A-Z]{2})":\s*\{([^}]*)\}', sca):
+            st = m.group(1)
+            for mm in re.finditer(r'"([^"]+)":\s*([0-9.]+)', m.group(2)):
+                atoms["offset/%s/%s" % (st, mm.group(1))] = {
+                    "category": "state_offset", "name": "%s in %s" % (mm.group(1), st),
+                    "state": st, "carrier": mm.group(1), "mult": float(mm.group(2))}
     return atoms
 
 
