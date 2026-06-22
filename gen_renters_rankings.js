@@ -10,14 +10,18 @@ function grab(name, open, close) {
 }
 const SD = eval("(" + grab("const RENTERS_STATE_DATA", "{", "}") + ")");
 const CAR = eval("(" + grab("const RENTERS_CARRIERS", "[", "]") + ")");
+// Per-state carrier tilt (gen_product_offsets.py) — keep the static tables in
+// lockstep with the live tool's ranking.
+const ADJ = eval("(" + grab("const STATE_CARRIER_ADJ", "{", "}") + ")");
 
 const RED = "#b4321a", GREEN = "#2f6b3a";
 const START = "<!-- state-rankings-start -->", END = "<!-- state-rankings-end -->";
 
 function rankState(code) {
   const avg = SD[code].avg;
+  const tilt = ADJ[code] || {};
   const ranked = CAR.filter(c => !c.states || c.states.includes(code))
-    .map(c => ({ name: c.name, price: Math.round(avg * c.base) }))
+    .map(c => ({ name: c.name, price: Math.round(avg * c.base * (tilt[c.name] || 1)) }))
     .sort((a, b) => a.price - b.price);
   const top = ranked.slice(0, 10);
   const sorted = top.map(r => r.price).sort((a, b) => a - b);

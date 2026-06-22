@@ -9,33 +9,34 @@ import os, json, re
 NATIONAL = 1915
 RED, GREEN = "#b4321a", "#2f6b3a"
 
-# ── Home premium averages (mirrors HOME_STATE_DATA in home/index.html) ──
-STATES = {
- "AL":("Alabama",2150),"AK":("Alaska",1245),"AZ":("Arizona",1680),"AR":("Arkansas",2280),
- "CA":("California",1174),"CO":("Colorado",2820),"CT":("Connecticut",1540),"DC":("Washington D.C.",1310),
- "DE":("Delaware",1090),"FL":("Florida",4218),"GA":("Georgia",1976),"HI":("Hawaii",479),
- "ID":("Idaho",1628),"IL":("Illinois",1862),"IN":("Indiana",1750),"IA":("Iowa",1630),
- "KS":("Kansas",3822),"KY":("Kentucky",2937),"LA":("Louisiana",3635),"ME":("Maine",970),
- "MD":("Maryland",1490),"MA":("Massachusetts",1078),"MI":("Michigan",1680),"MN":("Minnesota",2090),
- "MS":("Mississippi",1838),"MO":("Missouri",2891),"MT":("Montana",1880),"NE":("Nebraska",3308),
- "NV":("Nevada",1380),"NH":("New Hampshire",1070),"NJ":("New Jersey",1033),"NM":("New Mexico",1860),
- "NY":("New York",1223),"NC":("North Carolina",1845),"ND":("North Dakota",2167),"OH":("Ohio",1580),
- "OK":("Oklahoma",3285),"OR":("Oregon",1200),"PA":("Pennsylvania",1111),"RI":("Rhode Island",1760),
- "SC":("South Carolina",1890),"SD":("South Dakota",2732),"TN":("Tennessee",2090),"TX":("Texas",3429),
- "UT":("Utah",1280),"VT":("Vermont",772),"VA":("Virginia",1558),"WA":("Washington",1250),
- "WV":("West Virginia",1560),"WI":("Wisconsin",1090),"WY":("Wyoming",1390),
-}
+# ── Model: parsed live from home/index.html so the static state pages never drift
+# from the tool (roster, state averages, and the per-state carrier offset). ──
+def _block(s, start, end="\n};"):
+    i = s.index(start); j = s.index(end, i); return s[i+len(start):j]
 
-# ── Carriers (mirrors HOME_CARRIERS): name, base mult, optional state availability ──
-CARRIERS = [
- ("USAA",0.72,None),("Amica Mutual",0.86,None),
- ("Auto-Owners",0.82,{"AL","AZ","AR","CO","FL","GA","ID","IL","IN","IA","KS","KY","MI","MN","MO","NE","NC","ND","OH","PA","SC","SD","TN","UT","VA","WI"}),
- ("Erie Insurance",0.84,{"DC","IL","IN","KY","MD","MN","NC","NY","OH","PA","TN","VA","WI","WV"}),
- ("Travelers",0.91,None),
- ("American Family",0.93,{"AZ","CO","GA","ID","IL","IN","IA","KS","MN","MO","ND","NE","NV","OH","OR","SD","UT","WA","WI","WY"}),
- ("Nationwide",0.96,None),("State Farm",1.00,None),("Progressive",1.04,None),
- ("Farmers",1.12,None),("Allstate",1.15,None),("Liberty Mutual",1.18,None),
-]
+def _load_model():
+    s = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "home/index.html"), encoding="utf-8").read()
+    # State averages -> {code: (name, avg)}
+    states = {}
+    for m in re.finditer(r'"([A-Z]{2})":\s*\{name:\s*"([^"]+)",avg:(\d+)', _block(s, "HOME_STATE_DATA = {")):
+        states[m.group(1)] = (m.group(2), int(m.group(3)))
+    # Carriers -> list of (name, base, states_set_or_None); national = no states: array
+    carriers = []
+    for chunk in re.split(r'\n  \{', _block(s, "HOME_CARRIERS = [", "\n];")):
+        nm = re.search(r'name:\s*"([^"]+)"', chunk)
+        bs = re.search(r'base:\s*([0-9.]+)', chunk)
+        if not (nm and bs):
+            continue
+        st = re.search(r'states:\s*\[([^\]]*)\]', chunk)
+        states_set = set(re.findall(r'"([A-Z]{2})"', st.group(1))) if st else None
+        carriers.append((nm.group(1), float(bs.group(1)), states_set))
+    # Per-state carrier offset -> {code: {name: mult}}
+    adj = {}
+    for m in re.finditer(r'"([A-Z]{2})":\s*\{([^}]*)\}', _block(s, "STATE_CARRIER_ADJ = {")):
+        adj[m.group(1)] = {c: float(v) for c, v in re.findall(r'"([^"]+)":\s*([0-9.]+)', m.group(2))}
+    return states, carriers, adj
+
+STATES, CARRIERS, STATE_CARRIER_ADJ = _load_model()
 
 # ── Per-state catastrophe / cost driver (the differentiator) ──
 # (peril phrase, one-sentence detail)
@@ -106,7 +107,8 @@ def tier(avg):
 
 def rank(code):
     avg = STATES[code][1]
-    avail = [(n, round(avg*b)) for (n,b,st) in CARRIERS if (st is None or code in st)]
+    tilt = STATE_CARRIER_ADJ.get(code, {})
+    avail = [(n, round(avg*b*tilt.get(n, 1))) for (n,b,st) in CARRIERS if (st is None or code in st)]
     avail.sort(key=lambda x: x[1])
     top = avail[:10]
     prices = sorted(p for _,p in top)

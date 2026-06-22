@@ -262,12 +262,20 @@ quote link.
     Tracked in the ledgers as `offset/<state>/<carrier>` (`scan_rh` extended).
     Verified: `verify_offsets.js` (rankings reorder MT↔LA / HI↔CO, Allstate
     ranks worse in pricier states, 0 JS errors); sweep 526/526.
-  - **Remaining follow-up:** `gen_home_state_pages.py` CARRIERS list is still the
-    old 12-carrier home roster (home/state ranking tables don't yet show the new
-    regionals); same applies to the renters/state ranking carrier set. **NOTE:**
-    the new offsets live in the *tools* only — the static state ranking pages
-    (`renters/state/*`, `home/state/*`) still show un-tilted order; folding the
-    offset into those generators is the natural next step.
+  - **State-page cascade — DONE 2026-06-22.** Folded the offset into the static
+    state ranking pages and fixed the stale-roster drift in one pass:
+    - `gen_renters_rankings.js` now grabs `STATE_CARRIER_ADJ` from the tool and
+      ranks at `avg × base × offset` (it already read the live roster + state
+      avgs). Regenerated all 51 `renters/state/*`.
+    - `gen_home_state_pages.py` **no longer hardcodes** `STATES`/`CARRIERS` (the
+      old 12-carrier list was the documented drift source). It now parses
+      `HOME_STATE_DATA` (51), `HOME_CARRIERS` (28, incl. the new regionals), and
+      `STATE_CARRIER_ADJ` live from `home/index.html`, and ranks at
+      `avg × base × offset`. Regenerated all 51 `home/state/*`.
+    Static pages now match the tool's ordering by construction (same base, same
+    offset, same availability filter). Verified `verify_home_state.js` (10 rows,
+    0 JS errors), renters LA leads with value carriers (Toggle/USAA/Assurant),
+    sweep 526/526.
 
 ### Canonical sources
 - State averages: https://www.valuepenguin.com/car-insurance-by-state

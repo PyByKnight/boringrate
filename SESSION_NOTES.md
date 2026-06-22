@@ -17,10 +17,17 @@ _Last updated: 2026-06-22 (Opus 4.8)_
   Verified `verify_offsets.js` (rankings reorder MT↔LA / HI↔CO, Allstate ranks
   worse in pricier states, 0 JS errors); full sweep 526/526. Docs: RATE_METHODOLOGY
   §6 checkbox + §7.
-  NEXT: fold the offset into the STATIC state ranking pages (`renters/state/*`,
-  `home/state/*` still show un-tilted order — and their generators still use the
-  pre-expansion carrier rosters, so this pairs with the existing roster follow-up).
-  Then: deepen auto partial offsets (State Farm/Progressive/Farmers); NAIC grade
+- **State-page cascade (offset + stale-roster fix).** Folded the new offset into
+  the STATIC state ranking pages and killed the documented roster-drift in one
+  pass. `gen_renters_rankings.js`: grabs `STATE_CARRIER_ADJ` + ranks
+  `avg×base×offset` (already read live roster/avgs). `gen_home_state_pages.py`:
+  STOPPED hardcoding `STATES`/`CARRIERS` (old 12-carrier list was the drift
+  source) — now parses HOME_STATE_DATA/HOME_CARRIERS(28)/STATE_CARRIER_ADJ live
+  from home/index.html + ranks `avg×base×offset`. Regenerated all 51 renters +
+  51 home state pages. Static pages now match the tool order by construction.
+  Verified: verify_home_state.js (0 JS errors), renters LA leads w/ value
+  carriers, sweep 526/526.
+  NEXT: deepen auto partial offsets (State Farm/Progressive/Farmers); NAIC grade
   verification; cross-product bundling guide.
 
 ## This session (2026-06-17, Opus 4.8) — shipped
