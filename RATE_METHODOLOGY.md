@@ -127,8 +127,26 @@ Result: offset coverage rose from 22% → **80.5%** of national cells (575/714).
 These are **modeled/directional** (same status as the existing manual offsets),
 not citation-exact; verify by confirming the high-cost/low-cost ordering still
 holds against carrier-by-state research. Mid-cost states intentionally carry no
-offset (tilt ≈ neutral). Still partial and improvable later: State Farm (36/51),
-Progressive (17/51), Farmers (5/51).
+offset (tilt ≈ neutral).
+
+### Deepening the partial nationals (2026-06-23) — 80.5% → 93.7%
+State Farm (36/51), Progressive (17/51), and Farmers (5/51) were the three
+partially-tuned nationals. `gen_auto_offset_fill.py` fills their **missing
+states only** (every hand-tuned value preserved) with a per-carrier linear model
+fit to each carrier's *own* existing cloud — so the fills extend the established
+shape instead of imposing a generic tilt:
+
+| Carrier | model | shape it captures |
+|---|---|---|
+| State Farm | `max(0.84, 0.85 + 0.40·(pct−0.5))` | cheap floor, loads the priciest states |
+| Progressive | `0.90 − 0.06·pct` | tight value band, dips in high-cost states |
+| Farmers | `0.91 + 0.04·(pct−0.5)` | near-flat ~0.92, mild agent loading |
+
+Filled 14 / 34 / 46 states (DE State Farm dropped — rounds to 1.00). New coverage:
+**State Farm 50/51, Progressive 51/51, Farmers 51/51 → 669/714 (93.7%)**. Synced
+to the auto ledger + baselined 2026-06-23. Cascaded to the static rankings:
+`node gen_state_rankings.js --export --states --metros` (state_rankings.json +
+article/state/* + article/metro/*). Sweep 526/526.
 
 ---
 
@@ -206,7 +224,8 @@ Atom id scheme: `carrier/<national|nonstandard|regional>/<Name>`,
 - [x] **Resolved the `/2` calibration** + reconciled all per-vehicle displays (§1). _2026-06-17_
 - [x] **Fixed CO + the 11 states >20% off** vs source (§4). _2026-06-17_
 - [x] **Added `STATE_CARRIER_ADJ` for the 9 untuned nationals** → 80.5% coverage (§3). _2026-06-17_
-- [ ] Deepen partial offsets: State Farm (36/51), Progressive (17/51), Farmers (5/51).
+- [x] Deepen partial offsets: State Farm 36→50/51, Progressive 17→51/51,
+      Farmers 5→51/51 (`gen_auto_offset_fill.py`, §3). 93.7% coverage. _2026-06-23_
 - [ ] Decide on the 10–20% state-average divergences (left as-is for now, §4).
 - [ ] **Verify CS grades vs NAIC complaint index** (next sourceable batch).
 - [x] Apply the carrier-by-state pass to renters/home → `STATE_CARRIER_ADJ` added
