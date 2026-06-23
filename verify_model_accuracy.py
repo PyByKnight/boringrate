@@ -70,37 +70,44 @@ def main():
     natbase, regbase, statereg, SD, adj = load()
     ref = json.load(open(ROOT / "cheapest_by_state.json"))["states"]
 
-    scored = r1 = top3 = top5 = unavail = 0
-    ranks = []
+    # Score against the cheap TIER (roster_cheap = in-roster carriers named cheapest
+    # by EITHER source), since the single per-state #1 is source-noise. A state is a
+    # "hit" if the model ranks any of its real cheap-tier carriers in the top-N.
+    scored = hit3 = hit5 = 0
+    agree_scored = agree_hit5 = 0
+    best_ranks = []
     misses = []
     for code, d in ref.items():
-        rn = d["roster_name"]
-        if not rn:
+        cheap = d.get("roster_cheap") or []
+        if not cheap:
             continue
         scored += 1
         order = ranked(code, natbase, regbase, statereg, SD, adj, exclude={"USAA"})
-        if rn not in order:
-            unavail += 1
-            misses.append("%s: %s NOT SHOWN (availability gap)" % (code, rn))
-            continue
-        rk = order.index(rn) + 1
-        ranks.append(rk)
-        r1 += rk == 1
-        top3 += rk <= 3
-        top5 += rk <= 5
-        if rk > 5:
-            misses.append("%s: real=%s at model #%d (top3=%s)" % (code, rn, rk, order[:3]))
+        rks = [order.index(c) + 1 for c in cheap if c in order]
+        best = min(rks) if rks else 99
+        best_ranks.append(best)
+        hit3 += best <= 3
+        hit5 += best <= 5
+        if d.get("sources_agree"):
+            agree_scored += 1
+            agree_hit5 += best <= 5
+        if best > 5:
+            shown = {c: order.index(c) + 1 for c in cheap if c in order}
+            misses.append("%s: cheap=%s -> %s (model top3=%s)" % (
+                code, cheap, shown or "none shown", order[:3]))
 
-    f5 = top5 / scored
-    print("Model accuracy vs published cheapest-by-state (cheapest_by_state.json, USAA excluded)")
-    print("  states scored        : %d" % scored)
-    print("  real #1 == model #1  : %d (%.0f%%)" % (r1, r1 / scored * 100))
-    print("  real #1 in top-3     : %d (%.0f%%)" % (top3, top3 / scored * 100))
-    print("  real #1 in top-5     : %d (%.0f%%)" % (top5, f5 * 100))
-    print("  median rank of real#1: %.1f" % statistics.median(ranks))
-    print("  not shown at all     : %d" % unavail)
+    f5 = hit5 / scored
+    print("Model accuracy vs MULTI-SOURCE published cheapest-by-state (USAA excluded)")
+    print("  scored on the in-roster cheap TIER (either source); single-#1 is source-noise.")
+    print("  states scored             : %d" % scored)
+    print("  a real cheap carrier in top-3 : %d (%.0f%%)" % (hit3, hit3 / scored * 100))
+    print("  a real cheap carrier in top-5 : %d (%.0f%%)" % (hit5, f5 * 100))
+    print("  median best rank          : %.1f" % statistics.median(best_ranks))
+    if agree_scored:
+        print("  [high-confidence] both sources agree: %d/%d in top-5 (%.0f%%)" % (
+            agree_hit5, agree_scored, agree_hit5 / agree_scored * 100))
     if misses:
-        print("\n  misses:")
+        print("\n  misses (no real cheap carrier in model top-5):")
         for m in misses:
             print("    " + m)
     if args.min is None:

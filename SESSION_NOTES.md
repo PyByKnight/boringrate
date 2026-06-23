@@ -19,12 +19,20 @@ _Last updated: 2026-06-22 (Opus 4.8)_
   Bureau #1, NJ→NJM #1, FL→Florida Farm Bureau top-3 (matches reality). Cascaded
   (gen_state_rankings --export/--states/--metros), ledger re-baselined (833 atoms),
   sweep 526/526, tool 0 JS errors.
-  KNOWN MISSES (not overfit to 1 source): Nationwide ND/UT (sources disagree);
-  Progressive low-cost states (its earlier offset, tuned vs the in-house editorial
-  page, now fights real data — FLATTEN NEXT); Donegal not in GA/TN footprint.
-  NEXT: flatten Progressive offset to match real data; widen regional home-turf
-  beyond #1 states (Erie/Auto-Owners broader footprint); re-pull a 2nd source to
-  de-noise the reference; then NAIC grades; bundling guide.
+- **Progressive flattened** (`flatten_progressive.py`): its earlier offset (tuned vs
+  the in-house editorial page) fought real data — buried in IN/ME/NC. Dropped
+  offsets, base 0.95→0.92, home-turf 0.82 in 6 real-#1 states → Progressive #1 in
+  all 6; single-source top-5 71%→83%.
+- **2nd source pulled + reference de-noised** (`build_reference.py`):
+  cheapest_by_state.json now holds NerdWallet (full-cov) + MoneyGeek (min-cov) per
+  state. KEY FINDING: the two agree on the in-roster #1 in only **7/51** — the
+  single per-state #1 is basically methodology noise. So verify_model_accuracy.py
+  now scores the in-roster cheap TIER (either source), not one #1. **Result: a real
+  cheap-tier carrier in model top-5 = 89% (median best rank 2.0); high-confidence
+  (both sources agree) 6/7.** Remaining 5 misses are source-conflict/availability
+  (CA GEICO, Nationwide ND, Westfield PA, Kemper SD) — left, not overfit.
+  NEXT: CA GEICO offset too high (cheap fix); widen regional home-turf beyond #1
+  states (Erie/Auto-Owners footprint); NAIC grades; bundling guide.
 
 - **Deepened auto's partial offsets** (State Farm/Progressive/Farmers). These were
   the 3 partially-tuned nationals in `STATE_CARRIER_ADJ`. `gen_auto_offset_fill.py`
