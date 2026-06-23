@@ -29,10 +29,13 @@ _Last updated: 2026-06-22 (Opus 4.8)_
   single per-state #1 is basically methodology noise. So verify_model_accuracy.py
   now scores the in-roster cheap TIER (either source), not one #1. **Result: a real
   cheap-tier carrier in model top-5 = 89% (median best rank 2.0); high-confidence
-  (both sources agree) 6/7.** Remaining 5 misses are source-conflict/availability
-  (CA GEICO, Nationwide ND, Westfield PA, Kemper SD) — left, not overfit.
-  NEXT: CA GEICO offset too high (cheap fix); widen regional home-turf beyond #1
-  states (Erie/Auto-Owners footprint); NAIC grades; bundling guide.
+  (both sources agree) 6/7.** Remaining misses were source-conflict/availability —
+  left, not overfit.
+- **CA GEICO offset fixed**: both sources say GEICO cheapest in CA but the model
+  had a modeled 1.1 tilt (GEICO #9). Lowered to 0.9 → GEICO #2. **Top-5 89%→91%,
+  high-confidence states 6/7→7/7 (100%).** Cascaded, sweep 526/526, ledger marked.
+  NEXT: widen regional home-turf beyond #1 states (Erie/Auto-Owners footprint);
+  NAIC grades; bundling guide.
 
 - **Deepened auto's partial offsets** (State Farm/Progressive/Farmers). These were
   the 3 partially-tuned nationals in `STATE_CARRIER_ADJ`. `gen_auto_offset_fill.py`

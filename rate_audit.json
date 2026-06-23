@@ -1155,11 +1155,11 @@
       "category": "state_offset",
       "name": "GEICO in CA",
       "snapshot": {
-        "mult": 1.1
+        "mult": 0.9
       },
       "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "source": "cheapest_by_state.json (NerdWallet+MoneyGeek: GEICO cheapest in CA)",
+      "notes": "lowered CA GEICO offset 1.1->0.9 to match real data"
     },
     "offset/CA/State Farm": {
       "category": "state_offset",

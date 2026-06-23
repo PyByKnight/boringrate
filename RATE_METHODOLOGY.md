@@ -181,9 +181,9 @@ cheapest), not a single #1, and deliberately do NOT tune to 100%.
 
 | metric | before calibration | after |
 |---|---|---|
-| real cheap-tier carrier in model top-5 | **36%** (single-source #1) | **89%** (multi-source tier) |
+| real cheap-tier carrier in model top-5 | **36%** (single-source #1) | **91%** (multi-source tier) |
 | median rank of the cheapest carrier | **9.5** | **2.0** |
-| high-confidence states (both sources agree) in top-5 | — | **6/7 (86%)** |
+| high-confidence states (both sources agree) in top-5 | — | **7/7 (100%)** |
 
 **Root cause (both real):** (1) national bases were eyeballed and wrong vs
 published averages (Travelers 0.97 for a real $173/$208=0.83; USAA 0.82 for
@@ -210,8 +210,7 @@ offsets, base 0.95→0.92, home-turf 0.82 in its 6 real-#1 states → Progressiv
 all 6, overall top-5 71%→83% (single-source #1 basis) en route to the tier numbers
 above.
 
-**Known remaining misses (NOT overfit):** CA GEICO (model #9 — GEICO's CA offset is
-too high vs the data; cheapest fix later); Nationwide ND/UT (sources conflict —
+**Known remaining misses (NOT overfit):** Nationwide ND/UT (sources conflict —
 ValuePenguin has it expensive, others cheap); Westfield not in PA footprint;
 Kemper SD. 5 of 46 states. Leave them — chasing source-conflict cases is overfitting.
 
