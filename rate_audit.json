@@ -7550,11 +7550,11 @@
       "category": "state_offset",
       "name": "Progressive in AL",
       "snapshot": {
-        "mult": 0.87
+        "mult": 0.92
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/AL/Farmers": {
       "category": "state_offset",
@@ -7570,11 +7570,11 @@
       "category": "state_offset",
       "name": "Progressive in AK",
       "snapshot": {
-        "mult": 0.87
+        "mult": 0.93
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/AK/Farmers": {
       "category": "state_offset",
@@ -7610,11 +7610,11 @@
       "category": "state_offset",
       "name": "Progressive in AR",
       "snapshot": {
-        "mult": 0.87
+        "mult": 0.93
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/AR/Farmers": {
       "category": "state_offset",
@@ -7736,16 +7736,6 @@
       "source": "",
       "notes": "(added via --sync)"
     },
-    "offset/HI/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in HI",
-      "snapshot": {
-        "mult": 0.89
-      },
-      "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
-    },
     "offset/HI/Farmers": {
       "category": "state_offset",
       "name": "Farmers in HI",
@@ -7760,37 +7750,27 @@
       "category": "state_offset",
       "name": "Progressive in ID",
       "snapshot": {
-        "mult": 0.9
+        "mult": 1.02
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/IL/Progressive": {
       "category": "state_offset",
       "name": "Progressive in IL",
       "snapshot": {
-        "mult": 0.88
+        "mult": 0.96
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/IL/Farmers": {
       "category": "state_offset",
       "name": "Farmers in IL",
       "snapshot": {
         "mult": 0.91
-      },
-      "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
-    },
-    "offset/IN/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in IN",
-      "snapshot": {
-        "mult": 0.89
       },
       "last_verified": "2026-06-23",
       "source": "",
@@ -7810,11 +7790,11 @@
       "category": "state_offset",
       "name": "Progressive in IA",
       "snapshot": {
-        "mult": 0.88
+        "mult": 0.97
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/IA/Farmers": {
       "category": "state_offset",
@@ -7830,11 +7810,11 @@
       "category": "state_offset",
       "name": "Progressive in KS",
       "snapshot": {
-        "mult": 0.86
+        "mult": 0.88
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/KY/Farmers": {
       "category": "state_offset",
@@ -7870,11 +7850,11 @@
       "category": "state_offset",
       "name": "Progressive in ME",
       "snapshot": {
-        "mult": 0.9
+        "mult": 1.04
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/ME/Farmers": {
       "category": "state_offset",
@@ -7900,11 +7880,11 @@
       "category": "state_offset",
       "name": "Progressive in MD",
       "snapshot": {
-        "mult": 0.85
+        "mult": 0.87
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/MD/Farmers": {
       "category": "state_offset",
@@ -7950,11 +7930,11 @@
       "category": "state_offset",
       "name": "Progressive in MN",
       "snapshot": {
-        "mult": 0.87
+        "mult": 0.95
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/MN/Farmers": {
       "category": "state_offset",
@@ -7970,11 +7950,11 @@
       "category": "state_offset",
       "name": "Progressive in MS",
       "snapshot": {
-        "mult": 0.87
+        "mult": 0.92
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/MS/Farmers": {
       "category": "state_offset",
@@ -7990,11 +7970,11 @@
       "category": "state_offset",
       "name": "Progressive in MO",
       "snapshot": {
-        "mult": 0.86
+        "mult": 0.89
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/MO/Farmers": {
       "category": "state_offset",
@@ -8010,11 +7990,11 @@
       "category": "state_offset",
       "name": "Progressive in MT",
       "snapshot": {
-        "mult": 0.87
+        "mult": 0.94
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/MT/Farmers": {
       "category": "state_offset",
@@ -8030,11 +8010,11 @@
       "category": "state_offset",
       "name": "Progressive in NE",
       "snapshot": {
-        "mult": 0.88
+        "mult": 0.98
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/NV/State Farm": {
       "category": "state_offset",
@@ -8070,11 +8050,11 @@
       "category": "state_offset",
       "name": "Progressive in NH",
       "snapshot": {
-        "mult": 0.9
+        "mult": 1.03
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/NH/Farmers": {
       "category": "state_offset",
@@ -8110,11 +8090,11 @@
       "category": "state_offset",
       "name": "Progressive in NM",
       "snapshot": {
-        "mult": 0.87
+        "mult": 0.93
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/NM/Farmers": {
       "category": "state_offset",
@@ -8146,16 +8126,6 @@
       "source": "",
       "notes": "(added via --sync)"
     },
-    "offset/NC/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in NC",
-      "snapshot": {
-        "mult": 0.89
-      },
-      "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
-    },
     "offset/NC/Farmers": {
       "category": "state_offset",
       "name": "Farmers in NC",
@@ -8170,11 +8140,11 @@
       "category": "state_offset",
       "name": "Progressive in ND",
       "snapshot": {
-        "mult": 0.89
+        "mult": 1.01
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/ND/Farmers": {
       "category": "state_offset",
@@ -8200,21 +8170,21 @@
       "category": "state_offset",
       "name": "Progressive in OK",
       "snapshot": {
-        "mult": 0.86
+        "mult": 0.89
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/OR/Progressive": {
       "category": "state_offset",
       "name": "Progressive in OR",
       "snapshot": {
-        "mult": 0.89
+        "mult": 0.99
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/OR/Farmers": {
       "category": "state_offset",
@@ -8260,11 +8230,11 @@
       "category": "state_offset",
       "name": "Progressive in SC",
       "snapshot": {
-        "mult": 0.86
+        "mult": 0.9
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/SC/Farmers": {
       "category": "state_offset",
@@ -8280,11 +8250,11 @@
       "category": "state_offset",
       "name": "Progressive in SD",
       "snapshot": {
-        "mult": 0.88
+        "mult": 0.98
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/SD/Farmers": {
       "category": "state_offset",
@@ -8300,11 +8270,11 @@
       "category": "state_offset",
       "name": "Progressive in TN",
       "snapshot": {
-        "mult": 0.88
+        "mult": 0.97
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/TN/Farmers": {
       "category": "state_offset",
@@ -8330,11 +8300,11 @@
       "category": "state_offset",
       "name": "Progressive in UT",
       "snapshot": {
-        "mult": 0.86
+        "mult": 0.91
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/UT/Farmers": {
       "category": "state_offset",
@@ -8360,11 +8330,11 @@
       "category": "state_offset",
       "name": "Progressive in VT",
       "snapshot": {
-        "mult": 0.9
+        "mult": 1.04
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/VT/Farmers": {
       "category": "state_offset",
@@ -8390,11 +8360,11 @@
       "category": "state_offset",
       "name": "Progressive in VA",
       "snapshot": {
-        "mult": 0.89
+        "mult": 0.99
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/VA/Farmers": {
       "category": "state_offset",
@@ -8410,11 +8380,11 @@
       "category": "state_offset",
       "name": "Progressive in WA",
       "snapshot": {
-        "mult": 0.87
+        "mult": 0.94
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/WA/Farmers": {
       "category": "state_offset",
@@ -8430,11 +8400,11 @@
       "category": "state_offset",
       "name": "Progressive in WV",
       "snapshot": {
-        "mult": 0.88
+        "mult": 0.97
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/WV/Farmers": {
       "category": "state_offset",
@@ -8450,11 +8420,11 @@
       "category": "state_offset",
       "name": "Progressive in WI",
       "snapshot": {
-        "mult": 0.89
+        "mult": 1.01
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/WI/Farmers": {
       "category": "state_offset",
@@ -8470,11 +8440,11 @@
       "category": "state_offset",
       "name": "Progressive in WY",
       "snapshot": {
-        "mult": 0.9
+        "mult": 1.03
       },
       "last_verified": "2026-06-23",
-      "source": "",
-      "notes": "(added via --sync)"
+      "source": "article/state-rankings.html (published per-state cheapest-5)",
+      "notes": "Progressive fill re-modeled 1.04-0.22*pct; validated top-5 overlap 94.5->98%"
     },
     "offset/WY/Farmers": {
       "category": "state_offset",

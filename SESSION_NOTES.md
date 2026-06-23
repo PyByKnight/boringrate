@@ -7,14 +7,19 @@ _Last updated: 2026-06-22 (Opus 4.8)_
   the 3 partially-tuned nationals in `STATE_CARRIER_ADJ`. `gen_auto_offset_fill.py`
   fills MISSING states only (hand-tuned values untouched) with a per-carrier linear
   model fit to each carrier's own existing cloud: State Farm `max(0.84,0.85+0.40·
-  (pct-0.5))` (cheap floor, loads priciest), Progressive `0.90-0.06·pct` (tight
-  value band), Farmers `0.91+0.04·(pct-0.5)` (mild agent loading). Filled 14/34/46
-  states → **State Farm 50/51, Progressive 51/51, Farmers 51/51; offset coverage
-  80.5%→93.7%** (669/714). Synced auto ledger + baselined 2026-06-23. Cascaded to
-  static rankings: `gen_state_rankings.js --export --states --metros`
-  (state_rankings.json + article/state/* + article/metro/*). Idempotent generator;
-  sweep 526/526. NOTE: article/state-rankings.html `STATE_DATA` is independent
-  published-rate reference data — correctly NOT touched.
+  (pct-0.5))` (cheap floor, loads priciest), Progressive `1.04-0.22·pct` (mid in
+  cheap states, cheapest in pricey), Farmers `0.91+0.04·(pct-0.5)` (mild agent
+  loading). Filled 14/31/46 → **State Farm 50/51, Progressive 48/51, Farmers 51/51;
+  offset coverage 80.5%→93.3%** (666/714). Synced auto ledger + baselined.
+  Cascaded to static rankings (`gen_state_rankings.js --export --states --metros`).
+  Idempotent generator; sweep 526/526.
+  **VALIDATED vs ground truth:** cross-checked model cheapest-5/state against the
+  published cheapest-5 in article/state-rankings.html (independent reference data).
+  First flat Progressive fill scored 94.5% top-5 overlap but falsely put Progressive
+  top-5 in 11 low-cost rural states; steepened to 1.04-0.22·pct → **98.0% overlap**
+  (false-top5 11→4). This overlap check is now a repeatable accuracy gauge for
+  future offset edits. (article/state-rankings.html STATE_DATA itself is reference
+  data — NOT touched.)
   NEXT: NAIC grade verification; cross-product bundling guide.
 
 ## This session (2026-06-22, Opus 4.8) — shipped

@@ -10,10 +10,16 @@ cloud (so the fills extend the established shape rather than impose a generic
 tilt):
 
   State Farm  offset = max(0.84, 0.85 + 0.40*(pct-0.5))   # cheap floor, loads priciest
-  Progressive offset = 0.90 - 0.06*pct                    # tight value band
+  Progressive offset = 1.04 - 0.22*pct                    # mid in cheap states, cheapest in pricey
   Farmers     offset = 0.91 + 0.04*(pct-0.5)              # mild agent loading
 
 pct = rank of the state's STATE_DATA.avg, 0 (cheapest) … 1 (priciest).
+
+The Progressive slope was set by validating model top-5 rankings against the
+published per-state cheapest-5 in article/state-rankings.html: a flat ~0.90
+falsely placed Progressive in the top-5 of low-cost rural states (it is mid-pack
+there in reality); 1.04-0.22*pct lifts the 40-state top-5 overlap 94.5%→98% and
+agrees better with the hand-tuned high-cost Progressive values.
 A fill that rounds to 1.00 is dropped (== national base). Modeled/directional,
 same status as the rest of STATE_CARRIER_ADJ. Surgical, idempotent: each missing
 carrier is appended to its state row; rerunning is a no-op.
@@ -26,7 +32,7 @@ SRC = Path(__file__).resolve().parent / "index.html"
 
 MODELS = {
     "State Farm":  lambda p: round(max(0.84, 0.85 + 0.40 * (p - 0.5)), 2),
-    "Progressive": lambda p: round(0.90 - 0.06 * p, 2),
+    "Progressive": lambda p: round(1.04 - 0.22 * p, 2),
     "Farmers":     lambda p: round(0.91 + 0.04 * (p - 0.5), 2),
 }
 

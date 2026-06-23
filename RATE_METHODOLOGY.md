@@ -139,14 +139,25 @@ shape instead of imposing a generic tilt:
 | Carrier | model | shape it captures |
 |---|---|---|
 | State Farm | `max(0.84, 0.85 + 0.40·(pct−0.5))` | cheap floor, loads the priciest states |
-| Progressive | `0.90 − 0.06·pct` | tight value band, dips in high-cost states |
+| Progressive | `1.04 − 0.22·pct` | mid-pack in cheap rural states, cheapest in pricey ones |
 | Farmers | `0.91 + 0.04·(pct−0.5)` | near-flat ~0.92, mild agent loading |
 
-Filled 14 / 34 / 46 states (DE State Farm dropped — rounds to 1.00). New coverage:
-**State Farm 50/51, Progressive 51/51, Farmers 51/51 → 669/714 (93.7%)**. Synced
-to the auto ledger + baselined 2026-06-23. Cascaded to the static rankings:
-`node gen_state_rankings.js --export --states --metros` (state_rankings.json +
-article/state/* + article/metro/*). Sweep 526/526.
+Filled 14 / 31 / 46 states (DE State Farm + HI/IN/NC Progressive dropped — round
+to 1.00). New coverage: **State Farm 50/51, Progressive 48/51, Farmers 51/51 →
+666/714 (93.3%)**. Synced to the auto ledger + baselined 2026-06-23. Cascaded to
+the static rankings: `node gen_state_rankings.js --export --states --metros`
+(state_rankings.json + article/state/* + article/metro/*). Sweep 526/526.
+
+**Validation (the Progressive slope is not eyeballed).** Model cheapest-5 per
+state was cross-checked against the published per-state cheapest-5 in
+`article/state-rankings.html` (independent reference data, full-cov/age-40/clean).
+A first flat Progressive fill (`0.90 − 0.06·pct`) scored **94.5%** top-5 overlap
+but falsely placed Progressive in the top-5 of 11 low-cost rural states where the
+published data ranks it mid-pack (ME/VT/ID/IN/OR/etc. are led by State
+Farm/GEICO/USAA/Root). Steepening to `1.04 − 0.22·pct` lifted overlap to
+**98.0%** (Progressive false-top5 11→4) and agrees better with the hand-tuned
+high-cost Progressive values. This published-rankings overlap is now a cheap,
+repeatable accuracy check for any future offset change.
 
 ---
 
@@ -224,8 +235,9 @@ Atom id scheme: `carrier/<national|nonstandard|regional>/<Name>`,
 - [x] **Resolved the `/2` calibration** + reconciled all per-vehicle displays (§1). _2026-06-17_
 - [x] **Fixed CO + the 11 states >20% off** vs source (§4). _2026-06-17_
 - [x] **Added `STATE_CARRIER_ADJ` for the 9 untuned nationals** → 80.5% coverage (§3). _2026-06-17_
-- [x] Deepen partial offsets: State Farm 36→50/51, Progressive 17→51/51,
-      Farmers 5→51/51 (`gen_auto_offset_fill.py`, §3). 93.7% coverage. _2026-06-23_
+- [x] Deepen partial offsets: State Farm 36→50/51, Progressive 17→48/51,
+      Farmers 5→51/51 (`gen_auto_offset_fill.py`, §3). 93.3% coverage; model
+      top-5 overlap vs published rankings 98.0%. _2026-06-23_
 - [ ] Decide on the 10–20% state-average divergences (left as-is for now, §4).
 - [ ] **Verify CS grades vs NAIC complaint index** (next sourceable batch).
 - [x] Apply the carrier-by-state pass to renters/home → `STATE_CARRIER_ADJ` added
