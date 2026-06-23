@@ -99,13 +99,13 @@
       "category": "national",
       "name": "Progressive",
       "snapshot": {
-        "base": 0.95,
+        "base": 0.92,
         "csGrade": "B",
         "stability": 2
       },
       "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "source": "cheapest_by_state.json",
+      "notes": "Progressive flattened to real data 2026-06-23"
     },
     "carrier/national/Root Insurance": {
       "category": "national",
@@ -1131,16 +1131,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/AZ/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in AZ",
-      "snapshot": {
-        "mult": 0.88
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/AZ/USAA": {
       "category": "state_offset",
       "name": "USAA in AZ",
@@ -1166,16 +1156,6 @@
       "name": "GEICO in CA",
       "snapshot": {
         "mult": 1.1
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/CA/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in CA",
-      "snapshot": {
-        "mult": 0.84
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -1211,16 +1191,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/CO/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in CO",
-      "snapshot": {
-        "mult": 0.9
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/CO/USAA": {
       "category": "state_offset",
       "name": "USAA in CO",
@@ -1236,16 +1206,6 @@
       "name": "GEICO in CT",
       "snapshot": {
         "mult": 0.86
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/CT/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in CT",
-      "snapshot": {
-        "mult": 0.92
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -1311,16 +1271,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/FL/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in FL",
-      "snapshot": {
-        "mult": 0.84
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/FL/State Farm": {
       "category": "state_offset",
       "name": "State Farm in FL",
@@ -1346,16 +1296,6 @@
       "name": "GEICO in GA",
       "snapshot": {
         "mult": 0.88
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/GA/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in GA",
-      "snapshot": {
-        "mult": 0.9
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -1571,16 +1511,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/KY/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in KY",
-      "snapshot": {
-        "mult": 0.9
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/KY/State Farm": {
       "category": "state_offset",
       "name": "State Farm in KY",
@@ -1611,16 +1541,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/LA/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in LA",
-      "snapshot": {
-        "mult": 0.88
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/LA/State Farm": {
       "category": "state_offset",
       "name": "State Farm in LA",
@@ -1646,16 +1566,6 @@
       "name": "GEICO in MA",
       "snapshot": {
         "mult": 0.87
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/MA/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in MA",
-      "snapshot": {
-        "mult": 0.91
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -1716,16 +1626,6 @@
       "name": "GEICO in MI",
       "snapshot": {
         "mult": 0.96
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/MI/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in MI",
-      "snapshot": {
-        "mult": 0.8
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -1991,16 +1891,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/NJ/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in NJ",
-      "snapshot": {
-        "mult": 0.92
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/NJ/USAA": {
       "category": "state_offset",
       "name": "USAA in NJ",
@@ -2055,11 +1945,11 @@
       "category": "state_offset",
       "name": "Progressive in NV",
       "snapshot": {
-        "mult": 0.86
+        "mult": 0.82
       },
       "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "source": "cheapest_by_state.json",
+      "notes": "Progressive flattened to real data 2026-06-23"
     },
     "offset/NV/USAA": {
       "category": "state_offset",
@@ -2085,11 +1975,11 @@
       "category": "state_offset",
       "name": "Progressive in NY",
       "snapshot": {
-        "mult": 0.91
+        "mult": 0.82
       },
       "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "source": "cheapest_by_state.json",
+      "notes": "Progressive flattened to real data 2026-06-23"
     },
     "offset/NY/USAA": {
       "category": "state_offset",
@@ -2106,16 +1996,6 @@
       "name": "GEICO in OH",
       "snapshot": {
         "mult": 0.97
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/OH/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in OH",
-      "snapshot": {
-        "mult": 0.82
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -2221,16 +2101,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/PA/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in PA",
-      "snapshot": {
-        "mult": 0.91
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/PA/State Farm": {
       "category": "state_offset",
       "name": "State Farm in PA",
@@ -2256,16 +2126,6 @@
       "name": "GEICO in RI",
       "snapshot": {
         "mult": 0.86
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/RI/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in RI",
-      "snapshot": {
-        "mult": 0.92
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -2376,16 +2236,6 @@
       "name": "GEICO in TX",
       "snapshot": {
         "mult": 0.9
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/TX/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in TX",
-      "snapshot": {
-        "mult": 0.86
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -7546,31 +7396,11 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/AL/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in AL",
-      "snapshot": {
-        "mult": 0.92
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/AL/Farmers": {
       "category": "state_offset",
       "name": "Farmers in AL",
       "snapshot": {
         "mult": 0.91
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/AK/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in AK",
-      "snapshot": {
-        "mult": 0.93
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -7601,16 +7431,6 @@
       "name": "Farmers in AZ",
       "snapshot": {
         "mult": 0.91
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/AR/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in AR",
-      "snapshot": {
-        "mult": 0.93
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -7676,31 +7496,11 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/DC/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in DC",
-      "snapshot": {
-        "mult": 0.84
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/DC/Farmers": {
       "category": "state_offset",
       "name": "Farmers in DC",
       "snapshot": {
         "mult": 0.93
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/DE/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in DE",
-      "snapshot": {
-        "mult": 0.85
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -7746,26 +7546,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/ID/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in ID",
-      "snapshot": {
-        "mult": 1.02
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/IL/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in IL",
-      "snapshot": {
-        "mult": 0.96
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/IL/Farmers": {
       "category": "state_offset",
       "name": "Farmers in IL",
@@ -7786,31 +7566,11 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/IA/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in IA",
-      "snapshot": {
-        "mult": 0.97
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/IA/Farmers": {
       "category": "state_offset",
       "name": "Farmers in IA",
       "snapshot": {
         "mult": 0.9
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/KS/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in KS",
-      "snapshot": {
-        "mult": 0.88
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -7850,11 +7610,11 @@
       "category": "state_offset",
       "name": "Progressive in ME",
       "snapshot": {
-        "mult": 1.04
+        "mult": 0.82
       },
       "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "source": "cheapest_by_state.json",
+      "notes": "Progressive flattened to real data 2026-06-23"
     },
     "offset/ME/Farmers": {
       "category": "state_offset",
@@ -7871,16 +7631,6 @@
       "name": "State Farm in MD",
       "snapshot": {
         "mult": 0.96
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/MD/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in MD",
-      "snapshot": {
-        "mult": 0.87
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -7926,31 +7676,11 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/MN/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in MN",
-      "snapshot": {
-        "mult": 0.95
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/MN/Farmers": {
       "category": "state_offset",
       "name": "Farmers in MN",
       "snapshot": {
         "mult": 0.91
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/MS/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in MS",
-      "snapshot": {
-        "mult": 0.92
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -7966,16 +7696,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/MO/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in MO",
-      "snapshot": {
-        "mult": 0.89
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/MO/Farmers": {
       "category": "state_offset",
       "name": "Farmers in MO",
@@ -7986,31 +7706,11 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/MT/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in MT",
-      "snapshot": {
-        "mult": 0.94
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/MT/Farmers": {
       "category": "state_offset",
       "name": "Farmers in MT",
       "snapshot": {
         "mult": 0.91
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/NE/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in NE",
-      "snapshot": {
-        "mult": 0.98
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -8046,16 +7746,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/NH/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in NH",
-      "snapshot": {
-        "mult": 1.03
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/NH/Farmers": {
       "category": "state_offset",
       "name": "Farmers in NH",
@@ -8079,16 +7769,6 @@
     "offset/NJ/Farmers": {
       "category": "state_offset",
       "name": "Farmers in NJ",
-      "snapshot": {
-        "mult": 0.93
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/NM/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in NM",
       "snapshot": {
         "mult": 0.93
       },
@@ -8136,16 +7816,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/ND/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in ND",
-      "snapshot": {
-        "mult": 1.01
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/ND/Farmers": {
       "category": "state_offset",
       "name": "Farmers in ND",
@@ -8170,21 +7840,11 @@
       "category": "state_offset",
       "name": "Progressive in OK",
       "snapshot": {
-        "mult": 0.89
+        "mult": 0.82
       },
       "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/OR/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in OR",
-      "snapshot": {
-        "mult": 0.99
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "source": "cheapest_by_state.json",
+      "notes": "Progressive flattened to real data 2026-06-23"
     },
     "offset/OR/Farmers": {
       "category": "state_offset",
@@ -8226,16 +7886,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/SC/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in SC",
-      "snapshot": {
-        "mult": 0.9
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/SC/Farmers": {
       "category": "state_offset",
       "name": "Farmers in SC",
@@ -8246,31 +7896,11 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/SD/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in SD",
-      "snapshot": {
-        "mult": 0.98
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/SD/Farmers": {
       "category": "state_offset",
       "name": "Farmers in SD",
       "snapshot": {
         "mult": 0.9
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/TN/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in TN",
-      "snapshot": {
-        "mult": 0.97
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -8296,16 +7926,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/UT/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in UT",
-      "snapshot": {
-        "mult": 0.91
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/UT/Farmers": {
       "category": "state_offset",
       "name": "Farmers in UT",
@@ -8321,16 +7941,6 @@
       "name": "State Farm in VT",
       "snapshot": {
         "mult": 0.84
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/VT/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in VT",
-      "snapshot": {
-        "mult": 1.04
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -8356,31 +7966,11 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/VA/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in VA",
-      "snapshot": {
-        "mult": 0.99
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/VA/Farmers": {
       "category": "state_offset",
       "name": "Farmers in VA",
       "snapshot": {
         "mult": 0.9
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/WA/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in WA",
-      "snapshot": {
-        "mult": 0.94
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -8396,16 +7986,6 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/WV/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in WV",
-      "snapshot": {
-        "mult": 0.97
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/WV/Farmers": {
       "category": "state_offset",
       "name": "Farmers in WV",
@@ -8416,31 +7996,11 @@
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
     },
-    "offset/WI/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in WI",
-      "snapshot": {
-        "mult": 1.01
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
     "offset/WI/Farmers": {
       "category": "state_offset",
       "name": "Farmers in WI",
       "snapshot": {
         "mult": 0.89
-      },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
-    },
-    "offset/WY/Progressive": {
-      "category": "state_offset",
-      "name": "Progressive in WY",
-      "snapshot": {
-        "mult": 1.03
       },
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
@@ -8765,6 +8325,26 @@
       "last_verified": "2026-06-23",
       "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
       "notes": "model re-anchored to published rates 2026-06-23"
+    },
+    "offset/IN/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in IN",
+      "snapshot": {
+        "mult": 0.82
+      },
+      "last_verified": "2026-06-23",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/NC/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in NC",
+      "snapshot": {
+        "mult": 0.82
+      },
+      "last_verified": "2026-06-23",
+      "source": "",
+      "notes": "(added via --sync)"
     }
   }
 }
