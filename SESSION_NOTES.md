@@ -3,6 +3,29 @@ _Last updated: 2026-06-22 (Opus 4.8)_
 
 ## This session (2026-06-23, Opus 4.8) — shipped
 
+- **MODEL CALIBRATION vs REAL data (the big one).** Pushed past "consistency" to
+  actual accuracy. Built `cheapest_by_state.json` = published per-state cheapest
+  carriers (NerdWallet, cross-checked ValuePenguin) — first real external ground
+  truth in the repo. `verify_model_accuracy.py` scored the model against it:
+  **before** the truly-cheapest carrier sat at median rank 9.5, in top-5 only 36%.
+  Root cause: (1) national bases eyeballed wrong vs published averages (Travelers
+  0.97 for real $173/$208=0.83; USAA 0.82→0.60; GEICO 0.80→0.90); (2) regionals had
+  flat sub-national bases (0.65-0.82, under GEICO) + no offset → swept top-5, buried
+  nationals. `calibrate_model.py` did the "full rebuild": re-anchored 8 national
+  bases to published rate÷$208; lifted regional bases (American Family 0.76,
+  Auto-Owners 0.82, Country Financial 0.85; rest rescaled→[0.90,1.00]); and gave
+  REGIONALS per-state home-turf offsets (0.82 in their genuinely-cheapest states,
+  into STATE_CARRIER_ADJ). **After: median rank 3.0, top-5 71%.** TX→Texas Farm
+  Bureau #1, NJ→NJM #1, FL→Florida Farm Bureau top-3 (matches reality). Cascaded
+  (gen_state_rankings --export/--states/--metros), ledger re-baselined (833 atoms),
+  sweep 526/526, tool 0 JS errors.
+  KNOWN MISSES (not overfit to 1 source): Nationwide ND/UT (sources disagree);
+  Progressive low-cost states (its earlier offset, tuned vs the in-house editorial
+  page, now fights real data — FLATTEN NEXT); Donegal not in GA/TN footprint.
+  NEXT: flatten Progressive offset to match real data; widen regional home-turf
+  beyond #1 states (Erie/Auto-Owners broader footprint); re-pull a 2nd source to
+  de-noise the reference; then NAIC grades; bundling guide.
+
 - **Deepened auto's partial offsets** (State Farm/Progressive/Farmers). These were
   the 3 partially-tuned nationals in `STATE_CARRIER_ADJ`. `gen_auto_offset_fill.py`
   fills MISSING states only (hand-tuned values untouched) with a per-carrier linear

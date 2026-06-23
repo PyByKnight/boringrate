@@ -167,12 +167,45 @@ Two ways to read the same comparison, and they diverge sharply:
   nationals (USAA, Root, Progressive, GEICO, State Farm). The two surfaces tell
   users different stories in ~half the states.
 
-**Open structural question (not an offset bug):** which surface is right — does the
-tool over-weight regionals, or does the editorial page under-list them? Per-carrier
-offset tuning barely moves the full-roster number; this is a roster-philosophy
-decision for a human. `verify_offset_consistency.py` reports both the headline
-agreement and per-carrier model-only / editorial-only divergence, and takes an
-optional `--min` regression gate.
+### Resolved: measured vs REAL data, then calibrated (2026-06-23)
+The roster question was answered by getting actual external data instead of
+comparing two in-house surfaces. `cheapest_by_state.json` = published per-state
+cheapest carriers (NerdWallet, cross-checked vs ValuePenguin). Scored by
+`verify_model_accuracy.py` (USAA excluded, as those lists do):
+
+| metric | before | after calibration |
+|---|---|---|
+| real #1 in model top-5 | **36%** | **71%** |
+| median rank of the truly-cheapest carrier | **9.5** | **3.0** |
+
+**Root cause (both real):** (1) national bases were eyeballed and wrong vs
+published averages (Travelers 0.97 for a real $173/$208=0.83; USAA 0.82 for
+$125→0.60; GEICO 0.80 for $187→0.90); (2) regionals had flat sub-national bases
+(0.65–0.82, under GEICO) and NO per-state offset, so each undercut the cheap
+nationals in every state it appeared — and a flat base can't make a regional cheap
+on home turf but mid elsewhere.
+
+**The calibration (`calibrate_model.py`):**
+- National bases re-anchored to published full-coverage rate ÷ $208 national avg
+  (min-liability ÷ $76 where full-cov was unavailable). No-data carriers
+  (Liberty Mutual, Root, Safeco, The Hartford, Kemper, National General) kept.
+- Regional bases lifted: data-anchored where known (American Family 0.76,
+  Auto-Owners 0.82, Country Financial 0.85), else rescaled [0.65,0.95]→[0.90,1.00]
+  so they no longer universally undercut nationals.
+- **Regionals now get per-state offsets too:** a HOME-TURF 0.82 in the states where
+  each is genuinely cheapest (reference #1 winners + each Farm Bureau's own state),
+  added into `STATE_CARRIER_ADJ`. So TX→Texas Farm Bureau #1, NJ→NJM #1, FL→Florida
+  Farm Bureau top-3 — matching how those markets actually price; mid-pack elsewhere.
+
+**Known remaining misses (NOT overfit to one source):** Nationwide ND/UT and a few
+others where NerdWallet and ValuePenguin disagree; Progressive in some low-cost
+states (its offset, tuned earlier vs the editorial page, now slightly fights the
+real data — flatten next); Donegal not in GA/TN footprint (availability gap). Do
+not chase these to 100% — the reference is single-source.
+
+Two checkers now exist: `verify_model_accuracy.py` (vs real external data — the
+accuracy gauge) and `verify_offset_consistency.py` (vs the editorial page — catches
+the two BoringRate surfaces drifting apart).
 
 ---
 
