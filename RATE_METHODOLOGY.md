@@ -148,16 +148,31 @@ to 1.00). New coverage: **State Farm 50/51, Progressive 48/51, Farmers 51/51 →
 the static rankings: `node gen_state_rankings.js --export --states --metros`
 (state_rankings.json + article/state/* + article/metro/*). Sweep 526/526.
 
-**Validation (the Progressive slope is not eyeballed).** Model cheapest-5 per
-state was cross-checked against the published per-state cheapest-5 in
-`article/state-rankings.html` (independent reference data, full-cov/age-40/clean).
-A first flat Progressive fill (`0.90 − 0.06·pct`) scored **94.5%** top-5 overlap
-but falsely placed Progressive in the top-5 of 11 low-cost rural states where the
-published data ranks it mid-pack (ME/VT/ID/IN/OR/etc. are led by State
-Farm/GEICO/USAA/Root). Steepening to `1.04 − 0.22·pct` lifted overlap to
-**98.0%** (Progressive false-top5 11→4) and agrees better with the hand-tuned
-high-cost Progressive values. This published-rankings overlap is now a cheap,
-repeatable accuracy check for any future offset change.
+### Cross-surface consistency check (`verify_offset_consistency.py`)
+The Progressive slope was tuned against the per-state cheapest-5 in
+`article/state-rankings.html`. **Important honesty correction:** that page is
+*also* in-house editorial data ("editorial estimates based on public rate data"),
+**not** an external source — so this is a CONSISTENCY check between two BoringRate
+surfaces, NOT validation against real-world rates. Neither side is ground truth.
+
+Two ways to read the same comparison, and they diverge sharply:
+- **Nationals-only** (compare just the 14 national carriers): the flat Progressive
+  fill scored 94.5% top-5 overlap; steepening to `1.04 − 0.22·pct` lifted it to
+  98.0% and removed Progressive's false top-5 in low-cost rural states. This is
+  what made the steepen defensible — but it only looks at nationals.
+- **Full active roster** (what the tool actually shows = nationals + the per-state
+  `STATE_LOCAL_CARRIERS` regionals): agreement is only **47.8%**. The model
+  surfaces low-`base` regionals (Erie, Auto-Owners, Farm Bureau, Shelter, NJM,
+  Amica, AAA…) in the top-5; the editorial page lists almost exclusively big
+  nationals (USAA, Root, Progressive, GEICO, State Farm). The two surfaces tell
+  users different stories in ~half the states.
+
+**Open structural question (not an offset bug):** which surface is right — does the
+tool over-weight regionals, or does the editorial page under-list them? Per-carrier
+offset tuning barely moves the full-roster number; this is a roster-philosophy
+decision for a human. `verify_offset_consistency.py` reports both the headline
+agreement and per-carrier model-only / editorial-only divergence, and takes an
+optional `--min` regression gate.
 
 ---
 
@@ -236,8 +251,12 @@ Atom id scheme: `carrier/<national|nonstandard|regional>/<Name>`,
 - [x] **Fixed CO + the 11 states >20% off** vs source (§4). _2026-06-17_
 - [x] **Added `STATE_CARRIER_ADJ` for the 9 untuned nationals** → 80.5% coverage (§3). _2026-06-17_
 - [x] Deepen partial offsets: State Farm 36→50/51, Progressive 17→48/51,
-      Farmers 5→51/51 (`gen_auto_offset_fill.py`, §3). 93.3% coverage; model
-      top-5 overlap vs published rankings 98.0%. _2026-06-23_
+      Farmers 5→51/51 (`gen_auto_offset_fill.py`, §3). 93.3% coverage. _2026-06-23_
+- [ ] **Roster-philosophy gap (found 2026-06-23, `verify_offset_consistency.py`):**
+      tool vs editorial rankings page agree on only 47.8% of full-roster top-5 —
+      tool surfaces low-base regionals, editorial lists nationals. Decide which
+      surface is the source of truth before more offset tuning. (Earlier "98%" was
+      a nationals-only slice, not the full picture.)
 - [ ] Decide on the 10–20% state-average divergences (left as-is for now, §4).
 - [ ] **Verify CS grades vs NAIC complaint index** (next sourceable batch).
 - [x] Apply the carrier-by-state pass to renters/home → `STATE_CARRIER_ADJ` added

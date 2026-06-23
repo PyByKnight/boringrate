@@ -13,14 +13,19 @@ _Last updated: 2026-06-22 (Opus 4.8)_
   offset coverage 80.5%→93.3%** (666/714). Synced auto ledger + baselined.
   Cascaded to static rankings (`gen_state_rankings.js --export --states --metros`).
   Idempotent generator; sweep 526/526.
-  **VALIDATED vs ground truth:** cross-checked model cheapest-5/state against the
-  published cheapest-5 in article/state-rankings.html (independent reference data).
-  First flat Progressive fill scored 94.5% top-5 overlap but falsely put Progressive
-  top-5 in 11 low-cost rural states; steepened to 1.04-0.22·pct → **98.0% overlap**
-  (false-top5 11→4). This overlap check is now a repeatable accuracy gauge for
-  future offset edits. (article/state-rankings.html STATE_DATA itself is reference
-  data — NOT touched.)
-  NEXT: NAIC grade verification; cross-product bundling guide.
+  CONSISTENCY CHECK (`verify_offset_consistency.py`, permanent): compares the
+  model's cheapest-5/state vs article/state-rankings.html. CORRECTION to an earlier
+  overstatement — that page is ALSO in-house editorial data, not external ground
+  truth, so this measures cross-surface AGREEMENT, not accuracy. Nationals-only the
+  Progressive steepen (0.90flat→1.04-0.22·pct) improved overlap 94.5→98%, BUT on
+  the FULL active roster the tool actually shows (nationals + STATE_LOCAL_CARRIERS
+  regionals) agreement is only **47.8%**: the tool surfaces low-base regionals
+  (Erie/Auto-Owners/Farm Bureau/Shelter/NJM/Amica/AAA) in the top-5 while the
+  editorial page lists big nationals (USAA/Root/Progressive/GEICO/State Farm).
+  → OPEN STRUCTURAL QUESTION (human call): is the tool over-weighting regionals or
+  is the editorial page under-listing them? Offset tuning barely moves this.
+  NEXT: decide source-of-truth on the regionals-vs-nationals roster gap; NAIC grade
+  verification; cross-product bundling guide.
 
 ## This session (2026-06-22, Opus 4.8) — shipped
 
