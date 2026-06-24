@@ -919,6 +919,12 @@
     .rank-col-head { display: none; }
     .rank-name { font-size: 16px; overflow-wrap: anywhere; }
     .rank-tag { font-size: 11px; }
+    /* Boring Rec box: drop the desktop horizontal inset on mobile so the box is
+       full-width and its grid columns line up with the other rows. Trim the inner
+       row's side padding by the 2px border so column edges match exactly, instead
+       of squeezing the fixed-width quote box until it bleeds past the border. */
+    .boring-rec-wrap { margin: 12px 0; }
+    .boring-rec-wrap .rank-row { padding-left: 12px; padding-right: 12px; }
     .median-divider { grid-template-columns: 30px 1fr auto; padding: 6px 16px; font-size: 10px; }
     .state-banner-inner { flex-wrap: nowrap; padding: 8px 16px; gap: 8px; justify-content: flex-start; }
     .state-banner-text { display: none; }
