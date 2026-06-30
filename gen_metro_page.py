@@ -13,7 +13,9 @@ import re
 
 ROOT = pathlib.Path(__file__).parent
 TEMPLATE = ROOT / "article" / "metro" / "atlanta.html"
-NATIONAL_AVG = 2400  # baseline implied by existing pages (Atlanta $3,600 = +50%)
+# National baseline for "% vs national" — mean of the model's state averages
+# (set below, after STATE is parsed, so it stays in sync with the single source).
+NATIONAL_AVG = 2400  # placeholder; recomputed from STATE_DATA after parse
 
 # SINGLE SOURCE OF TRUTH: state averages + per-metro offsets come from the rate
 # model in index.html (same data the tool uses), NOT a private hardcoded copy.
@@ -36,6 +38,8 @@ def _slug(n): return n.lower().replace('.', '').replace(' ', '-')
 _SD = _block("const STATE_DATA", "{", "}")
 STATE = {m[0]: (m[1], _slug(m[1]), int(m[2]))
          for m in re.findall(r'"([A-Z]{2})":\s*\{\s*name:\s*"([^"]+)"[^}]*?avg:\s*(\d+)', _SD)}
+if STATE:
+    NATIONAL_AVG = round(sum(v[2] for v in STATE.values()) / len(STATE))  # = resync baseline
 
 # metro key -> mean per-carrier offset, parsed live from METRO_CARRIER_ADJ
 _MADJ_B = _block("const METRO_CARRIER_ADJ", "{", "}")

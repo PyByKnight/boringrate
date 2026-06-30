@@ -22,7 +22,9 @@ const METRO_STATE = {};
 for (const p in ZM) { const m = ZM[p]; if (!METRO_STATE[m]) { const st = Z3[p] || Z3[p.slice(0, 2)]; if (st) METRO_STATE[m] = st; } }
 // metro key -> article slug overrides (display name doesn't match the filename)
 const SLUG_OVERRIDE = { tam: "tampa", sjv: "san-jose", nfk: "norfolk", csc: "columbia-sc",
-  gso: "greensboro", wil: "wilmington-de", mnh: "manchester-nh", bvt: "burlington-vt" };
+  gso: "greensboro", wil: "wilmington-de", mnh: "manchester-nh", bvt: "burlington-vt",
+  // two Portlands named "Portland metro": por=Oregon -> portland, pme=Maine -> portland-me
+  por: "portland", pme: "portland-me" };
 
 const RED = "#b4321a", GREEN = "#2f6b3a";
 const START = "<!-- state-rankings-start -->", END = "<!-- state-rankings-end -->";

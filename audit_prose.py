@@ -27,7 +27,10 @@ TOL = 0.04       # allow 4% / $40 rounding slack before flagging
 
 SLUG_OVERRIDE = {"tam": "tampa", "sjv": "san-jose", "nfk": "norfolk", "csc": "columbia-sc",
                  "gso": "greensboro", "wil": "wilmington-de", "mnh": "manchester-nh",
-                 "bvt": "burlington-vt"}
+                 "bvt": "burlington-vt",
+                 # two Portlands: 'por'=Oregon, 'pme'=Maine — both are named "Portland metro",
+                 # so without this they collide on article/metro/portland.html.
+                 "por": "portland", "pme": "portland-me"}
 
 
 def block(name, open_, close):
@@ -85,8 +88,13 @@ def slugify(key, names):
 
 
 def displayed_avg(html):
-    """Pull the headline average the page advertises (first $X,XXX in the meta description)."""
-    m = re.search(r'<meta name="description" content="[^"]*?\$([0-9,]+)', html)
+    """Pull the headline average from the meta description. Require the $X,XXX comma
+    form (a 4-digit average) so we don't mistake prose like 'spread can top $600' for
+    the average. Returns None if the meta has no such figure (page not auto-checkable)."""
+    md = re.search(r'<meta name="description" content="([^"]*)"', html)
+    if not md:
+        return None
+    m = re.search(r'\$([0-9],[0-9]{3})\b', md.group(1))
     return int(m.group(1).replace(",", "")) if m else None
 
 
