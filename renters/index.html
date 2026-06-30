@@ -178,12 +178,12 @@ h1.hero-h .hero-sub{display:block;font-size:0.45em;font-weight:400;letter-spacin
 .refine-zip-confirm{display:none;align-items:baseline;gap:8px;padding:0;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);}
 .refine-zip-prefix{color:var(--ink-mute);}
 .refine-zip-value{color:var(--ink);font-weight:700;letter-spacing:0.12em;}
-.refine-zip-row .personalization-banner{display:flex !important;background:transparent !important;border:none !important;margin:0 !important;padding:0 !important;gap:10px;align-items:center;min-width:200px;flex:0 0 auto;}
-.refine-zip-row .pb-track{width:150px !important;max-width:150px;min-width:100px;height:8px !important;flex:0 0 150px;background:var(--ink-mute) !important;border-radius:4px;overflow:hidden;}
-.refine-zip-row .pb-fill{height:100% !important;border-radius:4px;}
-.refine-zip-row .pb-count{font-size:12px;color:var(--ink);font-weight:600;}
-.personalization-banner.complete .pb-fill{background:var(--good);}
-.personalization-banner.complete .pb-count{color:var(--good);font-weight:600;}
+
+
+
+
+
+
 .refine-group{display:flex;flex-direction:column;gap:6px;}
 .refine-label,.refine-group label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);display:block;margin-bottom:0;}
 .pill-row{display:flex;gap:5px;flex-wrap:wrap;}
@@ -247,11 +247,11 @@ body.br-demo .refine-zip-row{display:none !important;}
 .rank-main{flex:1 1 0;min-width:0;}
 .rank-table-label{display:none;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:10px;justify-content:space-between;align-items:center;}
 .rank-table-label.active{display:flex;}
-.personalization-banner{display:none;font-family:var(--mono);font-size:11px;color:var(--ink-mute);letter-spacing:0.04em;align-items:center;gap:10px;margin-bottom:12px;}
-.personalization-banner.visible{display:flex;}
-.pb-track{height:4px;width:80px;background:var(--rule);flex-shrink:0;}
-.pb-fill{height:100%;background:var(--accent);transition:width 300ms;}
-.pb-count{font-family:var(--mono);font-size:10px;color:var(--ink-mute);letter-spacing:0.05em;}
+
+
+
+
+
 .rank-median-top{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px;padding:7px 18px;background:var(--paper-deep);border-bottom:1px solid var(--rule);}
 .rmt-label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-mute);}
 .rmt-val{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;}
@@ -401,8 +401,8 @@ footer p{font-size:14px;color:rgba(246,241,232,.7);margin-top:12px;max-width:320
 .agent-card-link:hover{background:var(--accent);color:var(--paper);}
 .agent-show-more{display:block;width:100%;margin-top:12px;padding:10px;font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;background:none;border:1px solid var(--rule);color:var(--ink-mute);cursor:pointer;transition:all 120ms;}
 .agent-show-more:hover{border-color:var(--ink);color:var(--ink);}
-@media(max-width:600px){.refine-zip-row .personalization-banner{min-width:0 !important;flex:1 1 auto !important;}.refine-zip-row .pb-track{width:56px !important;max-width:56px !important;min-width:56px !important;flex:0 0 56px !important;}.refine-zip-row .pb-count{min-width:0;font-size:11px;}}
-</style>
+@media(max-width:600px){}
+/* Personalization progress banner (refine ZIP row) — consolidated, no !important */.personalization-banner{display:flex;align-items:center;gap:10px;min-width:200px;flex:0 0 auto;font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--ink-mute);}.pb-track{width:150px;height:8px;flex:0 0 150px;background:var(--ink-mute);border-radius:4px;overflow:hidden;}.pb-fill{height:100%;border-radius:4px;background:var(--accent);transition:width 300ms;}.pb-count{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:0.05em;color:var(--ink);}.personalization-banner.complete .pb-fill{background:var(--good);}.personalization-banner.complete .pb-count{color:var(--good);}@media(max-width:600px){.personalization-banner{min-width:0;flex:1 1 auto;}.pb-track{width:56px;flex:0 0 56px;}.pb-count{min-width:0;font-size:11px;}}</style>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="BoringRate" />
 <meta property="og:url" content="https://boringrate.com/renters/index.html" />
