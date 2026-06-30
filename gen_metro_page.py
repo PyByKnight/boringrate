@@ -15,21 +15,43 @@ ROOT = pathlib.Path(__file__).parent
 TEMPLATE = ROOT / "article" / "metro" / "atlanta.html"
 NATIONAL_AVG = 2400  # baseline implied by existing pages (Atlanta $3,600 = +50%)
 
-# state code -> (display name, slug, state avg). Mirrors STATE_DATA in index.html.
-_ST = {'AL':('Alabama',2468),'AK':('Alaska',2314),'AZ':('Arizona',2578),'AR':('Arkansas',2362),
-'CA':('California',3668),'CO':('Colorado',1706),'CT':('Connecticut',3124),'DC':('Washington D.C.',3486),
-'DE':('Delaware',3218),'FL':('Florida',4848),'GA':('Georgia',3224),'HI':('Hawaii',1446),'ID':('Idaho',1654),
-'IL':('Illinois',2194),'IN':('Indiana',1842),'IA':('Iowa',1586),'KS':('Kansas',2124),'KY':('Kentucky',2756),
-'LA':('Louisiana',4612),'ME':('Maine',1468),'MD':('Maryland',2986),'MA':('Massachusetts',2842),
-'MI':('Michigan',4724),'MN':('Minnesota',2214),'MS':('Mississippi',2438),'MO':('Missouri',2648),
-'MT':('Montana',2268),'NE':('Nebraska',2012),'NV':('Nevada',3842),'NH':('New Hampshire',1624),
-'NJ':('New Jersey',3486),'NM':('New Mexico',2314),'NY':('New York',3484),'NC':('North Carolina',1842),
-'ND':('North Dakota',1748),'OH':('Ohio',1724),'OK':('Oklahoma',2648),'OR':('Oregon',1986),
-'PA':('Pennsylvania',2468),'RI':('Rhode Island',3124),'SC':('South Carolina',2586),'SD':('South Dakota',1986),
-'TN':('Tennessee',2124),'TX':('Texas',3136),'UT':('Utah',2468),'VT':('Vermont',1524),'VA':('Virginia',1924),
-'WA':('Washington',2312),'WV':('West Virginia',2124),'WI':('Wisconsin',1724),'WY':('Wyoming',1986)}
+# SINGLE SOURCE OF TRUTH: state averages + per-metro offsets come from the rate
+# model in index.html (same data the tool uses), NOT a private hardcoded copy.
+# This is what keeps the prose averages from drifting when rates are corrected.
+_IDX = (ROOT / "index.html").read_text(encoding="utf-8")
+
+def _block(name, op, cl):
+    i = _IDX.index(name); s = _IDX.index(op, i); d = 0; j = s
+    while j < len(_IDX):
+        if _IDX[j] == op: d += 1
+        elif _IDX[j] == cl:
+            d -= 1
+            if d == 0: j += 1; break
+        j += 1
+    return _IDX[s:j]
+
 def _slug(n): return n.lower().replace('.', '').replace(' ', '-')
-STATE = {k: (v[0], _slug(v[0]), v[1]) for k, v in _ST.items()}
+
+# code -> (name, slug, avg), parsed live from STATE_DATA
+_SD = _block("const STATE_DATA", "{", "}")
+STATE = {m[0]: (m[1], _slug(m[1]), int(m[2]))
+         for m in re.findall(r'"([A-Z]{2})":\s*\{\s*name:\s*"([^"]+)"[^}]*?avg:\s*(\d+)', _SD)}
+
+# metro key -> mean per-carrier offset, parsed live from METRO_CARRIER_ADJ
+_MADJ_B = _block("const METRO_CARRIER_ADJ", "{", "}")
+_METRO_OFFSET = {}
+for _m in re.finditer(r'(\w+):\s*\{([^}]*)\}', _MADJ_B):
+    _vals = [float(v) for v in re.findall(r':\s*([0-9.]+)', _m.group(2))]
+    if _vals:
+        _METRO_OFFSET[_m.group(1)] = round(sum(_vals) / len(_vals), 4)
+
+def metro_offset(cfg):
+    """Single-source metro offset: mean of METRO_CARRIER_ADJ[key] when a key is
+    given, else the cfg's explicit offset (back-compat)."""
+    key = cfg.get("key")
+    if key and key in _METRO_OFFSET:
+        return _METRO_OFFSET[key]
+    return cfg.get("offset", 1.0)
 
 
 def pct_phrase(metro_avg):
@@ -50,7 +72,7 @@ def build_page(cfg):
     slug = cfg["slug"]
     metro = cfg["name"]
     st_name, st_slug, st_avg = STATE[cfg["state"]]
-    offset = cfg.get("offset", 1.0)
+    offset = metro_offset(cfg)  # single source: mean(METRO_CARRIER_ADJ[key]) or cfg offset
     avg = int(round(st_avg * offset / 10) * 10)  # round to $10
     p, word, pill = pct_phrase(avg)
     url = f"https://boringrate.com/article/metro/{slug}.html"
