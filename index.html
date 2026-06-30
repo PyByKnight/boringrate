@@ -923,12 +923,13 @@
        full-width and its grid columns line up with the other rows. Trim the inner
        row's side padding by the 2px border so column edges match exactly, instead
        of squeezing the fixed-width quote box until it bleeds past the border. */
-    /* Highlight the rec row with an INSET shadow, not a border+margin box, so the
-       row stays dimensionally identical to every other row — no width change, no
-       column shift, no bleed past the fixed-width quote box. */
-    .boring-rec-wrap { margin: 10px 0; border: none; border-radius: 0; }
-    .boring-rec-wrap .rank-row { box-shadow: inset 0 0 0 2px var(--accent); }
-    .boring-rec-wrap.usaa-rec .rank-row { box-shadow: inset 0 0 0 2px #4b5320; }
+    /* Full-width bordered box: drop the desktop's 14px side margins (those caused
+       the bleed/misalignment) and keep the real border so the "THE BORING REC"
+       label still notches onto the top border line. box-sizing keeps the 2px
+       border inside the width; trim inner side padding by 2px so the row's columns
+       still line up with the normal rows above/below. */
+    .boring-rec-wrap { margin: 10px 0; border-radius: 0; box-sizing: border-box; }
+    .boring-rec-wrap .rank-row { padding-left: 12px; padding-right: 12px; }
     .median-divider { grid-template-columns: 30px 1fr auto; padding: 6px 16px; font-size: 10px; }
     .state-banner-inner { flex-wrap: nowrap; padding: 8px 16px; gap: 8px; justify-content: flex-start; }
     .state-banner-text { display: none; }
