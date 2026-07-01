@@ -30,9 +30,24 @@ _Last updated: 2026-07-01 (Opus 4.8)_
   Wired: scenario-hub + what-it-covers inbound links, links OUT to worth-it near-win
   page, "Water damage & leaks" in single-source renters nav (build_nav 525 pages) +
   sitemap. gen_renters_faq.py gained per-article read-time. JS sweep 527/527 0 errors.
-  NEXT content ideas (same pattern, other buried high-demand renters scenarios):
-  deep pages for theft, dog bites; the does-cover hub is the highest-impression
-  renters guide and benefits from spoke pages. See [[boringrate-cta-tiles]].
+- **NEW CONTENT: renters theft/burglary guide** (aa0015cb, pushed).
+  `renters/does-renters-insurance-cover-theft.html` (2.3k words, gen_renters_faq):
+  targets the real GSC theft cluster (burglary 86 / robbery 12 / mugging 9 / "is
+  burglary covered" 8 = 106 imp, stuck pos 80-96). On/off-premises, deductible +
+  sublimit traps, what's not covered, post-theft steps. Linked from scenario hub +
+  links out to worth-it near-win. Nav (build_nav 526) + sitemap. JS 528/528.
+  - **DID NOT build dog-bites** (was on the suggested list) — GSC shows 0 demand.
+    Data-driven, not speculative. Both water + theft were spun off the does-cover
+    scenario hub, which is the highest-impression renters guide.
+- **NEXT REAL OPPORTUNITY (data-found, not yet built): "cheapest homeowners
+  insurance [state]".** Surfaced as a big cluster in GSC — Louisiana 28, Oklahoma
+  22, Georgia 21, Illinois 20, Maryland 20, Colorado 19, Washington 18, Nebraska 15,
+  Michigan/Indiana/Kansas/TN/DC/Maine/WY 11-14... dozens of states, all pos 40-70
+  (page 4-7). The home/state/*.html pages EXIST — likely need title/H1/intent
+  alignment to "cheapest homeowners insurance in [state]" (they currently lead with
+  "Rates"). Check before writing new pages: this may be an on-page retarget of
+  existing pages, not net-new content. Bigger aggregate volume than any single
+  renters scenario. See [[boringrate-cta-tiles]].
 
 ## This session (2026-07-01b, Opus 4.8) — shipped
 
