@@ -1,6 +1,43 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-01 (Opus 4.8)_
 
+## This session (2026-07-01b, Opus 4.8) — shipped
+
+- **PROSE DRIFT TOOLING GENERALIZED to all 3 products** (`audit_prose.py` +
+  `resync_prose.py` now take `--product auto|renters|home|all`, default `all`).
+  Previously auto-only; renters/home article prose had NO drift guard, so a
+  renters/home rate edit could silently rot their state pages the way auto's
+  CO 1706→3264 edit rotted 136 pages before the guard existed.
+  - **audit_prose.py** (GUARD): recomputes each page's expected avg from that
+    product's own model — `STATE_DATA`/`RENTERS_STATE_DATA`/`HOME_STATE_DATA`.
+    Meta anchor `is $X/year` (renters/home) vs auto's comma-form `$X,XXX` heuristic.
+    Now guards **298 pages** (auto 50 state + 95 metro; renters 51; home 51),
+    all **0 drift**. Universal threshold `max(4%, $10)` reproduces auto's old
+    results byte-for-byte (4%×$3k ≫ the old $40 floor). Kept every function
+    resync imports (added optional args defaulting to auto) → auto path unchanged.
+  - **resync_prose.py** (FIXER): same `--product`. Per-product national baseline =
+    mean of that product's 51 avgs (auto $2,458 / renters $168 / home $1,863).
+    Per-product plausibility bounds (renters ~$121-268 → floor $60; home ~$479 HI -
+    $4.2k → floor $400, since HI home is genuinely $479).
+  - **SCOPING DECISIONS (deliberate, documented in docstrings):**
+    1. **Metros = AUTO-ONLY.** Only auto stores a per-metro offset
+       (`METRO_CARRIER_ADJ`) in its own model; renters' 83 metro avgs were baked
+       from offsets NOT in `renters/index.html`, so they're not recomputable from a
+       single source (home has no metros).
+    2. **resync does NOT flip bare "below/above the national average" prose** (no %).
+       First cut had a bare-direction regex; dry-run caught it FLIPPING editorially-
+       correct nuance: auto/alabama ($2,468 vs $2,458 nat, +0.4%) "just below" →
+       "above" on a $10 gap; home/mississippi "well above" (catastrophe narrative) →
+       "well below" by 1.3% (nonsense — the "well" intensity can't be recomputed).
+       Removed it. Only the headline $ figure + formulaic `N% below/above` + auto
+       stat-pill `&middot; ±N%` are synced. Bare direction words are editorial; a
+       genuine sign flip is a human edit (audit still guards the number).
+  - Applied one genuine fix surfaced by resync: **renters DC $200→$198** (18% not
+    19%; page was stale by $2, under audit's tol). Only content change this session.
+  - NOT committed (working tree). OPEN: generalize the cascade scripts if
+    renters/home ever get metro offsets; wire `audit_prose.py` into a `build_all`
+    + CI gate. See [[boringrate-prose-drift-tooling]].
+
 ## This session (2026-06-30 → 07-01, Opus 4.8) — shipped
 
 - **MOBILE UI FIXES (auto/renters/home tools).** Rec box: replaced the border+margin
