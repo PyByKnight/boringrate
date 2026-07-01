@@ -39,15 +39,21 @@ _Last updated: 2026-07-01 (Opus 4.8)_
   - **DID NOT build dog-bites** (was on the suggested list) — GSC shows 0 demand.
     Data-driven, not speculative. Both water + theft were spun off the does-cover
     scenario hub, which is the highest-impression renters guide.
-- **NEXT REAL OPPORTUNITY (data-found, not yet built): "cheapest homeowners
-  insurance [state]".** Surfaced as a big cluster in GSC — Louisiana 28, Oklahoma
-  22, Georgia 21, Illinois 20, Maryland 20, Colorado 19, Washington 18, Nebraska 15,
-  Michigan/Indiana/Kansas/TN/DC/Maine/WY 11-14... dozens of states, all pos 40-70
-  (page 4-7). The home/state/*.html pages EXIST — likely need title/H1/intent
-  alignment to "cheapest homeowners insurance in [state]" (they currently lead with
-  "Rates"). Check before writing new pages: this may be an on-page retarget of
-  existing pages, not net-new content. Bigger aggregate volume than any single
-  renters scenario. See [[boringrate-cta-tiles]].
+- **RETARGET (DONE, b33d2136, pushed): "cheapest homeowners insurance [state]".**
+  Confirmed the biggest cluster in GSC — **842 imp / 98 queries** (~every state) at
+  pos 30-85. Diagnosis was right: the home/state pages ALREADY had cheapest body
+  content (ranking table, two "cheapest carriers/companies" H2s, "what is the
+  cheapest" FAQ) — that's why they surfaced — but <title>/<h1>/og/twitter/Article-
+  headline all led with "Rates / average cost". Retargeted all 5 signals to lead
+  with "Cheapest Homeowners Insurance in [State]" via gen_home_state_pages.py (51
+  pages regenerated, NO url/nav/sitemap change). Meta now names the top-3 cheapest
+  carriers but KEEPS the "is $X/year" phrase (audit_prose home guard depends on it);
+  dek + body H2s keep the parallel "[state] home rates/avg cost" cluster. audit 0
+  drift, JS 528/528. **This is a bet — re-check GSC positions in ~1-2 wks; if the
+  cheapest cluster climbs, replicate the title/H1 lead-with-intent pass on renters
+  state pages + home carrier pages.** See [[boringrate-cta-tiles]].
+  NOTE the parallel "[state] home insurance rates / average cost" cluster is ALSO
+  big (nebraska/SD/NM/kansas 30-35 imp each) — preserved in body, not sacrificed.
 
 ## This session (2026-07-01b, Opus 4.8) — shipped
 
