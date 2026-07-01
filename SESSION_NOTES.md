@@ -1,5 +1,49 @@
 # BoringRate — Session Notes
-_Last updated: 2026-06-22 (Opus 4.8)_
+_Last updated: 2026-07-01 (Opus 4.8)_
+
+## This session (2026-06-30 → 07-01, Opus 4.8) — shipped
+
+- **MOBILE UI FIXES (auto/renters/home tools).** Rec box: replaced the border+margin
+  box with a full-width bordered box (margin 10px 0) + padding comp so the "THE
+  BORING REC" tagline notches on the border and nothing bleeds/overlaps. Home
+  mobile row-width: relocated the mobile rank `@media` block to AFTER the base
+  rules (matched renters' working order) so desktop metrics stop leaking onto
+  mobile. ZIP "See rates" button: added `flex:1 1 0;min-width:0;width:0` to
+  `.zip-input` (Safari won't shrink a flex <input> otherwise). Personalization
+  banner: was bleeding off-screen (150px bar + long text via 3 competing !important
+  layers); mobile override shrinks bar to 56px + lets it wrap; THEN consolidated
+  the 3 layers into ONE clean rule with ZERO !important (verified computed styles
+  unchanged). All pushed.
+- **RATE-DATA CENTRALIZATION / DRIFT FIX (the big one).** User found article prose
+  averages had drifted from the model (Colorado Springs prose "$1,740" vs model
+  ~$3,330; the tool + tables were current). Root cause: `gen_metro_page.py` (and
+  batch/rate_tracker) hardcoded their OWN state-avg tables, so when STATE_DATA in
+  index.html was corrected over time (e.g. CO 1706→3264) the prose went stale.
+  NOTE: the tool showing $2,509 for a ZIP was NOT a bug — it was a SAVED localStorage
+  profile; fresh/default tool = $1,802 = the article (all COVERAGE_MULT.standard &
+  SHOP_MULT.web are 1.0, so tables already = tool default).
+  - Sanity-checked biggest swings vs ValuePenguin FIRST: model state avgs match
+    published full-coverage figures ~exactly (CO/MI/GA/CA/FL/NY exact) → model is
+    right, prose was stale.
+  - NEW TOOLING (single-source workflow): `audit_prose.py` = drift GUARD (recomputes
+    every metro/state article avg from STATE_DATA + METRO_CARRIER_ADJ in index.html;
+    exit 1 on drift, CI-ready). `resync_prose.py` = FIXER (surgical in-place number
+    patch — NOT regeneration; regenerating from the stale atlanta template would
+    reintroduce the old dark zip-embed CTA + drop injected sections). National
+    baseline = mean of the 51 model state avgs ($2,458).
+  - `gen_metro_page.py` now reads STATE_DATA + METRO_CARRIER_ADJ from index.html
+    (no more hardcoded `_ST`); NATIONAL_AVG derived from the model.
+  - Resynced 136 pages → audit_prose 0 drift, sweep 526/526. Also fixed a real
+    collision: `por`(Portland OR) & `pme`(Portland ME) both slugified to "portland"
+    (Maine's $1,490 was overwriting the OR page) → SLUG_OVERRIDE in audit_prose.py
+    + gen_state_rankings.js. All pushed (a7f7e707).
+  - SEO check: numbers are STATIC HTML (no client-side fetch), titles/H1 unchanged
+    → no SEO harm; net positive (accuracy + consistency + freshness).
+  WORKFLOW GOING FORWARD: change a rate in index.html → `python3 audit_prose.py`
+  flags stale articles → `python3 resync_prose.py` + `node gen_metro_compare.js` +
+  `node gen_state_rankings.js --states --metros --export` → audit_prose must go green.
+  OPEN/NEXT: renters/home have their own prose pages that could use the same
+  audit/resync treatment; consider a single `build_all` + CI gate on audit_prose.
 
 ## This session (2026-06-23, Opus 4.8) — shipped
 
