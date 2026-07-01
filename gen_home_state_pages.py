@@ -165,7 +165,7 @@ def build(code):
     _avg, median, cheapest, rblock = ranking_block(code, name)
     c1, c2, c3 = cheapest[0], cheapest[1], cheapest[2]
     url = f"https://boringrate.com/home/state/{slug}.html"
-    desc = f"The average cost of homeowners insurance in {name} is ${avg:,}/year — {tphrase}. See which carriers are cheapest and what drives {name} home rates."
+    desc = f"The cheapest homeowners insurance in {name} comes from {c1}, {c2} and {c3}. The state average is ${avg:,}/year — {tphrase}. Compare the cheapest carriers for your ZIP."
 
     faq = json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
         {"@type":"Question","name":f"What is the average cost of homeowners insurance in {name}?",
@@ -183,7 +183,7 @@ def build(code):
         {"@type":"ListItem","position":3,"name":f"{name} Homeowners Insurance Rates (2026)","item":url},
     ]})
     art = json.dumps({"@context":"https://schema.org","@type":"Article",
-        "headline":f"{name} Homeowners Insurance Rates (2026)","description":desc,
+        "headline":f"Cheapest Homeowners Insurance in {name} (2026)","description":desc,
         "publisher":{"@type":"Organization","name":"BoringRate","url":"https://boringrate.com"},
         "dateModified":"2026-06-15","mainEntityOfPage":url})
 
@@ -193,18 +193,18 @@ def build(code):
 <meta charset="UTF-8" />
 <link rel="canonical" href="{url}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{name} Homeowners Insurance Rates (2026) — BoringRate</title>
+<title>Cheapest Homeowners Insurance in {name} (2026) — BoringRate</title>
 <meta name="description" content="{esc(desc)}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 {STYLE}
-<meta property="og:title" content="Homeowners Insurance Rates in {name} (2026)" />
+<meta property="og:title" content="Cheapest Homeowners Insurance in {name} (2026)" />
 <meta property="og:description" content="{esc(desc)}" />
 <meta property="og:image" content="https://boringrate.com/og-default.png" />
 <meta property="og:url" content="{url}" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Homeowners Insurance Rates in {name} (2026)" />
+<meta name="twitter:title" content="Cheapest Homeowners Insurance in {name} (2026)" />
 <meta name="twitter:description" content="{esc(desc)}" />
 <meta name="twitter:image" content="https://boringrate.com/og-default.png" />
 <script type="application/ld+json">
@@ -235,7 +235,7 @@ def build(code):
   <div class="article-header">
     <div class="article-kicker"><a href="/home/index.html">Home Insurance</a> &nbsp;·&nbsp; {name} &nbsp;·&nbsp; 3 min read</div>
     <div class="stat-pill">{code} · {pill}</div>
-    <h1 class="article-title">{name} homeowners insurance rates: {tnote}.</h1>
+    <h1 class="article-title">The cheapest homeowners insurance in {name} (2026).</h1>
     <p class="article-dek">{name} homeowners pay an average of ${avg:,}/year (${monthly:,}/month) — {tphrase}. Rates here are shaped largely by {peril}.</p>
     <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; June 2026</div>
   </div>
