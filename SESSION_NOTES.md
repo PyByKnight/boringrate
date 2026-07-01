@@ -1,6 +1,39 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-01 (Opus 4.8)_
 
+## This session (2026-07-01c, Opus 4.8) — GSC review + content
+
+- **FIRST Google Search Console review** (export in `_gsc/`, gitignored; last 7 days
+  6/23-6/29). Site is brand-new in Google's eyes: ~9,800 impressions, **5 clicks**,
+  avg position ~59. **71.5% of impressions are page 6+** — this is a POSITION/domain-
+  authority problem, not a content or CTR problem. Impressions ramping 288→2,000/day
+  = healthy crawl/indexing. Don't panic about clicks; don't optimize titles/CTR yet
+  (premature at pos 59).
+  - **KEY STRATEGIC FINDING: auto is nearly invisible.** Top pages are ALL renters/
+    home; auto (the biggest content investment) pulls almost no impressions —
+    auto SEO is the most contested niche (NerdWallet/VP/Insurify own it). **Renters/
+    home are the realistic near-term SEO wedge.** Weigh this before more auto content.
+  - **3 near-win pages** (closest to page 1): renters/state/new-mexico (pos 17.5),
+    is-renters-insurance-worth-it (pos 28), home/carrier/usaa (pos 24.5). Assessed
+    on-page: **already well-optimized** (exact-match titles, good meta, 1.7-2.4k
+    words, FAQ schema) — NM has 60 inbound links, USAA 70. Their only real lever is
+    authority + time, NOT on-page churn. Left titles alone (no busywork).
+  - OPEN (user's call): pull the GSC **Indexing/Coverage** report — only 145 of 526
+    pages drew any impression in 7 days; need to know how many are actually indexed
+    vs just not-yet-surfaced. Highest-leverage unknown.
+- **NEW CONTENT: renters water-damage guide** (44f9335a, pushed). GSC showed a
+  250-impression/wk water cluster stuck at pos 70-90 because the scenario hub gave
+  water one paragraph. Built `renters/does-renters-insurance-cover-water-damage.html`
+  (2.4k words, via gen_renters_faq.py ARTICLES config): covered vs not, the confusing
+  ones (leak-from-above, water-vs-flood, carpet/ceiling, liability downstairs),
+  first-hour steps, gap-closing add-ons; 6-Q FAQPage JSON-LD on the exact queries.
+  Wired: scenario-hub + what-it-covers inbound links, links OUT to worth-it near-win
+  page, "Water damage & leaks" in single-source renters nav (build_nav 525 pages) +
+  sitemap. gen_renters_faq.py gained per-article read-time. JS sweep 527/527 0 errors.
+  NEXT content ideas (same pattern, other buried high-demand renters scenarios):
+  deep pages for theft, dog bites; the does-cover hub is the highest-impression
+  renters guide and benefits from spoke pages. See [[boringrate-cta-tiles]].
+
 ## This session (2026-07-01b, Opus 4.8) — shipped
 
 - **PROSE DRIFT TOOLING GENERALIZED to all 3 products** (`audit_prose.py` +
