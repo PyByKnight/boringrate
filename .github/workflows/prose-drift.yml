@@ -1,0 +1,35 @@
+name: prose-drift
+
+# Fail CI if any article's baked market-average prose has drifted from the rate
+# model (index.html / renters/index.html / home/index.html). Catches the case where
+# a rate is edited but the state/metro prose pages weren't resynced.
+#   local fix:  python3 resync_prose.py   (then re-run audit_prose.py)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'renters/index.html'
+      - 'home/index.html'
+      - 'article/state/**'
+      - 'article/metro/**'
+      - 'renters/state/**'
+      - 'home/state/**'
+      - 'audit_prose.py'
+      - '.github/workflows/prose-drift.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      # audit_prose.py is stdlib-only; no install step needed.
+      - name: Prose-vs-model average drift (all products)
+        run: python3 audit_prose.py
