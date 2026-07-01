@@ -1,6 +1,27 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-01 (Opus 4.8)_
 
+## ⏭ NEXT SESSION — open follow-ups (read first)
+
+1. **Re-pull GSC in ~1-2 weeks** (export lands in `_gsc/`, gitignored). Check whether
+   the **"cheapest homeowners insurance [state]" cluster (842 imp, 98 queries)**
+   climbed from pos 30-85 after the 2026-07-01 title/H1 retarget (b33d2136). **If it
+   climbed → replicate the same lead-with-intent title/H1 pass on renters state pages
+   + home carrier pages.** If flat, the lever is authority/time, not on-page.
+2. **Pull the GSC Indexing/Coverage report** (not in the current export). Only **145 of
+   526 pages** drew any impression in 7 days — need indexed-vs-not-yet-surfaced. Likely
+   highest-leverage unknown.
+3. **Strategic:** renters/home are the near-term SEO wedge; **auto is contested/near-
+   invisible** in GSC. Weigh before more auto content.
+4. **CI gates are live** (prose-drift + js-sweep on push/PR). After any rate edit:
+   `python3 audit_prose.py` → `python3 resync_prose.py` (both take `--product`).
+   JS after any HTML/JS change: `npm ci && node qa_sweep.js` (needs jsdom, in package.json).
+5. **Content pattern proven** (spin buried GSC query clusters into dedicated renters
+   guides off the does-cover hub): water-damage + theft shipped; dog-bites SKIPPED
+   (0 demand — data-driven). No obvious next renters scenario has real volume yet.
+
+_Full detail in the 2026-07-01c / b / (base) blocks below._
+
 ## This session (2026-07-01c, Opus 4.8) — GSC review + content
 
 - **FIRST Google Search Console review** (export in `_gsc/`, gitignored; last 7 days
