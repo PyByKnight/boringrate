@@ -1,7 +1,42 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-01 (Opus 4.8)_
+_Last updated: 2026-07-01 (Fable 5)_
+
+## This session (2026-07-01d, Fable 5) — tracker refresh + Plausible + Bing
+
+- **RATE TRACKER JULY REFRESH (8698cc08).** GSC showed `article/rate-changes/` at
+  **pos 4.5** — best-ranking content page on the site — but data untouched since
+  6/12. Added 4 verified filings: LA Allstate North American −7.6% (10,746
+  policyholders, eff 1/8/26) + LA Encompass/National General −15% (both via LDI
+  11-13-25 press release — these were the "need source verify" items from 6/12,
+  now verified); FL USAA −7% (FLOIR 1-28-26 PR, ~$125M/yr, replaced the older
+  WFLX −8% estimate with the approved filing); FL AAA/Auto Club South −5% auto
+  (AAA newsroom 6/15/26, eff 6/1 new + 8/1 renewals, 133k policyholders —
+  freshest item available). WA searched, no verifiable 2026 approved filings →
+  skipped (data discipline). Regenerated pages (FL now 6 filings, LA 5), bumped
+  the 9 rate-changes sitemap lastmods to 2026-07-01. verify_rate.js 0 errors.
+- **PLAUSIBLE WIRED (cbcfe1e6).** The "wire ONE transport tomorrow" comment sat
+  since 6/11. All 3 tool pages now load `plausible.io/js/script.js` (defer,
+  data-domain=boringrate.com) + official queue shim; `track()` forwards every
+  event with props. Surgical exact-match block replace (asserted count==1 per
+  file before write). Sweep 528/528 0 errors. **USER MUST create the
+  boringrate.com site in a Plausible account ($9/mo) — until then events are
+  sent and dropped server-side. Custom events need "Custom properties" enabled
+  in Plausible site settings to see props.**
+- **INDEXNOW KEY LIVE (d2ad292f):** `/5fbfc5544ed64066bdc6a16dadf595fb.txt`.
+  All 526 sitemap URLs submitted to api.indexnow.org (feeds Bing + DuckDuckGo).
+  First ping got 403 SiteVerificationNotCompleted (their verification is async
+  after key-file deploy); retried until accepted — see below for status.
+  **USER: Bing Webmaster Tools signup is the remaining 5-min step:
+  bing.com/webmasters → sign in → "Import from Google Search Console" → done
+  (imports site + sitemap; no code changes needed).**
+- Reporter/PR pitch drafts delivered in chat (RJ + WFLX reporters, SOS/Qwoted
+  signups — note HARO/Connectively is DEAD since Dec 2024, don't recommend it).
 
 ## ⏭ NEXT SESSION — open follow-ups (read first)
+
+0. **Check Plausible is receiving events** (needs user's account first) and
+   **re-ping IndexNow after next content push** (key file: see above; a one-line
+   POST — reuse the python snippet pattern, urlList from sitemap).
 
 1. **Re-pull GSC in ~1-2 weeks** (export lands in `_gsc/`, gitignored). Check whether
    the **"cheapest homeowners insurance [state]" cluster (842 imp, 98 queries)**
