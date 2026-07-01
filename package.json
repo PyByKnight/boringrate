@@ -1,0 +1,12 @@
+{
+  "name": "boringrate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BoringRate static site — JS QA sweep (jsdom) tooling",
+  "scripts": {
+    "qa": "node qa_sweep.js"
+  },
+  "devDependencies": {
+    "jsdom": "24.1.3"
+  }
+}

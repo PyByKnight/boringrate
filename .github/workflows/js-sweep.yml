@@ -1,0 +1,32 @@
+name: js-sweep
+
+# Render every .html page in jsdom and fail if any throws a JS error (uncaught
+# script exception or parse error). Catches regressions in the tool/article inline
+# scripts — e.g. an unguarded addEventListener on a page missing that element.
+#   local: npm ci && node qa_sweep.js
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - '**.js'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/js-sweep.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - name: jsdom JS-error sweep (all pages)
+        run: node qa_sweep.js
