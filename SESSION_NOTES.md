@@ -34,9 +34,25 @@ _Last updated: 2026-07-01 (Opus 4.8)_
        genuine sign flip is a human edit (audit still guards the number).
   - Applied one genuine fix surfaced by resync: **renters DC $200→$198** (18% not
     19%; page was stale by $2, under audit's tol). Only content change this session.
-  - NOT committed (working tree). OPEN: generalize the cascade scripts if
-    renters/home ever get metro offsets; wire `audit_prose.py` into a `build_all`
-    + CI gate. See [[boringrate-prose-drift-tooling]].
+  - Committed + pushed (23b6bc9e tooling, 6abe8f61 DC content, 9834e718 docs).
+    See [[boringrate-prose-drift-tooling]].
+- **CI GATES ADDED (GitHub Actions — first CI in the repo).** Two workflows on
+  push/PR to main:
+  - `.github/workflows/prose-drift.yml` — runs `python3 audit_prose.py` (all 3
+    products, stdlib-only ~0.14s). Fails if a rate was edited without resyncing
+    prose. Pushed b5526ecf.
+  - `.github/workflows/js-sweep.yml` — `npm ci && node qa_sweep.js` (jsdom, 526
+    pages). Pushed 18467933. Needed `package.json`+lockfile (pinned **jsdom
+    24.1.3**) and TWO qa_sweep.js fixes: (1) it was BLIND to hard errors — uncaught
+    script exceptions route to jsdom's virtualConsole `jsdomError`, not
+    `window.onerror`; now captures both (verified 0 across 526 real pages, but a
+    broken probe page now trips it). (2) `process.exitCode=1` on any error so it can
+    actually gate. `node_modules` gitignored.
+  - NOTE: GitHub Pages here deploys "from branch" (independent of Actions), so these
+    gates show a red X on drift/JS-error but do NOT hard-block the deploy. Switching
+    to deploy-via-Actions would hard-block — deferred, user call.
+  - VERIFY the runs are green: gh not installed locally → check the Actions tab (or
+    `gh run list` if you have gh).
 
 ## This session (2026-06-30 → 07-01, Opus 4.8) — shipped
 
