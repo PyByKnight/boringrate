@@ -17,7 +17,8 @@ would miss them). ~15–25 min/state once practiced. Order:
 
 ### Progress checklist (update as pulled; window covered in parens)
 - [x] NV (Jun 2026 — still needs Oct 2025–May 2026 backfill)
-- [ ] GA · [ ] SC · [ ] TN · [ ] LA · [ ] FL · [ ] TX · [ ] CA
+- [x] GA (Oct 2025–Jul 2026 backfill done: 8 filings — Travelers −10.1%/109k, Progressive −4.1%, Amica +8.9%, AmFam +7.5%, Allstate +5.5%, Donegal +5.0%, Liberty +3.4%, +State Farm −3% newsroom)
+- [ ] SC · [ ] TN · [ ] LA · [ ] FL · [ ] TX · [ ] CA
 - [ ] NY · [ ] PA · [ ] OH · [ ] IL · [ ] MI · [ ] NC · [ ] VA · [ ] WA · [ ] AZ · [ ] MA · [ ] MO · [ ] MN
 - [ ] AL · [ ] AK · [ ] AR · [ ] CO · [ ] CT · [ ] DE · [ ] DC · [ ] HI · [ ] ID · [ ] IN · [ ] IA · [ ] KS · [ ] KY · [ ] ME · [ ] MD · [ ] MS · [ ] MT · [ ] NE · [ ] NH · [ ] NJ · [ ] NM · [ ] ND · [ ] OK · [ ] OR · [ ] RI · [ ] SD · [ ] UT · [ ] VT · [ ] WV · [ ] WI · [ ] WY
 
@@ -93,6 +94,48 @@ Recognize these in results; log the family name in the tracker note.
 - **Nationwide**: Nationwide Mutual / General / P&C; also **Allied**
 - **Travelers**: Travelers Personal Ins., Travelers Home & Marine, The Standard Fire Ins. Co.
 - **American Family**: American Family Mutual, American Family Connect, Midvale Indemnity
+
+## FASTEST WORKFLOW (proven GA, 2026-07-02): zip → jacket PDF
+
+The single best method, no copy-paste:
+1. On each filing page click **Download Zip File**; drop the zip into ChromeOS
+   **Linux files** (Chrome Downloads is NOT shared to Linux — the Files-app
+   "copy into Linux files" step is required). Claude finds it in `~`.
+2. Claude moves it to `_serff/<STATE>/`, unzips into a per-tracking subfolder.
+3. **The `<TRACKING>.pdf` "jacket" is the single source of truth** — its
+   *Disposition* and *Rate Information* pages carry a clean table with:
+   Overall % Rate Impact, Written Premium Change, **Number of Policyholders
+   Affected**, both Effective Dates (New/Renewal), Disposition Date, AND the
+   prior revision % + its filing #. **You never need the supporting-doc PDFs
+   for the numbers.** Claude reads the jacket directly.
+   - Exception: Progressive/Travelers-style jackets split the data-row values
+     into a separate text stream; if a text-extractor misses the %, just Read
+     the jacket PDF and take the "Company Rate Information" table row.
+   - `_serff/` is gitignored (we cite filings, don't republish); discard anytime.
+
+## Triage lessons (what to skip — refined on GA's 254 filings)
+
+- **A "Rate/Rule" filing type does NOT mean a rate change.** Check the jacket's
+  Rate Change Type / Overall % Rate Impact. SKIP when it's **"Neutral" or
+  0.000%** — even for top-10 carriers. On GA that killed GEICO, USAA, Farmers
+  (FLEX "Decrease" but 0.0% impact — just new rating rules), Nationwide, and
+  Country Financial, all of which filed 0% symbol/rule refreshes.
+- **State Farm `INS-...` = billing/installment filing**, not rates (attachments
+  were only a Billing & Payment Agreement + fee forms). Attachment list is the
+  truth-teller.
+- **Skip immaterial books** even with a real %: GA Auto-Owners filed a decrease
+  affecting **17 policyholders** — not worth a row.
+- **File-and-Use is NOT a skip.** In mixed states (GA), "Rate/Rule File and Use"
+  → "Closed-Received/Filed" are real in-force rate filings; only skip
+  Withdrawn/Disapproved/Rejected and Form-only.
+- **Big carriers file as "Multiple"** with just a tracking prefix (SFMA, USAA,
+  PRGS, LBPM, AOIC, TRVD) — scan prefixes, not company names.
+- **"-G" tracking numbers** (NWPP-G…, TRVD-G…): the numeric part ≠ SERFF
+  filingId, so the `filingId=<digits>` deep link 403s. Click the row from
+  search results, or search the full tracking number.
+- **"Approved as Amended"**: the cover-letter % is the *proposed* figure; the
+  approved number is in the `_REV` exhibit / jacket disposition table (GA
+  Progressive: proposed −2.7% → approved −4.1%).
 
 ## Field lessons (from the July 2026 NV pilot)
 
