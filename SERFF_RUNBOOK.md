@@ -9,15 +9,19 @@ loop by design: these portals prohibit bots. ~30–45 min/month for 8–10 state
 
 1. Open the state's portal (table below). SERFF states: accept the terms,
    click **Begin Search**.
-2. Search settings (SERFF Filing Access states):
+2. Search settings (SERFF Filing Access states). The form only has: Business
+   Type, TOI, company/NAIC/product/tracking fields, and four date boxes —
+   there is NO filing-type or status filter on the form (those are result
+   columns). Enter:
    - Business Type: **Property & Casualty**
-   - Type of Insurance (TOI): **19.0 Private Passenger Automobile** (if it
-     asks for sub-TOI, take 19.0001 Personal Auto Combinations — or leave all
-     19.0xxx checked)
-   - Filing Type: **Rate** (also catches "Rate/Rule"; skip Form-only filings)
-   - Status / Disposition: **Closed - Approved**
-   - Date range: disposition/closed date = **last 30 days**
-3. Scan the results table. Keep a row when EITHER:
+   - Type of Insurance (TOI): **19.0 Private Passenger Automobile**
+   - Company/NAIC/Product/Tracking: leave **blank** (one search = all carriers)
+   - **Start Disposition Date**: 30 days ago · **End Disposition Date**: today
+   - Submission Date boxes: leave **empty** (disposition = decided filings)
+3. In the RESULTS table, first filter by eye using the columns:
+   - filing type includes **Rate** ("Rate", "Rate/Rule") — skip Form/Rule-only
+   - disposition is **Approved / Closed-Approved** — skip Withdrawn/Disapproved/Pending
+   Then keep a row when EITHER:
    - overall rate impact is **±3% or bigger**, OR
    - it's a **top-10 carrier family** (entity map below) with any change, OR
    - policyholders affected ≥ **10,000**
