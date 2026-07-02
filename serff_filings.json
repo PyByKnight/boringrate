@@ -43,7 +43,8 @@
         "kept": 6,
         "note": "full 2026-cycle backfill; +2 non-SERFF (State Farm newsroom)"
       }
-    ]
+    ],
+    "count_note": "NV PC forms report 'Number of Insured Vehicles'; GA jackets report 'Number of Policy Holders Affected' \u2014 different denominators (~1.5 vehicles/policy). written_premium/count therefore yields $/vehicle for NV, $/policy for GA. Record the exact basis; don't mix them in a per-unit average."
   },
   "filings": [
     {
@@ -182,7 +183,7 @@
       "written_premium": 403554184,
       "written_premium_change": -40758973,
       "affected": 109120,
-      "count_basis": "vehicles",
+      "count_basis": "policyholders",
       "coverage_changes": null,
       "premium_as_of": null,
       "recorded_date": "2026-07-02"
@@ -204,7 +205,7 @@
       "written_premium": null,
       "written_premium_change": null,
       "affected": 19212,
-      "count_basis": "vehicles",
+      "count_basis": "policyholders",
       "coverage_changes": null,
       "premium_as_of": null,
       "recorded_date": "2026-07-02"
@@ -226,7 +227,7 @@
       "written_premium": null,
       "written_premium_change": null,
       "affected": 654,
-      "count_basis": "vehicles",
+      "count_basis": "policyholders",
       "coverage_changes": null,
       "premium_as_of": null,
       "recorded_date": "2026-07-02"
@@ -248,7 +249,7 @@
       "written_premium": 2120576,
       "written_premium_change": 116632,
       "affected": 434,
-      "count_basis": "vehicles",
+      "count_basis": "policyholders",
       "coverage_changes": null,
       "note": "Legacy book, closed to new business. Second GA raise this cycle (prior +7.0% eff Jan 2026).",
       "premium_as_of": null,
@@ -271,7 +272,7 @@
       "written_premium": null,
       "written_premium_change": null,
       "affected": 2800,
-      "count_basis": "vehicles",
+      "count_basis": "policyholders",
       "coverage_changes": null,
       "note": "Donegal is NerdWallet's cheapest-named GA auto carrier \u2014 model-validation datapoint.",
       "premium_as_of": null,
@@ -294,7 +295,7 @@
       "written_premium": null,
       "written_premium_change": 2357842,
       "affected": 13476,
-      "count_basis": "vehicles",
+      "count_basis": "policyholders",
       "coverage_changes": null,
       "premium_as_of": null,
       "recorded_date": "2026-07-02"
