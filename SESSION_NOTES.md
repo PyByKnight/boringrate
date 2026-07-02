@@ -18,10 +18,11 @@ _Last updated: 2026-07-01 (Fable 5)_
   since 6/11. All 3 tool pages now load `plausible.io/js/script.js` (defer,
   data-domain=boringrate.com) + official queue shim; `track()` forwards every
   event with props. Surgical exact-match block replace (asserted count==1 per
-  file before write). Sweep 528/528 0 errors. **USER MUST create the
-  boringrate.com site in a Plausible account ($9/mo) — until then events are
-  sent and dropped server-side. Custom events need "Custom properties" enabled
-  in Plausible site settings to see props.**
+  file before write). Sweep 528/528 0 errors. 7/2: account created; swapped to
+  the account-issued init-based snippet `pa-v219GyiG5lJT1bQSRxP_Z.js` (10fce7d2).
+  Custom events need "Custom properties" enabled in Plausible site settings;
+  add each event name as a Goal to see it on the dashboard. Script is on the
+  3 TOOL pages only — article pages send nothing yet (optional batch patch).
 - **INDEXNOW KEY LIVE (d2ad292f):** `/5fbfc5544ed64066bdc6a16dadf595fb.txt`.
   All 526 sitemap URLs submitted to api.indexnow.org (feeds Bing + DuckDuckGo).
   First ping got 403 SiteVerificationNotCompleted (their verification is async
