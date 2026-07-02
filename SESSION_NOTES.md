@@ -1,6 +1,30 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-01 (Fable 5)_
 
+## This session (2026-07-02c, Opus 4.8) — SERFF GA backfill + zip/jacket workflow
+
+- **GA backfilled (Oct 2025–Jul 2026): 8 filings, 6 newly primary-sourced.**
+  254 GA filings → triaged to keeps: Travelers −10.1% (109k PH, −$40.8M, the
+  big one), Progressive −4.1%, Amica +8.9% (19k), AmFam +7.5%, Allstate +5.5%,
+  Donegal +5.0%, Liberty +3.4% (13k); +existing State Farm −3% (newsroom).
+  Skips (all 0%/neutral or immaterial): GEICO, USAA, Farmers (FLEX "Decrease"
+  but 0.0% impact), Nationwide, Mercury, Country, Auto-Owners (17 PH).
+  **GA is a MIXED market** (shoppers' carriers cutting, agent/regional raising)
+  vs NV's all-increase — good editorial contrast.
+- **WORKFLOW BREAKTHROUGH (in runbook): zip → jacket PDF.** User clicks
+  "Download Zip File", drops in ChromeOS Linux files (Chrome Downloads is NOT
+  auto-shared to Linux — Files-app copy required); Claude unzips to
+  `_serff/<STATE>/` (gitignored) and reads the `<TRACKING>.pdf` **jacket**,
+  whose Disposition + Rate Information table has EVERYTHING (overall % impact,
+  PH/vehicle count, both eff dates, disposition date, prior revision). No
+  supporting-doc digging, no copy-paste. SERFF still 403s bots so the download
+  stays human.
+- **Triage refinements added to runbook:** "Rate/Rule" ≠ rate change (skip
+  Neutral/0.000% even for big carriers); State Farm INS = billing filing;
+  File-and-Use IS real (mixed states); big carriers hide in "Multiple" rows;
+  "-G" tracking #s break the filingId deep link (row-click instead);
+  "Approved as Amended" → trust the _REV/jacket number not the cover letter.
+
 ## This session (2026-07-02b, Fable 5) — SERFF pilot: tracker is now primary-sourced
 
 - **User ran the first SERFF pull (Nevada) — the process works.** `SERFF_RUNBOOK.md`
