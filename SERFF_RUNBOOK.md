@@ -166,12 +166,21 @@ The single best method, no copy-paste:
    attachments, Form-only, withdrawn, advisory orgs like ISO/AIPSO/LexisNexis)
    so the user's eye keeps calibrating. Give direct next links:
    `https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=<tracking digits>`.
-2. **Log a completed filing** into `rate_changes.json` `changes[]`:
-   carrier (family name + entity in note), state, pct (TOTAL row, keep 3
-   decimals), dir, effective (new-business date), renewal (renewal date),
-   affected (vehicle count), source `"XX DOI rate filing TRACKING-# (SERFF)"`,
-   url (filingSummary link), note (approval date, per-coverage story — e.g.
-   BI vs comp/collision split — and "Count is insured vehicles").
+2. **Log a completed filing into TWO files:**
+   a. `rate_changes.json` `changes[]` (the tracker DISPLAY feed): carrier
+      (family name + entity in note), state, pct (TOTAL row, 3 decimals), dir,
+      effective (new-business date), renewal, affected, source
+      `"XX DOI rate filing TRACKING-# (SERFF)"`, url (filingSummary link), note.
+   b. `serff_filings.json` `filings[]` (the durable STRUCTURED dataset for
+      future charts/tools — see its `_meta.schema`): capture the analytical
+      fields the tracker drops — **indicated_pct** (asked vs approved),
+      **prior_revision_pct** (rate trajectory), **written_premium** +
+      **written_premium_change** (book size, for weighting), and
+      **coverage_changes** (per-coverage % — the liability-vs-physical-damage
+      split). All of these live in the jacket's Disposition/Rate-Information
+      table EXCEPT per-coverage, which is in the **PC form "Part 1 / Requested
+      Percent Changes by Type of Coverage"** — grab it whenever text-available
+      (jacket-only/image exhibits → coverage_changes: null).
 3. **Publish**: `python3 gen_rate_tracker.py` → bump that state's + hub's
    sitemap `<lastmod>` → `node verify_rate.js` (expect 0 errors) → commit
    ("NV tracker: ..." style, one commit per state batch) → push → POST the
