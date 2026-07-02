@@ -16,8 +16,12 @@ _Last updated: 2026-07-01 (Fable 5)_
   - Noise patterns documented in runbook (symbol/model-year filings ~0%,
     "no rate effect" cover letters, PC form = fastest source of truth).
   - Table header Policyholders→"Affected" (filings count insured vehicles).
-  - NEXT monthly pull: GA/SC/TN (same SERFF flow), LA (press releases),
-    FL (IRFS), TX (open-data CSV), CA (CDI search). Runbook has URLs.
+  - **USER DECISION: all 50 states + one-time backfill to Oct 2025 disposition
+    dates** (captures Jan-2026-effective filings). Runbook has the phase plan +
+    progress checklist — backfill the 8 tracker states first, then 12 big
+    markets, then the rest, ~5/session. When user pastes PC-form data, log it
+    (SERFF citation URL format in runbook), regen tracker, bump lastmod, push,
+    ping IndexNow.
 
 ## This session (2026-07-02, Fable 5) — renters/home model calibration
 
