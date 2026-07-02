@@ -116,6 +116,29 @@ Recognize these in results; log the family name in the tracker note.
 - A "Rate Disruption" attachment existing is a strong tell the filing is a
   real rate change (disruption exhibits only accompany price movement).
 
+## Assistant-side workflow (when the user pastes portal data)
+
+1. **Triage a results table**: keep Rate/"Rate/Rule" + Closed-Approved rows
+   meeting the thresholds; name the skips and WHY (symbol/model-year
+   attachments, Form-only, withdrawn, advisory orgs like ISO/AIPSO/LexisNexis)
+   so the user's eye keeps calibrating. Give direct next links:
+   `https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=<tracking digits>`.
+2. **Log a completed filing** into `rate_changes.json` `changes[]`:
+   carrier (family name + entity in note), state, pct (TOTAL row, keep 3
+   decimals), dir, effective (new-business date), renewal (renewal date),
+   affected (vehicle count), source `"XX DOI rate filing TRACKING-# (SERFF)"`,
+   url (filingSummary link), note (approval date, per-coverage story — e.g.
+   BI vs comp/collision split — and "Count is insured vehicles").
+3. **Publish**: `python3 gen_rate_tracker.py` → bump that state's + hub's
+   sitemap `<lastmod>` → `node verify_rate.js` (expect 0 errors) → commit
+   ("NV tracker: ..." style, one commit per state batch) → push → POST the
+   changed URLs to IndexNow (key file in repo root; snippet pattern in
+   SESSION_NOTES 2026-07-01d).
+4. Update the progress checklist above + SESSION_NOTES.
+5. Never invent a figure. If a field is missing, publish without it (affected
+   is optional; effective can be "approved <month>" as year-month) rather
+   than guess.
+
 ## Data discipline (unchanged)
 
 Every entry needs a real, dateable source URL — now that's the filing record
