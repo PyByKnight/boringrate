@@ -1,6 +1,26 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-01 (Fable 5)_
 
+## This session (2026-07-02d) — filings→tool design (Fable consult) + presentation data
+
+- **DECISION: keep pulling states first, build `apply_filed_changes.py` later**
+  (coverage gate keeps most states frozen until backfilled, so no rush).
+- **Fable consult on how filings help the rate tool (full design in
+  SERFF_RUNBOOK.md "Feeding filings into the rate tool"):** use filing %
+  CHANGES as renormalized drift on STATE_CARRIER_ADJ — NOT filing dollar
+  levels (book-blend, ±45-100% off a profile quote, dead for leveling). Key
+  disciplines: premium-weight-average entities per family; renormalize drift to
+  state mean (shifts ordering not level); RESET drift to 1 on every
+  NerdWallet/MoneyGeek recalibration (else double-count); COVERAGE GATE (only
+  apply drift once filings cover a state's top-5 carriers). Market-share
+  reconstruction REJECTED as gold-plating (NAIC publishes it free if needed).
+  Validate backward against next published refresh.
+- **serff_filings.json now flags presentation_uses** (_meta) — which captured
+  fields power customer-facing angles: coverage splits ("liability- vs
+  repair-driven"), indicated-vs-approved ("carrier asked +24%, state approved
+  -10%"), prior-revision (trajectory), new-vs-renewal dates ("shop before your
+  renewal"), premium+count (scale/credibility). Keep capturing these per pull.
+
 ## This session (2026-07-02c, Opus 4.8) — SERFF GA backfill + zip/jacket workflow
 
 - **GA backfilled (Oct 2025–Jul 2026): 8 filings, 6 newly primary-sourced.**
@@ -117,12 +137,14 @@ _Last updated: 2026-07-01 (Fable 5)_
 questions + directionally-accurate rates. NO PR/reporter outreach unprompted
 (deferred until traffic).
 
-1. **SERFF backfill (ongoing, user-driven — read SERFF_RUNBOOK.md).** User
-   decided: all 50 states + DC, one-time backfill with disposition window
-   10/1/2025→today, then monthly maintenance. NV June done (3 primary-sourced
-   filings live). Next: GA, then SC/TN/LA/FL/TX/CA, then big markets. When the
-   user pastes portal data → runbook "Assistant-side workflow" section has the
-   exact steps. Progress checklist is in the runbook.
+1. **SERFF backfill (ongoing, user-driven — read SERFF_RUNBOOK.md).** All 50
+   states + DC, window 10/1/2025→today, then monthly. NV + GA done. **Next: SC**,
+   then TN/LA/FL/TX/CA, then big markets. Zip→jacket workflow (drop zip in Linux
+   files → Claude reads the `<TRACKING>.pdf` jacket). Log to BOTH
+   rate_changes.json + serff_filings.json (capture premium_as_of + coverage
+   splits). **Then build `apply_filed_changes.py`** (design in runbook) once
+   states cover their top-5 carriers — filing %-changes as renormalized drift,
+   validate backward vs next NerdWallet refresh.
 2. **Re-pull GSC ~7/8-7/15** (export lands in `_gsc/`, gitignored). Two calls:
    (a) did the "cheapest homeowners [state]" cluster (842 imp) climb after the
    7/1 title retarget (b33d2136)? If yes → replicate lead-with-intent titles

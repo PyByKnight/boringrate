@@ -44,7 +44,16 @@
         "note": "full 2026-cycle backfill; +2 non-SERFF (State Farm newsroom)"
       }
     ],
-    "count_note": "NV PC forms report 'Number of Insured Vehicles'; GA jackets report 'Number of Policy Holders Affected' \u2014 different denominators (~1.5 vehicles/policy). written_premium/count therefore yields $/vehicle for NV, $/policy for GA. Record the exact basis; don't mix them in a per-unit average."
+    "count_note": "NV PC forms report 'Number of Insured Vehicles'; GA jackets report 'Number of Policy Holders Affected' \u2014 different denominators (~1.5 vehicles/policy). written_premium/count therefore yields $/vehicle for NV, $/policy for GA. Record the exact basis; don't mix them in a per-unit average.",
+    "presentation_uses": {
+      "_intent": "Fields captured not just for the model but to make the customer-facing rate presentation more credible/useful. Keep capturing these; they unlock the angles below.",
+      "coverage_changes": "\"Your increase is liability-driven, not repair-cost\" \u2014 split BI/UM vs COMP/COLL so a shopper sees WHY.",
+      "indicated_pct vs overall_pct": "\"The carrier asked the state for +24%; the regulator approved -10%\" \u2014 regulator-as-protection narrative.",
+      "prior_revision_pct": "Rate trajectory \u2014 \"this carrier has raised twice this cycle (+7% then +5.5%)\" vs a one-off.",
+      "effective_new vs effective_renewal": "\"You won't see this until your renewal on <date> \u2014 shop before then\" \u2014 the tracker's signature timing angle.",
+      "written_premium + affected": "Scale/credibility \u2014 \"affects 109,120 drivers / a $404M book,\" and enables book-size-weighted charts.",
+      "disposition_date + premium_as_of": "Freshness/as-of recency \u2014 lets us say how current each figure is."
+    }
   },
   "filings": [
     {

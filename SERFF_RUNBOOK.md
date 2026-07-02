@@ -197,6 +197,49 @@ The single best method, no copy-paste:
    is optional; effective can be "approved <month>" as year-month) rather
    than guess.
 
+## Feeding filings into the rate tool — DESIGN (not yet built)
+
+Decision 2026-07-02 (user + Fable consult). Build `apply_filed_changes.py`
+AFTER more states are backfilled (the coverage gate below keeps most states
+frozen until then, so there's no rush — keep pulling first).
+
+**Core principle: use filing % CHANGES as renormalized drift on the relative
+layer. Do NOT use filing dollar LEVELS.** written_premium ÷ count is a
+whole-book blend (all coverage tiers + driver types), inconsistent count basis
+(NV vehicles vs GA policyholders), and ran ±45–100% off a profile quote — dead
+for level-setting. The % changes are the asset.
+
+Design:
+- Per (state, carrier): `F(s,c) = Π(1 + approved_pct)` over filings whose
+  effective date is AFTER the anchor's `anchor_as_of` (NerdWallet/MoneyGeek
+  snapshot date; only later filings count).
+- **Multiple entities per family → premium-weight-average their % changes.**
+  Don't pick a "representative" book (entities aren't labeled; you'll guess
+  wrong). Filed changes hit NEW business immediately (renewals lag), so the
+  filed % represents the shopper better than the in-force book average — this
+  is why the multiple-books worry doesn't bite the % approach.
+- Apply renormalized to the state mean (shifts ORDERING, not level):
+  `ADJ'(s,c) = ADJ(s,c) × F(s,c) / F̄(s)`, `F̄(s)` = premium-weighted mean of F
+  across tracked carriers. Optionally drift the level `stateAvg'(s) =
+  stateAvg(s) × F̄(s)` capped ±10%/yr.
+- **RESET all F to 1 on every NerdWallet/MoneyGeek refresh + recalibration** —
+  their new averages already embed the changes, so skipping the reset
+  double-counts. This snapshot discipline is load-bearing.
+- **COVERAGE GATE:** only APPLY drift in a state once filings cover the
+  majority of that state's top-5 carriers. Otherwise sparse pulls distort
+  ordering by which filings we happened to grab. Store filings for
+  under-covered states; don't apply yet. (This is the real answer to "we can't
+  know full market share" — you don't need share, you need top-5 coverage.)
+- **Validate BACKWARD:** drift NV/GA filings across the gap to the next
+  NerdWallet refresh; confirm drifted ordering moves TOWARD the new published
+  ordering. Whole hypothesis, one test.
+
+Rejected: filing premium-LEVELS for leveling (dead); reconstructing per-carrier
+market share from old filings (gold-plating — NAIC publishes state/carrier
+share free annually if ever needed). Demote premium÷count to a SCRAPER sanity
+check, not a model check. Skip per-coverage-split MODELING for now (capture it;
+overall % drives the drift).
+
 ## Data discipline (unchanged)
 
 Every entry needs a real, dateable source URL — now that's the filing record
