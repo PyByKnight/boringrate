@@ -416,12 +416,16 @@ footer p{font-size:14px;color:rgba(246,241,232,.7);margin-top:12px;max-width:320
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"BoringRate Renters Insurance Rate Comparison","url":"https://boringrate.com/renters/index.html","description":"Compare renters insurance carrier rates by ZIP code. Personalize by coverage level, deductible, and bundle discount.","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
 </script>
-<script defer data-domain="boringrate.com" src="https://plausible.io/js/script.js"></script>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-v219GyiG5lJT1bQSRxP_Z.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
 <script>
 /* BoringRate event layer — Plausible transport live (custom events + props).
    Set window.BR_DEBUG=true to log in console; window.brEvents keeps the buffer. */
 window.brEvents = window.brEvents || [];
-window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
 window.track = function (name, props) {
   var ev = { name: name, props: props || {}, ts: Date.now(), path: location.pathname };
   window.brEvents.push(ev);
