@@ -1,9 +1,32 @@
-# SERFF Rate-Filing Pull — Monthly Runbook
+# SERFF Rate-Filing Pull — Runbook
 
 Goal: primary-source the rate-change tracker (`rate_changes.json`) from state
-filing portals instead of news articles. One search per state per month pulls
-**every carrier at once** — you never search carrier-by-carrier. Human-in-the-
-loop by design: these portals prohibit bots. ~30–45 min/month for 8–10 states.
+filing portals instead of news articles — ALL 50 states + DC (user decision
+2026-07-02). One search per state pulls **every carrier at once** — you never
+search carrier-by-carrier. Human-in-the-loop by design: these portals prohibit
+bots.
+
+## Phase 1 — one-time 2026 backfill (in progress)
+
+Same search as the monthly loop but disposition window **10/1/2025 → today**
+(filings effective Jan 2026 were approved Oct–Dec 2025 — a January window
+would miss them). ~15–25 min/state once practiced. Order:
+1. the 8 existing tracker states (NV done for June — backfill Oct–May only),
+2. the 12 biggest remaining markets (NY PA OH IL MI NC VA WA AZ MA MO MN),
+3. the rest, ~5 per session.
+
+### Progress checklist (update as pulled; window covered in parens)
+- [x] NV (Jun 2026 — still needs Oct 2025–May 2026 backfill)
+- [ ] GA · [ ] SC · [ ] TN · [ ] LA · [ ] FL · [ ] TX · [ ] CA
+- [ ] NY · [ ] PA · [ ] OH · [ ] IL · [ ] MI · [ ] NC · [ ] VA · [ ] WA · [ ] AZ · [ ] MA · [ ] MO · [ ] MN
+- [ ] AL · [ ] AK · [ ] AR · [ ] CO · [ ] CT · [ ] DE · [ ] DC · [ ] HI · [ ] ID · [ ] IN · [ ] IA · [ ] KS · [ ] KY · [ ] ME · [ ] MD · [ ] MS · [ ] MT · [ ] NE · [ ] NH · [ ] NJ · [ ] NM · [ ] ND · [ ] OK · [ ] OR · [ ] RI · [ ] SD · [ ] UT · [ ] VT · [ ] WV · [ ] WI · [ ] WY
+
+## Phase 2 — monthly maintenance (~1.5–2.5 hrs/month at 50 states)
+
+Last-30-day disposition window per state. Nothing expires — a skipped month
+just means a 60-day window next time. **Keep the thresholds strict at this
+scale** (±3% / top-10 family / ≥10k vehicles) or the dataset drowns in
+micro-writers.
 
 ## The monthly loop (per state)
 
