@@ -1,6 +1,38 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-01 (Fable 5)_
 
+## This session (2026-07-02, Fable 5) — renters/home model calibration
+
+- **RENTERS/HOME CALIBRATED vs PUBLISHED DATA (auto's playbook replicated).**
+  User strategy call: content answering real queries + directionally-accurate
+  rates; PR outreach deferred (memory: boringrate-strategy-content-first).
+  - `build_reference_rh.py` → `cheapest_by_state_{renters,home}.json`:
+    NerdWallet (renters 1/5/26, home 2/20/26) + MoneyGeek (Quadrant, home upd.
+    7/1/26) cheapest-carrier-per-state, tier-scored (sources agree on in-roster
+    #1 in only 20/51 renters, 4/51 home — worse than auto's 7/51).
+  - `verify_model_accuracy_rh.py --product renters|home|all [--min]`: ranks
+    avg×base×adj with footprint filter (same math as tools/static pages).
+    USAA NOT excluded (unlike auto — MoneyGeek includes it).
+  - **BEFORE: renters 57% top-5 (median rank 3), home 42% (median 6). AFTER:
+    renters 93% (median 1, high-conf 19/20), home 89% (median 1, high-conf
+    4/4)** via `calibrate_model_rh.py` (316dc05d): bases re-anchored to
+    NerdWallet published national carrier avgs (base = rate/natl-avg, e.g.
+    renters SF 1.00→0.73, Amica 1.08→0.78, Lemonade 0.52→0.78 up, Toggle
+    0.58→0.85 + Assurant 0.72→1.00 — were fantasy-cheap #1-2 everywhere, never
+    source-named; home Travelers 0.91→1.09, Allstate 1.15→1.09, USAA 0.72→0.78)
+    + home-turf offsets on source-named states (SF home in 21 states @0.80 etc).
+  - **DELIBERATE non-fixes (do NOT chase):** home Chubb stays 1.4 — MoneyGeek's
+    ~12 Chubb wins are a $250k-dwelling-profile quirk (NW's $400k table never
+    names Chubb); misses ME/MA/MN/WA accepted. MO home AAA + renters WI CSAA =
+    footprint/roster gaps, not tunable. AK/SC renters at rank 6 = close enough.
+  - Cascade: gen_renters_rankings.js + gen_home_state_pages.py (102 pages),
+    audit_prose all 0 drift, ledgers synced + re-baselined w/ sources (renters
+    824, home 702 atoms, next checkpoint 2026-08-01), sweep 528/528, offsets
+    PASS. Renters metros have no carrier tables — no regen needed.
+  - NOTE tool price LEVELS shifted with bases (e.g. renters Nationwide 0.95→
+    1.28) — displayed $ estimates now track published carrier averages, not
+    just ordering.
+
 ## This session (2026-07-01d, Fable 5) — tracker refresh + Plausible + Bing
 
 - **RATE TRACKER JULY REFRESH (8698cc08).** GSC showed `article/rate-changes/` at
