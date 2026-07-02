@@ -181,6 +181,12 @@ The single best method, no copy-paste:
       table EXCEPT per-coverage, which is in the **PC form "Part 1 / Requested
       Percent Changes by Type of Coverage"** — grab it whenever text-available
       (jacket-only/image exhibits → coverage_changes: null).
+      Also capture **premium_as_of** — the valuation date of the book size,
+      shown as "@ MM/DD/YYYY" atop the PC form Part 2. REQUIRED for any
+      market-share-over-time comparison (a $298M book is only meaningful with
+      its as-of date). And add `recorded_date` + a `_meta.pulls` entry
+      (state, disposition window, date pulled, scanned/kept counts) so each
+      state's survey is reproducible and re-runnable.
 3. **Publish**: `python3 gen_rate_tracker.py` → bump that state's + hub's
    sitemap `<lastmod>` → `node verify_rate.js` (expect 0 errors) → commit
    ("NV tracker: ..." style, one commit per state batch) → push → POST the
