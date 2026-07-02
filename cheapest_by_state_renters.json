@@ -1,0 +1,432 @@
+{
+  "_meta": {
+    "purpose": "External cheapest-by-state reference (renters) for verify_model_accuracy_rh.py.",
+    "sources": [
+      "NerdWallet, cheapest renters insurance by state, 2026-01-05: https://www.nerdwallet.com/insurance/renters/cheap-renters-insurance",
+      "MoneyGeek, cheapest renters insurance by state, 2026 (Quadrant): https://www.moneygeek.com/insurance/renters/cheap-renters-insurance-coverage/"
+    ],
+    "noise_note": "Sources agree on the in-roster #1 in only 20/51 states \u2014 score tier overlap (roster_cheap), never single-#1; do not tune to 100%.",
+    "usaa_note": "USAA is NOT excluded (MoneyGeek's tables include it).",
+    "date": "2026-07-02"
+  },
+  "states": {
+    "AL": {
+      "nerdwallet": "Cincinnati Insurance",
+      "moneygeek": "Cincinnati Insurance",
+      "roster_cheap": [
+        "Cincinnati Insurance"
+      ],
+      "sources_agree": true
+    },
+    "AK": {
+      "nerdwallet": "Allstate",
+      "moneygeek": "Allstate",
+      "roster_cheap": [
+        "Allstate"
+      ],
+      "sources_agree": true
+    },
+    "AZ": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Lemonade",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "AR": {
+      "nerdwallet": "Arkansas Farm Bureau",
+      "moneygeek": "Farm Bureau",
+      "roster_cheap": [],
+      "sources_agree": false
+    },
+    "CA": {
+      "nerdwallet": "CSAA / AAA",
+      "moneygeek": "Capital Insurance",
+      "roster_cheap": [
+        "CSAA / AAA"
+      ],
+      "sources_agree": false
+    },
+    "CO": {
+      "nerdwallet": "Lemonade",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Lemonade"
+      ],
+      "sources_agree": true
+    },
+    "CT": {
+      "nerdwallet": "Amica",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Amica",
+        "Lemonade"
+      ],
+      "sources_agree": false
+    },
+    "DE": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "FL": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "Citizens Property Insurance",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "GA": {
+      "nerdwallet": "The Hanover",
+      "moneygeek": "Farm Bureau",
+      "roster_cheap": [],
+      "sources_agree": false
+    },
+    "HI": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "ID": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "USAA",
+      "roster_cheap": [
+        "State Farm",
+        "USAA"
+      ],
+      "sources_agree": false
+    },
+    "IL": {
+      "nerdwallet": "Auto Club Group (AAA)",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "CSAA / AAA",
+        "Lemonade"
+      ],
+      "sources_agree": false
+    },
+    "IN": {
+      "nerdwallet": "Lemonade",
+      "moneygeek": "USAA",
+      "roster_cheap": [
+        "Lemonade",
+        "USAA"
+      ],
+      "sources_agree": false
+    },
+    "IA": {
+      "nerdwallet": "Auto-Owners",
+      "moneygeek": "Shelter",
+      "roster_cheap": [
+        "Auto-Owners"
+      ],
+      "sources_agree": false
+    },
+    "KS": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "KY": {
+      "nerdwallet": "Grange",
+      "moneygeek": "USAA",
+      "roster_cheap": [
+        "USAA"
+      ],
+      "sources_agree": false
+    },
+    "LA": {
+      "nerdwallet": "The Hanover",
+      "moneygeek": "The Hanover",
+      "roster_cheap": [],
+      "sources_agree": false
+    },
+    "ME": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "MD": {
+      "nerdwallet": "Travelers",
+      "moneygeek": "USAA",
+      "roster_cheap": [
+        "Travelers",
+        "USAA"
+      ],
+      "sources_agree": false
+    },
+    "MA": {
+      "nerdwallet": "Quincy Mutual",
+      "moneygeek": "Vermont Mutual",
+      "roster_cheap": [],
+      "sources_agree": false
+    },
+    "MI": {
+      "nerdwallet": "Cincinnati Insurance",
+      "moneygeek": "Auto-Owners",
+      "roster_cheap": [
+        "Auto-Owners",
+        "Cincinnati Insurance"
+      ],
+      "sources_agree": false
+    },
+    "MN": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "CSAA / AAA",
+      "roster_cheap": [
+        "CSAA / AAA",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "MS": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "USAA",
+      "roster_cheap": [
+        "State Farm",
+        "USAA"
+      ],
+      "sources_agree": false
+    },
+    "MO": {
+      "nerdwallet": "Auto Club of SoCal (AAA)",
+      "moneygeek": "USAA",
+      "roster_cheap": [
+        "CSAA / AAA",
+        "USAA"
+      ],
+      "sources_agree": false
+    },
+    "MT": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "NE": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "NV": {
+      "nerdwallet": "Lemonade",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Lemonade"
+      ],
+      "sources_agree": true
+    },
+    "NH": {
+      "nerdwallet": "Amica",
+      "moneygeek": "Amica",
+      "roster_cheap": [
+        "Amica"
+      ],
+      "sources_agree": true
+    },
+    "NJ": {
+      "nerdwallet": "Lemonade",
+      "moneygeek": "NJM Insurance",
+      "roster_cheap": [
+        "Lemonade",
+        "NJM Insurance"
+      ],
+      "sources_agree": false
+    },
+    "NM": {
+      "nerdwallet": [
+        "Lemonade",
+        "State Farm"
+      ],
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Lemonade",
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "NY": {
+      "nerdwallet": "Lemonade",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Lemonade"
+      ],
+      "sources_agree": true
+    },
+    "NC": {
+      "nerdwallet": "NC Farm Bureau",
+      "moneygeek": "Farm Bureau",
+      "roster_cheap": [],
+      "sources_agree": false
+    },
+    "ND": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "Farm Bureau",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "OH": {
+      "nerdwallet": "Western Reserve",
+      "moneygeek": "USAA",
+      "roster_cheap": [
+        "USAA"
+      ],
+      "sources_agree": false
+    },
+    "OK": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Lemonade",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "OR": {
+      "nerdwallet": "Lemonade",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Lemonade"
+      ],
+      "sources_agree": true
+    },
+    "PA": {
+      "nerdwallet": "Penn National",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Lemonade"
+      ],
+      "sources_agree": false
+    },
+    "RI": {
+      "nerdwallet": "Amica",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Amica",
+        "Lemonade"
+      ],
+      "sources_agree": false
+    },
+    "SC": {
+      "nerdwallet": "Central Insurance",
+      "moneygeek": "Auto-Owners",
+      "roster_cheap": [
+        "Auto-Owners"
+      ],
+      "sources_agree": false
+    },
+    "SD": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "TN": {
+      "nerdwallet": "Lemonade",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Lemonade"
+      ],
+      "sources_agree": true
+    },
+    "TX": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Lemonade",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "UT": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "VT": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "VA": {
+      "nerdwallet": "Cincinnati Insurance",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Cincinnati Insurance",
+        "Lemonade"
+      ],
+      "sources_agree": false
+    },
+    "WA": {
+      "nerdwallet": "Pemco",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Lemonade"
+      ],
+      "sources_agree": false
+    },
+    "DC": {
+      "nerdwallet": "Lemonade",
+      "moneygeek": "Lemonade",
+      "roster_cheap": [
+        "Lemonade"
+      ],
+      "sources_agree": true
+    },
+    "WV": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "WI": {
+      "nerdwallet": "Encova",
+      "moneygeek": "CSAA / AAA",
+      "roster_cheap": [
+        "CSAA / AAA"
+      ],
+      "sources_agree": false
+    },
+    "WY": {
+      "nerdwallet": "Nationwide",
+      "moneygeek": "USAA",
+      "roster_cheap": [
+        "Nationwide",
+        "USAA"
+      ],
+      "sources_agree": false
+    }
+  }
+}

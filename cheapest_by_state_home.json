@@ -1,0 +1,431 @@
+{
+  "_meta": {
+    "purpose": "External cheapest-by-state reference (home) for verify_model_accuracy_rh.py.",
+    "sources": [
+      "NerdWallet, cheapest homeowners insurance by state, 2026-02-20: https://www.nerdwallet.com/insurance/homeowners/cheap-home-insurance",
+      "MoneyGeek, cheapest homeowners insurance by state, upd. 2026-07-01 (Quadrant): https://www.moneygeek.com/insurance/homeowners/cheap-homeowners-insurance/"
+    ],
+    "noise_note": "Sources agree on the in-roster #1 in only 4/51 states \u2014 score tier overlap (roster_cheap), never single-#1; do not tune to 100%.",
+    "usaa_note": "USAA is NOT excluded (MoneyGeek's tables include it).",
+    "date": "2026-07-02"
+  },
+  "states": {
+    "AL": {
+      "nerdwallet": "Centauri",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "AK": {
+      "nerdwallet": "Umialik",
+      "moneygeek": "Umialik",
+      "roster_cheap": [],
+      "sources_agree": false
+    },
+    "AZ": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "American Family",
+      "roster_cheap": [
+        "American Family",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "AR": {
+      "nerdwallet": "Travelers",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm",
+        "Travelers"
+      ],
+      "sources_agree": false
+    },
+    "CA": {
+      "nerdwallet": "Pacific Specialty",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "CO": {
+      "nerdwallet": "Grange Insurance Association",
+      "moneygeek": "Auto-Owners",
+      "roster_cheap": [
+        "Auto-Owners"
+      ],
+      "sources_agree": false
+    },
+    "CT": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "Amica",
+      "roster_cheap": [
+        "Amica Mutual",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "DE": {
+      "nerdwallet": "Travelers",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm",
+        "Travelers"
+      ],
+      "sources_agree": false
+    },
+    "FL": {
+      "nerdwallet": "People's Trust",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "GA": {
+      "nerdwallet": "Auto-Owners",
+      "moneygeek": "Auto-Owners",
+      "roster_cheap": [
+        "Auto-Owners"
+      ],
+      "sources_agree": true
+    },
+    "HI": {
+      "nerdwallet": "DB Insurance",
+      "moneygeek": "AIG",
+      "roster_cheap": [],
+      "sources_agree": false
+    },
+    "ID": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "American Family",
+      "roster_cheap": [
+        "American Family",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "IL": {
+      "nerdwallet": "Allstate",
+      "moneygeek": "Chubb",
+      "roster_cheap": [
+        "Allstate",
+        "Chubb"
+      ],
+      "sources_agree": false
+    },
+    "IN": {
+      "nerdwallet": "Buckeye",
+      "moneygeek": "American Family",
+      "roster_cheap": [
+        "American Family"
+      ],
+      "sources_agree": false
+    },
+    "IA": {
+      "nerdwallet": "Integrity",
+      "moneygeek": "Auto-Owners",
+      "roster_cheap": [
+        "Auto-Owners"
+      ],
+      "sources_agree": false
+    },
+    "KS": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "Auto-Owners",
+      "roster_cheap": [
+        "Auto-Owners",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "KY": {
+      "nerdwallet": "Cincinnati Insurance",
+      "moneygeek": "Auto-Owners",
+      "roster_cheap": [
+        "Auto-Owners",
+        "Cincinnati Insurance"
+      ],
+      "sources_agree": false
+    },
+    "LA": {
+      "nerdwallet": "Centauri",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "ME": {
+      "nerdwallet": "Vermont Mutual",
+      "moneygeek": "Chubb",
+      "roster_cheap": [
+        "Chubb"
+      ],
+      "sources_agree": false
+    },
+    "MD": {
+      "nerdwallet": "Travelers",
+      "moneygeek": "Chubb",
+      "roster_cheap": [
+        "Chubb",
+        "Travelers"
+      ],
+      "sources_agree": false
+    },
+    "MA": {
+      "nerdwallet": "N&D Group",
+      "moneygeek": "Chubb",
+      "roster_cheap": [
+        "Chubb"
+      ],
+      "sources_agree": false
+    },
+    "MI": {
+      "nerdwallet": "Auto-Owners",
+      "moneygeek": "Auto-Owners",
+      "roster_cheap": [
+        "Auto-Owners"
+      ],
+      "sources_agree": true
+    },
+    "MN": {
+      "nerdwallet": "Western National",
+      "moneygeek": "Chubb",
+      "roster_cheap": [
+        "Chubb"
+      ],
+      "sources_agree": false
+    },
+    "MS": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "MO": {
+      "nerdwallet": "Auto Club of SoCal (AAA)",
+      "moneygeek": "CSAA / AAA",
+      "roster_cheap": [
+        "Auto Club Group (AAA)",
+        "CSAA / AAA"
+      ],
+      "sources_agree": false
+    },
+    "MT": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "Chubb",
+      "roster_cheap": [
+        "Chubb",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "NE": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "American Family",
+      "roster_cheap": [
+        "American Family",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "NV": {
+      "nerdwallet": "CIG",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "NH": {
+      "nerdwallet": "Vermont Mutual",
+      "moneygeek": "Amica",
+      "roster_cheap": [
+        "Amica Mutual"
+      ],
+      "sources_agree": false
+    },
+    "NJ": {
+      "nerdwallet": "Cumberland Mutual",
+      "moneygeek": "New Jersey Skylands",
+      "roster_cheap": [],
+      "sources_agree": false
+    },
+    "NM": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": true
+    },
+    "NY": {
+      "nerdwallet": "Preferred Mutual",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "NC": {
+      "nerdwallet": "Lititz Mutual",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "ND": {
+      "nerdwallet": "North Star",
+      "moneygeek": "Agraria",
+      "roster_cheap": [],
+      "sources_agree": false
+    },
+    "OH": {
+      "nerdwallet": "Buckeye",
+      "moneygeek": "Auto-Owners",
+      "roster_cheap": [
+        "Auto-Owners"
+      ],
+      "sources_agree": false
+    },
+    "OK": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "Chubb",
+      "roster_cheap": [
+        "Chubb",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "OR": {
+      "nerdwallet": "Grange Insurance Association",
+      "moneygeek": "American Family",
+      "roster_cheap": [
+        "American Family"
+      ],
+      "sources_agree": false
+    },
+    "PA": {
+      "nerdwallet": "Selective",
+      "moneygeek": "Erie Insurance",
+      "roster_cheap": [
+        "Erie Insurance"
+      ],
+      "sources_agree": false
+    },
+    "RI": {
+      "nerdwallet": "NLC Insurance",
+      "moneygeek": "PURE",
+      "roster_cheap": [],
+      "sources_agree": false
+    },
+    "SC": {
+      "nerdwallet": "Cincinnati Insurance",
+      "moneygeek": "Chubb",
+      "roster_cheap": [
+        "Chubb",
+        "Cincinnati Insurance"
+      ],
+      "sources_agree": false
+    },
+    "SD": {
+      "nerdwallet": "Auto-Owners",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "Auto-Owners",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "TN": {
+      "nerdwallet": "Allstate",
+      "moneygeek": null,
+      "roster_cheap": [
+        "Allstate"
+      ],
+      "sources_agree": false
+    },
+    "TX": {
+      "nerdwallet": "Mercury",
+      "moneygeek": "State Farm",
+      "roster_cheap": [
+        "Mercury Insurance",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "UT": {
+      "nerdwallet": "Travelers",
+      "moneygeek": "American Family",
+      "roster_cheap": [
+        "American Family",
+        "Travelers"
+      ],
+      "sources_agree": false
+    },
+    "VT": {
+      "nerdwallet": "Vermont Mutual",
+      "moneygeek": "Concord Group",
+      "roster_cheap": [],
+      "sources_agree": false
+    },
+    "VA": {
+      "nerdwallet": "Cincinnati Insurance",
+      "moneygeek": "Chubb",
+      "roster_cheap": [
+        "Chubb",
+        "Cincinnati Insurance"
+      ],
+      "sources_agree": false
+    },
+    "WA": {
+      "nerdwallet": "Grange Insurance Association",
+      "moneygeek": "Chubb",
+      "roster_cheap": [
+        "Chubb"
+      ],
+      "sources_agree": false
+    },
+    "DC": {
+      "nerdwallet": "Travelers",
+      "moneygeek": "Chubb",
+      "roster_cheap": [
+        "Chubb",
+        "Travelers"
+      ],
+      "sources_agree": false
+    },
+    "WV": {
+      "nerdwallet": "State Farm",
+      "moneygeek": "Erie Insurance",
+      "roster_cheap": [
+        "Erie Insurance",
+        "State Farm"
+      ],
+      "sources_agree": false
+    },
+    "WI": {
+      "nerdwallet": "Allstate",
+      "moneygeek": "Chubb",
+      "roster_cheap": [
+        "Allstate",
+        "Chubb"
+      ],
+      "sources_agree": false
+    },
+    "WY": {
+      "nerdwallet": "Nationwide",
+      "moneygeek": "AMCO",
+      "roster_cheap": [
+        "Nationwide"
+      ],
+      "sources_agree": false
+    }
+  }
+}
