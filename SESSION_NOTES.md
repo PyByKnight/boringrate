@@ -1,6 +1,24 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-01 (Fable 5)_
 
+## This session (2026-07-02b, Fable 5) — SERFF pilot: tracker is now primary-sourced
+
+- **User ran the first SERFF pull (Nevada) — the process works.** `SERFF_RUNBOOK.md`
+  is the repeatable monthly loop (user pulls portals by hand — SERFF 403s bots,
+  re-verified; Claude structures/publishes). NV June disposition window: 22
+  filings → 3 real rate changes, all logged with the SERFF filing as the
+  cited source (filingSummary.xhtml?filingId=<tracking digits>):
+  Allstate F&C +7.971% (112k vehicles, renewals 8/10), Allstate Indemnity
+  +6.706% (UM +47.4%!), Safeco +5.999% (renewals 7/17). NV page now 11 filings.
+  - **Editorial through-line found in the filings: NV 2026 increases are pure
+    liability/UM stories — BI +10-17%, comp/collision flat or NEGATIVE.** No
+    aggregator has this; it came from reading the PC forms.
+  - Noise patterns documented in runbook (symbol/model-year filings ~0%,
+    "no rate effect" cover letters, PC form = fastest source of truth).
+  - Table header Policyholders→"Affected" (filings count insured vehicles).
+  - NEXT monthly pull: GA/SC/TN (same SERFF flow), LA (press releases),
+    FL (IRFS), TX (open-data CSV), CA (CDI search). Runbook has URLs.
+
 ## This session (2026-07-02, Fable 5) — renters/home model calibration
 
 - **RENTERS/HOME CALIBRATED vs PUBLISHED DATA (auto's playbook replicated).**
