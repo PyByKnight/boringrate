@@ -71,6 +71,28 @@ Recognize these in results; log the family name in the tracker note.
 - **Travelers**: Travelers Personal Ins., Travelers Home & Marine, The Standard Fire Ins. Co.
 - **American Family**: American Family Mutual, American Family Connect, Midvale Indemnity
 
+## Field lessons (from the July 2026 NV pilot)
+
+- **Fastest path to the numbers:** the "Rate Filing Data Summary" attachment
+  (state PC form). One page: per-coverage %, TOTAL %, new/renewal effective
+  dates, insured-vehicle count. Skip the Filing Memo unless there's no PC form.
+- **Noise you can spot from the attachment list** (no PDF click needed): rows
+  whose Rate/Rule attachments are "Symbol & Identification Pages", "Model
+  Year 20XX", "Updated Factors", or symbol sets = annual vehicle-symbol
+  maintenance, ~0.0% overall. Cover letters saying "no rate effect on the
+  current book" = skip.
+- Filings WITHOUT a PC form (e.g. Progressive) state the impact in the cover
+  letter's first paragraphs.
+- **Citation URL format:** `https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=<digits of tracking #>`.
+  Deep links may bounce readers to a terms page — cite as "NV DOI rate filing
+  ALSE-XXXX (SERFF)" so the tracking # is searchable regardless. The portal
+  403s bots (verified 2026-07-02) — fetching must stay human.
+- "Affected" counts in filings are usually **insured vehicles**, not
+  policyholders — the tracker table header says "Affected" for this reason;
+  say which in the entry note.
+- A "Rate Disruption" attachment existing is a strong tell the filing is a
+  real rate change (disruption exhibits only accompany price movement).
+
 ## Data discipline (unchanged)
 
 Every entry needs a real, dateable source URL — now that's the filing record

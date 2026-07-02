@@ -116,7 +116,7 @@ def render(slug, title, desc, h1, dek, body_html, faq, in_subdir=True):
 def rows_table(changes):
     head = ('<table style="width:100%;border-collapse:collapse;font-size:15px;margin:18px 0;">'
             '<thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">'
-            '<th style="padding:9px 8px;">Carrier</th><th>Change</th><th>Effective</th><th>Policyholders</th><th>Source</th></tr></thead><tbody>')
+            '<th style="padding:9px 8px;">Carrier</th><th>Change</th><th>Effective</th><th>Affected</th><th>Source</th></tr></thead><tbody>')
     body = []
     for c in sorted(changes, key=lambda x: x["effective"]):
         aff = f'{c["affected"]:,}' if c.get("affected") else "—"
@@ -177,6 +177,7 @@ def state_page(code, changes):
         ' The only way to know you&rsquo;re on the best current price is to re-shop.</p></div>')
     parts.append('<p style="font-size:13px;color:var(--ink-mute);">Filing figures are filed/approved statewide '
                  'averages from each state&rsquo;s Department of Insurance; rankings are directional estimates. '
+                 '&ldquo;Affected&rdquo; counts are policyholders or insured vehicles as stated in each filing. '
                  'Your individual rate varies by risk profile. Each filing links to its source. Not a quote.</p>')
     faq = []
     if incs:
