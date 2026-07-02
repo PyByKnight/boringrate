@@ -87,30 +87,49 @@ _Last updated: 2026-07-01 (Fable 5)_
 - Reporter/PR pitch drafts delivered in chat (RJ + WFLX reporters, SOS/Qwoted
   signups — note HARO/Connectively is DEAD since Dec 2024, don't recommend it).
 
-## ⏭ NEXT SESSION — open follow-ups (read first)
+## ⏭ NEXT SESSION — open follow-ups (read first; updated 2026-07-02, Fable→Opus handoff)
 
-0. **Check Plausible is receiving events** (needs user's account first) and
-   **re-ping IndexNow after next content push** (key file: see above; a one-line
-   POST — reuse the python snippet pattern, urlList from sitemap).
+**Strategy (user, 2026-07-02, memorized):** content answering real GSC-demand
+questions + directionally-accurate rates. NO PR/reporter outreach unprompted
+(deferred until traffic).
 
-1. **Re-pull GSC in ~1-2 weeks** (export lands in `_gsc/`, gitignored). Check whether
-   the **"cheapest homeowners insurance [state]" cluster (842 imp, 98 queries)**
-   climbed from pos 30-85 after the 2026-07-01 title/H1 retarget (b33d2136). **If it
-   climbed → replicate the same lead-with-intent title/H1 pass on renters state pages
-   + home carrier pages.** If flat, the lever is authority/time, not on-page.
-2. **Pull the GSC Indexing/Coverage report** (not in the current export). Only **145 of
-   526 pages** drew any impression in 7 days — need indexed-vs-not-yet-surfaced. Likely
-   highest-leverage unknown.
-3. **Strategic:** renters/home are the near-term SEO wedge; **auto is contested/near-
-   invisible** in GSC. Weigh before more auto content.
-4. **CI gates are live** (prose-drift + js-sweep on push/PR). After any rate edit:
-   `python3 audit_prose.py` → `python3 resync_prose.py` (both take `--product`).
-   JS after any HTML/JS change: `npm ci && node qa_sweep.js` (needs jsdom, in package.json).
-5. **Content pattern proven** (spin buried GSC query clusters into dedicated renters
-   guides off the does-cover hub): water-damage + theft shipped; dog-bites SKIPPED
-   (0 demand — data-driven). No obvious next renters scenario has real volume yet.
+1. **SERFF backfill (ongoing, user-driven — read SERFF_RUNBOOK.md).** User
+   decided: all 50 states + DC, one-time backfill with disposition window
+   10/1/2025→today, then monthly maintenance. NV June done (3 primary-sourced
+   filings live). Next: GA, then SC/TN/LA/FL/TX/CA, then big markets. When the
+   user pastes portal data → runbook "Assistant-side workflow" section has the
+   exact steps. Progress checklist is in the runbook.
+2. **Re-pull GSC ~7/8-7/15** (export lands in `_gsc/`, gitignored). Two calls:
+   (a) did the "cheapest homeowners [state]" cluster (842 imp) climb after the
+   7/1 title retarget (b33d2136)? If yes → replicate lead-with-intent titles
+   on renters state pages — targets the ~250-imp "how much is renters
+   insurance in [state]" cost cluster — + home carrier pages. If flat, the
+   lever is authority/time; don't churn titles. (b) check whether the 7/2
+   renters/home CALIBRATION (316dc05d — rankings changed on 102 state pages)
+   moved anything. ALSO pull the Indexing/Coverage report (145/526 pages with
+   impressions — still the biggest unknown).
+3. **Content next (GSC-demand-backed, in order):** (a) FLOOD cost guide — AR
+   flood queries (~24 imp) land on home pages that say "flood not covered";
+   build off the home does-cover hub, gen_home_faq.py pattern. (b) "HOUSE
+   insurance" synonym — ~40 "[state] house insurance rates" queries; home
+   state pages never say "house insurance"; add one natural body/FAQ mention
+   via gen_home_state_pages.py. (c) HOLD the renters state-page retarget until
+   #2a answers.
+4. **Plausible is LIVE sitewide** (526 pages, snippet pa-v219GyiG5lJT1bQSRxP_Z,
+   account created 7/2). User still needs to add the 6 custom-event Goals +
+   enable custom properties in the dashboard. Check events are arriving;
+   quote_clicked by carrier is the money metric.
+5. **Rate-accuracy tooling covers all 3 products now**: verify_model_accuracy.py
+   (auto 91%) + verify_model_accuracy_rh.py (renters 93% / home 89% top-5;
+   `--min` flag = CI-able gate). Deliberate non-fixes documented in the 07-02
+   block — do NOT "fix" home Chubb (1.4) or chase the accepted misses.
+6. **CI gates live** (prose-drift + js-sweep). After any rate edit:
+   `python3 audit_prose.py` → `resync_prose.py`. After HTML/JS changes:
+   `node qa_sweep.js`. After tracker edits: `node verify_rate.js` + bump
+   sitemap lastmod + IndexNow ping (key 5fbfc5544ed64066bdc6a16dadf595fb.txt;
+   POST snippet pattern in the 07-01d block).
 
-_Full detail in the 2026-07-01c / b / (base) blocks below._
+_Full detail in the 2026-07-02b / 07-02 / 07-01d / 07-01c blocks below._
 
 ## This session (2026-07-01c, Opus 4.8) — GSC review + content
 
