@@ -131,8 +131,14 @@ The single best method, no copy-paste:
 - **Big carriers file as "Multiple"** with just a tracking prefix (SFMA, USAA,
   PRGS, LBPM, AOIC, TRVD) — scan prefixes, not company names.
 - **"-G" tracking numbers** (NWPP-G…, TRVD-G…): the numeric part ≠ SERFF
-  filingId, so the `filingId=<digits>` deep link 403s. Click the row from
-  search results, or search the full tracking number.
+  filingId and is NOT derivable (confirmed: NWPP-G134870398 → real filingId
+  134873604, a +3,206 jump, no formula — the filingId is an internal ID stamped
+  at submission). The `filingId=<tracking digits>` deep link therefore 403s.
+  **Assistant: do NOT emit a fabricated filingId link for a "-G" tracking
+  number** — instead point the user to the row by tracking # ("click the
+  NWPP-G… row"); the row link carries the correct filingId. Plain-numeric
+  tracking #s (SFMA, USAA, ALSE, PRCA…) DO map to filingId=<digits>, keep
+  linking those.
 - **"Approved as Amended"**: the cover-letter % is the *proposed* figure; the
   approved number is in the `_REV` exhibit / jacket disposition table (GA
   Progressive: proposed −2.7% → approved −4.1%).
