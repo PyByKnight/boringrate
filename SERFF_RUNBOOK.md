@@ -190,6 +190,14 @@ The single best method, no copy-paste:
 - A "Rate Disruption" attachment existing is a strong tell the filing is a
   real rate change (disruption exhibits only accompany price movement).
 
+## Track expansion candidates while triaging
+
+Each state's full list surfaces non-roster carriers. When a **standard/regional**
+carrier files a real (non-0%/non-symbol) PPA rate change but isn't in the tool
+roster, add it to `expansion_candidates.json` with the state. Exclude pure
+nonstandard/high-risk writers. This builds a data-driven roster-expansion list
+(American National is the leading candidate — seen in NV/GA/SC/TN).
+
 ## Presenting the click list to the user
 
 Give **full clickable `filingSummary.xhtml?filingId=<digits>` links for
