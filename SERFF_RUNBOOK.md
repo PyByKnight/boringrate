@@ -18,7 +18,8 @@ would miss them). ~15–25 min/state once practiced. Order:
 ### Progress checklist (update as pulled; window covered in parens)
 - [x] NV (Jun 2026 — still needs Oct 2025–May 2026 backfill)
 - [x] GA (Oct 2025–Jul 2026 backfill done: 8 filings — Travelers −10.1%/109k, Progressive −4.1%, Amica +8.9%, AmFam +7.5%, Allstate +5.5%, Donegal +5.0%, Liberty +3.4%, +State Farm −3% newsroom)
-- [ ] SC · [ ] TN · [ ] LA · [ ] FL · [ ] TX · [ ] CA
+- [x] SC (Oct 2025–Jul 2026: 6 filings — State Farm −8.1%/1.2M [25.5% share], American National +18.96%, American Family +8.8%, Allstate −7.0%, Southern Farm Bureau −3.86%, Amica +3.0%. Selective SELC-134783974 DEFERRED — increase, prior +30%, exact % unread)
+- [ ] TN · [ ] LA · [ ] FL · [ ] TX · [ ] CA
 - [ ] NY · [ ] PA · [ ] OH · [ ] IL · [ ] MI · [ ] NC · [ ] VA · [ ] WA · [ ] AZ · [ ] MA · [ ] MO · [ ] MN
 - [ ] AL · [ ] AK · [ ] AR · [ ] CO · [ ] CT · [ ] DE · [ ] DC · [ ] HI · [ ] ID · [ ] IN · [ ] IA · [ ] KS · [ ] KY · [ ] ME · [ ] MD · [ ] MS · [ ] MT · [ ] NE · [ ] NH · [ ] NJ · [ ] NM · [ ] ND · [ ] OK · [ ] OR · [ ] RI · [ ] SD · [ ] UT · [ ] VT · [ ] WV · [ ] WI · [ ] WY
 
@@ -112,6 +113,30 @@ The single best method, no copy-paste:
      into a separate text stream; if a text-extractor misses the %, just Read
      the jacket PDF and take the "Company Rate Information" table row.
    - `_serff/` is gitignored (we cite filings, don't republish); discard anytime.
+
+## ⚠ Multi-company & 0%-typed traps (SC lessons — READ)
+
+- **MULTI-COMPANY filings show a FAKE "Overall Percentage Rate Impact For This
+  Filing: 0.000%" summary** — SERFF does not aggregate across the entities, so
+  that line is meaningless. The REAL impacts are the per-company rows in the
+  "Company Rate Information" table. SC State Farm SFMA-134701541 read as
+  "0.000%" but was actually **−8.1%** (Mutual, 1.2M PH) / −6.0% (Fire). If the
+  extractor says 0.000% but **Rate Change Type is Increase/Decrease**, DO NOT
+  trust it — read the per-company rows.
+- **`Rate Change Type` is the skip signal, not the impact number.** Neutral →
+  genuinely 0%, skip. Increase/Decrease → real, get the per-company %. BUT even
+  Increase/Decrease-typed filings can be **0.0% overall** (revenue-neutral
+  factor rebalancing — SC Auto-Owners, GA Farmers); confirm with the
+  "% Premium Change" field / the per-company "Overall % Rate Impact" column.
+- **Cheapest reliable sources for the overall %, in order:** (1) the SC-style
+  **"% Premium Change"** plain-text field on the State Specific page; (2) the
+  **Co Tr Num / project name** sometimes encodes it (Allstate "R60304: RAF
+  OVERALL RATE DECREASE −7.0%"); (3) full Read of the jacket's Company Rate
+  Information table — EXPENSIVE (harness render; the zlib text extractor CANNOT
+  get those positioned table values). Exhaust 1–2 before Reading.
+- **SC forms also give `% Market Share in SC for Line of Business`** — capture
+  it (serff_filings.market_share_sc). SC State Farm 25.5%, Southern Farm Bureau
+  2.4%. Feeds the market-share angle directly. (Field is state-specific.)
 
 ## Triage lessons (what to skip — refined on GA's 254 filings)
 
