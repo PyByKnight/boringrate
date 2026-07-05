@@ -1,5 +1,137 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-01 (Fable 5)_
+_Last updated: 2026-07-05 (Opus 4.8)_
+
+## ▶ RESUME HERE — SERFF state-filings backfill loop
+**What we're doing:** pulling approved SERFF auto rate filings state-by-state, extracting the
+overall % + premium + policyholders, and feeding them into the primary-source pipeline.
+**TN is DONE** (44 rows, 5/5 top-5 coverage, drift engine validated). **Next states, by ROI:**
+1. **GA** — has Progressive, Allstate, Liberty, American Family, Travelers, Amica, Donegal (5/10
+   top-carriers). **Still need: State Farm, GEICO, USAA, Farmers, Nationwide** (+ Georgia Farm Bureau).
+2. **SC** — has State Farm, Allstate, American Family, American National, Amica, Southern Farm Bureau
+   (3/10). **Still need: GEICO, Progressive, USAA, Liberty/Safeco, Farmers, Nationwide, Travelers.**
+3. **NV** — deprioritized (only 2 carriers; tracker already covered by press). Skip for now.
+
+**The loop (per state, ~repeat of TN):**
+1. Search SERFF FilingAccess (`https://filingaccess.serff.com/sfa/home/<ST>`, session-bound, no
+   deep-links) → P&C → TOI **19.0001 Private Passenger Auto** → **Rate / Rate-Rule**, **Closed-Approved**,
+   recent. Skip Form / Rule(UWG) / Motorcycle(19.0002) / RV(19.0003) / Withdrawn. Pull the newest
+   "Multiple"/statewide rate/rule ZIP per carrier to `/home/knighttyler/<TRACKING>.zip`.
+2. Extract: `unzip` to `/tmp/tn/`, run `python3 serff_pdftext.py <jacket>.pdf`, parse the **"Company
+   Rate Information"** block (labels then values: Overall % Indicated / Overall % Rate Impact / WP
+   Change / Policyholders / WP / Max / Min). One row per entity; multi-entity trackings suffixed -2/-3.
+3. Append rows to `serff_filings.json` (guard on tracking #). Opportunistically grab `premium_as_of`
+   + any UX modifier (→ `rate_modifiers.json`).
+4. Roll up premium-weighted family headlines → `rate_changes.json` tracker (2026-only, |avg|≥0.5%),
+   regenerate pages with `python3 gen_rate_tracker.py`.
+5. When a state hits ≥3/5 top-5 coverage → it clears the drift gate; re-run `apply_filed_changes.py`.
+
+**Key files:** `serff_filings.json` (data), `serff_pdftext.py` (extractor, no pip/poppler),
+`apply_filed_changes.py` / `validate_drift.py` / `anchor_dates.json` (drift engine),
+`BACKFILL_AND_NEXT_STEPS.md` (full advice), `MODIFIERS_PLAN.md`, `DRIFT_FINDINGS.md`.
+**Open decision (not urgent):** Finding 2 — run drift plain vs `--reach-movers` (recommend the latter,
+add a ±15% cap first). **Parked:** backward-validation → run FORWARD on next NerdWallet/MoneyGeek
+refresh (drop `cheapest_by_state_next.json`).
+
+## ✅ DONE: TN SERFF backfill COMPLETE (2026-07-03) → see `TN_SERFF_WORKING.md`
+All 18 TN filing zips parsed → `serff_filings.json` (**34 TN entity rows**, tracking-# keyed).
+Rolled up to 11 TN tracker entries in `rate_changes.json` (premium-weighted family avgs) and
+regenerated `article/rate-changes/tennessee.html` (3 raised, 8 cut). Extraction win: parse the
+SERFF "Company Rate Information" block from `serff_pdftext.py` output — no visual reads needed.
+Headlines: State Farm −10.7% then −6.8% (two cuts/yr, 1.3M book); Progressive −4.3% (444K
+policyholders); American National asked +17.1%, got +8.0%; Safeco held flat despite −13.5%
+indicated. Full results table + content angles in **TN_SERFF_WORKING.md**.
+_Deferred (unchanged): `apply_filed_changes.py` rate-model feed; coverage_changes splits._
+
+## This session (2026-07-04b, Opus 4.8) — autonomous heartbeat batch
+
+- **First real `rate_modifiers.json` entry:** GEICO TN **homeowner discount** (Exhibit 5 of
+  GECC-134888920) — factor table by coverage × Prior BI Tier; tiers A/B were cut ~-4.5%/-4.3% in
+  this filing. Captured value + prior_value, dated + sourced. On-plan opportunistic capture.
+- **Article updated:** `tennessee-rates-dropping.html` now includes GEICO -5.0% (table row + FAQ).
+- **Engine completed:** `apply_filed_changes.py` gained `--reach-movers` (Finding 2 option b) —
+  initializes a 1.0 ADJ entry for tracked carriers with post-anchor filings but no STATE_CARRIER_ADJ
+  entry, so drift can reach them (proposes NEW entries for American Family, American National in TN).
+  Off by default (conservative); still never writes index.html. Verified both modes.
+- Queue for next heartbeat: 2nd article (indicated-vs-approved angle), more modifier captures,
+  GA/SC readiness. Blocking dependency unchanged: 2nd dated aggregator snapshot for backward test.
+- **2026-07-04b/c:** Tightened DRIFT_FINDINGS.md with the --reach-movers renormalization nuance.
+  Modifier scan of all extracted TN attachments → only GEICO's Exhibit 5 (homeowner) exposes clean
+  factor values (captured); Root RFD + GEICO/others hold factors in undelimited/image tables (not
+  safely parseable — logged in MODIFIERS_PLAN.md "Scan log", NOT fabricated).
+- **Backward-test snapshot: archive fetch BLOCKED.** web.archive.org and archive.ph both refused in
+  this env; git history is same-day (2026-06-23 ×2). Found a usable older Wayback snapshot
+  (2025-11-25) but can't fetch it here. Need user to grab it OR wait for next NerdWallet refresh.
+  Wayback URL: web.archive.org/web/20251125175056/https://www.nerdwallet.com/insurance/auto/cheapest-car-insurance
+- **2026-07-04d:** Quality pass on the drift scripts — simplified the coverage-gate (store roster
+  names in `coverage[st]`, drop the convoluted `roster_name(x,None)` path), guarded `overall_pct`=None
+  rows, added `base_tracking()` helper, `--help`, and an empty-parse guard in `load_model`. Output
+  verified unchanged (TN 5/5, no-op); `--emit` writes `proposed_adjustments.json` (provenance sidecar).
+- **2026-07-05:** User pasted the NerdWallet Nov-2025 archive. The per-state "cheapest by state"
+  table is an interactive MAP widget that failed to render from Wayback (client-side exception) →
+  per-state winners NOT captured, so the **backward-validation is still blocked**. BUT the national
+  company medians came through and gave a real guardrail win: model base ordering
+  (USAA<Travelers<GEICO<State Farm<Progressive) matches NerdWallet Nov-2025 full-cov ordering
+  EXACTLY — **0 discordant pairs**. Saved as `cheapest_national_nov2025.json`. NOTE: this validates
+  the base/prior LAYER, not the drift mechanism (that still needs per-state Nov-2025 data — try
+  MoneyGeek's static by-state table, or NerdWallet per-state pages, for TN/GA/SC/NV).
+
+- **2026-07-05 — backward test PARKED (decision).** Tried 3 sources for an older per-state ranking:
+  NerdWallet current per-state = interactive map, won't render from archive; NerdWallet national =
+  captured (base-order guardrail ✓) but no per-state; MoneyGeek = user landed on the "after an
+  accident" page (wrong profile) dated 2026-05-30 (only ~3wk before anchor → no filing gap). Archive
+  fetch blocked in-env. CONCLUSION: stop hunting historical snapshots. **Run the drift validation
+  FORWARD on the next NerdWallet/MoneyGeek refresh** — drop that future by-state pull in as
+  `cheapest_by_state_next.json` (per-state cheapest tier + snapshot_date) and re-run `validate_drift.py`;
+  the harness is already built for it and the gap will contain real post-anchor filings. No archive
+  needed. The base-layer guardrail (national ordering, 0 discordant pairs) already stands as the win
+  from this exercise. Thread closed.
+
+- **Heartbeat WOUND DOWN (honest call):** high-value autonomous queue is exhausted — everything left
+  is blocked on either the user's 2025-11-25 Wayback paste (backward test) or a new SERFF pull
+  (GA/SC coverage). Stopped rescheduling rather than manufacture busywork. Resume triggers: paste the
+  Wayback data → build cheapest_by_state_prev.json + run convergence; or pull GA/SC majors.
+
+## This session (2026-07-04, Opus 4.8) — drift engine built (steps 1 & 2)
+
+- **Step 1 done:** `anchor_dates.json` (per-state `anchor_as_of`, default 2026-06-23).
+- **Step 2 done:** `apply_filed_changes.py` (drift engine — parses model from index.html, F/F̄
+  renormalization, coverage gate, provenance sidecar; NEVER edits index.html) + `validate_drift.py`
+  (backward-test harness, currently PENDING a 2nd snapshot). Full write-up in `DRIFT_FINDINGS.md`.
+- **Key finding:** engine is a correct **no-op on TN today** — 27/38 TN filings are pre-anchor
+  (already in the 2026-06-23 snapshot), so drifting them would double-count. Reset discipline
+  validated. Drift's value accrues as the anchor ages / for stale-snapshot states.
+- **Design decision pending (Finding 2):** the real movers (Progressive, Shelter, Country Financial,
+  American Family, American National) have no STATE_CARRIER_ADJ entry, so drift can't reach them.
+  Recommend initializing 1.0 entries for tracked carriers (gated + capped). Not yet decided.
+- **Critical path:** capture the NEXT NerdWallet/MoneyGeek snapshot WITH its date
+  (`cheapest_by_state_next.json`) → unblocks the one true backward-validation test.
+- User pulling **GEICO + TN Farm Bureau** filings (both already in TN ADJ) — if GEICO is
+  post-anchor it becomes the first roster carrier to actually drift TN.
+- **GEICO + TN Farm Bureau parsed (6 rows added, serff=60):** GEICO 099 (GECC-134888920)
+  **-5.0%** (Indemnity+Marine, ~44.5K PH); GEICO 265A (134661271) 0% veh-factors; TN Farmers 2026
+  (TNFA-134754677) **+0.13%** flat on a $1.07B/540,995-PH book; TN Farmers 2024 (133965333) +6.4%.
+  GECC-134599128 = clerical (skipped); GECC-134029040 = 2024/400MB (skipped, pre-anchor).
+  **All pre-anchor** → TN now **5/5 top-5 covered** and drift STILL a correct no-op (everything
+  already in the 2026-06-23 snapshot). Strong validation: full coverage, zero double-count.
+  GEICO -5.0% added to TN tracker (12 entries; SF -10.7% preserved), tennessee.html regenerated.
+  NOTE: tennessee-rates-dropping.html article does NOT yet include GEICO (optional add).
+
+## This session (2026-07-03b, Opus 4.8) — TN complete + architecture direction + article
+
+- **TN SERFF backfill finished** (see DONE block above): 34 rows → serff_filings.json, 11 TN
+  tracker entries, tennessee.html regenerated.
+- **Direction set: go primary-source-driven** (SERFF as backbone; 3rd-party = re-zeroed prior +
+  guardrail + validation). Fable's verdict captured in `boringrate-primary-source-architecture`
+  memory: filings own the time-derivative (movement/ordering), never dollar levels; rate-manual
+  bottom-up = tar pit; add per-state `anchor_as_of`; TN is the pilot but needs GEICO + TN Farm
+  Bureau; next step = build `apply_filed_changes.py` + backward-validate on NV/GA/SC.
+- **Modifier plan**: `MODIFIERS_PLAN.md` + empty `rate_modifiers.json` scaffold — opportunistic,
+  dated, per-carrier UX-aligned modifiers; gated, deferred behind apply_filed_changes.py.
+- **Briefing written**: `BACKFILL_AND_NEXT_STEPS.md` — data inventory, ranked backfill advice
+  (TN→GA→SC; NV deprioritized), full next-steps.
+- **New article**: `article/tennessee-rates-dropping.html` (cloned Florida template, TN content,
+  every figure links to its SERFF tracking #). ⚠️ NOT yet linked from global nav — to add, edit
+  `partials/nav-mega.html` + run `build_nav.py` (single-source; don't hand-edit per page).
 
 ## This session (2026-07-02d) — filings→tool design (Fable consult) + presentation data
 
