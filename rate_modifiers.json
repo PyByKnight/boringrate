@@ -1,0 +1,144 @@
+{
+ "_meta": {
+  "purpose": "Opportunistic per-carrier rating modifiers aligned to the tool's UX inputs. Dated + primary-sourced. Feeds a FUTURE per-carrier P(profile) term; until a factor clears the coverage gate it is a CHECK on the generic curve, not a driver. Full plan in MODIFIERS_PLAN.md.",
+  "gate": "Do NOT make P per-carrier for a factor until that factor is captured for >= the top-N carriers a user actually compares in a state (mirrors the drift coverage gate). Below the gate: use as sanity-check/prior only.",
+  "discipline": "Grab when a filing already exposes it during serff_filings.json triage. Never a separate hunt, never parse a full manual for it. Missing is fine; half-applied per-carrier is harmful (false ranking differences).",
+  "schema": {
+   "state": "2-letter",
+   "carrier": "family name",
+   "entity": "exact filing company | null (family-level)",
+   "factor": "ux slug: young_driver | age_band | homeowner | multi_car | multi_policy | good_student | prior_coverage | credit_tier",
+   "value": "number or object \u2014 discount as signed % (e.g. -0.07) OR a relativity table {band: factor}",
+   "value_kind": "discount_pct | surcharge_pct | relativity_table | factor",
+   "prior_value": "same shape as value, if the filing shows a CHANGE | null",
+   "tracking": "SERFF tracking # (join key to serff_filings.json)",
+   "url": "filingSummary deep link",
+   "effective_date": "YYYY-MM-DD (effective_new of the filing)",
+   "source_doc": "which PDF/section it came from (e.g. 'Rate-Rule: Rule 12 Homeowner Discount')",
+   "recorded_date": "YYYY-MM-DD we logged it",
+   "confidence": "stated | derived | inferred-from-prose"
+  }
+ },
+ "modifiers": [
+  {
+   "state": "TN",
+   "carrier": "GEICO",
+   "entity": "GEICO Marine Insurance Company",
+   "factor": "homeowner",
+   "value_kind": "relativity_table",
+   "value": {
+    "_note": "homeowner=TRUE factors (non-homeowner=1.00 baseline) by coverage x Prior BI Tier A-D; PROPOSED/current factors from this filing.",
+    "BI": {
+     "A": 0.84,
+     "B": 0.88,
+     "C": 0.9,
+     "D": 0.84
+    },
+    "PD": {
+     "A": 0.9,
+     "B": 0.88,
+     "C": 0.89,
+     "D": 0.82
+    },
+    "MED": {
+     "A": 0.89,
+     "B": 0.88,
+     "C": 0.94,
+     "D": 0.86
+    },
+    "UMBI": {
+     "A": 0.8,
+     "B": 0.86,
+     "C": 0.89,
+     "D": 0.8
+    },
+    "UMPD": {
+     "A": 0.89,
+     "B": 0.87,
+     "C": 0.88,
+     "D": 0.85
+    },
+    "COMP": {
+     "A": 0.93,
+     "B": 0.88,
+     "C": 0.94,
+     "D": 0.92
+    },
+    "COLL": {
+     "A": 0.89,
+     "B": 0.87,
+     "C": 0.88,
+     "D": 0.85
+    },
+    "ERS": {
+     "A": 0.87,
+     "B": 0.83,
+     "C": 0.86,
+     "D": 0.9
+    },
+    "RENT": {
+     "A": 0.82,
+     "B": 0.79,
+     "C": 0.82,
+     "D": 0.79
+    },
+    "MBI": {
+     "A": 0.95,
+     "B": 0.95,
+     "C": 0.98,
+     "D": 0.98
+    }
+   },
+   "prior_value": {
+    "_note": "tiers A/B were cut ~-4.5% / -4.3% in this filing; tiers C/D unchanged. Prior (current-before) BI tier-A/B factors shown.",
+    "BI": {
+     "A": 0.88,
+     "B": 0.92
+    },
+    "PD": {
+     "A": 0.94,
+     "B": 0.92
+    },
+    "MED": {
+     "A": 0.93,
+     "B": 0.92
+    },
+    "UMBI": {
+     "A": 0.84,
+     "B": 0.9
+    },
+    "UMPD": {
+     "A": 0.93,
+     "B": 0.91
+    },
+    "COMP": {
+     "A": 0.97,
+     "B": 0.92
+    },
+    "COLL": {
+     "A": 0.93,
+     "B": 0.91
+    },
+    "ERS": {
+     "A": 0.91,
+     "B": 0.87
+    },
+    "RENT": {
+     "A": 0.86,
+     "B": 0.83
+    },
+    "MBI": {
+     "A": 0.99,
+     "B": 0.99
+    }
+   },
+   "tracking": "GECC-134888920",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134888920",
+   "effective_date": "2026-04-09",
+   "source_doc": "Exhibit 5 - Homeowner's Discount (Sheets 1-10, GEICO Marine GB)",
+   "recorded_date": "2026-07-04",
+   "confidence": "stated",
+   "note": "Homeowner discount is jointly indexed on homeowner status AND Prior BI Tier (A-D). GEICO Indemnity (GI) in the same filing has its own near-identical table (not separately captured). Non-homeowners = 1.00 (no discount)."
+  }
+ ]
+}
