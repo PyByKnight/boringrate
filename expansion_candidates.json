@@ -1,16 +1,75 @@
 {
-  "_meta": {
-    "purpose": "Running list of standard/preferred auto carriers seen filing REAL rate changes in SERFF pulls but NOT yet in the tool's auto roster (index.html CARRIERS_STANDARD / LOCAL_CARRIER_DEFS). Candidates for future roster expansion — data-driven, built as we triage each state's full filing list.",
-    "how_built": "During each state's SERFF triage, non-roster carriers with a real (non-0%, non-symbol) PPA rate filing get added here with the state. Recognizable standard/regional/insurtech only; pure nonstandard/high-risk writers (First Acceptance, Unique, American Freedom, American Hallmark, MICO, Miami Mutual, Mendakota, Cimarron, Young America, First Chicago) are intentionally excluded — not roster-expansion material for a standard-rate comparison tool.",
-    "next_step": "When a candidate shows up across several states with real volume, add it to the roster (base + STATE_CARRIER_ADJ) and recalibrate. American National is the strongest — seen filing in NV/GA/SC/TN.",
-    "started": "2026-07-03"
+ "_meta": {
+  "purpose": "Running list of standard/preferred auto carriers seen filing REAL rate changes in SERFF pulls but NOT yet in the tool's auto roster (index.html CARRIERS_STANDARD / LOCAL_CARRIER_DEFS). Candidates for future roster expansion \u2014 data-driven, built as we triage each state's full filing list.",
+  "how_built": "During each state's SERFF triage, non-roster carriers with a real (non-0%, non-symbol) PPA rate filing get added here with the state. Recognizable standard/regional/insurtech only; pure nonstandard/high-risk writers (First Acceptance, Unique, American Freedom, American Hallmark, MICO, Miami Mutual, Mendakota, Cimarron, Young America, First Chicago) are intentionally excluded \u2014 not roster-expansion material for a standard-rate comparison tool.",
+  "next_step": "When a candidate shows up across several states with real volume, add it to the roster (base + STATE_CARRIER_ADJ) and recalibrate. American National is the strongest \u2014 seen filing in NV/GA/SC/TN.",
+  "started": "2026-07-03"
+ },
+ "candidates": {
+  "American National": {
+   "entities": [
+    "American National Property And Casualty Company"
+   ],
+   "type": "standard/regional",
+   "states_seen": [
+    "GA",
+    "SC",
+    "TN"
+   ],
+   "note": "Multi-state standard carrier; filed real rate changes repeatedly (SC +18.96%, GA, TN +8.0% approved vs +17.1% indicated on ANPC-134881820). Strongest expansion candidate."
   },
-  "candidates": {
-    "American National": {"entities": ["American National Property And Casualty Company"], "type": "standard/regional", "states_seen": ["GA", "SC", "TN"], "note": "Multi-state standard carrier; filed real rate changes repeatedly (SC +18.96%, GA, TN). Strongest expansion candidate."},
-    "Elephant Insurance": {"entities": ["Elephant Insurance Company"], "type": "direct", "states_seen": ["TN"], "note": "Admiral Group US direct writer; growing footprint."},
-    "Tesla Property & Casualty": {"entities": ["Tesla Property & Casualty, Inc."], "type": "insurtech", "states_seen": ["TN"], "note": "Telematics-based, EV-focused; expanding state by state."},
-    "Grange Insurance": {"entities": ["Grange Indemnity Insurance Company", "Grange Insurance Company", "Trustgard Insurance Company"], "type": "regional", "states_seen": ["TN"], "note": "Midwest/Southeast independent-agent regional (Grange/Trustgard/TrueCover)."},
-    "Stillwater Insurance": {"entities": ["Stillwater Property and Casualty Insurance Company"], "type": "regional", "states_seen": ["TN"], "note": "National independent-agent carrier."},
-    "Celina Mutual": {"entities": ["The Celina Mutual Insurance Company", "The National Mutual Insurance Company"], "type": "regional", "states_seen": ["TN"], "note": "Ohio-based small regional (Celina Insurance Group)."}
+  "Elephant Insurance": {
+   "entities": [
+    "Elephant Insurance Company"
+   ],
+   "type": "direct",
+   "states_seen": [
+    "TN"
+   ],
+   "note": "Admiral Group US direct writer; growing footprint."
+  },
+  "Tesla Property & Casualty": {
+   "entities": [
+    "Tesla Property & Casualty, Inc."
+   ],
+   "type": "insurtech",
+   "states_seen": [
+    "TN"
+   ],
+   "note": "Telematics-based, EV-focused; expanding state by state."
+  },
+  "Grange Insurance": {
+   "entities": [
+    "Grange Indemnity Insurance Company",
+    "Grange Insurance Company",
+    "Trustgard Insurance Company"
+   ],
+   "type": "regional",
+   "states_seen": [
+    "TN"
+   ],
+   "note": "Midwest/Southeast independent-agent regional (Grange/Trustgard/TrueCover)."
+  },
+  "Stillwater Insurance": {
+   "entities": [
+    "Stillwater Property and Casualty Insurance Company"
+   ],
+   "type": "regional",
+   "states_seen": [
+    "TN"
+   ],
+   "note": "National independent-agent carrier."
+  },
+  "Celina Mutual": {
+   "entities": [
+    "The Celina Mutual Insurance Company",
+    "The National Mutual Insurance Company"
+   ],
+   "type": "regional",
+   "states_seen": [
+    "TN"
+   ],
+   "note": "Ohio-based small regional (Celina Insurance Group)."
   }
+ }
 }
