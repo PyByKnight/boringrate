@@ -5,3 +5,5 @@ __pycache__/
 cta-preview.html
 node_modules/
 _gsc/
+_serff/
+proposed_adjustments.json
