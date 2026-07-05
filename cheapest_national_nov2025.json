@@ -1,0 +1,23 @@
+{
+ "_meta": {
+  "source": "NerdWallet, Cheap Car Insurance for November 2025 (updated 2025-11-05), via Wayback 20251125175056",
+  "profile": "35yo, 2022 Camry, good record/credit, full-coverage $100/300/50 + comp/coll $1000",
+  "note": "NATIONAL company medians only. The per-state 'cheapest by state' table is an interactive map widget that failed to render from the archive (client-side exception), so per-state winners were NOT captured. Liability/age/violation nationals also captured for reference.",
+  "captured": "2026-07-05"
+ },
+ "full_coverage_monthly": {
+  "USAA": 125,
+  "Travelers": 143,
+  "GEICO": 165,
+  "State Farm": 174,
+  "Progressive": 180
+ },
+ "liability_monthly": {
+  "USAA": 32,
+  "GEICO": 41,
+  "State Farm": 43,
+  "Travelers": 45,
+  "Progressive": 54
+ },
+ "usaa_note": "military/veterans/family only"
+}
