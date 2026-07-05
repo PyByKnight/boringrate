@@ -1,0 +1,10 @@
+{
+ "_meta": {
+  "purpose": "Per-state anchor_as_of: the date of the 3rd-party (NerdWallet/MoneyGeek) snapshot each state's current calibration is anchored to. Load-bearing for drift: apply_filed_changes.py only drifts filings whose effective date is AFTER a state's anchor_as_of — earlier filings are already embedded in that snapshot, so applying them would double-count. RESET drift to 1 (i.e. bump anchor_as_of forward) whenever a state is recalibrated to a fresh snapshot.",
+  "default_source": "cheapest_by_state.json snapshot — NerdWallet + MoneyGeek, 2026-06-23 (the 2026-06-23 full model rebuild, calibrate_model.py)",
+  "how_to_update": "When you re-anchor a state to a newer NerdWallet/MoneyGeek pull, set that state's anchor_as_of to the new snapshot date. Leave others on the global default.",
+  "date_basis": "Compared against each filing's effective_new (new business sees the filed rate first); fall back to effective_renewal when effective_new is null."
+ },
+ "default": "2026-06-23",
+ "states": {}
+}
