@@ -4,12 +4,12 @@ _Last updated: 2026-07-05 (Opus 4.8)_
 ## ▶ RESUME HERE — SERFF state-filings backfill loop
 **What we're doing:** pulling approved SERFF auto rate filings state-by-state, extracting the
 overall % + premium + policyholders, and feeding them into the primary-source pipeline.
-**TN + GA are DONE** (both 5/5 top-5 coverage; GA drift now the first non-trivial run). **Next states, by ROI:**
-1. **SC** — has State Farm, Allstate, American Family, American National, Amica, Southern Farm Bureau
-   (3/10). **Still need: GEICO, Progressive, USAA, Liberty/Safeco, Farmers, Nationwide, Travelers.**
-   Use the same per-carrier substring pulls that worked for GA (see 07-05b block).
+**TN + GA + SC are DONE** (all 5/5 top-5 coverage). **Next states, by ROI:**
+1. **LA / FL / TX / CA** — the remaining tracked states. LA press-releases approvals (no SERFF
+   search needed); FL runs its own FLOIR system; CA is not in SERFF public access (CDI portal).
+   Use the per-carrier substring workflow (proven on GA + SC) for the SERFF ones.
 2. **NV** — deprioritized (only 2 carriers; tracker already covered by press). Skip for now.
-3. Then LA/FL/TX/CA, then big markets.
+3. Then big markets (NY/PA/OH/IL) once the tracked 8 are done.
 
 **The loop (per state, ~repeat of TN):**
 1. Search SERFF FilingAccess (`https://filingaccess.serff.com/sfa/home/<ST>`, session-bound, no
@@ -31,6 +31,24 @@ overall % + premium + policyholders, and feeding them into the primary-source pi
 **Open decision (not urgent):** Finding 2 — run drift plain vs `--reach-movers` (recommend the latter,
 add a ±15% cap first). **Parked:** backward-validation → run FORWARD on next NerdWallet/MoneyGeek
 refresh (drop `cheapest_by_state_next.json`).
+
+## This session (2026-07-06, Opus 4.8) — SC SERFF backfill COMPLETE (top-5 closed, all flat)
+- **SC top-5 now all SERFF-sourced → 5/5 GATE PASS, drift a clean no-op (F̄=1.0).** Pulled the 3
+  missing majors (Progressive, GEICO, USAA) + Nationwide + Travelers (bonus). 6 coverage rows added
+  → serff_filings.json (SC 6→12; file 73→79).
+- **FINDING: every carrier in this pull held SC rates FLAT (0%).** Progressive = symbol addendum 0%;
+  GEICO 057 = collision/comp symbol pages, multi-company overall 0% (per-vehicle max +32%/min -10% but
+  net zero) + GEICO 129 = 0%; USAA V7-symbols 0% ($686M book, 182K PH) + USAA SafePilot 0%; Nationwide
+  Mutual 0% (16,396 PH). **Travelers pulled but its two newest "Rate/Rule" filings are symbol-only**
+  (Quantum 2.0 Set U / Quantum 1.0 Original symbols) — last real Travelers SC revision was eff
+  12/30/2025, NOT pulled (bonus, skipped from data). **SC story: the big shoppers' carriers
+  (GEICO/Progressive/USAA) are holding flat while State Farm −8.1% + Allstate −7.0% cut and small
+  regionals (American National +19%, American Family +8.8%) raise.** Mirror of GA's mixed market.
+- **No customer-facing change** — all 0%, so NO new tracker entries and south-carolina.html is
+  unchanged (still 6 filings). Data-only update (backbone + coverage + drift gate). No sitemap/IndexNow.
+- Lesson reinforced: "newest Rate/Rule" isn't always a rate move — GEICO/Travelers/USAA file frequent
+  **symbol** revisions typed "Rate/Rule" that net to 0%. The jacket's "Company Rate Information" block
+  (overall % rate impact) is the arbiter, not the filing-type column.
 
 ## This session (2026-07-05b, Opus 4.8) — GA SERFF backfill COMPLETE (top-5 closed)
 - **GA top-5 now all SERFF-sourced.** User pulled the 5 missing majors via per-carrier "contains"
