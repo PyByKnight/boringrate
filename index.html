@@ -5181,6 +5181,11 @@ function renderRanking() {
   const mid = Math.floor(top10.length / 2);
   const median = top10.length % 2 === 0 ? Math.round((top10[mid - 1] + top10[mid]) / 2) : top10[mid];
   lastRanked = ranked; lastMedian = median;
+  // Funnel middle step: fire once when the user first sees a ranking (not on every re-render).
+  if (!window.__resultsTracked && typeof window.track === "function") {
+    window.__resultsTracked = true;
+    try { window.track("results_shown", { product: "auto", state: stateData.code, carriers: ranked.length }); } catch (e) {}
+  }
 
   const list = document.getElementById("rankList");
   list.innerHTML = "";
@@ -5769,9 +5774,33 @@ document.getElementById("zipInput").addEventListener("input", e => {
 (function () {
   if (typeof window.track !== "function") return;
   var PRODUCT = "auto";
+  // Classify where a tool entry came from (internal referrer) so the funnel can be
+  // broken down by landing page type in Plausible. ZIP forms navigate via location.href,
+  // so document.referrer is the content page they clicked "See rates" on.
+  function classifyReferrer() {
+    var ref = document.referrer || "";
+    try {
+      if (!ref) return { type: "direct", path: "" };
+      var u = new URL(ref);
+      if (u.host !== location.host) return { type: "external", path: u.host };
+      var p = u.pathname, t = "other";
+      if (p === "/" || p === "/index.html") t = "home";
+      else if (p.indexOf("/article/state/") === 0) t = "state";
+      else if (p.indexOf("/article/metro/") === 0) t = "metro";
+      else if (p.indexOf("/article/rate-changes/") === 0) t = "tracker";
+      else if (p.indexOf("/article/carrier/") === 0) t = "carrier";
+      else if (p.indexOf("/article/compare/") === 0) t = "compare";
+      else if (p.indexOf("/article/") === 0) t = "guide";
+      return { type: t, path: p };
+    } catch (e) { return { type: "unknown", path: "" }; }
+  }
   try {
     var z = (new URLSearchParams(location.search).get("zip") || "").replace(/\D/g, "").slice(0, 5);
-    if (/^\d{5}$/.test(z)) track("zip_submitted", { zip: z, product: PRODUCT, source: "url" });
+    if (/^\d{5}$/.test(z)) {
+      var rf = classifyReferrer();
+      track("zip_submitted", { zip: z, product: PRODUCT, source: "url", from: rf.type });
+      track("tool_entry", { product: PRODUCT, from: rf.type, from_path: rf.path });
+    }
   } catch (e) {}
   var zf = document.getElementById("zipForm");
   if (zf) zf.addEventListener("submit", function () {
