@@ -5819,7 +5819,7 @@ document.getElementById("zipInput").addEventListener("input", e => {
     var q = e.target.closest(".rank-quote-cta");
     if (q) {
       var row = q.closest("[data-carrier]");
-      track("quote_clicked", { carrier: row ? row.getAttribute("data-carrier") : null, product: PRODUCT, href: q.getAttribute("href") });
+      track("quote_clicked", { carrier: row ? row.getAttribute("data-carrier") : null, product: PRODUCT, state: (typeof stateData !== "undefined" && stateData) ? stateData.code : null, href: q.getAttribute("href") });
       return;
     }
     var cs = e.target.closest(".cross-sell");
