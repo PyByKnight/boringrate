@@ -557,12 +557,78 @@
   },
   {
    "state": "TX",
+   "carrier": "Root Insurance",
+   "pct": 1.2,
+   "dir": "increase",
+   "flat": false,
+   "effective": "2026-04-08",
+   "tracking": "CLIN-134801304",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "n_filings": 1
+  },
+  {
+   "state": "TX",
    "carrier": "USAA",
    "pct": 0.0,
    "dir": "flat",
    "flat": true,
    "effective": "2026-06-21",
    "tracking": "USAA-134689419",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "n_filings": 1
+  },
+  {
+   "state": "TX",
+   "carrier": "Liberty Mutual",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2026-08-15",
+   "tracking": "LBPM-134949792",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "n_filings": 1
+  },
+  {
+   "state": "TX",
+   "carrier": "Travelers",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "",
+   "tracking": "TRVD-G134888889",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "n_filings": 1
+  },
+  {
+   "state": "TX",
+   "carrier": "Safeco",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2026-03-21",
+   "tracking": "LBPM-134786364",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "n_filings": 1
+  },
+  {
+   "state": "TX",
+   "carrier": "Nationwide",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2025-12-26",
+   "tracking": "NWPP-G134764423",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "n_filings": 1
+  },
+  {
+   "state": "TX",
+   "carrier": "National General",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "",
+   "tracking": "GMMX-134612497",
    "url": "https://data.texas.gov/d/iubg-btfs",
    "n_filings": 1
   }
