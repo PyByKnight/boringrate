@@ -5826,7 +5826,8 @@ document.getElementById("zipInput").addEventListener("input", e => {
     if (al) {
       var acard = al.closest(".agent-card");
       var anm = acard && acard.querySelector(".agent-card-name");
-      track("agent_clicked", { agent: anm ? anm.textContent : null, product: PRODUCT, state: (typeof stateData !== "undefined" && stateData) ? stateData.code : null, href: al.getAttribute("href") });
+      var azip = ((document.getElementById("zipInput") || {}).value || "").replace(/\D/g, "").slice(0, 5);
+      track("agent_clicked", { agent: anm ? anm.textContent : null, product: PRODUCT, state: (typeof stateData !== "undefined" && stateData) ? stateData.code : null, metro: (typeof currentMetro !== "undefined" ? currentMetro : null), zip: /^\d{5}$/.test(azip) ? azip : null, href: al.getAttribute("href") });
       return;
     }
     var cs = e.target.closest(".cross-sell");
