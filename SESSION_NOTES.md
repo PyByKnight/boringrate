@@ -4,12 +4,13 @@ _Last updated: 2026-07-05 (Opus 4.8)_
 ## ▶ RESUME HERE — SERFF state-filings backfill loop
 **What we're doing:** pulling approved SERFF auto rate filings state-by-state, extracting the
 overall % + premium + policyholders, and feeding them into the primary-source pipeline.
-**TN + GA + SC are DONE** (all 5/5 top-5 coverage). **Next states, by ROI:**
-1. **LA / FL / TX / CA** — the remaining tracked states. LA press-releases approvals (no SERFF
-   search needed); FL runs its own FLOIR system; CA is not in SERFF public access (CDI portal).
-   Use the per-carrier substring workflow (proven on GA + SC) for the SERFF ones.
+**TN + GA + SC + TX are DONE** (all 5/5 top-5 coverage). **Next states, by ROI:**
+1. **LA / FL / CA** — the remaining tracked states, each with its OWN portal (not SERFF click-through):
+   LA press-releases approvals (ldi.la.gov; SERFF LA also works); FL = FLOIR (irfs.fldfs.com);
+   CA = CDI (interactive.web.insurance.ca.gov, not in SERFF). Check each for an open-data API first —
+   TX's data.texas.gov API pull (see 07-06b) was far faster than clicking.
 2. **NV** — deprioritized (only 2 carriers; tracker already covered by press). Skip for now.
-3. Then big markets (NY/PA/OH/IL) once the tracked 8 are done.
+3. Then big markets (NY/PA/OH/IL SERFF) once the tracked 8 are done.
 
 **The loop (per state, ~repeat of TN):**
 1. Search SERFF FilingAccess (`https://filingaccess.serff.com/sfa/home/<ST>`, session-bound, no
@@ -31,6 +32,28 @@ overall % + premium + policyholders, and feeding them into the primary-source pi
 **Open decision (not urgent):** Finding 2 — run drift plain vs `--reach-movers` (recommend the latter,
 add a ±15% cap first). **Parked:** backward-validation → run FORWARD on next NerdWallet/MoneyGeek
 refresh (drop `cheapest_by_state_next.json`).
+
+## This session (2026-07-06b, Opus 4.8) — TX backfill COMPLETE (via TDI open-data API)
+- **TX is NOT SERFF — it's TDI open data on data.texas.gov, pulled ENTIRELY via Socrata API (no
+  clicking).** Two datasets: `iubg-btfs` (Home+auto filing index, has state_type_of_insurance +
+  serff_id, NO %) and `ittv-5xew` (all P&C, has `percent_change` + serff_id). Join on serff_id.
+  Helper: `/tmp/soda.py` (urllib). Filter: `state_type_of_insurance='Personal Automobile'`,
+  `received_date>='2025-07-01'`, `status='Closed'` (=effective; TX is file-and-use). **No PH/premium
+  in the data** → TX serff_filings rows have null affected/written_premium; source = data.texas.gov.
+- **12 rows added → serff_filings.json (TX 0→12; file 79→91). TX now 5/5 top-5, drift no-op** (all
+  material moves pre-anchor). **TX is broadly SOFTENING:** State Farm -3.0% (SFMA-134710723; newsroom
+  said ~-4%), Progressive -2.5%, Germania -7.9% (TX regional, ~-16% cumulative across 4 cuts),
+  Mid-Century of Texas -10.1%, Farmers P&C -5.2%; USAA/Liberty/Safeco/Nationwide/Travelers FLAT; only
+  GEICO +2.0% and Allstate (+2..+10% across entities in 2026, after a -11.4% cut in Aug 2025) raising.
+  **Texas Farm Bureau (TX #1): NO in-window auto filing.**
+- **DATA TRAPS caught:** Progressive's -4.5% (PRGS-134716883) is an **RV** filing (product "TX RV
+  202201"), not PPA — real Progressive PPA is -2.5%. Allstate's Oct-2025 +9.x% filings are "Trailer"
+  products (non-core). The `percent_change` string has leading whitespace — strip before float().
+- **Tracker:** re-sourced State Farm to TDI + added GEICO/Progressive/Allstate/Germania/Farmers →
+  texas.html 6 filings (verify_rate 0 errors). Sitemap texas.html + hub bumped to 2026-07-06.
+- **Reusable: for TX, skip the SERFF click-through entirely — query the API.** State-lookup: many TX
+  carriers write through a "<Carrier> Texas County Mutual" fronting entity (GEICO/Progressive/Allstate
+  County Mutual etc.) — those are the real PPA filers.
 
 ## This session (2026-07-06, Opus 4.8) — SC SERFF backfill COMPLETE (top-5 closed, all flat)
 - **SC top-5 now all SERFF-sourced → 5/5 GATE PASS, drift a clean no-op (F̄=1.0).** Pulled the 3
