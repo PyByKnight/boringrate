@@ -400,13 +400,63 @@
   {
    "carrier": "State Farm",
    "state": "TX",
-   "pct": 4.1,
+   "pct": 3.0,
    "dir": "decrease",
-   "effective": "2026-04-15",
+   "effective": "2025-12-15",
    "renewal": "2026-06-04",
-   "source": "State Farm Newsroom",
-   "url": "https://newsroom.statefarm.com/state-farm-announces-new-auto-rate-reduction-for-texas-drivers/",
-   "note": "New business April 15; existing customers at renewal from June 4. Part of State Farm's 2026 round of cuts after improved results."
+   "source": "TX TDI rate filing SFMA-134710723 (data.texas.gov)",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "note": "State Farm Mutual Automobile + County Mutual, -3.0% effective Dec 15, 2025 (TDI filing SFMA-134710723). State Farm's newsroom announced roughly -4% for Texas; the filed overall impact is -3.0%. TX has no policyholder counts in the open data."
+  },
+  {
+   "carrier": "GEICO",
+   "state": "TX",
+   "pct": 2.0,
+   "dir": "increase",
+   "effective": "2025-09-01",
+   "source": "TX TDI rate filing GECC-134593132 (data.texas.gov)",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "note": "GEICO General/Indemnity + Government Employees, +2.0% effective Sep 1, 2025. GEICO's Texas County Mutual filings were all 0%."
+  },
+  {
+   "carrier": "Progressive",
+   "state": "TX",
+   "pct": 2.5,
+   "dir": "decrease",
+   "effective": "2026-02-06",
+   "source": "TX TDI rate filing PRGS-134818917 (data.texas.gov)",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "note": "Progressive County Mutual, -2.5% effective Feb 6, 2026 (companion -2.0% same date). A rate cut on the private-passenger book."
+  },
+  {
+   "carrier": "Allstate",
+   "state": "TX",
+   "pct": 3.9,
+   "dir": "increase",
+   "effective": "2026-04-13",
+   "source": "TX TDI rate filing ALSE-134897829 (data.texas.gov)",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "note": "Allstate Fire & Casualty +3.9% (main brand book) effective Apr 13, 2026; the Access/County Mutual book rose +9.9% same date. Follows an -11.4% cut in Aug 2025 that Allstate has since reversed."
+  },
+  {
+   "carrier": "Germania",
+   "state": "TX",
+   "pct": 7.9,
+   "dir": "decrease",
+   "effective": "2026-02-04",
+   "source": "TX TDI rate filing GEIN-134805604 (data.texas.gov)",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "note": "Germania (Texas regional) -7.9% effective Feb 4, 2026 \u2014 one of a string of 2025-26 cuts (-3.9%, -3.0%, -7.9%, -3.0%) totaling roughly -16%. Among the most aggressive cutters in Texas."
+  },
+  {
+   "carrier": "Farmers",
+   "state": "TX",
+   "pct": 5.2,
+   "dir": "decrease",
+   "effective": "2025-12-26",
+   "source": "TX TDI rate filing FAIG-134773153 (data.texas.gov)",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "note": "Farmers Property & Casualty -5.2% effective Dec 26, 2025; Farmers' Mid-Century of Texas book was cut -10.1% (eff Jan 31, 2026). Texas County Mutual rose +3.0% \u2014 a mixed Farmers picture, net down."
   },
   {
    "carrier": "State Farm",
