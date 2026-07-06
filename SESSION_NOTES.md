@@ -33,6 +33,34 @@ overall % + premium + policyholders, and feeding them into the primary-source pi
 add a ±15% cap first). **Parked:** backward-validation → run FORWARD on next NerdWallet/MoneyGeek
 refresh (drop `cheapest_by_state_next.json`).
 
+## This session (2026-07-06c, Opus 4.8) — LEVERAGING the filings (content + tool + consistency)
+Owner reframed the goal (memories: [[boringrate-positioning-thesis]], [[boringrate-tool-filing-consistency]]):
+reputable rate-transparency source for the REACTIVE, blindsided-by-increase shopper; tool MUST agree
+with filing callouts (reward cutters, penalize raisers); optional vetted-agent monetization; NO email
+capture. Shipped three things (all live on main d3ad7208):
+- **Consistency guard** `verify_filing_tool_consistency.py` — evaluates the TRUE full tool roster
+  (nationals + regionals from LOCAL_CARRIER_DEFS; price = avg×base×STATE_CARRIER_ADJ; NOT the
+  nationals-only state_rankings.json) vs. the compounded filed trajectory. Found NO "raiser shown
+  cheap" problems (the core fear) and confirmed the aggregator-calibrated tool already AGREES with the
+  independent filings on the nationals = validation win. Remaining flags are framing nuances
+  (nationals cut-but-still-pricey; Farmers TX = Mid-Century/County-Mutual SUBSIDIARY, not mainline —
+  a documented false-positive HARD flag).
+- **Tool fix (B)** — one real inconsistency: **Germania** (TX-only regional, aggregator-BLIND) filed
+  ~-16% but sat at full base 0.943 outside the cheap tier. Added STATE_CARRIER_ADJ.TX "Germania
+  Insurance":0.90 → now #6 (cheaper than State Farm). KEY RULE: only manually nudge aggregator-BLIND
+  regionals (their base is a guess, no double-count); aggregator-covered nationals stay on the gated
+  drift path.
+- **State-page module (A)** `gen_filing_highlights.py` — injects a "Who's cutting and raising rates in
+  [State] right now" block (from rate_changes.json) into all 8 tracker-covered auto state pages,
+  framed as DIRECTION + proof ("worth a quote"/"time to compare"), links to the cited tracker; tool
+  stays the cheapest-for-you arbiter. Idempotent, after the rankings block.
+- **Tool banners** — rewrote stale STATE_BANNERS for TN/GA/SC/TX (were all "up"; TN said "+32%" while
+  our filings show cuts) to call out the filed cuts, consistent with the state pages. Pure data.
+- `recent_filed_activity.json` + `gen_filed_activity.py` = the shared feed (respects drift_exclude).
+  0 prose drift, 529 pages 0 JS, IndexNow pinged. **NEXT leverage ideas (owner-endorsed):** funnel
+  instrumentation (tracker→tool→profile per page); NAIC market share (1 day, also fixes TX
+  drift-weighting); expand trackers to more GSC-demand states (each = a state's reactive-shopper demand).
+
 ## This session (2026-07-06b, Opus 4.8) — TX backfill COMPLETE (via TDI open-data API)
 - **TX is NOT SERFF — it's TDI open data on data.texas.gov, pulled ENTIRELY via Socrata API (no
   clicking).** Two datasets: `iubg-btfs` (Home+auto filing index, has state_type_of_insurance +
