@@ -474,9 +474,22 @@
    "dir": "decrease",
    "effective": "2025-11-28",
    "renewal": "2025-12-28",
-   "source": "State Farm Newsroom",
-   "url": "https://newsroom.statefarm.com/state-farm-announces-new-auto-rate-reduction-for-georgia-drivers/",
-   "note": "Latest of several cuts totaling ~10% avg over the past year (~$400M/yr saved, ~$190/vehicle); new business Nov 28, renewals Dec 28. Cites fewer claims + GA legal reforms."
+   "source": "GA DOI rate filing SFMA-134677514 (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134677514",
+   "note": "State Farm Mutual Automobile, -3.0% across 2.07M policyholders ($3.39B book, -$101.8M) despite a +4.4% indicated need; new business Nov 28, 2025, renewals Dec 28. Now primary-sourced to the GA filing (was newsroom). Latest of several cuts totaling ~10% over the past year; cites fewer claims + GA legal reforms. Count is policyholders.",
+   "affected": 2069411
+  },
+  {
+   "carrier": "GEICO",
+   "state": "GA",
+   "pct": 4.6,
+   "dir": "increase",
+   "effective": "2025-08-21",
+   "renewal": "2025-10-12",
+   "affected": 176619,
+   "source": "GA DOI rate filing GECC-134514872 (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134514872",
+   "note": "GEICO Casualty + GEICO Secure, +4.6% (indicated +7.7%) across 176,619 policyholders ($578M book, +$26.6M) \u2014 GEICO's most recent GA revision, effective Aug 21, 2025. GEICO raised while State Farm cut and USAA held flat. Count is policyholders."
   },
   {
    "carrier": "Progressive",
