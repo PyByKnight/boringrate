@@ -4,12 +4,12 @@ _Last updated: 2026-07-05 (Opus 4.8)_
 ## ▶ RESUME HERE — SERFF state-filings backfill loop
 **What we're doing:** pulling approved SERFF auto rate filings state-by-state, extracting the
 overall % + premium + policyholders, and feeding them into the primary-source pipeline.
-**TN is DONE** (44 rows, 5/5 top-5 coverage, drift engine validated). **Next states, by ROI:**
-1. **GA** — has Progressive, Allstate, Liberty, American Family, Travelers, Amica, Donegal (5/10
-   top-carriers). **Still need: State Farm, GEICO, USAA, Farmers, Nationwide** (+ Georgia Farm Bureau).
-2. **SC** — has State Farm, Allstate, American Family, American National, Amica, Southern Farm Bureau
+**TN + GA are DONE** (both 5/5 top-5 coverage; GA drift now the first non-trivial run). **Next states, by ROI:**
+1. **SC** — has State Farm, Allstate, American Family, American National, Amica, Southern Farm Bureau
    (3/10). **Still need: GEICO, Progressive, USAA, Liberty/Safeco, Farmers, Nationwide, Travelers.**
-3. **NV** — deprioritized (only 2 carriers; tracker already covered by press). Skip for now.
+   Use the same per-carrier substring pulls that worked for GA (see 07-05b block).
+2. **NV** — deprioritized (only 2 carriers; tracker already covered by press). Skip for now.
+3. Then LA/FL/TX/CA, then big markets.
 
 **The loop (per state, ~repeat of TN):**
 1. Search SERFF FilingAccess (`https://filingaccess.serff.com/sfa/home/<ST>`, session-bound, no
@@ -31,6 +31,31 @@ overall % + premium + policyholders, and feeding them into the primary-source pi
 **Open decision (not urgent):** Finding 2 — run drift plain vs `--reach-movers` (recommend the latter,
 add a ±15% cap first). **Parked:** backward-validation → run FORWARD on next NerdWallet/MoneyGeek
 refresh (drop `cheapest_by_state_next.json`).
+
+## This session (2026-07-05b, Opus 4.8) — GA SERFF backfill COMPLETE (top-5 closed)
+- **GA top-5 now all SERFF-sourced.** User pulled the 5 missing majors via per-carrier "contains"
+  substring searches (Company Name field is literal substring, NO regex/wildcards; GEICO cluster is
+  all `GECC-` so no need for the `Government Employees` fallback). 13 rows added → serff_filings.json
+  (GA 7→20; file 60→73). Extraction workflow unchanged (unzip → `serff_pdftext.py <jacket>.pdf` →
+  "Company Rate Information" block).
+- **Material moves:** **State Farm Mutual −3.0%** (2.07M PH, $3.39B, indicated +4.4% — primary-sources
+  the newsroom cut we'd been citing; SFMA-134677514) + SF Fire&Cas −1.5%; **GEICO +4.6%** (176,619 PH,
+  eff Aug-2025; GECC-134514872 — NOTE its filing-level rollup shows a STALE 5.4%, but the amended
+  entity rows + matching $26.6M WP change confirm 4.6%); **Farmers Group P&C +5.0%** (small 5,185-PH
+  Legacy book). **Flat/0%:** USAA full-limits (held flat, $1.28B book), Farmers Insurance Exchange FLEX,
+  Nationwide (both entities, territory-neutral), GFBR main book (98,705 PH). State Farm Classic =
+  new-program (no %, skipped). GA stays the **mixed market**: State Farm cutting, GEICO raising, USAA flat.
+- **Tracker:** re-sourced State Farm to the SERFF filing + added GEICO +4.6% → georgia.html 9 filings
+  (verify_rate 0 errors). Sitemap lastmod bumped to 2026-07-05.
+- **DRIFT — GA is the first non-trivial run + surfaced a real defect.** With 5/5 coverage + several
+  genuinely FUTURE-effective 2026 increases (Allstate eff 7/13, Liberty 8/31), the engine (which
+  gates on **effective date > anchor**, not disposition) legitimately drifts them. BUT USAA's
+  **+9.9% is MIN-LIMITS-only** (segment, not standard coverage) and was polluting the drift → a
+  spurious **+6.1%** state-avg proposal. **Fix shipped:** added `drift_exclude` flag on the min-limits
+  row (USAA-134985185) + engine now skips `drift_exclude` rows. After: GA level **+0.04%** (F̄=1.00042),
+  a near-no-op with correct per-carrier reranking (Allstate/Liberty ADJ up, rest flat). Engine still
+  NEVER writes index.html. **Takeaway for future states: flag any min-limits / segment-only filing
+  `drift_exclude` at capture time.**
 
 ## ✅ DONE: TN SERFF backfill COMPLETE (2026-07-03) → see `TN_SERFF_WORKING.md`
 All 18 TN filing zips parsed → `serff_filings.json` (**34 TN entity rows**, tracking-# keyed).

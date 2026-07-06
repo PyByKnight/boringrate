@@ -145,7 +145,8 @@ def main():
             if s2 != st:
                 continue
             post = [r for r in rows if eff_date(r) and eff_date(r) > anc
-                    and r.get("overall_pct") is not None]
+                    and r.get("overall_pct") is not None
+                    and not r.get("drift_exclude")]  # skip segment-only filings (e.g. min-limits) that don't move the standard-coverage model
             if not post:
                 continue
             num = den = 0.0
