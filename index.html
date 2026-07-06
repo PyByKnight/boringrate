@@ -5184,7 +5184,8 @@ function renderRanking() {
   // Funnel middle step: fire once when the user first sees a ranking (not on every re-render).
   if (!window.__resultsTracked && typeof window.track === "function") {
     window.__resultsTracked = true;
-    try { window.track("results_shown", { product: "auto", state: stateData.code, carriers: ranked.length }); } catch (e) {}
+    var _rz = ((document.getElementById("zipInput") || {}).value || "").replace(/\D/g, "").slice(0, 5);
+    try { window.track("results_shown", { product: "auto", state: stateData.code, metro: currentMetro || null, zip: /^\d{5}$/.test(_rz) ? _rz : null, carriers: ranked.length }); } catch (e) {}
   }
 
   const list = document.getElementById("rankList");
@@ -5819,7 +5820,8 @@ document.getElementById("zipInput").addEventListener("input", e => {
     var q = e.target.closest(".rank-quote-cta");
     if (q) {
       var row = q.closest("[data-carrier]");
-      track("quote_clicked", { carrier: row ? row.getAttribute("data-carrier") : null, product: PRODUCT, state: (typeof stateData !== "undefined" && stateData) ? stateData.code : null, href: q.getAttribute("href") });
+      var qzip = ((document.getElementById("zipInput") || {}).value || "").replace(/\D/g, "").slice(0, 5);
+      track("quote_clicked", { carrier: row ? row.getAttribute("data-carrier") : null, product: PRODUCT, state: (typeof stateData !== "undefined" && stateData) ? stateData.code : null, metro: (typeof currentMetro !== "undefined" ? currentMetro : null), zip: /^\d{5}$/.test(qzip) ? qzip : null, href: q.getAttribute("href") });
       return;
     }
     var al = e.target.closest(".agent-card-link");
