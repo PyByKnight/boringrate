@@ -5822,6 +5822,13 @@ document.getElementById("zipInput").addEventListener("input", e => {
       track("quote_clicked", { carrier: row ? row.getAttribute("data-carrier") : null, product: PRODUCT, state: (typeof stateData !== "undefined" && stateData) ? stateData.code : null, href: q.getAttribute("href") });
       return;
     }
+    var al = e.target.closest(".agent-card-link");
+    if (al) {
+      var acard = al.closest(".agent-card");
+      var anm = acard && acard.querySelector(".agent-card-name");
+      track("agent_clicked", { agent: anm ? anm.textContent : null, product: PRODUCT, state: (typeof stateData !== "undefined" && stateData) ? stateData.code : null, href: al.getAttribute("href") });
+      return;
+    }
     var cs = e.target.closest(".cross-sell");
     if (cs) { track("cross_sell_clicked", { from: PRODUCT, to: cs.id || null, href: cs.getAttribute("href") }); return; }
     var dc = e.target.closest("#demoBannerCta, .demo-banner a");
