@@ -36,6 +36,7 @@ ROOT = Path(__file__).resolve().parent
 INDEX = ROOT / "index.html"
 FILINGS = ROOT / "serff_filings.json"
 ANCHORS = ROOT / "anchor_dates.json"
+MARKET = ROOT / "market_share.json"
 OUT = ROOT / "proposed_adjustments.json"
 
 # National top-5 by market share — the default coverage-gate set. Override per state
@@ -94,6 +95,20 @@ def base_tracking(t):
     return f"{parts[0]}-{parts[1]}" if len(parts) >= 2 else t
 
 
+def load_market_share():
+    """NAIC PPA market share, keyed by roster name. Returns (weight_fn, floor)."""
+    ms = json.load(open(MARKET))
+    natl = ms["national"]
+    states = ms.get("states", {})
+    floor = ms["_meta"]["de_minimis_floor"]
+
+    def weight(st, roster_carrier):
+        return (states.get(st, {}).get(roster_carrier)
+                or natl.get(roster_carrier)
+                or floor)
+    return weight
+
+
 def main():
     if "--help" in sys.argv or "-h" in sys.argv:
         print("usage: apply_filed_changes.py [--emit] [--reach-movers]\n"
@@ -108,6 +123,7 @@ def main():
     #   Off by default (conservative). Still never writes index.html.
     adj, stateavg = load_model()
     filings = json.load(open(FILINGS))["filings"]
+    ms_weight = load_market_share()
     anchors = json.load(open(ANCHORS))
     anchor_default = anchors["default"]
     anchor_state = anchors.get("states", {})
@@ -174,16 +190,36 @@ def main():
                 entry["carrier"] = rc
                 not_in_adj.append(entry)
 
-        # F̄(s): premium-weighted mean of F across tracked (in-ADJ) carriers w/ filings
+        # F̄(s): weighted mean of F across tracked (in-ADJ) carriers with post-anchor filings.
+        # Weight basis (Layer B), chosen per state so the weights share one unit:
+        #   - SERFF written_premium when EVERY participating carrier reports it (GA/SC/TN) — the
+        #     actual book each filing covers, the most precise weight.
+        #   - NAIC national market share (market_share.json) ONLY when the state has NO premium
+        #     signal at all — every participating carrier's WP is null (TX, whose TDI open-data
+        #     rows carry no premium). Otherwise F̄ collapses to an equal-weighted mean (a 1.3M-book
+        #     State Farm cut == a tiny regional). We do NOT substitute market share when SOME
+        #     carriers have WP (e.g. GA): a filing's captured WP is the actual sub-book it covers,
+        #     which market share would over-weight (a $2.1M Allstate sub-program != Allstate's full
+        #     ~10% GA footprint). Null-WP carriers stay weight-0 there, as before this change.
         Fbar = None
+        weight_basis = None
         if F_by_c:
-            wsum = sum(prem_by_c.values())
+            if any(prem_by_c[c] > 0 for c in F_by_c):
+                weights = dict(prem_by_c)
+                weight_basis = "serff_written_premium"
+            else:
+                weights = {c: ms_weight(st, c) for c in F_by_c}
+                weight_basis = "naic_market_share"
+            wsum = sum(weights.values())
             if wsum > 0:
-                Fbar = sum(F_by_c[c] * prem_by_c[c] for c in F_by_c) / wsum
+                Fbar = sum(F_by_c[c] * weights[c] for c in F_by_c) / wsum
             else:
                 Fbar = sum(F_by_c.values()) / len(F_by_c)
+                weight_basis = "equal"
             for c, e in carriers.items():
                 e["Fbar"] = round(Fbar, 5)
+                e["weight"] = round(weights.get(c, 0.0), 4)
+                e["weight_basis"] = weight_basis
                 e["adj_new"] = round(e["adj_old"] * e["F"] / Fbar, 4)
                 e["delta"] = round(e["adj_new"] - e["adj_old"], 4)
 
@@ -193,7 +229,8 @@ def main():
             level = {"stateAvg_old": stateavg[st],
                      "Fbar": round(Fbar, 5),
                      "stateAvg_drifted": round(stateavg[st] * capped, 0),
-                     "capped": capped != Fbar}
+                     "capped": capped != Fbar,
+                     "weight_basis": weight_basis}
 
         report["states"][st] = {
             "anchor_as_of": anc,
@@ -202,6 +239,7 @@ def main():
             "gate_pass": gate_pass,
             "n_post_anchor_carriers": len(carriers) + len(not_in_adj),
             "Fbar": round(Fbar, 5) if Fbar else None,
+            "weight_basis": weight_basis,
             "applied_carriers": carriers if gate_pass else {},
             "held_carriers_gate_closed": {} if gate_pass else carriers,
             "filings_not_in_roster_adj": not_in_adj,
@@ -232,7 +270,7 @@ def main():
         if s["level_drift"]:
             ld = s["level_drift"]
             print(f"   level: stateAvg {ld['stateAvg_old']:.0f} -> {ld['stateAvg_drifted']:.0f} "
-                  f"(F̄={ld['Fbar']}{' capped' if ld['capped'] else ''})")
+                  f"(F̄={ld['Fbar']}{' capped' if ld['capped'] else ''}, weight={ld['weight_basis']})")
         print()
 
     if emit:

@@ -1,0 +1,37 @@
+{
+ "_meta": {
+  "purpose": "NAIC private-passenger-auto market share, used as the cross-carrier weight for F-bar(state) in apply_filed_changes.py (Layer B) WHEN per-filing SERFF written_premium is unavailable.",
+  "why": "TX filings come from the TDI/Socrata open-data API (data.texas.gov), which carries NO written premium or policyholder count, so every TX row has written_premium=null. Without a weight, TX's state-level drift falls back to an EQUAL-weighted mean of carrier F's -- i.e. a 1.3M-book State Farm cut would count the same as a tiny regional. Market share supplies the correct economic weight where the SERFF jacket premium is missing.",
+  "data_year": 2024,
+  "unit": "percent of national PPA direct premiums written",
+  "sources": [
+   "NAIC 2024 Private Passenger Auto market share, top-25 by direct premiums written -- via Agency Checklists (published 2025-03-17): https://agencychecklists.com/2025/03/17/naic-2025-market-share-top-25-private-passenger-auto-insurers-74894/",
+   "Cross-checked against ValuePenguin 'Largest Auto Insurance Companies' (NAIC + S&P Global, refreshed 2026-07): https://www.valuepenguin.com/largest-auto-insurance-companies"
+  ],
+  "keying": "Keys are STATE_CARRIER_ADJ roster names, NOT NAIC group names. Mapped at build time: NAIC 'Berkshire Hathaway' -> GEICO; 'Auto Owners'/'Mercury'/'American Family'/'Auto Club' etc. are NOT in the ADJ roster so omitted. Safeco shares Liberty Mutual's group figure (same NAIC group) -- if both ever file the same state's drift the group is double-counted; add a per-state override then.",
+  "de_minimis_floor": 0.20,
+  "floor_note": "A participating carrier absent from this table (small regionals below the NAIC top-25: Root, Donegal, Germania, National General [rolls up under the Allstate group in NAIC reporting], and individual state Farm Bureaus) gets the floor: a small, non-zero, correctly-de-weighted influence. 0.20 sits just under the top-25 tail (NJM 0.43).",
+  "per_state_limitation": "These are NATIONAL shares. A regional that is top-5 IN a specific state but small nationally (Texas Farm Bureau in TX, Tennessee Farm Bureau in TN) is under-weighted by its national number. Add states[ST][carrier]=<sourced share> if/when such a carrier has a POST-ANCHOR filing that participates in that state's drift. As of 2026-07-06 none do (TX Farm Bureau has no in-window filing; TN Farm Bureau's filing is pre-anchor).",
+  "consumed_by": "apply_filed_changes.py (Layer B weight fallback). Also available for future tracker credibility copy ('carriers representing N% of the market').",
+  "verified": "2026-07-06"
+ },
+ "national": {
+  "State Farm": 18.87,
+  "Progressive": 16.73,
+  "GEICO": 11.63,
+  "Allstate": 10.19,
+  "USAA": 6.17,
+  "Farmers": 3.76,
+  "Liberty Mutual": 3.27,
+  "Safeco": 3.27,
+  "Travelers": 2.00,
+  "American Family": 1.72,
+  "Erie Insurance": 1.39,
+  "Nationwide": 1.34,
+  "Kemper": 0.83,
+  "The Hartford": 0.65,
+  "Shelter Insurance": 0.44,
+  "NJM Insurance": 0.43
+ },
+ "states": {}
+}
