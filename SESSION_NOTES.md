@@ -1,5 +1,29 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-05 (Opus 4.8)_
+_Last updated: 2026-07-06 (Opus 4.8)_
+
+## This session (2026-07-06d, Opus 4.8) — funnel instrumentation SHIPPED (Plausible)
+Built the first of the 07-06c "NEXT leverage ideas" — end-to-end funnel telemetry on the auto tool
+(5 commits, c691a31b..0060b040, on main + pipeline, pushed; qa_sweep 529 pages 0 JS errors). All
+additive, safe insert pattern (no `<script>` block replaced). Events now wired in index.html:
+- **`tool_entry`** + **`from`/`from_path`** on `zip_submitted` — `classifyReferrer()` reads
+  `document.referrer` (ZIP forms navigate via `location.href`, so referrer = the content page they
+  clicked "See rates" on) and buckets entry by landing-page type: home/state/metro/tracker/carrier/
+  compare/guide/external/direct. Lets Plausible break the funnel down by which content page fed it.
+- **`results_shown`** — fires ONCE per page load (`window.__resultsTracked` guard) when a ranking
+  first renders; the funnel's middle step (entry → results → quote/agent). Props: state, metro, zip,
+  carriers count.
+- **`agent_clicked`** — the MONETIZATION-demand event (vetted-agent thesis, [[boringrate-positioning-thesis]]);
+  fires on `.agent-card-link` clicks with agent name + geo. This is the "is agent referral worth
+  building" signal.
+- Added **state + zip + metro** to `quote_clicked`, `results_shown`, `agent_clicked` (agents are
+  hyper-local) so every funnel event carries geo for breakdowns.
+- Full event set now: zip_submitted, tool_entry, results_shown, quote_clicked, agent_clicked,
+  cross_sell_clicked, refine_expanded, demo_cta_clicked, email_signup.
+- **USER TODO in Plausible dashboard:** add the NEW event names as Goals (tool_entry, results_shown,
+  agent_clicked) + ensure custom properties enabled, else they won't chart. quote_clicked-by-carrier
+  and agent_clicked are the money metrics; from-breakdown on tool_entry answers "which content converts."
+- **Instrumented AUTO only** (renters/home tools not yet). **Remaining 07-06c leverage ideas:** NAIC
+  market share (1 day, also fixes TX drift-weighting); expand trackers to more GSC-demand states.
 
 ## ▶ RESUME HERE — SERFF state-filings backfill loop
 **What we're doing:** pulling approved SERFF auto rate filings state-by-state, extracting the
