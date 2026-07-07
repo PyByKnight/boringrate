@@ -1,6 +1,32 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-06 (Opus 4.8)_
 
+## This session (2026-07-06e, Opus 4.8) — NAIC market share → fixes TX drift-weighting
+Second 07-06c "NEXT leverage idea." **`market_share.json`** = NAIC 2024 PPA top-25 by direct
+premiums written (share %), keyed by STATE_CARRIER_ADJ roster name, fully sourced (Agency Checklists
+NAIC top-25 pub. 2025-03-17 + ValuePenguin/NAIC+S&P cross-check). Wired into `apply_filed_changes.py`
+as a **Layer-B (cross-carrier F̄) weight fallback**:
+- **The defect:** TX filings come from the TDI/Socrata open-data API (data.texas.gov) which carries
+  NO written premium → every TX row `written_premium=null` → F̄ collapsed to an EQUAL-weighted mean
+  (State Farm's 1.3M-book move == a tiny regional).
+- **The fix (minimal blast radius):** a state uses market share ONLY when it has **no premium signal
+  at all** (every participating carrier null = TX). States with ANY real SERFF WP (GA/SC/TN) keep the
+  per-filing book weight **unchanged** — verified GA/SC/TN drift output **byte-identical**. KEY
+  reasoning: a filing's captured WP is the actual sub-book it covers; market share would OVER-weight
+  it (GA Allstate's +5.5% filing reports only **$2.1M** = a sub-program, NOT Allstate's full ~10% GA
+  footprint — giving it national share inflated GA to +2.3%, wrong). So market share is a *fallback*
+  for the no-signal case, not a replacement.
+- TX now on the market-share path (`weight_basis=naic_market_share` in output + sidecar) but still a
+  **no-op today** (all TX moves pre-anchor). Demonstrated the mechanism on TX's filings ignoring the
+  anchor: equal-weight F̄=0.98896 vs market-share F̄=0.98791 — small here (TX broadly softening, big
+  carriers balance: SF −3%/18.9% + Progressive −2.5%/16.7% down, GEICO +2%/11.6% offsets) but the
+  read is now economically correct; a SF-cuts-hard/regionals-raise state would diverge a lot.
+- `weight` + `weight_basis` now recorded per carrier in `proposed_adjustments.json` (untracked
+  artifact). No index.html/page touch, no cascade. **De-minimis floor 0.20%** for sub-top-25
+  regionals (Germania/Root/Donegal/National General/state Farm Bureaus). **Per-state override slots**
+  (`states:{}`) documented but empty — populate when a regional that's top-5 IN-state but small
+  nationally (TX/TN Farm Bureau) gets a POST-ANCHOR participating filing (none do yet).
+
 ## This session (2026-07-06d, Opus 4.8) — funnel instrumentation SHIPPED (Plausible)
 Built the first of the 07-06c "NEXT leverage ideas" — end-to-end funnel telemetry on the auto tool
 (5 commits, c691a31b..0060b040, on main + pipeline, pushed; qa_sweep 529 pages 0 JS errors). All
