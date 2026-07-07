@@ -1,6 +1,29 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-07 (Opus 4.8)_
 
+## This session (2026-07-07b, Opus 4.8) — CA auto backfill via CDI open-data Excel (autonomous)
+Scouted LA/FL/CA for open-data (per the runbook "check for an API first"). **CA is a WIN, no SERFF:**
+- **CA CDI publishes a public downloadable Excel** — `insurance.ca.gov/0250-insurers/0800-rate-filings/
+  0100-rate-filing-lists/rate-filing-approvals/upload/Approval-Closed-List-YTD-6-30-26.xlsx` (refreshed
+  ~15 days after month-end; filename pattern rolls by period). 5,338 rows, **stdlib-parseable** (zipfile
+  + xml.etree; empty cells are OMITTED so map by cell ref, not positional zip). Columns: FILE, NAME,
+  GRP #, NAIC #, LINE TYPE (PERSONAL/COMMERCIAL), LINE CODE, PROGRAM, FILING TYPE, **% RATE CHNG REQ,
+  % RATE CHNG APPVD**, STATUS, CLOSED DATE (Excel serial: `date(1899,12,30)+timedelta(days=n)`),
+  SERFF #. Filter LINE TYPE=PERSONAL + LINE CODE contains AUTO (excl MOTORCYCLE) + STATUS=APPROVED.
+  This is the CA analog to TX's data.texas.gov API — the repeatable monthly CA pull. Parser saved in
+  chat history / scratchpad.
+- **Published the movers** (RATE-type filings w/ non-zero approved %): **State Farm −6.2%**
+  (SFMA-134750464, primary-sources the newsroom cut we'd been citing), **Travelers +4.5%/+3.1%**
+  (Quantum Auto 2.0, 2 entities), **Wawanesa +6.01%** (CA-only regional). → serff_filings.json CA 0→4;
+  rate_changes.json re-sourced State Farm + added Travelers (+3.8% avg) & Wawanesa (+6.0%);
+  california.html 1→3 filings; state-page highlights (1 cut / 2 up) + filed-activity feed regenerated.
+  verify_rate 0 errs, prose 0 drift, qa_sweep 530/0, IndexNow 200. Shipped to main (deploy branch).
+- **LIMITATION:** GEICO/Progressive/Allstate/USAA CA filings are class/symbol filings w/ BLANK
+  approved-% in the sheet (CA prior-approval regime files many rate actions without an overall-% summary)
+  → CA stays **1/5 on the drift gate** (correct no-op; all CA moves pre-anchor anyway). To complete CA's
+  top-5 for the gate would need the individual SERFF jackets (user pull) — deferred, low priority.
+- **LA/FL are MANUAL:** LA rate-filing-search 403s bots; FL FLOIR IRFS has no export. User-driven.
+
 ## This session (2026-07-07, Opus 4.8) — GSC review: retarget verdict + next-guide mining
 Fresh GSC pulls (7-day + 28-day, both dropped in `_gsc/`; 28-day in `_gsc/28d/`). Exploration phase,
 CTR ~0 (expected at avg pos ~62), building.
@@ -93,11 +116,12 @@ additive, safe insert pattern (no `<script>` block replaced). Events now wired i
 ## ▶ RESUME HERE — SERFF state-filings backfill loop
 **What we're doing:** pulling approved SERFF auto rate filings state-by-state, extracting the
 overall % + premium + policyholders, and feeding them into the primary-source pipeline.
-**TN + GA + SC + TX are DONE** (all 5/5 top-5 coverage). **Next states, by ROI:**
-1. **LA / FL / CA** — the remaining tracked states, each with its OWN portal (not SERFF click-through):
-   LA press-releases approvals (ldi.la.gov; SERFF LA also works); FL = FLOIR (irfs.fldfs.com);
-   CA = CDI (interactive.web.insurance.ca.gov, not in SERFF). Check each for an open-data API first —
-   TX's data.texas.gov API pull (see 07-06b) was far faster than clicking.
+**TN + GA + SC + TX DONE (5/5). CA now partial (movers pulled autonomously via CDI Excel — see 07-07b).**
+**Next states, by ROI:**
+1. **LA / FL** — remaining tracked states, each own portal, both MANUAL (no open-data API):
+   LA rate-filing-search is 403 bot-blocked → use LDI press releases / SERFF LA (user pull); FL = FLOIR
+   IRFS search (irfssearch.floir.gov), no export → user pull. **CA is SOLVED autonomously** (07-07b).
+   Always check for an open-data path first — TX API (07-06b) + CA Excel (07-07b) both beat clicking.
 2. **NV** — deprioritized (only 2 carriers; tracker already covered by press). Skip for now.
 3. Then big markets (NY/PA/OH/IL SERFF) once the tracked 8 are done.
 
