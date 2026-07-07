@@ -27,8 +27,18 @@ CTR ~0 (expected at avg pos ~62), building.
   H1 "slow leaks") yet ranks pos 80–96 → authority problem, a 2nd page would cannibalize. Home had no
   uncovered cluster (all home demand on existing state/cost pages).
 - **Growth lever going forward: MORE renters/home demand-matched guides (theft-guide format), NOT
-  on-page churn of existing pages.** Build order next: the car-theft renters guide.
-- Housekeeping: ~8 duplicate GSC export zips sitting in `/home/knighttyler/` (can be deleted).
+  on-page churn of existing pages.**
+- **SHIPPED the car-theft guide** (0c6b501b): `renters/does-renters-insurance-cover-theft-from-car.html`
+  via gen_renters_faq.py ARTICLES config — 1,212 words, 6-Q FAQPage schema on the exact queries, the
+  renters-vs-auto split angle. Internal-authority links IN from the does-cover hub + the theft page
+  (pos 56 / 920 imp). Added to nav-mega + build_nav (528 pages) + sitemap. qa_sweep 530/0, prose 0
+  drift, IndexNow 200.
+- **BRANCH CONSOLIDATED: `serff-primary-source-pipeline` was NOT an intentional fork — fast-forwarded
+  `main` to it (0060b040→0c6b501b) and pushed. main = deploy branch. Going forward, work on `main`
+  (the pipeline branch still exists, same commit; ignore or delete it).** The FF shipped this session's
+  market-share drift fix + docs too — safe, the drift engine is dry-run and never writes index.html.
+- Housekeeping: ~8 duplicate GSC export zips + several USAA-*.zip sitting in `/home/knighttyler/`
+  (can be deleted).
 
 ## This session (2026-07-06e, Opus 4.8) — NAIC market share → fixes TX drift-weighting
 Second 07-06c "NEXT leverage idea." **`market_share.json`** = NAIC 2024 PPA top-25 by direct
