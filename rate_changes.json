@@ -393,9 +393,9 @@
    "pct": 6.2,
    "dir": "decrease",
    "effective": "2026-05-08",
-   "source": "State Farm Newsroom",
+   "source": "CA Dept. of Insurance approved filing SFMA-134750464 \u00b7 State Farm Newsroom",
    "url": "https://newsroom.statefarm.com/state-farm-seeks-62-auto-rate-reduction-for-california-drivers/",
-   "note": "Approved March 2026; effective May 8 for new business and renewals. California's largest auto insurer. Separately, State Farm is returning a record $5B auto dividend (~$100/vehicle) to qualifying customers nationwide in summer 2026."
+   "note": "Primary-sourced to the CDI-approved filing SFMA-134750464 (approved 2026-03-03, effective 2026-05-08 new + renewal). California's largest auto insurer. Separately, State Farm is returning a record $5B auto dividend (~$100/vehicle) nationwide in summer 2026."
   },
   {
    "carrier": "State Farm",
@@ -822,6 +822,26 @@
    "source": "SERFF (TN DOI filing GECC-134888920)",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134888920",
    "note": "GEICO Indemnity & Marine cut -5.0% (indicated -6.4% to -6.9%); ~44,545 policyholders."
+  },
+  {
+   "carrier": "Travelers",
+   "state": "CA",
+   "pct": 3.8,
+   "dir": "increase",
+   "effective": "2026-06-19",
+   "source": "CA Dept. of Insurance (CDI) approved rate filings",
+   "url": "https://www.insurance.ca.gov/0250-insurers/0800-rate-filings/0100-rate-filing-lists/rate-filing-approvals/",
+   "note": "Quantum Auto 2.0. Two entities approved: +4.5% (Property Casualty, closed 6/19, TRVD-G134745888) and +3.1% (Commercial, closed 5/12, TRVD-G134745613); simple average shown."
+  },
+  {
+   "carrier": "Wawanesa",
+   "state": "CA",
+   "pct": 6.0,
+   "dir": "increase",
+   "effective": "2026-05-15",
+   "source": "CA Dept. of Insurance (CDI) approved rate filings",
+   "url": "https://www.insurance.ca.gov/0250-insurers/0800-rate-filings/0100-rate-filing-lists/rate-filing-approvals/",
+   "note": "CA-only regional writer. +6.01% approved 2026-05-15 (requested +6.9%), filing WAWA-134754803."
   }
  ]
 }

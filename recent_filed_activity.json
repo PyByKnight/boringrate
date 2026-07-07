@@ -6,6 +6,39 @@
  },
  "activity": [
   {
+   "state": "CA",
+   "carrier": "State Farm",
+   "pct": -6.2,
+   "dir": "decrease",
+   "flat": false,
+   "effective": "2026-05-08",
+   "tracking": "SFMA-134750464",
+   "url": "https://www.insurance.ca.gov/0250-insurers/0800-rate-filings/0100-rate-filing-lists/rate-filing-approvals/",
+   "n_filings": 1
+  },
+  {
+   "state": "CA",
+   "carrier": "Wawanesa",
+   "pct": 6.01,
+   "dir": "increase",
+   "flat": false,
+   "effective": "2026-05-15",
+   "tracking": "WAWA-134754803",
+   "url": "https://www.insurance.ca.gov/0250-insurers/0800-rate-filings/0100-rate-filing-lists/rate-filing-approvals/",
+   "n_filings": 1
+  },
+  {
+   "state": "CA",
+   "carrier": "Travelers",
+   "pct": 4.5,
+   "dir": "increase",
+   "flat": false,
+   "effective": "2026-06-19",
+   "tracking": "TRVD-G134745888",
+   "url": "https://www.insurance.ca.gov/0250-insurers/0800-rate-filings/0100-rate-filing-lists/rate-filing-approvals/",
+   "n_filings": 2
+  },
+  {
    "state": "GA",
    "carrier": "Travelers",
    "pct": -10.1,
