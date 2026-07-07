@@ -1,5 +1,34 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-06 (Opus 4.8)_
+_Last updated: 2026-07-07 (Opus 4.8)_
+
+## This session (2026-07-07, Opus 4.8) — GSC review: retarget verdict + next-guide mining
+Fresh GSC pulls (7-day + 28-day, both dropped in `_gsc/`; 28-day in `_gsc/28d/`). Exploration phase,
+CTR ~0 (expected at avg pos ~62), building.
+- **7-day: 11,962 imp, pos 63.2. Product split (Pages.csv): home 51% / renters 38% / auto 8% /
+  tracker ~0% (18 imp).** 28-day query demand (top-1000): home 9,443 imp ≈ renters 8,232 ≫ auto 1,470.
+  **The wedge is home+renters content; auto + the whole SERFF tracker draw almost nothing from search**
+  (tracker ranks pos 5.5 but 11 imp — ranks without demand). Tracker's value must come from
+  credibility/conversion of the reactive shopper arriving some OTHER way, NOT search volume.
+- **HOMEOWNERS RETARGET VERDICT: FLAT — thread CLOSED.** The 7/1 "cheapest homeowners [state]" title
+  retarget (b33d2136) did NOT move rankings: cluster sits at pos **55.7 (7-day pure-post)** / **55.9
+  (28-day)** vs the pre-retarget 30–85 spread centered ~55. Titles were the lever; titles didn't work.
+  → **Do NOT replicate the retarget on the 51 renters state pages** (the gate the notes set is now
+  answered NO). Stop the title-retarget thread entirely.
+- **Renters near-win pages (NM pos 17.4 / DC 22.7 / NV 30.8 / WV 33.8, real imp) — dug in, no cheap
+  lever.** On-page is already well-optimized (exact-ish titles, ~2k words, FAQPage schema). Two
+  candidate levers both came up EMPTY: (a) title retarget = the proven-flat homeowners bet; (b)
+  internal links = **already comprehensive** (every top renters guide links all 51 state pages, flat
+  alphabetical grid — audited). **Constraint is external domain authority + time, not on-page.**
+- **NEXT-GUIDE MINING (7-day, uncovered clusters).** Winner: **"does renters insurance cover theft
+  from your car / car break-ins" — 123 imp, pos 93–95, uncovered dedicated targeting.** The theft-guide
+  playbook (theft page spun from the does-cover hub = 920 imp, the site's #1 page); confusing
+  renters-vs-auto scenario, perfect for the format. **SKIPPED: leaks/water-leaks (291 imp, bigger) —
+  the `water-damage` guide ALREADY targets it** (title "…Water Damage? Leaks, Burst Pipes & Floods",
+  H1 "slow leaks") yet ranks pos 80–96 → authority problem, a 2nd page would cannibalize. Home had no
+  uncovered cluster (all home demand on existing state/cost pages).
+- **Growth lever going forward: MORE renters/home demand-matched guides (theft-guide format), NOT
+  on-page churn of existing pages.** Build order next: the car-theft renters guide.
+- Housekeeping: ~8 duplicate GSC export zips sitting in `/home/knighttyler/` (can be deleted).
 
 ## This session (2026-07-06e, Opus 4.8) — NAIC market share → fixes TX drift-weighting
 Second 07-06c "NEXT leverage idea." **`market_share.json`** = NAIC 2024 PPA top-25 by direct
