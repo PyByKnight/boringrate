@@ -1,6 +1,30 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-07 (Opus 4.8)_
 
+## This session (2026-07-08, Opus 4.8) — FL FLOIR pull (painful) + top-10 target + automated-source scan
+- **TOP-10 is now the sourcing/consistency target** (tool ranks up to 20). Added TOP10_DEFAULT +
+  per-state TOP10_OVERRIDE + coverage reporting to apply_filed_changes.py; **drift GATE stays top-5**
+  (≈60% market weight). Completed states were already near top-10: GA 10/10, TN 9/10, TX 9/10, SC 7/10.
+  NOTE: coverage counts carriers with a ROW; a thoroughly-pulled-but-flat state (SC) reads low because
+  0%/symbol filings aren't recorded — not a pull miss (offered to add SC flat-coverage rows; deferred).
+- **AUTOMATED-SOURCE SCAN: only TX (API) + CA (Excel) are turnkey.** NY portal = health only; PA/WA =
+  JS/AJAX (no static file); everyone else SERFF-only. Recorded in RESUME HERE. Don't re-hunt.
+- **FL via FLOIR IRFS = WORST-CASE portal, deprioritize.** IRFS Advanced Search (P&C: LOB "Private
+  Passenger Auto (192)" + TOI "Personal Auto (19.0)", Rates Only, Date Closed window) returns a 595-row
+  INDEX but **no rate-% column** (that's L&H-only) and **downloads are email-gated**. Worse: the
+  newest-filing-per-carrier is almost always a **0% symbol/rule update, NOT a rate revision** (the
+  documented trap). Pulled top-10; parsed via serff_pdftext (stdlib; 28-29MB Progressive/Liberty took
+  ~min in background). **Salvaged 2 real movers → serff_filings.json (FL 0→8): Liberty Mutual -7.9%
+  (26-014714), Progressive +3.8% (25-048862).** 6 others confirmed 0% symbol (SF/GEICO/USAA/Nationwide/
+  FLFarmBureau/Travelers, drift_exclude); Allstate image-only, Farmers no clean form.
+- **OPEN — FL Progressive reconciliation:** filing shows +3.8% (closed 6/18/26) but the tracker's WFLX
+  press entry says Progressive FL **-8%** (Mar 2026) = a trajectory (cut then small raise). **florida.html
+  NOT updated** pending reconciliation (tool↔filing consistency rule). Liberty -7.9% is a clean new add
+  when we do update the tracker.
+- **NEXT: NY via standard SERFF Filing Access** (filingaccess.serff.com/sfa/home/NY) — the clean
+  jacket-ZIP workflow that made TN/GA/SC/TX easy (Company Rate Information block = overall % + premium +
+  PH), far better than FLOIR. Then PA/IL/OH same way. FL keeps its press-sourced tracker page.
+
 ## This session (2026-07-07b, Opus 4.8) — CA auto backfill via CDI open-data Excel (autonomous)
 Scouted LA/FL/CA for open-data (per the runbook "check for an API first"). **CA is a WIN, no SERFF:**
 - **CA CDI publishes a public downloadable Excel** — `insurance.ca.gov/0250-insurers/0800-rate-filings/
