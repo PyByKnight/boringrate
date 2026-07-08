@@ -45,7 +45,26 @@ TOP5_DEFAULT = ["State Farm", "GEICO", "Progressive", "Allstate", "USAA"]
 TOP5_OVERRIDE = {
     "TN": ["State Farm", "GEICO", "Progressive", "Tennessee Farm Bureau", "Allstate"],
 }
-GATE_MIN = 3  # majority of 5
+GATE_MIN = 3  # majority of 5 — drift GATE stays top-5 (≈60% of market weight drives the state avg)
+
+# TOP-10 is the SOURCING / tool-consistency completeness target (the tool ranks up to 20 carriers), NOT
+# the drift gate. Reported per state so we know how much of the displayed roster is primary-sourced.
+# Default = the 10 broadly-written nationals; per-state override swaps in the dominant regional(s).
+TOP10_DEFAULT = ["State Farm", "GEICO", "Progressive", "Allstate", "USAA",
+                 "Farmers", "Liberty Mutual", "Travelers", "Nationwide", "American Family"]
+TOP10_OVERRIDE = {
+    "TN": ["State Farm", "GEICO", "Progressive", "Allstate", "USAA",
+           "Tennessee Farm Bureau", "Farmers", "Liberty Mutual", "Nationwide", "Erie Insurance"],
+    "GA": ["State Farm", "GEICO", "Progressive", "Allstate", "USAA",
+           "Georgia Farm Bureau", "Farmers", "Liberty Mutual", "Travelers", "Nationwide"],
+    "TX": ["State Farm", "GEICO", "Progressive", "Allstate", "USAA",
+           "Texas Farm Bureau", "Farmers", "Liberty Mutual", "Nationwide", "Travelers"],
+    "CA": ["State Farm", "GEICO", "Progressive", "Allstate", "USAA",
+           "Farmers", "Mercury", "AAA/CSAA", "Wawanesa", "Nationwide"],
+    "FL": ["State Farm", "GEICO", "Progressive", "Allstate", "USAA",
+           "Farmers", "Liberty Mutual", "Travelers", "Florida Farm Bureau", "Nationwide"],
+}
+GATE10_MIN = 7  # informational completeness bar for top-10 (not enforced on drift)
 
 # serff carrier family name -> STATE_CARRIER_ADJ roster key (only where they differ).
 ROSTER_ALIAS = {
@@ -151,6 +170,9 @@ def main():
         top5 = TOP5_OVERRIDE.get(st, TOP5_DEFAULT)
         covered = [c for c in top5 if c in coverage[st]]  # coverage[st] holds roster names
         gate_pass = len(covered) >= GATE_MIN
+        top10 = TOP10_OVERRIDE.get(st, TOP10_DEFAULT)
+        covered10 = [c for c in top10 if c in coverage[st]]
+        missing10 = [c for c in top10 if c not in coverage[st]]
 
         # F(s,c) per roster carrier, only from post-anchor filings
         carriers = {}
@@ -237,6 +259,9 @@ def main():
             "top5": top5,
             "top5_covered": covered,
             "gate_pass": gate_pass,
+            "top10_covered": covered10,
+            "top10_missing": missing10,
+            "top10_complete": len(covered10) >= GATE10_MIN,
             "n_post_anchor_carriers": len(carriers) + len(not_in_adj),
             "Fbar": round(Fbar, 5) if Fbar else None,
             "weight_basis": weight_basis,
@@ -253,6 +278,9 @@ def main():
         gate = "GATE PASS" if s["gate_pass"] else "gate CLOSED"
         print(f"== {st} ==  anchor {s['anchor_as_of']}  |  top5 covered "
               f"{len(s['top5_covered'])}/5 {s['top5_covered']}  |  {gate}")
+        c10 = "top10 OK" if s["top10_complete"] else "top10 GAP"
+        print(f"   top10 {len(s['top10_covered'])}/10  {c10}"
+              + (f"  |  missing: {', '.join(s['top10_missing'])}" if s["top10_missing"] else ""))
         applied = s["applied_carriers"] if s["gate_pass"] else s["held_carriers_gate_closed"]
         if not applied and not s["filings_not_in_roster_adj"]:
             print("   no post-anchor filings — nothing to drift (already in the snapshot).\n")
