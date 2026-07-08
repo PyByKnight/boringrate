@@ -122,6 +122,11 @@ overall % + premium + policyholders, and feeding them into the primary-source pi
    LA rate-filing-search is 403 bot-blocked → use LDI press releases / SERFF LA (user pull); FL = FLOIR
    IRFS search (irfssearch.floir.gov), no export → user pull. **CA is SOLVED autonomously** (07-07b).
    Always check for an open-data path first — TX API (07-06b) + CA Excel (07-07b) both beat clicking.
+   **AUTOMATED-SOURCE SCAN DONE (07-08): TX + CA are the ONLY turnkey automated auto pulls.** NY's
+   non-SERFF portal (myportal.dfs.ny.gov prior-approval) is HEALTH rate apps, not auto; PA/WA have own
+   portals but JS/AJAX-driven (no static download, would need API reverse-engineering); IL/OH/WI/FL/LA/NV
+   + rest are SERFF-only (403s bots). So everything past TX/CA is MANUAL SERFF — don't re-hunt. 3rd-party
+   aggregators (rateauthority.org, AM Best State Rate Filings) exist but are secondary/paywalled = off-limits.
 2. **NV** — deprioritized (only 2 carriers; tracker already covered by press). Skip for now.
 3. Then big markets (NY/PA/OH/IL SERFF) once the tracked 8 are done.
 
