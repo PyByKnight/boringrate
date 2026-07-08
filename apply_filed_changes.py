@@ -63,6 +63,8 @@ TOP10_OVERRIDE = {
            "Farmers", "Mercury", "AAA/CSAA", "Wawanesa", "Nationwide"],
     "FL": ["State Farm", "GEICO", "Progressive", "Allstate", "USAA",
            "Farmers", "Liberty Mutual", "Travelers", "Florida Farm Bureau", "Nationwide"],
+    "NY": ["GEICO", "State Farm", "Progressive", "Allstate", "USAA",
+           "Liberty Mutual", "Travelers", "Nationwide", "Erie Insurance", "NYCM"],
 }
 GATE10_MIN = 7  # informational completeness bar for top-10 (not enforced on drift)
 
