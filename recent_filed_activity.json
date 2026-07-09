@@ -39,6 +39,94 @@
    "n_filings": 2
   },
   {
+   "state": "FL",
+   "carrier": "Liberty Mutual",
+   "pct": -7.9,
+   "dir": "decrease",
+   "flat": false,
+   "effective": "2026-05-29",
+   "tracking": "26-014714",
+   "url": "https://irfssearch.floir.gov/",
+   "n_filings": 1
+  },
+  {
+   "state": "FL",
+   "carrier": "Progressive",
+   "pct": 3.8,
+   "dir": "increase",
+   "flat": false,
+   "effective": "2026-06-18",
+   "tracking": "25-048862",
+   "url": "https://irfssearch.floir.gov/",
+   "n_filings": 1
+  },
+  {
+   "state": "FL",
+   "carrier": "State Farm",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2026-06-04",
+   "tracking": "26-027524",
+   "url": "https://irfssearch.floir.gov/",
+   "n_filings": 1
+  },
+  {
+   "state": "FL",
+   "carrier": "GEICO",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2026-05-15",
+   "tracking": "26-020774",
+   "url": "https://irfssearch.floir.gov/",
+   "n_filings": 1
+  },
+  {
+   "state": "FL",
+   "carrier": "USAA",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2026-07-01",
+   "tracking": "26-031219",
+   "url": "https://irfssearch.floir.gov/",
+   "n_filings": 1
+  },
+  {
+   "state": "FL",
+   "carrier": "Nationwide",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2025-10-14",
+   "tracking": "25-044202",
+   "url": "https://irfssearch.floir.gov/",
+   "n_filings": 1
+  },
+  {
+   "state": "FL",
+   "carrier": "Florida Farm Bureau",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2026-06-18",
+   "tracking": "26-027737",
+   "url": "https://irfssearch.floir.gov/",
+   "n_filings": 1
+  },
+  {
+   "state": "FL",
+   "carrier": "Travelers",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2026-06-23",
+   "tracking": "26-026734",
+   "url": "https://irfssearch.floir.gov/",
+   "n_filings": 1
+  },
+  {
    "state": "GA",
    "carrier": "Travelers",
    "pct": -10.1,
@@ -201,6 +289,138 @@
    "effective": "2026-05-16",
    "tracking": "LBPM-134798717",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134798717",
+   "n_filings": 1
+  },
+  {
+   "state": "NY",
+   "carrier": "Farmers",
+   "pct": 8.7,
+   "dir": "increase",
+   "flat": false,
+   "effective": "2025-08-18",
+   "tracking": "FAIG-134358402",
+   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "n_filings": 1
+  },
+  {
+   "state": "NY",
+   "carrier": "Mercury",
+   "pct": 5.0,
+   "dir": "increase",
+   "flat": false,
+   "effective": "2026-06-23",
+   "tracking": "MERY-134872955",
+   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "n_filings": 1
+  },
+  {
+   "state": "NY",
+   "carrier": "Liberty Mutual",
+   "pct": 4.95,
+   "dir": "increase",
+   "flat": false,
+   "effective": "2026-04-29",
+   "tracking": "LBPM-134738048",
+   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "n_filings": 1
+  },
+  {
+   "state": "NY",
+   "carrier": "NYCM",
+   "pct": 4.94,
+   "dir": "increase",
+   "flat": false,
+   "effective": "2026-08-22",
+   "tracking": "NYCM-134694570",
+   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "n_filings": 1
+  },
+  {
+   "state": "NY",
+   "carrier": "GEICO",
+   "pct": 4.9,
+   "dir": "increase",
+   "flat": false,
+   "effective": "2025-03-10",
+   "tracking": "GECC-134404337",
+   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "n_filings": 1
+  },
+  {
+   "state": "NY",
+   "carrier": "Travelers",
+   "pct": 3.03,
+   "dir": "increase",
+   "flat": false,
+   "effective": "2025-12-29",
+   "tracking": "TRVD-G134680232",
+   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "n_filings": 1
+  },
+  {
+   "state": "NY",
+   "carrier": "Progressive",
+   "pct": 1.1,
+   "dir": "increase",
+   "flat": false,
+   "effective": "2026-03-06",
+   "tracking": "PRGS-134858552",
+   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "n_filings": 1
+  },
+  {
+   "state": "NY",
+   "carrier": "State Farm",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2025-11-17",
+   "tracking": "SFMA-134399932",
+   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "n_filings": 1
+  },
+  {
+   "state": "NY",
+   "carrier": "USAA",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2025-12-18",
+   "tracking": "USAA-134556435",
+   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "n_filings": 1
+  },
+  {
+   "state": "NY",
+   "carrier": "Nationwide",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2026-07-22",
+   "tracking": "NWPP-G134819543",
+   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "n_filings": 1
+  },
+  {
+   "state": "NY",
+   "carrier": "Allstate",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2025-06-21",
+   "tracking": "ALSE-134438903",
+   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "n_filings": 1
+  },
+  {
+   "state": "NY",
+   "carrier": "Erie",
+   "pct": 0.0,
+   "dir": "flat",
+   "flat": true,
+   "effective": "2026-01-01",
+   "tracking": "ERAP-134659417",
+   "url": "https://filingaccess.serff.com/sfa/home/NY",
    "n_filings": 1
   },
   {

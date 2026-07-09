@@ -842,6 +842,76 @@
    "source": "CA Dept. of Insurance (CDI) approved rate filings",
    "url": "https://www.insurance.ca.gov/0250-insurers/0800-rate-filings/0100-rate-filing-lists/rate-filing-approvals/",
    "note": "CA-only regional writer. +6.01% approved 2026-05-15 (requested +6.9%), filing WAWA-134754803."
+  },
+  {
+   "carrier": "Liberty Mutual",
+   "state": "NY",
+   "pct": 4.95,
+   "dir": "increase",
+   "effective": "2026-04-29",
+   "source": "NY SERFF Filing Access (Company Rate Information)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134738048",
+   "note": "Indicated +20.2%, approved +4.95%. 142K policyholders, $640M written premium."
+  },
+  {
+   "carrier": "NYCM",
+   "state": "NY",
+   "pct": 4.94,
+   "dir": "increase",
+   "effective": "2026-08-22",
+   "source": "NY SERFF Filing Access (Company Rate Information)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134694570",
+   "note": "Regional NY writer. 2026 Prism + Non-Prism rate change; indicated +21.5%, approved +4.94%."
+  },
+  {
+   "carrier": "Mercury",
+   "state": "NY",
+   "pct": 5.0,
+   "dir": "increase",
+   "effective": "2026-06-23",
+   "source": "NY SERFF Filing Access (Company Rate Information)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134872955",
+   "note": "Small NY book (749 policyholders); +5.0%."
+  },
+  {
+   "carrier": "Progressive",
+   "state": "NY",
+   "pct": 1.1,
+   "dir": "increase",
+   "effective": "2026-03-06",
+   "source": "NY SERFF Filing Access (Company Rate Information)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134858552",
+   "note": "Flex program; +1.1% on a 524K-policyholder, $1.54B book."
+  },
+  {
+   "carrier": "GEICO",
+   "state": "NY",
+   "pct": 4.9,
+   "dir": "increase",
+   "effective": "2025-03-10",
+   "source": "NY SERFF Filing Access (Company Rate Information)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134404337",
+   "note": "NY's #1 auto writer \u2014 current in-force rate (approved 2025). +4.9% across a 1.53M-policyholder, $4.44B book; indicated +8.1%."
+  },
+  {
+   "carrier": "Travelers",
+   "state": "NY",
+   "pct": 3.03,
+   "dir": "increase",
+   "effective": "2025-12-29",
+   "source": "NY SERFF Filing Access (Company Rate Information)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134680232",
+   "note": "Quantum Auto 2.0; +3.0% (eff late 2025), 228K policyholders, $750M premium."
+  },
+  {
+   "carrier": "Farmers",
+   "state": "NY",
+   "pct": 8.7,
+   "dir": "increase",
+   "effective": "2025-08-18",
+   "source": "NY SERFF Filing Access (Company Rate Information)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134358402",
+   "note": "Current in-force rate (eff 2025). Indicated +42.8%, approved +8.7%."
   }
  ]
 }
