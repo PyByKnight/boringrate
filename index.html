@@ -641,6 +641,7 @@
   .rank-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
   .rank-premium { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; line-height: 1; white-space: nowrap; }
   .rank-premium-unit { font-family: var(--mono); font-size: 10px; font-weight: 400; color: var(--ink-mute); letter-spacing: 0.03em; margin-left: 3px; }
+  .rank-premium-yr { display: block; font-family: var(--mono); font-size: 10px; font-weight: 400; color: var(--ink-mute); letter-spacing: 0.02em; margin-top: 3px; white-space: nowrap; }
   .rank-quote-cta {
     font-family: var(--mono);
     border: 1px solid var(--rule);
@@ -5198,7 +5199,7 @@ function renderRanking() {
   const _medWhere = /^\d{5}$/.test(_mz) ? _mz : (currentMetro ? (METRO_NAMES[currentMetro] || stateData.name) : stateData.name);
   medTop.innerHTML =
     '<span class="rmt-label">Avg rate in ' + _medWhere + '</span>' +
-    '<span class="rmt-val">$' + median.toLocaleString() + '<span class="rmt-yr">/yr</span></span>';
+    '<span class="rmt-val">$' + Math.round(median / 12).toLocaleString() + '<span class="rmt-yr">/mo</span><span class="rmt-yr"> &middot; $' + median.toLocaleString() + '/yr</span></span>';
   list.appendChild(medTop);
 
   const colHeadRow = document.createElement("div");
@@ -5251,15 +5252,15 @@ function renderRanking() {
             (hasCustomCov
               ? '<div class="rank-cov-nudge-hed">You\'ve selected custom coverages.</div>' +
                 '<div class="rank-cov-nudge-sub">Prices reflect your selections. Adjust anytime in More Options.</div>'
-              : '<div class="rank-cov-nudge-hed">These prices assume standard coverage.</div>' +
-                '<div class="rank-cov-nudge-sub">Minimum vs. standard vs. premium can swing your quote by 30–40%.<br>Not sure which level you need?</div>') +
+              : '<div class="rank-cov-nudge-hed">These are full-coverage estimates.</div>' +
+                '<div class="rank-cov-nudge-sub">Minimum vs. full vs. premium can swing your quote by 30–40%.<br>Not sure which level you need?</div>') +
           '</div>' +
           '<a href="/coverage.html" class="rank-cov-nudge-btn">Coverage Calculator &rarr;</a>';
         list.appendChild(nudge);
       }
       const div = document.createElement("div");
       div.className = "median-divider";
-      div.innerHTML = '<div></div><div class="median-dash"></div><div class="median-label">— $' + median.toLocaleString() + '/yr median —</div>';
+      div.innerHTML = '<div></div><div class="median-dash"></div><div class="median-label">— $' + Math.round(median / 12).toLocaleString() + '/mo median —</div>';
       list.appendChild(div);
     }
     if (idx >= 10 && !showAllCarriers) return;
@@ -5284,8 +5285,8 @@ function renderRanking() {
     const _actionHtml = _domain
       ? '<span class="qcta-action"><span class="qcta-action-prefix">@ </span>' + _domain + ' &rarr;</span>'
       : '<span class="qcta-action">Get Quote &rarr;</span>';
-    const premiumHtml = '<div class="rank-premium">$' + row.price.toLocaleString() + '<span class="rank-premium-unit">/yr est.</span></div>';
-    const _vsAvg = (row.price <= median ? '&minus;$' + (median - row.price).toLocaleString() : '+$' + (row.price - median).toLocaleString()) + ' vs avg';
+    const premiumHtml = '<div class="rank-premium">$' + Math.round(row.price / 12).toLocaleString() + '<span class="rank-premium-unit">/mo</span><span class="rank-premium-yr">$' + row.price.toLocaleString() + '/yr est.</span></div>';
+    const _vsAvg = (row.price <= median ? 'Save $' + (median - row.price).toLocaleString() + '/yr' : '+$' + (row.price - median).toLocaleString() + '/yr') + ' vs avg';
     const compareHtml = '<div class="rank-cta">' + premiumHtml + '<a class="rank-quote-cta ' + delta.klass + '" href="' + quoteUrl + '" target="_blank" rel="noopener noreferrer"><span class="qcta-save">' + _vsAvg + '</span>' + _actionHtml + '</a><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
     a.innerHTML =
       '<div class="rank-num">' + num + '</div>' +
