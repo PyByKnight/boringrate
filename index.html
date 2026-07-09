@@ -5286,7 +5286,7 @@ function renderRanking() {
       ? '<span class="qcta-action"><span class="qcta-action-prefix">@ </span>' + _domain + ' &rarr;</span>'
       : '<span class="qcta-action">Get Quote &rarr;</span>';
     const premiumHtml = '<div class="rank-premium">$' + Math.round(row.price / 12).toLocaleString() + '<span class="rank-premium-unit">/mo</span><span class="rank-premium-yr">$' + row.price.toLocaleString() + '/yr est.</span></div>';
-    const _vsAvg = (row.price <= median ? 'Save $' + (median - row.price).toLocaleString() + '/yr' : '+$' + (row.price - median).toLocaleString() + '/yr') + ' vs avg';
+    const _vsAvg = (row.price <= median ? '&minus;$' + (median - row.price).toLocaleString() + '/yr' : '+$' + (row.price - median).toLocaleString() + '/yr') + ' vs avg';
     const compareHtml = '<div class="rank-cta">' + premiumHtml + '<a class="rank-quote-cta ' + delta.klass + '" href="' + quoteUrl + '" target="_blank" rel="noopener noreferrer"><span class="qcta-save">' + _vsAvg + '</span>' + _actionHtml + '</a><span class="rank-cb' + (inCompare ? ' checked' : '') + '" data-name="' + c.name + '" role="checkbox" aria-checked="' + inCompare + '"><span class="rank-cb-box">' + (inCompare ? '✓' : '') + '</span><span class="rank-cb-label">Compare</span></span></div>';
     a.innerHTML =
       '<div class="rank-num">' + num + '</div>' +
