@@ -1,5 +1,22 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-07 (Opus 4.8)_
+_Last updated: 2026-07-09 (Opus 4.8)_
+
+## This session (2026-07-09, Opus 4.8) — NY published (9th tracker state, richest backfill)
+Standard **SERFF Filing Access** (filingaccess.serff.com/sfa/home/NY) = the clean workflow FLOIR wasn't.
+User pulled 13 jacket ZIPs (top-10 + Mercury/Farmers); Claude unzipped + parsed each **"Company Rate
+Information"** block (label header then per-entity value rows: name, Indicated%, **RateImpact%**, WP-change,
+policyholders, WP, Max%, Min%). Two block formats: the label-header table (GEICO/Progressive/etc) AND a
+field-list variant (USAA/Farmers: "Field Name / Requested Change / Prior Value"); both carry a clean
+filing-level **"Overall Percentage Rate Impact For This Filing"** line — use that as the reliable primary.
+- **NY broadly RAISING 2026** → serff_filings.json NY 0→12; 7 movers published to new-york.html:
+  Farmers +8.7%, Mercury +5.0%, Liberty +4.95%, NYCM +4.94%, **GEICO +4.9% (1.53M PH / $4.44B book, NY #1)**,
+  Travelers +3.03%, Progressive +1.1%. **State Farm / USAA / Erie = 0% symbol/model-year filings**
+  (drift_exclude, flagged NOT rate holds — same trap as FL); Allstate/Nationwide 0% genuine entity holds.
+- Option (b) date curation: led with 2026-effective; GEICO/Farmers/Travelers noted as current in-force
+  2025-set rates. verify_rate 0, prose 0 drift, qa_sweep 531/0, IndexNow 200. Drift no-op (movers
+  pre-anchor or not-in-roster). NY zips (~40MB) deleted after extraction (data in backbone).
+- **Richest state yet** (premium + policyholder counts on every mover) — SERFF FA jackets >> TX API / CA
+  Excel / FL FLOIR for data quality. **Reuse for PA/IL/OH.**
 
 ## This session (2026-07-08, Opus 4.8) — FL FLOIR pull (painful) + top-10 target + automated-source scan
 - **TOP-10 is now the sourcing/consistency target** (tool ranks up to 20). Added TOP10_DEFAULT +
@@ -151,12 +168,10 @@ overall % + premium + policyholders, and feeding them into the primary-source pi
    portals but JS/AJAX-driven (no static download, would need API reverse-engineering); IL/OH/WI/FL/LA/NV
    + rest are SERFF-only (403s bots). So everything past TX/CA is MANUAL SERFF — don't re-hunt. 3rd-party
    aggregators (rateauthority.org, AM Best State Rate Filings) exist but are secondary/paywalled = off-limits.
-   **▶ IN PROGRESS (07-08→): NY pull.** User pulling top-10 manually via SERFF Filing Access
-   (filingaccess.serff.com/sfa/home/NY). Recipe: P&C, TOI 19.0001 Private Passenger Auto, Rate/Rate-Rule,
-   Closed-Approved, disposition ≥2025-07-01; Company Name "contains" per carrier. NY top-10 =
-   GEICO(#1), State Farm, Progressive, Allstate, USAA, Liberty Mutual, Travelers, Nationwide, Erie, NYCM
-   ("New York Central"). Grab newest statewide Rate ZIP each → drop in Linux files → Claude unzips +
-   parses "Company Rate Information" block. AWAITING zips.
+   **✅ NY DONE (07-09) — 9th tracker state, most complete (5/5 top-5, 10/10 top-10).** Standard SERFF FA
+   jacket-ZIP workflow (clean, gave premium+PH). 12 backbone rows; published 7 movers to new-york.html.
+   **NEXT big markets same workflow: PA, IL, OH** (filingaccess.serff.com/sfa/home/<ST>). Recipe below
+   worked perfectly — reuse it.
 2. **NV** — deprioritized (only 2 carriers; tracker already covered by press). Skip for now.
 3. Then big markets (NY/PA/OH/IL SERFF) once the tracked 8 are done.
 
