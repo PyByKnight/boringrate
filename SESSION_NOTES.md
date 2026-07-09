@@ -151,6 +151,12 @@ overall % + premium + policyholders, and feeding them into the primary-source pi
    portals but JS/AJAX-driven (no static download, would need API reverse-engineering); IL/OH/WI/FL/LA/NV
    + rest are SERFF-only (403s bots). So everything past TX/CA is MANUAL SERFF — don't re-hunt. 3rd-party
    aggregators (rateauthority.org, AM Best State Rate Filings) exist but are secondary/paywalled = off-limits.
+   **▶ IN PROGRESS (07-08→): NY pull.** User pulling top-10 manually via SERFF Filing Access
+   (filingaccess.serff.com/sfa/home/NY). Recipe: P&C, TOI 19.0001 Private Passenger Auto, Rate/Rate-Rule,
+   Closed-Approved, disposition ≥2025-07-01; Company Name "contains" per carrier. NY top-10 =
+   GEICO(#1), State Farm, Progressive, Allstate, USAA, Liberty Mutual, Travelers, Nationwide, Erie, NYCM
+   ("New York Central"). Grab newest statewide Rate ZIP each → drop in Linux files → Claude unzips +
+   parses "Company Rate Information" block. AWAITING zips.
 2. **NV** — deprioritized (only 2 carriers; tracker already covered by press). Skip for now.
 3. Then big markets (NY/PA/OH/IL SERFF) once the tracked 8 are done.
 
