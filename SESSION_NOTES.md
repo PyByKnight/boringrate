@@ -38,10 +38,14 @@ _Last updated: 2026-07-10 (Opus 4.8)_
     eff dates) = real upcoming changes, include them; (3) TX home writers use **"Lloyds" entities**
     (State Farm Lloyds, Allstate Texas Lloyd's, Farmers Lloyds of Texas). Home TOI on SERFF FA = **4.0
     Homeowners / 04.0000**; home top-10 ≠ auto (GEICO OUT — brokers home; regionals matter more).
-  - **NEXT for home pipeline:** build the home rate-tracker DISPLAY (no gen_home_rate_tracker yet;
-    rate_changes.json + article/rate-changes are AUTO-only) + the national filings roll-up (Fable #3).
-    Manual SERFF-FA home states (LA / big markets) still user-driven; FL home = FLOIR (painful) + mostly
-    FL-only carriers (Citizens/Universal/Slide).
+  - **✅ HOME TRACKER DISPLAY BUILT:** `gen_home_rate_tracker.py` (reads serff_home_filings.json,
+    |%|≥0.5) → `home/rate-changes/{index,texas,california}.html` — per-state "who raised/cut home rates"
+    pages + hub, reactive angle, homeowners voice, FAQPage, ZIP CTA to /home/. In nav ("Home Rate Change
+    Tracker") + sitemap. Home states plug in as pulled. DISTINCT from the national roll-up (Fable #3):
+    tracker = per-state SHOPPER pages (SEO/conversion); roll-up = ONE citable JOURNALIST table (links).
+  - **STILL NEXT:** national filings roll-up (Fable #3, the linkable asset); more home states (LA clean
+    SERFF-FA / big markets user-driven; FL home = FLOIR painful + FL-only carriers). Optional: inject
+    home filing-highlights into home/state/{ca,tx}.html (like auto gen_filing_highlights).
 - **OPEN owner calls:** #5 journalist platforms (Qwoted/HARO) in/out? Build the home tracker display
   next, or keep pulling more home states first? Auto backfill PA/IL/OH still teed up if wanted.
 
