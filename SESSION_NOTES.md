@@ -25,8 +25,25 @@ _Last updated: 2026-07-10 (Opus 4.8)_
   mold, tree-damage, flood-damage, foundation) via gen_home_faq.py ARTICLES — proven renters-guide
   format, 600-820w, 4-5Q FAQPage, spun from + interlinked with the does-cover hub. Nav 535 pages,
   sitemap, IndexNow 200, prose 0 drift, qa_sweep 537/0. Could extend (sewer-backup, dog-bites, wind/hail).
-- **OPEN owner calls:** approve Fable #2 (auto-freeze + pivot SERFF to home filings)? #5 (journalist
-  platforms)? Auto backfill PA/IL/OH still teed up if staying auto-first.
+- **✅ Fable #1 EXTENDED:** home cluster now 9 guides (+sewer-backup, +dog-bites, +wind/hail/storm).
+- **✅ Fable #2 STARTED — home SERFF pipeline seeded** (`serff_home_filings.json`, SEPARATE file so the
+  auto drift engine doesn't touch home rows). CA + TX home pulled AUTONOMOUSLY:
+  - **CA home = CDI Excel** (same file as CA auto, LINE CODE "HOMEOWNERS MULTI-PERIL", 112 rows):
+    Wawanesa +7%, USAA +6.9%, Farmers +1.5%; nationals thin (State Farm/Allstate paused CA home).
+  - **TX home = data.texas.gov iubg-btfs** (state_type_of_insurance='Homeowners', 352 filings since
+    2025-07). CRISIS market: **Texas Farm Bureau +29.8%, State Farm Lloyds +19.1%**, Allstate +8.7%,
+    USAA +7.3%, Farmers +4.8%, Chubb +2.9%; Travelers −5%, Homeowners of America −4.9% cutting.
+  - **GOTCHAS (reusable):** (1) TX home `percent_change` carries a **trailing `%`** — strip it before
+    float() (auto did NOT); (2) TX home movers are mostly **status='Pending'** (file-and-use, future
+    eff dates) = real upcoming changes, include them; (3) TX home writers use **"Lloyds" entities**
+    (State Farm Lloyds, Allstate Texas Lloyd's, Farmers Lloyds of Texas). Home TOI on SERFF FA = **4.0
+    Homeowners / 04.0000**; home top-10 ≠ auto (GEICO OUT — brokers home; regionals matter more).
+  - **NEXT for home pipeline:** build the home rate-tracker DISPLAY (no gen_home_rate_tracker yet;
+    rate_changes.json + article/rate-changes are AUTO-only) + the national filings roll-up (Fable #3).
+    Manual SERFF-FA home states (LA / big markets) still user-driven; FL home = FLOIR (painful) + mostly
+    FL-only carriers (Citizens/Universal/Slide).
+- **OPEN owner calls:** #5 journalist platforms (Qwoted/HARO) in/out? Build the home tracker display
+  next, or keep pulling more home states first? Auto backfill PA/IL/OH still teed up if wanted.
 
 ## This session (2026-07-09, Opus 4.8) — NY published (9th tracker state, richest backfill)
 Standard **SERFF Filing Access** (filingaccess.serff.com/sfa/home/NY) = the clean workflow FLOIR wasn't.
