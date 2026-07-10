@@ -1,5 +1,32 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-09 (Opus 4.8)_
+_Last updated: 2026-07-10 (Opus 4.8)_
+
+## This session (2026-07-10, Opus 4.8) — Fable strategy review + home scenario cluster + monthly pricing
+- **MONTHLY PRICING in the tool** (prototype, shipped): auto rankings now show $/mo primary + $/yr
+  secondary ("$172/mo · $2,058/yr est."), median chip $/mo, savings CTA "−$X/yr vs avg" (annual =
+  more motivating), coverage nudge relabeled "full-coverage estimates". Display-only ÷12 at render;
+  compare tray + calculator + article prose LEFT ANNUAL on purpose (SEO/honesty). Data check: our
+  $2,458/yr national = ~$205/mo per-vehicle FULL-COVERAGE, aligns w/ published; low-cost states
+  (ME $122/mo, OH $144/mo) hit the "~$130-150" intuition.
+- **FABLE VERDICT (GSC 7-day 07-10: 12,550 imp, pos 63.5 flat, ~8 clk/wk; HOME 44% / RENTERS 39% /
+  AUTO 16% / TRACKER ~0% = 31 imp).** The reframe: **identity is "rate-increase transparency"
+  (product-AGNOSTIC), not "auto" — the blindsided renewal shopper is now a HOMEOWNER. Same thesis,
+  moat, skills; wrong noun.** Auto tracker will NEVER be SEO (ranks pos 1-8 but ~0 demand) — it's the
+  only *defensible* asset though (renters/home = commodity NerdWallet outranks). Pos-63-flat at 6wks =
+  **normal new-domain sandbox, fine-for-now, thrashing is the only way to lose**; health metric =
+  impression growth, not position. Title-retarget already proved on-page exhausted → lever is
+  authority/time + internal links.
+- **Fable's ranked plan:** (1) ✅ SHIPPED home scenario-guide cluster; (2) port SERFF extraction to
+  HOME filings (FL/CA/TX/LA crisis states), FREEZE auto tracker at 9; (3) build ONE national filings
+  roll-up page = the designated citable/linkable asset (passive-link version of PR); (4) internal-link
+  pass into the page-2 renters frontier (DC pos 19 first); (5) OWNER DECISION: rule reactive journalist
+  platforms (Qwoted/HARO) in or out — only authority lever that compounds faster than time.
+- **✅ Fable #1 DONE:** 6 home "does homeowners insurance cover X" guides (water-damage, roof-damage,
+  mold, tree-damage, flood-damage, foundation) via gen_home_faq.py ARTICLES — proven renters-guide
+  format, 600-820w, 4-5Q FAQPage, spun from + interlinked with the does-cover hub. Nav 535 pages,
+  sitemap, IndexNow 200, prose 0 drift, qa_sweep 537/0. Could extend (sewer-backup, dog-bites, wind/hail).
+- **OPEN owner calls:** approve Fable #2 (auto-freeze + pivot SERFF to home filings)? #5 (journalist
+  platforms)? Auto backfill PA/IL/OH still teed up if staying auto-first.
 
 ## This session (2026-07-09, Opus 4.8) — NY published (9th tracker state, richest backfill)
 Standard **SERFF Filing Access** (filingaccess.serff.com/sfa/home/NY) = the clean workflow FLOIR wasn't.
