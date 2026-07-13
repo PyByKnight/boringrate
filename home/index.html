@@ -856,6 +856,7 @@ const STATE_CARRIER_ADJ = {
 // re-calibrated, so the tool becomes more primary-sourced as filings accrue without double-counting.
 // Empty {} = no post-anchor filings drift that state yet (aggregator baseline stands). Do NOT hand-edit.
 const HOME_DRIFT = {
+  "PA": { "Farmers": 0.8536, "USAA": 1.0072 },
   "TX": { "Chubb": 1.024, "Liberty Mutual": 0.9932, "Nationwide": 0.9912 },
 };
 // ── END HOME_DRIFT ──
@@ -1189,6 +1190,40 @@ const HOME_CARRIERS = [
     states:["NY"],
     links:"https://www.uscoastalins.com",
     sens:{bundle:-0.09, claims1:0.45, claims2:0.88, covLow:-0.27, covHigh:0.45, dedLow:0.11, dedHigh:-0.13}
+  },
+  {
+    // Aggregator-blind PA regional (mid-Atlantic multi-line). Modeled mid-market prior (PA filings are
+    // small sub-programs, no clean book avg); the HOME_DRIFT engine refines it as post-anchor filings land.
+    name:"Selective", base:1.05,
+    tag:"Mid-Atlantic regional · agent-distributed",
+    bestFor:"Mid-Atlantic homeowners — agent service",
+    naic:0.90, csGrade:"B+", stability:4,
+    restricted:true, availNote:"Pennsylvania & mid-Atlantic · agent required",
+    states:["PA"],
+    links:"https://www.selective.com",
+    sens:{bundle:-0.14, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
+  },
+  {
+    // Aggregator-blind OH/PA regional. Modeled mid-market prior.
+    name:"Grange", base:1.0,
+    tag:"Ohio & Pennsylvania regional",
+    bestFor:"OH/PA homeowners — agent-distributed",
+    naic:0.95, csGrade:"B", stability:4,
+    restricted:true, availNote:"Pennsylvania & Midwest · agent required",
+    states:["PA"],
+    links:"https://www.grangeinsurance.com",
+    sens:{bundle:-0.13, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
+  },
+  {
+    // Aggregator-blind PA-domiciled mutual (value-oriented). Modeled prior.
+    name:"Donegal", base:0.92,
+    tag:"Pennsylvania mutual · mid-Atlantic",
+    bestFor:"PA & mid-Atlantic homeowners — value regional",
+    naic:0.95, csGrade:"B", stability:4,
+    restricted:true, availNote:"Pennsylvania & mid-Atlantic · agent required",
+    states:["PA"],
+    links:"https://www.donegalgroup.com",
+    sens:{bundle:-0.12, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
   }
 ];
 

@@ -53,6 +53,57 @@
    "filings_not_in_roster": [],
    "level_drift": null
   },
+  "PA": {
+   "anchor_as_of": "2026-07-02",
+   "top_covered": [
+    "State Farm",
+    "USAA",
+    "Farmers",
+    "Liberty Mutual",
+    "Nationwide"
+   ],
+   "gate_pass": true,
+   "Fbar": 1.05442,
+   "weight_basis": "serff_written_premium",
+   "applied_carriers": {
+    "USAA": {
+     "wavg_pct": 6.2,
+     "F": 1.062,
+     "written_premium": 150488157.0,
+     "trackings": [
+      "USAA-134883881"
+     ],
+     "effective": [
+      "2026-07-13"
+     ],
+     "adj_base": 1.03,
+     "drift": 1.0072,
+     "effective_tilt": 1.0374
+    },
+    "Farmers": {
+     "wavg_pct": -10.0,
+     "F": 0.9,
+     "written_premium": 7392000.0,
+     "trackings": [
+      "FARM-134993574"
+     ],
+     "effective": [
+      "2026-07-10"
+     ],
+     "adj_base": 0.95,
+     "drift": 0.8536,
+     "effective_tilt": 0.8109
+    }
+   },
+   "held_gate_closed": {},
+   "filings_not_in_roster": [],
+   "level_drift": {
+    "stateAvg": 1111.0,
+    "Fbar": 1.05442,
+    "stateAvg_drifted": 1171.0,
+    "capped": false
+   }
+  },
   "TX": {
    "anchor_as_of": "2026-07-02",
    "top_covered": [

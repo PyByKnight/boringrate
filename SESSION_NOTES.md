@@ -1,6 +1,25 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
+## This session (2026-07-13f, Opus 4.8) — PA HOME backfill (5th state) + FIRST filing-driven drift beyond TX
+Owner pulled 17 PA home jackets; parsed → serff_home_filings.json 53→69 (PA 0→16). PA home = the
+**most fragmented market** (250 filings, Erie + a long tail of ~30 small mutuals).
+- **PA is a RAISING market** (unlike NY's flat): **State Farm +6.3%** (raising here, flat in NY),
+  USAA +6.2% (120,317 PH), **Erie +1.0%** (Exchange, PA's #1 home writer — 298,876 PH / $332M),
+  Selective +8.5%, Cincinnati +3.8%, Grange +3.3%, Progressive/ASI +0.9%; **Farmers −10.0%** (FLEX,
+  the notable cut). Flat: Liberty, Nationwide (203K PH), Chubb, Auto-Owners, Horace Mann, Donegal, CSAA.
+  Allstate (ANAIC) = image/Excel-exhibit rate, not cleanly parseable → deferred.
+- **★ PA is the 2nd state (after TX) with REAL applied drift** — USAA (+6.2%, eff 7/13/26) and Farmers
+  (−10%, eff 7/10/26) are **post-anchor** (2026-07-02) → they drift. **Farmers ×0.854** (its cut ranks
+  Farmers CHEAPER in PA — the tool now rewards the cutter from a primary filing), USAA ×1.007;
+  written-premium weighted (USAA $150M ≫ Farmers $7.4M). Verified: PA ranking Erie #1 $747, Farmers
+  drifted to #8 $1,009. **This is the whole thesis working end-to-end: a SERFF filing moved the tool.**
+- **3 manual base entries** for aggregator-blind PA regionals (Selective 1.05, Grange 1.0, Donegal 0.92 —
+  modeled mid-market priors; PA filings are small sub-programs w/ no clean book avg). states:["PA"].
+- Cascade: new home/rate-changes/pennsylvania.html (7 raised / 2 cut) + hub; roll-up 174→190 rows,
+  10 states; press; PA highlights on home/state/pennsylvania.html; sitemap; qa_sweep 548/0, prose 0 drift.
+  **Home tracker: CA + TX + LA + NY + PA.** NEXT: OH / IL, or FL.
+
 ## This session (2026-07-13e, Opus 4.8) — NY HOME backfill (4th home state; restrained market)
 Owner pulled 13 NY home SERFF jackets; parsed → serff_home_filings.json 42→53 (NY 0→11).
 - **NY is a RESTRAINED home market** (unlike TX/CA/LA crisis) — the editorial through-line:
