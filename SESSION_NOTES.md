@@ -1,5 +1,31 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-10 (Opus 4.8)_
+_Last updated: 2026-07-13 (Opus 4.8)_
+
+## This session (2026-07-13, Opus 4.8) — AUTONOMOUS: roll-up + home pipeline deepened (owner out)
+Owner stepped out; directive: "continue to build home rates where automated, keep trucking, make a
+site that supports the user." Did the on-instruction work, then wrapped (didn't over-build unsupervised).
+- **✅ Fable #3 SHIPPED — national rate-filings roll-up = the citable/linkable asset.**
+  `gen_rate_filings_rollup.py` → **`/rate-filings/`**: ONE sortable/filterable sheet of every captured
+  auto+home filing (State/Product/Carrier/Change/Effective/Source), server-rendered rows (crawlable/
+  citable) + vanilla-JS sort/filter, Dataset JSON-LD, journalist cite line. Each row links its primary
+  source (SERFF tracking # + DOI portal). In nav + sitemap (priority 0.9). **150 rows, 8 states, 41
+  carriers.** DISTINCT from per-state trackers (shopper pages) — this is the ONE journalist/researcher table.
+- **✅ Home filing-highlights on home/state pages.** `gen_home_filing_highlights.py` (home twin of
+  gen_filing_highlights) injects "who's cutting/raising home rates in [state]" into home/state/{ca,tx}.html
+  (anchor `<!-- state-rankings-end -->`), links to the home tracker. Surfaces the crisis where home
+  shoppers land (home = 44% of GSC demand).
+- **✅ Home pipeline DEEPENED (Fable #2).** Confirmed via search: **TX + CA are the ONLY open-data
+  rate-filing states** (all others SERFF-manual — MN/SD/SC/etc.). Re-scanned both for ALL material home
+  movers (not just the first shortlist) — caught many missed. **serff_home_filings.json 12→29 rows.**
+  CA adds Cincinnati +35%, Progressive/ASI +32%, Mercury +6.9%, Nat'l General. TX adds Progressive/ASI
+  +18%, Foremost +17.2%, Amica +10.1%, Hartford +9.9%, Vault −29.7%, TX FAIR Plan −25%. TX home is a
+  massive crisis market (70 carriers with material moves).
+- All gates green throughout (prose 0 drift, qa_sweep 544/0, IndexNow 200). Everything on main.
+- **WHAT NEEDS THE OWNER (on return):** (1) manual SERFF-FA home pulls for top states (LA clean / big
+  markets; FL home = FLOIR painful + FL-only carriers) — auto pull recipe reused, TOI **4.0 Homeowners
+  04.0000**, home top-10 (GEICO OUT). (2) Auto backfill PA/IL/OH still teed up. (3) Fable #5 decision:
+  reactive journalist platforms (Qwoted/HARO) in/out. (4) Optional: extend home guide cluster
+  (earthquake, personal-property, liability/umbrella) — proven format, deferred (not owner-directed).
 
 ## This session (2026-07-10, Opus 4.8) — Fable strategy review + home scenario cluster + monthly pricing
 - **MONTHLY PRICING in the tool** (prototype, shipped): auto rankings now show $/mo primary + $/yr
