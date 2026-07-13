@@ -132,8 +132,9 @@ def build():
     <ul class="pr-movers">{home_up_html}{home_dn_html}</ul>
 
     <div class="callout" style="border-color:var(--accent);">
-      <p><strong>The full dataset &mdash; free to browse and cite.</strong> Every filing above, sortable and
-      filterable by state, carrier, and product, each linked to its primary source:</p>
+      <p><strong>The full dataset &mdash; free to browse and cite.</strong> Every filing above in one interactive
+      table: filter by product, state, or direction, search any carrier, and sort by rate change, effective date,
+      or national market share &mdash; each row linked to its primary source.</p>
       <p style="margin:8px 0 0;">&#8594; <a href="/rate-filings/"><strong>All 2026 rate filings (auto + home)</strong></a>
        &nbsp;·&nbsp; <a href="/article/rate-changes/">Auto rate-change tracker, by state</a>
        &nbsp;·&nbsp; <a href="/home/rate-changes/">Home rate-change tracker, by state</a></p>

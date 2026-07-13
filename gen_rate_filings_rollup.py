@@ -14,6 +14,17 @@ OUT = ROOT / "rate-filings" / "index.html"
 RED, GREEN, MUTE = "#b4321a", "#2f6b3a", "var(--ink-mute)"
 MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
+# NAIC national private-passenger-auto market share (%), keyed to filing carrier names.
+# Auto only; home rows and regionals below the top-16 have no share.
+_MS = json.load(open(ROOT / "market_share.json"))["national"]
+_MS_ALIAS = {"Erie": "Erie Insurance", "Shelter": "Shelter Insurance"}
+
+
+def market_share(carrier, product):
+    if product != "Auto":
+        return None
+    return _MS.get(carrier) or _MS.get(_MS_ALIAS.get(carrier, ""))
+
 scaff = (ROOT / "home" / "state" / "florida.html").read_text(encoding="utf-8")
 STYLE = scaff[scaff.index("<style>"):scaff.index("</style>") + len("</style>")]
 NAV = scaff[scaff.index('<header class="top">'):scaff.index("</header>") + len("</header>")]
@@ -56,6 +67,7 @@ def collect():
             "eff": eff, "status": r.get("status") or ("Approved" if r.get("disposition_date") else ""),
             "tracking": r.get("tracking") or "", "url": r.get("url") or "",
             "src": source_label(r.get("url") or "", r.get("source_note") or ""),
+            "share": market_share(r["carrier"], product),
         })
     # sort: biggest absolute move first (default view)
     out.sort(key=lambda x: (-abs(x["pct"]), x["state"]))
@@ -94,22 +106,30 @@ def build():
         src = f'<a class="ca-link" href="{esc(d["url"])}" target="_blank" rel="noopener nofollow">{esc(d["src"])}</a>'
         trk = f'<span class="rf-trk">{esc(d["tracking"])}</span>' if d["tracking"] else ""
         car = f'<strong>{esc(d["carrier"])}</strong>' + (f' <span class="rf-ent">{esc(d["entity"])}</span>' if d["entity"] else "")
+        share_cell = (f'{d["share"]:g}%' if d["share"] is not None else '<span class="rf-na">—</span>')
+        # data-eff: ISO for chronological sort; data-share: -1 sinks unknowns to the bottom
         trs.append(
             f'<tr class="rf-row" data-product="{d["product"]}" data-state="{d["state"]}" data-dir="{cls}" '
-            f'data-pct="{d["pct"]}" data-carrier="{esc(d["carrier"].lower())}">'
+            f'data-pct="{d["pct"]}" data-eff="{esc(d["eff"])}" data-share="{d["share"] if d["share"] is not None else -1}" '
+            f'data-carrier="{esc(d["carrier"].lower())}">'
             f'<td>{esc(STATE[d["state"]][0])}</td><td>{d["product"]}</td><td>{car}</td>'
             f'<td style="color:{color};font-weight:600;text-align:right;">{chg}</td>'
-            f'<td>{esc(fdate(d["eff"]))}</td><td class="rf-src">{src} {trk}</td></tr>')
+            f'<td>{esc(fdate(d["eff"]))}</td>'
+            f'<td class="rf-num rf-share">{share_cell}</td>'
+            f'<td class="rf-src">{src} {trk}</td></tr>')
     table = ('<div class="rf-tablewrap"><table class="rf-table" id="rfTable"><thead><tr>'
              '<th data-sort="state">State</th><th data-sort="product">Product</th><th data-sort="carrier">Carrier</th>'
-             '<th data-sort="pct" class="rf-num">Change</th><th data-sort="eff">Effective</th><th>Source</th>'
+             '<th data-sort="pct" class="rf-num">Change</th><th data-sort="eff">Effective</th>'
+             '<th data-sort="share" class="rf-num" title="NAIC national auto market share">U.S. share</th>'
+             '<th>Source</th>'
              '</tr></thead><tbody>' + "".join(trs) + '</tbody></table></div>')
 
     intro = f'''<p style="font-size:19px;line-height:1.5;max-width:680px;">Every approved <strong>2026 auto and
       homeowners insurance rate filing</strong> we&rsquo;ve collected, by state and carrier &mdash; <strong>{n_inc}
       increases, {n_dec} decreases</strong> across <strong>{n_states} states</strong> and {n_carriers} carriers.
       Each row links to its primary source: the state Department of Insurance filing (by SERFF tracking number) or
-      open-data portal it came from. Sortable and filterable.</p>
+      open-data portal it came from. <strong>Filter</strong> by product, state, or direction and search any carrier;
+      <strong>click any column</strong> to sort by rate change, effective date, or national market share.</p>
       <div class="callout"><p><strong>For journalists &amp; researchers:</strong> figures are filed/approved
       <em>statewide-average</em> rate changes from state insurance regulators. Sources are the SERFF Filing Access
       system (session-bound — cited by tracking number), Texas TDI open data (data.texas.gov), and the California
@@ -121,11 +141,13 @@ def build():
     .rf-controls input{flex:1;min-width:150px;}
     .rf-count{font-family:var(--mono);font-size:12px;color:var(--ink-mute);margin-left:auto;}
     .rf-tablewrap{overflow-x:auto;margin:12px 0;}
-    .rf-table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px;}
+    .rf-table{width:100%;border-collapse:collapse;font-size:14px;min-width:720px;}
     .rf-table thead th{text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.05em;padding:9px 8px;cursor:pointer;white-space:nowrap;user-select:none;}
     .rf-table thead th[data-sort]:hover{color:var(--accent);}
     .rf-table thead th.rf-num{text-align:right;}
     .rf-table tbody td{padding:9px 8px;border-bottom:1px solid var(--rule);vertical-align:top;}
+    .rf-table td.rf-num{text-align:right;font-variant-numeric:tabular-nums;}
+    .rf-na{color:var(--ink-mute);}
     .rf-ent{color:var(--ink-mute);font-size:12px;}
     .rf-trk{font-family:var(--mono);font-size:11px;color:var(--ink-mute);}
     .rf-src{font-size:12px;}
@@ -146,14 +168,15 @@ def build():
         cnt.textContent=shown+" of "+rows.length+" filings";
       }
       [q,fp,fs,fd].forEach(function(el){el.addEventListener("input",apply);});
-      var dir={};
+      // numeric columns sort by their data-* value; eff sorts on ISO date; text cols on dataset strings
+      var NUM={pct:1,share:1},dir={};
       tbl.tHead.rows[0].querySelectorAll("th[data-sort]").forEach(function(th){
         th.addEventListener("click",function(){
           var k=th.dataset.sort,asc=dir[k]=!dir[k];
           rows.sort(function(a,b){
             var va,vb;
-            if(k==="pct"){va=parseFloat(a.dataset.pct);vb=parseFloat(b.dataset.pct);}
-            else{va=(a.cells[["state","product","carrier","pct","eff"].indexOf(k)]||{}).textContent||"";vb=(b.cells[["state","product","carrier","pct","eff"].indexOf(k)]||{}).textContent||"";}
+            if(NUM[k]){va=parseFloat(a.dataset[k]);vb=parseFloat(b.dataset[k]);}
+            else{va=a.dataset[k]||"";vb=b.dataset[k]||"";}
             return (va<vb?-1:va>vb?1:0)*(asc?1:-1);
           });
           var tb=tbl.tBodies[0]; rows.forEach(function(r){tb.appendChild(r);});
