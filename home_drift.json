@@ -49,8 +49,8 @@
     "Nationwide"
    ],
    "gate_pass": true,
-   "Fbar": 1.00767,
-   "weight_basis": "equal",
+   "Fbar": 1.00487,
+   "weight_basis": "naic_home_market_share",
    "applied_carriers": {
     "Chubb": {
      "wavg_pct": 2.9,
@@ -63,8 +63,8 @@
       "2026-08-08"
      ],
      "adj_base": 1.11,
-     "drift": 1.0212,
-     "effective_tilt": 1.1335
+     "drift": 1.024,
+     "effective_tilt": 1.1366
     },
     "Nationwide": {
      "wavg_pct": -0.4,
@@ -77,8 +77,8 @@
       "2026-08-10"
      ],
      "adj_base": 0.96,
-     "drift": 0.9884,
-     "effective_tilt": 0.9489
+     "drift": 0.9912,
+     "effective_tilt": 0.9516
     },
     "Liberty Mutual": {
      "wavg_pct": -0.2,
@@ -91,8 +91,8 @@
       "2026-09-19"
      ],
      "adj_base": 1.08,
-     "drift": 0.9904,
-     "effective_tilt": 1.0696
+     "drift": 0.9932,
+     "effective_tilt": 1.0727
     }
    },
    "held_gate_closed": {},
@@ -112,8 +112,8 @@
    ],
    "level_drift": {
     "stateAvg": 3429.0,
-    "Fbar": 1.00767,
-    "stateAvg_drifted": 3455.0,
+    "Fbar": 1.00487,
+    "stateAvg_drifted": 3446.0,
     "capped": false
    }
   }

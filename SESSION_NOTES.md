@@ -1,6 +1,26 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
+## This session (2026-07-13d, Opus 4.8) — home drift: regional base entries + market-share weighting
+Follow-ups to the home drift engine (07-13c ↓):
+- **Manual base entries for 2 aggregator-blind LA regionals** → HOME_CARRIERS (home/index.html):
+  **Louisiana Farm Bureau** base 0.88 (cheap member mutual, cf. TX Farm Bureau 0.78; raising +14.75%
+  so not rock-bottom) and **Allied Trust** base 1.2 (coastal specialty, SERFF book avg $4,632/policy ≈
+  1.27× LA avg $3,635). Both `states:["LA"]`. Now in the LA ranking (LA Farm Bureau #4 $3,199 mid-pack;
+  Allied Trust ~$4,362 pricey) — filing-consistent (raiser not cheap, cutter not shown cheap), and the
+  drift engine can now rerank them as post-anchor filings land. LA/TX static pages regenerated.
+- **PROCESS documented** (SERFF_RUNBOOK.md "HOME: add a manual base entry for each aggregator-blind
+  regional you pull"): base = book-avg premium ÷ state avg; farm bureaus ~0.78–0.90, coastal specialty
+  >1.1; then regen + `apply_home_filings.py --apply`. **Do this for every new home state's regionals.**
+- **HOME MARKET-SHARE WEIGHTING** — `home_market_share.json` (NAIC 2024 homeowners multi-peril top-25,
+  sourced Agency Checklists/NAIC + S&P: State Farm 18.21, Allstate 8.97, USAA 6.89, Liberty 6.14,
+  Farmers 5.51, AmFam 4.99, Travelers 4.72, Chubb 2.54, Nationwide 2.16, Auto-Owners 1.99, Erie 1.93,
+  Progressive 1.90, ...; floor 0.20). Wired into `apply_home_filings.py` F̄ as the weight when NO carrier
+  has SERFF written_premium (CA/TX rows carry none) — was equal-weight. TX F̄ now market-share-weighted:
+  Chubb ×1.024, Liberty ×0.993, Nationwide ×0.991 (Liberty's 6.14% share correctly outweighs Chubb's
+  2.54%). qa_sweep 546/0, prose 0 drift. **Home is now the full auto-parity primary-source stack:
+  anchor + coverage gate + renormalized drift + market-share F̄ + applied layer.**
+
 ## This session (2026-07-13c, Opus 4.8) — HOME DRIFT ENGINE built + APPLIED (tool now primary-sourced)
 Owner directive: build a home drift engine that auto-updates rankings from a **prior baseline + new
 filing data**, so the tool gets more primary-sourced as data accrues. Built the home twin of

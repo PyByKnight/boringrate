@@ -198,6 +198,29 @@ roster, add it to `expansion_candidates.json` with the state. Exclude pure
 nonstandard/high-risk writers. This builds a data-driven roster-expansion list
 (American National is the leading candidate — seen in NV/GA/SC/TN).
 
+### HOME: add a manual base entry for each aggregator-blind regional you pull
+
+**When pulling a new HOME state, add a manual `HOME_CARRIERS` base entry (home/index.html)
+for every material regional that turns up but is NOT covered by NerdWallet/MoneyGeek** —
+LA Farm Bureau, Allied Trust, Cajun Underwriters, Gulf States, SafePoint, Vault, etc. Without
+a roster base these carriers can't appear in the tool OR be reranked by the `HOME_DRIFT` engine
+(`apply_home_filings.py`), so their filings are stranded. This is the same "aggregator-blind
+regional" pattern as the Germania auto fix ([[boringrate-tool-filing-consistency]]).
+
+How to set the base (a modeled prior — the drift engine refines it as post-anchor filings land):
+- **base = the carrier's typical premium ÷ the state avg.** Best signal: the filing's book average
+  = `written_premium ÷ policyholders` (e.g. Allied Trust $102.08M / 22,038 = $4,632/policy ÷ LA
+  avg $3,635 ≈ 1.27 → set ~1.2, tempered toward the standard-$300k-dwelling quote). Farm-Bureau
+  member mutuals run cheap (~0.78–0.90, cf. Texas Farm Bureau 0.78); coastal/surplus specialty
+  writers run expensive (>1.1).
+- Set `states:["XX"]` (state-exclusive), `restricted:true`, an `availNote`, and copy a peer
+  regional's `sens`. **Respect consistency:** a filing that RAISED shouldn't read artificially
+  cheap; a CUTTER shouldn't read artificially expensive.
+- After adding: re-run `gen_home_state_pages.py` → `gen_home_filing_highlights.py` → `build_nav.py`,
+  then `apply_home_filings.py --apply` so the drift layer picks up the new roster carrier.
+- Precise NAIC-share carriers also belong in `home_market_share.json` (F̄ weight); regionals below
+  the NAIC top-25 fall to the de-minimis floor there — that's fine.
+
 ## Presenting the click list to the user
 
 Give **full clickable `filingSummary.xhtml?filingId=<digits>` links for

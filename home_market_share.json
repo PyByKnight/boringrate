@@ -1,0 +1,33 @@
+{
+ "_meta": {
+  "purpose": "NAIC homeowners multiple-peril market share, used as the cross-carrier weight for F-bar(state) in apply_home_filings.py WHEN per-filing SERFF written_premium is unavailable (home twin of market_share.json). CA (CDI Excel) + TX (data.texas.gov) home filings carry no written premium, so without a weight F-bar collapses to an equal-weighted mean (a 6% Liberty book == a 2% Chubb book). Market share supplies the correct economic weight where the filing premium is missing.",
+  "source": "NAIC 2024 Market Share Report, Homeowners Multiple Peril, top-25 groups by direct premiums written — via Agency Checklists (2025-03-17) and NAIC/S&P Global cross-check.",
+  "source_url": "https://agencychecklists.com/2025/03/17/naic-2025-market-share-report-top-25-homeowners-insurers-74909/",
+  "data_year": 2024,
+  "keyed_by": "HOME_CARRIERS roster name (home/index.html). Groups not in the roster (Citizens, Universal, Tokio Marine, Munich Re, Florida Peninsula) are omitted; roster carriers below the top-25 (Kemper, Safeco within Liberty group, Westfield, Shelter, NJM, farm bureaus, Allied Trust) fall to the de-minimis floor.",
+  "de_minimis_floor": 0.20,
+  "notes": "Safeco is inside the Liberty Mutual group in NAIC data — the group's 6.14% is attributed to Liberty Mutual; Safeco falls to the floor. The two AAA/Auto Club entries map: Auto Club Enterprises -> 'Auto Club Group (AAA)', CSAA Insurance Group -> 'CSAA / AAA'."
+ },
+ "national": {
+  "State Farm": 18.21,
+  "Allstate": 8.97,
+  "USAA": 6.89,
+  "Liberty Mutual": 6.14,
+  "Farmers": 5.51,
+  "American Family": 4.99,
+  "Travelers": 4.72,
+  "Chubb": 2.54,
+  "Nationwide": 2.16,
+  "Auto-Owners": 1.99,
+  "Erie Insurance": 1.93,
+  "Progressive": 1.90,
+  "Auto Club Group (AAA)": 0.93,
+  "Cincinnati Insurance": 0.93,
+  "CSAA / AAA": 0.89,
+  "Mercury Insurance": 0.83,
+  "Amica Mutual": 0.71,
+  "Country Financial": 0.67,
+  "The Hartford": 0.66
+ },
+ "states": {}
+}
