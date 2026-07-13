@@ -1,6 +1,13 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
+## ⚑ STRATEGY CLARIFICATION (owner, 2026-07-13, memorized [[boringrate-auto-first-longterm]])
+**BoringRate is AUTO-FIRST long-term** (more volume, the real prize) — auto is just the hardest SEO
+niche to acquire cold (NerdWallet/VP/Insurify own it). **Home/renters = the near-term WEDGE**
+(winnable now at low authority) to build traffic + authority while auto climbs. Do NOT read Fable's
+07-10 "pivot to rate-increase transparency / homeowner" as a change of identity — it's the acquirable
+wedge, not the destination. Keep investing the auto moat (SERFF/tracker/tool) for the long game.
+
 ## This session (2026-07-13, Opus 4.8) — AUTONOMOUS: roll-up + home pipeline deepened (owner out)
 Owner stepped out; directive: "continue to build home rates where automated, keep trucking, make a
 site that supports the user." Did the on-instruction work, then wrapped (didn't over-build unsupervised).
