@@ -1,6 +1,25 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
+## ▶▶ NEXT SESSION TASK (owner-queued 2026-07-13) — PROTOTYPE THE JOURNALIST PLAY (Fable #5)
+Owner is concurrently pulling **manual home rates** (SERFF-FA; TOI 4.0 Homeowners 04.0000; home top-10
+GEICO-out — see recipe in 07-10 block) — process those when the zips drop. **In parallel, prototype the
+journalist/authority play** (the passive-link lever; the `/rate-filings/` roll-up is the asset it points to).
+Buildable pieces (Claude builds the on-site assets; OWNER does the Qwoted/HARO/Connectively signup +
+responding to reporter requests — that part can't be automated):
+1. **Press / Data landing page** (`/press/` or `/data/`): positions BoringRate as a primary-source
+   rate-filing tracker for journalists — what we track (auto+home, N states, from SERFF/DOI filings),
+   prominent link to the `/rate-filings/` roll-up, "how to cite us," a contact line. The credible place
+   a reporter lands.
+2. **Expert-source kit** (short reusable blurb): who BoringRate is + what it can comment on (auto & home
+   rate trends, who's raising/cutting by state, from primary filings) + roll-up link — for pasting into
+   reactive journalist requests. Keep in-repo (e.g. PRESS_KIT.md) or on the press page.
+3. **2–3 response templates** for common reporter queries (why premiums rose, state-specific increases,
+   who's cutting). Data-backed, points to the roll-up + relevant tracker page.
+Respect constraints: NO unprompted PR (this is REACTIVE — responding to requests only, owner's call to
+draw that line), editorial/boring voice, no email capture. See [[boringrate-auto-first-longterm]] (auto
+is the long game; this authority play compounds for BOTH products).
+
 ## ⚑ STRATEGY CLARIFICATION (owner, 2026-07-13, memorized [[boringrate-auto-first-longterm]])
 **BoringRate is AUTO-FIRST long-term** (more volume, the real prize) — auto is just the hardest SEO
 niche to acquire cold (NerdWallet/VP/Insurify own it). **Home/renters = the near-term WEDGE**
