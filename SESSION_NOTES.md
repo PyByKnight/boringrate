@@ -1,6 +1,38 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
+## This session (2026-07-13c, Opus 4.8) — HOME DRIFT ENGINE built + APPLIED (tool now primary-sourced)
+Owner directive: build a home drift engine that auto-updates rankings from a **prior baseline + new
+filing data**, so the tool gets more primary-sourced as data accrues. Built the home twin of
+`apply_filed_changes.py`, but as an **APPLIED separate layer** (auto's is dry-run/in-place).
+- **`apply_home_filings.py`** — reads the home model from home/index.html (HOME_CARRIERS roster,
+  STATE_CARRIER_ADJ, HOME_STATE_DATA avg) + serff_home_filings.json + **`anchor_dates_home.json`**
+  (default 2026-07-02 = last home calibration). Math mirrors auto: F(s,c)=Π(1+pct/100) over
+  **post-anchor** roster-carrier filings (pre-anchor already in the aggregator snapshot → skipped, no
+  double-count); F̄=WP-weighted (else equal) mean; **DRIFT(s,c)=F/F̄** (shifts ordering not level);
+  level=stateAvg×F̄ REPORTED only. Coverage gate ≥3 top home carriers. Modes: dry-run / `--emit`
+  (home_drift.json sidecar) / `--apply`.
+- **Architecture = SEPARATE `HOME_DRIFT` layer** (NOT in-place mutation of the aggregator-calibrated
+  ADJ). home/index.html now: `m = base × STATE_CARRIER_ADJ × HOME_DRIFT` (two surgical edits:
+  estimatePremium + a delimited `HOME_DRIFT` block after STATE_CARRIER_ADJ). Keeps the hand-calibrated
+  prior intact + re-generatable; drift is resettable (bump anchor on recalibration → no double-count).
+  **This is the [[boringrate-primary-source-architecture]] realized for home: prior + renormalized
+  primary-source drift; more primary-sourced as filings land.**
+- **APPLIED today: TX only** (correctly). Post-anchor TX roster movers → **Chubb ×1.021** (+2.9% filing),
+  **Liberty Mutual ×0.990** (−0.2%), **Nationwide ×0.988** (−0.4%), renormalized F̄=1.008. Verified in
+  the real calc: TX Chubb $5,329→$5,442, Nationwide $3,160→$3,124. **CA + LA = correct no-op** (all their
+  filings pre-anchor 2026-07-02 → already in the aggregator baseline; drifting would double-count — same
+  discipline that makes the auto engine a no-op on TN). Texas FAIR Plan −25% skipped (not in home roster).
+- **Consistency kept:** made `gen_home_state_pages.py` drift-aware (multiplies HOME_DRIFT too) so the
+  static home/state pages match the tool — regenerated (only texas.html changed; Nationwide $3,124 matches).
+- **HOW IT GROWS:** each new home-filing pull → re-run `python3 apply_home_filings.py --apply` +
+  `gen_home_state_pages.py` + `gen_home_filing_highlights.py`. As file-and-use filings post-date the
+  2026-07-02 anchor, they drift in automatically. On the next aggregator recalibration, bump the anchor
+  (reset). Per-state anchor override lets you tighten a deeply-pulled state to trust filings sooner.
+- **LIMITATION:** only roster carriers drift; aggregator-blind LA regionals (LA Farm Bureau, Allied
+  Trust, Cajun) have no base to tilt → need a manual base entry (the Germania-auto pattern) to rerank.
+  No home market-share weights yet (auto has NAIC PPA); F̄ falls back to equal weight when WP is null.
+
 ## This session (2026-07-13b, Opus 4.8) — JOURNALIST PLAY shipped (item 1) + LA home backfill
 - **✅ `/press/` landing page SHIPPED** (`gen_press_page.py`) — the journalist-facing rate-summary /
   authority landing. Data-driven from rate_changes.json (_meta national framing + curated feed) +

@@ -1,0 +1,10 @@
+{
+ "_meta": {
+  "purpose": "HOME twin of anchor_dates.json. Per-state anchor_as_of: the date of the aggregator (NerdWallet/MoneyGeek) home snapshot the current home model (HOME_CARRIERS bases + STATE_CARRIER_ADJ) is calibrated to. apply_home_filings.py only drifts SERFF home filings whose effective date is AFTER a state's anchor — earlier filings are already embedded in that snapshot, so applying them would double-count. RESET drift (bump anchor forward) whenever the home model is recalibrated to a fresh snapshot.",
+  "default_source": "calibrate_model_rh.py home rebuild, 2026-07-02 (bases re-anchored to NerdWallet home 2026-02-20 + MoneyGeek home 2026-07-01).",
+  "how_to_update": "When you re-anchor a state to a newer home aggregator pull, set that state's anchor_as_of to the new snapshot date. For a state you have pulled deeply (its top home carriers primary-sourced) you may tighten the anchor to trust filings sooner. Leave others on the global default.",
+  "date_basis": "Compared against each filing's effective_new (new business sees the filed rate first); fall back to effective_renewal."
+ },
+ "default": "2026-07-02",
+ "states": {}
+}

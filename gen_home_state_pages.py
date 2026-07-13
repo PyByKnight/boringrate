@@ -34,9 +34,13 @@ def _load_model():
     adj = {}
     for m in re.finditer(r'"([A-Z]{2})":\s*\{([^}]*)\}', _block(s, "STATE_CARRIER_ADJ = {")):
         adj[m.group(1)] = {c: float(v) for c, v in re.findall(r'"([^"]+)":\s*([0-9.]+)', m.group(2))}
-    return states, carriers, adj
+    # Primary-source drift layer (apply_home_filings.py) -> {code: {name: mult}}; applied on top of adj.
+    drift = {}
+    for m in re.finditer(r'"([A-Z]{2})":\s*\{([^}]*)\}', _block(s, "HOME_DRIFT = {")):
+        drift[m.group(1)] = {c: float(v) for c, v in re.findall(r'"([^"]+)":\s*([0-9.]+)', m.group(2))}
+    return states, carriers, adj, drift
 
-STATES, CARRIERS, STATE_CARRIER_ADJ = _load_model()
+STATES, CARRIERS, STATE_CARRIER_ADJ, HOME_DRIFT = _load_model()
 
 # ── Per-state catastrophe / cost driver (the differentiator) ──
 # (peril phrase, one-sentence detail)
@@ -108,7 +112,8 @@ def tier(avg):
 def rank(code):
     avg = STATES[code][1]
     tilt = STATE_CARRIER_ADJ.get(code, {})
-    avail = [(n, round(avg*b*tilt.get(n, 1))) for (n,b,st) in CARRIERS if (st is None or code in st)]
+    drift = HOME_DRIFT.get(code, {})
+    avail = [(n, round(avg*b*tilt.get(n, 1)*drift.get(n, 1))) for (n,b,st) in CARRIERS if (st is None or code in st)]
     avail.sort(key=lambda x: x[1])
     top = avail[:10]
     prices = sorted(p for _,p in top)
