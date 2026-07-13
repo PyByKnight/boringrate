@@ -856,7 +856,7 @@ const STATE_CARRIER_ADJ = {
 // re-calibrated, so the tool becomes more primary-sourced as filings accrue without double-counting.
 // Empty {} = no post-anchor filings drift that state yet (aggregator baseline stands). Do NOT hand-edit.
 const HOME_DRIFT = {
-  "TX": { "Chubb": 1.0212, "Liberty Mutual": 0.9904, "Nationwide": 0.9884 },
+  "TX": { "Chubb": 1.024, "Liberty Mutual": 0.9932, "Nationwide": 0.9912 },
 };
 // ── END HOME_DRIFT ──
 
@@ -1119,6 +1119,30 @@ const HOME_CARRIERS = [
     states:["TX"],
     links:"https://www.txfb-ins.com",
     sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    // Aggregator-blind regional (manual base — no NerdWallet/MoneyGeek coverage). Base is a modeled
+    // prior from the SERFF book average; the HOME_DRIFT engine reranks it as post-anchor filings land.
+    name:"Louisiana Farm Bureau", base:0.88,
+    tag:"Louisiana member mutual · state-exclusive",
+    bestFor:"Louisiana members — writes when nationals pull back",
+    naic:0.90, csGrade:"B", stability:4,
+    restricted:true, availNote:"Louisiana only — membership required",
+    states:["LA"],
+    links:"https://www.lfbins.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    // Aggregator-blind coastal specialty (manual base from SERFF book avg ~$4,632/policy ≈ 1.27× LA avg,
+    // tempered toward the standard-dwelling quote). Reranked by HOME_DRIFT as post-anchor filings land.
+    name:"Allied Trust", base:1.2,
+    tag:"Louisiana &amp; Gulf coastal specialty",
+    bestFor:"Coastal Louisiana homes hard to place elsewhere",
+    naic:1.05, csGrade:"B-", stability:3,
+    restricted:true, availNote:"Louisiana &amp; Gulf states — coastal specialty",
+    states:["LA"],
+    links:"https://www.alliedtrustinsurance.com",
+    sens:{bundle:-0.10, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.13}
   }
 ];
 
