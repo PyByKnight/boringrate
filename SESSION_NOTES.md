@@ -1,16 +1,43 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
-## ▶▶ NEXT SESSION TASK (owner-queued 2026-07-13) — PROTOTYPE THE JOURNALIST PLAY (Fable #5)
+## This session (2026-07-13b, Opus 4.8) — JOURNALIST PLAY shipped (item 1) + LA home backfill
+- **✅ `/press/` landing page SHIPPED** (`gen_press_page.py`) — the journalist-facing rate-summary /
+  authority landing. Data-driven from rate_changes.json (_meta national framing + curated feed) +
+  serff_home_filings.json: national lede (auto softening, State Farm $5B dividend), who's cutting/raising
+  auto, home crisis (TX/CA/LA), how-we-source, **how-to-cite** ("BoringRate, 2026 rate-filing analysis,
+  [Month Year]"), contact (hello@boringrate.com). Every figure links its primary source. In nav (About +
+  Data & tools) + sitemap (0.9). Chose **/press/** over /data/ (data reads as the /rate-filings/ table).
+  **Items 2 (PRESS_KIT.md expert blurb) + 3 (reporter response templates) STILL TODO** — the reactive
+  Qwoted/HARO signup is owner-only.
+- **✅ `/rate-filings/` roll-up upgraded to a real research tool** — added **U.S. market-share column**
+  (NAIC national auto share; home + sub-top-16 regionals show —; aliases Erie/Shelter) with numeric sort,
+  and **fixed date sort to be chronological** (was sorting "Aug 2025" vs "Jul 2026" as strings). Sort JS
+  now dataset-driven. Also fixed the table **clipping on the right** (moved from .wrap-narrow 720px →
+  wide .wrap 1180px; prose capped 720, table capped 1000, overflow-x scroll on mobile).
+- **✅ LA HOMEOWNERS BACKFILL — 3rd home state, FIRST via SERFF FA jackets** (owner pulled 16 ZIPs).
+  serff_home_filings.json 29→42. **7 movers:** State Farm +9.7% (303,638 PH), USAA +9.2% (76,209),
+  **Louisiana Farm Bureau +14.75%** (Home Choice; asked 17.76%), Allstate +3.8% (AVPIC $271M main book)
+  + +1.6% (AIC closed book); **Allied Trust −2.3%** and **Hanover −1.8%** cutting. **6 held FLAT/0%**
+  (Chubb Masterpiece, Farmers, Cajun, Gulf States, Hartford, SafePort — several "Rate/Rule"-typed filings
+  that netted 0%, the documented trap; SafePort filed −7.5% indicated but took 0%). LA home broadly
+  RISING like TX/CA; the big LA post-Ida specialty reciprocals (Cajun/Gulf States/SafePort) held flat.
+  Cascade: new **home/rate-changes/louisiana.html** (5 raised / 2 cut) + hub; roll-up 150→163 rows; press
+  refreshed; LA home-filing highlights injected into home/state/louisiana.html; sitemap; IndexNow 200;
+  qa_sweep 546/0; prose 0 drift. **GEICO correctly OUT of home top-10; Nationwide absent (doesn't write LA home).**
+- **NEXT home states (SERFF-FA, same workflow):** big markets NY/PA/OH/IL, or FL (painful, FL-only carriers).
+  Reuse the LA recipe: TOI 4.0 Homeowners / 04.0000, Rate + Rate/Rule only, Closed-Approved, home top-10
+  (GEICO out), drop ZIPs in /home/knighttyler/. Jacket "Company Rate Information" overall %-impact is the
+  arbiter (not the filing-type column). **Still open from queued task:** PRESS_KIT.md + reporter templates.
+
+## ▶▶ PRIOR NEXT-SESSION TASK (owner-queued 2026-07-13) — PROTOTYPE THE JOURNALIST PLAY (Fable #5)
+_Item 1 (press page) DONE 07-13b ↑. Items 2 & 3 (expert kit + reporter templates) remain._
 Owner is concurrently pulling **manual home rates** (SERFF-FA; TOI 4.0 Homeowners 04.0000; home top-10
 GEICO-out — see recipe in 07-10 block) — process those when the zips drop. **In parallel, prototype the
 journalist/authority play** (the passive-link lever; the `/rate-filings/` roll-up is the asset it points to).
 Buildable pieces (Claude builds the on-site assets; OWNER does the Qwoted/HARO/Connectively signup +
 responding to reporter requests — that part can't be automated):
-1. **Press / Data landing page** (`/press/` or `/data/`): positions BoringRate as a primary-source
-   rate-filing tracker for journalists — what we track (auto+home, N states, from SERFF/DOI filings),
-   prominent link to the `/rate-filings/` roll-up, "how to cite us," a contact line. The credible place
-   a reporter lands.
+1. ✅ **Press / Data landing page** — SHIPPED at `/press/` (see 07-13b block above).
 2. **Expert-source kit** (short reusable blurb): who BoringRate is + what it can comment on (auto & home
    rate trends, who's raising/cutting by state, from primary filings) + roll-up link — for pasting into
    reactive journalist requests. Keep in-repo (e.g. PRESS_KIT.md) or on the press page.
