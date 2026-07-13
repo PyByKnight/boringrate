@@ -152,6 +152,9 @@ def build():
     .rf-trk{font-family:var(--mono);font-size:11px;color:var(--ink-mute);}
     .rf-src{font-size:12px;}
     .rf-row.hidden{display:none;}
+    /* wide container for the table; keep prose at a readable measure */
+    .rf-page .article-header,.rf-page .article-body>p,.rf-page .callout{max-width:720px;}
+    .rf-page .rf-tablewrap,.rf-page .rf-controls{max-width:1000px;}
     </style>'''
 
     script = '''<script>
@@ -186,7 +189,7 @@ def build():
     })();
     </script>'''
 
-    body = f'''<div class="wrap-narrow">
+    body = f'''<div class="wrap rf-page">
   <div class="article-header">
     <div class="article-kicker">Data &nbsp;·&nbsp; Rate-Filing Roll-Up &nbsp;·&nbsp; Updated {today:%B %-d, %Y}</div>
     <h1 class="article-title">2026 auto &amp; home insurance rate filings, by state &amp; carrier</h1>
