@@ -146,7 +146,7 @@ def state_page(code, changes):
         'reaches new buyers first; a hike lands on your next renewal notice. Re-shopping is the only way to know '
         'you&rsquo;re on the best current price for your home.</p></div>')
     parts.append('<p style="font-size:13px;color:var(--ink-mute);">Figures are filed/approved statewide-average '
-                 'changes from each state&rsquo;s Department of Insurance (CA via CDI; TX via data.texas.gov). '
+                 'changes from each state&rsquo;s Department of Insurance (CA via CDI, TX via data.texas.gov, others via SERFF). '
                  'Individual rates vary by home, roof age, and risk. Each filing links to its source. Not a quote.</p>')
     faq = []
     if incs:
