@@ -1143,6 +1143,52 @@ const HOME_CARRIERS = [
     states:["LA"],
     links:"https://www.alliedtrustinsurance.com",
     sens:{bundle:-0.10, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.13}
+  },
+  {
+    // Aggregator-blind NY regional. NY-only mutual, ~top-3 NY home writer. Book avg $1,737/policy
+    // (concentrated downstate) vs NY avg $1,223 → raw 1.42, tempered toward the standard-dwelling quote.
+    name:"NYCM", base:1.15,
+    tag:"New York only · agent-distributed mutual",
+    bestFor:"New York homeowners — established local mutual",
+    naic:0.75, csGrade:"A-", stability:4,
+    restricted:true, availNote:"New York only",
+    states:["NY"],
+    links:"https://www.nycm.com",
+    sens:{bundle:-0.12, claims1:0.43, claims2:0.84, covLow:-0.27, covHigh:0.43, dedLow:0.12, dedHigh:-0.12}
+  },
+  {
+    // Aggregator-blind NY regional (upstate mutual). Book avg $1,368/policy ≈ 1.12× NY avg → ~1.05.
+    name:"Preferred Mutual", base:1.05,
+    tag:"New York · upstate mutual",
+    bestFor:"Upstate New York homeowners",
+    naic:0.85, csGrade:"B+", stability:4,
+    restricted:true, availNote:"New York (upstate) · agent required",
+    states:["NY"],
+    links:"https://www.preferredmutual.com",
+    sens:{bundle:-0.12, claims1:0.43, claims2:0.84, covLow:-0.27, covHigh:0.43, dedLow:0.12, dedHigh:-0.12}
+  },
+  {
+    // Aggregator-blind coastal Long Island specialty. Book avg $3,381/policy ≈ 2.76× NY avg (all
+    // high-value coastal) → tempered to 1.9. Pricey specialty for hard-to-place coastal homes.
+    name:"Kingstone", base:1.9,
+    tag:"New York coastal specialty (Long Island)",
+    bestFor:"Coastal NY homes hard to place elsewhere",
+    naic:1.10, csGrade:"B-", stability:3,
+    restricted:true, availNote:"New York coastal — specialty writer",
+    states:["NY"],
+    links:"https://www.kingstonecompanies.com",
+    sens:{bundle:-0.09, claims1:0.45, claims2:0.88, covLow:-0.27, covHigh:0.45, dedLow:0.11, dedHigh:-0.13}
+  },
+  {
+    // Aggregator-blind coastal specialty. Book avg $2,863/policy ≈ 2.34× NY avg → tempered to 1.65.
+    name:"US Coastal", base:1.65,
+    tag:"New York coastal specialty",
+    bestFor:"Coastal NY homes — Long Island & downstate",
+    naic:1.0, csGrade:"B-", stability:3,
+    restricted:true, availNote:"New York coastal — specialty writer",
+    states:["NY"],
+    links:"https://www.uscoastalins.com",
+    sens:{bundle:-0.09, claims1:0.45, claims2:0.88, covLow:-0.27, covHigh:0.45, dedLow:0.11, dedHigh:-0.13}
   }
 ];
 

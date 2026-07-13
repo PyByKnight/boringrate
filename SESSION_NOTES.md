@@ -1,6 +1,29 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
+## This session (2026-07-13e, Opus 4.8) — NY HOME backfill (4th home state; restrained market)
+Owner pulled 13 NY home SERFF jackets; parsed → serff_home_filings.json 42→53 (NY 0→11).
+- **NY is a RESTRAINED home market** (unlike TX/CA/LA crisis) — the editorial through-line:
+  **State Farm held its NY book FLAT (0.0%, ~1M policies / $1.1B)**, Nationwide 0%, Mercury 0%, Amica
+  ~0% (windstorm restructure), Kingstone 0% (indicated 5.1% but revenue-neutral territory reshuffle),
+  and **NY DFS DISAPPROVED Allstate's home increase** (AVPIC HO, ALSE-134868072; Travelers & Chubb
+  filed form/rule only — no rate). **6 movers, all single-digit:** Liberty/Safeco +9.7% (16,190 PH),
+  USAA +5.6% (90,145), NYCM +4.61% (55,258 / $96M — NY's top mutual), Preferred Mutual +4.5%,
+  US Coastal +2.8% (coastal LI), Hartford +1.7%.
+- **4 manual base entries for aggregator-blind NY regionals** (per the 07-13d runbook process):
+  NYCM 1.15, Preferred Mutual 1.05, US Coastal 1.65, Kingstone 1.9. Bases = book-avg ÷ NY avg ($1,223),
+  **tempered** (halve the excess over 1.0) because coastal regionals' books concentrate downstate/LI
+  and overstate the standard-dwelling quote. NY ranking now: nationals cheapest, Preferred mid,
+  NYCM upper-mid (raising → not cheap), US Coastal/Kingstone priciest (coastal specialty) — filing-consistent.
+- **NY drift = correct no-op** (all 6 movers effective ≤ 2026-07-02 anchor → already in the aggregator
+  baseline). Only TX still drifts. Utica EDGE (393 PH, +0.2%) skipped as immaterial; Palisades combined
+  rate impact not cleanly parseable → deferred.
+- Cascade: new home/rate-changes/new-york.html (6 raised / 0 cut) + hub; roll-up 163→174 rows; press
+  refreshed; NY home-filing highlights injected into home/state/new-york.html; sitemap; qa_sweep 547/0,
+  prose 0 drift. **Home tracker now covers CA + TX + LA + NY.**
+- **NEXT home states:** PA / OH / IL (big markets, same SERFF-FA flow), or FL (painful). Each new
+  state: pull → parse → add regional base entries → apply_home_filings.py --apply → cascade.
+
 ## This session (2026-07-13d, Opus 4.8) — home drift: regional base entries + market-share weighting
 Follow-ups to the home drift engine (07-13c ↓):
 - **Manual base entries for 2 aggregator-blind LA regionals** → HOME_CARRIERS (home/index.html):

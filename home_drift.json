@@ -37,6 +37,22 @@
    "filings_not_in_roster": [],
    "level_drift": null
   },
+  "NY": {
+   "anchor_as_of": "2026-07-02",
+   "top_covered": [
+    "State Farm",
+    "USAA",
+    "Liberty Mutual",
+    "Nationwide"
+   ],
+   "gate_pass": true,
+   "Fbar": null,
+   "weight_basis": null,
+   "applied_carriers": {},
+   "held_gate_closed": {},
+   "filings_not_in_roster": [],
+   "level_drift": null
+  },
   "TX": {
    "anchor_as_of": "2026-07-02",
    "top_covered": [
