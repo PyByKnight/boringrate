@@ -1195,34 +1195,78 @@ const HOME_CARRIERS = [
     // Aggregator-blind PA regional (mid-Atlantic multi-line). Modeled mid-market prior (PA filings are
     // small sub-programs, no clean book avg); the HOME_DRIFT engine refines it as post-anchor filings land.
     name:"Selective", base:1.05,
-    tag:"Mid-Atlantic regional · agent-distributed",
+    tag:"Mid-Atlantic & Midwest regional · agent-distributed",
     bestFor:"Mid-Atlantic homeowners — agent service",
     naic:0.90, csGrade:"B+", stability:4,
-    restricted:true, availNote:"Pennsylvania & mid-Atlantic · agent required",
-    states:["PA"],
+    restricted:true, availNote:"OH, PA & mid-Atlantic · agent required",
+    states:["OH","PA"],
     links:"https://www.selective.com",
     sens:{bundle:-0.14, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
   },
   {
     // Aggregator-blind OH/PA regional. Modeled mid-market prior.
-    name:"Grange", base:1.0,
+    name:"Grange", base:0.9,
     tag:"Ohio & Pennsylvania regional",
     bestFor:"OH/PA homeowners — agent-distributed",
     naic:0.95, csGrade:"B", stability:4,
-    restricted:true, availNote:"Pennsylvania & Midwest · agent required",
-    states:["PA"],
+    restricted:true, availNote:"Ohio, Pennsylvania & Midwest · agent required",
+    states:["OH","PA"],
     links:"https://www.grangeinsurance.com",
     sens:{bundle:-0.13, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
   },
   {
     // Aggregator-blind PA-domiciled mutual (value-oriented). Modeled prior.
     name:"Donegal", base:0.92,
-    tag:"Pennsylvania mutual · mid-Atlantic",
-    bestFor:"PA & mid-Atlantic homeowners — value regional",
+    tag:"PA/OH mutual · mid-Atlantic & Midwest",
+    bestFor:"PA/OH & mid-Atlantic homeowners — value regional",
     naic:0.95, csGrade:"B", stability:4,
-    restricted:true, availNote:"Pennsylvania & mid-Atlantic · agent required",
-    states:["PA"],
+    restricted:true, availNote:"OH, PA & mid-Atlantic · agent required",
+    states:["OH","PA"],
     links:"https://www.donegalgroup.com",
+    sens:{bundle:-0.12, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
+  },
+  {
+    // Aggregator-blind OH mutual (Encova). Book avg $1,849/policy ≈ 1.17× OH avg $1,580.
+    name:"Motorists", base:1.15,
+    tag:"Ohio mutual (Encova) · agent-distributed",
+    bestFor:"Ohio & Midwest homeowners — agent service",
+    naic:0.95, csGrade:"B", stability:4,
+    restricted:true, availNote:"Ohio & Midwest · agent required",
+    states:["OH"],
+    links:"https://www.encova.com",
+    sens:{bundle:-0.13, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
+  },
+  {
+    // Aggregator-blind OH mutual. Book avg $1,752/policy ≈ 1.11× OH avg.
+    name:"Ohio Mutual", base:1.1,
+    tag:"Ohio mutual · agent-distributed",
+    bestFor:"Ohio homeowners — local mutual",
+    naic:0.90, csGrade:"B+", stability:4,
+    restricted:true, availNote:"Ohio & neighboring states · agent required",
+    states:["OH"],
+    links:"https://www.omig.com",
+    sens:{bundle:-0.13, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
+  },
+  {
+    // Aggregator-blind OH regional (Van Wert). Modeled mid-market prior.
+    name:"Central", base:1.05,
+    tag:"Ohio regional · agent-distributed",
+    bestFor:"Ohio & Midwest homeowners",
+    naic:0.95, csGrade:"B", stability:4,
+    restricted:true, availNote:"Ohio & Midwest · agent required",
+    states:["OH"],
+    links:"https://www.central-insurance.com",
+    sens:{bundle:-0.13, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
+  },
+  {
+    // Aggregator-blind OH mutual (value). Book avg $1,353/policy ≈ 0.86× OH avg.
+    name:"Celina", base:0.88,
+    tag:"Ohio mutual · value regional",
+    bestFor:"Ohio homeowners — value mutual",
+    naic:0.95, csGrade:"B", stability:4,
+    restricted:true, availNote:"Ohio & Midwest · agent required",
+    states:["OH"],
+    links:"https://www.celinainsurance.com",
     sens:{bundle:-0.12, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
   }
 ];

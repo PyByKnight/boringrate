@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "generated": "2026-07-13",
+  "generated": "2026-07-14",
   "purpose": "Renormalized drift on the home tool from SERFF home filings (separate HOME_DRIFT layer, applied on top of STATE_CARRIER_ADJ). Provenance keyed by tracking #.",
   "anchor_source": "calibrate_model_rh.py home rebuild, 2026-07-02 (bases re-anchored to NerdWallet home 2026-02-20 + MoneyGeek home 2026-07-01).",
   "gate_rule": ">= 3 of ['State Farm', 'Allstate', 'USAA', 'Farmers', 'Liberty Mutual', 'Travelers', 'Nationwide'] covered (any date)"
@@ -42,6 +42,23 @@
    "top_covered": [
     "State Farm",
     "USAA",
+    "Liberty Mutual",
+    "Nationwide"
+   ],
+   "gate_pass": true,
+   "Fbar": null,
+   "weight_basis": null,
+   "applied_carriers": {},
+   "held_gate_closed": {},
+   "filings_not_in_roster": [],
+   "level_drift": null
+  },
+  "OH": {
+   "anchor_as_of": "2026-07-02",
+   "top_covered": [
+    "Allstate",
+    "USAA",
+    "Farmers",
     "Liberty Mutual",
     "Nationwide"
    ],

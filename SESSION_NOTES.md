@@ -1,6 +1,27 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
+## This session (2026-07-14, Opus 4.8) — OH HOME backfill (6th state; mixed/softening market)
+Owner pulled 23 OH home jackets; parsed → serff_home_filings.json 69→91 (OH 0→22). OH = mutual-heavy,
+Nationwide's Columbus home turf.
+- **OH is a MIXED/softening market** (great contrast to PA's broad rise): the big national shoppers'
+  carriers are **cutting or flat** — Allstate −3%, Liberty −5%, Progressive/ASI −6%; Nationwide 0%
+  (153,888 PH, held its home turf), Farmers 0%, American Family 0%, Auto-Owners −0.1% (141,511 PH),
+  Cincinnati −0.01%, Amica 0% — while **USAA +15.8%** (105,620 PH, the big raiser) and OH regional
+  mutuals raise: **Central +17.1%**, NJM +10%, Ohio Mutual +7.3%, Westfield +6.5%, Grange +5.7%
+  (99,058 PH — OH is Grange's home base), Hartford +5.4%, Chubb +4.1%, Erie +2.3%, Motorists +2.0%;
+  Celina −4% cutting. Tracker: 10 raised / 4 cut.
+- **State Farm OH DEFERRED** — HO-50149 (SFMA-134927661) jacket is image/Excel-exhibit-only (no
+  extractable %); the parseable HO-48693/HO-49422 weren't pulled. Coverage still strong (7 top carriers).
+- **OH drift = correct no-op** (all OH movers effective ≤ 2026-07-02 anchor). HOME_DRIFT stays TX + PA.
+- **4 new OH regional base entries** (book-avg ÷ OH avg $1,580): Motorists/Encova 1.15, Ohio Mutual 1.10,
+  Central 1.05, Celina 0.88. **Expanded Grange (base 1.0→0.90, regrounded on its OH home book),
+  Selective, Donegal to states:["OH","PA"]** (multi-state regionals — the earlier PA-only restriction
+  was too narrow). Westfield/Cincinnati/NJM/Erie already had OH.
+- Cascade: new home/rate-changes/ohio.html (10 raised / 4 cut) + hub; roll-up 190→212 rows, 11 states,
+  63 carriers; press; OH highlights; sitemap; qa_sweep 549/0, prose 0 drift.
+  **Home tracker: CA + TX + LA + NY + PA + OH.** NEXT: IL, or FL (painful).
+
 ## This session (2026-07-13f, Opus 4.8) — PA HOME backfill (5th state) + FIRST filing-driven drift beyond TX
 Owner pulled 17 PA home jackets; parsed → serff_home_filings.json 53→69 (PA 0→16). PA home = the
 **most fragmented market** (250 filings, Erie + a long tail of ~30 small mutuals).
