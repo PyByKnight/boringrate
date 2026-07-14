@@ -2372,6 +2372,32 @@
    "status": "Closed",
    "source_note": "OH DOI SERFF DNGL-134730602; overall rate impact +0.2% (flat).",
    "note": "~0% OH home — Donegal (+0.2%, flat)."
+  },
+  {
+   "state": "OH",
+   "line": "home",
+   "carrier": "State Farm",
+   "entity": "State Farm Fire and Casualty Company",
+   "tracking": "SFMA-134817304",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134817304",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-04-22",
+   "effective_new": "2026-03-15",
+   "effective_renewal": "2026-05-15",
+   "overall_pct": 7.2,
+   "indicated_pct": null,
+   "prior_revision_pct": null,
+   "written_premium": null,
+   "written_premium_change": null,
+   "affected": null,
+   "count_basis": null,
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "recorded_date": "2026-07-14",
+   "status": "Closed",
+   "source_note": "OH DOI SERFF SFMA-134817304 (HO-49422); 'rate level change of 7.2%'.",
+   "note": "+7.2% OH home — State Farm (independent OH Homeowners Program), raising."
   }
  ]
 }
