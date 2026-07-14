@@ -15,6 +15,7 @@ OUTDIR = ROOT / "home" / "rate-changes"
 RED, GREEN = "#b4321a", "#2f6b3a"
 MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 MIN = 0.5  # material-move threshold
+FLAT_WIDE = {}  # state -> flat (|overall|<0.5) filings with wide by-territory spread (for the dispersion callout)
 
 scaff = (ROOT / "home" / "state" / "florida.html").read_text(encoding="utf-8")
 STYLE = scaff[scaff.index("<style>"):scaff.index("</style>") + len("</style>")]
@@ -47,18 +48,74 @@ ZIPBOX = ('<form onsubmit="event.preventDefault();var z=(this.zc.value||\'\').re
           '<button type="submit" style="font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:0 20px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;white-space:nowrap;">Compare home rates &rarr;</button></form>')
 
 
+def is_wide(c):
+    """True when a filing's by-territory spread is much wider than its filed average
+    (the 'the average is a lie' signal): the worst territory is >=8 pts above overall,
+    or the range spans >=15 pts."""
+    mx, mn = c.get("max_pct"), c.get("min_pct")
+    if mx is None or mn is None:
+        return False
+    return (mx - c["overall_pct"] >= 8) or (mx - mn >= 15)
+
+
+def range_cell(c):
+    """By-ZIP/territory range: '+27% / −20%' from the filing's max/min change; '—' if not captured."""
+    mx, mn = c.get("max_pct"), c.get("min_pct")
+    if mx is None and mn is None:
+        return '<span style="color:var(--ink-mute);">&mdash;</span>'
+    def fmt(v):
+        if v is None:
+            return "&mdash;"
+        col = RED if v > 0 else (GREEN if v < 0 else "var(--ink-mute)")
+        return f'<span style="color:{col};">{"+" if v > 0 else ("−" if v < 0 else "±")}{abs(v):g}%</span>'
+    flag = ' <span title="Some ZIPs see far more than the filed average" style="color:{};font-size:11px;">&#9650; wide</span>'.format(RED) if is_wide(c) else ""
+    return f'<span style="font-size:13px;">{fmt(mx)} <span style="color:var(--ink-mute);">to</span> {fmt(mn)}</span>{flag}'
+
+
 def rows_table(changes):
+    has_range = any(c.get("max_pct") is not None for c in changes)
+    rng_th = '<th title="Range of the change across ZIP/territory within the filing">By ZIP</th>' if has_range else ""
     head = ('<table style="width:100%;border-collapse:collapse;font-size:15px;margin:18px 0;">'
             '<thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">'
-            '<th style="padding:9px 8px;">Carrier</th><th>Change</th><th>Effective</th><th>Source</th></tr></thead><tbody>')
+            f'<th style="padding:9px 8px;">Carrier</th><th>Filed avg</th>{rng_th}<th>Effective</th><th>Source</th></tr></thead><tbody>')
     body = []
     for c in sorted(changes, key=lambda x: (x.get("effective_new") or "", -abs(x["overall_pct"]))):
         src = f'<a class="ca-link" href="{c["url"]}" target="_blank" rel="noopener nofollow">{esc(c["source_note"].split(";")[0])}</a>'
+        rng_td = f'<td>{range_cell(c)}</td>' if has_range else ""
+        ind = c.get("indicated_pct")
+        ind_note = ""
+        if ind is not None and abs(ind - c["overall_pct"]) >= 2:
+            s = "+" if ind > 0 else ("−" if ind < 0 else "±")
+            ind_note = (f'<div style="font-size:11px;color:var(--ink-mute);" title="What the carrier&rsquo;s own '
+                        f'actuarial analysis said was needed — they filed less">wanted {s}{abs(ind):g}%</div>')
         body.append(
             f'<tr style="border-bottom:1px solid var(--rule);"><td style="padding:9px 8px;"><strong>{esc(c["carrier"])}</strong>'
             f'<span style="color:var(--ink-mute);font-size:12px;"> &nbsp;{esc(c.get("entity",""))}</span></td>'
-            f'<td>{signed(c["overall_pct"], c["dir"])}</td><td>{fdate(c.get("effective_new"))}</td><td style="font-size:13px;">{src}</td></tr>')
+            f'<td>{signed(c["overall_pct"], c["dir"])}{ind_note}</td>{rng_td}<td>{fdate(c.get("effective_new"))}</td><td style="font-size:13px;">{src}</td></tr>')
     return head + "".join(body) + "</tbody></table>"
+
+
+def dispersion_callout(changes, state):
+    """The 'average is a lie' box — only when the state has meaningful by-territory spread captured.
+    Pools the material movers with the flat-but-wide filings (the strongest 0%-overall examples)."""
+    pool = changes + FLAT_WIDE.get(state, [])
+    wide = [c for c in pool if is_wide(c)]
+    withmax = [c for c in pool if c.get("max_pct") is not None]
+    if len(wide) < 2 or not withmax:
+        return ""
+    worst = max(withmax, key=lambda c: c["max_pct"])
+    zero_wide = [c for c in wide if abs(c["overall_pct"]) < 0.5]
+    hook = ""
+    if zero_wide:
+        z = zero_wide[0]
+        hook = (f' {esc(z["carrier"])}&rsquo;s filing was <strong>{z["overall_pct"]:+g}% overall</strong> '
+                f'yet ranged from <strong>{z["max_pct"]:+g}%</strong> to <strong>{z["min_pct"]:+g}%</strong> depending on the ZIP.')
+    return (
+        '<div class="callout" style="border-color:var(--accent);"><p><strong>The filed average is not your rate.</strong> '
+        'A single statewide filing can move different ZIPs by wildly different amounts. Here, the biggest single-territory '
+        f'increase we found was <strong>+{worst["max_pct"]:g}%</strong> ({esc(worst["carrier"])}, on a {worst["overall_pct"]:+g}% '
+        f'filed average).{hook} The &ldquo;By ZIP&rdquo; column shows each filing&rsquo;s range &mdash; '
+        '<a href="/home/index.html">check your ZIP</a> to see where you land.</p></div>')
 
 
 def head_html(url, title, desc, faq):
@@ -136,6 +193,7 @@ def state_page(code, changes):
         f'Homeowners rate hikes hit at renewal &mdash; the fastest way to stop overpaying is to compare carriers for your ZIP.</p>',
         ZIPBOX,
     ]
+    parts.append(dispersion_callout(changes, code))
     if incs:
         parts.append(f'<h2>Carriers that raised {esc(name)} home rates in 2026</h2>' + rows_table(incs))
     if decs:
@@ -211,6 +269,10 @@ def main():
     changes = []
     for r in data["filings"]:
         if r.get("line") != "home" or r.get("overall_pct") is None or abs(r["overall_pct"]) < MIN:
+            # a "flat" filing (|overall| < 0.5) can still swing individual ZIPs a lot — keep the wide
+            # ones for the dispersion callout (the "0% overall but +27% for you" poster children).
+            if r.get("line") == "home" and r.get("overall_pct") is not None and is_wide(r):
+                FLAT_WIDE.setdefault(r["state"], []).append(r)
             continue
         r = dict(r)
         r["dir"] = "increase" if r["overall_pct"] > 0 else "decrease"

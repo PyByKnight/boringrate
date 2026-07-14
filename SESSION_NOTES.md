@@ -1,6 +1,30 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
+## This session (2026-07-14b, Opus 4.8) — "By ZIP" dispersion framework (Fable idea #1) shipped
+Consulted Fable on what else to extract from filings for content. Its #1: we READ the jacket's
+Max %/Min % territory dispersion but never PERSISTED it — the single most on-thesis stat ("your
+carrier filed +3%, your ZIP got +38%"). Piloted on OH, validated, rolled out.
+- **New schema fields `max_pct`/`min_pct`** on serff_home_filings.json (widest by-territory spread from
+  the "Company Rate Information" block; chunk the entity value rows [Ind,Rate,WPc,PH,WP,Max,Min]).
+  Backfilled from scratchpad jackets: OH 18, LA 9, NY 7, PA 11 filings (TX/CA open-data have no
+  dispersion field — stay blank, honest). **Dramatic:** LA Allstate +3.8% avg but up to **+125.3%** by
+  ZIP; PA Progressive +0.9% but **+121.4%**; OH NJM +10% but **+76.5%**; four OH carriers filed "0%
+  overall" while swinging +27% to −49%.
+- **Display (gen_home_rate_tracker.py):** new "By ZIP" column (max/min range + "▲ wide" flag when
+  worst territory ≥8pts over the average or range ≥15pts); "The filed average is not your rate" callout
+  per state (pulls the biggest max + a 0%-overall poster child, incl. flat-but-wide filings that the
+  |overall|≥0.5 tracker filter otherwise drops via a FLAT_WIDE pool); and **Fable #2** inline —
+  "wanted +X%" muted note when the carrier's actuarial INDICATED change exceeds what it filed (file-and-
+  use framing = "more increases queued"). Degrades gracefully where no data (TX/CA blank).
+- **New consumer guide** `home/why-did-my-home-insurance-go-up.html` (gen_dispersion_guide.py) —
+  data-driven hero examples (Allstate LA +125%, Progressive PA +121%...), "0% overall = redistribution"
+  section, "wanted more than they filed" section, FAQPage on the "why did my rate go up if rates are
+  flat" query cluster. Owner picked the consumer title (rejected the DOI-sounding one). In nav (Home
+  guides) + sitemap. ZIP-tool + tracker CTAs.
+- qa_sweep 550/0, prose 0 drift. **NEXT rollout: same By-ZIP treatment on the AUTO trackers + the
+  /rate-filings/ roll-up + /press/ quarterly stat; auto jackets have the same Max/Min block.**
+
 ## This session (2026-07-14, Opus 4.8) — OH HOME backfill (6th state; mixed/softening market)
 Owner pulled 23 OH home jackets; parsed → serff_home_filings.json 69→91 (OH 0→22). OH = mutual-heavy,
 Nationwide's Columbus home turf.

@@ -811,7 +811,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing USAA-134777840; Company Rate Information overall rate impact.",
-   "note": "+9.2% LA home — USAA group, eff renewals through mid-2026."
+   "note": "+9.2% LA home — USAA group, eff renewals through mid-2026.",
+   "max_pct": 44.7,
+   "min_pct": -38.8
   },
   {
    "state": "LA",
@@ -837,7 +839,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing SFBC-134582157; Company Rate Information overall rate impact.",
-   "note": "+14.75% LA home — LA Farm Bureau Home Choice (owner-occupied); asked 17.76%."
+   "note": "+14.75% LA home — LA Farm Bureau Home Choice (owner-occupied); asked 17.76%.",
+   "max_pct": 17.76,
+   "min_pct": 14.75
   },
   {
    "state": "LA",
@@ -863,7 +867,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing ALSE-134740068; Company Rate Information overall rate impact.",
-   "note": "+3.8% LA home — Allstate's main LA writer (AVPIC, $271M book)."
+   "note": "+3.8% LA home — Allstate's main LA writer (AVPIC, $271M book).",
+   "max_pct": 125.3,
+   "min_pct": -24.2
   },
   {
    "state": "LA",
@@ -889,7 +895,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing ALSE-134677440; Company Rate Information overall rate impact.",
-   "note": "+1.6% LA home — Allstate Insurance Co (closed book)."
+   "note": "+1.6% LA home — Allstate Insurance Co (closed book).",
+   "max_pct": 4.0,
+   "min_pct": 0.1
   },
   {
    "state": "LA",
@@ -915,7 +923,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing ALTR-134663183; Company Rate Information overall rate impact.",
-   "note": "-2.3% LA home — Allied Trust (LA regional) cutting."
+   "note": "-2.3% LA home — Allied Trust (LA regional) cutting.",
+   "max_pct": 29.7,
+   "min_pct": -25.7
   },
   {
    "state": "LA",
@@ -941,7 +951,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing HNVR-G134780663; Company Rate Information overall rate impact.",
-   "note": "-1.8% LA home — Hanover small cut."
+   "note": "-1.8% LA home — Hanover small cut.",
+   "max_pct": 19.2,
+   "min_pct": -27.0
   },
   {
    "state": "LA",
@@ -967,7 +979,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF ACEH-134573149; overall rate impact 0.0% (held).",
-   "note": "0% LA home — Chubb Masterpiece (high-value) held flat."
+   "note": "0% LA home — Chubb Masterpiece (high-value) held flat.",
+   "max_pct": 0.0,
+   "min_pct": 0.0
   },
   {
    "state": "LA",
@@ -993,7 +1007,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF FAIG-134637040; overall rate impact 0.0% (held).",
-   "note": "0% LA home — Farmers held flat."
+   "note": "0% LA home — Farmers held flat.",
+   "max_pct": 0.0,
+   "min_pct": 0.0
   },
   {
    "state": "LA",
@@ -1097,7 +1113,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF SAGE-134604290; indicated -7.5%, overall rate impact 0.0%.",
-   "note": "0% LA home — SafePort filed -7.5% indicated but 0% rate impact taken."
+   "note": "0% LA home — SafePort filed -7.5% indicated but 0% rate impact taken.",
+   "max_pct": 0.0,
+   "min_pct": 0.0
   },
   {
    "state": "NY",
@@ -1123,7 +1141,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF filing LBPM-134516900; Company Rate Information overall rate impact.",
-   "note": "+9.7% NY home — Liberty/Safeco, NY's biggest in-window home increase."
+   "note": "+9.7% NY home — Liberty/Safeco, NY's biggest in-window home increase.",
+   "max_pct": 29.9,
+   "min_pct": 0.5
   },
   {
    "state": "NY",
@@ -1149,7 +1169,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF filing USAA-134245824; Company Rate Information overall rate impact.",
-   "note": "+5.6% NY home — USAA group."
+   "note": "+5.6% NY home — USAA group.",
+   "max_pct": 20.1,
+   "min_pct": 15.6
   },
   {
    "state": "NY",
@@ -1175,7 +1197,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF filing NYCM-134688761; Company Rate Information overall rate impact.",
-   "note": "+4.61% NY home — NYCM, a top NY-only home writer ($96M book, 55,258 PH)."
+   "note": "+4.61% NY home — NYCM, a top NY-only home writer ($96M book, 55,258 PH).",
+   "max_pct": 14.27,
+   "min_pct": 0.77
   },
   {
    "state": "NY",
@@ -1201,7 +1225,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF filing PMUT-134534049; Company Rate Information overall rate impact.",
-   "note": "+4.5% NY home — Preferred Mutual (upstate NY)."
+   "note": "+4.5% NY home — Preferred Mutual (upstate NY).",
+   "max_pct": 15.1,
+   "min_pct": 1.1
   },
   {
    "state": "NY",
@@ -1227,7 +1253,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF filing CCGI-134677812; Company Rate Information overall rate impact.",
-   "note": "+2.8% NY home — US Coastal (Long Island coastal specialty)."
+   "note": "+2.8% NY home — US Coastal (Long Island coastal specialty).",
+   "max_pct": 3.7,
+   "min_pct": 1.6
   },
   {
    "state": "NY",
@@ -1305,7 +1333,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF NWPP-G134734565; overall rate impact 0.0% (held).",
-   "note": "0% NY home — Nationwide held flat."
+   "note": "0% NY home — Nationwide held flat.",
+   "max_pct": 0.0,
+   "min_pct": 0.0
   },
   {
    "state": "NY",
@@ -1357,7 +1387,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF KSIN-134341407; overall rate impact 0.0% (territory-neutral).",
-   "note": "0% overall NY home — Kingstone (coastal LI); 5.1% indicated but revenue-neutral territory reshuffle (max +23.7% / min −13.6%)."
+   "note": "0% overall NY home — Kingstone (coastal LI); 5.1% indicated but revenue-neutral territory reshuffle (max +23.7% / min −13.6%).",
+   "max_pct": 23.7,
+   "min_pct": -13.6
   },
   {
    "state": "NY",
@@ -1435,7 +1467,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF filing USAA-134883881; Company Rate Information overall rate impact.",
-   "note": "+6.2% PA home — USAA group (120,317 PH); POST-anchor → drifts the PA tool."
+   "note": "+6.2% PA home — USAA group (120,317 PH); POST-anchor → drifts the PA tool.",
+   "max_pct": 7.3,
+   "min_pct": 0.0
   },
   {
    "state": "PA",
@@ -1461,7 +1495,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF filing FARM-134993574; Company Rate Information overall rate impact.",
-   "note": "-10.0% PA home — Farmers FLEX cut; POST-anchor → drifts the PA tool."
+   "note": "-10.0% PA home — Farmers FLEX cut; POST-anchor → drifts the PA tool.",
+   "max_pct": 13.79,
+   "min_pct": -25.07
   },
   {
    "state": "PA",
@@ -1487,7 +1523,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF filing ERPP-134623801; Company Rate Information overall rate impact.",
-   "note": "+1.0% PA home — Erie Exchange, PA's #1 home writer (298,876 PH / $332M book)."
+   "note": "+1.0% PA home — Erie Exchange, PA's #1 home writer (298,876 PH / $332M book).",
+   "max_pct": 26.0,
+   "min_pct": -30.1
   },
   {
    "state": "PA",
@@ -1591,7 +1629,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF filing AMSI-134401367; Company Rate Information overall rate impact.",
-   "note": "+0.9% PA home — Progressive/ASI (near-flat)."
+   "note": "+0.9% PA home — Progressive/ASI (near-flat).",
+   "max_pct": 121.4,
+   "min_pct": -26.6
   },
   {
    "state": "PA",
@@ -1617,7 +1657,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF LBPM-134658564; overall rate impact 0.0%.",
-   "note": "0% PA home — Liberty held flat."
+   "note": "0% PA home — Liberty held flat.",
+   "max_pct": 0.0,
+   "min_pct": 0.0
   },
   {
    "state": "PA",
@@ -1643,7 +1685,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF NWPP-134535062; overall rate impact 0.0%.",
-   "note": "0% PA home — Nationwide held flat (203,121 PH book)."
+   "note": "0% PA home — Nationwide held flat (203,121 PH book).",
+   "max_pct": 11.7,
+   "min_pct": -12.3
   },
   {
    "state": "PA",
@@ -1669,7 +1713,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF ACEH-134553168; overall rate impact 0.0%.",
-   "note": "0% PA home — Chubb Masterpiece held flat."
+   "note": "0% PA home — Chubb Masterpiece held flat.",
+   "max_pct": 0.0,
+   "min_pct": 0.0
   },
   {
    "state": "PA",
@@ -1695,7 +1741,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF AOIC-134597135; overall rate impact -0.037% (flat).",
-   "note": "~0% PA home — Auto-Owners (-0.04%, flat)."
+   "note": "~0% PA home — Auto-Owners (-0.04%, flat).",
+   "max_pct": 21.676,
+   "min_pct": -30.937
   },
   {
    "state": "PA",
@@ -1721,7 +1769,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF WSUN-134797471; overall rate impact +0.4% (near-flat).",
-   "note": "~0% PA home — CSAA/AAA (+0.4%, flat)."
+   "note": "~0% PA home — CSAA/AAA (+0.4%, flat).",
+   "max_pct": 12.0,
+   "min_pct": 0.0
   },
   {
    "state": "PA",
@@ -1773,7 +1823,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF HRMN-134498839; overall rate impact 0.0%.",
-   "note": "0% PA home — Horace Mann held flat."
+   "note": "0% PA home — Horace Mann held flat.",
+   "max_pct": 8.1,
+   "min_pct": -24.7
   },
   {
    "state": "PA",
@@ -1799,7 +1851,9 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF ACUT-134901103; overall rate impact -1.0%.",
-   "note": "-1.0% PA home — Acuity (small book)."
+   "note": "-1.0% PA home — Acuity (small book).",
+   "max_pct": 4.5,
+   "min_pct": -7.3
   },
   {
    "state": "OH",
@@ -1825,7 +1879,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing USAA-134785241; Company Rate Information overall rate impact.",
-   "note": "+15.8% OH home — USAA raising hard (105,620 PH)."
+   "note": "+15.8% OH home — USAA raising hard (105,620 PH).",
+   "max_pct": 63.7,
+   "min_pct": -25.8
   },
   {
    "state": "OH",
@@ -1851,7 +1907,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing ACEH-134899034; Company Rate Information overall rate impact.",
-   "note": "+4.1% OH home — Chubb Masterpiece."
+   "note": "+4.1% OH home — Chubb Masterpiece.",
+   "max_pct": 4.8,
+   "min_pct": 0.0
   },
   {
    "state": "OH",
@@ -1877,7 +1935,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing ALSE-134545764; Company Rate Information overall rate impact.",
-   "note": "-3.0% OH home — Allstate cut."
+   "note": "-3.0% OH home — Allstate cut.",
+   "max_pct": 22.6,
+   "min_pct": -34.1
   },
   {
    "state": "OH",
@@ -1903,7 +1963,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing LBPM-134602374; Company Rate Information overall rate impact.",
-   "note": "-5.0% OH home — Liberty cut."
+   "note": "-5.0% OH home — Liberty cut.",
+   "max_pct": -4.3,
+   "min_pct": -5.3
   },
   {
    "state": "OH",
@@ -1929,7 +1991,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing AMSI-134627974; Company Rate Information overall rate impact.",
-   "note": "-6.0% OH home — Progressive/ASI cut."
+   "note": "-6.0% OH home — Progressive/ASI cut.",
+   "max_pct": 27.6,
+   "min_pct": -11.8
   },
   {
    "state": "OH",
@@ -1955,7 +2019,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing ERPP-134602360; Company Rate Information overall rate impact.",
-   "note": "+2.3% OH home — Erie Exchange."
+   "note": "+2.3% OH home — Erie Exchange.",
+   "max_pct": 6.8,
+   "min_pct": 2.2
   },
   {
    "state": "OH",
@@ -1981,7 +2047,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing WSFG-G134594507; Company Rate Information overall rate impact.",
-   "note": "+6.5% OH home — Westfield (major OH writer)."
+   "note": "+6.5% OH home — Westfield (major OH writer).",
+   "max_pct": 8.4,
+   "min_pct": 0.0
   },
   {
    "state": "OH",
@@ -2007,7 +2075,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing GRAN-134602478; Company Rate Information overall rate impact.",
-   "note": "+5.7% OH home — Grange, huge in its home state (99,058 PH / $124M)."
+   "note": "+5.7% OH home — Grange, huge in its home state (99,058 PH / $124M).",
+   "max_pct": 21.1,
+   "min_pct": -7.7
   },
   {
    "state": "OH",
@@ -2033,7 +2103,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing OHMG-134556446; Company Rate Information overall rate impact.",
-   "note": "+7.3% OH home — Ohio Mutual."
+   "note": "+7.3% OH home — Ohio Mutual.",
+   "max_pct": 17.0,
+   "min_pct": -9.1
   },
   {
    "state": "OH",
@@ -2059,7 +2131,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing MTRS-134688619; Company Rate Information overall rate impact.",
-   "note": "+2.0% OH home — Motorists/Encova (OH mutual)."
+   "note": "+2.0% OH home — Motorists/Encova (OH mutual).",
+   "max_pct": 17.2,
+   "min_pct": -24.9
   },
   {
    "state": "OH",
@@ -2085,7 +2159,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing HART-134652413; Company Rate Information overall rate impact.",
-   "note": "+5.4% OH home — The Hartford (AARP program)."
+   "note": "+5.4% OH home — The Hartford (AARP program).",
+   "max_pct": 55.9,
+   "min_pct": -21.5
   },
   {
    "state": "OH",
@@ -2111,7 +2187,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing NJMI-134742573; Company Rate Information overall rate impact.",
-   "note": "+10.0% OH home — NJM (expanding into OH; small book)."
+   "note": "+10.0% OH home — NJM (expanding into OH; small book).",
+   "max_pct": 76.5,
+   "min_pct": -16.8
   },
   {
    "state": "OH",
@@ -2137,7 +2215,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing CEIN-134649665; Company Rate Information overall rate impact.",
-   "note": "-4.0% OH home — Celina (OH mutual) cut."
+   "note": "-4.0% OH home — Celina (OH mutual) cut.",
+   "max_pct": 3.0,
+   "min_pct": -14.2
   },
   {
    "state": "OH",
@@ -2163,7 +2243,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing CEMC-134676417; Company Rate Information overall rate impact.",
-   "note": "+17.1% OH home — Central Insurance, a large OH hike."
+   "note": "+17.1% OH home — Central Insurance, a large OH hike.",
+   "max_pct": 58.1,
+   "min_pct": null
   },
   {
    "state": "OH",
@@ -2241,7 +2323,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF AMFC-134804404; overall rate impact 0.0%.",
-   "note": "0% OH home — American Family held flat."
+   "note": "0% OH home — American Family held flat.",
+   "max_pct": 6.3,
+   "min_pct": -49.1
   },
   {
    "state": "OH",
@@ -2293,7 +2377,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF CNNB-134745485; overall rate impact -0.007% (flat).",
-   "note": "~0% OH home — Cincinnati (-0.01%, flat)."
+   "note": "~0% OH home — Cincinnati (-0.01%, flat).",
+   "max_pct": 34.7,
+   "min_pct": -9.3
   },
   {
    "state": "OH",
@@ -2319,7 +2405,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF AMMA-134784004; overall rate impact 0.0%.",
-   "note": "0% OH home — Amica (territory-neutral restructure)."
+   "note": "0% OH home — Amica (territory-neutral restructure).",
+   "max_pct": 27.0,
+   "min_pct": -20.0
   },
   {
    "state": "OH",
@@ -2345,7 +2433,9 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF SELC-134658684; overall rate impact 0.0%.",
-   "note": "0% OH home — Selective held flat."
+   "note": "0% OH home — Selective held flat.",
+   "max_pct": 15.4,
+   "min_pct": -18.7
   },
   {
    "state": "OH",
