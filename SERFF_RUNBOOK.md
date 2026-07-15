@@ -198,6 +198,25 @@ roster, add it to `expansion_candidates.json` with the state. Exclude pure
 nonstandard/high-risk writers. This builds a data-driven roster-expansion list
 (American National is the leading candidate — seen in NV/GA/SC/TN).
 
+### While pulling: look for TERRITORY-DEFINITION sources (unlocks true ZIP-level rating)
+
+Rate-change jackets contain the by-peril **territory FACTORS** (text-extractable for a subset —
+USAA, Selective, Chubb…) but NOT the **ZIP→territory MAP** (verified absent in USAA/Selective/Chubb;
+carriers file rate changes against a *separate, older* territory-definition filing, often ISO-licensed).
+So true ZIP-level primary-source pricing is blocked on sourcing that map. **As you pull, watch for and
+grab, when present:**
+- a carrier's separate **territory-definition / territory-plan filing** on SERFF (search that carrier's
+  Rule/Territory filings, not just the latest Rate filing) — the ZIP/county → territory table;
+- any **ZIP→territory or ZIP→zone exhibit** attached to the rate filing itself (rare, but Chubb-type
+  high-value writers sometimes include one);
+- the filing's **BASE RATES-by-peril** block (present in the jacket) → the peril loss weights for the
+  composite `offset = Σ(peril_weight × territory_factor)`.
+When we have a carrier's factors AND its ZIP→territory map, that carrier graduates from state-avg (or the
+modeled metro offset) to real ZIP-level offsets. **Same applies to AUTO** — capture territory factors +
+the Max/Min dispersion from auto jackets as we pull them. See SESSION_NOTES 07-14c for the full plan.
+Until then, sub-state granularity comes from the modeled directional **HOME_METRO_OFFSET**
+(gen_home_metro_offsets.py), guardrailed by the captured Max/Min dispersion.
+
 ### HOME: add a manual base entry for each aggregator-blind regional you pull
 
 **When pulling a new HOME state, add a manual `HOME_CARRIERS` base entry (home/index.html)

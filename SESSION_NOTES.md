@@ -1,6 +1,21 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
+## This session (2026-07-15, Opus 4.8) — HOME METRO PAGES (new SEO tier) + territory-sourcing note
+- **26 home metro pages** (`gen_home_metro_page.py` → home/metro/<slug>.html) for the metros in our 6
+  filed states — the home twin of the 95 auto metro pages, a content tier we didn't have. Each: metro
+  avg = state avg × HOME_METRO_OFFSET, carrier ranking at metro level (order = state, prices scaled),
+  per-metro home-catastrophe angle (METROS dict), "the metro average hides your ZIP" callout linking the
+  tool + the dispersion guide, FAQPage + Breadcrumb JSON-LD, links to the state page + rate tracker.
+  Verified: New Orleans $4,362 vs Baton Rouge $3,199; Houston $4,115 vs El Paso $2,880. In nav ("Home
+  rates by metro") + sitemap (26 URLs). qa_sweep 576/0, prose 0 drift.
+- **Runbook note added** (SERFF_RUNBOOK.md "While pulling: look for TERRITORY-DEFINITION sources") —
+  as we pull rate changes, watch for the separate ZIP→territory map filing + BASE-RATES-by-peril weights
+  that unlock true ZIP-level rating; same for auto.
+- **NOTE for content growth:** home metro pages currently cover only the 6 filed states' metros (26).
+  Expand as we pull more states (each new state's metros get offsets + pages). Auto dispersion rollout
+  judged LOW priority (content-only, milder auto spreads, contested SEO) — parked.
+
 ## This session (2026-07-14c, Opus 4.8) — directional HOME metro offsets (sub-state granularity)
 Investigated true ZIP-level rating from filings, then built the honest achievable version.
 - **★ KEY FINDING — true ZIP rating is NOT extractable from rate-change filings.** Territorial
