@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "generated": "2026-07-14",
+  "generated": "2026-07-15",
   "purpose": "Renormalized drift on the home tool from SERFF home filings (separate HOME_DRIFT layer, applied on top of STATE_CARRIER_ADJ). Provenance keyed by tracking #.",
   "anchor_source": "calibrate_model_rh.py home rebuild, 2026-07-02 (bases re-anchored to NerdWallet home 2026-02-20 + MoneyGeek home 2026-07-01).",
   "gate_rule": ">= 3 of ['State Farm', 'Allstate', 'USAA', 'Farmers', 'Liberty Mutual', 'Travelers', 'Nationwide'] covered (any date)"
@@ -20,6 +20,55 @@
    "held_gate_closed": {},
    "filings_not_in_roster": [],
    "level_drift": null
+  },
+  "IL": {
+   "anchor_as_of": "2026-07-02",
+   "top_covered": [
+    "Allstate",
+    "Farmers",
+    "Liberty Mutual"
+   ],
+   "gate_pass": true,
+   "Fbar": 1.071,
+   "weight_basis": "serff_written_premium",
+   "applied_carriers": {
+    "Erie Insurance": {
+     "wavg_pct": 7.1,
+     "F": 1.071,
+     "written_premium": 182255000.0,
+     "trackings": [
+      "ERPP-134891551"
+     ],
+     "effective": [
+      "2026-08-01"
+     ],
+     "adj_base": 1.0,
+     "drift": 1.0,
+     "effective_tilt": 1.0
+    },
+    "Allstate": {
+     "wavg_pct": -0.8,
+     "F": 0.992,
+     "written_premium": null,
+     "trackings": [
+      "ALSE-134993462"
+     ],
+     "effective": [
+      "2026-07-20"
+     ],
+     "adj_base": 0.75,
+     "drift": 0.9262,
+     "effective_tilt": 0.6946
+    }
+   },
+   "held_gate_closed": {},
+   "filings_not_in_roster": [],
+   "level_drift": {
+    "stateAvg": 1862.0,
+    "Fbar": 1.071,
+    "stateAvg_drifted": 1994.0,
+    "capped": false
+   }
   },
   "LA": {
    "anchor_as_of": "2026-07-02",
@@ -56,6 +105,7 @@
   "OH": {
    "anchor_as_of": "2026-07-02",
    "top_covered": [
+    "State Farm",
     "Allstate",
     "USAA",
     "Farmers",

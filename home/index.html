@@ -856,6 +856,7 @@ const STATE_CARRIER_ADJ = {
 // re-calibrated, so the tool becomes more primary-sourced as filings accrue without double-counting.
 // Empty {} = no post-anchor filings drift that state yet (aggregator baseline stands). Do NOT hand-edit.
 const HOME_DRIFT = {
+  "IL": { "Allstate": 0.9262 },
   "PA": { "Farmers": 0.8536, "USAA": 1.0072 },
   "TX": { "Chubb": 1.024, "Liberty Mutual": 0.9932, "Nationwide": 0.9912 },
 };
@@ -875,6 +876,7 @@ const HOME_METRO_OFFSET = {
   "bak": 0.94,
   "bat": 0.88,
   "buf": 0.84,
+  "chi": 1.07,
   "cin": 0.986,
   "cle": 1.035,
   "col": 1,
@@ -895,7 +897,7 @@ const HOME_METRO_OFFSET = {
   "sjv": 1.12,
   "syr": 0.86,
 };
-const HOME_METRO_ZIP3 = {"070":"nyc","071":"nyc","072":"nyc","073":"nyc","074":"nyc","075":"nyc","076":"nyc","077":"nyc","078":"nyc","079":"nyc","080":"phl","081":"phl","082":"phl","083":"phl","100":"nyc","101":"nyc","102":"nyc","103":"nyc","104":"nyc","105":"nyc","106":"nyc","107":"nyc","108":"nyc","109":"nyc","110":"nyc","111":"nyc","112":"nyc","113":"nyc","114":"nyc","115":"nyc","116":"nyc","117":"nyc","118":"nyc","119":"nyc","120":"alb","121":"alb","122":"alb","130":"syr","131":"syr","132":"syr","140":"buf","141":"buf","142":"buf","143":"buf","144":"roc","145":"roc","146":"roc","150":"pit","151":"pit","152":"pit","153":"pit","154":"pit","155":"pit","156":"pit","180":"abe","181":"abe","190":"phl","191":"phl","192":"phl","193":"phl","194":"phl","410":"cin","411":"cin","430":"col","431":"col","432":"col","433":"col","434":"col","435":"col","436":"col","437":"col","438":"col","439":"col","440":"cle","441":"cle","442":"cle","443":"akr","444":"cle","445":"cle","450":"cin","451":"cin","452":"cin","453":"day","454":"day","455":"day","456":"cin","700":"nor","701":"nor","702":"nor","703":"nor","704":"nor","707":"bat","708":"bat","709":"bat","750":"dfw","751":"dfw","752":"dfw","753":"dfw","754":"dfw","755":"dfw","756":"dfw","757":"dfw","758":"dfw","760":"dfw","761":"dfw","762":"dfw","763":"dfw","764":"dfw","765":"dfw","770":"hou","771":"hou","772":"hou","773":"hou","774":"hou","775":"hou","776":"hou","777":"hou","778":"hou","779":"hou","780":"san","781":"san","782":"san","783":"san","784":"san","785":"aus","786":"aus","787":"aus","788":"aus","789":"aus","799":"elp","917":"riv","918":"riv","919":"sdg","920":"sdg","921":"riv","922":"sdg","923":"riv","924":"riv","928":"riv","932":"bak","933":"bak","934":"bak","935":"bak","936":"fre","937":"fre","938":"fre","939":"fre","950":"sjv","951":"sjv","952":"sjv","953":"sjv","954":"sjv","955":"sac","956":"sac","957":"sac","958":"sac","959":"sac"};
+const HOME_METRO_ZIP3 = {"070":"nyc","071":"nyc","072":"nyc","073":"nyc","074":"nyc","075":"nyc","076":"nyc","077":"nyc","078":"nyc","079":"nyc","080":"phl","081":"phl","082":"phl","083":"phl","100":"nyc","101":"nyc","102":"nyc","103":"nyc","104":"nyc","105":"nyc","106":"nyc","107":"nyc","108":"nyc","109":"nyc","110":"nyc","111":"nyc","112":"nyc","113":"nyc","114":"nyc","115":"nyc","116":"nyc","117":"nyc","118":"nyc","119":"nyc","120":"alb","121":"alb","122":"alb","130":"syr","131":"syr","132":"syr","140":"buf","141":"buf","142":"buf","143":"buf","144":"roc","145":"roc","146":"roc","150":"pit","151":"pit","152":"pit","153":"pit","154":"pit","155":"pit","156":"pit","180":"abe","181":"abe","190":"phl","191":"phl","192":"phl","193":"phl","194":"phl","410":"cin","411":"cin","430":"col","431":"col","432":"col","433":"col","434":"col","435":"col","436":"col","437":"col","438":"col","439":"col","440":"cle","441":"cle","442":"cle","443":"akr","444":"cle","445":"cle","450":"cin","451":"cin","452":"cin","453":"day","454":"day","455":"day","456":"cin","600":"chi","601":"chi","602":"chi","603":"chi","604":"chi","605":"chi","606":"chi","607":"chi","608":"chi","609":"chi","610":"chi","611":"chi","612":"chi","700":"nor","701":"nor","702":"nor","703":"nor","704":"nor","707":"bat","708":"bat","709":"bat","750":"dfw","751":"dfw","752":"dfw","753":"dfw","754":"dfw","755":"dfw","756":"dfw","757":"dfw","758":"dfw","760":"dfw","761":"dfw","762":"dfw","763":"dfw","764":"dfw","765":"dfw","770":"hou","771":"hou","772":"hou","773":"hou","774":"hou","775":"hou","776":"hou","777":"hou","778":"hou","779":"hou","780":"san","781":"san","782":"san","783":"san","784":"san","785":"aus","786":"aus","787":"aus","788":"aus","789":"aus","799":"elp","917":"riv","918":"riv","919":"sdg","920":"sdg","921":"riv","922":"sdg","923":"riv","924":"riv","928":"riv","932":"bak","933":"bak","934":"bak","935":"bak","936":"fre","937":"fre","938":"fre","939":"fre","950":"sjv","951":"sjv","952":"sjv","953":"sjv","954":"sjv","955":"sac","956":"sac","957":"sac","958":"sac","959":"sac"};
 // ── END HOME_METRO_OFFSET ──
 
 const HOME_FALLBACK = {name:"Your state",avg:1915,code:null};
@@ -1243,11 +1245,11 @@ const HOME_CARRIERS = [
   {
     // Aggregator-blind OH/PA regional. Modeled mid-market prior.
     name:"Grange", base:0.9,
-    tag:"Ohio & Pennsylvania regional",
-    bestFor:"OH/PA homeowners — agent-distributed",
+    tag:"OH/PA/IL & Midwest regional",
+    bestFor:"Midwest homeowners — agent-distributed",
     naic:0.95, csGrade:"B", stability:4,
-    restricted:true, availNote:"Ohio, Pennsylvania & Midwest · agent required",
-    states:["OH","PA"],
+    restricted:true, availNote:"OH, PA, IL & Midwest · agent required",
+    states:["OH","PA","IL"],
     links:"https://www.grangeinsurance.com",
     sens:{bundle:-0.13, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
   },
@@ -1287,11 +1289,11 @@ const HOME_CARRIERS = [
   {
     // Aggregator-blind OH regional (Van Wert). Modeled mid-market prior.
     name:"Central", base:1.05,
-    tag:"Ohio regional · agent-distributed",
-    bestFor:"Ohio & Midwest homeowners",
+    tag:"OH/IL Midwest regional · agent-distributed",
+    bestFor:"Midwest homeowners",
     naic:0.95, csGrade:"B", stability:4,
-    restricted:true, availNote:"Ohio & Midwest · agent required",
-    states:["OH"],
+    restricted:true, availNote:"Ohio, Illinois & Midwest · agent required",
+    states:["OH","IL"],
     links:"https://www.central-insurance.com",
     sens:{bundle:-0.13, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
   },
@@ -1304,6 +1306,28 @@ const HOME_CARRIERS = [
     restricted:true, availNote:"Ohio & Midwest · agent required",
     states:["OH"],
     links:"https://www.celinainsurance.com",
+    sens:{bundle:-0.12, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
+  },
+  {
+    // Aggregator-blind IL regional — a major Illinois/Midwest member mutual (Bloomington). Modeled mid prior.
+    name:"Country Financial", base:0.95,
+    tag:"Illinois & Midwest member mutual",
+    bestFor:"Illinois & Midwest members — agent service",
+    naic:0.85, csGrade:"B+", stability:4,
+    restricted:true, availNote:"Illinois & Midwest · membership/agent",
+    states:["IL"],
+    links:"https://www.countryfinancial.com",
+    sens:{bundle:-0.13, claims1:0.43, claims2:0.85, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
+  },
+  {
+    // Aggregator-blind IL mutual. Book avg ~$1,527/policy / IL avg $1,862 = 0.82.
+    name:"Madison Mutual", base:0.82,
+    tag:"Illinois mutual · value regional",
+    bestFor:"Illinois homeowners — value mutual",
+    naic:0.95, csGrade:"B", stability:4,
+    restricted:true, availNote:"Illinois & neighboring · agent required",
+    states:["IL"],
+    links:"https://www.madisonmutual.com",
     sens:{bundle:-0.12, claims1:0.44, claims2:0.86, covLow:-0.27, covHigh:0.44, dedLow:0.12, dedHigh:-0.12}
   }
 ];
