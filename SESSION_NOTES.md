@@ -1,6 +1,36 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
+## This session (2026-07-14c, Opus 4.8) — directional HOME metro offsets (sub-state granularity)
+Investigated true ZIP-level rating from filings, then built the honest achievable version.
+- **★ KEY FINDING — true ZIP rating is NOT extractable from rate-change filings.** Territorial
+  relativities ARE standard and by-peril (wind/hail/water/fire/theft/liability), and the by-peril
+  factor matrices ARE text-extractable for a subset (USAA, Selective, Chubb...). BUT the **ZIP→territory
+  MAP is not in the rate jackets** — verified 0 real ZIPs in USAA/Selective/Chubb; carriers file rate
+  changes against a SEPARATE, older territory-definition filing (often ISO-licensed). Also the factor
+  matrices are flattened multi-column PDF tables — bespoke per-carrier parse (a naive regex gave 639
+  phantom territories vs the real ~68). So: **territory FACTORS extractable, ZIP MAPS not** →
+  ZIP-level pricing deferred. (The audit's "ZIP-level" flags were 5-digit factor-fragment false positives.)
+- **Built instead: `HOME_METRO_OFFSET`** (gen_home_metro_offsets.py) — directional metro multiplier on
+  state avg, `metro = 1 + risk_position(metro) × band(state)`. **band = MODELED from home-catastrophe
+  geography, NOT scaled off filing dispersion** — because filing max/min is *change redistribution*, which
+  ≠ level *gradient* (proof: OH median dispersion 40.8 ≫ LA 3.9, backwards from reality — OH carriers
+  redistribute hard on ~0% filings; LA's coastal gradient is real but its +125% Allstate filing was
+  image-only). Dispersion used only as CORROBORATION that big spread is real. 26 metros / 6 states:
+  New Orleans 1.20 vs Baton Rouge 0.88; NYC 1.20 vs upstate 0.84; Houston 1.20 vs El Paso 0.84; OH tight
+  0.99–1.04. LA/NY/PA/OH bands dispersion-corroborated; TX/CA modeled (no max/min captured yet).
+- **Tool integration:** reused the auto tool's ZIP_PREFIX_METRO (product-agnostic) → home `lookupZip`
+  now sets `homeMetro`; `estimatePremium` applies `× metroM`. Verified: New Orleans $3,385 / Baton Rouge
+  $2,482 / rural LA $2,821 (State Farm). ZIP with no covered metro → 1.0 (state avg). qa_sweep 55x/0.
+- **▶ DEFERRED / next (owner-directed): ZIP↔territory mappings.** To unlock true ZIP rating, source the
+  ZIP→territory DEFINITION separately: (a) pull each carrier's territory-definition SERFF filing, or
+  (b) ISO/DOI territory→ZIP tables (licensing/yield TBD). Then join to the by-peril territory factors
+  (parser proven in concept) → composite offset = Σ(peril_loss_weight × territory_factor), weights from
+  the filing's BASE RATES-by-peril block. **Do the SAME territory-factor + dispersion capture for AUTO
+  as we pull auto filings** (auto jackets have the same Company Rate Information Max/Min block).
+- **Also NEXT:** home metro PAGES (SEO tier, mirror gen_metro_page for home) now that offsets exist;
+  roll By-ZIP dispersion display to AUTO trackers + /rate-filings/ roll-up.
+
 ## This session (2026-07-14b, Opus 4.8) — "By ZIP" dispersion framework (Fable idea #1) shipped
 Consulted Fable on what else to extract from filings for content. Its #1: we READ the jacket's
 Max %/Min % territory dispersion but never PERSISTED it — the single most on-thesis stat ("your
