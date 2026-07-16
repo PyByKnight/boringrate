@@ -1,5 +1,40 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-13 (Opus 4.8)_
+_Last updated: 2026-07-16 (Opus 4.8)_
+
+## ▶▶ CURRENT STATE / RESUME HERE (2026-07-16) — HOME primary-source build-out
+**Home rate-filing backfill: 8 states** — CA, TX, LA, NY, PA, OH, IL, NJ — **132 filings** in
+`serff_home_filings.json` (single source). Each state's pull: SERFF FA jackets (owner pulls full zips →
+drop in `/home/knighttyler/`; I parse the "Company Rate Information" block / filing memo). Recipe +
+triage pattern in the per-state blocks below. **Next clean home states: MI, GA, NC, TN** (FL deferred —
+painful pull). Each new state auto-cascades through the pipeline below.
+
+**Home tool subsystems built this arc (all live, all gated qa_sweep/prose):**
+- **`HOME_DRIFT`** (`apply_home_filings.py`) — primary-source price drift: post-anchor filings (anchor
+  `anchor_dates_home.json` = 2026-07-02) renormalized onto STATE_CARRIER_ADJ, WP/market-share weighted.
+  Currently drifting **TX, PA, IL, NJ** (states with post-anchor movers). Pre-anchor filings = no-op
+  (already in aggregator baseline; verified by data-as-of dates).
+- **By-ZIP dispersion** (`max_pct`/`min_pct` on filings; `gen_home_rate_tracker.py`) — "the filed
+  average is not your rate" column + callout + the `home/why-did-my-home-insurance-go-up.html` guide.
+- **`HOME_METRO_OFFSET`** (`gen_home_metro_offsets.py`) — directional sub-state offsets (band = modeled
+  catastrophe geography, dispersion corroborates; NOT scaled off it) → **28 home metro pages**
+  (`gen_home_metro_page.py`).
+- **`HOME_STABILITY_ADJ`** (`gen_home_stability.py`) — filing-derived rate-stability, peer-relative +
+  coverage-gated (fixed USAA 5→3 raising-hard vs Nationwide 4→5 flat).
+- Assets: `/rate-filings/` roll-up (253 rows), `/press/` journalist page, per-state auto+home trackers.
+
+**Cascade after any home pull** (order matters): add rows to serff_home_filings.json (+max/min) → add
+regional base entries / expand states in HOME_CARRIERS → `apply_home_filings.py --apply` →
+`gen_home_stability.py` → `gen_home_metro_offsets.py` (+band/metro if new state) → `gen_home_rate_tracker.py`
+→ `gen_home_state_pages.py` → `gen_home_filing_highlights.py` → `gen_home_metro_page.py` →
+`gen_rate_filings_rollup.py` → `gen_press_page.py` → `build_nav.py` → sitemap → `node qa_sweep.js` +
+`audit_prose.py` → commit → IndexNow. Clear scratchpad + `~/*.zip` after (disk is tight, 25G).
+
+**DEFERRED / owner-directed next:**
+- **ZIP↔territory mapping** (true ZIP-level rating): territory FACTORS extractable, but ZIP→territory
+  MAPS are NOT in rate jackets (separate/ISO filings). Watch for them while pulling (SERFF_RUNBOOK note).
+- **AUTO rollout:** same dispersion (max/min) + filing-derived stability for auto as we pull auto filings
+  (auto tool has NO stability field yet → add one first). Auto dispersion display judged low priority.
+- **Journalist play items 2 & 3:** PRESS_KIT.md + reporter response templates (item 1 /press/ shipped).
 
 ## This session (2026-07-16b, Opus 4.8) — NJ HOME backfill (8th state; regional-heavy, raising)
 Parsed 20 NJ home filings → serff_home_filings.json 112→132 (NJ 20). NJ = prior-approval,
