@@ -1,6 +1,25 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
+## This session (2026-07-16, Opus 4.8) — filing-derived RATE-STABILITY score + IL re-pull
+- **IL re-pull:** the 8 partial IL downloads came back as full zips (jacket present) → added State Farm
+  (0% — held its 1.5M-policy/$1.98B IL book FLAT while regionals hiked; +27.2% max by territory),
+  USAA +12.3%, Selective +7.8%, Pekin −2.1% (+base); Nationwide & Travelers flat. Shelter + West Bend
+  = no parseable CRI, deferred. IL 20 filings; tracker 10 raised / 3 cut; roll-up 233 rows.
+- **★ FILING-DERIVED RATE-STABILITY (owner catch):** the tool's stability score (1-5) was STATIC and
+  contradicted the filings — USAA scored 5/5 "most rate-stable" while raising home rates in **7/7 states
+  (avg +9.2%)**. Built `gen_home_stability.py` → **`HOME_STABILITY_ADJ`**: pressure(c)=mean overall_pct
+  across a carrier's filings; PEER-RELATIVE band of (pressure − peer_median); GATED on coverage (≥3
+  states) so thin carriers keep their static score; frequency guard (only lower if raised in a majority,
+  only raise if mostly held/cut) so one outlier can't swing it. Result (8 adjusted): **USAA 5→3,
+  Progressive 3→1, State Farm 3→2, Cincinnati 4→3, Selective 4→3; Nationwide 4→5, Farmers 3→4, Liberty
+  2→3.** Fixes the USAA/Nationwide inversion. Tooltip notes "Based on this carrier's recent rate filings."
+  Wired via a `carrierStab(c)` helper through all 4 read sites (render + bestRec recommendation). Labelled
+  as RECENT pressure (~1yr), not lifetime volatility. qa_sweep 578/0, prose 0 drift.
+- **▶ NOTE — do the SAME for AUTO:** the auto tool (index.html) has **no stability field at all** (0
+  `stability:` entries) — so auto needs a stability field ADDED to its roster first, then the same
+  filing-derived computation from serff_filings.json (auto). Queue when we next touch auto.
+
 ## This session (2026-07-15, Opus 4.8) — HOME METRO PAGES (new SEO tier) + territory-sourcing note
 - **26 home metro pages** (`gen_home_metro_page.py` → home/metro/<slug>.html) for the metros in our 6
   filed states — the home twin of the 95 auto metro pages, a content tier we didn't have. Each: metro
