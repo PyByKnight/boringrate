@@ -25,7 +25,7 @@ BEGIN = "// ── HOME_METRO_OFFSET (directional sub-state offset) ─ GENERATE
 END = "// ── END HOME_METRO_OFFSET ──"
 
 # Home-catastrophe half-spread per state (modeled; corroborated by captured filing dispersion for LA/NY/PA/OH).
-STATE_BAND = {"LA": 0.20, "NY": 0.20, "TX": 0.20, "CA": 0.15, "PA": 0.11, "OH": 0.07, "IL": 0.10}
+STATE_BAND = {"LA": 0.20, "NY": 0.20, "TX": 0.20, "CA": 0.15, "PA": 0.11, "OH": 0.07, "IL": 0.10, "NJ": 0.16}
 
 # Modeled home-cost position of each metro within its state (-1 low .. +1 high).
 METRO_RISK = {
@@ -39,6 +39,8 @@ METRO_RISK = {
     "cle": 0.5, "akr": 0.2, "col": 0.0, "cin": -0.2, "day": -0.2,
     # IL — Chicago metro higher (urban density, hail), downstate lower
     "chi": 0.7,
+    # NJ — shore/urban (Newark, Jersey City) higher; note NJ statewide avg is low
+    "nwj": 0.6,
     # TX — Gulf-coast Houston (hurricane) high; inland hail belt moderate; far-west low
     "hou": 1.0, "dfw": 0.2, "aus": 0.1, "san": 0.0, "elp": -0.8,
     # CA — high-value coastal/Bay high; Central Valley lower

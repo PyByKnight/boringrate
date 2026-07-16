@@ -1,6 +1,20 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-13 (Opus 4.8)_
 
+## This session (2026-07-16b, Opus 4.8) — NJ HOME backfill (8th state; regional-heavy, raising)
+Parsed 20 NJ home filings → serff_home_filings.json 112→132 (NJ 20). NJ = prior-approval,
+mutual/regional-dominated; the big nationals were QUIET (State Farm form/mobile only, USAA rule-only,
+Travelers/Cincinnati form-only). Broadly RAISING: Andover +11.3%, Hanover +9.3%, Progressive +6.6%,
+FMI/Franklin Mutual +6.5%, Chubb +6.1%, NJM +4.8% (dominant NJ writer), Mercury/Selective/Norfolk&Dedham/
+Providence +5.0%, Narragansett Bay +3.5%, Cumberland +2.4%, Farmers +2.0%; **Palisades −8.0%** (cut).
+Flat: Liberty +0.6% (130,883 PH), CSAA +0.6%, Harleysville −0.2%, Plymouth Rock 0%, Hartford 0%.
+Amica (installment-fee filing) + US Coastal (no rate effect) skipped.
+- Farmers +2.0% (eff 7/11/26) post-anchor → drifts NJ. **8 new NJ regional bases** (Plymouth Rock,
+  Andover, Franklin Mutual, Cumberland, Narragansett Bay 1.5, Norfolk&Dedham 1.4, Providence, Palisades
+  1.4 — coastal writers higher; NJ avg is low $1,033). Selective expanded to NJ+IL (IL add had been
+  missed). Newark/Jersey City metro page (code nwj, band 0.16 → $1,132). tracker 16 raised / 1 cut;
+  roll-up 233→253 rows, 13 states, 73 carriers; stability recomputed (peer median +2.8%). qa 580/0.
+
 ## This session (2026-07-16, Opus 4.8) — filing-derived RATE-STABILITY score + IL re-pull
 - **IL re-pull:** the 8 partial IL downloads came back as full zips (jacket present) → added State Farm
   (0% — held its 1.5M-policy/$1.98B IL book FLAT while regionals hiked; +27.2% max by territory),
