@@ -54,7 +54,7 @@ about_body = """
 
       <h2><span class="num">§ 02</span>How we're funded — and how we're not</h2>
 
-      <p>BoringRate is self-funded and independent. No insurer, agency, or lead buyer pays for placement, and no carrier can buy its way up a ranking. When our rate-change tracker says a carrier cut rates, it says so because that carrier filed the cut with a state regulator — not because the carrier is a partner, because it isn't.</p>
+      <p>BoringRate is independent. No insurer, agency, or lead buyer pays for placement, and no carrier can buy its way up a ranking. When our rate-change tracker says a carrier cut rates, it says so because that carrier filed the cut with a state regulator — not because the carrier is a partner, because it isn't.</p>
 
       <p><strong>We don't sell your information because we never collect it.</strong> There is no email capture on this site. The economics work the way editorial research has always worked: we publish something worth reading, and we don't owe an answer to anyone whose rate we just called expensive.</p>
 
@@ -189,12 +189,12 @@ ed_jsonld = """<script type="application/ld+json">
 pages = [
     dict(path="about.html",
          title="About BoringRate",
-         desc="Who's behind BoringRate: an independent, self-funded insurance-rate research project built from carriers' own approved rate filings. No lead sales, no email capture, no carrier commissions.",
+         desc="Who's behind BoringRate: an independent insurance-rate research project built from carriers' own approved rate filings. No lead sales, no email capture, no carrier commissions.",
          slug="about.html",
          kicker="§ About · Who's behind BoringRate",
          h1_html="Independent rate research. <em>Boring on purpose.</em>",
-         deck="A self-funded research project that tracks what insurers actually charge — and who's raising and cutting rates — from the carriers' own filings. No lead sales, no email capture, no carrier commissions.",
-         meta_line="Last updated · July 2026 &nbsp;·&nbsp; Independent &amp; self-funded &nbsp;·&nbsp; Public data only",
+         deck="An independent research project that tracks what insurers actually charge — and who's raising and cutting rates — from the carriers' own filings. No lead sales, no email capture, no carrier commissions.",
+         meta_line="Last updated · July 2026 &nbsp;·&nbsp; Independent · no lead sales &nbsp;·&nbsp; Public data only",
          body=about_body, jsonld=about_jsonld),
     dict(path="editorial-standards.html",
          title="Editorial Standards & Corrections Policy — BoringRate",
