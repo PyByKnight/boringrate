@@ -40,8 +40,17 @@ regional base entries / expand states in HOME_CARRIERS → `apply_home_filings.p
 Owner asked to run E-E-A-T / credibility up through Fable (the "where do we cite primary sources?"
 question), then work autonomously ~1hr making SAFE improvements while FLAGGING (a) any new SERFF
 strategy and (b) mass primary-source-link insertion across rate-change pages/articles.
-- **SHIPPED (branch `eeat-trust-pages`, NOT main — outward-facing identity copy, owner should eyeball
-  before deploy):** `/about.html` (who's behind BoringRate, independence/funding, sourcing, corrections)
+- **DEPLOYED TO MAIN/LIVE (2026-07-16c, owner approved "add all" + "see it published"):** merged
+  `eeat-trust-pages` → main, pushed (GitHub Pages). Live: `/about.html` (founder bio = 10-yr insurance
+  & lead-gen insider + mission "we do the boring part so you don't have to"), `/editorial-standards.html`,
+  footer "Editorial standards" retargeted (442 pages), **Layer 1** (rate-filings row anchors via
+  `filing_cite.py`, 253 rows) + **Layer 2** (home rate-change trackers cite SERFF # inline, deep-linking
+  the ledger row — 92 citations / 8 states). qa 582/0, prose 0 drift.
+- **STILL TODO (next rollout, pattern now proven live):** Layer 2 on the AUTO tracker (needs join of
+  curated rate_changes.json → serff_filings.json for the SERFF #) + metro pages; Layer 3 guide citations
+  (coverage_sources.draft.json → verify URLs, then inject on top-GSC guides); the named byline (owner
+  to supply real name + profile links for Person/Organization sameAs). AI-disclosure line still owner's call.
+- _(orig shipped-on-branch note:)_ `/about.html` (who's behind BoringRate, independence/funding, sourcing, corrections)
   + `/editorial-standards.html` (sourcing hierarchy, independence, estimates-not-quotes, dated
   corrections policy + empty log, privacy). Both via **`gen_trust_pages.py`** (clones methodology
   shell), AboutPage/WebPage/Organization JSON-LD (validated). Filled the two dead-alias gaps (footer
