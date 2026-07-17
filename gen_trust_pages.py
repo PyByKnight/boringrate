@@ -70,12 +70,18 @@ about_body = """
 
       <h2><span class="num">§ 05</span>Who's behind it</h2>
 
-      <p>BoringRate is a small, owner-operated project. The work that makes it credible is unglamorous and specific: reading and parsing hundreds of approved rate filings — the "Company Rate Information" blocks, the overall percentage impacts, the by-territory dispersion — and turning them into something a non-actuary can act on. That first-hand familiarity with the primary documents is the expertise the site is built on.</p>
+      <p>BoringRate is run by someone who spent <strong>ten years working inside the insurance industry — for both carriers and the "click" lead-aggregator sites</strong> that fill the search results when you go looking for a better rate. That's the background the whole site is built on: first-hand knowledge of how rates are set, how filings work, and exactly how the lead-generation machine turns a shopper into a product that gets sold to several buyers at once.</p>
 
-      <!-- OWNER-FILL (recommended for E-E-A-T Experience/Expertise): replace this comment with a
-           named byline + 1-paragraph bio of the real person who runs BoringRate, and add real
-           profile links (LinkedIn / GitHub / X) to the Organization + Person JSON-LD sameAs below.
-           Do NOT invent a name. Ship only your real identity, or leave org-level as-is. -->
+      <p>BoringRate is the deliberate opposite of that machine. Having seen how the aggregators operate from the inside, the aim here is simple — give the shopper the honest version (who's cheapest, who's raising rates, backed by the carriers' own filings) and point them straight at the carrier instead of into a funnel.</p>
+
+      <div class="callout">
+        <strong>The mission:</strong> help you find the best coverage at the best price, get you there faster, and leave you better informed than the ad you clicked. We do the boring part — reading the rate filings — so you don't have to.
+      </div>
+
+      <!-- OWNER-FILL (optional, strongest E-E-A-T signal): add your real NAME as a byline and real
+           profile links (LinkedIn / X) to the Person + Organization sameAs in the JSON-LD. The
+           10-year experience is stated above; attaching a name to it is the maximal Experience/
+           Expertise signal. Left nameless deliberately — never invent one. -->
 
       <p>We're deliberately not licensed agents and don't sell insurance — that independence is the point, not a gap. When you're ready to actually buy, you'll talk to a carrier or an agent; our job ends at telling you which two or three are worth the call.</p>
 
@@ -193,8 +199,8 @@ pages = [
          slug="about.html",
          kicker="§ About · Who's behind BoringRate",
          h1_html="Independent rate research. <em>Boring on purpose.</em>",
-         deck="An independent research project that tracks what insurers actually charge — and who's raising and cutting rates — from the carriers' own filings. No lead sales, no email capture, no carrier commissions.",
-         meta_line="Last updated · July 2026 &nbsp;·&nbsp; Independent · no lead sales &nbsp;·&nbsp; Public data only",
+         deck="An independent research project that tracks what insurers actually charge — and who's raising and cutting rates — from the carriers' own filings. Built by a 10-year insurance &amp; lead-gen insider. We do the boring part so you don't have to.",
+         meta_line="Last updated · July 2026 &nbsp;·&nbsp; By a 10-year insurance &amp; lead-gen insider &nbsp;·&nbsp; Public data only",
          body=about_body, jsonld=about_jsonld),
     dict(path="editorial-standards.html",
          title="Editorial Standards & Corrections Policy — BoringRate",
