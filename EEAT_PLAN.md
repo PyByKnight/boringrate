@@ -46,7 +46,7 @@ This is the big one and the reason credibility currently sits on `/press/` + `/r
   `Source: SERFF <tracking#>, approved <Mon YYYY> · via rate-filings (internal anchor) · DOI portal (external)`.
 - Two links per citation: internal anchor (Layer 1) for site structure + external `.gov`/portal for verifiability.
 - **Why:** one template edit → applied to every state tracker + metro page at once. Patch-safe by construction (regenerate, never hand-edit). Dated tracking numbers next to figures = what makes a page quotable by AI answer engines, which for a sandboxed domain likely delivers referrals before Google does.
-- Risk: LOW-MED — generator edits; must confirm each data row actually carries a tracking # + portal URL (see §4 — some don't).
+- Risk: LOW-MED — generator edits only. Data confirmed ready: 100% of rows carry tracking # + url + effective date (see §4).
 
 ### Layer 3 — Evergreen guides: cite forms/statute/DOI, NOT filings
 - **Do NOT** cite rate filings on coverage guides ("does homeowners cover mold") — that's overclaiming.
@@ -65,19 +65,37 @@ This is the big one and the reason credibility currently sits on `/press/` + `/r
 ---
 
 ## 4) Data-capture notes — what to add for better SOURCE DOCS
-_(so Layers 1–2 can be generated cleanly — this is where new SERFF-pull discipline pays off)_
+_(Verified against the actual JSON this session — the news is good.)_
 
-Per-filing fields we need present in `serff_filings.json` / `serff_home_filings.json` for citation generation:
-- **`tracking`** (SERFF tracking #) — HAVE for SERFF-jacket states (NY/PA/OH/IL/NJ/GA/SC/TN home + auto). **MISSING** where the source was open-data: **TX** (data.texas.gov, has `serff_id` — usable) and **CA** (CDI Excel, carries SERFF # — usable). Backfill the SERFF id into the row where the open-data record has it.
-- **`source_url`** (deep link to the primary doc) — currently we cite the *portal*, not the *filing*. SERFF FilingAccess is session-bound (no deep links) → best stable external link is the state DOI record or the data-portal row (TX Socrata row URL, CA has none). **Decision needed:** for SERFF-only states, external link = SERFF FilingAccess home + tracking # as the locator (honest; that's how anyone re-finds it). Document this convention on `/methodology.html`.
-- **`effective_date`** — HAVE (needed for "approved <Mon YYYY>").
-- **stable anchor id** — DERIVED at generation (Layer 1), no new capture needed.
+**GOOD NEWS: Layers 1–2 have NO data-capture blocker.** I audited `serff_filings.json`
+(121 rows) and `serff_home_filings.json` (132 rows). Every citation-critical field is
+present on **100% of rows**:
+- **`tracking`** (SERFF #, e.g. `ALSE-134923648`) — 121/121 auto, 132/132 home. (My earlier
+  assumption that TX/CA lacked tracking numbers was WRONG — they have them.)
+- **`url`** — 100%. Hosts: SERFF FilingAccess (91 auto / 103 home, stored as **deep links**
+  `filingSummary.xhtml?filingId=…`), data.texas.gov (18/18), FL IRFS (8), CA insurance.ca.gov
+  (4/11, portal-home not deep).
+- **`effective_new`** + **`effective_renewal`** — 100% (gives "effective <Mon YYYY>").
+- Also present and citable: `overall_pct`, `indicated_pct`, `written_premium`, `affected`
+  (policyholders), `disposition_date`, `max_pct`/`min_pct` (home dispersion, 85/132).
+- **stable anchor id** — DERIVED at generation (Layer 1), no capture needed.
 
-New reference dataset to build for Layer 3 (small, one-time):
-- **`coverage_sources.json`** — map each evergreen guide topic → its honest primary source (ISO form section, DOI consumer-guide URL, statute cite). ~15 guide topics. This is what lets Layer 3 be consistent instead of ad-hoc. Candidate for a `gen_`-driven citation block.
-- **State DOI consumer-bulletin URL library** — as we pull each state's filings, grab the DOI's consumer-guide URLs too (the SERFF_RUNBOOK "while pulling, look for…" note already primes this).
+**The one real convention to settle (small):** SERFF FilingAccess deep links may be
+session-bound and not resolve for an outside visitor; CA links are portal-home. So the
+honest external citation = **the SERFF tracking # as the durable locator** ("SERFF
+#ALSE-134923648") shown next to the portal link, not a promise that the link deep-resolves.
+Document this one line on `/methodology.html`. No re-pulling required.
 
-**If pursued, these two items ARE a new SERFF/data-capture strategy → your flagged category.** Nothing here changes the existing pull recipe; it *adds* fields to capture opportunistically on the next pull.
+**Only genuinely-new data item (for Layer 3, NOT SERFF):**
+- **`coverage_sources.json`** — map each evergreen guide topic → its honest primary source
+  (ISO form section like HO 00 03 / PP 00 01, DOI consumer-guide URL, statute cite). ~15
+  topics. One-time, lets Layer 3 be consistent instead of ad-hoc. Unrelated to the SERFF pull.
+- Optional: **State DOI consumer-bulletin URL library**, grabbed opportunistically while
+  pulling each state (the SERFF_RUNBOOK "while pulling, look for…" note already primes this).
+
+**Bottom line:** the citation system is a *generator/templating* job, not a data job. The
+filings backbone is already citation-ready. This removes what I'd flagged as a possible
+"new SERFF strategy" dependency — there isn't one for Layers 1–2.
 
 ---
 
@@ -86,4 +104,4 @@ New reference dataset to build for Layer 3 (small, one-time):
 2. **AI-disclosure** line in editorial standards (2B)? Yes / no.
 3. Approve the **footer retarget** (2C)? (2-href scoped sed.)
 4. Green-light the **citation system** (§3) and in what order/scope — especially Layer 3's article list?
-5. Start capturing **`tracking` + source-url convention** on the next pull (§4)?
+5. OK to document the **SERFF-tracking-# citation convention** on methodology (§4)? (No re-pull needed — data is already citation-ready.)

@@ -28,3 +28,12 @@ insertion of primary-source links across rate-change pages / articles._
 ## Progress log
 - [t0] Captured ground truth; created this log; Fable 529'd twice → launched as background retry.
 - [t1] Verified build_nav + footer architecture. Building 2 additive trust pages: /about.html + /editorial-standards.html via a gen_trust_pages.py (clones methodology shell). Then wire into nav partial + build_nav + sitemap. Writing NOTES docs in parallel.
+- [t2] Fable returned (background retry): 3-layer citation pattern + named-founder About + ROI ranking. Captured in EEAT_PLAN.md.
+- [t3] Built /about.html + /editorial-standards.html (gen_trust_pages.py); wired into nav (build_nav stamped 580 pages); added to sitemap. Gates: qa_sweep 582/0 JS, prose 0 drift. Committed on branch `eeat-trust-pages` (NOT main — outward-facing identity copy needs owner eyeball before deploy).
+- [t4] Honesty pass: dropped unverifiable "self-funded" → "independent" (kept only footer/methodology-supported claims). JSON-LD validated (AboutPage + WebPage well-formed). Committed.
+- [t5] DATA-READINESS AUDIT (correction to my own plan): serff_filings.json (121) + serff_home_filings.json (132) BOTH carry tracking# + url + effective dates on 100% of rows (SERFF rows are deep links; CA is portal-home). → Layers 1–2 have ZERO new-SERFF-capture dependency; citation system is a pure generator job. Corrected EEAT_PLAN §4.
+
+## RESULT / STATE FOR OWNER
+- SHIPPED (branch `eeat-trust-pages`, 3 commits): About + Editorial-standards pages, nav+sitemap, honesty reword. Reversible; not deployed.
+- FLAGGED (awaiting owner, written up in EEAT_PLAN.md): (A) named-founder byline + real sameAs; (B) AI-disclosure line; (C) footer 2-link retarget (581 pages); (D) the 3-layer citation system — buildable now, data is ready.
+- Did NOT execute any primary-source-link insertion or new SERFF strategy (per owner's hold).
