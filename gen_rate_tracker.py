@@ -19,6 +19,33 @@ MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 _RANKF = ROOT / "state_rankings.json"
 RANKINGS = json.loads(_RANKF.read_text()) if _RANKF.exists() else {}
 
+# ── Primary-source join: match a curated tracker change to its SERFF filing ──────────
+# The tracker's headline % is premium-weighted; we only attach a SERFF # when a single
+# filing matches closely (signed pct within 1.5), so the cited number agrees with the
+# displayed headline (tool↔filing consistency). Otherwise we keep the existing source.
+from filing_cite import anchor
+_SERFF_AUTO = json.loads((ROOT / "serff_filings.json").read_text())["filings"]
+
+
+def _norm_carrier(s):
+    return re.sub(r"[^a-z0-9]", "", (s or "").lower())
+
+
+_SERFF_IDX = {}
+for _r in _SERFF_AUTO:
+    _SERFF_IDX.setdefault((_r.get("state"), _norm_carrier(_r.get("carrier"))), []).append(_r)
+
+
+def serff_match(c):
+    """Return the single SERFF filing that closely matches a tracker change, else None."""
+    sc = c["pct"] * (1 if c["dir"] == "increase" else -1)
+    cands = [r for r in _SERFF_IDX.get((c.get("state"), _norm_carrier(c.get("carrier"))), [])
+             if r.get("overall_pct") is not None]
+    best = min(cands, key=lambda r: abs(r["overall_pct"] - sc), default=None)
+    if best is not None and abs(best["overall_pct"] - sc) <= 1.5 and best.get("tracking"):
+        return best
+    return None
+
 
 def ranking_block(code, name):
     """Embed the 'cheapest carriers' ranking + a ZIP entry box on a tracker page."""
@@ -120,7 +147,12 @@ def rows_table(changes):
     body = []
     for c in sorted(changes, key=lambda x: x["effective"]):
         aff = f'{c["affected"]:,}' if c.get("affected") else "—"
-        src = f'<a class="ca-link" href="{c["url"]}" target="_blank" rel="noopener nofollow">{esc(c["source"])}</a>'
+        m = serff_match(c)
+        if m:
+            src = (f'<a class="ca-link" href="/rate-filings/#{anchor(m)}" title="See this filing in the rate-filings ledger">SERFF #{esc(m["tracking"])}</a> '
+                   f'<a class="ca-link" href="{m["url"]}" target="_blank" rel="noopener nofollow" title="Open at the regulator portal" aria-label="Open filing at regulator portal">&#8599;</a>')
+        else:
+            src = f'<a class="ca-link" href="{c["url"]}" target="_blank" rel="noopener nofollow">{esc(c["source"])}</a>'
         body.append(
             f'<tr style="border-bottom:1px solid var(--rule);"><td style="padding:9px 8px;"><strong>{esc(c["carrier"])}</strong></td>'
             f'<td>{signed(c)}</td><td>{fdate(c["effective"])}</td><td>{aff}</td><td style="font-size:13px;">{src}</td></tr>')
