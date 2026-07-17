@@ -6,6 +6,7 @@ row linked to its primary source (SERFF tracking # + the DOI portal/dataset). Ro
 are server-rendered (crawlable + citable); vanilla JS adds sort/filter. Draws from
 serff_filings.json (auto) + serff_home_filings.json (home). Output: rate-filings/index.html."""
 import json, re, pathlib
+from filing_cite import anchor
 from datetime import date
 from gen_metro_page import STATE, esc
 
@@ -109,7 +110,7 @@ def build():
         share_cell = (f'{d["share"]:g}%' if d["share"] is not None else '<span class="rf-na">—</span>')
         # data-eff: ISO for chronological sort; data-share: -1 sinks unknowns to the bottom
         trs.append(
-            f'<tr class="rf-row" data-product="{d["product"]}" data-state="{d["state"]}" data-dir="{cls}" '
+            f'<tr id="{anchor(d)}" class="rf-row" data-product="{d["product"]}" data-state="{d["state"]}" data-dir="{cls}" '
             f'data-pct="{d["pct"]}" data-eff="{esc(d["eff"])}" data-share="{d["share"] if d["share"] is not None else -1}" '
             f'data-carrier="{esc(d["carrier"].lower())}">'
             f'<td>{esc(STATE[d["state"]][0])}</td><td>{d["product"]}</td><td>{car}</td>'
