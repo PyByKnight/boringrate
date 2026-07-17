@@ -46,8 +46,11 @@ strategy and (b) mass primary-source-link insertion across rate-change pages/art
   footer "Editorial standards" retargeted (442 pages), **Layer 1** (rate-filings row anchors via
   `filing_cite.py`, 253 rows) + **Layer 2** (home rate-change trackers cite SERFF # inline, deep-linking
   the ledger row — 92 citations / 8 states). qa 582/0, prose 0 drift.
-- **STILL TODO (next rollout, pattern now proven live):** Layer 2 on the AUTO tracker (needs join of
-  curated rate_changes.json → serff_filings.json for the SERFF #) + metro pages; Layer 3 guide citations
+- **AUTO TRACKER Layer 2 DONE + LIVE (2026-07-16c):** `gen_rate_tracker.py` now joins rate_changes.json
+  → serff_filings.json (signed-pct match ≤1.5pt via `serff_match()`) and cites SERFF # inline (42
+  citations, CA/GA/NY/SC/TN/TX); NV/LA/FL kept press-sourced (no matching ledger filing — no fabricated
+  #). Deep-links resolve to ledger anchors.
+- **STILL TODO (next rollout):** metro pages (auto+home) citations; Layer 3 guide citations
   (coverage_sources.draft.json → verify URLs, then inject on top-GSC guides); the named byline (owner
   to supply real name + profile links for Person/Organization sameAs). AI-disclosure line still owner's call.
 - _(orig shipped-on-branch note:)_ `/about.html` (who's behind BoringRate, independence/funding, sourcing, corrections)
