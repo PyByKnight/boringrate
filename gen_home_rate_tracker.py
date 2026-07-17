@@ -8,6 +8,7 @@ Page skeleton reuses the gen_home_faq.py scaffold (home/state/florida.html)."""
 import json, re, pathlib
 from datetime import date
 from gen_metro_page import STATE, esc, _json
+from filing_cite import anchor
 
 ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / "serff_home_filings.json"
@@ -80,7 +81,14 @@ def rows_table(changes):
             f'<th style="padding:9px 8px;">Carrier</th><th>Filed avg</th>{rng_th}<th>Effective</th><th>Source</th></tr></thead><tbody>')
     body = []
     for c in sorted(changes, key=lambda x: (x.get("effective_new") or "", -abs(x["overall_pct"]))):
-        src = f'<a class="ca-link" href="{c["url"]}" target="_blank" rel="noopener nofollow">{esc(c["source_note"].split(";")[0])}</a>'
+        # Layer-2 primary-source citation: SERFF tracking # as the durable locator, linked to the
+        # matching row in the /rate-filings/ ledger (internal), plus the regulator portal (external).
+        trk = c.get("tracking") or ""
+        if trk:
+            src = (f'<a class="ca-link" href="/rate-filings/#{anchor(c)}" title="See this filing in the rate-filings ledger">SERFF #{esc(trk)}</a> '
+                   f'<a class="ca-link" href="{c["url"]}" target="_blank" rel="noopener nofollow" title="Open at the regulator portal" aria-label="Open filing at regulator portal">&#8599;</a>')
+        else:
+            src = f'<a class="ca-link" href="{c["url"]}" target="_blank" rel="noopener nofollow">{esc(c["source_note"].split(";")[0])}</a>'
         rng_td = f'<td>{range_cell(c)}</td>' if has_range else ""
         ind = c.get("indicated_pct")
         ind_note = ""

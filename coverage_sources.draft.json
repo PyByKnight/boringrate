@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "purpose": "Layer-3 of the citation system: maps each evergreen coverage guide to its HONEST primary source. Coverage-scope claims must NOT cite rate filings (overclaim) — they cite standard policy-form language, DOI consumer guidance, or statute. See EEAT_PLAN.md §3 Layer 3.",
+    "status": "DRAFT — Opus 4.8, 2026-07-16. Category-level sources are reliable; NO URLs or exact ISO form-edition dates were fabricated. Before shipping: (1) fill `doi_or_consumer_url` with a real, specific .gov/NAIC/III page per topic, (2) confirm the form reference wording, (3) owner approves the inline-citation copy per guide.",
+    "citation_convention": "Inline at the claim, muted. Pattern: 'Under the standard ISO HO-3 homeowners form, <claim> — your carrier's form may differ.' The 'may differ' caveat is itself a trust signal. For statutory claims, cite the state statute/DOI bulletin, not a form.",
+    "standard_forms": {
+      "home": "ISO HO-3 (form number HO 00 03) — the special-form homeowners policy most owner-occupied policies build on (open-peril dwelling, named-peril contents).",
+      "renters": "ISO HO-4 (form number HO 00 04) — the contents/liability renters form.",
+      "auto": "ISO Personal Auto Policy (form number PP 00 01)."
+    }
+  },
+  "home": [
+    {"page": "home/does-homeowners-insurance-cover-water-damage.html", "topic": "water damage / leaks",
+     "form_ref": "ISO HO-3 — covered: sudden & accidental discharge/overflow from plumbing/appliances; excluded: gradual seepage/leakage over weeks/months, and flood (separate NFIP/private policy).",
+     "secondary": ["NAIC consumer guidance on water vs. flood", "FEMA/NFIP for the flood boundary"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "home/does-homeowners-insurance-cover-flood-damage.html", "topic": "flood",
+     "form_ref": "ISO HO-3 — flood is EXCLUDED; coverage requires NFIP or private flood policy.",
+     "secondary": ["FEMA/NFIP (floodsmart.gov)", "state DOI flood consumer guide"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "home/does-homeowners-insurance-cover-mold.html", "topic": "mold",
+     "form_ref": "ISO HO-3 — mold generally excluded UNLESS resulting from a covered water loss; policies commonly cap mold remediation (a sub-limit) and many require a specific endorsement to raise it.",
+     "secondary": ["state DOI mold bulletin (several states publish one)", "NAIC"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "home/does-homeowners-insurance-cover-roof-damage.html", "topic": "roof",
+     "form_ref": "ISO HO-3 — roof damage covered when caused by a covered peril (wind/hail); wear-and-tear/age excluded. Watch for ACV-roof / cosmetic wind-hail endorsements that reduce payout.",
+     "secondary": ["state DOI roof/ACV bulletin", "III"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "home/does-homeowners-insurance-cover-tree-damage.html", "topic": "fallen trees",
+     "form_ref": "ISO HO-3 — a tree that falls and strikes a covered structure from a covered peril is covered; debris-removal is capped (commonly ~$500-$1,000); a tree that falls without hitting a structure is usually not covered.",
+     "secondary": ["III", "state DOI"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "home/does-homeowners-insurance-cover-foundation.html", "topic": "foundation",
+     "form_ref": "ISO HO-3 — settling, cracking, and earth movement are EXCLUDED; foundation damage is covered only when it results from a covered peril (e.g., a sudden plumbing discharge). Earthquake needs a separate policy/endorsement.",
+     "secondary": ["state DOI earthquake/earth-movement guidance"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "home/does-homeowners-insurance-cover-storm-damage.html", "topic": "wind / hail / storm",
+     "form_ref": "ISO HO-3 — wind and hail are covered perils; coastal policies frequently carry a separate percentage hurricane/wind deductible, and some coastal areas exclude wind (covered via a state wind pool/FAIR plan).",
+     "secondary": ["state DOI hurricane-deductible bulletin", "state wind pool / FAIR plan"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "home/does-homeowners-insurance-cover-sewer-backup.html", "topic": "sewer backup",
+     "form_ref": "ISO HO-3 — water/sewer backup is EXCLUDED by default; covered only if a water-backup / sump-overflow endorsement is added (typically a modest sub-limit).",
+     "secondary": ["state DOI sewer-backup consumer note", "NAIC"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "home/does-homeowners-insurance-cover-dog-bites.html", "topic": "dog bites",
+     "form_ref": "ISO HO-3 Section II (personal liability) — dog-bite injury to others is generally covered, subject to breed exclusions and prior-bite exclusions that many carriers apply.",
+     "secondary": ["III dog-bite liability data", "state statute on strict liability / one-bite rule"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "home/is-homeowners-insurance-required.html", "topic": "is it required",
+     "form_ref": "NOT required by law; required contractually by mortgage lenders. Statutory/lender basis, not a policy-form claim.",
+     "secondary": ["CFPB on lender-required insurance", "state statute"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "home/what-does-homeowners-insurance-cover.html", "topic": "what it covers (overview)",
+     "form_ref": "ISO HO-3 — Section I (dwelling/other structures/contents/loss-of-use) + Section II (liability/med-pay); open-peril dwelling, named-peril contents.",
+     "secondary": ["NAIC homeowners buyer guide", "III"], "doi_or_consumer_url": "TODO", "confidence": "high"}
+  ],
+  "renters": [
+    {"page": "renters/does-renters-insurance-cover-theft.html", "topic": "theft / burglary",
+     "form_ref": "ISO HO-4 — personal-property theft is a covered named peril, on- and (subject to sub-limits) off-premises.",
+     "secondary": ["III renters guidance", "state DOI"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "renters/does-renters-insurance-cover-theft-from-car.html", "topic": "theft from a car",
+     "form_ref": "ISO HO-4 — personal property stolen FROM a vehicle is covered under the renters policy (off-premises contents), NOT under auto; the car itself and permanently-installed parts fall to auto comprehensive.",
+     "secondary": ["III (renters vs. auto split)", "state DOI"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "renters/does-renters-insurance-cover-water-damage.html", "topic": "water damage",
+     "form_ref": "ISO HO-4 — sudden/accidental water discharge to personal property covered; flood excluded (contents flood via NFIP).",
+     "secondary": ["FEMA/NFIP contents coverage", "state DOI"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "renters/is-renters-insurance-required.html", "topic": "is it required",
+     "form_ref": "NOT required by law; commonly required by the LEASE/landlord. Contractual, not statutory.",
+     "secondary": ["state landlord-tenant statute", "CFPB"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "renters/what-does-renters-insurance-cover.html", "topic": "what it covers (overview)",
+     "form_ref": "ISO HO-4 — personal property (named perils), personal liability, loss-of-use/additional living expense; does NOT cover the building structure.",
+     "secondary": ["NAIC renters buyer guide", "III"], "doi_or_consumer_url": "TODO", "confidence": "high"}
+  ],
+  "auto": [
+    {"page": "article/does-car-insurance-cover.html", "topic": "what auto covers (overview)",
+     "form_ref": "ISO PP 00 01 — liability (BI/PD), medical payments/PIP, uninsured/underinsured motorist, and physical damage (collision + comprehensive/other-than-collision).",
+     "secondary": ["state DOI auto buyer guide", "III"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+    {"page": "article/does-car-insurance-follow-the-car-or-driver.html", "topic": "follows car or driver",
+     "form_ref": "ISO PP 00 01 — coverage generally follows the CAR (permissive-use), with some coverages following the named insured; permissive-use and exclusions are the nuance.",
+     "secondary": ["state DOI permissive-use bulletin"], "doi_or_consumer_url": "TODO", "confidence": "medium — verify state-by-state nuance before citing as absolute"}
+  ]
+}

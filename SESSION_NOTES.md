@@ -36,6 +36,33 @@ regional base entries / expand states in HOME_CARRIERS → `apply_home_filings.p
   (auto tool has NO stability field yet → add one first). Auto dispersion display judged low priority.
 - **Journalist play items 2 & 3:** PRESS_KIT.md + reporter response templates (item 1 /press/ shipped).
 
+## This session (2026-07-16c, Opus 4.8) — E-E-A-T trust surfaces + citation plan (Fable consult)
+Owner asked to run E-E-A-T / credibility up through Fable (the "where do we cite primary sources?"
+question), then work autonomously ~1hr making SAFE improvements while FLAGGING (a) any new SERFF
+strategy and (b) mass primary-source-link insertion across rate-change pages/articles.
+- **SHIPPED (branch `eeat-trust-pages`, NOT main — outward-facing identity copy, owner should eyeball
+  before deploy):** `/about.html` (who's behind BoringRate, independence/funding, sourcing, corrections)
+  + `/editorial-standards.html` (sourcing hierarchy, independence, estimates-not-quotes, dated
+  corrections policy + empty log, privacy). Both via **`gen_trust_pages.py`** (clones methodology
+  shell), AboutPage/WebPage/Organization JSON-LD (validated). Filled the two dead-alias gaps (footer
+  "About"/"Editorial standards" both pointed to methodology.html). Wired into single-source nav
+  (build_nav stamped 580 pages) + sitemap. qa_sweep 582/0 JS, prose 0 drift. Named-founder byline left
+  as an OWNER-FILL slot — did NOT invent a persona.
+- **FABLE VERDICT — 3-layer citation pattern** (full writeup in **`EEAT_PLAN.md`**): (1) `/rate-filings/`
+  = citation ledger, give every row a permalink anchor; (2) data pages (trackers/metros) cite inline at
+  the number via GENERATORS (one template edit → all pages, patch-safe); (3) evergreen guides do NOT
+  cite filings (overclaim) → cite ISO forms (HO 00 03 / PP 00 01), DOI bulletins, statute. Core insight:
+  credibility currently lives on /press/ + /rate-filings/ where nobody lands; traffic lands on
+  guides/trackers where credibility is thin — Layers 1–2 fix that inversion mechanically.
+- **DATA-READINESS AUDIT (good news):** serff_filings.json (121) + serff_home_filings.json (132) carry
+  `tracking` + `url` + `effective_new` on **100% of rows** (SERFF = deep links; CA = portal-home). →
+  the citation system is a pure GENERATOR job with **no new SERFF capture needed**. Only genuinely-new
+  data item = a small `coverage_sources.json` (ISO/DOI refs) for Layer 3.
+- **▶ AWAITING OWNER (all in EEAT_PLAN.md §2/§5):** (A) ship real named-founder byline + real sameAs
+  (strongly recommended — cheapest E-E-A-T win); (B) AI-disclosure line y/n; (C) approve footer 2-link
+  retarget (581-page scoped sed); (D) green-light the 3-layer citation system + Layer-3 article scope.
+  Merge/deploy the `eeat-trust-pages` branch after reviewing the About copy.
+
 ## This session (2026-07-16b, Opus 4.8) — NJ HOME backfill (8th state; regional-heavy, raising)
 Parsed 20 NJ home filings → serff_home_filings.json 112→132 (NJ 20). NJ = prior-approval,
 mutual/regional-dominated; the big nationals were QUIET (State Farm form/mobile only, USAA rule-only,
