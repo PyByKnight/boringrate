@@ -1,5 +1,41 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-16 (Opus 4.8)_
+_Last updated: 2026-07-18 (Opus 4.8)_
+
+## This session (2026-07-18b, Opus 4.8) — About de-monetized + Layer-2 metro citations + Layer-3 top-5 guides
+Owner feedback: the /about.html editorial harped on monetization. Then: push it, do metro citations + Layer 3.
+- **ABOUT DE-MONETIZED** (`gen_trust_pages.py` = source of truth; regenerated about.html): killed the run-on.
+  Dropped the whole `§02 "How we're funded — and how we're not"` block (redundant with the callout + §04
+  Editorial independence) → renumbered §03→02 … §06→05. Callout trimmed to one line ("no form routes your
+  details to buyers … you can't buy your way up, best rates come first"), dropped "keep the lights on" +
+  the double phone/email. §01 kept the lead-funnel contrast (sharpened "call and email you for weeks"). NO
+  "we may monetize someday / paid agent placement" copy anymore. Mirrored page↔generator. Meta descriptions
+  left as-is (concise SEO). **If editing about copy again, edit `gen_trust_pages.py` then run it — hand edits
+  to about.html get overwritten on regen.**
+- **LAYER-2 METRO CITATIONS SHIPPED (auto + home).** Metro figures are MODELED (state avg × offset), so NO
+  inline SERFF # (would overclaim) — instead a muted "Sources & method" provenance line links the primary
+  data. **Auto: 95/95** metros (12 via `gen_metro_page.py`/`gen_metros_batch.py`, **83 legacy pages via new
+  `patch_metro_citations.py`** — those predate the generator; no live gen rebuilds them, so a patch is the
+  safe path, insert-before-`<div class="article-email">`, strip-then-reinsert idempotent). **Home: 28/28**
+  (wired the ledger link into the existing provenance line in `gen_home_metro_page.py`). Shared
+  `build_sources_note()` in gen_metro_page.py = one canonical string for both build + patch.
+  - **Ledger deep-link:** `gen_rate_filings_rollup.py` now reads `?state=XX&product=Auto|Home&dir=` and
+    preselects the filters (metro/data pages link straight to their state's filings). Option values = state
+    codes, matches data-state.
+  - **Coverage-gated wording:** only the 8 auto-ledger states (CA/FL/GA/NV/NY/SC/TN/TX) get "the primary
+    filings behind <state> rates" + `?state=XX`; uncovered-state metros link the national roll-up worded
+    generically (no promise of filings we don't have). Tracker link only where the state tracker exists.
+- **LAYER-3 TOP-5 GUIDE CITATIONS SHIPPED** (owner approved copy + Top-5 scope via GSC 28d impressions).
+  Muted `<strong>Source:</strong>` note (13px, left-rule) inline under the answer, hand-edited per guide:
+  theft (920 → ISO HO-4 / HO 00 04), renters-water-damage (196 → HO 00 04, flood excluded), does-car-
+  insurance-cover (62 → ISO PP 00 01), home-required (58 → contractual/lender, NOT statutory), renters-
+  required (39 → contractual/lease). **Form language is citation #1 (real, unfabricated); NO `.gov`/III/NAIC
+  URLs were invented** — `coverage_sources.draft.json` still has `url:"TODO"` for all 18; secondary DOI/NAIC
+  links deferred (would need real WebFetch verification). Each guide got the "your carrier's form may differ"
+  caveat (itself a trust signal). qa_sweep 582/0, prose 0 drift.
+- **STILL TODO after this:** (a) verify + add secondary .gov/NAIC/III URLs to the shipped Layer-3 guides
+  (unfabricated only); (b) Layer-3 guides 6–18 if demand grows (defer per content-first); (c) named-founder
+  byline still owner-deferred; (d) AUTO stability field; (e) next home states MI/GA/NC/TN; (f) FL Progressive
+  tracker reconciliation. NOT committed yet this session — owner commits per logical change.
 
 ## ▶▶ CURRENT STATE / RESUME HERE (2026-07-16) — HOME primary-source build-out
 **Home rate-filing backfill: 8 states** — CA, TX, LA, NY, PA, OH, IL, NJ — **132 filings** in
@@ -51,9 +87,10 @@ strategy and (b) mass primary-source-link insertion across rate-change pages/art
   citations, CA/GA/NY/SC/TN/TX); NV/LA/FL kept press-sourced (no matching ledger filing — no fabricated
   #). Deep-links resolve to ledger anchors.
 - **OWNER-FEEDBACK FIXES (2026-07-18, live):** (1) SERFF deep links expire (sessionExpired) → `filing_cite.portal_url()` now links the state SERFF Filing Access landing page (`/sfa/home/<ST>`), reader searches by the shown tracking #; TX/CA/FL direct links kept. (2) ledger row `scroll-margin-top:96px` + `:target` highlight so #anchor jumps clear the sticky header. (3) rate-change % standardized to 1 decimal. (4) ZIP placeholder → 'Enter ZIP' site-wide (13 gens + 562 pages). (5) About/editorial: team framing ('team of insurance insiders, decades in product/pricing/lead-gen'), monetization stance (may monetize someday via agent ad placement, never pay-for-ranking, best rates first), new opening line. No byline name (owner deferred).
-- **STILL TODO (next rollout):** metro pages (auto+home) citations; Layer 3 guide citations
-  (coverage_sources.draft.json → verify URLs, then inject on top-GSC guides); the named byline (owner
-  to supply real name + profile links for Person/Organization sameAs). AI-disclosure line still owner's call.
+- **STILL TODO (next rollout):** ~~metro pages (auto+home) citations~~ ✅ DONE 2026-07-18b;
+  ~~Layer 3 guide citations~~ ✅ top-5 DONE 2026-07-18b (form-language only; secondary DOI/NAIC URLs still
+  to verify — coverage_sources.draft.json `url:"TODO"`); the named byline (owner to supply real name +
+  profile links for Person/Organization sameAs). AI-disclosure line still owner's call.
 - _(orig shipped-on-branch note:)_ `/about.html` (who's behind BoringRate, independence/funding, sourcing, corrections)
   + `/editorial-standards.html` (sourcing hierarchy, independence, estimates-not-quotes, dated
   corrections policy + empty log, privacy). Both via **`gen_trust_pages.py`** (clones methodology
