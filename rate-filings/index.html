@@ -300,6 +300,11 @@
           var tb=tbl.tBodies[0]; rows.forEach(function(r){tb.appendChild(r);});
         });
       });
+      // deep-link: /rate-filings/?state=TX&product=Home&dir=inc preselects filters (metro/data pages link in)
+      var pr=new URLSearchParams(location.search);
+      var stv=(pr.get("state")||"").toUpperCase(); if(stv)fs.value=stv;
+      var pv=pr.get("product"); if(pv){fp.value=pv.charAt(0).toUpperCase()+pv.slice(1).toLowerCase();}
+      var dv=pr.get("dir"); if(dv)fd.value=dv;
       apply();
     })();
     </script>

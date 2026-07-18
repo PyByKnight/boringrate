@@ -71,12 +71,52 @@ def esc(s):
     return s.replace("&", "&amp;")
 
 
+# States with actual AUTO filings in the ledger (serff_filings.json). Only these get a
+# state-filtered ledger deep-link + a "behind <state> rates" claim; others link the national
+# roll-up worded generically, so an uncovered-state metro never promises filings we don't have.
+def _auto_ledger_states():
+    import json
+    try:
+        d = json.loads((ROOT / "serff_filings.json").read_text(encoding="utf-8"))["filings"]
+        return {f["state"] for f in d if f.get("state")}
+    except Exception:
+        return set()
+
+
+LEDGER_AUTO_STATES = _auto_ledger_states()
+
+
+def build_sources_note(metro, st_name, code, st_slug):
+    """Layer-2 provenance line for a metro auto page. Links the modeled metro number back to
+    primary data — the /rate-filings/ ledger (state-filtered where we have that state's filings)
+    + the state tracker where one exists. No inline SERFF # on purpose: the metro figure is
+    MODELED (state avg x offset), so citing a single filing would overclaim. Shared by build_page
+    and patch_metro_citations.py so every metro page carries the identical citation."""
+    tracker_link = (f' &nbsp;&middot;&nbsp; <a class="ca-link" href="/article/rate-changes/{st_slug}.html">'
+                    f'who&rsquo;s raising &amp; cutting {esc(st_name)} rates</a>'
+                    if (ROOT / "article" / "rate-changes" / f"{st_slug}.html").exists() else "")
+    if code in LEDGER_AUTO_STATES:
+        ledger = (f'See the primary filings behind {esc(st_name)} rates in the '
+                  f'<a class="ca-link" href="/rate-filings/?state={code}&amp;product=Auto">rate-filing roll-up</a>')
+    else:
+        ledger = ('See the approved filings we work from in our '
+                  '<a class="ca-link" href="/rate-filings/?product=Auto">national rate-filing roll-up</a>')
+    return (
+        f'<p style="font-size:13px;color:var(--ink-mute);max-width:660px;margin-top:20px;">'
+        f'<strong>Sources &amp; method.</strong> Directional estimate &mdash; not a quote. The {esc(metro)} figure '
+        f'applies a modeled metro offset to the {esc(st_name)} statewide average, anchored to approved carrier '
+        f'rate filings and NAIC market-share data. {ledger}{tracker_link}. '
+        f'Your exact rate depends on ZIP, vehicle, and driving record.</p>')
+
+
 def build_page(cfg):
     """cfg: slug, name (e.g. 'Colorado Springs'), state (code). Optional: offset."""
     slug = cfg["slug"]
     metro = cfg["name"]
-    st_name, st_slug, st_avg = STATE[cfg["state"]]
+    code = cfg["state"]
+    st_name, st_slug, st_avg = STATE[code]
     offset = metro_offset(cfg)  # single source: mean(METRO_CARRIER_ADJ[key]) or cfg offset
+    sources_note = build_sources_note(metro, st_name, code, st_slug) + "\n    "
     avg = int(round(st_avg * offset / 10) * 10)  # round to $10
     p, word, pill = pct_phrase(avg)
     url = f"https://boringrate.com/article/metro/{slug}.html"
@@ -173,7 +213,7 @@ def build_page(cfg):
     <h2>Frequently asked questions</h2>
     <div class="callout"><p><strong>What is the cheapest car insurance in {esc(metro)}?</strong><br>For drivers with clean records, <a class="ca-link" href="/article/carrier/geico.html">GEICO</a>, <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a>, and <a class="ca-link" href="/article/carrier/usaa.html">USAA</a> (military and veterans) are frequently the most competitive in {esc(st_name)}. Enter ZIP above to see current rankings for your specific location &mdash; rates vary across the state.</p></div>
     <div class="callout"><p><strong>Why is car insurance priced the way it is in {esc(metro)}?</strong><br>{esc(metro)} runs {word} the national average. Urban density, repair costs, theft, and claims frequency are the main factors; rural parts of {esc(st_name)} usually price lower.</p></div>
-    <div class="article-email">'''
+    {sources_note}<div class="article-email">'''
     html = re.sub(r'<div class="article-body">.*?<div class="article-email">',
                   '<div class="article-body">' + body, html, count=1, flags=re.DOTALL)
 
