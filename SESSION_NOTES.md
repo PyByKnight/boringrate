@@ -50,6 +50,7 @@ strategy and (b) mass primary-source-link insertion across rate-change pages/art
   → serff_filings.json (signed-pct match ≤1.5pt via `serff_match()`) and cites SERFF # inline (42
   citations, CA/GA/NY/SC/TN/TX); NV/LA/FL kept press-sourced (no matching ledger filing — no fabricated
   #). Deep-links resolve to ledger anchors.
+- **OWNER-FEEDBACK FIXES (2026-07-18, live):** (1) SERFF deep links expire (sessionExpired) → `filing_cite.portal_url()` now links the state SERFF Filing Access landing page (`/sfa/home/<ST>`), reader searches by the shown tracking #; TX/CA/FL direct links kept. (2) ledger row `scroll-margin-top:96px` + `:target` highlight so #anchor jumps clear the sticky header. (3) rate-change % standardized to 1 decimal. (4) ZIP placeholder → 'Enter ZIP' site-wide (13 gens + 562 pages). (5) About/editorial: team framing ('team of insurance insiders, decades in product/pricing/lead-gen'), monetization stance (may monetize someday via agent ad placement, never pay-for-ranking, best rates first), new opening line. No byline name (owner deferred).
 - **STILL TODO (next rollout):** metro pages (auto+home) citations; Layer 3 guide citations
   (coverage_sources.draft.json → verify URLs, then inject on top-GSC guides); the named byline (owner
   to supply real name + profile links for Person/Organization sameAs). AI-disclosure line still owner's call.
