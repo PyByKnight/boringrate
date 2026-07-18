@@ -31,7 +31,7 @@ ARTICLES = {
  kicker="Shopping &amp; Saving",
  lead="<p>Switching car insurance is one of the highest-value 20-minute tasks in personal finance — the gap between the cheapest and priciest carrier for the same driver is roughly <strong>$550 a year</strong>. You don't have to wait for your renewal date, there's rarely a real penalty for leaving mid-policy, and the one rule that matters is simple: <strong>never cancel the old policy before the new one is active.</strong></p>",
  sections=[
-  ("Step 1 — Compare quotes for the same coverage","<p>Get quotes from at least three carriers using <em>identical</em> coverage limits and deductibles, or you're comparing apples to oranges. Enter your ZIP below and we'll rank carriers for your exact profile in about two minutes — no phone calls, no selling your info.</p>"),
+  ("Step 1 — Compare quotes for the same coverage","<p>Get quotes from at least three carriers using <em>identical</em> coverage limits and deductibles, or you're comparing apples to oranges. Enter ZIP below and we'll rank carriers for your exact profile in about two minutes — no phone calls, no selling your info.</p>"),
   ("Step 2 — Buy the new policy first","<p>Once you've picked a winner, <strong>start the new policy before you cancel the old one</strong>. Set the new policy's start date to the day you want coverage to switch. This guarantees zero gap — even one day of lapse can raise your future rates and, in some states, your license status.</p>"),
   ("Step 3 — Cancel the old policy","<p>Call or log in to your old carrier and request cancellation effective the new policy's start date. Ask for a <strong>prorated refund</strong> of the unused premium — you're entitled to it. Most carriers refund automatically; a few charge a small short-rate fee, but it's almost always far less than your savings.</p>"),
   ("Step 4 — Send proof to your lender (if financed)","<p>If you lease or have a loan, your lienholder requires continuous coverage. Send them the new policy's declarations page so they don't force-place expensive coverage on you.</p>"),
@@ -130,7 +130,7 @@ ARTICLES = {
   ("The immediate penalties","<p>Get caught driving uninsured and you can face <strong>fines</strong> (from ~$150 to over $1,500 for repeat offenses), <strong>license and registration suspension</strong>, reinstatement fees, and in many states an <strong>SR-22 filing</strong> requirement for ~3 years afterward. Some states impound the vehicle. Penalties escalate sharply on a second offense.</p>"),
   ("The real risk: an at-fault accident","<p>The penalties are minor next to this: if you cause a crash while uninsured, <strong>you pay for everything out of pocket</strong> — the other party's car, medical bills, and any lawsuit. That can mean wage garnishment and liens for years. Liability coverage exists precisely to cap that exposure.</p>"),
   ("The hidden cost: higher rates later","<p>A coverage lapse follows you. When you do buy insurance, carriers surcharge a recent gap — sometimes for a year or more — so going uninsured to 'save' money usually costs more once you're insured again. See <a class=\"ca-link\" href=\"/article/cost-of-not-shopping-car-insurance.html\">the hidden cost of not shopping</a> for how lapses and loyalty quietly inflate premiums.</p>"),
-  ("The fix is cheaper than the fine","<p>Minimum-liability coverage is the cheapest policy you can buy, and it's almost always less than a single uninsured-driving fine — let alone an at-fault accident. Enter your ZIP below to see the lowest-priced carriers in your area, including the non-standard insurers that specialize in drivers reinstating after a lapse.</p>"),
+  ("The fix is cheaper than the fine","<p>Minimum-liability coverage is the cheapest policy you can buy, and it's almost always less than a single uninsured-driving fine — let alone an at-fault accident. Enter ZIP below to see the lowest-priced carriers in your area, including the non-standard insurers that specialize in drivers reinstating after a lapse.</p>"),
  ],
  callout="<strong>Bottom line:</strong> the fine is the small risk; an uninsured at-fault accident is the one that wrecks finances. Even state-minimum liability caps that exposure for a few dollars a month — compare carriers and get covered before you drive.",
  faq=[
@@ -207,7 +207,7 @@ def build(slug, c):
 </head>
 <body>'''
     zipbar='''<div class="zip-bar"><div class="wrap"><div class="zip-bar-inner">
-<div class="zip-bar-slogan"><strong>Boring Research.</strong> Easy Decision. &mdash; Enter your ZIP to compare rates.</div>
+<div class="zip-bar-slogan"><strong>Boring Research.</strong> Easy Decision. &mdash; Enter ZIP to compare rates.</div>
 <form class="zip-bar-form" id="zipBarForm" autocomplete="off"><input class="zip-bar-input" id="zipBarInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="zip-bar-btn">Compare &rarr;</button></form>
 </div></div></div>'''
     body=f'''<div class="wrap-narrow">

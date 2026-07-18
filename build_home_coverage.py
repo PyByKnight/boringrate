@@ -236,7 +236,7 @@ NEW_BODY = '''<div class="wrap-narrow">
     <div class="cta-inner">
       <div class="cta-text">
         <h3>Now see who's cheapest<br>for the coverage you need.</h3>
-        <p>Enter your ZIP to rank home insurance carriers by likely premium — adjusted for your coverage level and state.</p>
+        <p>Enter ZIP to rank home insurance carriers by likely premium — adjusted for your coverage level and state.</p>
         <p style="font-size:14px;margin-top:10px;">Want the full picture? See <a href="/home/" style="color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;">home insurance rate comparison →</a></p>
       </div>
       <a href="/home/" class="cta-btn">Compare rates →</a>

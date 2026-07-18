@@ -164,14 +164,14 @@ def build_page(cfg):
     <div class="zip-embed">
       <div class="zip-embed-label">Compare rates in {esc(metro)}</div>
       <h3>See who&rsquo;s cheapest <em>in your part of {esc(metro)}.</em></h3>
-      <div class="zip-embed-sub">Enter your ZIP &mdash; we rank all major carriers for your area in seconds.<br>No phone. No spam. No selling your information.</div>
+      <div class="zip-embed-sub">Enter ZIP &mdash; we rank all major carriers for your area in seconds.<br>No phone. No spam. No selling your information.</div>
       <form class="zip-embed-form" id="embedZipForm" autocomplete="off">
         <input class="zip-embed-input" id="embedZipInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />
         <button type="submit" class="zip-embed-btn">Compare &rarr;</button>
       </form>
     </div>
     <h2>Frequently asked questions</h2>
-    <div class="callout"><p><strong>What is the cheapest car insurance in {esc(metro)}?</strong><br>For drivers with clean records, <a class="ca-link" href="/article/carrier/geico.html">GEICO</a>, <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a>, and <a class="ca-link" href="/article/carrier/usaa.html">USAA</a> (military and veterans) are frequently the most competitive in {esc(st_name)}. Enter your ZIP above to see current rankings for your specific location &mdash; rates vary across the state.</p></div>
+    <div class="callout"><p><strong>What is the cheapest car insurance in {esc(metro)}?</strong><br>For drivers with clean records, <a class="ca-link" href="/article/carrier/geico.html">GEICO</a>, <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a>, and <a class="ca-link" href="/article/carrier/usaa.html">USAA</a> (military and veterans) are frequently the most competitive in {esc(st_name)}. Enter ZIP above to see current rankings for your specific location &mdash; rates vary across the state.</p></div>
     <div class="callout"><p><strong>Why is car insurance priced the way it is in {esc(metro)}?</strong><br>{esc(metro)} runs {word} the national average. Urban density, repair costs, theft, and claims frequency are the main factors; rural parts of {esc(st_name)} usually price lower.</p></div>
     <div class="article-email">'''
     html = re.sub(r'<div class="article-body">.*?<div class="article-email">',

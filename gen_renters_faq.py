@@ -224,7 +224,7 @@ ARTICLES = {
   ("What drives your price","<p>The biggest factors: <strong>your location</strong> (crime and weather risk by ZIP), <strong>how much personal property you insure</strong>, your <strong>deductible</strong> ($250 vs $1,000), whether you pick <strong>replacement cost</strong>, and in most states your <strong>credit-based insurance score</strong>. Add-ons like scheduled jewelry or water-backup raise it slightly.</p>"),
   ("How to pay less","<p><strong>Bundle</strong> with your auto policy (often 10–15% off the renters premium), <strong>raise your deductible</strong> if you can cover it, skip coverage you don't need, and — the big one — <strong>compare carriers</strong>. The same coverage can vary $80–180/year between insurers for the same renter.</p>"),
  ],
- callout="<strong>The cheapest move:</strong> bundling and a higher deductible help, but comparing carriers is where the real spread is. Enter your ZIP to see the lowest-priced renters carriers for your area.",
+ callout="<strong>The cheapest move:</strong> bundling and a higher deductible help, but comparing carriers is where the real spread is. Enter ZIP to see the lowest-priced renters carriers for your area.",
  faq=[
   ("How much does renters insurance cost per month?","About $14/month on average nationally (~$168/year) for ~$30,000 in property and $100,000 in liability. It ranges from ~$10 to over $20/month by state."),
   ("Why is renters insurance so cheap?","It only covers your belongings and liability — not a building — so the insurer's exposure is small compared to home or auto insurance."),
@@ -267,7 +267,7 @@ def build(slug, c):
 </head>
 <body>'''
     zipbar='''<div class="zip-bar"><div class="wrap"><div class="zip-bar-inner">
-<div class="zip-bar-slogan"><strong>Boring Research.</strong> Easy Decision. &mdash; Enter your ZIP to compare <em>renters</em> rates.</div>
+<div class="zip-bar-slogan"><strong>Boring Research.</strong> Easy Decision. &mdash; Enter ZIP to compare <em>renters</em> rates.</div>
 <form class="zip-bar-form" id="zipBarForm" autocomplete="off"><input class="zip-bar-input" id="zipBarInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="zip-bar-btn">Compare &rarr;</button></form>
 </div></div></div>'''
     body=f'''<div class="wrap-narrow">

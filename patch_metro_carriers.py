@@ -111,7 +111,7 @@ def apply_carriers(html: str, c1: str, c2: str, c3: str, city: str, state_name: 
 
     # 2. JSON-LD text (inside double-quotes, — not &mdash;)
     # Pattern: "For {City} drivers with clean records, X and Y are frequently ...
-    #           Z is also worth comparing. Enter your ZIP..."
+    #           Z is also worth comparing. Enter ZIP..."
     html = re.sub(
         r'("text": "For ' + re.escape(city) + r' drivers with clean records, ).+? and .+? are frequently the most competitive\. .+? is also worth comparing\.',
         r'\g<1>' + c1 + ' and ' + c2 + ' are frequently the most competitive. ' + c3 + ' is also worth comparing.',

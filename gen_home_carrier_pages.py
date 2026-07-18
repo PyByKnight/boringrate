@@ -149,7 +149,7 @@ def build(slug):
         {"@type":"Question","name":f"Is {name} good for homeowners insurance?",
          "acceptedAnswer":{"@type":"Answer","text":f"{name} has an NAIC complaint ratio of {d['naic']} ({naic_note}) and {d['grade']} financial strength. {d['bottom']}"}},
         {"@type":"Question","name":f"Where is {name} homeowners insurance available?",
-         "acceptedAnswer":{"@type":"Answer","text":f"Availability: {d['avail'].replace('&amp;','and')}. Enter your ZIP on BoringRate to see whether {name} is competitive in your specific area and how it ranks against other carriers."}},
+         "acceptedAnswer":{"@type":"Answer","text":f"Availability: {d['avail'].replace('&amp;','and')}. Enter ZIP on BoringRate to see whether {name} is competitive in your specific area and how it ranks against other carriers."}},
     ]})
     crumb = json.dumps({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
         {"@type":"ListItem","position":1,"name":"BoringRate","item":"https://boringrate.com"},
@@ -241,7 +241,7 @@ def build(slug):
     <div class="zip-embed">
       <div class="zip-embed-label">Compare {name} against other carriers</div>
       <h3>See how {name} ranks <em>in your specific ZIP code.</em></h3>
-      <div class="zip-embed-sub">Enter your ZIP &mdash; carrier rankings update for your location in seconds.<br>No phone. No spam. No selling your information.</div>
+      <div class="zip-embed-sub">Enter ZIP &mdash; carrier rankings update for your location in seconds.<br>No phone. No spam. No selling your information.</div>
       <form class="zip-embed-form" id="embedZipForm" autocomplete="off">
         <input class="zip-embed-input" id="embedZipInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />
         <button type="submit" class="zip-embed-btn">Compare &rarr;</button>

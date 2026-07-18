@@ -166,12 +166,12 @@ def build(code):
   </div>
   <div class="article-body">
     <h2>Cheapest home insurance carriers in {esc(name)}</h2>
-    <p>Estimated annual premiums for a standard policy (~$300k dwelling, $1,000 deductible), ranked cheapest first &mdash; {esc(name)} averages about <strong>${avg:,}/yr</strong> (median of the carriers below: ${median:,}/yr). Enter your ZIP for a ranking tuned to your home.</p>
+    <p>Estimated annual premiums for a standard policy (~$300k dwelling, $1,000 deductible), ranked cheapest first &mdash; {esc(name)} averages about <strong>${avg:,}/yr</strong> (median of the carriers below: ${median:,}/yr). Enter ZIP for a ranking tuned to your home.</p>
     <table style="width:100%;border-collapse:collapse;font-size:16px;margin:16px 0;max-width:660px;">
     <thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;"><th style="padding:8px 6px;">#</th><th style="padding:8px 6px;">Carrier</th><th style="padding:8px 6px;">Est. annual</th><th style="padding:8px 6px;">vs median</th></tr></thead>
     <tbody>{rows}</tbody></table>
     <form onsubmit="event.preventDefault();var z=(this.zc.value||'').replace(/\\D/g,'').slice(0,5);if(/^\\d{{5}}$/.test(z)){{location.href='/home/?zip='+z}}else{{this.zc.focus()}}" style="display:flex;gap:0;max-width:360px;margin:16px 0;">
-    <input name="zc" type="text" inputmode="numeric" maxlength="5" placeholder="Enter your ZIP" aria-label="ZIP code" style="flex:1;min-width:0;font-family:var(--mono);font-size:16px;letter-spacing:0.12em;padding:12px 14px;border:2px solid var(--ink);border-right:none;background:var(--paper);color:var(--ink);outline:none;" />
+    <input name="zc" type="text" inputmode="numeric" maxlength="5" placeholder="Enter ZIP" aria-label="ZIP code" style="flex:1;min-width:0;font-family:var(--mono);font-size:16px;letter-spacing:0.12em;padding:12px 14px;border:2px solid var(--ink);border-right:none;background:var(--paper);color:var(--ink);outline:none;" />
     <button type="submit" style="font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:0 20px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;white-space:nowrap;">See rates &rarr;</button></form>
 
     <h2>Why home insurance costs what it does in {esc(name)}</h2>

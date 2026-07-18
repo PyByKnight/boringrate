@@ -66,7 +66,7 @@ head = f'''<!DOCTYPE html>
 <body>'''
 
 zipbar='''<div class="zip-bar"><div class="wrap"><div class="zip-bar-inner">
-<div class="zip-bar-slogan"><strong>Boring Research.</strong> Easy Decision. &mdash; Enter your ZIP to compare rates.</div>
+<div class="zip-bar-slogan"><strong>Boring Research.</strong> Easy Decision. &mdash; Enter ZIP to compare rates.</div>
 <form class="zip-bar-form" id="zipBarForm" autocomplete="off"><input class="zip-bar-input" id="zipBarInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="zip-bar-btn">Compare &rarr;</button></form>
 </div></div></div>'''
 

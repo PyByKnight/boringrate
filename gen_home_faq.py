@@ -124,7 +124,7 @@ ARTICLES = {
   ("What drives your premium","<p>The biggest factors: <strong>your dwelling amount</strong> (rebuild cost), <strong>local catastrophe risk</strong> (the dominant one), your <strong>roof's age and type</strong>, your <strong>deductible</strong>, prior <strong>claims</strong>, and in most states your <strong>credit-based insurance score</strong>. A new roof and a higher deductible are two of the biggest levers you control.</p>"),
   ("How to pay less","<p><strong>Bundle</strong> with auto (often 10–20% off), <strong>raise your deductible</strong>, add <strong>roof/impact-resistant and smart-home discounts</strong>, avoid small claims (they raise renewals), and <strong>compare carriers</strong> — premiums for the same home can differ by hundreds to over a thousand dollars a year.</p>"),
  ],
- callout="<strong>The cheapest move:</strong> bundling and a higher deductible help, but comparing carriers is where the biggest spread is. Enter your ZIP to see the lowest-priced home insurers for your area.",
+ callout="<strong>The cheapest move:</strong> bundling and a higher deductible help, but comparing carriers is where the biggest spread is. Enter ZIP to see the lowest-priced home insurers for your area.",
  faq=[
   ("How much is homeowners insurance per year?","About $1,900–$2,500 nationally for ~$300,000 in dwelling coverage, but it ranges from ~$1,100 in low-risk states to over $4,000 in Florida and other catastrophe-prone states."),
   ("Why is homeowners insurance so expensive in some states?","Catastrophe risk — hurricanes in Florida and the Gulf, tornadoes and hail in the Plains, wildfire in the West — drives premiums far above low-risk states."),
@@ -373,7 +373,7 @@ def build(slug, c):
 </head>
 <body>'''
     zipbar='''<div class="zip-bar"><div class="wrap"><div class="zip-bar-inner">
-<div class="zip-bar-slogan"><strong>Boring Research.</strong> Easy Decision. &mdash; Enter your ZIP to compare <em>home</em> rates.</div>
+<div class="zip-bar-slogan"><strong>Boring Research.</strong> Easy Decision. &mdash; Enter ZIP to compare <em>home</em> rates.</div>
 <form class="zip-bar-form" id="zipBarForm" autocomplete="off"><input class="zip-bar-input" id="zipBarInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="zip-bar-btn">Compare &rarr;</button></form>
 </div></div></div>'''
     body=f'''<div class="wrap-narrow">

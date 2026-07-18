@@ -174,7 +174,7 @@ def build(slug, cfg):
                 f'<td style="padding:8px 6px;font-size:14px;color:var(--ink-soft);">{whyGood(r["car"],slug)}</td></tr>')
     faq = json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
         {"@type":"Question","name":cfg["title"].replace(" (2026)",""),
-         "acceptedAnswer":{"@type":"Answer","text":f"{top3[0]['name']}, {top3[1]['name']}, and {top3[2]['name']} are typically the cheapest for this situation based on the BoringRate model. {cfg['why']} Enter your ZIP to see the ranking for your exact area."}},
+         "acceptedAnswer":{"@type":"Answer","text":f"{top3[0]['name']}, {top3[1]['name']}, and {top3[2]['name']} are typically the cheapest for this situation based on the BoringRate model. {cfg['why']} Enter ZIP to see the ranking for your exact area."}},
         {"@type":"Question","name":"How much more will I pay?",
          "acceptedAnswer":{"@type":"Answer","text":cfg["why"]}},
     ]})
@@ -204,7 +204,7 @@ def build(slug, cfg):
 </head>
 <body>'''
     zipbar='''<div class="zip-bar"><div class="wrap"><div class="zip-bar-inner">
-<div class="zip-bar-slogan"><strong>Boring Research.</strong> Easy Decision. &mdash; Enter your ZIP to compare rates.</div>
+<div class="zip-bar-slogan"><strong>Boring Research.</strong> Easy Decision. &mdash; Enter ZIP to compare rates.</div>
 <form class="zip-bar-form" id="zipBarForm" autocomplete="off"><input class="zip-bar-input" id="zipBarInput" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="zip-bar-btn">Compare &rarr;</button></form>
 </div></div></div>'''
     onsub=("event.preventDefault();var z=(this.zc.value||'').replace(/\\D/g,'').slice(0,5);"
@@ -212,7 +212,7 @@ def build(slug, cfg):
     cta=('<div class="tooltiles">'
       '<div class="tile"><div class="tile-kicker">Compare rates</div>'
       '<div class="tile-name">See your cheapest carrier &mdash; tuned to this situation</div>'
-      '<div class="tile-desc">Enter your ZIP and we will rank carriers with this exact situation applied, for your area.</div>'
+      '<div class="tile-desc">Enter ZIP and we will rank carriers with this exact situation applied, for your area.</div>'
       f'<form class="tile-zipform" onsubmit="{onsub}"><input class="tile-zip-input" name="zc" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="tile-zip-btn">Compare &rarr;</button></form>'
       '</div>'
       '<div class="tile"><div class="tile-kicker">Coverage calculator</div>'
@@ -244,7 +244,7 @@ def build(slug, cfg):
     <ul style="font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:660px;margin:0 0 24px;padding-left:22px;">{tips}</ul>
     <div class="callout"><p>Rankings are directional estimates from the BoringRate model, not quotes — your real rate depends on your ZIP, vehicle, and history. Related: <a class="ca-link" href="{crossUrl}">{crossLbl} &rarr;</a></p></div>
     <h2>Frequently asked questions</h2>
-    <div class="callout"><p><strong>Who is cheapest for this situation?</strong><br>{top3[0]['name']}, {top3[1]['name']}, and {top3[2]['name']} rank cheapest in the model. Enter your ZIP to see the order for your area.</p></div>
+    <div class="callout"><p><strong>Who is cheapest for this situation?</strong><br>{top3[0]['name']}, {top3[1]['name']}, and {top3[2]['name']} rank cheapest in the model. Enter ZIP to see the order for your area.</p></div>
     <div class="callout"><p><strong>Will my rate stay high forever?</strong><br>{cfg["why"]}</p></div>
   </div>
 </div>'''
