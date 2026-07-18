@@ -20,3 +20,18 @@ def anchor(row):
     trk = re.sub(r"[^A-Za-z0-9]", "", row.get("tracking") or "")
     tail = trk[-6:].lower()
     return "-".join(x for x in (st, car, tail) if x) or "filing"
+
+
+def portal_url(row):
+    """Stable external link to the primary source.
+
+    SERFF Filing Access deep links (filingSummary.xhtml?filingId=…) are session-bound and
+    expire to sessionExpired.xhtml, so we point at the state's Filing Access landing page
+    instead — the reader accepts the disclaimer there and searches by the tracking number we
+    display. Non-SERFF sources (TX open data, CA CDI, FL FLOIR, press) keep their working URL.
+    """
+    url = row.get("url") or ""
+    st = (row.get("state") or "").upper()
+    if "filingaccess.serff.com" in url and st:
+        return f"https://filingaccess.serff.com/sfa/home/{st}"
+    return url

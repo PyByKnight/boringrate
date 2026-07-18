@@ -23,7 +23,7 @@ RANKINGS = json.loads(_RANKF.read_text()) if _RANKF.exists() else {}
 # The tracker's headline % is premium-weighted; we only attach a SERFF # when a single
 # filing matches closely (signed pct within 1.5), so the cited number agrees with the
 # displayed headline (tool↔filing consistency). Otherwise we keep the existing source.
-from filing_cite import anchor
+from filing_cite import anchor, portal_url
 _SERFF_AUTO = json.loads((ROOT / "serff_filings.json").read_text())["filings"]
 
 
@@ -67,7 +67,7 @@ def ranking_block(code, name):
     zipbox = ('<form onsubmit="event.preventDefault();var z=(this.zc.value||\'\').replace(/\\D/g,\'\').slice(0,5);'
               'if(/^\\d{5}$/.test(z)){location.href=\'/?zip=\'+z}else{this.zc.focus()}" '
               'style="display:flex;gap:0;max-width:360px;margin:16px 0;">'
-              '<input name="zc" type="text" inputmode="numeric" maxlength="5" placeholder="Enter your ZIP" aria-label="ZIP code" '
+              '<input name="zc" type="text" inputmode="numeric" maxlength="5" placeholder="Enter ZIP" aria-label="ZIP code"'
               'style="flex:1;min-width:0;font-family:var(--mono);font-size:16px;letter-spacing:0.12em;padding:12px 14px;border:2px solid var(--ink);border-right:none;background:var(--paper);color:var(--ink);outline:none;" />'
               '<button type="submit" style="font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:0 20px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;white-space:nowrap;">See rates &rarr;</button></form>')
     return (f'<h2>Cheapest car insurance carriers in {esc(name)} right now</h2>'
@@ -86,7 +86,7 @@ def fdate(iso):
 
 
 def signed(c):
-    s = ("+" if c["dir"] == "increase" else "−") + f'{c["pct"]:g}%'
+    s = ("+" if c["dir"] == "increase" else "−") + f'{c["pct"]:.1f}%'
     color = RED if c["dir"] == "increase" else GREEN
     return f'<span style="color:{color};font-weight:600;">{s}</span>'
 
@@ -150,7 +150,7 @@ def rows_table(changes):
         m = serff_match(c)
         if m:
             src = (f'<a class="ca-link" href="/rate-filings/#{anchor(m)}" title="See this filing in the rate-filings ledger">SERFF #{esc(m["tracking"])}</a> '
-                   f'<a class="ca-link" href="{m["url"]}" target="_blank" rel="noopener nofollow" title="Open at the regulator portal" aria-label="Open filing at regulator portal">&#8599;</a>')
+                   f'<a class="ca-link" href="{portal_url(m)}" target="_blank" rel="noopener nofollow" title="Open the state filing portal and search by this SERFF number" aria-label="Open state filing portal">&#8599;</a>')
         else:
             src = f'<a class="ca-link" href="{c["url"]}" target="_blank" rel="noopener nofollow">{esc(c["source"])}</a>'
         body.append(

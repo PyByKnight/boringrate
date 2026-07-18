@@ -6,7 +6,7 @@ row linked to its primary source (SERFF tracking # + the DOI portal/dataset). Ro
 are server-rendered (crawlable + citable); vanilla JS adds sort/filter. Draws from
 serff_filings.json (auto) + serff_home_filings.json (home). Output: rate-filings/index.html."""
 import json, re, pathlib
-from filing_cite import anchor
+from filing_cite import anchor, portal_url
 from datetime import date
 from gen_metro_page import STATE, esc
 
@@ -103,8 +103,8 @@ def build():
         cls = "inc" if d["pct"] > 0 else ("dec" if d["pct"] < 0 else "flat")
         color = RED if d["pct"] > 0 else (GREEN if d["pct"] < 0 else MUTE)
         sign = "+" if d["pct"] > 0 else ("−" if d["pct"] < 0 else "±")
-        chg = f"{sign}{abs(d['pct']):g}%"
-        src = f'<a class="ca-link" href="{esc(d["url"])}" target="_blank" rel="noopener nofollow">{esc(d["src"])}</a>'
+        chg = f"{sign}{abs(d['pct']):.1f}%"
+        src = f'<a class="ca-link" href="{esc(portal_url(d))}" target="_blank" rel="noopener nofollow">{esc(d["src"])}</a>'
         trk = f'<span class="rf-trk">{esc(d["tracking"])}</span>' if d["tracking"] else ""
         car = f'<strong>{esc(d["carrier"])}</strong>' + (f' <span class="rf-ent">{esc(d["entity"])}</span>' if d["entity"] else "")
         share_cell = (f'{d["share"]:g}%' if d["share"] is not None else '<span class="rf-na">—</span>')
@@ -153,6 +153,9 @@ def build():
     .rf-trk{font-family:var(--mono);font-size:11px;color:var(--ink-mute);}
     .rf-src{font-size:12px;}
     .rf-row.hidden{display:none;}
+    .rf-row{scroll-margin-top:96px;}
+    .rf-row:target td{background:rgba(180,50,26,0.10);}
+    .rf-row:target td:first-child{box-shadow:inset 3px 0 0 var(--accent);}
     /* wide container for the table; keep prose at a readable measure */
     .rf-page .article-header,.rf-page .article-body>p,.rf-page .callout{max-width:720px;}
     .rf-page .rf-tablewrap,.rf-page .rf-controls{max-width:1000px;}

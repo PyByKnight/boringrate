@@ -8,7 +8,7 @@ Page skeleton reuses the gen_home_faq.py scaffold (home/state/florida.html)."""
 import json, re, pathlib
 from datetime import date
 from gen_metro_page import STATE, esc, _json
-from filing_cite import anchor
+from filing_cite import anchor, portal_url
 
 ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / "serff_home_filings.json"
@@ -37,14 +37,14 @@ def fdate(iso):
 
 
 def signed(pct, dr):
-    s = ("+" if dr == "increase" else "−") + f"{abs(pct):g}%"
+    s = ("+" if dr == "increase" else "−") + f"{abs(pct):.1f}%"
     return f'<span style="color:{RED if dr == "increase" else GREEN};font-weight:600;">{s}</span>'
 
 
 ZIPBOX = ('<form onsubmit="event.preventDefault();var z=(this.zc.value||\'\').replace(/\\D/g,\'\').slice(0,5);'
           'if(/^\\d{5}$/.test(z)){location.href=\'/home/?zip=\'+z}else{this.zc.focus()}" '
           'style="display:flex;gap:0;max-width:360px;margin:16px 0;">'
-          '<input name="zc" type="text" inputmode="numeric" maxlength="5" placeholder="Enter your ZIP" aria-label="ZIP code" '
+          '<input name="zc" type="text" inputmode="numeric" maxlength="5" placeholder="Enter ZIP" aria-label="ZIP code"'
           'style="flex:1;min-width:0;font-family:var(--mono);font-size:16px;letter-spacing:0.12em;padding:12px 14px;border:2px solid var(--ink);border-right:none;background:var(--paper);color:var(--ink);outline:none;" />'
           '<button type="submit" style="font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:0 20px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;white-space:nowrap;">Compare home rates &rarr;</button></form>')
 
@@ -86,9 +86,9 @@ def rows_table(changes):
         trk = c.get("tracking") or ""
         if trk:
             src = (f'<a class="ca-link" href="/rate-filings/#{anchor(c)}" title="See this filing in the rate-filings ledger">SERFF #{esc(trk)}</a> '
-                   f'<a class="ca-link" href="{c["url"]}" target="_blank" rel="noopener nofollow" title="Open at the regulator portal" aria-label="Open filing at regulator portal">&#8599;</a>')
+                   f'<a class="ca-link" href="{portal_url(c)}" target="_blank" rel="noopener nofollow" title="Open the state filing portal and search by this SERFF number" aria-label="Open state filing portal">&#8599;</a>')
         else:
-            src = f'<a class="ca-link" href="{c["url"]}" target="_blank" rel="noopener nofollow">{esc(c["source_note"].split(";")[0])}</a>'
+            src = f'<a class="ca-link" href="{portal_url(c)}" target="_blank" rel="noopener nofollow">{esc(c["source_note"].split(";")[0])}</a>'
         rng_td = f'<td>{range_cell(c)}</td>' if has_range else ""
         ind = c.get("indicated_pct")
         ind_note = ""
