@@ -459,41 +459,24 @@
    "note": "Farmers Property & Casualty -5.2% effective Dec 26, 2025; Farmers' Mid-Century of Texas book was cut -10.1% (eff Jan 31, 2026). Texas County Mutual rose +3.0% \u2014 a mixed Farmers picture, net down."
   },
   {
-   "carrier": "State Farm",
-   "state": "FL",
-   "pct": 10.0,
-   "dir": "decrease",
-   "effective": "2026",
-   "source": "WFLX (Mar 2026)",
-   "url": "https://www.wflx.com/2026/03/05/floridas-top-5-auto-insurers-are-cutting-rates-by-8-2026/",
-   "note": "Part of Florida's 2026 wave \u2014 the top 5 insurers cutting; ~80% of FL policyholders see lower rates after tort reform."
-  },
-  {
    "carrier": "Progressive",
    "state": "FL",
-   "pct": 8.0,
-   "dir": "decrease",
-   "effective": "2026",
-   "source": "WFLX (Mar 2026)",
-   "url": "https://www.wflx.com/2026/03/05/floridas-top-5-auto-insurers-are-cutting-rates-by-8-2026/"
+   "pct": 3.8,
+   "dir": "increase",
+   "effective": "2026-06",
+   "source": "Florida OIR filing",
+   "url": "https://irfssearch.floir.gov/",
+   "note": "The WFLX \u201ctop-5 cutting 8%\u201d story (Mar 2026) was a forward-looking forecast; Progressive's actual FL filing (SERFF 25-048862, disposition Jun 18 2026) came in at +3.8%. The primary filing supersedes the press forecast."
   },
   {
-   "carrier": "GEICO",
+   "carrier": "Liberty Mutual",
    "state": "FL",
-   "pct": 8.0,
+   "pct": 7.9,
    "dir": "decrease",
-   "effective": "2026",
-   "source": "WFLX (Mar 2026)",
-   "url": "https://www.wflx.com/2026/03/05/floridas-top-5-auto-insurers-are-cutting-rates-by-8-2026/"
-  },
-  {
-   "carrier": "Allstate",
-   "state": "FL",
-   "pct": 8.0,
-   "dir": "decrease",
-   "effective": "2026",
-   "source": "WFLX (Mar 2026)",
-   "url": "https://www.wflx.com/2026/03/05/floridas-top-5-auto-insurers-are-cutting-rates-by-8-2026/"
+   "effective": "2026-05",
+   "source": "Florida OIR filing",
+   "url": "https://irfssearch.floir.gov/",
+   "note": "Actual FL rate cut per SERFF 26-014714 (disposition May 29 2026). Liberty was not in the WFLX top-5 list but filed a real reduction."
   },
   {
    "carrier": "USAA",
