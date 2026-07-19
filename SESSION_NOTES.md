@@ -35,7 +35,10 @@ Owner feedback: the /about.html editorial harped on monetization. Then: push it,
 - **STILL TODO after this:** (a) verify + add secondary .gov/NAIC/III URLs to the shipped Layer-3 guides
   (unfabricated only); (b) Layer-3 guides 6–18 if demand grows (defer per content-first); (c) named-founder
   byline still owner-deferred; (d) AUTO stability field; (e) next home states MI/GA/NC/TN; (f) FL Progressive
-  tracker reconciliation. NOT committed yet this session — owner commits per logical change.
+  tracker reconciliation.
+- **SHIPPED / LIVE:** 4 logical commits on main, pushed (`597ce7bc..cd2cb866`) → GitHub Pages redeployed:
+  `650e216f` about de-monetize · `4d441485` Layer-2 metro citations (128 files) · `0afe0e44` Layer-3 top-5
+  guide citations · `cd2cb866` docs. Working tree clean. (IndexNow ping not sent — optional, not run.)
 
 ## ▶▶ CURRENT STATE / RESUME HERE (2026-07-16) — HOME primary-source build-out
 **Home rate-filing backfill: 8 states** — CA, TX, LA, NY, PA, OH, IL, NJ — **132 filings** in
