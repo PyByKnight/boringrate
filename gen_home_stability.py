@@ -45,12 +45,14 @@ def build():
 
     filings = [r for r in json.load(open(ROOT / "serff_home_filings.json"))["filings"]
                if r.get("overall_pct") is not None]
-    by = {}
+    by, states = {}, {}
     for r in filings:
         by.setdefault(r["carrier"], []).append(r["overall_pct"])
+        states.setdefault(r["carrier"], set()).add(r.get("state"))
 
-    # gated carriers = filed in >= COVERAGE_MIN states AND present in the tool roster
-    gated = {c: v for c, v in by.items() if len(v) >= COVERAGE_MIN and c in static}
+    # gated carriers = filed in >= COVERAGE_MIN DISTINCT states AND present in the tool roster
+    # (distinct-state gate, not filing count — one state's multiple filings isn't cross-state signal)
+    gated = {c: v for c, v in by.items() if len(states[c]) >= COVERAGE_MIN and c in static}
     if not gated:
         print("no carriers meet the coverage gate yet"); return
     pressure = {c: statistics.mean(v) for c, v in gated.items()}
@@ -68,7 +70,7 @@ def build():
         new = clamp(static[c] + d, 1, 5)
         if new != static[c]:
             adj[c] = new
-        rows.append((c, len(v), round(p, 1), round(frac_up, 2), static[c], new))
+        rows.append((c, len(states[c]), round(p, 1), round(frac_up, 2), static[c], new))
 
     obj = "\n".join(f'  "{c}": {adj[c]},' for c in sorted(adj))
     new_block = (BEGIN + "\n"
