@@ -1,5 +1,39 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-18 (Opus 4.8)_
+_Last updated: 2026-07-19 (Opus 4.8)_
+
+## This session (2026-07-19, Opus 4.8) — AUTO filing-derived rate-stability + FL press↔ledger reconciliation
+No new DOI pull (owner away from machine) → work off data on hand. Fable consult picked the two moves.
+- **AUTO RATE-STABILITY (filing-derived) SHIPPED** — the auto tool's static `stability` (1-5) was
+  marketing-set and CONTRADICTED the ledger (American Family scored 4/5 "stable" while filing +6.8%
+  GA/SC/TN; Progressive 2/5 "volatile" while cutting −2.1% across 6 states). Twin of the home fix:
+  **`gen_auto_stability.py`** injects `AUTO_STABILITY_ADJ` into index.html between GENERATED markers;
+  peer-relative band of (carrier mean overall_pct − peer median), coverage-GATED, frequency-guarded.
+  New `carrierStab(c)` helper (mirrors home) routed through all 4 read sites (bestRec ×2 + render +
+  rec filter). Adjusted 5: **State Farm 4→5, Progressive 2→3** (cutters rewarded), **American Family
+  4→2, Amica Mutual 5→4, Allstate 3→2** (raisers penalized). Tooltip appends "Based on this carrier's
+  recent rate filings." for adjusted carriers. Behavioral test (node) ALL PASS; qa 582/0; prose 0 drift.
+  - **★ FIXED A LATENT BUG inherited from gen_home_stability.py:** the coverage gate counted FILINGS,
+    not DISTINCT STATES (docstring says states). Country Financial slipped through on 3 CA-only filings
+    → boosted 4→5 wrongly. Auto now gates on `len(distinct states) >= 3` (Country Financial correctly
+    drops). **gen_home_stability.py still has the filing-count gate — backport the distinct-state fix.**
+  - **BORDERLINE (flag):** Allstate 3→2 — +1.7% mean, raised in exactly 50% of filings (band −1, guard
+    fires only below 0.5 so it stands). Defensible (peer-relative, net raiser) but the softest call.
+- **FL PRESS↔LEDGER RECONCILIATION** (bigger than Fable scoped — 4 rows, not just Progressive). One
+  WFLX "FL top-5 cutting 8%" (Mar 2026) FORECAST seeded 4 press rows the ledger contradicts:
+  State Farm −10% (ledger 0% flat 26-027524), Progressive −8% (ledger **+3.8%** 25-048862 — opposite
+  direction!), GEICO −8% (ledger 0% flat 26-020774), Allstate −8% (no ledger filing). Owner approved
+  FULL reconcile: rewrote Progressive→+3.8% increase; removed SF/GEICO (filed flat, not changes) +
+  Allstate (discredited source, unbacked); ADDED Liberty Mutual −7.9% real cut (26-014714, was missing).
+  USAA −7% kept (separate FLOIR Jan-2026 cut, not contradicted). Both new rows now auto-cite their SERFF
+  # via serff_match. Cascade: gen_rate_tracker + gen_filing_highlights + gen_press_page regenerated.
+- **FILES:** new `gen_auto_stability.py`; edited index.html (helper + ADJ block + 4 read sites),
+  rate_changes.json (FL), regen'd article/rate-changes/{index,florida}.html, article/state/florida.html,
+  press/index.html. Working tree DIRTY — NOT committed yet (owner to approve; 2 logical commits: FL fix,
+  auto stability). apply_filed_changes.py confirmed a NO-OP this session (backfilled filings pre-anchor).
+- **NEXT / DEFERRED:** (a) backport distinct-state gate to gen_home_stability.py; (b) per-carrier
+  filing-record sections on the ~30 carrier pages (Fable's #2 — strongest byline-free E-E-A-T; uses
+  data on hand); (c) `window.track` buffers→nowhere since Jun 11 (owner picks Plausible vs first-party);
+  (d) AUTO By-ZIP dispersion stays SKIPPED (low ROI). Byline still owner-blocked.
 
 ## This session (2026-07-18b, Opus 4.8) — About de-monetized + Layer-2 metro citations + Layer-3 top-5 guides
 Owner feedback: the /about.html editorial harped on monetization. Then: push it, do metro citations + Layer 3.
