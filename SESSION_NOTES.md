@@ -30,10 +30,23 @@ No new DOI pull (owner away from machine) → work off data on hand. Fable consu
   rate_changes.json (FL), regen'd article/rate-changes/{index,florida}.html, article/state/florida.html,
   press/index.html. Working tree DIRTY — NOT committed yet (owner to approve; 2 logical commits: FL fix,
   auto stability). apply_filed_changes.py confirmed a NO-OP this session (backfilled filings pre-anchor).
-- **NEXT / DEFERRED:** (a) backport distinct-state gate to gen_home_stability.py; (b) per-carrier
-  filing-record sections on the ~30 carrier pages (Fable's #2 — strongest byline-free E-E-A-T; uses
-  data on hand); (c) `window.track` buffers→nowhere since Jun 11 (owner picks Plausible vs first-party);
-  (d) AUTO By-ZIP dispersion stays SKIPPED (low ROI). Byline still owner-blocked.
+- **BACKPORT DONE** (commit 9d14271e): gen_home_stability.py now gates on distinct states too. Output
+  byte-identical (no current home false positive — the bug was latent there; 0 home carriers have ≥3
+  filings in <3 states). Both stability generators now consistent.
+- **CARRIER FILING-RECORD SECTIONS SHIPPED** (Fable's #2 — strongest byline-free E-E-A-T). New
+  **`patch_carrier_filings.py`** injects a "<Carrier>'s recent rate filings" section into
+  article/carrier/<slug>.html: a sourced cross-state table (Product/State/Change/Effective/SERFF #),
+  auto+home combined, each row deep-linking the /rate-filings/ ledger anchor + state portal (shared
+  filing_cite helpers → anchors agree with ledger/trackers). Prose summary computed from data
+  ("State Farm filed 12 auto changes across 7 states, averaging −4.6% and 6 home across 6 states,
+  +7.0%"). **25 of 38 pages patched** (those with ≥1 filing auto or home); the other 13 skipped — NO
+  fabricated citations. Patch-safe: insert before first "<h2>Compare …", strip-then-reinsert idempotent
+  (re-run refreshes after next pull). qa 582/0. Consistent with the tool (State Farm auto cutter / home
+  raiser matches its stability scores).
+- **NEXT / DEFERRED:** (a) `window.track` buffers→nowhere since Jun 11 (owner picks Plausible vs
+  first-party — the one measurement gap); (b) AUTO By-ZIP dispersion stays SKIPPED (low ROI);
+  (c) re-run patch_carrier_filings.py in the cascade after each new auto/home pull. Byline still
+  owner-blocked.
 
 ## This session (2026-07-18b, Opus 4.8) — About de-monetized + Layer-2 metro citations + Layer-3 top-5 guides
 Owner feedback: the /about.html editorial harped on monetization. Then: push it, do metro citations + Layer 3.
