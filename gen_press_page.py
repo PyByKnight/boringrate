@@ -10,6 +10,7 @@ Output: press/index.html."""
 import json, pathlib
 from datetime import date
 from gen_metro_page import STATE, esc
+from plausible_snippet import ensure
 
 ROOT = pathlib.Path(__file__).parent
 OUT = ROOT / "press" / "index.html"
@@ -208,7 +209,7 @@ def build():
 {body}
 {TAIL}'''
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(html, encoding="utf-8")
+    OUT.write_text(ensure(html), encoding="utf-8")
     print(f"wrote {OUT} — {n_filings} filings, {n_states} states, {n_carriers} carriers; "
           f"{len(cuts)} cuts / {len(incs)} increases / {len(home_up)+len(home_dn)} home shown")
 

@@ -9,17 +9,9 @@ the window.track event layer); this covers the article/guide/static tree.
 import pathlib
 import subprocess
 
+from plausible_snippet import SCRIPT_ID, SNIPPET  # single source of the snippet
+
 ROOT = pathlib.Path(__file__).parent
-SCRIPT_ID = "pa-v219GyiG5lJT1bQSRxP_Z.js"
-SNIPPET = (
-    "<!-- Privacy-friendly analytics by Plausible -->\n"
-    f'<script async src="https://plausible.io/js/{SCRIPT_ID}"></script>\n'
-    "<script>\n"
-    "  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},"
-    "plausible.init=plausible.init||function(i){plausible.o=i||{}};\n"
-    "  plausible.init()\n"
-    "</script>\n"
-)
 
 files = subprocess.run(["git", "ls-files", "*.html"], capture_output=True,
                        text=True, cwd=ROOT).stdout.split()

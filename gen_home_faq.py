@@ -2,6 +2,7 @@
 # Home (homeowners) guide/FAQ cluster — home has tools but no content. Home scaffold;
 # CTAs funnel to /home/ + /home/coverage.html.
 import re, json
+from plausible_snippet import ensure
 
 scaff = open("home/state/florida.html", encoding="utf-8").read()
 STYLE = scaff[scaff.index("<style>"):scaff.index("</style>")+len("</style>")]
@@ -397,6 +398,6 @@ def build(slug, c):
 
 n=0
 for slug,c in ARTICLES.items():
-    open(f"home/{slug}.html","w",encoding="utf-8").write(build(slug,c)); n+=1
+    open(f"home/{slug}.html","w",encoding="utf-8").write(ensure(build(slug,c))); n+=1
     print("wrote home/"+slug+".html")
 print("done",n)

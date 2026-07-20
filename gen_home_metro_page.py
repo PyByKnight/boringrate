@@ -5,6 +5,7 @@ pages, but home: metro avg = state avg x metro offset, carriers ranked at the me
 a per-metro home-catastrophe angle (the SEO differentiator). Model + offsets parsed live from
 home/index.html so pages never drift from the tool."""
 import os, re, json
+from plausible_snippet import ensure
 
 NATIONAL = 1915
 RED, GREEN = "#b4321a", "#2f6b3a"
@@ -193,7 +194,7 @@ def main():
         if code not in METRO_OFF:
             continue
         _, slug, _, _, _ = METROS[code]
-        open(os.path.join(outdir, f"{slug}.html"), "w", encoding="utf-8").write(build(code))
+        open(os.path.join(outdir, f"{slug}.html"), "w", encoding="utf-8").write(ensure(build(code)))
         n += 1
     print(f"wrote {n} home metro pages -> home/metro/")
 

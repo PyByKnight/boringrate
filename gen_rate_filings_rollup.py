@@ -9,6 +9,7 @@ import json, re, pathlib
 from filing_cite import anchor, portal_url
 from datetime import date
 from gen_metro_page import STATE, esc
+from plausible_snippet import ensure
 
 ROOT = pathlib.Path(__file__).parent
 OUT = ROOT / "rate-filings" / "index.html"
@@ -247,7 +248,7 @@ def build():
 {script}
 {TAIL}'''
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(html, encoding="utf-8")
+    OUT.write_text(ensure(html), encoding="utf-8")
     print(f"wrote {OUT} — {len(data)} rows, {n_states} states, {n_carriers} carriers ({n_inc} inc / {n_dec} dec)")
 
 

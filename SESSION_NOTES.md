@@ -53,12 +53,21 @@ No new DOI pull (owner away from machine) → work off data on hand. Fable consu
 - **CASCADE ADDITION:** patch_plausible.py + patch_carrier_filings.py must run as the LAST steps of any
   build/regen cascade (like build_nav / patch_metro_citations) — home/renters regens re-emit heads
   without the analytics snippet, and new filings should flow onto carrier pages.
-- **NEXT / DEFERRED:** (a) durability — the home/renters generators (gen_home_metro_page.py inline head,
-  gen_home_state_pages.py scaffold renters/state/colorado.html, gen_home_faq.py, home rate-tracker) emit
-  heads WITHOUT plausible, so the snippet only survives via the patch re-run; fixing the templates/
-  scaffold would make it durable (optional); (b) AUTO By-ZIP dispersion stays SKIPPED (low ROI); (c)
-  Layer-3 guide secondary .gov/DOI/NAIC citations (coverage_sources.draft.json url:"TODO"). Byline still
-  owner-blocked.
+- **DURABLE ANALYTICS FIX DONE.** New **`plausible_snippet.py`** = single source of the snippet
+  (SCRIPT_ID + SNIPPET) + idempotent `ensure(html)` (inserts before first `</head>`, no-op if present
+  or headless). Wired `ensure()` into the write path of all 7 head-emitting generators
+  (gen_home_metro_page, gen_home_state_pages, gen_home_faq, gen_home_rate_tracker, gen_renters_faq,
+  gen_press_page, gen_rate_filings_rollup) so the snippet is baked in at generation — survives a regen
+  without needing patch_plausible.py re-run. patch_plausible.py refactored to import from the shared
+  module (script id now defined ONCE). **Verified:** stripped the snippet from press + rate-filings,
+  re-ran their generators → snippet restored BY THE GENERATOR (only benign date diff); pages restored to
+  HEAD (no page churn in this commit — the fix is generator source; live pages already carry the snippet
+  from the earlier patch commit). ensure() unit-tested; py_compile clean on all 8 files. patch_plausible
+  stays as the belt-and-suspenders backstop + covers any hand-built pages.
+- **NEXT / DEFERRED:** (a) AUTO By-ZIP dispersion stays SKIPPED (low ROI); (b) Layer-3 guide secondary
+  .gov/DOI/NAIC citations (coverage_sources.draft.json url:"TODO", needs real WebFetch verification —
+  no fabricated URLs); (c) per-carrier filing-record sections + plausible both now auto-flow via their
+  cascade steps. Byline still owner-blocked.
 
 ## This session (2026-07-18b, Opus 4.8) — About de-monetized + Layer-2 metro citations + Layer-3 top-5 guides
 Owner feedback: the /about.html editorial harped on monetization. Then: push it, do metro citations + Layer 3.

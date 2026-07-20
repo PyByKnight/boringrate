@@ -8,6 +8,7 @@ Page skeleton reuses the gen_home_faq.py scaffold (home/state/florida.html)."""
 import json, re, pathlib
 from datetime import date
 from gen_metro_page import STATE, esc, _json
+from plausible_snippet import ensure
 from filing_cite import anchor, portal_url
 
 ROOT = pathlib.Path(__file__).parent
@@ -168,7 +169,7 @@ def page(slug, title, desc, h1, dek, body_html, faq):
 </div>'''
     html = head_html(url, title, desc, faq) + "\n" + NAV + "\n" + body + "\n" + TAIL
     OUTDIR.mkdir(parents=True, exist_ok=True)
-    (OUTDIR / f"{slug}.html").write_text(html, encoding="utf-8")
+    (OUTDIR / f"{slug}.html").write_text(ensure(html), encoding="utf-8")
     return url
 
 

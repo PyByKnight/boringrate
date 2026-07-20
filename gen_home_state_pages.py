@@ -5,6 +5,7 @@
 # is differentiated by the state's catastrophe profile (the SEO/quality differentiator)
 # plus its average premium and a generated cheapest-carrier ranking from HOME_CARRIERS.
 import os, json, re
+from plausible_snippet import ensure
 
 NATIONAL = 1915
 RED, GREEN = "#b4321a", "#2f6b3a"
@@ -321,6 +322,6 @@ os.makedirs("home/state", exist_ok=True)
 n = 0
 for code in STATES:
     slug = slugify(STATES[code][0])
-    open(f"home/state/{slug}.html", "w", encoding="utf-8").write(build(code))
+    open(f"home/state/{slug}.html", "w", encoding="utf-8").write(ensure(build(code)))
     n += 1
 print("wrote", n, "home state pages")
