@@ -43,9 +43,21 @@ No new DOI pull (owner away from machine) → work off data on hand. Fable consu
   fabricated citations. Patch-safe: insert before first "<h2>Compare …", strip-then-reinsert idempotent
   (re-run refreshes after next pull). qa 582/0. Consistent with the tool (State Farm auto cutter / home
   raiser matches its stability scores).
-- **NEXT / DEFERRED:** (a) `window.track` buffers→nowhere since Jun 11 (owner picks Plausible vs
-  first-party — the one measurement gap); (b) AUTO By-ZIP dispersion stays SKIPPED (low ROI);
-  (c) re-run patch_carrier_filings.py in the cascade after each new auto/home pull. Byline still
+- **ANALYTICS — CORRECTED THE RECORD + FIXED COVERAGE.** The "window.track buffers→nowhere" note was
+  STALE. Plausible was already live: `window.track` calls `window.plausible()` and the pa-v2 site-ID
+  script (`patch_plausible.py`, Jul 2) was on 466 pages incl. all 3 tools. The real gap: 114 home/renters
+  CONTENT pages (home guides + home/state ×51 + home/metro ×28 + home/rate-changes + 9 renters + press +
+  rate-filings) had NO snippet — the home/renters generators emit their own <head> without it, and
+  patch_plausible.py hadn't been re-run since those pages were regenerated. **Fixed: re-ran
+  patch_plausible.py → 114 patched, now 580/580 pages track.** qa 582/0.
+- **CASCADE ADDITION:** patch_plausible.py + patch_carrier_filings.py must run as the LAST steps of any
+  build/regen cascade (like build_nav / patch_metro_citations) — home/renters regens re-emit heads
+  without the analytics snippet, and new filings should flow onto carrier pages.
+- **NEXT / DEFERRED:** (a) durability — the home/renters generators (gen_home_metro_page.py inline head,
+  gen_home_state_pages.py scaffold renters/state/colorado.html, gen_home_faq.py, home rate-tracker) emit
+  heads WITHOUT plausible, so the snippet only survives via the patch re-run; fixing the templates/
+  scaffold would make it durable (optional); (b) AUTO By-ZIP dispersion stays SKIPPED (low ROI); (c)
+  Layer-3 guide secondary .gov/DOI/NAIC citations (coverage_sources.draft.json url:"TODO"). Byline still
   owner-blocked.
 
 ## This session (2026-07-18b, Opus 4.8) — About de-monetized + Layer-2 metro citations + Layer-3 top-5 guides
