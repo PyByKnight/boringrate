@@ -137,12 +137,14 @@ painful pull). Each new state auto-cascades through the pipeline below.
   coverage-gated (fixed USAA 5→3 raising-hard vs Nationwide 4→5 flat).
 - Assets: `/rate-filings/` roll-up (253 rows), `/press/` journalist page, per-state auto+home trackers.
 
-**Cascade after any home pull** (order matters): add rows to serff_home_filings.json (+max/min) → add
-regional base entries / expand states in HOME_CARRIERS → `apply_home_filings.py --apply` →
-`gen_home_stability.py` → `gen_home_metro_offsets.py` (+band/metro if new state) → `gen_home_rate_tracker.py`
-→ `gen_home_state_pages.py` → `gen_home_filing_highlights.py` → `gen_home_metro_page.py` →
-`gen_rate_filings_rollup.py` → `gen_press_page.py` → `build_nav.py` → sitemap → `node qa_sweep.js` +
-`audit_prose.py` → commit → IndexNow. Clear scratchpad + `~/*.zip` after (disk is tight, 25G).
+**Cascade after any pull → now a one-command runner: `./rebuild.sh [auto|home|all]`.** After the DATA
+step by hand (add rows to serff_filings.json / serff_home_filings.json + new-state base entries/roster
+states), run `./rebuild.sh` — it runs the full deterministic recompute + primary-source citations + nav
++ QA in the proven-idempotent order, incl. this session's additions (gen_auto_stability, patch_carrier_
+filings, plausible-baked-in). VERIFIED 2026-07-20: ran on current data → all 21 steps green, qa 582/0,
+prose 0 drift, every post-gen patch survived (only cosmetic date/lastmod diffs, restored). Still MANUAL
+after: parse zips, add NEW page URLs to sitemap.xml, `git commit`, IndexNow ping, clear `~/*.zip` +
+scratchpad (disk tight, 25G). The explicit ordered step list lives in rebuild.sh (self-documenting).
 
 **DEFERRED / owner-directed next:**
 - **ZIP↔territory mapping** (true ZIP-level rating): territory FACTORS extractable, but ZIP→territory
