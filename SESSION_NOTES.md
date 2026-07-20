@@ -64,10 +64,18 @@ No new DOI pull (owner away from machine) → work off data on hand. Fable consu
   HEAD (no page churn in this commit — the fix is generator source; live pages already carry the snippet
   from the earlier patch commit). ensure() unit-tested; py_compile clean on all 8 files. patch_plausible
   stays as the belt-and-suspenders backstop + covers any hand-built pages.
-- **NEXT / DEFERRED:** (a) AUTO By-ZIP dispersion stays SKIPPED (low ROI); (b) Layer-3 guide secondary
-  .gov/DOI/NAIC citations (coverage_sources.draft.json url:"TODO", needs real WebFetch verification —
-  no fabricated URLs); (c) per-carrier filing-record sections + plausible both now auto-flow via their
-  cascade steps. Byline still owner-blocked.
+- **LAYER-3 SECONDARY CITATIONS SHIPPED (5 live guides).** Added a REAL, WebFetch-VERIFIED authoritative
+  secondary link to each shipped guide's muted Source note (appended after the form-language + "your
+  carrier's form may differ"): renters-theft → III renters (theft + off-premises + flood-excluded);
+  renters-water-damage → FEMA/NFIP floodsmart (flood is separate NFIP contents); does-car-insurance-cover
+  → III auto-coverage-basics; home-required → CFPB (lenders require it, not statute); renters-required →
+  Texas DOI ("isn't required by law… landlords may require it"). Every URL was FETCHED and confirmed to
+  support its exact claim before use — `coverage_sources.draft.json` records the confirming quote + date
+  in a new `url_verified` field per entry. **NO URLs fabricated.** 13 remaining entries stay `TODO`
+  (their guides don't carry the Layer-3 form note yet — deferred per content-first). qa 582/0.
+- **NEXT / DEFERRED:** (a) AUTO By-ZIP dispersion stays SKIPPED (low ROI); (b) Layer-3 guides 6–18
+  (secondary URLs + form note) only if demand grows; (c) per-carrier filing-record + plausible both
+  auto-flow via their cascade steps. Byline still owner-blocked.
 
 ## This session (2026-07-18b, Opus 4.8) — About de-monetized + Layer-2 metro citations + Layer-3 top-5 guides
 Owner feedback: the /about.html editorial harped on monetization. Then: push it, do metro citations + Layer 3.

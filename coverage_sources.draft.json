@@ -1,7 +1,7 @@
 {
   "_meta": {
     "purpose": "Layer-3 of the citation system: maps each evergreen coverage guide to its HONEST primary source. Coverage-scope claims must NOT cite rate filings (overclaim) — they cite standard policy-form language, DOI consumer guidance, or statute. See EEAT_PLAN.md §3 Layer 3.",
-    "status": "DRAFT — Opus 4.8, 2026-07-16. Category-level sources are reliable; NO URLs or exact ISO form-edition dates were fabricated. Before shipping: (1) fill `doi_or_consumer_url` with a real, specific .gov/NAIC/III page per topic, (2) confirm the form reference wording, (3) owner approves the inline-citation copy per guide.",
+    "status": "PARTIAL — Opus 4.8, updated 2026-07-20. The 5 SHIPPED guides (renters theft, renters water-damage, does-car-insurance-cover, home-required, renters-required) now have REAL, WebFetch-VERIFIED secondary URLs (III / FEMA-NFIP / CFPB / Texas DOI) rendered inline; each `url_verified` records the confirming quote + date. Remaining 13 entries keep `doi_or_consumer_url: TODO` — those guides don't yet carry the Layer-3 form note (deferred per content-first). NO URLs fabricated: every filled URL was fetched and confirmed to support its claim.",
     "citation_convention": "Inline at the claim, muted. Pattern: 'Under the standard ISO HO-3 homeowners form, <claim> — your carrier's form may differ.' The 'may differ' caveat is itself a trust signal. For statutory claims, cite the state statute/DOI bulletin, not a form.",
     "standard_forms": {
       "home": "ISO HO-3 (form number HO 00 03) — the special-form homeowners policy most owner-occupied policies build on (open-peril dwelling, named-peril contents).",
@@ -39,7 +39,7 @@
      "secondary": ["III dog-bite liability data", "state statute on strict liability / one-bite rule"], "doi_or_consumer_url": "TODO", "confidence": "high"},
     {"page": "home/is-homeowners-insurance-required.html", "topic": "is it required",
      "form_ref": "NOT required by law; required contractually by mortgage lenders. Statutory/lender basis, not a policy-form claim.",
-     "secondary": ["CFPB on lender-required insurance", "state statute"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+     "secondary": ["CFPB on lender-required insurance", "state statute"], "doi_or_consumer_url": "https://www.consumerfinance.gov/ask-cfpb/what-is-homeowners-insurance-why-is-homeowners-insurance-required-en-162/", "url_verified": "2026-07-20 — CFPB: lenders generally require proof of homeowners insurance (contractual, not statutory)", "confidence": "high"},
     {"page": "home/what-does-homeowners-insurance-cover.html", "topic": "what it covers (overview)",
      "form_ref": "ISO HO-3 — Section I (dwelling/other structures/contents/loss-of-use) + Section II (liability/med-pay); open-peril dwelling, named-peril contents.",
      "secondary": ["NAIC homeowners buyer guide", "III"], "doi_or_consumer_url": "TODO", "confidence": "high"}
@@ -47,16 +47,16 @@
   "renters": [
     {"page": "renters/does-renters-insurance-cover-theft.html", "topic": "theft / burglary",
      "form_ref": "ISO HO-4 — personal-property theft is a covered named peril, on- and (subject to sub-limits) off-premises.",
-     "secondary": ["III renters guidance", "state DOI"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+     "secondary": ["III renters guidance", "state DOI"], "doi_or_consumer_url": "https://www.iii.org/article/renters-insurance", "url_verified": "2026-07-20 — confirms theft covered, off-premises incl. property stolen from a car, floods excluded", "confidence": "high"},
     {"page": "renters/does-renters-insurance-cover-theft-from-car.html", "topic": "theft from a car",
      "form_ref": "ISO HO-4 — personal property stolen FROM a vehicle is covered under the renters policy (off-premises contents), NOT under auto; the car itself and permanently-installed parts fall to auto comprehensive.",
      "secondary": ["III (renters vs. auto split)", "state DOI"], "doi_or_consumer_url": "TODO", "confidence": "high"},
     {"page": "renters/does-renters-insurance-cover-water-damage.html", "topic": "water damage",
      "form_ref": "ISO HO-4 — sudden/accidental water discharge to personal property covered; flood excluded (contents flood via NFIP).",
-     "secondary": ["FEMA/NFIP contents coverage", "state DOI"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+     "secondary": ["FEMA/NFIP contents coverage", "state DOI"], "doi_or_consumer_url": "https://agents.floodsmart.gov/articles/understanding-flood-insurance-renters", "url_verified": "2026-07-20 — FEMA/NFIP: standard renters insurance excludes flood; NFIP contents coverage available to renters", "confidence": "high"},
     {"page": "renters/is-renters-insurance-required.html", "topic": "is it required",
      "form_ref": "NOT required by law; commonly required by the LEASE/landlord. Contractual, not statutory.",
-     "secondary": ["state landlord-tenant statute", "CFPB"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+     "secondary": ["state landlord-tenant statute", "CFPB"], "doi_or_consumer_url": "https://www.tdi.texas.gov/tips/renters-insurance.html", "url_verified": "2026-07-20 — Texas DOI: 'Renters insurance isn't required by law. Some landlords might require you to have a renters policy.'", "confidence": "high"},
     {"page": "renters/what-does-renters-insurance-cover.html", "topic": "what it covers (overview)",
      "form_ref": "ISO HO-4 — personal property (named perils), personal liability, loss-of-use/additional living expense; does NOT cover the building structure.",
      "secondary": ["NAIC renters buyer guide", "III"], "doi_or_consumer_url": "TODO", "confidence": "high"}
@@ -64,7 +64,7 @@
   "auto": [
     {"page": "article/does-car-insurance-cover.html", "topic": "what auto covers (overview)",
      "form_ref": "ISO PP 00 01 — liability (BI/PD), medical payments/PIP, uninsured/underinsured motorist, and physical damage (collision + comprehensive/other-than-collision).",
-     "secondary": ["state DOI auto buyer guide", "III"], "doi_or_consumer_url": "TODO", "confidence": "high"},
+     "secondary": ["state DOI auto buyer guide", "III"], "doi_or_consumer_url": "https://www.iii.org/article/auto-insurance-basics-understanding-your-coverage", "url_verified": "2026-07-20 — III lists liability (BI/PD), MedPay/PIP, UM/UIM, collision, comprehensive", "confidence": "high"},
     {"page": "article/does-car-insurance-follow-the-car-or-driver.html", "topic": "follows car or driver",
      "form_ref": "ISO PP 00 01 — coverage generally follows the CAR (permissive-use), with some coverages following the named insured; permissive-use and exclusions are the nuance.",
      "secondary": ["state DOI permissive-use bulletin"], "doi_or_consumer_url": "TODO", "confidence": "medium — verify state-by-state nuance before citing as absolute"}
