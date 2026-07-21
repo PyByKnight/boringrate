@@ -1075,6 +1075,296 @@
    "affected": 158430,
    "source": "Pennsylvania Insurance Department (SERFF)",
    "url": "https://filingaccess.serff.com/sfa/home/PA"
+  },
+  {
+   "carrier": "State Farm",
+   "state": "IL",
+   "pct": 5.6,
+   "dir": "decrease",
+   "effective": "2025-07-18",
+   "affected": 3179517,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134548953"
+  },
+  {
+   "carrier": "State Farm",
+   "state": "IL",
+   "pct": 9.4,
+   "dir": "decrease",
+   "effective": "2025-12-04",
+   "affected": 3330568,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134704563"
+  },
+  {
+   "carrier": "Country Financial",
+   "state": "IL",
+   "pct": 6.0,
+   "dir": "decrease",
+   "effective": "2025-12-24",
+   "affected": 302139,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134703367"
+  },
+  {
+   "carrier": "Country Financial",
+   "state": "IL",
+   "pct": 8.0,
+   "dir": "decrease",
+   "effective": "2026-06-24",
+   "affected": 241547,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134932067"
+  },
+  {
+   "carrier": "Progressive",
+   "state": "IL",
+   "pct": 5.3,
+   "dir": "decrease",
+   "effective": "2025-08-15",
+   "affected": 746310,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134633994"
+  },
+  {
+   "carrier": "Progressive",
+   "state": "IL",
+   "pct": 5.0,
+   "dir": "decrease",
+   "effective": "2026-01-30",
+   "affected": 762218,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134785395"
+  },
+  {
+   "carrier": "Progressive",
+   "state": "IL",
+   "pct": 1.7,
+   "dir": "decrease",
+   "effective": "2026-06-19",
+   "affected": 793969,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134970180"
+  },
+  {
+   "carrier": "American Family",
+   "state": "IL",
+   "pct": 3.0,
+   "dir": "increase",
+   "effective": "2025-12-05",
+   "affected": 57697,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134711267"
+  },
+  {
+   "carrier": "American Family",
+   "state": "IL",
+   "pct": 5.0,
+   "dir": "decrease",
+   "effective": "2026-06-18",
+   "affected": 61561,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134924309"
+  },
+  {
+   "carrier": "Grinnell",
+   "state": "IL",
+   "pct": 6.2,
+   "dir": "decrease",
+   "effective": "2026-02-01",
+   "affected": 4623,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134704653"
+  },
+  {
+   "carrier": "Grinnell",
+   "state": "IL",
+   "pct": 2.7,
+   "dir": "increase",
+   "effective": "2026-08-01",
+   "affected": 4266,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134960623"
+  },
+  {
+   "carrier": "Travelers",
+   "state": "IL",
+   "pct": 3.0,
+   "dir": "decrease",
+   "effective": "2025-08-22",
+   "affected": 83377,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/home/IL"
+  },
+  {
+   "carrier": "Shelter",
+   "state": "IL",
+   "pct": 2.8,
+   "dir": "decrease",
+   "effective": "2025-12-06",
+   "affected": 38403,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134682271"
+  },
+  {
+   "carrier": "Mercury",
+   "state": "IL",
+   "pct": 3.4,
+   "dir": "decrease",
+   "effective": "2025-12-17",
+   "affected": 6558,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134766294"
+  },
+  {
+   "carrier": "Mercury",
+   "state": "IL",
+   "pct": 1.1,
+   "dir": "decrease",
+   "effective": "2026-04-29",
+   "affected": 6083,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134908597"
+  },
+  {
+   "carrier": "Liberty Mutual",
+   "state": "IL",
+   "pct": 2.5,
+   "dir": "decrease",
+   "effective": "2025-09-11",
+   "affected": 27054,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665401"
+  },
+  {
+   "carrier": "Pekin",
+   "state": "IL",
+   "pct": 2.0,
+   "dir": "decrease",
+   "effective": "2025-09-05",
+   "affected": 31093,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134584404"
+  },
+  {
+   "carrier": "Auto-Owners",
+   "state": "IL",
+   "pct": 1.5,
+   "dir": "decrease",
+   "effective": "2025-07-29",
+   "affected": 88283,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134571348"
+  },
+  {
+   "carrier": "Auto-Owners",
+   "state": "IL",
+   "pct": 0.3,
+   "dir": "decrease",
+   "effective": "2026-02-12",
+   "affected": 88468,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134786248"
+  },
+  {
+   "carrier": "The Hartford",
+   "state": "IL",
+   "pct": 1.5,
+   "dir": "decrease",
+   "effective": "2026-02-05",
+   "affected": 13568,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134789514"
+  },
+  {
+   "carrier": "Kemper",
+   "state": "IL",
+   "pct": 19.2,
+   "dir": "increase",
+   "effective": "2025-11-24",
+   "affected": 13280,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134740540"
+  },
+  {
+   "carrier": "Kemper",
+   "state": "IL",
+   "pct": 41.5,
+   "dir": "increase",
+   "effective": "2026-05-25",
+   "affected": 18797,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134957968"
+  },
+  {
+   "carrier": "American National",
+   "state": "IL",
+   "pct": 3.0,
+   "dir": "increase",
+   "effective": "2026-07-24",
+   "affected": 1088,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134917316"
+  },
+  {
+   "carrier": "Safeco",
+   "state": "IL",
+   "pct": 2.0,
+   "dir": "increase",
+   "effective": "2026-06-01",
+   "affected": 20957,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134870075"
+  },
+  {
+   "carrier": "Farmers",
+   "state": "IL",
+   "pct": 2.3,
+   "dir": "increase",
+   "effective": "2026-01-18",
+   "affected": 63749,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134792823"
+  },
+  {
+   "carrier": "GEICO",
+   "state": "IL",
+   "pct": 1.0,
+   "dir": "increase",
+   "effective": "2026-04-03",
+   "affected": 112552,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134888662"
+  },
+  {
+   "carrier": "Hanover",
+   "state": "IL",
+   "pct": 0.6,
+   "dir": "increase",
+   "effective": "2026-01-16",
+   "affected": 24063,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/home/IL"
+  },
+  {
+   "carrier": "Hanover",
+   "state": "IL",
+   "pct": 0.5,
+   "dir": "increase",
+   "effective": "2026-08-01",
+   "affected": 24487,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/home/IL"
+  },
+  {
+   "carrier": "Allstate",
+   "state": "IL",
+   "pct": 4.8,
+   "dir": "increase",
+   "effective": "2026-09-03",
+   "affected": 1715,
+   "source": "Illinois Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134997297"
   }
  ]
 }
