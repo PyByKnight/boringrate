@@ -1,5 +1,24 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-19 (Opus 4.8)_
+_Last updated: 2026-07-21 (Opus 4.8)_
+
+## ▶▶ RESUME HERE (2026-07-21) — NEXT PULL DECIDED: AUTO in PA → IL → OH
+Owner is pulling filings; strategic decision made: **pull AUTO for the big markets we have HOME but no AUTO
+for — PA, OH, IL** (top-10 auto markets currently missing; completes the auto+home twin on carrier pages;
+hardens the new auto stability, only 11 carriers gated). **Start with PENNSYLVANIA** (prior-approval →
+cleanest "Overall % Rate Impact" to parse), then IL, then OH.
+- **Pipeline is READY, zero prep:** OH/PA/IL auto state pages + metros already exist; the auto tracker
+  auto-generates a state page for any state it sees in the data; 0 existing auto rows for all three (net-new).
+- **Afternoon flow:** parse jackets → add rows to BOTH `serff_filings.json` (ledger→rollup/carrier/stability/
+  cites) AND `rate_changes.json` (curated tracker layer) [same pattern as the FL reconciliation] → run
+  **`./rebuild.sh auto`** → review `git diff` → commit → push. Scale filter: top-10 family / ±3% / ≥10k
+  vehicles (entity map in SERFF_RUNBOOK.md). Watch: PA nationals crossing the ≥3-state stability gate.
+- **Coverage now:** AUTO = CA FL GA NV NY SC TN TX (8) · HOME = CA IL LA NJ NY OH PA TX (8) · both = CA NY TX.
+
+## This session (2026-07-19→21, Opus 4.8) — AUTO stability + FL reconcile + carrier filings + analytics + rebuild.sh
+_Shipped & pushed (main): auto filing-derived stability (AUTO_STABILITY_ADJ), FL press↔ledger reconcile,
+home distinct-state gate backport, per-carrier SERFF filing-record sections (25 pages), Plausible coverage
++ durable generator wiring, Layer-3 verified secondary citations (5 guides), and `rebuild.sh` cascade runner.
+Details in the dated blocks below._
 
 ## This session (2026-07-19, Opus 4.8) — AUTO filing-derived rate-stability + FL press↔ledger reconciliation
 No new DOI pull (owner away from machine) → work off data on hand. Fable consult picked the two moves.
