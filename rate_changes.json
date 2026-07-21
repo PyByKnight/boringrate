@@ -895,6 +895,186 @@
    "source": "NY SERFF Filing Access (Company Rate Information)",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134358402",
    "note": "Current in-force rate (eff 2025). Indicated +42.8%, approved +8.7%."
+  },
+  {
+   "carrier": "State Farm",
+   "state": "PA",
+   "pct": 2.7,
+   "dir": "decrease",
+   "effective": "2026-03-23",
+   "affected": 2180522,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134758176"
+  },
+  {
+   "carrier": "Erie",
+   "state": "PA",
+   "pct": 0.5,
+   "dir": "increase",
+   "effective": "2026-09-01",
+   "affected": 949661,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134924958"
+  },
+  {
+   "carrier": "Progressive",
+   "state": "PA",
+   "pct": 1.8,
+   "dir": "decrease",
+   "effective": "2026-01-09",
+   "affected": 827597,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134556786"
+  },
+  {
+   "carrier": "The General",
+   "state": "PA",
+   "pct": 3.1,
+   "dir": "increase",
+   "effective": "2026-05-28",
+   "affected": 69974,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134907337"
+  },
+  {
+   "carrier": "Nationwide",
+   "state": "PA",
+   "pct": 10.0,
+   "dir": "decrease",
+   "effective": "2026-01-31",
+   "affected": 10280,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/home/PA"
+  },
+  {
+   "carrier": "Liberty Mutual",
+   "state": "PA",
+   "pct": 2.8,
+   "dir": "increase",
+   "effective": "2026-06-01",
+   "affected": 55969,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134770292"
+  },
+  {
+   "carrier": "Selective",
+   "state": "PA",
+   "pct": 8.6,
+   "dir": "increase",
+   "effective": "2025-12-31",
+   "affected": 11227,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134573770"
+  },
+  {
+   "carrier": "Grange",
+   "state": "PA",
+   "pct": 9.9,
+   "dir": "increase",
+   "effective": "2026-06-01",
+   "affected": 8200,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134679118"
+  },
+  {
+   "carrier": "Hanover",
+   "state": "PA",
+   "pct": 5.8,
+   "dir": "increase",
+   "effective": "2026-03-13",
+   "affected": 10704,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/home/PA"
+  },
+  {
+   "carrier": "Plymouth Rock",
+   "state": "PA",
+   "pct": 3.0,
+   "dir": "increase",
+   "effective": "2026-09-01",
+   "affected": 11599,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134967675"
+  },
+  {
+   "carrier": "Donegal",
+   "state": "PA",
+   "pct": 2.0,
+   "dir": "increase",
+   "effective": "2026-09-15",
+   "affected": 47506,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=135003371"
+  },
+  {
+   "carrier": "The Hartford",
+   "state": "PA",
+   "pct": 1.7,
+   "dir": "decrease",
+   "effective": "2026-07-23",
+   "affected": 17191,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134941173"
+  },
+  {
+   "carrier": "NJM",
+   "state": "PA",
+   "pct": 6.3,
+   "dir": "increase",
+   "effective": "2026-06-01",
+   "affected": 3574,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134757403"
+  },
+  {
+   "carrier": "NJM",
+   "state": "PA",
+   "pct": 2.0,
+   "dir": "decrease",
+   "effective": "2026-09-15",
+   "affected": 19505,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134893231"
+  },
+  {
+   "carrier": "American National",
+   "state": "PA",
+   "pct": 5.2,
+   "dir": "increase",
+   "effective": "2025-12-26",
+   "affected": 6994,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134643362"
+  },
+  {
+   "carrier": "Cincinnati",
+   "state": "PA",
+   "pct": 4.0,
+   "dir": "increase",
+   "effective": "2026-05-16",
+   "affected": 3649,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134712275"
+  },
+  {
+   "carrier": "Auto-Owners",
+   "state": "PA",
+   "pct": 0.6,
+   "dir": "decrease",
+   "effective": "2026-10-01",
+   "affected": 25215,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134954567"
+  },
+  {
+   "carrier": "Travelers",
+   "state": "PA",
+   "pct": 4.0,
+   "dir": "decrease",
+   "effective": "2025-09-22",
+   "affected": 158430,
+   "source": "Pennsylvania Insurance Department (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/home/PA"
   }
  ]
 }

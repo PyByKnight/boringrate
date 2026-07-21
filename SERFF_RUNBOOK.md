@@ -249,6 +249,10 @@ ONLY** (NWPP-G…, TRVD-G…) the deep link 403s, so give just the digit string 
 the user **Ctrl+F's it on the results page** → opens the row. Order keeps with
 State Farm / biggest carriers first; then Download Zip → drop in Linux files.
 
+**Format: ONE LINK PER LINE** (not several separated by `·` on one line) — the
+user clicks them one at a time and inline separators make that fiddly. Carrier
+label + the single clickable link per row.
+
 ## Assistant-side workflow (when the user pastes portal data)
 
 1. **Triage a results table**: keep Rate/"Rate/Rule" + Closed-Approved rows
