@@ -130,6 +130,18 @@ def load_market_share():
     return weight
 
 
+MIN_BOOK = 4000  # mirrors verify_filing_tool_consistency.py
+
+def _too_small(r):
+    """A tiny sub-brand filing is not the carrier family's trajectory.
+    verify_filing_tool_consistency.py has always skipped these; this script did
+    NOT, so drift could move a whole family's offset off a token book -- e.g.
+    GA Allstate +5.5% filed by Allstate Indemnity on 434 policyholders would
+    have raised the displayed Allstate GA price $2,488 -> $2,624 for everyone."""
+    aff = r.get("affected")
+    return aff is not None and aff < MIN_BOOK and abs(r.get("overall_pct") or 0) >= 1
+
+
 def main():
     if "--help" in sys.argv or "-h" in sys.argv:
         print("usage: apply_filed_changes.py [--emit] [--reach-movers]\n"
@@ -186,7 +198,8 @@ def main():
                 continue
             post = [r for r in rows if eff_date(r) and eff_date(r) > anc
                     and r.get("overall_pct") is not None
-                    and not r.get("drift_exclude")]  # skip segment-only filings (e.g. min-limits) that don't move the standard-coverage model
+                    and not r.get("drift_exclude")  # skip segment-only filings (e.g. min-limits) that don't move the standard-coverage model
+                    and not _too_small(r)]          # and sub-brand filings that aren't the family's trajectory
             if not post:
                 continue
             num = den = 0.0
