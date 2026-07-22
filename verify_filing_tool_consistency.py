@@ -49,6 +49,30 @@ def full_rank(st, avg, nat, loc, slc, adj):
     rows = sorted(((n, round(a * b * A.get(n, 1.0))) for n, b in roster.items()), key=lambda x: x[1])
     return {n: (i + 1, p, len(rows)) for i, (n, p) in enumerate(rows)}
 
+
+def book_key(r):
+    """Normalize an entity to its book. Annotations live in parentheses
+    ('(dominant of 3 entities)', '(FLAG: ...)') and must not split a book."""
+    e = (r.get("entity") or "").split("(")[0]
+    return re.sub(r"[^a-z]", "", e.lower()) or "default"
+
+def carrier_net(rs):
+    """Open-book net: COMPOUND within a book (sequential revisions to one rate
+    manual), WEIGHT across books by policyholders. Compounding across separate
+    legal entities double-counts and manufactures fake contradictions -- e.g.
+    Liberty Mutual OH read as -18% by chaining American Economy, Liberty Mutual
+    Personal and Safeco, three unrelated books."""
+    books = defaultdict(list)
+    for r in rs:
+        books[book_key(r)].append(r)
+    nets, wts = [], []
+    for brs in books.values():
+        brs.sort(key=lambda r: r.get("effective_new") or "")
+        nets.append((reduce(lambda a, r: a * (1 + r["overall_pct"] / 100.0), brs, 1.0) - 1) * 100)
+        wts.append(max((r.get("affected") or 0) for r in brs) or 1)
+    tot = sum(wts) or 1
+    return sum(n * w for n, w in zip(nets, wts)) / tot
+
 def main():
     sf = json.load(open("serff_filings.json"))["filings"]
     model = load_model()
@@ -66,7 +90,7 @@ def main():
         lines = []
         for (s, car), rs in fil.items():
             if s != st: continue
-            net = (reduce(lambda a, r: a * (1 + r["overall_pct"] / 100.0), rs, 1.0) - 1) * 100
+            net = carrier_net(rs)
             rk = rank.get(car)
             flag = ""
             if rk and abs(net) >= THRESH:
