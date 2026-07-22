@@ -23,6 +23,7 @@ RANKINGS = json.loads(_RANKF.read_text()) if _RANKF.exists() else {}
 # The tracker's headline % is premium-weighted; we only attach a SERFF # when a single
 # filing matches closely (signed pct within 1.5), so the cited number agrees with the
 # displayed headline (tool↔filing consistency). Otherwise we keep the existing source.
+import brand_share
 from filing_cite import anchor, portal_url
 _SERFF_AUTO = json.loads((ROOT / "serff_filings.json").read_text())["filings"]
 
@@ -141,13 +142,18 @@ def render(slug, title, desc, h1, dek, body_html, faq, in_subdir=True):
 
 
 def rows_table(changes):
+    _bt, _eb = brand_share.build()
     head = ('<table style="width:100%;border-collapse:collapse;font-size:15px;margin:18px 0;">'
             '<thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">'
-            '<th style="padding:9px 8px;">Carrier</th><th>Change</th><th>Effective</th><th>Affected</th><th>Source</th></tr></thead><tbody>')
+            '<th style="padding:9px 8px;">Carrier</th><th>Change</th><th>Effective</th><th>Affected</th>'
+            '<th title="This filing entity&#39;s share of the carrier&#39;s policyholders across all captured '
+            'filings in this state. Shown only where we hold two or more entities for that carrier.">% of brand</th>'
+            '<th>Source</th></tr></thead><tbody>')
     body = []
     for c in sorted(changes, key=lambda x: x["effective"]):
         aff = f'{c["affected"]:,}' if c.get("affected") else "—"
         m = serff_match(c)
+        brand = brand_share.fmt(brand_share.share(m, _bt, _eb)) if m else "&mdash;"
         if m:
             src = (f'<a class="ca-link" href="/rate-filings/#{anchor(m)}" title="See this filing in the rate-filings ledger">SERFF #{esc(m["tracking"])}</a> '
                    f'<a class="ca-link" href="{portal_url(m)}" target="_blank" rel="noopener nofollow" title="Open the state filing portal and search by this SERFF number" aria-label="Open state filing portal">&#8599;</a>')
@@ -155,7 +161,8 @@ def rows_table(changes):
             src = f'<a class="ca-link" href="{c["url"]}" target="_blank" rel="noopener nofollow">{esc(c["source"])}</a>'
         body.append(
             f'<tr style="border-bottom:1px solid var(--rule);"><td style="padding:9px 8px;"><strong>{esc(c["carrier"])}</strong></td>'
-            f'<td>{signed(c)}</td><td>{fdate(c["effective"])}</td><td>{aff}</td><td style="font-size:13px;">{src}</td></tr>')
+            f'<td>{signed(c)}</td><td>{fdate(c["effective"])}</td><td>{aff}</td>'
+            f'<td style="color:var(--ink-mute);">{brand}</td><td style="font-size:13px;">{src}</td></tr>')
     return head + "".join(body) + "</tbody></table>"
 
 

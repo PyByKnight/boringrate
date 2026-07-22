@@ -10,6 +10,7 @@ from filing_cite import anchor, portal_url
 from datetime import date
 from gen_metro_page import STATE, esc
 from plausible_snippet import ensure
+import brand_share
 
 ROOT = pathlib.Path(__file__).parent
 OUT = ROOT / "rate-filings" / "index.html"
@@ -31,6 +32,15 @@ scaff = (ROOT / "home" / "state" / "florida.html").read_text(encoding="utf-8")
 STYLE = scaff[scaff.index("<style>"):scaff.index("</style>") + len("</style>")]
 NAV = scaff[scaff.index('<header class="top">'):scaff.index("</header>") + len("</header>")]
 TAIL = scaff[scaff.index("<footer>"):]
+# The scaffold is home/state/florida.html, so its sticky CTA rides along: it read
+# "Compare Florida home rates", pointed at #zipBarInput (which does not exist on
+# this page), and fell back to /home/ — the home section, on a page that is mostly
+# auto filings. Retarget both to the ZIP tool on the main page.
+TAIL = TAIL.replace(
+    'href="#zipBarInput" aria-label="Compare Florida home rates">Compare Florida home rates',
+    'href="/" aria-label="Check rates in your ZIP">Check rates in your ZIP')
+TAIL = TAIL.replace('else{window.location.href="/home/";}', 'else{window.location.href="/";}')
+assert "Compare Florida home rates" not in TAIL, "sticky CTA not retargeted — scaffold markup changed"
 
 
 def fdate(iso):
@@ -53,6 +63,7 @@ def source_label(url, note):
 
 
 def collect():
+    _bt, _eb = brand_share.build()
     rows = []
     for r in json.load(open(ROOT / "serff_filings.json"))["filings"]:
         if r.get("overall_pct") is None: continue
@@ -70,6 +81,7 @@ def collect():
             "tracking": r.get("tracking") or "", "url": r.get("url") or "",
             "src": source_label(r.get("url") or "", r.get("source_note") or ""),
             "share": market_share(r["carrier"], product),
+            "brand": brand_share.share(r, _bt, _eb) if product == "Auto" else None,
         })
     # sort: biggest absolute move first (default view)
     out.sort(key=lambda x: (-abs(x["pct"]), x["state"]))
@@ -109,20 +121,27 @@ def build():
         trk = f'<span class="rf-trk">{esc(d["tracking"])}</span>' if d["tracking"] else ""
         car = f'<strong>{esc(d["carrier"])}</strong>' + (f' <span class="rf-ent">{esc(d["entity"])}</span>' if d["entity"] else "")
         share_cell = (f'{d["share"]:g}%' if d["share"] is not None else '<span class="rf-na">—</span>')
+        brand_cell = (brand_share.fmt(d["brand"]) if d["brand"] is not None
+                      else '<span class="rf-na">&mdash;</span>')
         # data-eff: ISO for chronological sort; data-share: -1 sinks unknowns to the bottom
         trs.append(
             f'<tr id="{anchor(d)}" class="rf-row" data-product="{d["product"]}" data-state="{d["state"]}" data-dir="{cls}" '
             f'data-pct="{d["pct"]}" data-eff="{esc(d["eff"])}" data-share="{d["share"] if d["share"] is not None else -1}" '
-            f'data-carrier="{esc(d["carrier"].lower())}">'
+            f'data-carrier="{esc(d["carrier"].lower())}" '
+            f'data-brand="{round(d["brand"]*100, 2) if d["brand"] is not None else -1}">'
             f'<td>{esc(STATE[d["state"]][0])}</td><td>{d["product"]}</td><td>{car}</td>'
             f'<td style="color:{color};font-weight:600;text-align:right;">{chg}</td>'
             f'<td>{esc(fdate(d["eff"]))}</td>'
             f'<td class="rf-num rf-share">{share_cell}</td>'
+            f'<td class="rf-num rf-share">{brand_cell}</td>'
             f'<td class="rf-src">{src} {trk}</td></tr>')
     table = ('<div class="rf-tablewrap"><table class="rf-table" id="rfTable"><thead><tr>'
              '<th data-sort="state">State</th><th data-sort="product">Product</th><th data-sort="carrier">Carrier</th>'
              '<th data-sort="pct" class="rf-num">Change</th><th data-sort="eff">Effective</th>'
              '<th data-sort="share" class="rf-num" title="NAIC national auto market share">U.S. share</th>'
+             '<th data-sort="brand" class="rf-num" title="This filing entity&#39;s share of the carrier&#39;s '
+             'policyholders across all captured filings in this state. Shown only where we hold two or more '
+             'entities for that carrier.">% of brand</th>'
              '<th>Source</th>'
              '</tr></thead><tbody>' + "".join(trs) + '</tbody></table></div>')
 
@@ -177,7 +196,7 @@ def build():
       }
       [q,fp,fs,fd].forEach(function(el){el.addEventListener("input",apply);});
       // numeric columns sort by their data-* value; eff sorts on ISO date; text cols on dataset strings
-      var NUM={pct:1,share:1},dir={};
+      var NUM={pct:1,share:1,brand:1},dir={};
       tbl.tHead.rows[0].querySelectorAll("th[data-sort]").forEach(function(th){
         th.addEventListener("click",function(){
           var k=th.dataset.sort,asc=dir[k]=!dir[k];
