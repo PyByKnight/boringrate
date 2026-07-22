@@ -44,7 +44,8 @@ def build():
     static = {m[0]: int(m[1]) for m in re.findall(r'name:"([^"]+)",[^}]*?stability:(\d)', html)}
 
     filings = [r for r in json.load(open(ROOT / "serff_home_filings.json"))["filings"]
-               if r.get("overall_pct") is not None]
+               if r.get("overall_pct") is not None
+               and not r.get("drift_exclude")]  # segment-only/unrepresentative filings must not move stability
     by, states = {}, {}
     for r in filings:
         by.setdefault(r["carrier"], []).append(r["overall_pct"])

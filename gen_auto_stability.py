@@ -66,7 +66,8 @@ def build():
     static = static_scores(html)
 
     filings = [r for r in json.load(open(ROOT / "serff_filings.json"))["filings"]
-               if r.get("overall_pct") is not None]
+               if r.get("overall_pct") is not None
+               and not r.get("drift_exclude")]  # segment-only/unrepresentative filings must not move stability
     by, states = {}, {}
     for r in filings:
         name = ALIAS.get(r["carrier"], r["carrier"])
