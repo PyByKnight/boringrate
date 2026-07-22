@@ -1,7 +1,22 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-21 (Opus 4.8)_
+_Last updated: 2026-07-22 (Opus 4.8)_
 
-## ▶▶ RESUME HERE (2026-07-22) — OH/PA/IL auto set COMPLETE; pick the next state
+## ▶▶ RESUME HERE (2026-07-23) — ★ MICHIGAN AUTO PULL (owner doing this next session)
+**★ TOMORROW = MI.** Owner runs the SERFF search (Michigan, TOI **19.0 Personal Auto**, disposition
+**07/01/25–now**), pastes the results, Claude returns the triaged pull list. MI is no-fault with the
+highest premiums in the country and strong search demand — the biggest single coverage win available.
+**Read the PULL EFFICIENCY block below before building the list: Tier 1 alone was 93.3% of the weight
+in OH, so this should cost far less than Ohio's 104 jackets.**
+- **★ PA Hartford −1.7% applies itself tomorrow.** It is effective 2026-07-23 and was correctly NOT
+  drifted on 07-22 (see the future-date guard, 924bda09). The next `apply_filed_changes.py` run on or
+  after 07-23 will propose it; apply it and **advance PA's anchor to 2026-07-23**.
+  GA Liberty Mutual +3.4% is effective **2026-08-31** — leave it until then.
+- **Done 2026-07-22 (all pushed):** OH auto backfill (93 filings → 133 rows w/ entities), entity-level
+  ledger + `entity_aggregate` flag, `% of brand` column on both filing tables, sortable state tables,
+  FAQ schema collapsed to one entry per carrier by policyholders, Florida CTA leak fixed + in-body CTA
+  on /rate-filings/, sitemap dedupe, 4 missing URLs registered, IndexNow pinged (45 URLs).
+
+## (previous) OH/PA/IL auto set COMPLETE
 **PA ✅** (51445d15) · **IL ✅** (7a6dcfd2) · **OH ✅** (c1ddff88) — all parsed, cascaded, committed
 and PUSHED (through f5681650). The OH/PA/IL set is done.
 - **Coverage now:** AUTO = CA FL GA IL NV NY OH PA SC TN TX (**11**) · HOME = CA IL LA NJ NY OH PA TX (8).
