@@ -1,18 +1,24 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-21 (Opus 4.8)_
 
-## ▶▶ RESUME HERE (2026-07-21) — NEXT PULL DECIDED: AUTO in PA → IL → OH
-Owner is pulling filings; strategic decision made: **pull AUTO for the big markets we have HOME but no AUTO
-for — PA, OH, IL** (top-10 auto markets currently missing; completes the auto+home twin on carrier pages;
-hardens the new auto stability, only 11 carriers gated). **Start with PENNSYLVANIA** (prior-approval →
-cleanest "Overall % Rate Impact" to parse), then IL, then OH.
-- **Pipeline is READY, zero prep:** OH/PA/IL auto state pages + metros already exist; the auto tracker
-  auto-generates a state page for any state it sees in the data; 0 existing auto rows for all three (net-new).
-- **Afternoon flow:** parse jackets → add rows to BOTH `serff_filings.json` (ledger→rollup/carrier/stability/
-  cites) AND `rate_changes.json` (curated tracker layer) [same pattern as the FL reconciliation] → run
-  **`./rebuild.sh auto`** → review `git diff` → commit → push. Scale filter: top-10 family / ±3% / ≥10k
-  vehicles (entity map in SERFF_RUNBOOK.md). Watch: PA nationals crossing the ≥3-state stability gate.
-- **Coverage now:** AUTO = CA FL GA NV NY SC TN TX (8) · HOME = CA IL LA NJ NY OH PA TX (8) · both = CA NY TX.
+## ▶▶ RESUME HERE (2026-07-22) — PA + IL auto DONE; OH is next
+**PA auto ✅** (commit 51445d15) and **IL auto ✅** (7a6dcfd2) parsed, cascaded, committed + PUSHED.
+Both live. **OH is the last of the OH/PA/IL set** — paste the OH SERFF auto search results
+(TOI 19.0 Personal Auto, disposition 07/01/25–now) and Claude gives the triaged pull list
+(ONE link per line; -G tracking #s → Ctrl+F). Then owner drops zips in `~/`, Claude extracts jackets
+to `_serff/OH/`, parses via serff_pdftext.py + the digest, appends rows, runs `./rebuild.sh auto`.
+- **Coverage now:** AUTO = CA FL GA IL NV NY PA SC TN TX (**10**) · HOME = CA IL LA NJ NY OH PA TX (8).
+- **Parse recipe (reusable):** extract only `<TRACKING>.pdf` jackets; the multi-company aggregate is
+  sometimes a FAKE 0% (State Farm) → use the dominant per-company row. Record ALL in-window filings per
+  book (name `entity`); the tool models the OPEN BOOK (latest new-business effective rate). See
+  [[boringrate-open-book-model]]. Scale filter: top-10 family / ±3% / ≥10k. Some jackets aren't
+  text-extractable (no poppler in this env — e.g. IL West Bend/2nd Shelter were skipped).
+- **DISK / DOCKER (2026-07-22):** freed disk — removed old WordPress Docker stack, wiped `/var/lib/docker`,
+  **disabled docker + containerd** (boringrate never used Docker). Filesystem is **btrfs on ChromeOS
+  Crostini**, so `df` still showed 96% because freed chunks aren't returned until the Linux VM restarts
+  (btrfs tools + fstrim are blocked inside the container). **A ChromeOS "Shut down Linux" + restart
+  reclaims the ~15G and does NOT wipe the disk** — all work persists (and is pushed to GitHub regardless).
+- **Committed zip jackets cleared from `~/` (kept GSC export); `_serff/` jackets are gitignored/discardable.**
 
 ## This session (2026-07-19→21, Opus 4.8) — AUTO stability + FL reconcile + carrier filings + analytics + rebuild.sh
 _Shipped & pushed (main): auto filing-derived stability (AUTO_STABILITY_ADJ), FL press↔ledger reconcile,
