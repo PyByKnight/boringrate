@@ -4131,7 +4131,8 @@
    "count_basis": "policyholders",
    "coverage_changes": null,
    "premium_as_of": null,
-   "recorded_date": "2026-07-21"
+   "recorded_date": "2026-07-21",
+   "entity_aggregate": true
   },
   {
    "state": "IL",
