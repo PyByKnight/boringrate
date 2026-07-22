@@ -1495,7 +1495,7 @@
   {
    "state": "TN",
    "carrier": "Tennessee Farm Bureau",
-   "entity": "Tennessee Farmers Mutual Insurance Company",
+   "entity": "Tennessee Farmers Mutual Insurance Company (pre-window \u2014 effective before the 2025-07 tracking window; pre-baked into the anchor snapshot, not a 2026 move)",
    "tracking": "TNFA-133965333",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=133965333",
    "product": "Private Passenger Auto 06/01/24",
@@ -1514,7 +1514,8 @@
    "market_share_sc": null,
    "premium_as_of": null,
    "recorded_date": "2026-07-04",
-   "note": "2024 revision; indicated +11.39%, approved +6.4%. Trajectory before the ~flat 2026 filing."
+   "note": "2024 revision; indicated +11.39%, approved +6.4%. Trajectory before the ~flat 2026 filing.",
+   "drift_exclude": true
   },
   {
    "state": "GA",
