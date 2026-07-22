@@ -7,6 +7,25 @@ _Last updated: 2026-07-22 (Opus 4.8)_
 highest premiums in the country and strong search demand — the biggest single coverage win available.
 **Read the PULL EFFICIENCY block below before building the list: Tier 1 alone was 93.3% of the weight
 in OH, so this should cost far less than Ohio's 104 jackets.**
+
+  **★★ MI IS NOT LIKE THE OTHER 11 STATES — PIP CHOICE. Check this BEFORE parsing, not after.**
+  Michigan's 2019 no-fault reform replaced mandatory unlimited PIP with a **driver-chosen tier**:
+  unlimited · $500k · $250k · $50k (Medicaid-eligible) · full opt-out (qualifying health coverage).
+  Consequences to verify on the first few jackets:
+  1. **A jacket may carry SEPARATE rate impacts per PIP tier** rather than one statewide-average
+     `overall_pct`. `parse_oh.py` assumes ONE overall % per company row — if MI splits by tier it
+     will silently grab whichever row lands in the expected column position. **Open one large jacket
+     (State Farm or Progressive) and read the Company Rate Information block by eye first.**
+  2. **A blended average across tiers can be actively misleading** — "+10% on unlimited, −5% on $250k"
+     averaged to +2% describes nobody's actual policy. If tiers are split, prefer recording the tier
+     the tool models and name it in `entity`, or record per-tier rows and mark which is standard.
+  3. **The ZIP tool's coverage model has no PIP-tier concept.** MI price differences between unlimited
+     and $250k PIP are large — bigger than most carrier-to-carrier gaps — so a single MI "average" is
+     weaker than in other states. Decide up front what tier the MI numbers represent and say so in the
+     prose, or the state page will imply a precision we do not have.
+  4. Expect MI-only carriers (Home-Owners/Auto-Owners, Frankenmuth, Pioneer State Mutual, Fremont,
+     Wolverine Mutual, MEEMIC) that are absent from the national roster — same "NOT in
+     STATE_CARRIER_ADJ" handling as OH's regionals.
 - **★ PA Hartford −1.7% applies itself tomorrow.** It is effective 2026-07-23 and was correctly NOT
   drifted on 07-22 (see the future-date guard, 924bda09). The next `apply_filed_changes.py` run on or
   after 07-23 will propose it; apply it and **advance PA's anchor to 2026-07-23**.
