@@ -43,6 +43,34 @@ TAIL = TAIL.replace('else{window.location.href="/home/";}', 'else{window.locatio
 assert "Compare Florida home rates" not in TAIL, "sticky CTA not retargeted — scaffold markup changed"
 
 
+# In-body CTA. The page previously ended in a disclaimer straight into the footer,
+# so nothing in the body drove anywhere. Reuses the canonical two-tile module
+# (insert_tool_tiles.py) — its CSS already rides in on the scaffold STYLE.
+_ONSUBMIT = ("event.preventDefault();var z=(this.zc.value||'').replace(/\\D/g,'').slice(0,5);"
+             "if(/^\\d{5}$/.test(z)){location.href='/?zip='+z}else{this.zc.focus()}")
+CTA_TILES = (
+    '<div class="tooltiles" style="margin-top:26px;">'
+    '<div class="tile">'
+    '<div class="tile-kicker">Compare rates</div>'
+    '<div class="tile-name">What these filings mean for your ZIP</div>'
+    '<div class="tile-desc">A filed change is a statewide average. See what every carrier is '
+    'estimated to charge for your exact ZIP and profile.</div>'
+    f'<form class="tile-zipform" onsubmit="{_ONSUBMIT}">'
+    '<input class="tile-zip-input" name="zc" type="text" maxlength="5" inputmode="numeric" '
+    'placeholder="ZIP" aria-label="ZIP code" />'
+    '<button type="submit" class="tile-zip-btn">Compare &rarr;</button>'
+    '</form>'
+    '</div>'
+    '<div class="tile">'
+    '<div class="tile-kicker">Rate change tracker</div>'
+    '<div class="tile-name">Read your state in plain English</div>'
+    '<div class="tile-desc">Who raised, who cut, and whether the new rate reaches you at '
+    'renewal or only new customers.</div>'
+    '<a class="tbtn secondary" href="/article/rate-changes/">See the state-by-state tracker &rarr;</a>'
+    '</div>'
+    '</div>')
+
+
 def fdate(iso):
     if not iso:
         return ""
@@ -229,6 +257,7 @@ def build():
     {intro}
     {controls}
     {table}
+    {CTA_TILES}
     <p style="font-size:13px;color:var(--ink-mute);margin-top:18px;">Coverage: {n_states} states so far (expanding).
     Figures are filed/approved statewide-average changes; individual rates vary by risk, home, and vehicle.
     &ldquo;Flat (0%)&rdquo; rows include symbol/rule filings that carried no overall rate impact. Not a quote.</p>

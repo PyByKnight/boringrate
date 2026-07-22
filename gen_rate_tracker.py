@@ -141,14 +141,23 @@ def render(slug, title, desc, h1, dek, body_html, faq, in_subdir=True):
     return out, url
 
 
+def signed_pct(c):
+    return c["pct"] if c["dir"] == "increase" else -c["pct"]
+
+
 def rows_table(changes):
     _bt, _eb = brand_share.build()
-    head = ('<table style="width:100%;border-collapse:collapse;font-size:15px;margin:18px 0;">'
+    TH = ('padding:9px 8px;cursor:pointer;user-select:none;white-space:nowrap;')
+    head = ('<table class="rc-sortable" style="width:100%;border-collapse:collapse;font-size:15px;margin:18px 0;">'
             '<thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">'
-            '<th style="padding:9px 8px;">Carrier</th><th>Change</th><th>Effective</th><th>Affected</th>'
-            '<th title="This filing entity&#39;s share of the carrier&#39;s policyholders across all captured '
-            'filings in this state. Shown only where we hold two or more entities for that carrier.">% of brand</th>'
-            '<th>Source</th></tr></thead><tbody>')
+            f'<th data-sort="carrier" style="{TH}">Carrier <span class="rc-ar"></span></th>'
+            f'<th data-sort="pct" style="{TH}">Change <span class="rc-ar"></span></th>'
+            f'<th data-sort="eff" style="{TH}">Effective <span class="rc-ar"></span></th>'
+            f'<th data-sort="aff" style="{TH}">Affected <span class="rc-ar"></span></th>'
+            f'<th data-sort="brand" style="{TH}" title="This filing entity&#39;s share of the carrier&#39;s '
+            'policyholders across all captured filings in this state. Shown only where we hold two or more '
+            'entities for that carrier.">% of brand <span class="rc-ar"></span></th>'
+            '<th style="padding:9px 8px;">Source</th></tr></thead><tbody>')
     body = []
     for c in sorted(changes, key=lambda x: x["effective"]):
         aff = f'{c["affected"]:,}' if c.get("affected") else "—"
@@ -159,11 +168,42 @@ def rows_table(changes):
                    f'<a class="ca-link" href="{portal_url(m)}" target="_blank" rel="noopener nofollow" title="Open the state filing portal and search by this SERFF number" aria-label="Open state filing portal">&#8599;</a>')
         else:
             src = f'<a class="ca-link" href="{c["url"]}" target="_blank" rel="noopener nofollow">{esc(c["source"])}</a>'
+        _bs = brand_share.share(m, _bt, _eb) if m else None
         body.append(
-            f'<tr style="border-bottom:1px solid var(--rule);"><td style="padding:9px 8px;"><strong>{esc(c["carrier"])}</strong></td>'
+            f'<tr style="border-bottom:1px solid var(--rule);" data-carrier="{esc(c["carrier"].lower())}" '
+            f'data-pct="{signed_pct(c)}" data-eff="{esc(c["effective"])}" '
+            f'data-aff="{c.get("affected") or -1}" '
+            f'data-brand="{round(_bs*100,2) if _bs is not None else -1}">'
+            f'<td style="padding:9px 8px;"><strong>{esc(c["carrier"])}</strong></td>'
             f'<td>{signed(c)}</td><td>{fdate(c["effective"])}</td><td>{aff}</td>'
             f'<td style="color:var(--ink-mute);">{brand}</td><td style="font-size:13px;">{src}</td></tr>')
-    return head + "".join(body) + "</tbody></table>"
+
+    script = (
+        '<style>.rc-sortable thead th[data-sort]:hover{color:var(--accent);}'
+        '.rc-sortable .rc-ar{font-size:9px;opacity:.45;}</style>'
+        '<script>(function(){'
+        'if(window.__rcSortInit)return;window.__rcSortInit=1;'
+        # bind after parse: a second table appears later in the document, and the
+        # once-guard would otherwise leave it unbound.
+        'function init(){'
+        'var NUM={pct:1,aff:1,brand:1};'
+        'document.querySelectorAll("table.rc-sortable").forEach(function(tbl){'
+        'var dir={};'
+        'tbl.tHead.rows[0].querySelectorAll("th[data-sort]").forEach(function(th){'
+        'th.addEventListener("click",function(){'
+        'var k=th.dataset.sort,asc=dir[k]=!dir[k];'
+        'var tb=tbl.tBodies[0],rows=Array.prototype.slice.call(tb.rows);'
+        'rows.sort(function(a,b){var va,vb;'
+        'if(NUM[k]){va=parseFloat(a.dataset[k]);vb=parseFloat(b.dataset[k]);}'
+        'else{va=a.dataset[k]||"";vb=b.dataset[k]||"";}'
+        'if(va<vb)return asc?-1:1;if(va>vb)return asc?1:-1;return 0;});'
+        'rows.forEach(function(r){tb.appendChild(r);});'
+        'tbl.tHead.rows[0].querySelectorAll(".rc-ar").forEach(function(s){s.textContent="";});'
+        'var ar=th.querySelector(".rc-ar");if(ar)ar.textContent=asc?"\\u25b2":"\\u25bc";'
+        '});});});}'
+        'if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();'
+        '})();</script>')
+    return head + "".join(body) + "</tbody></table>" + script
 
 
 def faq_carrier_summary(changes):
