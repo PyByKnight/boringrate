@@ -1,13 +1,27 @@
 # BoringRate — Session Notes
 _Last updated: 2026-07-21 (Opus 4.8)_
 
-## ▶▶ RESUME HERE (2026-07-22) — PA + IL auto DONE; OH is next
-**PA auto ✅** (commit 51445d15) and **IL auto ✅** (7a6dcfd2) parsed, cascaded, committed + PUSHED.
-Both live. **OH is the last of the OH/PA/IL set** — paste the OH SERFF auto search results
-(TOI 19.0 Personal Auto, disposition 07/01/25–now) and Claude gives the triaged pull list
-(ONE link per line; -G tracking #s → Ctrl+F). Then owner drops zips in `~/`, Claude extracts jackets
-to `_serff/OH/`, parses via serff_pdftext.py + the digest, appends rows, runs `./rebuild.sh auto`.
-- **Coverage now:** AUTO = CA FL GA IL NV NY PA SC TN TX (**10**) · HOME = CA IL LA NJ NY OH PA TX (8).
+## ▶▶ RESUME HERE (2026-07-22) — OH/PA/IL auto set COMPLETE; pick the next state
+**PA ✅** (51445d15) · **IL ✅** (7a6dcfd2) · **OH ✅** (c1ddff88) — all parsed, cascaded, committed
+and PUSHED (through f5681650). The OH/PA/IL set is done.
+- **Coverage now:** AUTO = CA FL GA IL NV NY OH PA SC TN TX (**11**) · HOME = CA IL LA NJ NY OH PA TX (8).
+- **NEXT auto states:** MI (no-fault, high premiums, strong search demand), NJ, or FL-deep. Same flow:
+  paste the SERFF auto search results (TOI 19.0 Personal Auto, disposition 07/01/25–now), Claude
+  returns the triaged pull list (ONE link per line; -G tracking #s → Ctrl+F), owner drops zips in `~/`
+  — note ChromeOS downloads must be moved into **"Linux files"** or the container cannot see them —
+  then Claude extracts to `_serff/<ST>/`, parses with `parse_oh.py` (state-agnostic), appends via
+  `append_oh.py`, adds movers with `add_oh_changes.py`, and runs `./rebuild.sh auto`.
+  **READ THE PULL EFFICIENCY BLOCK BELOW FIRST** — it will save a third of the pull.
+- **★ AFTER APPLYING DRIFT, ADVANCE THAT STATE'S ANCHOR** in anchor_dates.json to the latest applied
+  effective date. Otherwise the same filings stay post-anchor and re-drift on every run, compounding
+  silently (OH: 0.92 → 0.9244 → 0.9288 → …). OH is now anchored 2026-07-01.
+- **UNAPPLIED DRIFT BACKLOG (review before the next pull):** `apply_filed_changes.py --emit` proposes
+  offsets for **GA, IL, NY, PA, SC, TN, TX** from earlier pulls that were never applied — some large
+  (**GA Allstate 0.98 → 1.0335**, IL Allstate 0.98 → 1.027). Each needs the anchor advance too.
+- **Known + accepted:** consistency verifier reports **HARD=1** — OH Allstate filed −11.0% but ranks
+  #18/20. Investigated and accepted: all three cuts predate the 2026-06-23 anchor so they are already
+  in the snapshot, and Allstate's OH offset (0.92) is already among its lowest of 47 states. Cutting
+  hard from an expensive base still leaves it expensive. Do not "fix" this.
 - **Parse recipe (reusable):** extract only `<TRACKING>.pdf` jackets; the multi-company aggregate is
   sometimes a FAKE 0% (State Farm) → use the dominant per-company row. Record ALL in-window filings per
   book (name `entity`); the tool models the OPEN BOOK (latest new-business effective rate). See
