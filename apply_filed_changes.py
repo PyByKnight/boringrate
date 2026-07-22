@@ -15,6 +15,12 @@ Design (unchanged from runbook):
   level    = stateAvg'(s) = stateAvg(s) × F̄(s), capped ±10%/yr (reported only).
   GATE     = only apply in a state once filings cover a majority (>=3) of its top-5
              carriers; otherwise store, don't apply.
+  WINDOW   = anchor < effective <= TODAY. A filing that has not taken effect yet is
+             not the rate a shopper can buy today, so drifting it would show a price
+             change that has not happened (GA Liberty Mutual +3.4% is effective
+             2026-08-31 — pricing it in July overstates GA Liberty for 40 days).
+             Future filings still appear in the rate-change tracker; they just do
+             not move the price model until their effective date arrives.
 
 This script is SIDE-EFFECT SAFE: it never edits index.html. It reads the model,
 computes the proposed drift, and (with --emit) writes a proposed-patch +
@@ -196,7 +202,8 @@ def main():
         for (s2, rc), rows in by_sc.items():
             if s2 != st:
                 continue
-            post = [r for r in rows if eff_date(r) and eff_date(r) > anc
+            today_iso = date.today().isoformat()
+            post = [r for r in rows if eff_date(r) and anc < eff_date(r) <= today_iso
                     and r.get("overall_pct") is not None
                     and not r.get("drift_exclude")  # skip segment-only filings (e.g. min-limits) that don't move the standard-coverage model
                     and not _too_small(r)]          # and sub-brand filings that aren't the family's trajectory
