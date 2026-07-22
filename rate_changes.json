@@ -1365,6 +1365,456 @@
    "affected": 1715,
    "source": "Illinois Department of Insurance (SERFF)",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134997297"
+  },
+  {
+   "carrier": "Chubb",
+   "state": "OH",
+   "pct": 1.4,
+   "dir": "increase",
+   "effective": "2026-03-02",
+   "affected": 1435,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134796713"
+  },
+  {
+   "carrier": "Acuity",
+   "state": "OH",
+   "pct": 3.5,
+   "dir": "increase",
+   "effective": "2025-12-03",
+   "affected": 4459,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665080"
+  },
+  {
+   "carrier": "Allstate",
+   "state": "OH",
+   "pct": 5.4,
+   "dir": "decrease",
+   "effective": "2025-07-07",
+   "affected": 79136,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134591448"
+  },
+  {
+   "carrier": "Allstate",
+   "state": "OH",
+   "pct": 3.0,
+   "dir": "decrease",
+   "effective": "2025-09-30",
+   "affected": 105026,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134684339"
+  },
+  {
+   "carrier": "Allstate",
+   "state": "OH",
+   "pct": 3.0,
+   "dir": "decrease",
+   "effective": "2026-03-17",
+   "affected": 158300,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134879528"
+  },
+  {
+   "carrier": "Allstate",
+   "state": "OH",
+   "pct": 2.5,
+   "dir": "increase",
+   "effective": "2026-07-01",
+   "affected": 1229,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134990846"
+  },
+  {
+   "carrier": "American Modern",
+   "state": "OH",
+   "pct": 2.4,
+   "dir": "decrease",
+   "effective": "2026-02-01",
+   "affected": 6243,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134696635"
+  },
+  {
+   "carrier": "Auto-Owners",
+   "state": "OH",
+   "pct": 1.3,
+   "dir": "decrease",
+   "effective": "2026-04-23",
+   "affected": 97434,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134774421"
+  },
+  {
+   "carrier": "Buckeye",
+   "state": "OH",
+   "pct": 3.0,
+   "dir": "increase",
+   "effective": "2025-12-01",
+   "affected": 5780,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134682744"
+  },
+  {
+   "carrier": "Celina",
+   "state": "OH",
+   "pct": 1.6,
+   "dir": "decrease",
+   "effective": "2025-11-01",
+   "affected": 3474,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134649865"
+  },
+  {
+   "carrier": "Celina",
+   "state": "OH",
+   "pct": 3.9,
+   "dir": "decrease",
+   "effective": "2025-11-01",
+   "affected": 9202,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134650030"
+  },
+  {
+   "carrier": "Central",
+   "state": "OH",
+   "pct": 4.0,
+   "dir": "increase",
+   "effective": "2025-12-01",
+   "affected": 12924,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665345"
+  },
+  {
+   "carrier": "Root",
+   "state": "OH",
+   "pct": 4.1,
+   "dir": "decrease",
+   "effective": "2026-06-23",
+   "affected": 13283,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134833383"
+  },
+  {
+   "carrier": "Cincinnati",
+   "state": "OH",
+   "pct": 3.4,
+   "dir": "increase",
+   "effective": "2026-03-01",
+   "affected": 35574,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134646555"
+  },
+  {
+   "carrier": "Erie",
+   "state": "OH",
+   "pct": 3.8,
+   "dir": "decrease",
+   "effective": "2026-06-01",
+   "affected": 275438,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134872060"
+  },
+  {
+   "carrier": "Farmers",
+   "state": "OH",
+   "pct": 0.2,
+   "dir": "decrease",
+   "effective": "2025-08-11",
+   "affected": 20684,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134614960"
+  },
+  {
+   "carrier": "GEICO",
+   "state": "OH",
+   "pct": 4.9,
+   "dir": "decrease",
+   "effective": "2026-04-03",
+   "affected": 82496,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134888669"
+  },
+  {
+   "carrier": "Grange",
+   "state": "OH",
+   "pct": 1.9,
+   "dir": "increase",
+   "effective": "2025-12-20",
+   "affected": 106260,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134743417"
+  },
+  {
+   "carrier": "Grinnell",
+   "state": "OH",
+   "pct": 8.8,
+   "dir": "decrease",
+   "effective": "2026-02-01",
+   "affected": 1307,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134675159"
+  },
+  {
+   "carrier": "The Hartford",
+   "state": "OH",
+   "pct": 5.0,
+   "dir": "increase",
+   "effective": "2026-05-07",
+   "affected": 12187,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134890745"
+  },
+  {
+   "carrier": "Hastings",
+   "state": "OH",
+   "pct": 0.9,
+   "dir": "increase",
+   "effective": "2026-05-01",
+   "affected": 13555,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134712938"
+  },
+  {
+   "carrier": "Hanover",
+   "state": "OH",
+   "pct": 3.1,
+   "dir": "increase",
+   "effective": "2026-01-16",
+   "affected": 9122,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134755148"
+  },
+  {
+   "carrier": "Harleysville",
+   "state": "OH",
+   "pct": 5.0,
+   "dir": "increase",
+   "effective": "2026-03-02",
+   "affected": 1425,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134536849"
+  },
+  {
+   "carrier": "Auto Club",
+   "state": "OH",
+   "pct": 0.7,
+   "dir": "increase",
+   "effective": "2026-06-01",
+   "affected": 12846,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134831927"
+  },
+  {
+   "carrier": "Indiana Farmers",
+   "state": "OH",
+   "pct": 2.0,
+   "dir": "increase",
+   "effective": "2026-02-01",
+   "affected": 83,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134770304"
+  },
+  {
+   "carrier": "Liberty Mutual",
+   "state": "OH",
+   "pct": 5.0,
+   "dir": "decrease",
+   "effective": "2025-05-17",
+   "affected": 12755,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134524595"
+  },
+  {
+   "carrier": "Liberty Mutual",
+   "state": "OH",
+   "pct": 5.0,
+   "dir": "decrease",
+   "effective": "2025-06-25",
+   "affected": 39574,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134577826"
+  },
+  {
+   "carrier": "Liberty Mutual",
+   "state": "OH",
+   "pct": 10.0,
+   "dir": "decrease",
+   "effective": "2025-07-24",
+   "affected": 14564,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134611025"
+  },
+  {
+   "carrier": "Liberty Mutual",
+   "state": "OH",
+   "pct": 2.0,
+   "dir": "increase",
+   "effective": "2026-06-28",
+   "affected": 53886,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134878625"
+  },
+  {
+   "carrier": "Motorists",
+   "state": "OH",
+   "pct": 2.0,
+   "dir": "increase",
+   "effective": "2025-07-20",
+   "affected": 11489,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134581282"
+  },
+  {
+   "carrier": "Nationwide",
+   "state": "OH",
+   "pct": 10.0,
+   "dir": "decrease",
+   "effective": "2025-12-20",
+   "affected": 28168,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134739089"
+  },
+  {
+   "carrier": "Ohio Mutual",
+   "state": "OH",
+   "pct": 5.0,
+   "dir": "decrease",
+   "effective": "2025-11-01",
+   "affected": 10370,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134688799"
+  },
+  {
+   "carrier": "Ohio Mutual",
+   "state": "OH",
+   "pct": 10.0,
+   "dir": "decrease",
+   "effective": "2025-11-01",
+   "affected": 4027,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134691392"
+  },
+  {
+   "carrier": "Ohio Mutual",
+   "state": "OH",
+   "pct": 5.0,
+   "dir": "decrease",
+   "effective": "2026-06-15",
+   "affected": 13909,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134945306"
+  },
+  {
+   "carrier": "American Family",
+   "state": "OH",
+   "pct": 2.9,
+   "dir": "increase",
+   "effective": "2026-05-01",
+   "affected": 5002,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134811925"
+  },
+  {
+   "carrier": "Progressive",
+   "state": "OH",
+   "pct": 0.1,
+   "dir": "increase",
+   "effective": "2025-06-20",
+   "affected": 550850,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134516714"
+  },
+  {
+   "carrier": "Progressive",
+   "state": "OH",
+   "pct": 4.4,
+   "dir": "decrease",
+   "effective": "2025-11-21",
+   "affected": 445515,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134729388"
+  },
+  {
+   "carrier": "Progressive",
+   "state": "OH",
+   "pct": 0.1,
+   "dir": "increase",
+   "effective": "2026-04-17",
+   "affected": 581638,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134879605"
+  },
+  {
+   "carrier": "State Farm",
+   "state": "OH",
+   "pct": 3.9,
+   "dir": "decrease",
+   "effective": "2025-10-20",
+   "affected": 2176914,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134637347"
+  },
+  {
+   "carrier": "State Farm",
+   "state": "OH",
+   "pct": 4.2,
+   "dir": "decrease",
+   "effective": "2025-12-04",
+   "affected": 2278688,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134699767"
+  },
+  {
+   "carrier": "Shelter",
+   "state": "OH",
+   "pct": 16.9,
+   "dir": "decrease",
+   "effective": "2026-03-25",
+   "affected": 10139,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134793932"
+  },
+  {
+   "carrier": "Travelers",
+   "state": "OH",
+   "pct": 0.6,
+   "dir": "decrease",
+   "effective": "2025-06-06",
+   "affected": 67929,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134532492"
+  },
+  {
+   "carrier": "Travelers",
+   "state": "OH",
+   "pct": 3.0,
+   "dir": "decrease",
+   "effective": "2025-08-22",
+   "affected": 67059,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134633727"
+  },
+  {
+   "carrier": "Wayne Mutual",
+   "state": "OH",
+   "pct": 4.95,
+   "dir": "decrease",
+   "effective": "2026-01-01",
+   "affected": 9236,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134700884"
+  },
+  {
+   "carrier": "Westfield",
+   "state": "OH",
+   "pct": 0.1,
+   "dir": "decrease",
+   "effective": "2026-03-01",
+   "affected": 32698,
+   "source": "Ohio Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134773758"
   }
  ]
 }
