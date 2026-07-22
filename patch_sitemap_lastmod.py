@@ -37,7 +37,10 @@ def replace_url(m: re.Match) -> str:
         return block
     rel = url_to_path(loc_m.group(1))
     date = git_date(rel)
-    # Insert <lastmod> right after </loc>
+    # Drop any existing <lastmod> first — this script is run on every rebuild.sh
+    # and previously APPENDED, accumulating one duplicate tag per run (the spec
+    # allows exactly one <lastmod> per <url>). Strip-then-insert keeps it idempotent.
+    block = re.sub(r'<lastmod>[^<]*</lastmod>', '', block)
     return block.replace('</loc>', f'</loc><lastmod>{date}</lastmod>', 1)
 
 new_sitemap = re.sub(r'<url>.*?</url>', replace_url, sitemap, flags=re.DOTALL)
