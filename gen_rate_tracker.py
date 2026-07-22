@@ -159,6 +159,42 @@ def rows_table(changes):
     return head + "".join(body) + "</tbody></table>"
 
 
+def faq_carrier_summary(changes):
+    """One entry per CARRIER for the FAQ schema, ordered by policyholders desc.
+
+    The raw `changes` list is per-FILING, so a carrier with three revisions
+    appeared three times ("Allstate (-5.4%); Allstate (-3%); Allstate (-3%)")
+    and a 28k-policyholder filing read as equal in weight to a 2.3M one. This
+    is JSON-LD that search engines may quote verbatim, so it needs to be one
+    open-book figure per carrier, biggest book first.
+
+    Open book = the latest-effective filing for that carrier (the rate a new
+    buyer sees today), matching the model in [[boringrate-open-book-model]].
+    """
+    MIN_BOOK = 4000   # mirrors apply_filed_changes.py / verify_filing_tool_consistency.py
+    by = {}
+    for c in changes:
+        by.setdefault(c["carrier"], []).append(c)
+    out = []
+    for carrier, cs in by.items():
+        # A token sub-brand filing must not become the carrier's headline just by
+        # being most recent: Allstate OH's latest is Northbrook (+2.5%, 1,229 PH),
+        # which flipped Allstate into "raised" while its real book cut 3%.
+        scaled = [c for c in cs if (c.get("affected") or 0) >= MIN_BOOK]
+        cand = scaled or cs                   # fall back only if nothing is scaled
+        cand.sort(key=lambda c: c.get("effective") or "")
+        latest = cand[-1]                     # ISO dates -> lexical sort is safe here
+        pct = latest["pct"] if latest["dir"] == "increase" else -latest["pct"]
+        aff = max((c.get("affected") or 0) for c in cand)
+        out.append({"carrier": carrier, "pct": pct, "affected": aff})
+    out.sort(key=lambda r: (-r["affected"], r["carrier"]))
+    return out
+
+
+def faq_join(rows):
+    return "; ".join(f'{r["carrier"]} ({r["pct"]:+g}%)' for r in rows)
+
+
 def state_page(code, changes):
     name, slug, _ = STATE[code]
     incs = [c for c in changes if c["dir"] == "increase"]
@@ -212,13 +248,16 @@ def state_page(code, changes):
                  '&ldquo;Affected&rdquo; counts are policyholders or insured vehicles as stated in each filing. '
                  'Your individual rate varies by risk profile. Each filing links to its source. Not a quote.</p>')
     faq = []
-    if incs:
+    summary = faq_carrier_summary(changes)
+    up = [r for r in summary if r["pct"] > 0]
+    dn = [r for r in summary if r["pct"] < 0]
+    if up:
         faq.append((f"Which carriers raised car insurance rates in {name} in 2026?",
-                    "; ".join(f'{c["carrier"]} (+{c["pct"]:g}%)' for c in incs[:6]) +
+                    faq_join(up[:6]) +
                     ". Each is an approved statewide-average filing — see the table for dates and sources."))
-    if decs:
+    if dn:
         faq.append((f"Which carriers cut car insurance rates in {name} in 2026?",
-                    "; ".join(f'{c["carrier"]} (-{c["pct"]:g}%)' for c in decs) +
+                    faq_join(dn[:6]) +
                     ". Cuts usually reach new customers first and existing customers only at renewal."))
     faq.append(("If my carrier cut rates, will my bill go down automatically?",
                 "Not necessarily. Decreases often apply to new business first and to existing customers only at "

@@ -173,6 +173,32 @@ def page(slug, title, desc, h1, dek, body_html, faq):
     return url
 
 
+def faq_carrier_summary(changes):
+    """One entry per INSURER for the FAQ schema, ordered by policyholders desc.
+
+    Twin of gen_rate_tracker.faq_carrier_summary — see that docstring. Home rows
+    carry signed `overall_pct` and `effective_new` rather than pct/dir/effective.
+    """
+    MIN_BOOK = 4000
+    by = {}
+    for c in changes:
+        by.setdefault(c["carrier"], []).append(c)
+    out = []
+    for carrier, cs in by.items():
+        scaled = [c for c in cs if (c.get("affected") or 0) >= MIN_BOOK]
+        cand = scaled or cs
+        cand.sort(key=lambda c: c.get("effective_new") or c.get("effective_renewal") or "")
+        out.append({"carrier": carrier,
+                    "pct": cand[-1]["overall_pct"],
+                    "affected": max((c.get("affected") or 0) for c in cand)})
+    out.sort(key=lambda r: (-r["affected"], r["carrier"]))
+    return out
+
+
+def faq_join(rows):
+    return "; ".join(f'{r["carrier"]} ({r["pct"]:+g}%)' for r in rows)
+
+
 def state_page(code, changes):
     name, slug, _ = STATE[code]
     incs = [c for c in changes if c["dir"] == "increase"]
@@ -216,13 +242,16 @@ def state_page(code, changes):
                  'changes from each state&rsquo;s Department of Insurance (CA via CDI, TX via data.texas.gov, others via SERFF). '
                  'Individual rates vary by home, roof age, and risk. Each filing links to its source. Not a quote.</p>')
     faq = []
-    if incs:
+    summary = faq_carrier_summary(changes)
+    up = [r for r in summary if r["pct"] > 0]
+    dn = [r for r in summary if r["pct"] < 0]
+    if up:
         faq.append((f"Which insurers raised homeowners rates in {name} in 2026?",
-                    "; ".join(f'{c["carrier"]} (+{c["overall_pct"]:g}%)' for c in incs[:6]) +
+                    faq_join(up[:6]) +
                     ". Each is an approved statewide-average filing — see the table for dates and sources."))
-    if decs:
+    if dn:
         faq.append((f"Which insurers cut homeowners rates in {name} in 2026?",
-                    "; ".join(f'{c["carrier"]} (-{abs(c["overall_pct"]):g}%)' for c in decs) +
+                    faq_join(dn[:6]) +
                     ". Cuts usually reach new customers first and existing customers at renewal."))
     faq.append(("Will my homeowners bill change automatically if my insurer files a new rate?",
                 "No — filed changes reach your policy at your next renewal, and a cut may apply to new business first. "
