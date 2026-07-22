@@ -13,12 +13,46 @@ to `_serff/OH/`, parses via serff_pdftext.py + the digest, appends rows, runs `.
   book (name `entity`); the tool models the OPEN BOOK (latest new-business effective rate). See
   [[boringrate-open-book-model]]. Scale filter: top-10 family / ±3% / ≥10k. Some jackets aren't
   text-extractable (no poppler in this env — e.g. IL West Bend/2nd Shelter were skipped).
-- **DISK / DOCKER (2026-07-22):** freed disk — removed old WordPress Docker stack, wiped `/var/lib/docker`,
-  **disabled docker + containerd** (boringrate never used Docker). Filesystem is **btrfs on ChromeOS
-  Crostini**, so `df` still showed 96% because freed chunks aren't returned until the Linux VM restarts
-  (btrfs tools + fstrim are blocked inside the container). **A ChromeOS "Shut down Linux" + restart
-  reclaims the ~15G and does NOT wipe the disk** — all work persists (and is pushed to GitHub regardless).
+- **DISK — RESOLVED (2026-07-22), 7.1G free, no action needed.** Prior session removed the WordPress
+  Docker stack, wiped `/var/lib/docker`, **disabled docker + containerd** (boringrate never used Docker).
+  Filesystem is **btrfs on ChromeOS Crostini**, so `df` lagged at 96% until the VM restarted (btrfs tools
+  + fstrim are blocked inside the container). The ChromeOS restart was done and settled it to 88% (~2G,
+  not the ~15G predicted). A follow-up cleanup then took it to **71% / 7.1G free**: apt cache 1.5G,
+  XAMPP 978M, RStudio IDE 865M (**R 4.5.1 itself KEPT — active nhl-stats/baseball scripts**), journal
+  632M, old Claude versions 503M, stale installers 488M, MCreator 149M, apache2 + `/var/www`, 72 orphaned
+  packages. **Do NOT grow the Linux disk** — the ChromeOS host has only 5.6G free, and freeing space
+  inside the container never shrinks the disk image (ChromeOS keeps reporting ~24.9G for Linux).
+  `df` inside reports the whole btrfs pool, so ~8-9G of "used" is host-side and unreachable from here.
 - **Committed zip jackets cleared from `~/` (kept GSC export); `_serff/` jackets are gitignored/discardable.**
+
+### ▶ PULL EFFICIENCY — patterns learned on the OH auto pull (2026-07-22). Apply to every future state.
+**The headline: Tier 1 (48 links, ~14 carrier families) captured 93.3% of policyholder weight. The
+58-link Tier 2 long tail added 6.7%.** Completeness is fine when the owner wants it, but if time is
+short, pull Tier 1 and stop — the rankings will not move.
+1. **Filing Type in the search results does NOT predict a rate table.** 9 of 95 jackets had no
+   `Company Rate Information` block despite being labeled Rate or Rate/Rule. Don't trust the label.
+2. **Farmers (FARM/FAIG) is the worst offender** — only 4 of 9 OH jackets published a table. Deprioritize
+   Farmers rows; expect ~half to be dead pulls.
+3. **Text size is a WEAK signal, not a filter — do not skip on it.** The 9 empties were 8–13KB, but
+   `SELC-134739287` (11.9KB) and `TRVD-G134583349` (12.3KB) both DO have tables. Grep for the literal
+   `Company Rate Information` string instead; it costs nothing and is exact.
+3b. **★ DATE TRAP: never sort effective dates as strings.** They are `MM/DD/YYYY`, so `"11/21/2025" >
+   "04/17/2026"` lexically — which silently picked the WRONG open-book filing for every carrier whose
+   filings straddle a year boundary. It reported Progressive at −3.55% when the true open book is
+   +0.05%. Parse to `(YYYY, MM, DD)` before comparing.
+4. **`-G` tracking numbers download fine** once found by Ctrl+F (7 of 8 arrived). Not a blocker — keep
+   listing them, just separately from the direct links.
+5. **Duplicate downloads land as `NAME (1).zip`**, so basename ≠ inner PDF name and `unzip -j "$b.pdf"`
+   silently misses. Extract by reading the inner name from `unzip -l`.
+6. **★ PARSER TRAP: the rate table omits columns when a value is blank.** Erie/GEICO drop the
+   Written-Premium-Change column entirely on 0% filings, which shifts every later column left and
+   produced "541,683,032 policyholders". **Never parse that table positionally** — anchor on token type:
+   the LAST `$money` is Written Premium, the bare integer immediately before it is Policyholders, any
+   `$money` before that is WP Change. `parse_oh.py` implements this and is reusable per state.
+7. **Multi-entity carriers must be captured per entity** — Progressive files 4 companies, Allstate 5–6,
+   GEICO 4. The dominant entity carries the book; the others are rounding.
+8. **Symbol-only filings** (e.g. Erie "Symbol Filing 7-15-26") were excluded as rate-neutral — revisit
+   if a state's numbers look thin.
 
 ## This session (2026-07-19→21, Opus 4.8) — AUTO stability + FL reconcile + carrier filings + analytics + rebuild.sh
 _Shipped & pushed (main): auto filing-derived stability (AUTO_STABILITY_ADJ), FL press↔ledger reconcile,
@@ -53,8 +87,9 @@ No new DOI pull (owner away from machine) → work off data on hand. Fable consu
   # via serff_match. Cascade: gen_rate_tracker + gen_filing_highlights + gen_press_page regenerated.
 - **FILES:** new `gen_auto_stability.py`; edited index.html (helper + ADJ block + 4 read sites),
   rate_changes.json (FL), regen'd article/rate-changes/{index,florida}.html, article/state/florida.html,
-  press/index.html. Working tree DIRTY — NOT committed yet (owner to approve; 2 logical commits: FL fix,
-  auto stability). apply_filed_changes.py confirmed a NO-OP this session (backfilled filings pre-anchor).
+  press/index.html. **COMMITTED + PUSHED** as the 2 planned logical commits: `e1bc133f` (FL reconcile)
+  and `ed689e6a` (auto stability). apply_filed_changes.py confirmed a NO-OP this session (backfilled
+  filings pre-anchor).
 - **BACKPORT DONE** (commit 9d14271e): gen_home_stability.py now gates on distinct states too. Output
   byte-identical (no current home false positive — the bug was latent there; 0 home carriers have ≥3
   filings in <3 states). Both stability generators now consistent.
