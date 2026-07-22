@@ -141,6 +141,34 @@ def render(slug, title, desc, h1, dek, body_html, faq, in_subdir=True):
     return out, url
 
 
+def entity_label(carrier, m):
+    """Sub-brand name to show under the carrier, or "" when it adds nothing.
+
+    The table shows the FAMILY name while a filing is often a sub-brand, so
+    "Allstate +5.5% / 434 affected" reads as an Allstate-wide Georgia increase
+    when it is Allstate Indemnity's 434-policyholder book. The roll-up already
+    prints the entity; this brings the state tables in line.
+    """
+    if not m:
+        return ""
+    ent = (m.get("entity") or "").replace("Rate Premium for ", "").strip()
+    if not ent:
+        return ""
+    ent = ent.split("(")[0].strip() or ent
+    # Drop it when the entity is just the family name plus corporate boilerplate
+    # ("Celina" -> "The Celina Mutual Insurance Company"). Keep it when the extra
+    # words identify a distinct book ("Allstate" -> "Allstate Indemnity Company",
+    # "Chubb" -> "Pacific Indemnity"), which is the whole point of showing it.
+    BOILER = {"the", "insurance", "company", "companies", "mutual", "inc", "corp",
+              "corporation", "co", "group", "assurance", "underwriters", "exchange"}
+    def core(t):
+        words = re.findall(r"[a-z]+", t.lower())
+        return " ".join(w for w in words if w not in BOILER)
+    if core(ent) == core(carrier):
+        return ""
+    return f'<div style="color:var(--ink-mute);font-size:12px;font-weight:400;">{esc(ent)}</div>'
+
+
 def signed_pct(c):
     return c["pct"] if c["dir"] == "increase" else -c["pct"]
 
@@ -169,12 +197,13 @@ def rows_table(changes):
         else:
             src = f'<a class="ca-link" href="{c["url"]}" target="_blank" rel="noopener nofollow">{esc(c["source"])}</a>'
         _bs = brand_share.share(m, _bt, _eb) if m else None
+        ent_html = entity_label(c["carrier"], m)
         body.append(
             f'<tr style="border-bottom:1px solid var(--rule);" data-carrier="{esc(c["carrier"].lower())}" '
             f'data-pct="{signed_pct(c)}" data-eff="{esc(c["effective"])}" '
             f'data-aff="{c.get("affected") or -1}" '
             f'data-brand="{round(_bs*100,2) if _bs is not None else -1}">'
-            f'<td style="padding:9px 8px;"><strong>{esc(c["carrier"])}</strong></td>'
+            f'<td style="padding:9px 8px;"><strong>{esc(c["carrier"])}</strong>{ent_html}</td>'
             f'<td>{signed(c)}</td><td>{fdate(c["effective"])}</td><td>{aff}</td>'
             f'<td style="color:var(--ink-mute);">{brand}</td><td style="font-size:13px;">{src}</td></tr>')
 
