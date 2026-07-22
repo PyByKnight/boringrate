@@ -15,9 +15,18 @@ and PUSHED (through f5681650). The OH/PA/IL set is done.
 - **★ AFTER APPLYING DRIFT, ADVANCE THAT STATE'S ANCHOR** in anchor_dates.json to the latest applied
   effective date. Otherwise the same filings stay post-anchor and re-drift on every run, compounding
   silently (OH: 0.92 → 0.9244 → 0.9288 → …). OH is now anchored 2026-07-01.
-- **UNAPPLIED DRIFT BACKLOG (review before the next pull):** `apply_filed_changes.py --emit` proposes
-  offsets for **GA, IL, NY, PA, SC, TN, TX** from earlier pulls that were never applied — some large
-  (**GA Allstate 0.98 → 1.0335**, IL Allstate 0.98 → 1.027). Each needs the anchor advance too.
+- **UNAPPLIED DRIFT BACKLOG (review before the next pull):** after the sub-scale guard (571ac8c7) only
+  **two real movers remain** — GA Liberty Mutual +3.4% (13,476 PH, 0.98 → 1.0132) and PA The Hartford
+  −1.7% (17,191 PH, 1.01 → 0.9879). Both properly scaled. The rest are ≤0.005 rounding noise.
+  Applying either needs the anchor advance for that state (see rule above).
+- **★ SUB-SCALE GUARD (571ac8c7):** `apply_filed_changes.py` had NO policyholder guard while
+  `verify_filing_tool_consistency.py` always skipped <4,000-PH filings — the guard was in the checker
+  but not the mutator. Consequence: a token sub-brand could move a whole family's offset. GA Allstate
+  +5.5% was one filing by **Allstate Indemnity on 434 policyholders** and would have moved the
+  displayed GA Allstate price $2,488 → $2,624 for everyone. An OH instance (Northbrook, 1,229 PH) was
+  applied in f5681650 and reverted in 571ac8c7. **When adding a filter to one of these scripts, check
+  whether its twin needs it too** — this is the third instance of that pattern (see also the
+  distinct-state gate 9d14271e and drift_exclude 62742df8).
 - **Known + accepted:** consistency verifier reports **HARD=1** — OH Allstate filed −11.0% but ranks
   #18/20. Investigated and accepted: all three cuts predate the 2026-06-23 anchor so they are already
   in the snapshot, and Allstate's OH offset (0.92) is already among its lowest of 47 states. Cutting
