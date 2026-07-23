@@ -32,6 +32,21 @@ in OH, so this should cost far less than Ohio's 104 jackets.**
   4. Expect MI-only carriers (Home-Owners/Auto-Owners, Frankenmuth, Pioneer State Mutual, Fremont,
      Wolverine Mutual, MEEMIC) that are absent from the national roster — same "NOT in
      STATE_CARRIER_ADJ" handling as OH's regionals.
+
+  **★★ RENTERS INSPECTION — DO THIS FIRST when MI HOME jackets land, before parsing any home row.**
+  We have pulled TOI 4 for 8 states and extracted ZERO renters data. Evidence why: the one home row
+  that touches renters (NJ Farmers, "NGHO and Renter Condo", FARM-134608171) recorded a single BLENDED
+  +2.0% across owner+renter+condo — because we only ever read the summary "Company Rate Information"
+  table, never the per-form rate exhibits deeper in the jacket.
+  STEP: open one large MI home jacket (State Farm or Farmers) and read PAST the summary table into the
+  Rate/Rule exhibits. Look for a per-form breakout — **HO-3 (owner) vs HO-4 (tenant/renters) vs HO-6
+  (condo)** stated with separate rate impacts.
+    • If HO-4 is separately stated → build `serff_renters_filings.json` (renters becomes PRIMARY-SOURCED;
+      it is the GSC demand leader but currently the least-sourced product — high value). Also note that
+      the existing "home" overall_pct on combined-program filings is a BLEND, not owner-only.
+    • If it is always blended → renters stays MODELED; add a permanent note so we stop expecting a
+      separable renters number and don't re-litigate this each state.
+  Either outcome is a ~10-min read on ONE real jacket — settle it empirically, do not assume.
 - **★ PA Hartford −1.7% applies itself tomorrow.** It is effective 2026-07-23 and was correctly NOT
   drifted on 07-22 (see the future-date guard, 924bda09). The next `apply_filed_changes.py` run on or
   after 07-23 will propose it; apply it and **advance PA's anchor to 2026-07-23**.
