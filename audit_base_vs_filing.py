@@ -38,22 +38,30 @@ HIGH_COVERAGE_BOOK = {"Chubb", "PURE", "Amica Mutual"}  # high-value -> reads HI
 def main():
     model = load_model()
     rows = json.load(open("serff_filings.json"))["filings"]
-    # latest-effective book per (state, carrier, entity), non-aggregate, real book
-    book = {}
+    # Build each carrier's book as the LATEST-effective filing per DISTINCT entity,
+    # then sum across entities. Two guards mirror the rest of the pipeline:
+    #  - skip entity_aggregate rows (multi-company blends double-count)
+    #  - skip sub-scale entities (<4000 PH): a 434-policy sub-brand at $4,886 is
+    #    not the carrier's book (this is what made GA read 2x before the fix).
+    # Using latest-per-entity (not summing all filings) avoids counting the same
+    # 2M-policy State Farm book three times across its dated revisions.
+    MIN_BOOK = 4000
+    latest = {}   # (state, carrier, entity) -> (eff, wp, ph)
     for r in rows:
         if r.get("entity_aggregate") or not (r.get("affected") and r.get("written_premium")):
             continue
-        k = (r["state"], r["carrier"])
-        eff = r.get("effective_new") or r.get("effective_renewal") or ""
-        # sum entities within a carrier: track total wp and total ph
-        cur = book.setdefault(k, {"wp": 0.0, "ph": 0, "seen": set()})
-        ent = (r.get("entity") or "").split("(")[0].strip().lower()
-        key = (ent, eff)
-        if key in cur["seen"]:
+        if r["affected"] < MIN_BOOK:
             continue
-        cur["seen"].add(key)
-        cur["wp"] += r["written_premium"]
-        cur["ph"] += r["affected"]
+        ent = (r.get("entity") or "").split("(")[0].strip().lower()
+        k = (r["state"], r["carrier"], ent)
+        eff = r.get("effective_new") or r.get("effective_renewal") or ""
+        if k not in latest or eff > latest[k][0]:
+            latest[k] = (eff, r["written_premium"], r["affected"])
+    book = {}
+    for (st, car, ent), (eff, wp, ph) in latest.items():
+        cur = book.setdefault((st, car), {"wp": 0.0, "ph": 0})
+        cur["wp"] += wp
+        cur["ph"] += ph
 
     flagged = []
     for (st, car), b in sorted(book.items()):
