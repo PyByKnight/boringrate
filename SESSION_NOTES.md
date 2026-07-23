@@ -47,6 +47,15 @@ in OH, so this should cost far less than Ohio's 104 jackets.**
     • If it is always blended → renters stays MODELED; add a permanent note so we stop expecting a
       separable renters number and don't re-litigate this each state.
   Either outcome is a ~10-min read on ONE real jacket — settle it empirically, do not assume.
+
+  **✅ RESOLVED (2026-07-23) via MI home jackets: combos BLEND, renters is NOT in them.** Inspected
+  State Farm HO-49480, Auto-Owners, AAA, MEEMIC — every homeowners combo reports ONE blended rate
+  impact (HO-3/HO-4/HO-6 together, e.g. State Farm +1.8% on 722,873 PH), NO separate HO-4 line. The
+  only ISO-tenant-form (`HO 00 04`) references were Pioneer (still one blended number) and Accelerant
+  (itself a standalone tenant filing). CONCLUSION: primary-sourced renters comes ONLY from standalone
+  **04.0004 Tenant** filings (Safeco, Allstate ANAIC REN, Technology, Accelerant) — not from home
+  combos. Home overall_pct stays HO-3+HO-4+HO-6 blended; that is fine for the home tool. serff_renters_
+  filings.json will be built from the 04.0004 standalones once pulled.
 - **★ PA Hartford −1.7% applies itself tomorrow.** It is effective 2026-07-23 and was correctly NOT
   drifted on 07-22 (see the future-date guard, 924bda09). The next `apply_filed_changes.py` run on or
   after 07-23 will propose it; apply it and **advance PA's anchor to 2026-07-23**.
