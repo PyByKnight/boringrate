@@ -1998,6 +1998,25 @@ document.getElementById("emailBtn").addEventListener("click", async () => {
     var rb = document.getElementById("refineBar");
     if (rb && rb.classList.contains("open")) track("refine_expanded", { product: PRODUCT });
   });
+  // Single "did the user actually customize?" goal — refine_expanded only measures
+  // OPENING the panel; this fires the first time any control inside it is touched
+  // (a pill, a checkbox, or a coverage select), once per page view. Delegated on
+  // the container so every current and future control is covered by one listener.
+  var rbar = document.getElementById("refineBar");
+  if (rbar) {
+    var refined = false;
+    var markRefined = function (e) {
+      if (refined) return;
+      var t = e.target;
+      var isControl = t && ((t.classList && t.classList.contains("pill")) ||
+        (t.matches && t.matches("select, input")));
+      if (!isControl) return;
+      refined = true;
+      track("refine_changed", { product: PRODUCT });
+    };
+    rbar.addEventListener("click", markRefined, true);
+    rbar.addEventListener("change", markRefined, true);
+  }
   var eb = document.getElementById("emailBtn");
   if (eb) eb.addEventListener("click", function () { track("email_signup", { product: PRODUCT }); });
   document.addEventListener("click", function (e) {
