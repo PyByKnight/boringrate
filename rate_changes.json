@@ -1815,6 +1815,386 @@
    "affected": 32698,
    "source": "Ohio Department of Insurance (SERFF)",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134773758"
+  },
+  {
+   "carrier": "Chubb",
+   "state": "MI",
+   "pct": 0.1,
+   "dir": "increase",
+   "effective": "2026-07-01",
+   "affected": 997,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134813463"
+  },
+  {
+   "carrier": "Allstate",
+   "state": "MI",
+   "pct": 0.5,
+   "dir": "decrease",
+   "effective": "2026-07-01",
+   "affected": 130189,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134840116"
+  },
+  {
+   "carrier": "Auto-Owners",
+   "state": "MI",
+   "pct": 0.9,
+   "dir": "decrease",
+   "effective": "2026-03-24",
+   "affected": 563228,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134765723"
+  },
+  {
+   "carrier": "Auto-Owners",
+   "state": "MI",
+   "pct": 0.1,
+   "dir": "increase",
+   "effective": "2026-07-01",
+   "affected": 563228,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134796379"
+  },
+  {
+   "carrier": "Branch",
+   "state": "MI",
+   "pct": 0.1,
+   "dir": "decrease",
+   "effective": "2026-07-01",
+   "affected": 973,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134894516"
+  },
+  {
+   "carrier": "Bristol West",
+   "state": "MI",
+   "pct": 2.1,
+   "dir": "increase",
+   "effective": "2026-03-13",
+   "affected": 36840,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134728991"
+  },
+  {
+   "carrier": "Central",
+   "state": "MI",
+   "pct": 2.7,
+   "dir": "increase",
+   "effective": "2026-07-01",
+   "affected": 745,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134896832"
+  },
+  {
+   "carrier": "Cincinnati Insurance",
+   "state": "MI",
+   "pct": 4.9,
+   "dir": "increase",
+   "effective": "2026-07-01",
+   "affected": 5482,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134778441"
+  },
+  {
+   "carrier": "Cincinnati Insurance",
+   "state": "MI",
+   "pct": 11.8,
+   "dir": "increase",
+   "effective": "2026-07-01",
+   "affected": 10459,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134779502"
+  },
+  {
+   "carrier": "CURE",
+   "state": "MI",
+   "pct": 0.3,
+   "dir": "decrease",
+   "effective": "2026-07-01",
+   "affected": 50157,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134852791"
+  },
+  {
+   "carrier": "Donegal Insurance",
+   "state": "MI",
+   "pct": 21.7,
+   "dir": "decrease",
+   "effective": "2026-07-15",
+   "affected": 1344,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134902602"
+  },
+  {
+   "carrier": "Auto Club Group (AAA)",
+   "state": "MI",
+   "pct": 0.04,
+   "dir": "decrease",
+   "effective": "2026-07-01",
+   "affected": 296837,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134797442"
+  },
+  {
+   "carrier": "Farmers",
+   "state": "MI",
+   "pct": 0.2,
+   "dir": "decrease",
+   "effective": "2026-07-01",
+   "affected": 590,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134855251"
+  },
+  {
+   "carrier": "Michigan Farm Bureau",
+   "state": "MI",
+   "pct": 0.1,
+   "dir": "increase",
+   "effective": "2026-07-01",
+   "affected": 176315,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134821691"
+  },
+  {
+   "carrier": "Frankenmuth Insurance",
+   "state": "MI",
+   "pct": 4.6,
+   "dir": "increase",
+   "effective": "2026-05-01",
+   "affected": 73763,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134683592"
+  },
+  {
+   "carrier": "Frankenmuth Insurance",
+   "state": "MI",
+   "pct": 0.1,
+   "dir": "increase",
+   "effective": "2026-07-01",
+   "affected": 70024,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134885337"
+  },
+  {
+   "carrier": "GEICO",
+   "state": "MI",
+   "pct": 0.08,
+   "dir": "decrease",
+   "effective": "2026-07-01",
+   "affected": 37756,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134917903"
+  },
+  {
+   "carrier": "National General",
+   "state": "MI",
+   "pct": 0.9,
+   "dir": "decrease",
+   "effective": "2026-04-16",
+   "affected": 28867,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134756538"
+  },
+  {
+   "carrier": "National General",
+   "state": "MI",
+   "pct": 12.9,
+   "dir": "decrease",
+   "effective": "2026-07-20",
+   "affected": 1,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134900456"
+  },
+  {
+   "carrier": "Grange",
+   "state": "MI",
+   "pct": 0.2,
+   "dir": "decrease",
+   "effective": "2026-07-01",
+   "affected": 257,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134892742"
+  },
+  {
+   "carrier": "The Hartford",
+   "state": "MI",
+   "pct": 0.9,
+   "dir": "increase",
+   "effective": "2026-07-09",
+   "affected": 14491,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134800906"
+  },
+  {
+   "carrier": "Hastings Mutual",
+   "state": "MI",
+   "pct": 2.5,
+   "dir": "increase",
+   "effective": "2026-07-01",
+   "affected": 16288,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134815324"
+  },
+  {
+   "carrier": "The Hanover",
+   "state": "MI",
+   "pct": 0.9,
+   "dir": "increase",
+   "effective": "2026-02-23",
+   "affected": 190045,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134685654"
+  },
+  {
+   "carrier": "Horace Mann",
+   "state": "MI",
+   "pct": 3.5,
+   "dir": "increase",
+   "effective": "2025-12-01",
+   "affected": 11570,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134645804"
+  },
+  {
+   "carrier": "MEEMIC",
+   "state": "MI",
+   "pct": 0.03,
+   "dir": "increase",
+   "effective": "2026-07-01",
+   "affected": 121383,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134797437"
+  },
+  {
+   "carrier": "Northern Mutual",
+   "state": "MI",
+   "pct": 1.6,
+   "dir": "increase",
+   "effective": "2025-07-22",
+   "affected": 19709,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134608564"
+  },
+  {
+   "carrier": "GM National",
+   "state": "MI",
+   "pct": 0.2,
+   "dir": "decrease",
+   "effective": "2026-07-01",
+   "affected": 2104,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134837021"
+  },
+  {
+   "carrier": "Wolverine",
+   "state": "MI",
+   "pct": 0.04,
+   "dir": "increase",
+   "effective": "2026-07-01",
+   "affected": 6292,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134914276"
+  },
+  {
+   "carrier": "Progressive",
+   "state": "MI",
+   "pct": 4.4,
+   "dir": "decrease",
+   "effective": "2025-10-31",
+   "affected": 259667,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134425680"
+  },
+  {
+   "carrier": "Progressive",
+   "state": "MI",
+   "pct": 2.0,
+   "dir": "decrease",
+   "effective": "2025-10-31",
+   "affected": 556624,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134425693"
+  },
+  {
+   "carrier": "Progressive",
+   "state": "MI",
+   "pct": 2.8,
+   "dir": "decrease",
+   "effective": "2026-04-24",
+   "affected": 584973,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134782430"
+  },
+  {
+   "carrier": "Progressive",
+   "state": "MI",
+   "pct": 2.7,
+   "dir": "decrease",
+   "effective": "2026-04-24",
+   "affected": 237660,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134782455"
+  },
+  {
+   "carrier": "PURE",
+   "state": "MI",
+   "pct": 0.1,
+   "dir": "decrease",
+   "effective": "2026-07-01",
+   "affected": 1133,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134847699"
+  },
+  {
+   "carrier": "State Farm",
+   "state": "MI",
+   "pct": 4.9,
+   "dir": "decrease",
+   "effective": "2026-02-05",
+   "affected": 1327368,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134697302"
+  },
+  {
+   "carrier": "State Farm",
+   "state": "MI",
+   "pct": 0.1,
+   "dir": "increase",
+   "effective": "2026-08-18",
+   "affected": 1324174,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134766938"
+  },
+  {
+   "carrier": "State Farm",
+   "state": "MI",
+   "pct": 0.1,
+   "dir": "decrease",
+   "effective": "2026-07-01",
+   "affected": 1324174,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134810820"
+  },
+  {
+   "carrier": "State Farm",
+   "state": "MI",
+   "pct": 0.2,
+   "dir": "increase",
+   "effective": "2026-09-28",
+   "affected": 1303598,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134828462"
+  },
+  {
+   "carrier": "Travelers",
+   "state": "MI",
+   "pct": 0.2,
+   "dir": "decrease",
+   "effective": "2026-07-01",
+   "affected": 1750,
+   "source": "Michigan Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134882818"
   }
  ]
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://boringrate.com/</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://boringrate.com/</loc><lastmod>2026-07-23</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://boringrate.com/coverage.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/methodology.html</loc><lastmod>2026-07-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://boringrate.com/about.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -255,7 +255,7 @@
   <url><loc>https://boringrate.com/article/compare/usaa-vs-root-insurance.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/compare/usaa-vs-safeco.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/compare/usaa-vs-the-hartford.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/renters/index.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://boringrate.com/renters/index.html</loc><lastmod>2026-07-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/renters/coverage.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/renters/state/alabama.html</loc><lastmod>2026-07-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/renters/state/alaska.html</loc><lastmod>2026-07-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -404,7 +404,7 @@
   <url><loc>https://boringrate.com/renters/carrier/erie.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/renters/carrier/amica.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/renters/carrier/usaa.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/home/index.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://boringrate.com/home/index.html</loc><lastmod>2026-07-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/home/coverage.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/home/state/alabama.html</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://boringrate.com/home/state/alaska.html</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -500,7 +500,7 @@
   <url><loc>https://boringrate.com/article/rate-changes/louisiana.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/rate-changes/california.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/rate-changes/florida.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/rate-changes/texas.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/illinois.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/ohio.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/pennsylvania.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/index.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://boringrate.com/article/rate-changes/michigan.html</loc><lastmod>2026-05-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/texas.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/illinois.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/ohio.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/pennsylvania.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/index.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://boringrate.com/article/rate-changes/georgia.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/rate-changes/south-carolina.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/rate-changes/tennessee.html</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
