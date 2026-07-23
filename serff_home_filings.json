@@ -1,9 +1,9 @@
 {
  "_meta": {
-  "purpose": "HOME (homeowners) primary-source rate filings — parallel to serff_filings.json (auto). Seeded 07-10, deepened 07-13 (full re-scan of the two automated states). Feeds home/rate-changes/ + rate-filings/ roll-up + home/state highlights.",
+  "purpose": "HOME (homeowners) primary-source rate filings \u2014 parallel to serff_filings.json (auto). Seeded 07-10, deepened 07-13 (full re-scan of the two automated states). Feeds home/rate-changes/ + rate-filings/ roll-up + home/state highlights.",
   "line": "homeowners (owner-occupied, HO-3)",
-  "sources": "CA = CDI Approval/Closed List Excel (LINE CODE HOMEOWNERS MULTI-PERIL). TX = data.texas.gov iubg-btfs (state_type_of_insurance=Homeowners; percent_change has trailing % — strip). Both lack PH/premium. Only TX+CA publish rate-filing open data; all other states are SERFF-manual.",
-  "coverage_note": "Recognizable nationals + major regionals + biggest movers per state; TX has 70 carriers with material moves (crisis market) — obscure surplus/fronting carriers omitted.",
+  "sources": "CA = CDI Approval/Closed List Excel (LINE CODE HOMEOWNERS MULTI-PERIL). TX = data.texas.gov iubg-btfs (state_type_of_insurance=Homeowners; percent_change has trailing % \u2014 strip). Both lack PH/premium. Only TX+CA publish rate-filing open data; all other states are SERFF-manual.",
+  "coverage_note": "Recognizable nationals + major regionals + biggest movers per state; TX has 70 carriers with material moves (crisis market) \u2014 obscure surplus/fronting carriers omitted.",
   "recorded": "2026-07-13"
  },
  "filings": [
@@ -317,7 +317,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "TX TDI open data (data.texas.gov iubg-btfs); no PH/premium; file-and-use.",
-   "note": "+29.8% TX home — TX's #1 home writer. Crisis-market hike."
+   "note": "+29.8% TX home \u2014 TX's #1 home writer. Crisis-market hike."
   },
   {
    "state": "TX",
@@ -681,7 +681,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "TX TDI open data (data.texas.gov iubg-btfs); no PH/premium; file-and-use.",
-   "note": "-5.0% TX home — a cut against the rising market."
+   "note": "-5.0% TX home \u2014 a cut against the rising market."
   },
   {
    "state": "TX",
@@ -733,7 +733,7 @@
    "recorded_date": "2026-07-13",
    "status": "Pending",
    "source_note": "TX TDI open data (data.texas.gov iubg-btfs); no PH/premium; file-and-use.",
-   "note": "-0.4% TX home (≈flat)."
+   "note": "-0.4% TX home (\u2248flat)."
   },
   {
    "state": "TX",
@@ -759,7 +759,7 @@
    "recorded_date": "2026-07-13",
    "status": "Pending",
    "source_note": "TX TDI open data (data.texas.gov iubg-btfs); no PH/premium; file-and-use.",
-   "note": "-0.2% TX home (≈flat)."
+   "note": "-0.2% TX home (\u2248flat)."
   },
   {
    "state": "LA",
@@ -785,7 +785,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing SFMA-134661164; Company Rate Information overall rate impact.",
-   "note": "+9.7% LA home — State Farm F&C, LA's largest home writer (303,638 PH)."
+   "note": "+9.7% LA home \u2014 State Farm F&C, LA's largest home writer (303,638 PH)."
   },
   {
    "state": "LA",
@@ -811,7 +811,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing USAA-134777840; Company Rate Information overall rate impact.",
-   "note": "+9.2% LA home — USAA group, eff renewals through mid-2026.",
+   "note": "+9.2% LA home \u2014 USAA group, eff renewals through mid-2026.",
    "max_pct": 44.7,
    "min_pct": -38.8
   },
@@ -839,7 +839,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing SFBC-134582157; Company Rate Information overall rate impact.",
-   "note": "+14.75% LA home — LA Farm Bureau Home Choice (owner-occupied); asked 17.76%.",
+   "note": "+14.75% LA home \u2014 LA Farm Bureau Home Choice (owner-occupied); asked 17.76%.",
    "max_pct": 17.76,
    "min_pct": 14.75
   },
@@ -867,7 +867,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing ALSE-134740068; Company Rate Information overall rate impact.",
-   "note": "+3.8% LA home — Allstate's main LA writer (AVPIC, $271M book).",
+   "note": "+3.8% LA home \u2014 Allstate's main LA writer (AVPIC, $271M book).",
    "max_pct": 125.3,
    "min_pct": -24.2
   },
@@ -895,7 +895,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing ALSE-134677440; Company Rate Information overall rate impact.",
-   "note": "+1.6% LA home — Allstate Insurance Co (closed book).",
+   "note": "+1.6% LA home \u2014 Allstate Insurance Co (closed book).",
    "max_pct": 4.0,
    "min_pct": 0.1
   },
@@ -923,7 +923,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing ALTR-134663183; Company Rate Information overall rate impact.",
-   "note": "-2.3% LA home — Allied Trust (LA regional) cutting.",
+   "note": "-2.3% LA home \u2014 Allied Trust (LA regional) cutting.",
    "max_pct": 29.7,
    "min_pct": -25.7
   },
@@ -951,7 +951,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF filing HNVR-G134780663; Company Rate Information overall rate impact.",
-   "note": "-1.8% LA home — Hanover small cut.",
+   "note": "-1.8% LA home \u2014 Hanover small cut.",
    "max_pct": 19.2,
    "min_pct": -27.0
   },
@@ -979,7 +979,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF ACEH-134573149; overall rate impact 0.0% (held).",
-   "note": "0% LA home — Chubb Masterpiece (high-value) held flat.",
+   "note": "0% LA home \u2014 Chubb Masterpiece (high-value) held flat.",
    "max_pct": 0.0,
    "min_pct": 0.0
   },
@@ -1007,7 +1007,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF FAIG-134637040; overall rate impact 0.0% (held).",
-   "note": "0% LA home — Farmers held flat.",
+   "note": "0% LA home \u2014 Farmers held flat.",
    "max_pct": 0.0,
    "min_pct": 0.0
   },
@@ -1035,7 +1035,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF SAFP-134666207; no Rate/Rule schedule items changed (0%).",
-   "note": "0% LA home — Cajun Underwriters (LA regional), no rate/rule schedule change."
+   "note": "0% LA home \u2014 Cajun Underwriters (LA regional), no rate/rule schedule change."
   },
   {
    "state": "LA",
@@ -1061,7 +1061,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF GSIC-134729762; no Rate/Rule schedule items changed (0%).",
-   "note": "0% LA home — Gulf States (LA regional) held flat."
+   "note": "0% LA home \u2014 Gulf States (LA regional) held flat."
   },
   {
    "state": "LA",
@@ -1087,7 +1087,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF HART-134655409; overall impact 0.0% (stated).",
-   "note": "0% LA home — Hartford Prevail Home; stated overall impact 0.0%."
+   "note": "0% LA home \u2014 Hartford Prevail Home; stated overall impact 0.0%."
   },
   {
    "state": "LA",
@@ -1113,7 +1113,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "LA DOI SERFF SAGE-134604290; indicated -7.5%, overall rate impact 0.0%.",
-   "note": "0% LA home — SafePort filed -7.5% indicated but 0% rate impact taken.",
+   "note": "0% LA home \u2014 SafePort filed -7.5% indicated but 0% rate impact taken.",
    "max_pct": 0.0,
    "min_pct": 0.0
   },
@@ -1141,7 +1141,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF filing LBPM-134516900; Company Rate Information overall rate impact.",
-   "note": "+9.7% NY home — Liberty/Safeco, NY's biggest in-window home increase.",
+   "note": "+9.7% NY home \u2014 Liberty/Safeco, NY's biggest in-window home increase.",
    "max_pct": 29.9,
    "min_pct": 0.5
   },
@@ -1169,7 +1169,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF filing USAA-134245824; Company Rate Information overall rate impact.",
-   "note": "+5.6% NY home — USAA group.",
+   "note": "+5.6% NY home \u2014 USAA group.",
    "max_pct": 20.1,
    "min_pct": 15.6
   },
@@ -1197,7 +1197,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF filing NYCM-134688761; Company Rate Information overall rate impact.",
-   "note": "+4.61% NY home — NYCM, a top NY-only home writer ($96M book, 55,258 PH).",
+   "note": "+4.61% NY home \u2014 NYCM, a top NY-only home writer ($96M book, 55,258 PH).",
    "max_pct": 14.27,
    "min_pct": 0.77
   },
@@ -1225,7 +1225,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF filing PMUT-134534049; Company Rate Information overall rate impact.",
-   "note": "+4.5% NY home — Preferred Mutual (upstate NY).",
+   "note": "+4.5% NY home \u2014 Preferred Mutual (upstate NY).",
    "max_pct": 15.1,
    "min_pct": 1.1
   },
@@ -1253,7 +1253,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF filing CCGI-134677812; Company Rate Information overall rate impact.",
-   "note": "+2.8% NY home — US Coastal (Long Island coastal specialty).",
+   "note": "+2.8% NY home \u2014 US Coastal (Long Island coastal specialty).",
    "max_pct": 3.7,
    "min_pct": 1.6
   },
@@ -1281,7 +1281,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF filing HART-134575506; Company Rate Information overall rate impact.",
-   "note": "+1.7% NY home — The Hartford (AARP program)."
+   "note": "+1.7% NY home \u2014 The Hartford (AARP program)."
   },
   {
    "state": "NY",
@@ -1307,7 +1307,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF SFMA-133845492; 'rate level change of 0.0%' (held).",
-   "note": "0% NY home — State Farm held its independent NY Homeowners Program FLAT (~1M policies, $1.1B book)."
+   "note": "0% NY home \u2014 State Farm held its independent NY Homeowners Program FLAT (~1M policies, $1.1B book)."
   },
   {
    "state": "NY",
@@ -1333,7 +1333,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF NWPP-G134734565; overall rate impact 0.0% (held).",
-   "note": "0% NY home — Nationwide held flat.",
+   "note": "0% NY home \u2014 Nationwide held flat.",
    "max_pct": 0.0,
    "min_pct": 0.0
   },
@@ -1361,7 +1361,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF MERY-134658071; 'no rate impact associated with this filing'.",
-   "note": "0% NY home — Mercury, no rate impact (rule update)."
+   "note": "0% NY home \u2014 Mercury, no rate impact (rule update)."
   },
   {
    "state": "NY",
@@ -1387,7 +1387,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF KSIN-134341407; overall rate impact 0.0% (territory-neutral).",
-   "note": "0% overall NY home — Kingstone (coastal LI); 5.1% indicated but revenue-neutral territory reshuffle (max +23.7% / min −13.6%).",
+   "note": "0% overall NY home \u2014 Kingstone (coastal LI); 5.1% indicated but revenue-neutral territory reshuffle (max +23.7% / min \u221213.6%).",
    "max_pct": 23.7,
    "min_pct": -13.6
   },
@@ -1415,7 +1415,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "NY DFS SERFF AMMA-134612479; overall rate impact ~0% (windstorm restructuring).",
-   "note": "~0% NY home — Amica hurricane/windstorm restructure, revenue-neutral overall."
+   "note": "~0% NY home \u2014 Amica hurricane/windstorm restructure, revenue-neutral overall."
   },
   {
    "state": "PA",
@@ -1441,7 +1441,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF SFMA-134511098; 'rate level change of 6.3%'.",
-   "note": "+6.3% PA home — State Farm (independent PA Homeowners Program) raising (unlike its flat NY book)."
+   "note": "+6.3% PA home \u2014 State Farm (independent PA Homeowners Program) raising (unlike its flat NY book)."
   },
   {
    "state": "PA",
@@ -1467,7 +1467,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF filing USAA-134883881; Company Rate Information overall rate impact.",
-   "note": "+6.2% PA home — USAA group (120,317 PH); POST-anchor → drifts the PA tool.",
+   "note": "+6.2% PA home \u2014 USAA group (120,317 PH); POST-anchor \u2192 drifts the PA tool.",
    "max_pct": 7.3,
    "min_pct": 0.0
   },
@@ -1495,7 +1495,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF filing FARM-134993574; Company Rate Information overall rate impact.",
-   "note": "-10.0% PA home — Farmers FLEX cut; POST-anchor → drifts the PA tool.",
+   "note": "-10.0% PA home \u2014 Farmers FLEX cut; POST-anchor \u2192 drifts the PA tool.",
    "max_pct": 13.79,
    "min_pct": -25.07
   },
@@ -1523,7 +1523,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF filing ERPP-134623801; Company Rate Information overall rate impact.",
-   "note": "+1.0% PA home — Erie Exchange, PA's #1 home writer (298,876 PH / $332M book).",
+   "note": "+1.0% PA home \u2014 Erie Exchange, PA's #1 home writer (298,876 PH / $332M book).",
    "max_pct": 26.0,
    "min_pct": -30.1
   },
@@ -1551,7 +1551,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF filing SELC-134697411; Company Rate Information overall rate impact.",
-   "note": "+8.5% PA home — Selective (mid-Atlantic regional)."
+   "note": "+8.5% PA home \u2014 Selective (mid-Atlantic regional)."
   },
   {
    "state": "PA",
@@ -1577,7 +1577,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF filing CNNB-134791320; Company Rate Information overall rate impact.",
-   "note": "+3.8% PA home — Cincinnati."
+   "note": "+3.8% PA home \u2014 Cincinnati."
   },
   {
    "state": "PA",
@@ -1603,7 +1603,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF filing GRAN-134639913; Company Rate Information overall rate impact.",
-   "note": "+3.3% PA home — Grange (OH/PA regional)."
+   "note": "+3.3% PA home \u2014 Grange (OH/PA regional)."
   },
   {
    "state": "PA",
@@ -1629,7 +1629,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF filing AMSI-134401367; Company Rate Information overall rate impact.",
-   "note": "+0.9% PA home — Progressive/ASI (near-flat).",
+   "note": "+0.9% PA home \u2014 Progressive/ASI (near-flat).",
    "max_pct": 121.4,
    "min_pct": -26.6
   },
@@ -1657,7 +1657,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF LBPM-134658564; overall rate impact 0.0%.",
-   "note": "0% PA home — Liberty held flat.",
+   "note": "0% PA home \u2014 Liberty held flat.",
    "max_pct": 0.0,
    "min_pct": 0.0
   },
@@ -1685,7 +1685,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF NWPP-134535062; overall rate impact 0.0%.",
-   "note": "0% PA home — Nationwide held flat (203,121 PH book).",
+   "note": "0% PA home \u2014 Nationwide held flat (203,121 PH book).",
    "max_pct": 11.7,
    "min_pct": -12.3
   },
@@ -1713,7 +1713,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF ACEH-134553168; overall rate impact 0.0%.",
-   "note": "0% PA home — Chubb Masterpiece held flat.",
+   "note": "0% PA home \u2014 Chubb Masterpiece held flat.",
    "max_pct": 0.0,
    "min_pct": 0.0
   },
@@ -1741,7 +1741,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF AOIC-134597135; overall rate impact -0.037% (flat).",
-   "note": "~0% PA home — Auto-Owners (-0.04%, flat).",
+   "note": "~0% PA home \u2014 Auto-Owners (-0.04%, flat).",
    "max_pct": 21.676,
    "min_pct": -30.937
   },
@@ -1769,7 +1769,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF WSUN-134797471; overall rate impact +0.4% (near-flat).",
-   "note": "~0% PA home — CSAA/AAA (+0.4%, flat).",
+   "note": "~0% PA home \u2014 CSAA/AAA (+0.4%, flat).",
    "max_pct": 12.0,
    "min_pct": 0.0
   },
@@ -1797,7 +1797,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF DNGL-134925917; overall rate impact +0.3% (flat).",
-   "note": "~0% PA home — Donegal (+0.3%, flat)."
+   "note": "~0% PA home \u2014 Donegal (+0.3%, flat)."
   },
   {
    "state": "PA",
@@ -1823,7 +1823,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF HRMN-134498839; overall rate impact 0.0%.",
-   "note": "0% PA home — Horace Mann held flat.",
+   "note": "0% PA home \u2014 Horace Mann held flat.",
    "max_pct": 8.1,
    "min_pct": -24.7
   },
@@ -1851,7 +1851,7 @@
    "recorded_date": "2026-07-13",
    "status": "Closed",
    "source_note": "PA DOI SERFF ACUT-134901103; overall rate impact -1.0%.",
-   "note": "-1.0% PA home — Acuity (small book).",
+   "note": "-1.0% PA home \u2014 Acuity (small book).",
    "max_pct": 4.5,
    "min_pct": -7.3
   },
@@ -1879,7 +1879,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing USAA-134785241; Company Rate Information overall rate impact.",
-   "note": "+15.8% OH home — USAA raising hard (105,620 PH).",
+   "note": "+15.8% OH home \u2014 USAA raising hard (105,620 PH).",
    "max_pct": 63.7,
    "min_pct": -25.8
   },
@@ -1907,7 +1907,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing ACEH-134899034; Company Rate Information overall rate impact.",
-   "note": "+4.1% OH home — Chubb Masterpiece.",
+   "note": "+4.1% OH home \u2014 Chubb Masterpiece.",
    "max_pct": 4.8,
    "min_pct": 0.0
   },
@@ -1935,7 +1935,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing ALSE-134545764; Company Rate Information overall rate impact.",
-   "note": "-3.0% OH home — Allstate cut.",
+   "note": "-3.0% OH home \u2014 Allstate cut.",
    "max_pct": 22.6,
    "min_pct": -34.1
   },
@@ -1963,7 +1963,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing LBPM-134602374; Company Rate Information overall rate impact.",
-   "note": "-5.0% OH home — Liberty cut.",
+   "note": "-5.0% OH home \u2014 Liberty cut.",
    "max_pct": -4.3,
    "min_pct": -5.3
   },
@@ -1991,7 +1991,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing AMSI-134627974; Company Rate Information overall rate impact.",
-   "note": "-6.0% OH home — Progressive/ASI cut.",
+   "note": "-6.0% OH home \u2014 Progressive/ASI cut.",
    "max_pct": 27.6,
    "min_pct": -11.8
   },
@@ -2019,7 +2019,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing ERPP-134602360; Company Rate Information overall rate impact.",
-   "note": "+2.3% OH home — Erie Exchange.",
+   "note": "+2.3% OH home \u2014 Erie Exchange.",
    "max_pct": 6.8,
    "min_pct": 2.2
   },
@@ -2047,7 +2047,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing WSFG-G134594507; Company Rate Information overall rate impact.",
-   "note": "+6.5% OH home — Westfield (major OH writer).",
+   "note": "+6.5% OH home \u2014 Westfield (major OH writer).",
    "max_pct": 8.4,
    "min_pct": 0.0
   },
@@ -2075,7 +2075,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing GRAN-134602478; Company Rate Information overall rate impact.",
-   "note": "+5.7% OH home — Grange, huge in its home state (99,058 PH / $124M).",
+   "note": "+5.7% OH home \u2014 Grange, huge in its home state (99,058 PH / $124M).",
    "max_pct": 21.1,
    "min_pct": -7.7
   },
@@ -2103,7 +2103,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing OHMG-134556446; Company Rate Information overall rate impact.",
-   "note": "+7.3% OH home — Ohio Mutual.",
+   "note": "+7.3% OH home \u2014 Ohio Mutual.",
    "max_pct": 17.0,
    "min_pct": -9.1
   },
@@ -2131,7 +2131,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing MTRS-134688619; Company Rate Information overall rate impact.",
-   "note": "+2.0% OH home — Motorists/Encova (OH mutual).",
+   "note": "+2.0% OH home \u2014 Motorists/Encova (OH mutual).",
    "max_pct": 17.2,
    "min_pct": -24.9
   },
@@ -2159,7 +2159,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing HART-134652413; Company Rate Information overall rate impact.",
-   "note": "+5.4% OH home — The Hartford (AARP program).",
+   "note": "+5.4% OH home \u2014 The Hartford (AARP program).",
    "max_pct": 55.9,
    "min_pct": -21.5
   },
@@ -2187,7 +2187,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing NJMI-134742573; Company Rate Information overall rate impact.",
-   "note": "+10.0% OH home — NJM (expanding into OH; small book).",
+   "note": "+10.0% OH home \u2014 NJM (expanding into OH; small book).",
    "max_pct": 76.5,
    "min_pct": -16.8
   },
@@ -2215,7 +2215,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing CEIN-134649665; Company Rate Information overall rate impact.",
-   "note": "-4.0% OH home — Celina (OH mutual) cut.",
+   "note": "-4.0% OH home \u2014 Celina (OH mutual) cut.",
    "max_pct": 3.0,
    "min_pct": -14.2
   },
@@ -2243,7 +2243,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF filing CEMC-134676417; Company Rate Information overall rate impact.",
-   "note": "+17.1% OH home — Central Insurance, a large OH hike.",
+   "note": "+17.1% OH home \u2014 Central Insurance, a large OH hike.",
    "max_pct": 58.1,
    "min_pct": null
   },
@@ -2271,7 +2271,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF NWPP-134566078; overall rate impact 0.0%.",
-   "note": "0% OH home — Nationwide held its Columbus-HQ home turf FLAT (153,888 PH)."
+   "note": "0% OH home \u2014 Nationwide held its Columbus-HQ home turf FLAT (153,888 PH)."
   },
   {
    "state": "OH",
@@ -2297,7 +2297,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF FARM-134597954; overall rate impact 0.0%.",
-   "note": "0% OH home — Farmers held flat."
+   "note": "0% OH home \u2014 Farmers held flat."
   },
   {
    "state": "OH",
@@ -2323,7 +2323,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF AMFC-134804404; overall rate impact 0.0%.",
-   "note": "0% OH home — American Family held flat.",
+   "note": "0% OH home \u2014 American Family held flat.",
    "max_pct": 6.3,
    "min_pct": -49.1
   },
@@ -2351,7 +2351,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF AOIC-134804388; overall rate impact -0.11% (flat).",
-   "note": "~0% OH home — Auto-Owners (-0.11%, flat; 141,511 PH)."
+   "note": "~0% OH home \u2014 Auto-Owners (-0.11%, flat; 141,511 PH)."
   },
   {
    "state": "OH",
@@ -2377,7 +2377,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF CNNB-134745485; overall rate impact -0.007% (flat).",
-   "note": "~0% OH home — Cincinnati (-0.01%, flat).",
+   "note": "~0% OH home \u2014 Cincinnati (-0.01%, flat).",
    "max_pct": 34.7,
    "min_pct": -9.3
   },
@@ -2405,7 +2405,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF AMMA-134784004; overall rate impact 0.0%.",
-   "note": "0% OH home — Amica (territory-neutral restructure).",
+   "note": "0% OH home \u2014 Amica (territory-neutral restructure).",
    "max_pct": 27.0,
    "min_pct": -20.0
   },
@@ -2433,7 +2433,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF SELC-134658684; overall rate impact 0.0%.",
-   "note": "0% OH home — Selective held flat.",
+   "note": "0% OH home \u2014 Selective held flat.",
    "max_pct": 15.4,
    "min_pct": -18.7
   },
@@ -2461,7 +2461,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF DNGL-134730602; overall rate impact +0.2% (flat).",
-   "note": "~0% OH home — Donegal (+0.2%, flat)."
+   "note": "~0% OH home \u2014 Donegal (+0.2%, flat)."
   },
   {
    "state": "OH",
@@ -2487,7 +2487,7 @@
    "recorded_date": "2026-07-14",
    "status": "Closed",
    "source_note": "OH DOI SERFF SFMA-134817304 (HO-49422); 'rate level change of 7.2%'.",
-   "note": "+7.2% OH home — State Farm (independent OH Homeowners Program), raising."
+   "note": "+7.2% OH home \u2014 State Farm (independent OH Homeowners Program), raising."
   },
   {
    "state": "IL",
@@ -2515,7 +2515,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing CNNB-134582223; Company Rate Information overall rate impact.",
-   "note": "+16.7% IL home — Cincinnati, a large IL hike."
+   "note": "+16.7% IL home \u2014 Cincinnati, a large IL hike."
   },
   {
    "state": "IL",
@@ -2543,7 +2543,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing CEMC-134637698; Company Rate Information overall rate impact.",
-   "note": "+30.8% IL home — Central Insurance, a steep hike (small book)."
+   "note": "+30.8% IL home \u2014 Central Insurance, a steep hike (small book)."
   },
   {
    "state": "IL",
@@ -2571,7 +2571,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing MAMI-134702511; Company Rate Information overall rate impact.",
-   "note": "+18.9% IL home — Madison Mutual (IL mutual)."
+   "note": "+18.9% IL home \u2014 Madison Mutual (IL mutual)."
   },
   {
    "state": "IL",
@@ -2599,7 +2599,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing ERPP-134891551; Company Rate Information overall rate impact.",
-   "note": "+7.1% IL home — Erie (107,000 PH); POST-anchor -> drifts IL tool."
+   "note": "+7.1% IL home \u2014 Erie (107,000 PH); POST-anchor -> drifts IL tool."
   },
   {
    "state": "IL",
@@ -2627,7 +2627,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing AMSI-134665287; Company Rate Information overall rate impact.",
-   "note": "+7.35% IL home — Progressive/ASI."
+   "note": "+7.35% IL home \u2014 Progressive/ASI."
   },
   {
    "state": "IL",
@@ -2655,7 +2655,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing FARM-134602571; Company Rate Information overall rate impact.",
-   "note": "+3.95% IL home — Farmers (97,360 PH)."
+   "note": "+3.95% IL home \u2014 Farmers (97,360 PH)."
   },
   {
    "state": "IL",
@@ -2683,7 +2683,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing LBPM-134772838; Company Rate Information overall rate impact.",
-   "note": "+3.3% IL home — Liberty."
+   "note": "+3.3% IL home \u2014 Liberty."
   },
   {
    "state": "IL",
@@ -2711,7 +2711,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing GRAN-134665006; Company Rate Information overall rate impact.",
-   "note": "+2.8% IL home — Grange."
+   "note": "+2.8% IL home \u2014 Grange."
   },
   {
    "state": "IL",
@@ -2739,7 +2739,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing MERY-134760243; Company Rate Information overall rate impact.",
-   "note": "-1.0% IL home — Mercury."
+   "note": "-1.0% IL home \u2014 Mercury."
   },
   {
    "state": "IL",
@@ -2767,7 +2767,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing ALSE-134993462; Company Rate Information overall rate impact.",
-   "note": "-0.8% IL home — Allstate (ANAIC) small cut."
+   "note": "-0.8% IL home \u2014 Allstate (ANAIC) small cut."
   },
   {
    "state": "IL",
@@ -2795,7 +2795,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF AMFC-135002345; overall rate impact -0.2% (flat).",
-   "note": "~0% IL home — American Family (-0.2%, flat; 61,902 PH)."
+   "note": "~0% IL home \u2014 American Family (-0.2%, flat; 61,902 PH)."
   },
   {
    "state": "IL",
@@ -2823,7 +2823,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF AOIC-134720541; overall rate impact -0.1% (flat overall, wide territory swing).",
-   "note": "~0% IL home — Auto-Owners (-0.1% overall, but +77.5%/-50.9% by territory; 91,190 PH)."
+   "note": "~0% IL home \u2014 Auto-Owners (-0.1% overall, but +77.5%/-50.9% by territory; 91,190 PH)."
   },
   {
    "state": "IL",
@@ -2851,7 +2851,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF HART-134727192; overall rate impact 0.0%.",
-   "note": "0% IL home — The Hartford held flat."
+   "note": "0% IL home \u2014 The Hartford held flat."
   },
   {
    "state": "IL",
@@ -2879,7 +2879,7 @@
    "recorded_date": "2026-07-15",
    "status": "Closed",
    "source_note": "IL DOI SERFF CFPC-134640150; filing memo: 'no rate impacts to current policyholders'.",
-   "note": "0% IL home — Country Financial (no rate impact this filing; COUNTRY 2.0 filed separately)."
+   "note": "0% IL home \u2014 Country Financial (no rate impact this filing; COUNTRY 2.0 filed separately)."
   },
   {
    "state": "IL",
@@ -2907,7 +2907,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing USAA-134732676; Company Rate Information overall rate impact.",
-   "note": "+12.3% IL home — USAA raising."
+   "note": "+12.3% IL home \u2014 USAA raising."
   },
   {
    "state": "IL",
@@ -2935,7 +2935,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing SELC-134658819; Company Rate Information overall rate impact.",
-   "note": "+7.8% IL home — Selective."
+   "note": "+7.8% IL home \u2014 Selective."
   },
   {
    "state": "IL",
@@ -2963,7 +2963,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "IL DOI SERFF filing PKNS-134613604; Company Rate Information overall rate impact.",
-   "note": "-2.1% IL home — Pekin (IL regional) cut."
+   "note": "-2.1% IL home \u2014 Pekin (IL regional) cut."
   },
   {
    "state": "IL",
@@ -2991,7 +2991,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "IL DOI SERFF SFMA-134610167; overall rate impact 0.0% (revenue-neutral; +27.2% max by territory).",
-   "note": "0% IL home — State Farm held its IL book FLAT (1.5M policies / $1.98B) while regionals hiked, but +27.2% for some territories."
+   "note": "0% IL home \u2014 State Farm held its IL book FLAT (1.5M policies / $1.98B) while regionals hiked, but +27.2% for some territories."
   },
   {
    "state": "IL",
@@ -3019,7 +3019,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "IL DOI SERFF NWPP-134573055; overall rate impact 0.0% (flat overall).",
-   "note": "0% IL home — Nationwide held flat (but +22.8%/-9.7% by territory)."
+   "note": "0% IL home \u2014 Nationwide held flat (but +22.8%/-9.7% by territory)."
   },
   {
    "state": "IL",
@@ -3047,7 +3047,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "IL DOI SERFF TRVD-G134766301; overall rate impact 0.0% (flat).",
-   "note": "0% IL home — Travelers held flat (130,676 PH / $268M)."
+   "note": "0% IL home \u2014 Travelers held flat (130,676 PH / $268M)."
   },
   {
    "state": "NJ",
@@ -3075,7 +3075,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing NJMI-134641996; Company Rate Information overall rate impact.",
-   "note": "+4.8% NJ home — NJM, the dominant NJ home writer."
+   "note": "+4.8% NJ home \u2014 NJM, the dominant NJ home writer."
   },
   {
    "state": "NJ",
@@ -3103,7 +3103,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing ANDV-134492067; Company Rate Information overall rate impact.",
-   "note": "+11.3% NJ home — Andover (asked 17.1%, got 11.3%)."
+   "note": "+11.3% NJ home \u2014 Andover (asked 17.1%, got 11.3%)."
   },
   {
    "state": "NJ",
@@ -3131,7 +3131,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing HNVR-G134644865; Company Rate Information overall rate impact.",
-   "note": "+9.3% NJ home — Hanover."
+   "note": "+9.3% NJ home \u2014 Hanover."
   },
   {
    "state": "NJ",
@@ -3159,7 +3159,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing AMSI-134319380; Company Rate Information overall rate impact.",
-   "note": "+6.6% NJ home — Progressive/ASI."
+   "note": "+6.6% NJ home \u2014 Progressive/ASI."
   },
   {
    "state": "NJ",
@@ -3187,7 +3187,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing MUOF-134734326; Company Rate Information overall rate impact.",
-   "note": "+6.5% NJ home — Franklin Mutual (FMI), NJ mutual."
+   "note": "+6.5% NJ home \u2014 Franklin Mutual (FMI), NJ mutual."
   },
   {
    "state": "NJ",
@@ -3215,7 +3215,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing ACEH-134510614; Company Rate Information overall rate impact.",
-   "note": "+6.1% NJ home — Chubb Masterpiece (high-value)."
+   "note": "+6.1% NJ home \u2014 Chubb Masterpiece (high-value)."
   },
   {
    "state": "NJ",
@@ -3243,7 +3243,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing MERY-134666161; Company Rate Information overall rate impact.",
-   "note": "+5.0% NJ home — Mercury."
+   "note": "+5.0% NJ home \u2014 Mercury."
   },
   {
    "state": "NJ",
@@ -3271,7 +3271,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing SELC-134632026; Company Rate Information overall rate impact.",
-   "note": "+5.0% NJ home — Selective (NJ-based)."
+   "note": "+5.0% NJ home \u2014 Selective (NJ-based)."
   },
   {
    "state": "NJ",
@@ -3299,7 +3299,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing NFDG-134515127; Company Rate Information overall rate impact.",
-   "note": "+5.0% NJ home — Norfolk & Dedham (NE mutual)."
+   "note": "+5.0% NJ home \u2014 Norfolk & Dedham (NE mutual)."
   },
   {
    "state": "NJ",
@@ -3327,7 +3327,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing PRVD-134574914; Company Rate Information overall rate impact.",
-   "note": "+5.0% NJ home — Providence Mutual."
+   "note": "+5.0% NJ home \u2014 Providence Mutual."
   },
   {
    "state": "NJ",
@@ -3355,7 +3355,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing ALSE-134558589; Company Rate Information overall rate impact.",
-   "note": "+4.3% NJ home — Allstate/Encompass NJ."
+   "note": "+4.3% NJ home \u2014 Allstate/Encompass NJ."
   },
   {
    "state": "NJ",
@@ -3383,7 +3383,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing BLCK-134525919; Company Rate Information overall rate impact.",
-   "note": "+3.5% NJ home — Narragansett Bay (coastal specialty)."
+   "note": "+3.5% NJ home \u2014 Narragansett Bay (coastal specialty)."
   },
   {
    "state": "NJ",
@@ -3411,7 +3411,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing CUIG-134677606; Company Rate Information overall rate impact.",
-   "note": "+2.4% NJ home — Cumberland Mutual (NJ mutual)."
+   "note": "+2.4% NJ home \u2014 Cumberland Mutual (NJ mutual)."
   },
   {
    "state": "NJ",
@@ -3439,7 +3439,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing FARM-134608171; Company Rate Information overall rate impact.",
-   "note": "+2.0% NJ home — Farmers; POST-anchor -> drifts NJ tool."
+   "note": "+2.0% NJ home \u2014 Farmers; POST-anchor -> drifts NJ tool."
   },
   {
    "state": "NJ",
@@ -3467,7 +3467,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF filing PRAC-134884448; Company Rate Information overall rate impact.",
-   "note": "-8.0% NJ home — Palisades/AtHome cut."
+   "note": "-8.0% NJ home \u2014 Palisades/AtHome cut."
   },
   {
    "state": "NJ",
@@ -3495,7 +3495,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF LBPM-134557834; overall rate impact +0.6% (near-flat).",
-   "note": "~0% NJ home — Liberty (+0.6%, flat; 130,883 PH)."
+   "note": "~0% NJ home \u2014 Liberty (+0.6%, flat; 130,883 PH)."
   },
   {
    "state": "NJ",
@@ -3523,7 +3523,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF WSUN-134770362; overall rate impact +0.6% (near-flat).",
-   "note": "~0% NJ home — CSAA/AAA (+0.6%, flat)."
+   "note": "~0% NJ home \u2014 CSAA/AAA (+0.6%, flat)."
   },
   {
    "state": "NJ",
@@ -3551,7 +3551,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF NWPP-134512182; overall rate impact -0.2% (flat).",
-   "note": "~0% NJ home — Harleysville/Nationwide (-0.2%, flat)."
+   "note": "~0% NJ home \u2014 Harleysville/Nationwide (-0.2%, flat)."
   },
   {
    "state": "NJ",
@@ -3579,7 +3579,7 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF PHCT-134445757; overall rate impact 0.0%.",
-   "note": "0% NJ home — Plymouth Rock held flat."
+   "note": "0% NJ home \u2014 Plymouth Rock held flat."
   },
   {
    "state": "NJ",
@@ -3607,7 +3607,969 @@
    "recorded_date": "2026-07-16",
    "status": "Closed",
    "source_note": "NJ DOI SERFF HART-134575516; overall impact 0.0%.",
-   "note": "0% NJ home — The Hartford held flat (endorsement filing)."
+   "note": "0% NJ home \u2014 The Hartford held flat (endorsement filing)."
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Chubb",
+   "entity": "Executive Risk Indemnity Inc. (dominant of 2 entities)",
+   "tracking": "ACEH-134747918",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134747918",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2025-12-22",
+   "effective_new": "2026-03-23",
+   "effective_renewal": "2026-05-07",
+   "overall_pct": 4.1,
+   "indicated_pct": 14.3,
+   "prior_revision_pct": null,
+   "written_premium": 4994976.0,
+   "written_premium_change": 203052.0,
+   "affected": 570,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF ACEH-134747918",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Chubb",
+   "entity": "Great Northern Insurance (dominant of 4 entities)",
+   "tracking": "ACEH-134765370",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134765370",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2025-12-30",
+   "effective_new": null,
+   "effective_renewal": "2026-05-07",
+   "overall_pct": 9.6,
+   "indicated_pct": 14.2,
+   "prior_revision_pct": null,
+   "written_premium": 21976407.0,
+   "written_premium_change": 2111769.0,
+   "affected": 2281,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF ACEH-134765370",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Amica",
+   "entity": "Amica Mutual Insurance",
+   "tracking": "AMMA-134682091",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134682091",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2025-11-18",
+   "effective_new": "2026-04-01",
+   "effective_renewal": "2026-04-01",
+   "overall_pct": 0.0,
+   "indicated_pct": -15.9,
+   "prior_revision_pct": null,
+   "written_premium": 12178979.0,
+   "written_premium_change": 0.0,
+   "affected": 5440,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF AMMA-134682091",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Auto-Owners",
+   "entity": "Auto-Owners Insurance",
+   "tracking": "AOIC-134868668",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134868668",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-07-07",
+   "effective_new": "2026-08-01",
+   "effective_renewal": "2026-09-06",
+   "overall_pct": 1.078,
+   "indicated_pct": 10.1,
+   "prior_revision_pct": null,
+   "written_premium": 803283083.0,
+   "written_premium_change": 8663386.0,
+   "affected": 596234,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF AOIC-134868668",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "AIG",
+   "entity": "AIG Property Casualty",
+   "tracking": "APCG-134649049",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134649049",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2025-11-03",
+   "effective_new": "2026-04-01",
+   "effective_renewal": "2026-04-01",
+   "overall_pct": 6.9,
+   "indicated_pct": 28.4,
+   "prior_revision_pct": null,
+   "written_premium": 8452346.0,
+   "written_premium_change": 586241.0,
+   "affected": 858,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF APCG-134649049",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Armed Forces",
+   "entity": "Armed Forces Insurance Exchange",
+   "tracking": "ARMD-134794055",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134794055",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2026-02-23",
+   "effective_new": "2026-07-27",
+   "effective_renewal": "2026-07-27",
+   "overall_pct": 7.0,
+   "indicated_pct": 7.31,
+   "prior_revision_pct": null,
+   "written_premium": 1215419.0,
+   "written_premium_change": 85085.0,
+   "affected": 537,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF ARMD-134794055",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Berkley",
+   "entity": "Berkley Insurance",
+   "tracking": "BKON-134688583",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134688583",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2025-11-12",
+   "effective_new": "2026-05-18",
+   "effective_renewal": "2026-07-02",
+   "overall_pct": 9.9,
+   "indicated_pct": 15.6,
+   "prior_revision_pct": null,
+   "written_premium": 6413473.0,
+   "written_premium_change": 634934.0,
+   "affected": 1082,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF BKON-134688583",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Central",
+   "entity": "Central Insurance",
+   "tracking": "CEMC-134658511",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134658511",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2025-10-29",
+   "effective_new": "2025-11-01",
+   "effective_renewal": "2025-12-01",
+   "overall_pct": 35.1,
+   "indicated_pct": 42.5,
+   "prior_revision_pct": null,
+   "written_premium": 2423815.0,
+   "written_premium_change": 849574.0,
+   "affected": 1121,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF CEMC-134658511",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Donegal Insurance",
+   "entity": "Atlantic States Insurance",
+   "tracking": "DNGL-134907426",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134907426",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-05-07",
+   "effective_new": "2026-06-15",
+   "effective_renewal": "2026-07-01",
+   "overall_pct": -12.9,
+   "indicated_pct": -15.6,
+   "prior_revision_pct": null,
+   "written_premium": 1941940.0,
+   "written_premium_change": -250510.0,
+   "affected": 1827,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF DNGL-134907426",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Donegal Insurance",
+   "entity": "Michigan Insurance",
+   "tracking": "DNGL-134925915",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134925915",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-05-27",
+   "effective_new": "2026-08-01",
+   "effective_renewal": "2026-08-01",
+   "overall_pct": 0.0,
+   "indicated_pct": 0.0,
+   "prior_revision_pct": null,
+   "written_premium": 6109719.0,
+   "written_premium_change": 120.0,
+   "affected": 5,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF DNGL-134925915",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Auto Club Group (AAA)",
+   "entity": "Auto Club Insurance Association",
+   "tracking": "FABF-134747737",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134747737",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-03-02",
+   "effective_new": "2026-06-01",
+   "effective_renewal": "2026-06-01",
+   "overall_pct": 0.0,
+   "indicated_pct": 15.1,
+   "prior_revision_pct": null,
+   "written_premium": 372708338.0,
+   "written_premium_change": -25941.0,
+   "affected": 301080,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF FABF-134747737",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Farmers",
+   "entity": "Farmers Group Property and Casualty Insurance (dominant of 2 entities)",
+   "tracking": "FAIG-134783125",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134783125",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-01-15",
+   "effective_new": "2026-03-09",
+   "effective_renewal": "2026-04-13",
+   "overall_pct": 0.0,
+   "indicated_pct": 3.3,
+   "prior_revision_pct": null,
+   "written_premium": 15945425.0,
+   "written_premium_change": 0.0,
+   "affected": 6035,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF FAIG-134783125",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Farmers",
+   "entity": "Fire Insurance Exchange (dominant of 3 entities)",
+   "tracking": "FARM-134645238",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134645238",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2025-09-18",
+   "effective_new": "2025-09-20",
+   "effective_renewal": "2025-09-20",
+   "overall_pct": 2.1,
+   "indicated_pct": 21.9,
+   "prior_revision_pct": null,
+   "written_premium": 32254000.0,
+   "written_premium_change": 680000.0,
+   "affected": 27358,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF FARM-134645238",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Michigan Farm Bureau",
+   "entity": "Farm Bureau General Insurance Company of Michigan",
+   "tracking": "FBMI-134820476",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134820476",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2026-03-10",
+   "effective_new": "2026-05-10",
+   "effective_renewal": "2026-08-10",
+   "overall_pct": 0.0,
+   "indicated_pct": null,
+   "prior_revision_pct": null,
+   "written_premium": 255472421.0,
+   "written_premium_change": 0.0,
+   "affected": 198155,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF FBMI-134820476",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Michigan Farm Bureau",
+   "entity": "Farm Bureau General Insurance Company of Michigan",
+   "tracking": "FBMI-134948107",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134948107",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-07-01",
+   "effective_new": "2026-09-15",
+   "effective_renewal": "2026-09-15",
+   "overall_pct": 0.5,
+   "indicated_pct": 5.9,
+   "prior_revision_pct": null,
+   "written_premium": 254459891.0,
+   "written_premium_change": 1357228.0,
+   "affected": 197998,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF FBMI-134948107",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Fremont",
+   "entity": "Fremont Insurance",
+   "tracking": "FRIC-134584401",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134584401",
+   "product": "Homeowners",
+   "filing_type": "Form/Rate/Rule",
+   "disposition_date": "2025-07-29",
+   "effective_new": "2025-10-01",
+   "effective_renewal": "2025-10-01",
+   "overall_pct": 0.0,
+   "indicated_pct": 17.4,
+   "prior_revision_pct": null,
+   "written_premium": 107545594.0,
+   "written_premium_change": 46830.0,
+   "affected": 70996,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF FRIC-134584401",
+   "status": "Form/Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Fremont",
+   "entity": "Fremont Insurance",
+   "tracking": "FRIC-134737638",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134737638",
+   "product": "Homeowners",
+   "filing_type": "Form/Rate/Rule",
+   "disposition_date": "2026-01-08",
+   "effective_new": "2026-04-01",
+   "effective_renewal": "2026-04-01",
+   "overall_pct": 8.0,
+   "indicated_pct": 17.9,
+   "prior_revision_pct": null,
+   "written_premium": 110011703.0,
+   "written_premium_change": 8792955.0,
+   "affected": 71331,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF FRIC-134737638",
+   "status": "Form/Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Frankenmuth Insurance",
+   "entity": "Frankenmuth Insurance",
+   "tracking": "FRNK-134596535",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134596535",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2025-08-05",
+   "effective_new": "2025-11-01",
+   "effective_renewal": "2025-11-01",
+   "overall_pct": 8.0,
+   "indicated_pct": 15.4,
+   "prior_revision_pct": null,
+   "written_premium": 113991104.0,
+   "written_premium_change": 9118906.0,
+   "affected": 93621,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF FRNK-134596535",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Frankenmuth Insurance",
+   "entity": "Frankenmuth Insurance",
+   "tracking": "FRNK-134725846",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134725846",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2026-01-14",
+   "effective_new": "2026-01-14",
+   "effective_renewal": null,
+   "overall_pct": 0.0,
+   "indicated_pct": 0.0,
+   "prior_revision_pct": null,
+   "written_premium": 90914529.0,
+   "written_premium_change": 0.0,
+   "affected": 90725,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF FRNK-134725846",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "The Hartford",
+   "entity": "Hartford Insurance Company of the Southeast",
+   "tracking": "HART-134695175",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134695175",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2025-11-17",
+   "effective_new": "2026-02-05",
+   "effective_renewal": "2026-03-28",
+   "overall_pct": 16.1,
+   "indicated_pct": 29.3,
+   "prior_revision_pct": null,
+   "written_premium": 10039274.0,
+   "written_premium_change": 1615472.0,
+   "affected": 10705,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF HART-134695175",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "The Hartford",
+   "entity": "Hartford Underwriters Insurance Company",
+   "tracking": "HART-134979009",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134979009",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2026-06-29",
+   "effective_new": "2026-07-23",
+   "effective_renewal": "2026-09-06",
+   "overall_pct": 0.9,
+   "indicated_pct": 2.7,
+   "prior_revision_pct": null,
+   "written_premium": 14576.0,
+   "written_premium_change": 127.0,
+   "affected": 11,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF HART-134979009",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Hastings Mutual",
+   "entity": "Hastings Insurance",
+   "tracking": "HAST-134555178",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134555178",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2025-07-11",
+   "effective_new": "2025-10-01",
+   "effective_renewal": "2025-10-01",
+   "overall_pct": 12.5,
+   "indicated_pct": 12.5,
+   "prior_revision_pct": null,
+   "written_premium": 19179640.0,
+   "written_premium_change": 2397455.0,
+   "affected": 14703,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF HAST-134555178",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Homesite",
+   "entity": "Homesite Insurance Company of the Midwest",
+   "tracking": "HMSS-134914202",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134914202",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-06-02",
+   "effective_new": "2026-10-23",
+   "effective_renewal": "2027-02-23",
+   "overall_pct": 0.0,
+   "indicated_pct": 2.6,
+   "prior_revision_pct": null,
+   "written_premium": 158171811.0,
+   "written_premium_change": 40017.0,
+   "affected": 83690,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF HMSS-134914202",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "The Hanover",
+   "entity": "Citizens Insurance Company of the Midwest",
+   "tracking": "HNVR-G134578107",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134578107",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2025-07-23",
+   "effective_new": "2025-10-01",
+   "effective_renewal": "2025-10-01",
+   "overall_pct": 1.3,
+   "indicated_pct": 2.4,
+   "prior_revision_pct": null,
+   "written_premium": 386061223.0,
+   "written_premium_change": 5026386.0,
+   "affected": 207641,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF HNVR-G134578107",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "The Hanover",
+   "entity": "Citizens Insurance Company of the Midwest",
+   "tracking": "HNVR-G134941604",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134941604",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2026-06-17",
+   "effective_new": "2026-07-02",
+   "effective_renewal": "2026-08-19",
+   "overall_pct": 0.0,
+   "indicated_pct": 4.9,
+   "prior_revision_pct": null,
+   "written_premium": 392169771.0,
+   "written_premium_change": 35372.0,
+   "affected": 206488,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF HNVR-G134941604",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "The Hanover",
+   "entity": "Citizens Insurance Company of the Midwest",
+   "tracking": "HNVR-G134978219",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134978219",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2026-07-01",
+   "effective_new": "2026-10-01",
+   "effective_renewal": "2026-10-01",
+   "overall_pct": 3.3,
+   "indicated_pct": 5.2,
+   "prior_revision_pct": null,
+   "written_premium": 392205523.0,
+   "written_premium_change": 12912231.0,
+   "affected": 206481,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF HNVR-G134978219",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Liberty Mutual",
+   "entity": "Liberty Mutual Fire Insurance Company",
+   "tracking": "LBPM-134774679",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134774679",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2026-01-15",
+   "effective_new": null,
+   "effective_renewal": "2026-03-01",
+   "overall_pct": 2.0,
+   "indicated_pct": 4.8,
+   "prior_revision_pct": null,
+   "written_premium": 5458496.0,
+   "written_premium_change": 109166.0,
+   "affected": 1080,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF LBPM-134774679",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Safeco",
+   "entity": "Safeco Insurance Company of America",
+   "tracking": "LBPM-134801326",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134801326",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2026-02-03",
+   "effective_new": null,
+   "effective_renewal": "2026-04-14",
+   "overall_pct": 2.0,
+   "indicated_pct": 16.2,
+   "prior_revision_pct": null,
+   "written_premium": 24071242.0,
+   "written_premium_change": 477133.0,
+   "affected": 11231,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF LBPM-134801326",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "American Economy",
+   "entity": "American Economy Insurance Company",
+   "tracking": "LBPM-134810481",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134810481",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2026-02-12",
+   "effective_new": "2026-03-05",
+   "effective_renewal": "2026-04-14",
+   "overall_pct": 2.0,
+   "indicated_pct": 16.2,
+   "prior_revision_pct": null,
+   "written_premium": 45937215.0,
+   "written_premium_change": 926889.0,
+   "affected": 20818,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF LBPM-134810481",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Michigan Basic",
+   "entity": "Michigan Basic Property Insurance",
+   "tracking": "MBPI-134975185",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134975185",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2026-06-24",
+   "effective_new": "2026-10-01",
+   "effective_renewal": "2026-10-01",
+   "overall_pct": -1.7,
+   "indicated_pct": -1.7,
+   "prior_revision_pct": null,
+   "written_premium": 351971.0,
+   "written_premium_change": 345987.0,
+   "affected": 849,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF MBPI-134975185",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Michigan Basic",
+   "entity": "Michigan Basic Property Insurance",
+   "tracking": "MBPI-134980755",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134980755",
+   "product": "Homeowners",
+   "filing_type": "Rate",
+   "disposition_date": "2026-06-25",
+   "effective_new": "2026-10-01",
+   "effective_renewal": "2026-10-01",
+   "overall_pct": 8.1,
+   "indicated_pct": 8.1,
+   "prior_revision_pct": null,
+   "written_premium": 332429.0,
+   "written_premium_change": 359356.0,
+   "affected": 107,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF MBPI-134980755",
+   "status": "Rate",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "MEEMIC",
+   "entity": "MEEMIC Insurance",
+   "tracking": "MEEM-134736510",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134736510",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-02-19",
+   "effective_new": "2026-06-01",
+   "effective_renewal": "2026-06-01",
+   "overall_pct": 7.0,
+   "indicated_pct": 25.0,
+   "prior_revision_pct": null,
+   "written_premium": 113430813.0,
+   "written_premium_change": 7926844.0,
+   "affected": 118182,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF MEEM-134736510",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "PURE",
+   "entity": "Privilege Underwriters Reciprocal Exchange",
+   "tracking": "PRIV-134947731",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134947731",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-06-25",
+   "effective_new": "2026-10-01",
+   "effective_renewal": "2026-11-15",
+   "overall_pct": -5.0,
+   "indicated_pct": 8.1,
+   "prior_revision_pct": null,
+   "written_premium": 21300754.0,
+   "written_premium_change": -1064994.0,
+   "affected": 2229,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF PRIV-134947731",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Pioneer State Mutual",
+   "entity": "Pioneer State Mutual Insurance Company",
+   "tracking": "PSMI-134606374",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134606374",
+   "product": "Homeowners",
+   "filing_type": "Form/Rate/Rule",
+   "disposition_date": "2025-08-20",
+   "effective_new": "2025-11-01",
+   "effective_renewal": "2025-11-01",
+   "overall_pct": 0.1,
+   "indicated_pct": 4.0,
+   "prior_revision_pct": null,
+   "written_premium": 75759102.0,
+   "written_premium_change": 82216.0,
+   "affected": 61650,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF PSMI-134606374",
+   "status": "Form/Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Pioneer State Mutual",
+   "entity": "Pioneer State Mutual Insurance Company",
+   "tracking": "PSMI-134688520",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134688520",
+   "product": "Homeowners",
+   "filing_type": "Form/Rate/Rule",
+   "disposition_date": "2026-01-06",
+   "effective_new": "2026-03-01",
+   "effective_renewal": "2026-03-01",
+   "overall_pct": 0.0,
+   "indicated_pct": 3.0,
+   "prior_revision_pct": null,
+   "written_premium": 71585267.0,
+   "written_premium_change": 0.0,
+   "affected": 59587,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF PSMI-134688520",
+   "status": "Form/Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "State Farm",
+   "entity": "State Farm Fire and Casualty Company",
+   "tracking": "SFMA-134835661",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134835661",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-05-29",
+   "effective_new": "2026-06-01",
+   "effective_renewal": "2026-08-01",
+   "overall_pct": 1.8,
+   "indicated_pct": 3.0,
+   "prior_revision_pct": null,
+   "written_premium": 804055554.0,
+   "written_premium_change": 14817389.0,
+   "affected": 722873,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF SFMA-134835661",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "home",
+   "carrier": "Wolverine Mutual",
+   "entity": "Wolverine Mutual Ins Co",
+   "tracking": "WOMI-134600286",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134600286",
+   "product": "Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2025-08-26",
+   "effective_new": "2025-10-01",
+   "effective_renewal": "2025-10-01",
+   "overall_pct": 9.88,
+   "indicated_pct": 13.12,
+   "prior_revision_pct": null,
+   "written_premium": 9009400.0,
+   "written_premium_change": 890129.0,
+   "affected": 6430,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF WOMI-134600286",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
   }
  ]
 }

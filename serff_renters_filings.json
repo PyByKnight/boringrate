@@ -1,0 +1,59 @@
+{
+ "_meta": {
+  "purpose": "Primary-sourced renters (HO-4/Tenant, SERFF 04.0004) rate filings. THIN by nature \u2014 most carriers bundle renters into the homeowners combo (blended, not separable), so standalone tenant rate filings are rare."
+ },
+ "filings": [
+  {
+   "state": "MI",
+   "line": "renters",
+   "carrier": "Allstate",
+   "entity": "Allstate North American Insurance Company",
+   "tracking": "ALSE-134767745",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134767745",
+   "product": "Renters (HO-4)",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-01-26",
+   "effective_new": "2026-03-26",
+   "effective_renewal": "2026-05-05",
+   "overall_pct": 0.0,
+   "indicated_pct": 0.0,
+   "prior_revision_pct": null,
+   "written_premium": 1354084.0,
+   "written_premium_change": 0.0,
+   "affected": 6093,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF ALSE-134767745",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  },
+  {
+   "state": "MI",
+   "line": "renters",
+   "carrier": "Safeco",
+   "entity": "Safeco Insurance Company of America",
+   "tracking": "LBPM-134825970",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134825970",
+   "product": "Renters (HO-4)",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-03-03",
+   "effective_new": "2026-03-21",
+   "effective_renewal": "2026-05-02",
+   "overall_pct": -3.8,
+   "indicated_pct": 0.0,
+   "prior_revision_pct": null,
+   "written_premium": 1803535.0,
+   "written_premium_change": -67990.0,
+   "affected": 7406,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "note": null,
+   "source_note": "MI DIFS SERFF LBPM-134825970",
+   "status": "Rate/Rule",
+   "recorded_date": "2026-07-23"
+  }
+ ]
+}
