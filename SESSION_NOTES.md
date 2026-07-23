@@ -71,10 +71,31 @@ RULE GOING FORWARD: after each state's parse, run the "rank by filed book size" 
 tool's STATE_LOCAL_CARRIERS[<ST>] against the top-20 — add any missing top-20 regional. This is how MI
 found 7 gaps; older states were never reconciled this way.
 
-## ★ MI BASE RATES ARE PROVISIONAL (2026-07-23)
-MEEMIC 0.90, CURE 0.88, Northern Mutual 0.93, Bristol West 1.05 — archetype-anchored, NOT filing-derived
-(filing $/policy is coverage-mix contaminated; MI PIP tiers swing it 2x). Refine if we ever get a
-same-coverage normalization. base LEVEL = modeled; drift = primary-sourced. See commit 02e18b45.
+## ★ MI BASE RATES + the LEVEL-CHECK audit (2026-07-23)
+Provisional MI bases: MEEMIC 0.90, Bristol West 1.05, CURE 0.87, Northern Mutual 0.90. base LEVEL =
+modeled; drift = primary-sourced.
+★ LESSON (owner catch): do NOT lower a base just because the audit flags it. I briefly dropped CURE to
+0.62 to match its filing avg — WRONG. A no-credit carrier self-selects high-credit MIN-LIMITS buyers, so
+its book-avg reads low from COVERAGE MIX, not from a cheap standard-full-coverage price. Lowering the base
+re-imports the exact contamination we avoid. Reverted CURE to 0.87. The filing avg validates a base ONLY
+when the book's coverage mix is roughly average.
+
+**★ WHY filing $/policy ≠ tool price — it is POLICY TERM, not PIP/coverage mix (I was wrong earlier).**
+Carriers report written premium on different terms: State Farm & MEEMIC file **6-month**, Progressive/
+Auto-Owners/most others file **annual**. So `written_premium ÷ policyholders` is off by 2x for the
+6-month filers with no label in the data. Proof: annualize (×2 for 6-mo) and every carrier lands within
+~10% of the tool's independent price — a clean 1x/2x bimodal split, which coverage-mix could not produce
+(that would be a continuous spread). State Farm $1,460 is 6-month → ~$2,920 annual ≈ tool $2,756.
+
+**NEW TOOL — `audit_base_vs_filing.py`** (LEVEL check; complements verify_filing_tool_consistency.py's
+DIRECTION check). For each carrier it compares the tool's modeled price to the filing's book-average at
+BOTH term readings (x1 annual, x2 6-month); flags any where NEITHER matches within 30%. Run it after every state parse to sanity-check new bases — but READ flags as
+"eyeball this," never "base is wrong" (see CURE lesson above). The tool now labels each flag
+`expected: low/high-coverage book` (CURE, Bristol West, Chubb, PURE, Amica — coverage self-selection) vs
+`BASE SUSPECT` (mainstream carrier, mix ~average → likely a real base error).
+Remaining flags to INVESTIGATE (directional, may be legit full-coverage book mix, not base errors):
+GA Travelers/Allstate/Farmers/GA Farm Bureau (whole-state ~2x — GA books look full-coverage-heavy or GA
+state avg too low), MI USAA (+50%, military full-coverage book), NY Travelers, IL Safeco.
 
 ## (previous) OH/PA/IL auto set COMPLETE
 **PA ✅** (51445d15) · **IL ✅** (7a6dcfd2) · **OH ✅** (c1ddff88) — all parsed, cascaded, committed
