@@ -2,8 +2,14 @@
 _Last updated: 2026-07-22 (Opus 4.8)_
 
 ## ▶▶ RESUME HERE (2026-07-23) — ★ MICHIGAN AUTO PULL (owner doing this next session)
-**★ TOMORROW = MI.** Owner runs the SERFF search (Michigan, TOI **19.0 Personal Auto**, disposition
-**07/01/25–now**), pastes the results, Claude returns the triaged pull list. MI is no-fault with the
+**★ TOMORROW = MI.** Owner runs ONE SERFF search with **BOTH TOI boxes checked — 4 (Homeowners)
++ 19 (Personal Auto)** — disposition **07/01/25–now**, and pastes the whole mixed result set. Checking
+both boxes is pure pull-side time saving (one search instead of two); Claude still triages into TWO
+separate pull lists and parses auto (`_serff/MI/`, parse_oh.py) and home (own dir, apply_home_filings.py)
+as independent pipelines with independent ledgers/commits. **This is the standing default for every
+future state — always both boxes.** Renters (HO-4/tenant) is NOT a separate TOI: it is filed inside the
+Homeowners (TOI 4) program, so box 4 already retrieves it; renters stays MODELED unless a home jacket
+breaks out the HO-4 figure separately (opportunistic parser enhancement, not a reason to change pulls). MI is no-fault with the
 highest premiums in the country and strong search demand — the biggest single coverage win available.
 **Read the PULL EFFICIENCY block below before building the list: Tier 1 alone was 93.3% of the weight
 in OH, so this should cost far less than Ohio's 104 jackets.**
