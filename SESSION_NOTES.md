@@ -56,10 +56,30 @@ in OH, so this should cost far less than Ohio's 104 jackets.**
   FAQ schema collapsed to one entry per carrier by policyholders, Florida CTA leak fixed + in-body CTA
   on /rate-filings/, sitemap dedupe, 4 missing URLs registered, IndexNow pinged (45 URLs).
 
+## ★ CROSS-STATE REGIONAL BACKLOG (surfaced by MI, 2026-07-23)
+MI's pull proved these carriers are top-20 in their markets but were NOT in the tool because they
+aren't national-roster names. They very likely appeared in EARLIER state pulls too and were skipped —
+each should be checked for STATE_LOCAL_CARRIERS membership in every state it writes:
+- **Auto Club Group / AAA** — huge in MI (#4, 340k), also FL. Check GA, OH, IL, etc.
+- **The Hanover / Citizens** — MI #6. National-ish agent carrier; check PA, NY, OH, IL.
+- **MEEMIC** — MI-only (AAA educators). MI-specific, no cross-state action.
+- **CURE** — NJ/MI/PA only. **Check NJ + PA** — likely missing there too.
+- **Bristol West** — Farmers non-standard sub, writes widely. Check all states. Now has a base def.
+- **Cincinnati Insurance / Auto-Owners / Donegal** — already tool defs; ensure they're in each state's
+  LOCAL list where they write (they were auto-added to some, missing from others).
+RULE GOING FORWARD: after each state's parse, run the "rank by filed book size" step and reconcile the
+tool's STATE_LOCAL_CARRIERS[<ST>] against the top-20 — add any missing top-20 regional. This is how MI
+found 7 gaps; older states were never reconciled this way.
+
+## ★ MI BASE RATES ARE PROVISIONAL (2026-07-23)
+MEEMIC 0.90, CURE 0.88, Northern Mutual 0.93, Bristol West 1.05 — archetype-anchored, NOT filing-derived
+(filing $/policy is coverage-mix contaminated; MI PIP tiers swing it 2x). Refine if we ever get a
+same-coverage normalization. base LEVEL = modeled; drift = primary-sourced. See commit 02e18b45.
+
 ## (previous) OH/PA/IL auto set COMPLETE
 **PA ✅** (51445d15) · **IL ✅** (7a6dcfd2) · **OH ✅** (c1ddff88) — all parsed, cascaded, committed
 and PUSHED (through f5681650). The OH/PA/IL set is done.
-- **Coverage now:** AUTO = CA FL GA IL NV NY OH PA SC TN TX (**11**) · HOME = CA IL LA NJ NY OH PA TX (8).
+- **Coverage now:** AUTO = CA FL GA IL MI NV NY OH PA SC TN TX (**12**) · HOME = CA IL LA NJ NY OH PA TX (8).
 - **NEXT auto states:** MI (no-fault, high premiums, strong search demand), NJ, or FL-deep. Same flow:
   paste the SERFF auto search results (TOI 19.0 Personal Auto, disposition 07/01/25–now), Claude
   returns the triaged pull list (ONE link per line; -G tracking #s → Ctrl+F), owner drops zips in `~/`
