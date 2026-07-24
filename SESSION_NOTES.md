@@ -65,6 +65,15 @@ in OH, so this should cost far less than Ohio's 104 jackets.**
   FAQ schema collapsed to one entry per carrier by policyholders, Florida CTA leak fixed + in-body CTA
   on /rate-filings/, sitemap dedupe, 4 missing URLs registered, IndexNow pinged (45 URLs).
 
+## ✅ MICHIGAN COMPLETE (2026-07-24) — auto + home + renters, both ZIP tools reconciled
+MI auto (52 filings, softening), MI home (37 filings, hardening), renters ledger started (2 real rows:
+Safeco -3.8%, Allstate flat — thin by nature). Both auto AND home ZIP tools now model MI's regional
+top-20 (auto commit 02e18b45, home 6fa13bc3). Per-form inspection RESOLVED: home combos blend, renters
+only from 04.0004 standalones. NEXT STATE: owner's choice — the both-boxes flow is proven end to end.
+NOTE: home regionals just added (Hanover, MI Farm Bureau, MEEMIC, Homesite, Fremont, Pioneer, Hastings,
+Wolverine) are states:["MI"] only — they write in other states too; add their footprints when those
+states are pulled (same cross-state backlog rule as auto, below).
+
 ## ★ CROSS-STATE REGIONAL BACKLOG (surfaced by MI, 2026-07-23)
 MI's pull proved these carriers are top-20 in their markets but were NOT in the tool because they
 aren't national-roster names. They very likely appeared in EARLIER state pulls too and were skipped —
@@ -109,7 +118,7 @@ state avg too low), MI USAA (+50%, military full-coverage book), NY Travelers, I
 ## (previous) OH/PA/IL auto set COMPLETE
 **PA ✅** (51445d15) · **IL ✅** (7a6dcfd2) · **OH ✅** (c1ddff88) — all parsed, cascaded, committed
 and PUSHED (through f5681650). The OH/PA/IL set is done.
-- **Coverage now:** AUTO = CA FL GA IL MI NV NY OH PA SC TN TX (**12**) · HOME = CA IL LA NJ NY OH PA TX (8).
+- **Coverage now:** AUTO = CA FL GA IL MI NV NY OH PA SC TN TX (**12**) · HOME = CA IL LA MI NJ NY OH PA TX (**9**) · RENTERS ledger started (MI, thin).
 - **NEXT auto states:** MI (no-fault, high premiums, strong search demand), NJ, or FL-deep. Same flow:
   paste the SERFF auto search results (TOI 19.0 Personal Auto, disposition 07/01/25–now), Claude
   returns the triaged pull list (ONE link per line; -G tracking #s → Ctrl+F), owner drops zips in `~/`
