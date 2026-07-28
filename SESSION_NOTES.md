@@ -2065,3 +2065,47 @@ Style blocks are safer to surgically edit, but still — when in doubt, insert a
 - Remote: `git@github.com:PyByKnight/boringrate.git`
 - Auto-deployed via GitHub Pages on push (CNAME → boringrate.com)
 - Latest commits (run `git log --oneline -8` for current state)
+
+## ★★ DESIGN + BUILD: Non-standard / "minimum coverage" mode (2026-07-28)
+**Thesis (owner-driven):** a huge, high-intent, price-elastic segment shops for NON-STANDARD / minimum-
+coverage. The site is standard-only today, leaving that traffic on the table. Fix = a single, visible,
+"alert" toggle — NOT the buried refine panel (refine_expanded = 10% usage proves the panel is too hidden).
+
+**★ The unlock (why this also fixes the base-rate debate):** the coverage-mix objection to using
+primary-sourced filing averages is really a CROSS-TIER objection. Split the tool into two tiers and mix
+becomes homogeneous WITHIN each → term-normalized filing averages become clean base signals in BOTH:
+  - Standard tier: everyone ~full coverage. (MI proof: term-normalized book-avgs land within ~8% of
+    modeled prices — State Farm $2,920 vs $2,756, Progressive $3,016 vs $2,870, etc.)
+  - Non-standard tier: everyone ~state-minimum → mix EVEN more homogeneous.
+So building the toggle + using filings for bases is ONE project. base methodology moves from "pure
+archetype" to "term-normalized filing average blended with archetype, delineated by tier."
+
+**Term is a non-issue** (owner correct): per-carrier attribute, stated in the manual or known convention
+(State Farm/most direct = 6-month, many mutuals = annual). Normalize x2/x1. Build a per-carrier term map;
+bimodal 1x/2x test as fallback.
+
+**UI:** single prominent toggle near results. Copy candidates: "Show me state minimum coverage rates"
+(CTA framing so users KNOW it's bare-bones) / "Absolute lowest rates — minimum coverage." When ON:
+ranking switches to state-minimum BI/PD (no collision/comp, reuse the min coverage tier preset) AND the
+non-standard-eligible carrier set.
+
+**★ Carrier eligibility — 3 buckets (owner guidance):**
+  1. Non-standard specialists → SHOW: Direct Auto (Allstate arm), The General, Gainsco, Bristol West,
+     Dairyland, National General non-standard, AssuranceAmerica/InsureMax, Kemper Auto, First Acceptance.
+  2. Standard carriers that CHASE non-standard via arms → SHOW BOTH parent + arm: Allstate + Direct Auto
+     (same book, rates should be close), Progressive (writes non-standard directly). Do NOT exclude these.
+  3. Standard-only carriers that DON'T push non-standard → EXCLUDE in min-coverage mode: State Farm, USAA,
+     Auto-Owners, Amica, etc. Showing them is misleading — they don't want/serve this traffic.
+  ★ Delineate by ENTITY/PROGRAM, not family: Allstate(standard) vs Direct Auto(non-standard) are split,
+    not lumped. This strict split is load-bearing — it's what keeps the mix homogeneous per tier.
+
+**Data build-out (next):** (a) non-standard carrier list w/ eligibility flags {standard|nonstandard|both};
+(b) non-standard bases from THEIR filing averages where we have them (we ALREADY pull these — they're the
+Tier-2 non-standard carriers we've been discarding); (c) reuse min coverage tier preset for pricing.
+
+**Residual caveats (guardrails, not blockers):** strict entity-level delineation; standard book-mix isn't
+literally zero (~8%, GA Travelers +100% outlier from a legacy full-cov book mid-cut) → blend filing-anchor
+WITH archetype, use audit_base_vs_filing's "BASE SUSPECT vs expected-coverage-book" flag to lean on
+archetype where a book is unrepresentative.
+
+**Status:** VA auto pull PAUSED to build this. Resume VA after.
