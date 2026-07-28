@@ -325,6 +325,7 @@
     border-top: 1px solid var(--rule);
   }
   .refine-more-body.open { display: block; }
+  .refine.open .refine-more-body { display: block; }
   .refine-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
   .refine-cov-section { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--rule); }
   .refine-cov-header {
@@ -411,6 +412,13 @@
   .mode-box-hero[aria-pressed="true"] { background: var(--accent); }
   .mode-box-hero[aria-pressed="true"] .mode-box-title { color: var(--paper); }
   .mode-box-hero[aria-pressed="true"] .mode-box-sub { color: rgba(255,255,255,0.85); }
+  .mode-box-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .mode-box-switch { flex: none; width: 38px; height: 21px; border-radius: 21px; background: rgba(180,50,26,0.25);
+    position: relative; transition: background 140ms; }
+  .mode-box-switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 17px; height: 17px;
+    border-radius: 50%; background: var(--paper); box-shadow: 0 1px 2px rgba(0,0,0,0.3); transition: transform 140ms; }
+  .mode-box-hero[aria-pressed="true"] .mode-box-switch { background: rgba(255,255,255,0.55); }
+  .mode-box-hero[aria-pressed="true"] .mode-box-switch::after { transform: translateX(17px); }
   @media (max-width: 560px) { .mode-boxes { grid-template-columns: 1fr; } }
 
   .boring-rank-header {
@@ -1590,7 +1598,7 @@ window.track = function (name, props) {
          Replaces the buried single "Edit Personal Profile" trigger (10% usage). -->
     <div class="mode-boxes">
       <button type="button" class="mode-box mode-box-hero" id="minCovToggle" aria-pressed="false">
-        <span class="mode-box-title">Show Me Best Rates for High-Risk<span class="mode-box-arrow" aria-hidden="true">→</span></span>
+        <span class="mode-box-head"><span class="mode-box-title">Show Me Best Rates for High-Risk</span><span class="mode-box-switch" aria-hidden="true"></span></span>
         <span class="mode-box-sub">SR-22, DUI &amp; lapsed coverage · minimum liability</span>
       </button>
       <button type="button" class="mode-box" id="personalizeToggle" aria-pressed="false">
@@ -1608,7 +1616,7 @@ window.track = function (name, props) {
         </span>
         <span class="refine-trigger-arrow" id="refineTriggerIcon" aria-hidden="true"></span>
       </button>
-      <div class="refine-always">
+      <div class="refine-always" style="display:none;">
         <div class="refine-pair">
           <div class="refine-q">
             <label>Home</label>
@@ -1649,7 +1657,7 @@ window.track = function (name, props) {
           <span class="refine-more-arrow" id="refineMoreIcon">&#8964;</span>
         </div>
       </div>
-      <div class="refine-more-body open" id="refineMoreBody">
+      <div class="refine-more-body" id="refineMoreBody">
         <!-- Coverage limits & deductibles (fine-tune the tier picked above) -->
         <div class="refine-cov-section" style="margin-top:0;padding-top:0;border-top:none;">
           <div class="refine-cov-header">
