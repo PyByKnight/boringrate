@@ -1772,7 +1772,7 @@ window.track = function (name, props) {
          only reaches this segment at ~10% (refine_expanded); this surfaces it. -->
     <button type="button" class="mincov-toggle" id="minCovToggle" aria-pressed="false">
       <span class="mincov-icon" aria-hidden="true">↓</span>
-      <span class="mincov-text"><strong>Show me state-minimum coverage rates</strong><span class="mincov-sub">Absolute lowest price · bare-bones liability only</span></span>
+      <span class="mincov-text"><strong>Show me minimum-coverage rates for high-risk drivers</strong><span class="mincov-sub">Carriers that accept SR-22, DUI &amp; lapsed coverage · bare-bones liability</span></span>
       <span class="mincov-switch" aria-hidden="true"></span>
     </button>
 
@@ -5114,32 +5114,24 @@ const TIER_PRESETS = {
 let stateData = null, currentMetro = null, lastOrder = [], compareSet = new Set(), compareOpen = false, showAllCarriers = false, lastRanked = [], lastMedian = 0;
 
 function isNonStandard() {
-  // HIGH-RISK swap: SR-22 or lapsed drivers can only get non-standard carriers,
-  // so replace the whole set. NOTE: the minimum-coverage toggle is deliberately
-  // NOT here — min coverage is a COVERAGE LEVEL, not a risk tier. Folding it in
-  // dropped the cheap standard carriers and made "minimum coverage" cost MORE.
-  return !refinement.insured || refinement.srRequired;
+  // Non-standard set = carriers that ACCEPT high-risk drivers. Triggered by
+  // SR-22 / lapse OR the "minimum coverage for high-risk shoppers" toggle. The
+  // toggle intentionally shows ONLY these carriers: a standard carrier like USAA
+  // won't write a high-risk shopper even though its minimum-coverage rate looks
+  // low, so listing it as "cheapest" would be misleading. Within this set,
+  // minimum coverage is still cheaper than fuller coverage (via COVERAGE_MULT_NS).
+  return !refinement.insured || refinement.srRequired || !!refinement.minCoverage;
 }
 
 function activeCarriers() {
-  if (isNonStandard()) return CARRIERS_NONSTANDARD;   // high-risk: full swap
+  if (isNonStandard()) return CARRIERS_NONSTANDARD;   // high-risk-accepting set only
   if (!stateData) return CARRIERS_STANDARD;
   const localNames = STATE_LOCAL_CARRIERS[stateData.code] || [];
   const locals = localNames.map(n => {
     const def = LOCAL_CARRIER_DEFS[n];
     return def ? { name: n, ...def } : null;
   }).filter(Boolean);
-  let list = [...CARRIERS_STANDARD, ...locals];
-  if (refinement.minCoverage) {
-    // Min-coverage toggle: keep standard carriers (priced at their minimum tier —
-    // genuinely cheap) and APPEND the pure non-standard specialists as bare-bones
-    // options, priced via the NS table (they rank below on price). _ns flags them
-    // so estimatePremium picks the right coverage table per carrier.
-    const have = new Set(list.map(c => c.name));
-    const specialists = CARRIERS_NONSTANDARD.filter(c => !have.has(c.name)).map(c => ({ ...c, _ns: true }));
-    list = list.concat(specialists);
-  }
-  return list;
+  return [...CARRIERS_STANDARD, ...locals];
 }
 
 function estimatePremium(carrier, avg) {
@@ -5167,10 +5159,7 @@ function estimatePremium(carrier, avg) {
   else if (refinement.curCarrier === carrier.name) { m *= (1 + s.renewal); }
   else if (refinement.curCarrier === "none") { m *= (1 + s.lapsed); }
   // Use correct coverage/shop multiplier tables for driver type
-  // Per-carrier tier: high-risk mode makes everything NS; in min-coverage mode
-  // only the appended specialists (_ns) use the NS tables — standard carriers
-  // keep their own (cheaper) minimum multipliers.
-  const isNS = carrier._ns || isNonStandard();
+  const isNS = isNonStandard();
   const covTable = isNS ? COVERAGE_MULT_NS : COVERAGE_MULT;
   const shopTable = isNS ? SHOP_MULT_NS : SHOP_MULT;
   const cov = covTable[carrier.name];
