@@ -2108,4 +2108,11 @@ literally zero (~8%, GA Travelers +100% outlier from a legacy full-cov book mid-
 WITH archetype, use audit_base_vs_filing's "BASE SUSPECT vs expected-coverage-book" flag to lean on
 archetype where a book is unrepresentative.
 
-**Status:** VA auto pull PAUSED to build this. Resume VA after.
+**Status (2026-07-28):** Toggle UI COMPLETE — segmented Standard/High-Risk sliding-pill toggle (thirds
+row w/ Personalize 1/3), clear muted default, high-risk trigger hint (SR-22/FR-44, DUI, suspended license,
+lapse), progress bar removed. #2 DONE — non-standard list expanded to 13 (added National General, Gainsco,
+AssuranceAmerica, First Acceptance; bases PROVISIONAL). 
+**PENDING TOMORROW:** (a) finish VA auto pull (rich non-standard source); (b) #1 — filing-anchor the whole
+non-standard tier's bases from VA + existing data via the min-coverage book averages (clean within the
+non-standard tier); (c) create the `min_coverage_toggled` goal in Plausible. Ledger non-standard data
+today is thin (National General 4, Kemper 2, The General 1, Bristol West 1) — not enough to anchor without VA.
