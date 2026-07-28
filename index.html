@@ -393,27 +393,16 @@
   .check-row span { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--ink-soft); cursor: pointer; user-select: none; }
 
   /* ── BORING RANK HEADER ─────────────────────────────────── */
-  .mincov-toggle { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
-    margin: 0 0 14px; padding: 14px 18px; border: 2px solid var(--accent); border-radius: 4px;
-    background: #fbeae4; color: var(--ink); cursor: pointer; font-family: var(--sans);
-    box-shadow: 0 2px 0 rgba(180,50,26,0.18); transition: background 120ms, color 120ms, box-shadow 120ms; }
-  .mincov-toggle:hover { background: #f7ddd4; box-shadow: 0 2px 0 rgba(180,50,26,0.28); }
-  .mincov-toggle .mincov-icon { font-family: var(--mono); font-size: 18px; font-weight: 700;
-    color: var(--accent); width: 22px; text-align: center; flex: none; }
-  .mincov-toggle .mincov-text { display: flex; flex-direction: column; gap: 1px; flex: 1; }
-  .mincov-toggle .mincov-text strong { font-size: 15px; letter-spacing: -0.01em; }
-  .mincov-toggle .mincov-sub { font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
-    letter-spacing: 0.02em; }
-  .mincov-toggle .mincov-switch { flex: none; width: 40px; height: 22px; border-radius: 22px;
-    background: var(--rule); position: relative; transition: background 140ms; }
-  .mincov-toggle .mincov-switch::after { content: ""; position: absolute; top: 2px; left: 2px;
-    width: 18px; height: 18px; border-radius: 50%; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.25);
-    transition: transform 140ms; }
-  .mincov-toggle[aria-pressed="true"] { background: var(--accent); color: var(--paper); }
-  .mincov-toggle[aria-pressed="true"] .mincov-icon,
-  .mincov-toggle[aria-pressed="true"] .mincov-sub { color: rgba(255,255,255,0.85); }
-  .mincov-toggle[aria-pressed="true"] .mincov-switch { background: rgba(255,255,255,0.4); }
-  .mincov-toggle[aria-pressed="true"] .mincov-switch::after { transform: translateX(18px); }
+  .mode-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 4px 0 14px; }
+  .mode-box { display: flex; flex-direction: column; gap: 2px; text-align: left; padding: 11px 14px;
+    border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink);
+    cursor: pointer; font-family: var(--sans); transition: border-color 120ms, background 120ms; }
+  .mode-box:hover { border-color: var(--ink-mute); background: var(--paper-deep); }
+  .mode-box-title { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+  .mode-box-sub { font-family: var(--mono); font-size: 10.5px; color: var(--ink-mute); letter-spacing: 0.02em; }
+  .mode-box[aria-pressed="true"] { border-color: var(--accent); background: #fbeae4; }
+  .mode-box[aria-pressed="true"] .mode-box-title { color: var(--accent); }
+  @media (max-width: 560px) { .mode-boxes { grid-template-columns: 1fr; } }
 
   .boring-rank-header {
     display: none;
@@ -1588,9 +1577,22 @@ window.track = function (name, props) {
         <div class="pb-count">1 / 4 Personalized</div>
       </div>
     </div>
-    <!-- Refine bar (collapsed by default; click trigger to expand) -->
+    <!-- Two parallel mode boxes: high-risk shoppers vs. personalize coverage.
+         Replaces the buried single "Edit Personal Profile" trigger (10% usage). -->
+    <div class="mode-boxes">
+      <button type="button" class="mode-box" id="minCovToggle" aria-pressed="false">
+        <span class="mode-box-title">Best rates for high-risk drivers</span>
+        <span class="mode-box-sub">SR-22, DUI &amp; lapsed coverage · minimum liability</span>
+      </button>
+      <button type="button" class="mode-box" id="personalizeToggle" aria-pressed="false">
+        <span class="mode-box-title">Personalize your coverage</span>
+        <span class="mode-box-sub">Age, vehicles, credit &amp; coverage levels</span>
+      </button>
+    </div>
+
+    <!-- Refine bar (collapsed by default; opened by the Personalize box above) -->
     <div class="refine" id="refineBar">
-      <button type="button" class="refine-trigger" id="refineTrigger" aria-expanded="false">
+      <button type="button" class="refine-trigger" id="refineTrigger" aria-expanded="false" style="display:none;">
         <span class="refine-trigger-action">
           <span class="refine-trigger-closed">Edit Personal Profile</span>
           <span class="refine-trigger-open">Hide Personal Profile</span>
@@ -1767,14 +1769,6 @@ window.track = function (name, props) {
         </div>
       </div>
     </div>
-
-    <!-- Prominent minimum-coverage / non-standard toggle. The buried refine panel
-         only reaches this segment at ~10% (refine_expanded); this surfaces it. -->
-    <button type="button" class="mincov-toggle" id="minCovToggle" aria-pressed="false">
-      <span class="mincov-icon" aria-hidden="true">↓</span>
-      <span class="mincov-text"><strong>Show me minimum-coverage rates for high-risk drivers</strong><span class="mincov-sub">Carriers that accept SR-22, DUI &amp; lapsed coverage · bare-bones liability</span></span>
-      <span class="mincov-switch" aria-hidden="true"></span>
-    </button>
 
     <!-- Boring Rank header — shown above table when qualifiers exist -->
     <div class="boring-rank-header" id="boringRankHeader">
@@ -5844,6 +5838,15 @@ document.getElementById("zipInput").addEventListener("input", e => {
       refineTrigger.setAttribute('aria-expanded', String(nowOpen));
       var ra = rb.querySelector('.refine-always');
       if (ra) ra.style.display = nowOpen ? 'flex' : 'none';
+    });
+  }
+  // "Personalize your coverage" box opens the same panel (the old trigger is hidden).
+  var personalizeBox = document.getElementById('personalizeToggle');
+  if (personalizeBox && refineTrigger) {
+    personalizeBox.addEventListener('click', function() {
+      refineTrigger.click();
+      var open = document.getElementById('refineBar').classList.contains('open');
+      personalizeBox.setAttribute('aria-pressed', String(open));
     });
   }
   // Banner CTA scrolls + focuses the ZIP input.
