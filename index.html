@@ -1593,10 +1593,6 @@ window.track = function (name, props) {
         <span class="refine-zip-prefix">Showing Best Rates in</span>
         <span class="refine-zip-value" id="refineTriggerZip">your ZIP</span>
       </div>
-      <div class="personalization-banner visible" id="personalizationBanner">
-        <div class="pb-track"><div class="pb-fill" style="width:25%"></div></div>
-        <div class="pb-count">1 / 4 Personalized</div>
-      </div>
     </div>
     <!-- Two parallel mode boxes: high-risk shoppers vs. personalize coverage.
          Replaces the buried single "Edit Personal Profile" trigger (10% usage). -->
@@ -1620,7 +1616,7 @@ window.track = function (name, props) {
         <span class="pb-sub">Age, vehicles, credit &amp; levels</span>
       </button>
     </div>
-    <p class="risk-hint">Pick <strong>High-Risk</strong> if you have an SR-22/FR-44, a DUI, a suspended license, an at-fault accident, or a coverage lapse &mdash; the situations standard insurers turn away.</p>
+    <p class="risk-hint">Pick <strong>High-Risk</strong> if you have an SR-22/FR-44, a DUI, a suspended license, or a coverage lapse &mdash; the situations standard insurers turn away.</p>
 
     <!-- Refine bar (collapsed by default; opened by the Personalize box above) -->
     <div class="refine" id="refineBar">
@@ -5471,10 +5467,12 @@ function renderRanking() {
   const pbTotal = 4;
   const pbPct = pbScore * (100 / pbTotal);
   const pb = document.getElementById("personalizationBanner");
-  pb.className = "personalization-banner visible" + (pbScore === pbTotal ? " complete" : "");
-  const pbLabel = pbScore === pbTotal ? "Fully Personalized" : pbScore + " / " + pbTotal + " Personalized";
-  pb.innerHTML = '<div class="pb-track"><div class="pb-fill" style="width:' + pbPct + '%"></div></div>'
-    + '<div class="pb-count">' + pbLabel + '</div>';
+  if (pb) {
+    pb.className = "personalization-banner visible" + (pbScore === pbTotal ? " complete" : "");
+    const pbLabel = pbScore === pbTotal ? "Fully Personalized" : pbScore + " / " + pbTotal + " Personalized";
+    pb.innerHTML = '<div class="pb-track"><div class="pb-fill" style="width:' + pbPct + '%"></div></div>'
+      + '<div class="pb-count">' + pbLabel + '</div>';
+  }
 
   const footNote = isNonStandard()
     ? "Showing non-standard carriers — specialized for lapsed coverage, SR-22, or high-risk profiles. Estimates are directional. Not a quote. <a href='methodology.html'>How we rank →</a>"
