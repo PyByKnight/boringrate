@@ -402,6 +402,15 @@
   .mode-box-sub { font-family: var(--mono); font-size: 10.5px; color: var(--ink-mute); letter-spacing: 0.02em; }
   .mode-box[aria-pressed="true"] { border-color: var(--accent); background: #fbeae4; }
   .mode-box[aria-pressed="true"] .mode-box-title { color: var(--accent); }
+  /* Hero treatment for the high-risk box — expected ~20-30% click, must not be glossed over. */
+  .mode-box-hero { border: 2px solid var(--accent); background: #fbeae4;
+    box-shadow: 0 2px 0 rgba(180,50,26,0.18); }
+  .mode-box-hero:hover { background: #f7ddd4; box-shadow: 0 2px 0 rgba(180,50,26,0.30); }
+  .mode-box-hero .mode-box-title { color: var(--accent); font-weight: 700; }
+  .mode-box-hero .mode-box-arrow { margin-left: 6px; font-family: var(--mono); font-weight: 700; }
+  .mode-box-hero[aria-pressed="true"] { background: var(--accent); }
+  .mode-box-hero[aria-pressed="true"] .mode-box-title { color: var(--paper); }
+  .mode-box-hero[aria-pressed="true"] .mode-box-sub { color: rgba(255,255,255,0.85); }
   @media (max-width: 560px) { .mode-boxes { grid-template-columns: 1fr; } }
 
   .boring-rank-header {
@@ -1580,8 +1589,8 @@ window.track = function (name, props) {
     <!-- Two parallel mode boxes: high-risk shoppers vs. personalize coverage.
          Replaces the buried single "Edit Personal Profile" trigger (10% usage). -->
     <div class="mode-boxes">
-      <button type="button" class="mode-box" id="minCovToggle" aria-pressed="false">
-        <span class="mode-box-title">Best rates for high-risk drivers</span>
+      <button type="button" class="mode-box mode-box-hero" id="minCovToggle" aria-pressed="false">
+        <span class="mode-box-title">Show Me Best Rates for High-Risk<span class="mode-box-arrow" aria-hidden="true">→</span></span>
         <span class="mode-box-sub">SR-22, DUI &amp; lapsed coverage · minimum liability</span>
       </button>
       <button type="button" class="mode-box" id="personalizeToggle" aria-pressed="false">
@@ -1634,13 +1643,13 @@ window.track = function (name, props) {
             <button type="button" class="pill" data-v="premium">Premium</button>
           </div>
         </div>
-        <div class="refine-more-toggle" id="refineMoreToggle">
+        <div class="refine-more-toggle" id="refineMoreToggle" style="display:none;">
           <span class="refine-toggle-label">Add Specific Coverage Selections</span>
           <span class="refine-toggle-hint">Coverage choice can swing rate ~30%</span>
           <span class="refine-more-arrow" id="refineMoreIcon">&#8964;</span>
         </div>
       </div>
-      <div class="refine-more-body" id="refineMoreBody">
+      <div class="refine-more-body open" id="refineMoreBody">
         <!-- Coverage limits & deductibles (fine-tune the tier picked above) -->
         <div class="refine-cov-section" style="margin-top:0;padding-top:0;border-top:none;">
           <div class="refine-cov-header">
