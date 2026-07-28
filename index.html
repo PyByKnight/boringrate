@@ -3489,7 +3489,15 @@ const CARRIERS_NONSTANDARD = [
   { name: "Kemper",         base: 1.38, csGrade: "C", stability: 1, tag: "Dedicated non-standard division",
     sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.05, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.06, renewal: 0.02 } },
   { name: "Bristol West",   base: 1.35, csGrade: "C", stability: 2, tag: "Farmers subsidiary, widely available",
-    sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.06, renewal: 0.02 } }
+    sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.06, renewal: 0.02 } },
+  { name: "National General", base: 1.38, csGrade: "C", stability: 2, tag: "Allstate-owned · broad non-standard & SR-22 (PROVISIONAL base)",
+    sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.05, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.06, renewal: 0.02 } },
+  { name: "Gainsco",        base: 1.46, csGrade: "C", stability: 2, tag: "Minimum-liability specialist · TX/FL/AZ/etc. (PROVISIONAL base)",
+    sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.16, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } },
+  { name: "AssuranceAmerica", base: 1.47, csGrade: "C", stability: 2, tag: "Non-standard · Southeast & Southwest (PROVISIONAL base)",
+    sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.16, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } },
+  { name: "First Acceptance", base: 1.48, csGrade: "C", stability: 1, tag: "FirstChoice · state-minimum & SR-22 (PROVISIONAL base)",
+    sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.15, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } }
 ];
 
 const CARRIER_LINKS = {
@@ -4069,7 +4077,11 @@ const COVERAGE_MULT_NS = {
   "Safe Auto":    { minimum: 0.72, standard: 1.00, premium: 1.15 },
   "Dairyland":    { minimum: 0.74, standard: 1.00, premium: 1.18 },
   "Kemper":       { minimum: 0.75, standard: 1.00, premium: 1.20 },
-  "Bristol West": { minimum: 0.76, standard: 1.00, premium: 1.19 }
+  "Bristol West": { minimum: 0.76, standard: 1.00, premium: 1.19 },
+  "National General": { minimum: 0.75, standard: 1.00, premium: 1.20 },
+  "Gainsco":      { minimum: 0.72, standard: 1.00, premium: 1.14 },
+  "AssuranceAmerica": { minimum: 0.72, standard: 1.00, premium: 1.14 },
+  "First Acceptance": { minimum: 0.71, standard: 1.00, premium: 1.13 }
 };
 
 // Shop multipliers for non-standard — most are agent or phone heavy
@@ -4082,7 +4094,11 @@ const SHOP_MULT_NS = {
   "Safe Auto":    { web: 1.00, phone: 1.01, agent: 1.02 },
   "Dairyland":    { web: 1.00, phone: 1.01, agent: 1.03 },
   "Kemper":       { web: 1.00, phone: 1.01, agent: 1.03 },
-  "Bristol West": { web: 1.00, phone: 1.01, agent: 1.04 }
+  "Bristol West": { web: 1.00, phone: 1.01, agent: 1.04 },
+  "National General": { web: 1.00, phone: 1.01, agent: 1.03 },
+  "Gainsco":      { web: 1.00, phone: 1.01, agent: 1.03 },
+  "AssuranceAmerica": { web: 1.00, phone: 1.01, agent: 1.03 },
+  "First Acceptance": { web: 1.00, phone: 1.01, agent: 1.03 }
 };
 
 // Per-state carrier competitiveness adjustments (multiplied against national base).
