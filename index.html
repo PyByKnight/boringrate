@@ -393,6 +393,28 @@
   .check-row span { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--ink-soft); cursor: pointer; user-select: none; }
 
   /* ── BORING RANK HEADER ─────────────────────────────────── */
+  .mincov-toggle { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+    margin: 0 0 14px; padding: 13px 18px; border: 2px solid var(--accent); border-radius: 4px;
+    background: var(--paper); color: var(--ink); cursor: pointer; font-family: var(--sans);
+    transition: background 120ms, color 120ms; }
+  .mincov-toggle:hover { background: #faf3f0; }
+  .mincov-toggle .mincov-icon { font-family: var(--mono); font-size: 18px; font-weight: 700;
+    color: var(--accent); width: 22px; text-align: center; flex: none; }
+  .mincov-toggle .mincov-text { display: flex; flex-direction: column; gap: 1px; flex: 1; }
+  .mincov-toggle .mincov-text strong { font-size: 15px; letter-spacing: -0.01em; }
+  .mincov-toggle .mincov-sub { font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
+    letter-spacing: 0.02em; }
+  .mincov-toggle .mincov-switch { flex: none; width: 40px; height: 22px; border-radius: 22px;
+    background: var(--rule); position: relative; transition: background 140ms; }
+  .mincov-toggle .mincov-switch::after { content: ""; position: absolute; top: 2px; left: 2px;
+    width: 18px; height: 18px; border-radius: 50%; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    transition: transform 140ms; }
+  .mincov-toggle[aria-pressed="true"] { background: var(--accent); color: var(--paper); }
+  .mincov-toggle[aria-pressed="true"] .mincov-icon,
+  .mincov-toggle[aria-pressed="true"] .mincov-sub { color: rgba(255,255,255,0.85); }
+  .mincov-toggle[aria-pressed="true"] .mincov-switch { background: rgba(255,255,255,0.4); }
+  .mincov-toggle[aria-pressed="true"] .mincov-switch::after { transform: translateX(18px); }
+
   .boring-rank-header {
     display: none;
     align-items: baseline;
@@ -1745,6 +1767,14 @@ window.track = function (name, props) {
         </div>
       </div>
     </div>
+
+    <!-- Prominent minimum-coverage / non-standard toggle. The buried refine panel
+         only reaches this segment at ~10% (refine_expanded); this surfaces it. -->
+    <button type="button" class="mincov-toggle" id="minCovToggle" aria-pressed="false">
+      <span class="mincov-icon" aria-hidden="true">↓</span>
+      <span class="mincov-text"><strong>Show me state-minimum coverage rates</strong><span class="mincov-sub">Absolute lowest price · bare-bones liability only</span></span>
+      <span class="mincov-switch" aria-hidden="true"></span>
+    </button>
 
     <!-- Boring Rank header — shown above table when qualifiers exist -->
     <div class="boring-rank-header" id="boringRankHeader">
@@ -3424,6 +3454,8 @@ const CARRIERS_NONSTANDARD = [
     sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.25, "25-34": 0.08, "35-54": -0.02, "55+": -0.05 }, multi: -0.05, single: 0.02, lapsed: 0.12, renewal: -0.02 } },
   { name: "Progressive",    base: 1.15, csGrade: "B-", stability: 2, tag: "Best for DUI / SR-22, same-day filing",
     sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.06, "35-54": 0.00, "55+": -0.03 }, multi: -0.04, single: 0.02, lapsed: 0.08, renewal: 0.04 } },
+  { name: "Allstate",       base: 1.43, csGrade: "C+", stability: 2, tag: "Routes high-risk drivers to its Direct Auto arm",
+    sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.19, "25-34": 0.05, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.06, renewal: 0.02 } },
   { name: "The General",    base: 1.40, csGrade: "C", stability: 2, tag: "Accepts all risk profiles, no exam",
     sens: { own: -0.01, rent: 0.01, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.05, renewal: 0.02 } },
   { name: "Direct Auto",    base: 1.45, csGrade: "C", stability: 2, tag: "Flexible payments, 450+ locations",
@@ -4009,6 +4041,7 @@ const CARRIER_ATTRS = {
 const COVERAGE_MULT_NS = {
   "GEICO":        { minimum: 0.70, standard: 1.00, premium: 1.28 },
   "Progressive":  { minimum: 0.72, standard: 1.00, premium: 1.26 },
+  "Allstate":     { minimum: 0.76, standard: 1.00, premium: 1.18 },
   "The General":  { minimum: 0.75, standard: 1.00, premium: 1.20 },
   "Direct Auto":  { minimum: 0.74, standard: 1.00, premium: 1.18 },
   "Safe Auto":    { minimum: 0.72, standard: 1.00, premium: 1.15 },
@@ -4021,6 +4054,7 @@ const COVERAGE_MULT_NS = {
 const SHOP_MULT_NS = {
   "GEICO":        { web: 1.00, phone: 1.01, agent: 1.00 },
   "Progressive":  { web: 1.00, phone: 1.01, agent: 1.02 },
+  "Allstate":     { web: 1.00, phone: 1.01, agent: 1.02 },
   "The General":  { web: 1.00, phone: 1.01, agent: 1.03 },
   "Direct Auto":  { web: 1.00, phone: 1.01, agent: 1.03 },
   "Safe Auto":    { web: 1.00, phone: 1.01, agent: 1.02 },
@@ -5080,8 +5114,9 @@ const TIER_PRESETS = {
 let stateData = null, currentMetro = null, lastOrder = [], compareSet = new Set(), compareOpen = false, showAllCarriers = false, lastRanked = [], lastMedian = 0;
 
 function isNonStandard() {
-  // Route to non-standard carriers if lapsed OR SR-22 required
-  return !refinement.insured || refinement.srRequired;
+  // Route to non-standard carriers if lapsed OR SR-22 required OR the visible
+  // "state minimum coverage" toggle is on (the prominent proxy for this segment).
+  return !refinement.insured || refinement.srRequired || !!refinement.minCoverage;
 }
 
 function activeCarriers() {
@@ -5606,6 +5641,36 @@ document.getElementById("curCarrier").addEventListener("change", e => {
   refinement.curCarrier = e.target.value;
   renderRanking();
 });
+
+// Prominent "state minimum coverage" toggle — the visible proxy for the
+// non-standard / cheapest-bare-bones shopper. Flips refinement.minCoverage,
+// which isNonStandard() reads to route to CARRIERS_NONSTANDARD + the minimum
+// coverage tier. Restores the prior coverage tier when switched back off.
+(function () {
+  var t = document.getElementById("minCovToggle");
+  if (!t) return;
+  t.addEventListener("click", function () {
+    var on = !refinement.minCoverage;
+    refinement.minCoverage = on;
+    t.setAttribute("aria-pressed", String(on));
+    if (on) {
+      refinement._covBeforeMin = refinement.coverage || "standard";
+      refinement.coverage = "minimum";
+      applyTierPreset("minimum");
+    } else {
+      var prev = refinement._covBeforeMin || "standard";
+      refinement.coverage = prev;
+      applyTierPreset(prev);
+    }
+    // keep the coverage pills in sync with the forced tier
+    document.querySelectorAll('.pill-row[data-q="coverage"] .pill').forEach(function (p) {
+      p.classList.toggle("active", p.dataset.v === refinement.coverage);
+    });
+    lastOrder = [];
+    renderRanking();
+    try { window.track && track("min_coverage_toggled", { on: on, product: "auto" }); } catch (e) {}
+  });
+})();
 
 function syncCoverageFromDetails() {
   const l = refinement.covLiability;
