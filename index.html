@@ -394,32 +394,30 @@
   .check-row span { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--ink-soft); cursor: pointer; user-select: none; }
 
   /* ── BORING RANK HEADER ─────────────────────────────────── */
-  .mode-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 4px 0 14px; }
-  .mode-box { display: flex; flex-direction: column; gap: 2px; text-align: left; padding: 11px 14px;
-    border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink);
-    cursor: pointer; font-family: var(--sans); transition: border-color 120ms, background 120ms; }
-  .mode-box:hover { border-color: var(--ink-mute); background: var(--paper-deep); }
-  .mode-box-title { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
-  .mode-box-sub { font-family: var(--mono); font-size: 10.5px; color: var(--ink-mute); letter-spacing: 0.02em; }
-  .mode-box[aria-pressed="true"] { border-color: var(--accent); background: #fbeae4; }
-  .mode-box[aria-pressed="true"] .mode-box-title { color: var(--accent); }
-  /* Hero treatment for the high-risk box — expected ~20-30% click, must not be glossed over. */
-  .mode-box-hero { border: 2px solid var(--accent); background: #fbeae4;
-    box-shadow: 0 2px 0 rgba(180,50,26,0.18); }
-  .mode-box-hero:hover { background: #f7ddd4; box-shadow: 0 2px 0 rgba(180,50,26,0.30); }
-  .mode-box-hero .mode-box-title { color: var(--accent); font-weight: 700; }
-  .mode-box-hero .mode-box-arrow { margin-left: 6px; font-family: var(--mono); font-weight: 700; }
-  .mode-box-hero[aria-pressed="true"] { background: var(--accent); }
-  .mode-box-hero[aria-pressed="true"] .mode-box-title { color: var(--paper); }
-  .mode-box-hero[aria-pressed="true"] .mode-box-sub { color: rgba(255,255,255,0.85); }
-  .mode-box-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-  .mode-box-switch { flex: none; width: 38px; height: 21px; border-radius: 21px; background: rgba(180,50,26,0.25);
-    position: relative; transition: background 140ms; }
-  .mode-box-switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 17px; height: 17px;
-    border-radius: 50%; background: var(--paper); box-shadow: 0 1px 2px rgba(0,0,0,0.3); transition: transform 140ms; }
-  .mode-box-hero[aria-pressed="true"] .mode-box-switch { background: rgba(255,255,255,0.55); }
-  .mode-box-hero[aria-pressed="true"] .mode-box-switch::after { transform: translateX(17px); }
-  @media (max-width: 560px) { .mode-boxes { grid-template-columns: 1fr; } }
+  .risk-toggle { position: relative; display: grid; grid-template-columns: 1fr 1fr; margin: 4px 0 8px;
+    border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+  .risk-seg { display: flex; flex-direction: column; gap: 2px; text-align: center; padding: 12px 14px;
+    border: none; cursor: pointer; font-family: var(--sans);
+    transition: background 160ms ease, color 160ms ease; }
+  .risk-seg-sub { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .risk-seg-title { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
+  /* Standard selected (default): green bright, high-risk dull */
+  .risk-toggle[data-mode="standard"] .risk-standard { background: var(--good); color: #fff; }
+  .risk-toggle[data-mode="standard"] .risk-standard .risk-seg-sub { color: rgba(255,255,255,0.8); }
+  .risk-toggle[data-mode="standard"] .risk-highrisk { background: #efe9e5; color: var(--ink-mute); }
+  /* High-risk selected: accent bright, standard dull */
+  .risk-toggle[data-mode="highrisk"] .risk-standard { background: #dde5df; color: #7d8a80; }
+  .risk-toggle[data-mode="highrisk"] .risk-highrisk { background: var(--accent); color: #fff; }
+  .risk-toggle[data-mode="highrisk"] .risk-highrisk .risk-seg-sub { color: rgba(255,255,255,0.8); }
+
+  .personalize-box { display: flex; flex-direction: column; gap: 2px; text-align: left; width: 100%;
+    padding: 10px 14px; margin: 0 0 14px; border: 1px solid var(--rule); border-radius: 4px;
+    background: var(--paper); color: var(--ink); cursor: pointer; font-family: var(--sans);
+    transition: border-color 120ms, background 120ms; }
+  .personalize-box:hover { border-color: var(--ink-mute); background: var(--paper-deep); }
+  .personalize-box[aria-pressed="true"] { border-color: var(--accent); background: #fbeae4; }
+  .pb-title { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+  .pb-sub { font-family: var(--mono); font-size: 10.5px; color: var(--ink-mute); letter-spacing: 0.02em; }
 
   .boring-rank-header {
     display: none;
@@ -1596,16 +1594,23 @@ window.track = function (name, props) {
     </div>
     <!-- Two parallel mode boxes: high-risk shoppers vs. personalize coverage.
          Replaces the buried single "Edit Personal Profile" trigger (10% usage). -->
-    <div class="mode-boxes">
-      <button type="button" class="mode-box mode-box-hero" id="minCovToggle" aria-pressed="false">
-        <span class="mode-box-head"><span class="mode-box-title">Show Me Best Rates for High-Risk</span><span class="mode-box-switch" aria-hidden="true"></span></span>
-        <span class="mode-box-sub">SR-22, DUI &amp; lapsed coverage · minimum liability</span>
+    <!-- Standard vs. high-risk segmented toggle (default: Standard). Green =
+         standard/normal (bright by default); accent = high-risk (dull until picked).
+         Makes the default state read clearly as "Standard selected". -->
+    <div class="risk-toggle" id="riskToggle" data-mode="standard">
+      <button type="button" class="risk-seg risk-standard" id="stdSeg" aria-pressed="true">
+        <span class="risk-seg-sub">Show me</span>
+        <span class="risk-seg-title">Best Rates for Standard Auto</span>
       </button>
-      <button type="button" class="mode-box" id="personalizeToggle" aria-pressed="false">
-        <span class="mode-box-title">Personalize your coverage</span>
-        <span class="mode-box-sub">Age, vehicles, credit &amp; coverage levels</span>
+      <button type="button" class="risk-seg risk-highrisk" id="hrSeg" aria-pressed="false">
+        <span class="risk-seg-sub">Show me</span>
+        <span class="risk-seg-title">Best Rates for High-Risk Drivers</span>
       </button>
     </div>
+    <button type="button" class="personalize-box" id="personalizeToggle" aria-pressed="false">
+      <span class="pb-title">Personalize your coverage</span>
+      <span class="pb-sub">Age, vehicles, credit &amp; coverage levels</span>
+    </button>
 
     <!-- Refine bar (collapsed by default; opened by the Personalize box above) -->
     <div class="refine" id="refineBar">
@@ -5662,12 +5667,14 @@ document.getElementById("curCarrier").addEventListener("change", e => {
 // which isNonStandard() reads to route to CARRIERS_NONSTANDARD + the minimum
 // coverage tier. Restores the prior coverage tier when switched back off.
 (function () {
-  var t = document.getElementById("minCovToggle");
-  if (!t) return;
-  t.addEventListener("click", function () {
-    var on = !refinement.minCoverage;
+  var stdSeg = document.getElementById("stdSeg"), hrSeg = document.getElementById("hrSeg"),
+      riskTog = document.getElementById("riskToggle");
+  function setMinCoverage(on) {
+    if (refinement.minCoverage === on) return;
     refinement.minCoverage = on;
-    t.setAttribute("aria-pressed", String(on));
+    if (riskTog) riskTog.setAttribute("data-mode", on ? "highrisk" : "standard");
+    if (stdSeg) stdSeg.setAttribute("aria-pressed", String(!on));
+    if (hrSeg) hrSeg.setAttribute("aria-pressed", String(on));
     if (on) {
       refinement._covBeforeMin = refinement.coverage || "standard";
       refinement.coverage = "minimum";
@@ -5677,14 +5684,15 @@ document.getElementById("curCarrier").addEventListener("change", e => {
       refinement.coverage = prev;
       applyTierPreset(prev);
     }
-    // keep the coverage pills in sync with the forced tier
     document.querySelectorAll('.pill-row[data-q="coverage"] .pill').forEach(function (p) {
       p.classList.toggle("active", p.dataset.v === refinement.coverage);
     });
     lastOrder = [];
     renderRanking();
     try { window.track && track("min_coverage_toggled", { on: on, product: "auto" }); } catch (e) {}
-  });
+  }
+  if (stdSeg) stdSeg.addEventListener("click", function () { setMinCoverage(false); });
+  if (hrSeg) hrSeg.addEventListener("click", function () { setMinCoverage(true); });
 })();
 
 function syncCoverageFromDetails() {
