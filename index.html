@@ -396,6 +396,9 @@
   /* ── BORING RANK HEADER ─────────────────────────────────── */
   .mode-row { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; margin: 4px 0 14px; align-items: stretch; }
   @media (max-width: 560px) { .mode-row { grid-template-columns: 1fr; } }
+  .risk-hint { margin: -8px 0 14px; font-size: 11.5px; line-height: 1.45; color: var(--ink-mute);
+    font-family: var(--sans); }
+  .risk-hint strong { color: var(--accent); font-weight: 700; }
 
   .risk-toggle { position: relative; display: grid; grid-template-columns: 1fr 1fr;
     border: 1px solid var(--rule); border-radius: 6px; background: #eae8e4; overflow: hidden; }
@@ -1617,6 +1620,7 @@ window.track = function (name, props) {
         <span class="pb-sub">Age, vehicles, credit &amp; levels</span>
       </button>
     </div>
+    <p class="risk-hint">Pick <strong>High-Risk</strong> if you have an SR-22/FR-44, a DUI, a suspended license, an at-fault accident, or a coverage lapse &mdash; the situations standard insurers turn away.</p>
 
     <!-- Refine bar (collapsed by default; opened by the Personalize box above) -->
     <div class="refine" id="refineBar">
