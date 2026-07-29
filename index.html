@@ -5474,7 +5474,20 @@ function renderRanking() {
     const _z = document.getElementById("zipInput").value.trim();
     _refZip.textContent = /^\d{5}$/.test(_z) ? _z : "your ZIP";
   }
-  document.getElementById("resMeta").textContent = isNonStandard() ? "Non-standard carriers" : "";
+  // Non-standard state is shown ONLY by the notice above the median now — clear
+  // the old duplicate label. Also keep the Standard/High-Risk toggle in sync with
+  // the actual mode every render, so a restored profile (persisted minCoverage, or
+  // SR-22/lapse checkboxes) can't leave the toggle on "Standard" while the notice
+  // shows — the refresh mismatch.
+  document.getElementById("resMeta").textContent = "";
+  (function () {
+    var rt = document.getElementById("riskToggle"); if (!rt) return;
+    var ns = isNonStandard();
+    rt.setAttribute("data-mode", ns ? "highrisk" : "standard");
+    var std = document.getElementById("stdSeg"), hr = document.getElementById("hrSeg");
+    if (std) std.setAttribute("aria-pressed", String(!ns));
+    if (hr) hr.setAttribute("aria-pressed", String(ns));
+  })();
   document.getElementById("metroPill").style.display = "none";
   document.getElementById("rankTableLabel").style.display = "none";
   document.getElementById("rankTableState").textContent = locationLabel + (isNonStandard() ? " · Non-standard" : " · Savings vs. Median");
