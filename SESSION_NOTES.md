@@ -1,7 +1,35 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-22 (Opus 4.8)_
+_Last updated: 2026-07-29 (Opus 4.8)_
 
-## ▶▶ RESUME HERE (2026-07-23) — ★ MICHIGAN AUTO PULL (owner doing this next session)
+## ▶▶ RESUME HERE (2026-07-29) — ★ VIRGINIA AUTO COMPLETE + non-standard bases anchored
+**VA auto backfill DONE.** 101 jackets pulled (Tier-1 complete minus 1 access-restricted USAA; Tier-2
+near-complete) → 70 ledger rows in `serff_filings.json` (state VA), 45 movers in `rate_changes.json`.
+Parser now captures **max_pct/min_pct** (the within-filing SPREAD — tier-1 content juice; see
+`add_va_changes.py` which also carries `indicated_pct`). Drift gate PASS 5/5 (anchor 2026-06-23 global
+default → only 4 post-anchor movers actually drift the price model, by design). `./rebuild.sh auto`
+cascaded clean: qa_sweep 0 JS errors / 588 pages, prose 0 drift. VA now live on virginia.html,
+Norfolk/Richmond metros, carrier pages, rate-changes tracker, press, rate-filings rollup.
+VA market read: balanced-to-cutting (24 cuts / 21 raises); State Farm cutting hard (−6.5% on 1.4M),
+National General −12.3%, GEICO/Progressive/Erie mixed-to-up.
+
+**Non-standard bases anchored from VA** (method saved as memory `boringrate-nonstandard-base-anchoring`):
+blend provisional→VA read at coverage-mix-aware denom. The General 1.40→1.81, Bristol West 1.35→1.54,
+AssuranceAmerica 1.47→1.28, Gainsco 1.46→1.40; National General held 1.38 (VA-confirmed mixed book),
+Allstate 1.43 (standard book untouched), First Acceptance 1.48 (no VA book).
+
+**NOT yet committed** — review `git diff` then commit (owner commits per logical change).
+
+**NEXT (per content strategy `boringrate-filing-data-content-strategy`):**
+1. Prototype ONE "why did my [carrier] rate go up in Virginia?" page off VA data (reactive wedge),
+   using the spread/indicated juice; measure GSC, then hand-build ~5, then scale.
+2. Free re-parse of on-disk OH/IL/PA/MI jackets to backfill max_pct/min_pct into their ledger rows
+   (jackets already on disk — no re-pull).
+3. Consider adding **Elephant** (32K VA book) to VA STATE_LOCAL_CARRIERS (currently has near-zero MMG).
+4. Owner TODO: create Plausible goal `min_coverage_toggled`.
+
+---
+
+## (history) 2026-07-23 — ★ MICHIGAN AUTO PULL — COMPLETE
 **★ TOMORROW = MI.** Owner runs ONE SERFF search with **BOTH TOI boxes checked — 4 (Homeowners)
 + 19 (Personal Auto)** — disposition **07/01/25–now**, and pastes the whole mixed result set. Checking
 both boxes is pure pull-side time saving (one search instead of two); Claude still triages into TWO
