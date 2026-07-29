@@ -75,9 +75,14 @@ def _row(name, toks):
     lead = [v for k,v in toks[:money_ix[0] if money_ix else len(toks)] if k in ('pct','blank')]
     ind  = lead[0] if len(lead)>0 else None
     imp  = lead[1] if len(lead)>1 else None
+    # Max/Min % Change are the trailing pct tokens after Written Premium — the
+    # within-filing SPREAD ("+82% to -43%"), tier-1 content juice we were dropping.
+    trail = [v for k,v in toks[(money_ix[-1]+1):] if k in ('pct','blank')] if money_ix else []
+    mx = trail[0] if len(trail) > 0 else None
+    mn = trail[1] if len(trail) > 1 else None
     return {'entity': ' '.join(name).strip(), 'indicated_pct': ind, 'overall_pct': imp,
             'written_premium_change': wpc, 'affected': int(ph) if ph is not None else None,
-            'written_premium': wp}
+            'written_premium': wp, 'max_pct': mx, 'min_pct': mn}
 
 if __name__ == '__main__':
     out = [parse(p) for p in sorted(glob.glob(os.path.join(TXT,'*.txt')))]
