@@ -3425,9 +3425,8 @@ const SHOP_MULT = {
 // and GATED on coverage (only carriers filed in >= N states). Absent carriers keep their static score.
 // Measures RECENT rate pressure (~1yr of filings), not lifetime volatility. Do NOT hand-edit.
 const AUTO_STABILITY_ADJ = {
-  "American Family": 3,
-  "Amica Mutual": 4,
-  "Nationwide": 4,
+  "American Family": 2,
+  "National General": 3,
   "Progressive": 3,
   "State Farm": 5,
 };
@@ -3481,7 +3480,7 @@ const CARRIERS_NONSTANDARD = [
     sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.06, "35-54": 0.00, "55+": -0.03 }, multi: -0.04, single: 0.02, lapsed: 0.08, renewal: 0.04 } },
   { name: "Allstate",       base: 1.43, csGrade: "C+", stability: 2, tag: "Routes high-risk drivers to its Direct Auto arm",
     sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.19, "25-34": 0.05, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.06, renewal: 0.02 } },
-  { name: "The General",    base: 1.40, csGrade: "C", stability: 2, tag: "Accepts all risk profiles, no exam",
+  { name: "The General",    base: 1.81, csGrade: "C", stability: 2, tag: "Accepts all risk profiles, no exam",
     sens: { own: -0.01, rent: 0.01, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.05, renewal: 0.02 } },
   { name: "Direct Auto",    base: 1.45, csGrade: "C", stability: 2, tag: "Flexible payments, 450+ locations",
     sens: { own: -0.01, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.05, renewal: 0.02 } },
@@ -3491,13 +3490,13 @@ const CARRIERS_NONSTANDARD = [
     sens: { own: -0.01, rent: 0.01, age: { "18-24": 0.20, "25-34": 0.05, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.04, renewal: 0.02 } },
   { name: "Kemper",         base: 1.38, csGrade: "C", stability: 1, tag: "Dedicated non-standard division",
     sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.05, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.06, renewal: 0.02 } },
-  { name: "Bristol West",   base: 1.35, csGrade: "C", stability: 2, tag: "Farmers subsidiary, widely available",
+  { name: "Bristol West",   base: 1.54, csGrade: "C", stability: 2, tag: "Farmers subsidiary, widely available",
     sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.04, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.06, renewal: 0.02 } },
-  { name: "National General", base: 1.38, csGrade: "C", stability: 2, tag: "Allstate-owned · broad non-standard & SR-22 (PROVISIONAL base)",
+  { name: "National General", base: 1.38, csGrade: "C", stability: 2, tag: "Allstate-owned · broad non-standard & SR-22 (VA-confirmed, mixed book)",
     sens: { own: -0.02, rent: 0.01, age: { "18-24": 0.18, "25-34": 0.05, "35-54": -0.02, "55+": -0.04 }, multi: -0.03, single: 0.01, lapsed: 0.06, renewal: 0.02 } },
-  { name: "Gainsco",        base: 1.46, csGrade: "C", stability: 2, tag: "Minimum-liability specialist · TX/FL/AZ/etc. (PROVISIONAL base)",
+  { name: "Gainsco",        base: 1.40, csGrade: "C", stability: 2, tag: "Minimum-liability specialist · TX/FL/AZ/etc. (VA-anchored blend)",
     sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.16, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } },
-  { name: "AssuranceAmerica", base: 1.47, csGrade: "C", stability: 2, tag: "Non-standard · Southeast & Southwest (PROVISIONAL base)",
+  { name: "AssuranceAmerica", base: 1.28, csGrade: "C", stability: 2, tag: "Non-standard · Southeast & Southwest (VA-anchored blend)",
     sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.16, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } },
   { name: "First Acceptance", base: 1.48, csGrade: "C", stability: 1, tag: "FirstChoice · state-minimum & SR-22 (PROVISIONAL base)",
     sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.15, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } }
