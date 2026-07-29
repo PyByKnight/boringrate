@@ -467,6 +467,9 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
+  .ns-notice { padding: 8px 22px; background: #fbeae4; border-bottom: 1px solid var(--rule);
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; }
   .rank-median-top { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px; padding: 7px 22px; background: var(--paper-deep); border-bottom: 1px solid var(--rule); }
   .rmt-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); }
   .rmt-val { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
@@ -5304,6 +5307,12 @@ function renderRanking() {
   medTop.innerHTML =
     '<span class="rmt-label">Avg rate in ' + _medWhere + '</span>' +
     '<span class="rmt-val">$' + Math.round(median / 12).toLocaleString() + '<span class="rmt-yr">/mo</span><span class="rmt-yr"> &middot; $' + median.toLocaleString() + '/yr</span></span>';
+  if (isNonStandard()) {
+    const nsNotice = document.createElement("div");
+    nsNotice.className = "ns-notice";
+    nsNotice.textContent = "Showing carriers who accept non-standard risks";
+    list.appendChild(nsNotice);
+  }
   list.appendChild(medTop);
 
   const colHeadRow = document.createElement("div");
@@ -5491,7 +5500,7 @@ function renderRanking() {
   }
 
   const footNote = isNonStandard()
-    ? "Showing non-standard carriers — specialized for lapsed coverage, SR-22, or high-risk profiles. Estimates are directional. Not a quote. <a href='methodology.html'>How we rank →</a>"
+    ? "Estimates are directional for non-standard profiles. Not a quote. <a href='methodology.html'>How we rank →</a>"
     : "Estimates reflect typical price positioning from public rate filings; quality marks reflect NAIC complaint indices. Not a quote. <a href='methodology.html'>How we rank →</a>";
   document.getElementById("rankFoot").innerHTML = footNote;
 
