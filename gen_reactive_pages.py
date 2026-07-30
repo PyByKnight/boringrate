@@ -18,19 +18,43 @@ import json, re, html
 TEMPLATE = 'article/tennessee-rates-dropping.html'
 SERFF = 'https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId='
 
+_LEDGER = None
+def _led():
+    global _LEDGER
+    if _LEDGER is None:
+        d = json.load(open('serff_filings.json'))
+        _LEDGER = {r['tracking']: r for r in (d if isinstance(d, list) else d['filings'])}
+    return _LEDGER
+
+def _ph(n):
+    if not n: return '&mdash;'
+    if n >= 1_000_000: return f"{n/1_000_000:.1f}M"
+    if n >= 1000: return f"{round(n/1000)}K"
+    return str(n)
+
+def _eff(d):
+    if not d: return '&mdash;'
+    y, m, dd = d.split('-'); return f"{int(m)}/{int(dd)}/{y[2:]}"
+
 def row(name, href, trk, fid, change, note, up):
-    cl = ' style="color:var(--accent);"' if up else ''
+    """Concise data row. Policyholders + Eff. Date are pulled from the ledger by
+    tracking # so they can't drift from the source. `note` is retained in the
+    config as per-row reference but no longer rendered (the prose carries nuance)."""
+    r = _led().get(trk, {})
     cn = f'<a class="ca-link" href="{href}">{name}</a>' if href else name
+    cls = 'rn up' if up else ('rn down' if '&minus;' in change else 'rn')
     return (f'          <tr>\n'
-            f'            <td class="cn">{cn}<br><a class="clink" href="{SERFF}{fid}" target="_blank" rel="noopener nofollow">SERFF {trk} &rarr;</a></td>\n'
-            f'            <td class="rn"{cl}>{change}</td>\n'
-            f'            <td class="note">{note}</td>\n'
+            f'            <td class="cn">{cn}</td>\n'
+            f'            <td class="{cls}">{change}</td>\n'
+            f'            <td class="ph">{_ph(r.get("affected"))}</td>\n'
+            f'            <td class="eff">{_eff(r.get("effective_new"))}</td>\n'
+            f'            <td class="fil"><a class="clink" href="{SERFF}{fid}" target="_blank" rel="noopener nofollow">{trk} &rarr;</a></td>\n'
             f'          </tr>\n')
 
 def table(rows):
     body = ''.join(row(*r) for r in rows)
     return ('    <div id="rate-table">\n      <table class="rate-table">\n        <thead>\n'
-            '          <tr><th>Carrier</th><th>Latest approved change</th><th>What the filing says</th></tr>\n'
+            '          <tr><th>Carrier</th><th>Rate Change</th><th>Policyholders</th><th>Eff. Date</th><th>Filing #</th></tr>\n'
             '        </thead>\n        <tbody>\n' + body +
             '        </tbody>\n      </table>\n    </div>\n')
 
@@ -64,6 +88,17 @@ NAVZIP_STYLE = (
 '.rz-zip-input{font-family:var(--mono);font-size:14px;padding:8px 10px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);width:92px;}'
 '.rz-zip-btn{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;padding:8px 16px;background:var(--accent);color:var(--paper);border:none;cursor:pointer;white-space:nowrap;}'
 '.rz-zip-btn:hover{opacity:0.9;}'
+'#rate-table{overflow-x:auto;}'
+'.rate-table{max-width:none;}'
+'.rate-table th{white-space:nowrap;border-bottom:2px solid var(--ink);padding:8px 18px 8px 0;}'
+'.rate-table td{vertical-align:middle;padding:12px 18px 12px 0;}'
+'.rate-table td.cn{font-size:16px;}'
+'.rate-table td.rn{font-size:17px;color:var(--ink-mute);padding-top:12px;}'
+'.rate-table td.rn.up{color:var(--accent);}'
+'.rate-table td.rn.down{color:var(--good);}'
+'.rate-table td.ph,.rate-table td.eff{font-family:var(--mono);font-size:13px;color:var(--ink-soft);white-space:nowrap;}'
+'.rate-table td.fil a{font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-decoration:none;white-space:nowrap;}'
+'.rate-table td.fil a:hover{color:var(--accent);}'
 '@media (max-width:480px){'
 '.nav-dd-group{display:none;}'
 '.nav-dd-group:has(#navDdProductPanel){display:flex;order:10;width:100%;border-top:1px solid var(--rule);margin-top:8px;}'
