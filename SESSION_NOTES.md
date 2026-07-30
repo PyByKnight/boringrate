@@ -24,8 +24,8 @@ Allstate 1.43 (standard book untouched), First Acceptance 1.48 (no VA book).
 Liberty Mutual-NY. Stamped by `gen_reactive_pages.py` + `gen_reactive_config.py` (PAGES config) from
 the tennessee-rates-dropping.html shell. Pushed to origin/main (GitHub Pages). **NOW: measure GSC over
 2–3 weeks BEFORE building more** (owner plan). If signal, add PAGES entries and re-run to scale.
-  - DEBT: the GEICO-VA prototype was hand-assembled and is NOT yet in gen_reactive_config.py PAGES
-    (the other 4 are). Fold it in before the next template edit so all 5 regenerate consistently.
+  - ~~DEBT: GEICO-VA prototype not in gen_reactive_config.py PAGES~~ RESOLVED — GEICO-VA is now a
+    full generator-managed PAGES entry; `gen_reactive_pages.py` reproduces the live page byte-for-byte.
 
 **DONE 2026-07-30 — reactive-page UX pass + site-wide nav CSS fix:** thin ZIP CTAs (dropped the big
 two-tile module + email block), concise 5-col rate table (Carrier · Rate Change · Policyholders ·
