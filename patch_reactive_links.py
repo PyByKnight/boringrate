@@ -12,6 +12,7 @@ survives regeneration — add to rebuild.sh SHARED tail.
 """
 import os, re
 from gen_reactive_config import PAGES
+from build_state_features import FEATURES   # state-level narrative features (kept out of PAGES)
 
 def slug(s): return s.lower().replace(' ', '-')
 
@@ -59,10 +60,16 @@ for car, items in by_carrier.items():
                 f'The actual approved rate change {car} filed in your state &mdash; and who&rsquo;s cutting.',
                 [(f'Why did my {car} rate go up in {st}?', chg, href) for st, chg, href in items])
     if apply(f'article/carrier/{slug(car)}.html', blk): n += 1
-for st, items in by_state.items():
-    items = sorted(items)
-    blk = block(f'Why {st} rates changed &mdash; see the filing',
-                f'Primary-source explainers for the carriers that raised {st} rates, and who&rsquo;s cutting.',
-                [(f'Why did my {car} rate go up in {st}?', chg, href) for car, chg, href in items])
+feat = {f['state']: (f['url'].replace('https://boringrate.com', ''), f['title']) for f in FEATURES}
+for st in sorted(set(by_state) | set(feat)):
+    items = []
+    if st in feat:                                       # lead with the full state report
+        url, title = feat[st]
+        items.append((title, '2026 report', url))
+    for car, chg, href in sorted(by_state.get(st, [])):
+        items.append((f'Why did my {car} rate go up in {st}?', chg, href))
+    blk = block(f'{st} rate changes &mdash; see the filings',
+                f'The full {st} rate report and primary-source explainers &mdash; who raised, who cut, and by how much.',
+                items)
     if apply(f'article/state/{slug(st)}.html', blk): n += 1
 print(f'reactive-links: patched {n} carrier/state pages')
