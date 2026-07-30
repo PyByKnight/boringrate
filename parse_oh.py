@@ -80,6 +80,8 @@ def _row(name, toks):
     trail = [v for k,v in toks[(money_ix[-1]+1):] if k in ('pct','blank')] if money_ix else []
     mx = trail[0] if len(trail) > 0 else None
     mn = trail[1] if len(trail) > 1 else None
+    if mx is not None and mn is not None and mx < mn:   # some jackets list Min before Max
+        mx, mn = mn, mx
     return {'entity': ' '.join(name).strip(), 'indicated_pct': ind, 'overall_pct': imp,
             'written_premium_change': wpc, 'affected': int(ph) if ph is not None else None,
             'written_premium': wp, 'max_pct': mx, 'min_pct': mn}
