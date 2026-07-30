@@ -51,6 +51,7 @@ step python3 gen_rate_filings_rollup.py      # /rate-filings/ ledger (auto + hom
 step python3 gen_press_page.py               # /press/ journalist page
 step python3 patch_metro_citations.py        # Layer-2 sources note on auto metros (incl. 83 legacy)
 step python3 patch_carrier_filings.py        # per-carrier SERFF filing sections on carrier pages
+step python3 patch_reactive_links.py         # contextual links to reactive rate-increase explainers
 step python3 patch_plausible.py              # analytics backstop (generators now bake it in)
 step python3 build_nav.py                    # stamp single-source nav across every page
 step python3 patch_sitemap_lastmod.py        # refresh <lastmod> from git dates

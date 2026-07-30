@@ -88,6 +88,12 @@ RZ_STYLE = (
 '.rate-table td.ph,.rate-table td.eff{font-family:var(--mono);font-size:13px;color:var(--ink-soft);white-space:nowrap;}'
 '.rate-table td.fil a{font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-decoration:none;white-space:nowrap;}'
 '.rate-table td.fil a:hover{color:var(--accent);}'
+'.hub-list h3{font-family:var(--serif);font-size:20px;margin:22px 0 6px;}'
+'.hub-list ul{list-style:none;margin:0 0 4px;padding:0;}'
+'.hub-list li{border-bottom:1px solid var(--rule);}'
+'.hub-list li a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 2px;text-decoration:none;color:var(--ink);font-size:16px;}'
+'.hub-list li a:hover{color:var(--accent);}'
+'.hub-chg{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--accent);white-space:nowrap;}'
 '@media (max-width:480px){'
 '.rz-zip{flex-direction:column;align-items:flex-start;}'
 '}'
@@ -151,7 +157,8 @@ def build(cfg):
       f'    <p class="article-dek">{cfg["dek"]}</p>\n'
       f'    <div class="article-byline">BoringRate Editorial &nbsp;&middot;&nbsp; July 2026</div>\n'
       f'  </div>\n\n  <div class="article-body">\n')
-    body = (header + thinzip(top) + '\n\n' + table(cfg["rows"]) + '\n' + cfg["prose"]
+    mid = cfg['hub_body'] if cfg.get('hub_body') else (table(cfg["rows"]) + '\n' + cfg["prose"])
+    body = (header + thinzip(top) + '\n\n' + mid
             + '\n\n    ' + thinzip(bot) + '\n\n  </div>\n</div>\n\n')
     i0 = s.index('<div class="article-header">'); i1 = s.index('<footer>')
     s = s[:i0] + body + s[i1:]
@@ -163,8 +170,60 @@ def build(cfg):
 
 PAGES = []  # populated by gen_reactive_config.py import below
 
+def hub_body(pages):
+    """Grouped link list for the hub — auto-updates as reactive pages are added."""
+    from collections import defaultdict
+    by_state = defaultdict(list)
+    for c in pages:
+        car, _h, _t, _f, chg, _n, _u = c['rows'][0]           # first row = target carrier
+        by_state[c['state']].append((car, chg, c['url'].replace('https://boringrate.com', '')))
+    out = ['<p>If your car insurance renewal jumped, you are not imagining it &mdash; and unlike most '
+           'sites, we can show you the <strong>actual approved rate filing</strong> behind it. Find your '
+           'carrier and state below. Each explainer breaks down how much the carrier raised, how the '
+           'increase varies by driver, and &mdash; the part your renewal notice never mentions &mdash; '
+           'which competitors are <em>cutting</em> rates in your state right now.</p>',
+           '<h2>Find your carrier and state</h2>', '<div class="hub-list">']
+    for st in sorted(by_state):
+        out.append(f'<h3>{st}</h3>\n<ul>')
+        for car, chg, href in sorted(by_state[st]):
+            out.append(f'<li><a href="{href}">Why did my {car} rate go up in {st}? '
+                       f'<span class="hub-chg">{chg}</span></a></li>')
+        out.append('</ul>')
+    out.append('</div>')
+    out.append('<p>Don&rsquo;t see your carrier or state yet? We add explainers as we pull each '
+               'state&rsquo;s filings. In the meantime, the <a class="ca-link" href="/article/rate-changes/">'
+               '2026 Rate Change Tracker</a> shows every approved change we&rsquo;ve recorded, and '
+               '<a class="ca-link" href="/article/premium-went-up.html">Why Your Premium Went Up</a> '
+               'explains the forces behind rising rates &mdash; or just compare every carrier for your ZIP above.</p>')
+    return '\n'.join(out)
+
+def hub_cfg(pages):
+    return {
+     'path': 'article/why-your-rate-went-up.html',
+     'url': 'https://boringrate.com/article/why-your-rate-went-up.html',
+     'title': 'Why did my car insurance rate go up? Find your carrier and state',
+     'desc': 'Your carrier raised your rate? Find the actual approved SERFF filing behind it - how much, the range by driver, and which competitors are cutting rates in your state right now.',
+     'ogdesc': 'Find the actual approved rate filing behind your car insurance increase - by carrier and state - plus who is cutting rates near you. Primary-source, no estimates.',
+     'state': 'Rate increases', 'read': '2', 'tracker': '/article/rate-changes/',
+     'alert': 'Your rate went up? Find the actual approved filing behind it &mdash; by carrier and state.',
+     'h1': 'Why did my car insurance rate go up?',
+     'dek': 'Your renewal jumped and no claim explains it. Find your carrier and state below for the <strong>actual approved rate filing</strong> &mdash; how much they raised, how it varies by driver, and who&rsquo;s cutting rates near you.',
+     'topzip': "See who&rsquo;s cheapest in your ZIP right now:",
+     'hub_body': hub_body(pages), 'rows': [], 'prose': '',
+     'faq': [
+       ('Why did my car insurance rate go up if I did not file a claim?',
+        'Auto rates are set at the book level, not per customer: your carrier files a statewide rate change with the insurance department based on its overall loss costs, and it applies to you at renewal regardless of your own claims. Our explainers link the actual approved filing for your carrier and state so you can see the exact figure and reasoning.'),
+       ('How do I find the exact filing behind my increase?',
+        'Pick your carrier and state from the list on this page. Each explainer cites the approved SERFF filing by tracking number - the size of the increase, how it varies by driver, and which competitors cut rates in the same state.'),
+       ('Does a rate increase mean I should switch carriers?',
+        'Often, yes - especially when other carriers in your state are cutting. A rate change applies at renewal, and a carrier that raised you can be more expensive than a competitor. Comparing every carrier for your exact ZIP and profile is the only way to know your lowest current price.'),
+     ],
+    }
+
 if __name__ == '__main__':
     from gen_reactive_config import PAGES
-    print(f'stamping {len(PAGES)} reactive pages from {TEMPLATE}')
+    print(f'stamping {len(PAGES)} reactive pages + hub from {TEMPLATE}')
     for cfg in PAGES:
         build(cfg)
+    build(hub_cfg(PAGES))
+    print('  wrote article/why-your-rate-went-up.html (hub)')
