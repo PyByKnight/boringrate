@@ -19,13 +19,26 @@ Allstate 1.43 (standard book untouched), First Acceptance 1.48 (no VA book).
 
 **NOT yet committed** — review `git diff` then commit (owner commits per logical change).
 
-**NEXT (per content strategy `boringrate-filing-data-content-strategy`):**
-1. Prototype ONE "why did my [carrier] rate go up in Virginia?" page off VA data (reactive wedge),
-   using the spread/indicated juice; measure GSC, then hand-build ~5, then scale.
-2. Free re-parse of on-disk OH/IL/PA/MI jackets to backfill max_pct/min_pct into their ledger rows
-   (jackets already on disk — no re-pull).
-3. Consider adding **Elephant** (32K VA book) to VA STATE_LOCAL_CARRIERS (currently has near-zero MMG).
-4. Owner TODO: create Plausible goal `min_coverage_toggled`.
+**DONE 2026-07-30 — reactive content lane DEPLOYED (5 pages live on boringrate.com):**
+"why did my [carrier] rate go up in [state]?" — GEICO-VA (prototype), Erie-VA, USAA-GA, GEICO-NY,
+Liberty Mutual-NY. Stamped by `gen_reactive_pages.py` + `gen_reactive_config.py` (PAGES config) from
+the tennessee-rates-dropping.html shell. Pushed to origin/main (GitHub Pages). **NOW: measure GSC over
+2–3 weeks BEFORE building more** (owner plan). If signal, add PAGES entries and re-run to scale.
+  - DEBT: the GEICO-VA prototype was hand-assembled and is NOT yet in gen_reactive_config.py PAGES
+    (the other 4 are). Fold it in before the next template edit so all 5 regenerate consistently.
+
+**DONE 2026-07-30 — reactive-page UX pass + site-wide nav CSS fix:** thin ZIP CTAs (dropped the big
+two-tile module + email block), concise 5-col rate table (Carrier · Rate Change · Policyholders ·
+Eff. Date · Filing #, ph/eff derived from ledger by tracking). Nav: article/state/metro/carrier pages
+had `.nav-dd-*` only inside `@media(max-width:900px)` → unstyled dropdown buttons on desktop; fixed
+single-source via `partials/nav-css.html` stamped by `build_nav.py` (588 pages; tool pages skipped).
+See memory [[boringrate-nav-singlesource]].
+
+**STILL PENDING:**
+1. Free re-parse of on-disk OH/IL/PA/MI jackets to backfill max_pct/min_pct into their ledger rows
+   (jackets already on disk — no re-pull). Unlocks the tier-1 spread stat for non-VA reactive pages.
+2. Consider adding **Elephant** (32K VA book) to VA STATE_LOCAL_CARRIERS (currently has near-zero MMG).
+3. Owner TODO: create Plausible goal `min_coverage_toggled`.
 
 ---
 
