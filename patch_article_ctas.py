@@ -71,23 +71,26 @@ def labels(path, html):
 
 EMAIL_RE = re.compile(r'<div class="article-email">.*?id="articleEmailThanks"[^>]*>.*?</div>\s*</div>', re.S)
 TILES_RE = re.compile(r'(?m)^[ \t]*<div class="tooltiles">.*</div></div>[ \t]*\n')
+EMBED_RE = re.compile(r'[ \t]*<div class="zip-embed">.*?</form>\s*</div>\n?', re.S)
 BYSTATE_RE = re.compile(r'<h2[^>]*>[^<]*rates by state[^<]*</h2>')
 FOOT_RE = re.compile(r'(\n[ \t]*</div>\s*</div>\s*<footer>)')
 
-def process(path):
-    html = open(path, encoding='utf-8').read()
-    if 'class="rz-zip"' in html: return ('skip-has-rz', path)
-    if '<div class="article-body">' not in html: return ('skip-no-body', path)
-    if not EMAIL_RE.search(html): return ('skip-no-email-block', path)
+def transform(path, html):
+    """Pure: returns (status, new_html_or_None, where). Shared by the batch patcher
+    and by generators that want to bake the template into their output."""
+    if 'class="rz-zip"' in html: return ('skip-has-rz', None, None)
+    if '<div class="article-body">' not in html: return ('skip-no-body', None, None)
+    if not EMAIL_RE.search(html): return ('skip-no-email-block', None, None)
+    if '</head>' not in html: return ('skip-no-head', None, None)
     la, lb = labels(path, html)
     # 1. CSS (idempotent)
     if '<!-- rz-cta-css -->' not in html:
-        if '</head>' not in html: return ('skip-no-head', path)
         html = html.replace('</head>', RZ_CSS + '</head>', 1)
     # 2. CTA #1 right after article-body open
     html = html.replace('<div class="article-body">', '<div class="article-body">\n' + rz(la), 1)
-    # 3. remove tooltiles module (only when it is the whole line)
+    # 3. remove the old mid-article modules: .tooltiles two-tile block and .zip-embed dark box
     html = TILES_RE.sub('', html)
+    html = EMBED_RE.sub('', html)
     # 4. remove email-capture block
     html = EMAIL_RE.sub('', html, count=1)
     # 5. CTA #2 above the by-state compare section, else just before article-body/wrap close
@@ -97,10 +100,17 @@ def process(path):
         where = 'above-by-state'
     else:
         html, n = FOOT_RE.subn(lambda mm: '\n' + rz(lb) + mm.group(1), html, count=1)
-        if n == 0: return ('skip-no-cta2-anchor', path)
+        if n == 0: return ('skip-no-cta2-anchor', None, None)
         where = 'end-of-body'
+    return ('patched', html, where)
+
+def process(path):
+    html = open(path, encoding='utf-8').read()
+    status, new_html, where = transform(path, html)
+    if new_html is None: return (status, path)
     if not DRY:
-        open(path, 'w', encoding='utf-8').write(html)
+        open(path, 'w', encoding='utf-8').write(new_html)
+    la, _ = labels(path, html)
     return ('would-patch' if DRY else 'patched', path, where, la)
 
 def main():

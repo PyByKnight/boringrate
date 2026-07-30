@@ -12,7 +12,10 @@ import pathlib
 import re
 
 ROOT = pathlib.Path(__file__).parent
-TEMPLATE = ROOT / "article" / "metro" / "atlanta.html"
+# Pristine OLD-format base (pre-CTA-rollout atlanta): keeps the .article-email anchor the
+# body-replacement regexes rely on. The locked CTA template is applied at write time via
+# patch_article_ctas.transform (baked below), so live pages never revert to the old modules.
+TEMPLATE = ROOT / "gen_metro_base.html"
 # National baseline for "% vs national" — mean of the model's state averages
 # (set below, after STATE is parsed, so it stays in sync with the single source).
 NATIONAL_AVG = 2400  # placeholder; recomputed from STATE_DATA after parse
@@ -223,6 +226,14 @@ def build_page(cfg):
     html = html.replace("Compare Atlanta rates", f"Compare {metro} rates")
 
     out = ROOT / "article" / "metro" / f"{slug}.html"
+    # Bake the locked article-CTA template (thin rz-zip CTAs; drop the .zip-embed dark box
+    # and the .article-email block) so a regen matches the site-wide rollout instead of
+    # reverting to the old modules. See patch_article_ctas.transform / memory
+    # boringrate-article-cta-template.
+    from patch_article_ctas import transform as _cta_transform
+    _status, _new, _where = _cta_transform(str(out), html)
+    if _new is not None:
+        html = _new
     out.write_text(html, encoding="utf-8")
     return out, avg, p
 
