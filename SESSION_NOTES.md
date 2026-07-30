@@ -34,6 +34,21 @@ had `.nav-dd-*` only inside `@media(max-width:900px)` → unstyled dropdown butt
 single-source via `partials/nav-css.html` stamped by `build_nav.py` (588 pages; tool pages skipped).
 See memory [[boringrate-nav-singlesource]].
 
+**DONE 2026-07-30 (pt 2) — content scale-up + internal linking + state features:**
+- **max/min re-parse**: OH/IL/PA/MI on-disk jackets re-parsed (`reparse_maxmin.py`), 199 ledger rows gained
+  the spread (263 total). `parse_oh._row` now swap-guards max>=min.
+- **10 reactive pages** ("why did my [carrier] rate go up in [state]"): GEICO/Erie/USAA/Allstate/Liberty/
+  Travelers/Kemper across VA/GA/NY/IL. `gen_reactive_pages.py` + `gen_reactive_config.py`.
+- **Internal linking** (reactive were orphaned): hub `/article/why-your-rate-went-up.html` (auto-generated,
+  grouped by state) + nav link (partials/nav-mega.html Data&tools) + `patch_reactive_links.py` (contextual
+  blocks on carrier/state pages, in rebuild.sh SHARED tail).
+- **5 state features** ("[state] car insurance rate changes 2026: who cut and who raised") for VA/OH/MI/GA/IL
+  via `build_state_features.py` (FEATURES list; kept OUT of PAGES). Linked from their state pages.
+- All in sitemap + pinged via IndexNow (key `5fbfc5544ed64066bdc6a16dadf595fb.txt`, POST api.indexnow.org).
+- Owner note: GSC too low-traffic to measure in 3 weeks → strategy shifted to make pages + drive traffic.
+  Next content: more state features (we have data for PA + the aggregator states), more reactive combos as
+  increases appear. Missing carrier pages noticed: Grange, National General, The Hanover, Frankenmuth.
+
 **STILL PENDING:**
 1. Free re-parse of on-disk OH/IL/PA/MI jackets to backfill max_pct/min_pct into their ledger rows
    (jackets already on disk — no re-pull). Unlocks the tier-1 spread stat for non-VA reactive pages.
