@@ -61,10 +61,18 @@ block (still live on all 38 carrier pages, off-thesis). Copy is carrier-specific
     (slug `-auto` guard for Direct Auto/Safe Auto), state/metro from kicker. Defensive skips: 22 non-standard
     pages (6 no by-state/footer cta2 anchor, 14 no article-email block, 2 no article-body) — NOT patched;
     review + handle those next. QA 605/0 JS errors; all 280 validated (div-balanced, exactly 2 rz-zip, 0
-    article-email, 0 tooltiles). **STILL TODO:** (a) the 22 skipped pages; (b) strip now-dead
-    `.zip-embed`/`.article-email`/`.tooltiles` CSS + email-submit JS (harmless, self-guards); (c) **bake the
-    template into the generators** (gen_metro_page, gen_*state*, carrier gens, patch_carrier_filings, etc.)
-    so a regen doesn't wipe the patch — currently only the live HTML is patched, not the generators.
+    article-email, 0 tooltiles).
+  - **GENERATOR BAKE DONE (commit `82801e17`):** audited which of the 280 are regenerated — ONLY the 11
+    generator-managed auto metro pages (gen_metro_page.py via gen_metros_batch.py). Carrier/state/compare/
+    guide + the 83 legacy metros are STATIC (no full-page generator writes them — patch_carrier_filings etc.
+    only inject sections), so they're permanently done. Baked the template into `gen_metro_page.py`:
+    it now applies the shared `patch_article_ctas.transform()` at write time and reads a pristine old-format
+    base `gen_metro_base.html` (pre-rollout atlanta, kept so the body-replacement anchors survive). Also
+    caught + fixed a gap: the 11 metros used the dark `.zip-embed` box (not .tooltiles), which the first
+    rollout left in place — `transform()` now strips `.zip-embed` too. Re-ran gen_metros_batch: idempotent
+    (2nd run = no git diff), QA 606/0. rebuild.sh will no longer revert these.
+  - **STILL TODO:** (a) the 22 skipped pages; (b) strip now-dead `.zip-embed`/`.article-email`/`.tooltiles`
+    CSS + email-submit JS from live pages (harmless, self-guards, cosmetic cleanup only).
 
 **STILL PENDING:**
 1. Free re-parse of on-disk OH/IL/PA/MI jackets to backfill max_pct/min_pct into their ledger rows
