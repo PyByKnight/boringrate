@@ -18,6 +18,15 @@ PROG_VA =('Progressive','/article/carrier/progressive.html','PRGS-134458370','13
 ERIE_VA_up=('Erie','/article/carrier/erie.html','ERAP-134691371','134691371','&plus;4.2%',
           'Raised &plus;4.2% (indicated &plus;6.9%); the range runs &plus;34% to &minus;30% by driver. A later Erie filing then cut &minus;1.3%.', True)
 
+# ── GA context (a strongly-cutting market) ──
+SF_GA  = ('State Farm','/article/carrier/state-farm.html','SFMA-134677514','134677514','&minus;3.0%','', False)
+TRV_GA = ('Travelers','/article/carrier/travelers.html','TRVD-G134911970','134911970','&minus;10.1%','', False)
+PROG_GA= ('Progressive','/article/carrier/progressive.html','PRGS-134655228','134655228','&minus;4.1%','', False)
+# ── IL context (heavy cutting) ──
+SF_IL  = ('State Farm','/article/carrier/state-farm.html','SFMA-134704563','134704563','&minus;9.4%','', False)
+CF_IL  = ('Country Financial','/article/carrier/country-financial.html','CFPC-134932067','134932067','&minus;8.0%','', False)
+PROG_IL= ('Progressive','/article/carrier/progressive.html','PRGS-134633994','134633994','&minus;5.3%','', False)
+
 SF_NY  = ('State Farm','/article/carrier/state-farm.html','SFMA-134399932','134399932','0.0%',
           'Held New York rates <strong>flat</strong> (0%). Eff. Nov 17, 2025.', False)
 USAA_NY= ('USAA','/article/carrier/usaa.html','USAA-134556435','134556435','0.0%',
@@ -245,6 +254,201 @@ PAGES = [
    'Yes. While GEICO raised +3.8%, State Farm - Virginia\'s largest auto insurer - cut -6.5% on about 1.43 million policyholders, on top of an earlier -4.0% cut. USAA cut -1.3% across about 182,000 members and part of Nationwide\'s book fell -5.0%. A GEICO increase is a strong reason to compare competitors.'),
   ('Will shopping actually lower my bill if GEICO raised me?',
    'Possibly. Rate changes apply at renewal, not mid-term, and a carrier that raised you can be more expensive than a competitor cutting rates in your ZIP. Comparing every carrier for your exact ZIP and profile is the only way to know whether GEICO is still your lowest current price.'),
+ ],
+},
+# ────────────────────────────── GA GEICO ──────────────────────────────
+{
+ 'path':'article/why-did-my-geico-rate-go-up-georgia.html',
+ 'url': B+'why-did-my-geico-rate-go-up-georgia.html',
+ 'title':'Why did my GEICO rate go up in Georgia?',
+ 'desc':'GEICO raised Georgia auto rates +4.6% - and indicated it needed +7.7%, so more may follow. Meanwhile State Farm cut 2M Georgians and Travelers cut -10%. The filing, and who to compare.',
+ 'ogdesc':'GEICO raised Georgia auto rates +4.6% (it wanted +7.7%) while State Farm cut 2M Georgians and Travelers cut -10%. See the filing and compare.',
+ 'state':'Georgia','read':'5','tracker':'/article/rate-changes/georgia.html',
+ 'alert':'GEICO raised Georgia auto rates &plus;4.6% &mdash; and its own math said &plus;7.7%, while State Farm cut 2M Georgians.',
+ 'h1':'Why did my GEICO rate go up in Georgia?',
+ 'dek':'GEICO raised its Georgia auto rates <strong>&plus;4.6%</strong> &mdash; and its own actuaries said it needed <strong>&plus;7.7%</strong>, so it took less than the full amount and the pressure may return. The timing is striking: while GEICO went up, State Farm cut <strong>two million</strong> Georgians and Travelers cut ten percent. Here&rsquo;s the filing, and who&rsquo;s cutting.',
+ 'rows':[('GEICO','/article/carrier/geico.html','GECC-134514872','134514872','&plus;4.6%','', True), SF_GA, TRV_GA, PROG_GA],
+ 'prose':
+'''    <p>If your GEICO renewal in Georgia came in higher, here is the source: GEICO filed for a rate increase (SERFF <strong>GECC-134514872</strong>) and Georgia regulators approved <strong>&plus;4.6%</strong>. The figures above are approved filings from the public SERFF system &mdash; not estimates &mdash; and each links to its filing.</p>
+
+    <h2>GEICO took less than it asked for &mdash; more may follow</h2>
+    <p>Filings separate the <em>indicated</em> change (what GEICO&rsquo;s actuaries said the loss data justified) from the <em>approved</em> change. GEICO indicated <strong>&plus;7.7%</strong> and took <strong>&plus;4.6%</strong> &mdash; leaving roughly three points of its own indicated need unfilled. Carriers commonly return with a follow-up filing to close a gap like that, so a Georgia GEICO customer should expect continued upward pressure.</p>
+
+    <h2>Meanwhile, Georgia&rsquo;s market is cutting</h2>
+    <p>Here is what makes a GEICO increase worth acting on: most of Georgia is moving the other way. <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a>, the state&rsquo;s largest insurer, <strong>cut &minus;3.0%</strong> across more than <strong>2 million</strong> policyholders; <a class="ca-link" href="/article/carrier/travelers.html">Travelers</a> cut <strong>&minus;10.1%</strong>; <a class="ca-link" href="/article/carrier/progressive.html">Progressive</a> cut &minus;4.1%. When the biggest books are cutting and yours just raised you, the gap between what you pay and the best available price is widening.</p>
+
+    <h2>Your increase isn&rsquo;t the average</h2>
+    <p>A statewide &plus;4.6% is blended; GEICO reprices individually on your ZIP, vehicle, age, claims and coverage, so your actual change can be higher or lower. The only way to know whether your number is competitive is to compare carriers for your specific profile.</p>
+
+'''+CALL.format(stat='GEICO is raising Georgia &plus;4.6% (and wanted &plus;7.7%) while State Farm cut 2 million Georgians and Travelers cut &minus;10.1%.', utm='ga-geico')+'''
+
+    <h2>What to do with your renewal</h2>
+    <p>Approved changes apply <strong>at renewal, not mid-term</strong>, and usually reach new customers before existing ones. Your renewal shows GEICO&rsquo;s price for your coverage; it does not tell you what State Farm, Progressive or Travelers would charge for the same coverage today. With Georgia&rsquo;s biggest books cutting, running your ZIP against every carrier is worth doing before you renew &mdash; it&rsquo;s free and takes a couple of minutes.</p>''',
+ 'faq':[
+  ('Why did my GEICO rate go up in Georgia in 2026?',
+   'GEICO filed for and received an approved +4.6% Georgia auto rate increase (SERFF GECC-134514872) on about 176,619 policyholders. Its actuarial indication was +7.7%, so GEICO took less than its own data justified, and Georgia regulators approved it.'),
+  ('Is GEICO going to raise my Georgia rate again?',
+   'Possibly. GEICO indicated it needed +7.7% but took only +4.6%, leaving about three points of its own indicated need unfilled. Carriers commonly return with a follow-up filing to close that gap, so continued upward pressure is likely.'),
+  ('Are other Georgia insurers cutting rates?',
+   'Yes, heavily. State Farm cut -3.0% across more than 2 million Georgia policyholders, Travelers cut -10.1%, and Progressive cut -4.1%. A GEICO increase against a broadly cutting market is a strong reason to compare competitors.'),
+  ('Will shopping lower my bill if GEICO raised me?',
+   'It can. Rate changes apply at renewal, not mid-term, and competitors cutting rates can undercut a carrier that just raised you. Comparing every carrier for your exact ZIP and profile is the only way to know your lowest current price.'),
+ ],
+},
+# ────────────────────────────── VA ALLSTATE ──────────────────────────────
+{
+ 'path':'article/why-did-my-allstate-rate-go-up-virginia.html',
+ 'url': B+'why-did-my-allstate-rate-go-up-virginia.html',
+ 'title':'Why did my Allstate rate go up in Virginia?',
+ 'desc':'Allstate raised Virginia auto rates +3.0% - but indicated +10%, so a gap remains, and the filing ranged +18% to -16% by driver. Meanwhile State Farm cut 1.4M Virginians. The filing, and who to compare.',
+ 'ogdesc':'Allstate raised Virginia auto rates +3.0% but indicated +10% - a gap that points to more increases. State Farm cut 1.4M Virginians. See the filing and compare.',
+ 'state':'Virginia','read':'5','tracker':'/article/rate-changes/virginia.html',
+ 'alert':'Allstate raised Virginia auto rates &plus;3.0% &mdash; but it indicated &plus;10%, and State Farm cut 1.4M Virginians.',
+ 'h1':'Why did my Allstate rate go up in Virginia?',
+ 'dek':'Allstate raised its Virginia auto rates <strong>&plus;3.0%</strong> in 2026 &mdash; but the filing shows it indicated a need for <strong>&plus;10%</strong>, so it took less than a third of what its own math called for, and the range ran &plus;18% to &minus;16% by driver. Meanwhile State Farm cut 1.4 million Virginians. Here&rsquo;s the filing, and who&rsquo;s cutting.',
+ 'rows':[('Allstate','/article/carrier/allstate.html','ALSE-134970309','134970309','&plus;3.0%','', True), SF_VA, USAA_VA, NW_VA, GEICO_VA, ERIE_VA_up],
+ 'prose':
+'''    <p>If your Allstate renewal in Virginia climbed, here is the source: Allstate filed for a rate increase (SERFF <strong>ALSE-134970309</strong>) and the <strong>Virginia Bureau of Insurance</strong> approved <strong>&plus;3.0%</strong>. These are approved filings from the public SERFF system &mdash; not estimates &mdash; and each links to its filing.</p>
+
+    <h2>Allstate asked for &plus;10% and got &plus;3%</h2>
+    <p>Filings separate the <em>indicated</em> change (what the actuaries said the loss data justified) from the <em>approved</em> change. Allstate indicated <strong>&plus;10.0%</strong> and took <strong>&plus;3.0%</strong> &mdash; less than a third of its own number. That leaves roughly seven points of indicated need <em>unfilled</em>, and carriers refile to close a gap that size, so a Virginia Allstate customer should plan on continued increases. (Earlier in the year Allstate had cut part of its Virginia book &minus;5.0%; this &plus;3.0% is the most recent move.)</p>
+
+    <h2>The &plus;3% ranges &plus;18% to &minus;16%</h2>
+    <p>A statewide average hides the spread. Allstate&rsquo;s own filing reports the change ran from about <strong>&plus;18%</strong> to about <strong>&minus;16%</strong> by driver &mdash; so inside a &ldquo;&plus;3% average,&rdquo; some Virginia drivers were raised double digits and others were cut. Where you land depends on your ZIP, vehicle, age, claims and coverage, which is why the headline can&rsquo;t tell you whether your increase is reasonable.</p>
+
+'''+CALL.format(stat='Allstate indicated <strong>&plus;10%</strong> in Virginia but took &plus;3% &mdash; the unfilled gap tends to return, and the range ran &plus;18% to &minus;16% by driver.', utm='va-allstate')+'''
+
+    <h2>Meanwhile, Virginia&rsquo;s biggest insurer <em>cut</em> rates</h2>
+    <p>While Allstate nudged up, <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a> &mdash; the largest auto insurer in Virginia &mdash; <strong>cut &minus;6.5%</strong> on roughly 1.43 million policyholders, after an earlier &minus;4.0% cut. <a class="ca-link" href="/article/carrier/usaa.html">USAA</a> trimmed &minus;1.3% and part of <a class="ca-link" href="/article/carrier/nationwide.html">Nationwide</a>&rsquo;s book came down &minus;5.0%. Some of the biggest Virginia books moved <em>down</em> &mdash; a strong reason to see what a competitor would charge you today.</p>
+
+    <h2>What to do with your renewal</h2>
+    <p>Approved changes apply <strong>at renewal, not mid-term</strong>, and usually reach new customers first. Your renewal shows Allstate&rsquo;s price for your coverage; it does not tell you what State Farm, USAA or Erie would charge for the same coverage. With a large indicated gap still unfilled, running your ZIP against every carrier is worth doing now &mdash; it&rsquo;s free and takes a couple of minutes.</p>''',
+ 'faq':[
+  ('Why did my Allstate rate go up in Virginia in 2026?',
+   'Allstate filed for and received an approved +3.0% Virginia auto rate increase (SERFF ALSE-134970309), effective July 27, 2026, on about 68,527 policyholders. Its actuarial indication was +10.0%, so the state approved less than a third of what Allstate said its data justified.'),
+  ('Allstate asked for how much in Virginia?',
+   'Allstate indicated it needed +10.0% but was approved for only +3.0%, leaving roughly seven points of its own indicated need unfilled - a gap carriers typically try to close with follow-up filings.'),
+  ('How much did Allstate actually raise my Virginia rate?',
+   'The +3.0% is a statewide average. Allstate\'s filing reports the change ranged from about +18% to about -16% by driver, depending on ZIP, vehicle, age and history - so many Virginia Allstate drivers saw far more or far less than 3%.'),
+  ('Are other Virginia auto insurers cutting rates?',
+   'Yes. While Allstate raised +3.0%, State Farm cut -6.5% on about 1.43 million policyholders (after an earlier -4.0% cut), USAA cut -1.3%, and part of Nationwide\'s book fell -5.0%. An Allstate increase is a strong reason to compare competitors.'),
+ ],
+},
+# ────────────────────────── VA LIBERTY MUTUAL ─────────────────────────
+{
+ 'path':'article/why-did-my-liberty-mutual-rate-go-up-virginia.html',
+ 'url': B+'why-did-my-liberty-mutual-rate-go-up-virginia.html',
+ 'title':'Why did my Liberty Mutual rate go up in Virginia?',
+ 'desc':'Liberty Mutual raised Virginia auto rates +4.0% - but the same filing ranged +82% to -18% by driver, an unusually wide spread. Meanwhile State Farm cut 1.4M Virginians. The filing, and who to compare.',
+ 'ogdesc':'Liberty Mutual raised Virginia auto rates +4.0% - but the same filing ranged +82% to -18% by driver. State Farm cut 1.4M Virginians. See the filing and compare.',
+ 'state':'Virginia','read':'5','tracker':'/article/rate-changes/virginia.html',
+ 'alert':'Liberty Mutual raised Virginia auto rates &plus;4.0% &mdash; but the filing ranges &plus;82% to &minus;18% by driver.',
+ 'h1':'Why did my Liberty Mutual rate go up in Virginia?',
+ 'dek':'Liberty Mutual raised its Virginia auto rates <strong>&plus;4.0%</strong> on average in 2026 &mdash; but &ldquo;average&rdquo; hides an unusually wide spread: the same filing ranged from a <strong>&plus;82% increase to an 18% cut</strong> depending on the driver. Meanwhile State Farm cut 1.4 million Virginians. Here&rsquo;s the filing, and who&rsquo;s cutting.',
+ 'rows':[('Liberty Mutual','/article/carrier/liberty-mutual.html','LBPM-134893945','134893945','&plus;4.0%','', True), SF_VA, USAA_VA, NW_VA, GEICO_VA, ERIE_VA_up],
+ 'prose':
+'''    <p>If your Liberty Mutual renewal in Virginia came in higher, here is the source: Liberty Mutual filed for a rate increase (SERFF <strong>LBPM-134893945</strong>) and the <strong>Virginia Bureau of Insurance</strong> approved <strong>&plus;4.0%</strong>. These are approved filings from the public SERFF system &mdash; not estimates &mdash; and each links to its filing.</p>
+
+    <h2>The &plus;4% ranges &plus;82% to &minus;18%</h2>
+    <p>This is the number that matters. A statewide &plus;4.0% sounds modest, but Liberty Mutual&rsquo;s own filing reports the change ran from about <strong>&plus;82%</strong> at the top to about <strong>&minus;18%</strong> at the bottom &mdash; one of the widest spreads in the Virginia market. Inside that &ldquo;&plus;4% average,&rdquo; some drivers were repriced by more than 80% while others were cut. If your Liberty Mutual bill jumped far more than 4%, this is why: the average describes the book, not you.</p>
+
+    <h2>Where you land depends on your profile</h2>
+    <p>Liberty Mutual reprices individually on your ZIP, vehicle, age, claims and coverage &mdash; the factors that determine whether you&rsquo;re near the &plus;82% end or the &minus;18% end. It indicated a need of &plus;5.3% and took &plus;4.0%, so the book-wide move was small; the variance is all in how it was distributed. The only way to know where you sit &mdash; and whether a competitor would treat your profile better &mdash; is to compare for your exact situation.</p>
+
+'''+CALL.format(stat='Liberty Mutual&rsquo;s Virginia filing ranged from <strong>&plus;82% to &minus;18%</strong> around a &plus;4% average. If your bill jumped, you&rsquo;re on the wrong end of that spread.', utm='va-liberty')+'''
+
+    <h2>Meanwhile, Virginia&rsquo;s biggest insurer <em>cut</em> rates</h2>
+    <p>While Liberty Mutual raised, <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a> &mdash; the largest auto insurer in Virginia &mdash; <strong>cut &minus;6.5%</strong> on roughly 1.43 million policyholders, after an earlier &minus;4.0% cut. <a class="ca-link" href="/article/carrier/usaa.html">USAA</a> trimmed &minus;1.3% and part of <a class="ca-link" href="/article/carrier/nationwide.html">Nationwide</a>&rsquo;s book came down &minus;5.0%. If you were repriced hard by Liberty Mutual, a competitor cutting rates is exactly who you want to check.</p>
+
+    <h2>What to do with your renewal</h2>
+    <p>Approved changes apply <strong>at renewal, not mid-term</strong>. Your renewal shows Liberty Mutual&rsquo;s price for your coverage; it does not tell you what State Farm, USAA or Erie would charge for the same coverage. Given how wide Liberty Mutual&rsquo;s spread ran, comparing your ZIP against every carrier is especially worth it &mdash; it&rsquo;s free and takes a couple of minutes.</p>''',
+ 'faq':[
+  ('Why did my Liberty Mutual rate go up in Virginia in 2026?',
+   'Liberty Mutual filed for and received an approved +4.0% Virginia auto rate increase (SERFF LBPM-134893945), effective June 23, 2026, on about 46,227 policyholders. Its indication was +5.3%, and the Virginia Bureau of Insurance approved it.'),
+  ('Why did my Liberty Mutual bill jump far more than 4%?',
+   'Because +4.0% is a statewide average, not your change. Liberty Mutual\'s own filing reports the change ranged from about +82% to about -18% by driver - one of the widest spreads in Virginia. Where you land depends on your ZIP, vehicle, age, claims and coverage.'),
+  ('Are other Virginia auto insurers cutting rates?',
+   'Yes. While Liberty Mutual raised +4.0%, State Farm cut -6.5% on about 1.43 million policyholders (after an earlier -4.0% cut), USAA cut -1.3%, and part of Nationwide\'s book fell -5.0%. If you were repriced hard, a competitor cutting rates is worth comparing.'),
+  ('Will shopping lower my bill if Liberty Mutual raised me?',
+   'Possibly, especially if you landed on the high end of Liberty Mutual\'s wide spread. A competitor may price your profile very differently. Comparing every carrier for your exact ZIP and profile is the only way to know your lowest current price.'),
+ ],
+},
+# ────────────────────────────── NY TRAVELERS ──────────────────────────────
+{
+ 'path':'article/why-did-my-travelers-rate-go-up-new-york.html',
+ 'url': B+'why-did-my-travelers-rate-go-up-new-york.html',
+ 'title':'Why did my Travelers rate go up in New York?',
+ 'desc':'Travelers raised New York auto rates +3.0% - but indicated +8.6%, so a gap remains. Meanwhile State Farm, USAA and Allstate held New York rates flat. The filing, and who to compare.',
+ 'ogdesc':'Travelers raised New York auto rates +3.0% but indicated +8.6% - a gap that points to more increases. State Farm, USAA and Allstate held flat. See the filing and compare.',
+ 'state':'New York','read':'5','tracker':'/article/rate-changes/new-york.html',
+ 'alert':'Travelers raised New York auto rates &plus;3.0% &mdash; but indicated &plus;8.6%, while State Farm and USAA held flat.',
+ 'h1':'Why did my Travelers rate go up in New York?',
+ 'dek':'Travelers raised its New York auto rates <strong>&plus;3.0%</strong> in 2026 &mdash; but the filing shows it indicated a need for <strong>&plus;8.6%</strong>, nearly triple what it took, so the pressure hasn&rsquo;t unwound. Meanwhile State Farm, USAA and Allstate held New York rates flat. Here&rsquo;s the filing, and which carriers didn&rsquo;t move.',
+ 'rows':[('Travelers','/article/carrier/travelers.html','TRVD-G134680232','134680232','&plus;3.0%','', True), GEICO_NY, LM_NY, SF_NY, USAA_NY, ALL_NY],
+ 'prose':
+'''    <p>If your Travelers renewal in New York came in higher, here is the source: Travelers filed for a rate increase (SERFF <strong>TRVD-G134680232</strong>) and the <strong>New York Department of Financial Services</strong> approved <strong>&plus;3.0%</strong>. These are approved filings from the public SERFF system &mdash; not estimates &mdash; and each links to its filing.</p>
+
+    <h2>Travelers took a third of what it asked for &mdash; more may follow</h2>
+    <p>Filings separate the <em>indicated</em> change (what Travelers&rsquo; actuaries said the loss data justified) from the <em>approved</em> change. Travelers indicated <strong>&plus;8.6%</strong> and took <strong>&plus;3.0%</strong> &mdash; leaving more than five points of its own indicated need unfilled. Carriers refile to close a gap like that, so a New York Travelers customer should expect continued upward pressure, and it&rsquo;s a reason to lock in a better price now rather than after the next filing.</p>
+
+    <h2>Your &plus;3% isn&rsquo;t the average for everyone</h2>
+    <p>A statewide &plus;3.0% is blended; Travelers reprices individually on your ZIP, vehicle, age, claims and coverage, so your actual change may be higher or lower. The headline can&rsquo;t tell you whether you&rsquo;re on a competitive price &mdash; only a comparison for your profile can.</p>
+
+'''+CALL.format(stat='Travelers indicated <strong>&plus;8.6%</strong> in New York but took only &plus;3% &mdash; the unfilled gap tends to return, while State Farm, USAA and Allstate held flat.', utm='ny-travelers')+'''
+
+    <h2>Meanwhile, New York&rsquo;s biggest insurers held flat</h2>
+    <p>Not everyone raised. While Travelers, <a class="ca-link" href="/article/carrier/geico.html">GEICO</a> (&plus;4.9%) and <a class="ca-link" href="/article/carrier/liberty-mutual.html">Liberty Mutual</a> (&plus;5.0%) moved up, <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a>, <a class="ca-link" href="/article/carrier/usaa.html">USAA</a> and <a class="ca-link" href="/article/carrier/allstate.html">Allstate</a> all filed New York rates <strong>flat at 0%</strong>. A carrier that held flat while Travelers raised you may now be cheaper for the same coverage.</p>
+
+    <h2>What to do with your renewal</h2>
+    <p>Approved changes apply <strong>at renewal, not mid-term</strong>, and usually reach new customers first. Your renewal shows Travelers&rsquo; price for your coverage; it does not tell you what State Farm, USAA or Allstate would charge for the same coverage today. Running your ZIP against every carrier is free and takes a couple of minutes &mdash; and with Travelers&rsquo; indicated need still unfilled, it&rsquo;s worth doing before you renew.</p>''',
+ 'faq':[
+  ('Why did my Travelers rate go up in New York in 2026?',
+   'Travelers filed for and received an approved +3.0% New York auto rate increase (SERFF TRVD-G134680232), effective December 29, 2025, on about 227,988 policyholders. Its actuarial indication was +8.6%, so Travelers took roughly a third of what its own data justified.'),
+  ('Is Travelers going to raise my New York rate again?',
+   'Possibly. Travelers indicated it needed +8.6% but took only +3.0%, leaving more than five points of its own indicated need unfilled. Carriers commonly return with a follow-up filing to close that gap.'),
+  ('Did other New York insurers raise rates too?',
+   'Some did and some did not. GEICO raised +4.9% and Liberty Mutual +5.0%, but State Farm, USAA and Allstate held their New York rates flat at 0%. A carrier that held flat may now be cheaper than Travelers for the same coverage.'),
+  ('Will shopping lower my bill if Travelers raised me?',
+   'It can. Rate changes apply at renewal, not mid-term, and competitors that held flat can undercut a carrier that just raised you. Comparing every carrier for your exact ZIP and profile is the only way to know your lowest current price.'),
+ ],
+},
+# ────────────────────────────── IL KEMPER ──────────────────────────────
+{
+ 'path':'article/why-did-my-kemper-rate-go-up-illinois.html',
+ 'url': B+'why-did-my-kemper-rate-go-up-illinois.html',
+ 'title':'Why did my Kemper rate go up in Illinois?',
+ 'desc':'Kemper raised Illinois auto rates +41.5% - a rare double-digit hike while State Farm cut 3.3M Illinoisans -9.4% and Progressive cut too. The filing, and who to compare.',
+ 'ogdesc':'Kemper raised Illinois auto rates +41.5% while State Farm cut 3.3M Illinoisans and Progressive cut too. See the filing and compare.',
+ 'state':'Illinois','read':'5','tracker':'/article/rate-changes/illinois.html',
+ 'alert':'Kemper raised Illinois auto rates &plus;41.5% &mdash; while State Farm cut 3.3M Illinoisans and Progressive cut too.',
+ 'h1':'Why did my Kemper rate go up in Illinois?',
+ 'dek':'Kemper raised its Illinois auto rates <strong>&plus;41.5%</strong> &mdash; an unusually steep increase, and its own actuaries agreed the math justified it (&plus;41.7% indicated). The contrast is stark: while Kemper jumped 41%, State Farm cut <strong>3.3 million</strong> Illinoisans and Progressive cut too. Here&rsquo;s the filing, and who&rsquo;s cutting.',
+ 'rows':[('Kemper','/article/carrier/kemper.html','UTRN-134957968','134957968','&plus;41.5%','', True), SF_IL, CF_IL, PROG_IL],
+ 'prose':
+'''    <p>If your Kemper renewal in Illinois jumped, here is the source: Kemper filed for a rate increase (SERFF <strong>UTRN-134957968</strong>) and Illinois regulators approved <strong>&plus;41.5%</strong>. These are approved filings from the public SERFF system &mdash; not estimates &mdash; and each links to its filing.</p>
+
+    <h2>A &plus;41.5% increase &mdash; and Kemper&rsquo;s own actuaries backed it</h2>
+    <p>Unlike most large increases, there is no gap here between what Kemper asked for and what it took: the <em>indicated</em> need was <strong>&plus;41.7%</strong> and the <em>approved</em> change was <strong>&plus;41.5%</strong>. That means Kemper&rsquo;s loss experience on this Illinois book genuinely ran far ahead of its prices &mdash; the kind of correction that shows up on books serving higher-risk or non-standard drivers. It also means the increase is unlikely to reverse: this is Kemper catching up, not overshooting.</p>
+
+    <h2>Meanwhile, Illinois is broadly cutting</h2>
+    <p>The contrast could hardly be sharper. <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a>, the state&rsquo;s largest insurer, <strong>cut &minus;9.4%</strong> across <strong>3.3 million</strong> Illinois policyholders; <a class="ca-link" href="/article/carrier/country-financial.html">Country Financial</a> cut <strong>&minus;8.0%</strong>; <a class="ca-link" href="/article/carrier/progressive.html">Progressive</a> cut &minus;5.3%. If Kemper just raised you 41%, the odds that another carrier will price you dramatically lower are high &mdash; higher than in almost any other situation.</p>
+
+'''+CALL.format(stat='Kemper is raising Illinois &plus;41.5% while State Farm cut 3.3 million Illinoisans &minus;9.4% and Progressive cut too.', utm='il-kemper')+'''
+
+    <h2>A 41% jump is a shop-now signal</h2>
+    <p>A statewide &plus;41.5% is still an average &mdash; your exact change depends on your ZIP, vehicle, age, claims and coverage &mdash; but an increase of this size almost always means you are no longer on a competitive price. When one carrier corrects this hard and the market&rsquo;s biggest books are cutting, the spread between what you pay and the best available rate is as wide as it gets.</p>
+
+    <h2>What to do with your renewal</h2>
+    <p>Approved changes apply <strong>at renewal, not mid-term</strong>. Your renewal shows Kemper&rsquo;s price for your coverage; it does not tell you what State Farm, Country Financial or Progressive would charge for the same coverage today. After a 41% increase, running your ZIP against every carrier is the single highest-value thing you can do &mdash; it&rsquo;s free and takes a couple of minutes.</p>''',
+ 'faq':[
+  ('Why did my Kemper rate go up in Illinois in 2026?',
+   'Kemper filed for and received an approved +41.5% Illinois auto rate increase (SERFF UTRN-134957968), effective May 25, 2026, on about 18,797 policyholders. Its actuarial indication was +41.7%, so Kemper took essentially the full amount its own loss data justified, and Illinois regulators approved it.'),
+  ('Is a 41% Kemper increase normal?',
+   'No - it is an unusually steep single filing, the kind that appears when a book\'s loss experience (often on higher-risk or non-standard drivers) has run far ahead of its prices. Because the indicated need matched the approved change, the increase is unlikely to reverse.'),
+  ('Are other Illinois insurers cutting rates?',
+   'Yes, heavily. State Farm cut -9.4% across 3.3 million Illinois policyholders, Country Financial cut -8.0%, and Progressive cut -5.3%. Against that, a 41% Kemper increase makes comparing competitors unusually likely to pay off.'),
+  ('Should I switch carriers after a 41% Kemper increase?',
+   'An increase that size almost always means you are no longer on a competitive price, so it is worth comparing. Whether switching is right depends on your exact ZIP and profile - run them against every carrier to see your lowest current price before you renew.'),
  ],
 },
 ]
