@@ -15,6 +15,8 @@ GEICO_VA=('GEICO','/article/carrier/geico.html','GECC-134876961','134876961','&p
           'Raised &plus;3.8% on ~181,473 policyholders; range &plus;10% to &minus;28% by driver.', True)
 PROG_VA =('Progressive','/article/carrier/progressive.html','PRGS-134458370','134458370','&plus;2.0%',
           'Raised &plus;2.0% on ~199,475 policyholders.', True)
+ERIE_VA_up=('Erie','/article/carrier/erie.html','ERAP-134691371','134691371','&plus;4.2%',
+          'Raised &plus;4.2% (indicated &plus;6.9%); the range runs &plus;34% to &minus;30% by driver. A later Erie filing then cut &minus;1.3%.', True)
 
 SF_NY  = ('State Farm','/article/carrier/state-farm.html','SFMA-134399932','134399932','0.0%',
           'Held New York rates <strong>flat</strong> (0%). Eff. Nov 17, 2025.', False)
@@ -200,6 +202,49 @@ PAGES = [
    'It is likely. With about fifteen points of indicated need still unfilled after this +5.0% increase, continued upward pressure is probable. Comparing competitors now, before the next filing, is the reliable move.'),
   ('Did other New York insurers raise rates too?',
    'Some did and some did not. GEICO raised +4.9% and Travelers +3.0%, but State Farm, USAA and Allstate held their New York rates flat at 0%. A carrier that held flat may now be cheaper than Liberty Mutual for the same coverage.'),
+ ],
+},
+# ────────────────────────────── VA GEICO (prototype, now generator-managed) ──────────────────────────────
+{
+ 'path':'article/why-did-my-geico-rate-go-up-virginia.html',
+ 'url': B+'why-did-my-geico-rate-go-up-virginia.html',
+ 'title':'Why did my GEICO rate go up in Virginia?',
+ 'desc':'GEICO raised Virginia auto rates +3.8% on average in 2026 - but the same approved filing ranges from +10% to a 28% cut by driver. Here is what the SERFF filing says, and which big Virginia carriers cut instead.',
+ 'ogdesc':'GEICO\'s approved 2026 Virginia increase averaged +3.8% - but ranged from +10% to a 28% cut by driver profile. Meanwhile State Farm cut 1.4M Virginians -6.5%. The filing, and who to compare.',
+ 'state':'Virginia','read':'5','tracker':'/article/rate-changes/virginia.html',
+ 'alert':'GEICO raised Virginia auto rates &plus;3.8% in 2026 &mdash; but the filing ranges &plus;10% to a 28% cut by driver.',
+ 'h1':'Why did my GEICO rate go up in Virginia?',
+ 'dek':'GEICO raised its Virginia auto rates <strong>&plus;3.8% on average</strong> in 2026 &mdash; and the state approved it. But &ldquo;average&rdquo; hides almost everything: the same filing ranges from a <strong>&plus;10% increase to a 28% cut</strong> depending on the driver. Here is what the filing actually says, and which big Virginia carriers went the other way.',
+ 'rows':[
+   ('GEICO','/article/carrier/geico.html','GECC-134876961','134876961','&plus;3.8%',
+    'The filing behind your increase. Approved &plus;3.8% on ~181,473 Virginia policyholders &mdash; and GEICO took exactly its indicated &plus;3.8%, no more. But the filing&rsquo;s own range runs <strong>&plus;10.0% to &minus;27.8%</strong> by driver. Eff. new business Apr 15, 2026.', True),
+   ERIE_VA_up, PROG_VA, SF_VA, USAA_VA, NW_VA],
+ 'prose':
+'''    <p>If your GEICO renewal in Virginia came in higher, here is the source: GEICO filed for a rate increase (SERFF <strong>GECC-134876961</strong>) and the <strong>Virginia Bureau of Insurance</strong> approved &plus;3.8%. The figures above are approved filings pulled from the public SERFF system &mdash; not estimates &mdash; and every one links to its filing.</p>
+
+    <h2>The &plus;3.8% is an average. Your increase almost certainly isn&rsquo;t 3.8%.</h2>
+    <p>A statewide rate change is a single blended number, but a carrier doesn&rsquo;t move every driver by the same amount. GEICO&rsquo;s own filing reports the spread: the largest increase in the book was about <strong>&plus;10%</strong>, and the largest <em>decrease</em> was about <strong>&minus;28%</strong>. In other words, inside a &ldquo;&plus;3.8% average,&rdquo; some Virginia drivers were raised double digits and others were cut by more than a quarter.</p>
+    <p>Where you land depends on the things GEICO reprices individually &mdash; your ZIP, your vehicle, your age, your claims and violation history, and your coverage. That is exactly why one number in a headline can&rsquo;t tell you whether <em>your</em> increase is reasonable, and why the only useful comparison is one run for your specific profile.</p>
+
+'''+CALL.format(stat='GEICO&rsquo;s Virginia filing ranged from <strong>&plus;10% to &minus;28%</strong> around a &plus;3.8% average. A carrier that raised you can be cutting the driver one ZIP over.', utm='va-geico')+'''
+
+    <h2>Why GEICO raised at all</h2>
+    <p>Filings separate two numbers: the <em>indicated</em> change (what the carrier&rsquo;s actuaries said the loss data justified) and the <em>approved</em> change (what the state actually allowed). GEICO&rsquo;s indicated need was &plus;3.8% and it took &plus;3.8% &mdash; it did not hold anything back. That is a modest, fully-justified adjustment, not a carrier trying to get ahead of its losses. For contrast, <a class="ca-link" href="/article/carrier/erie.html">Erie</a> indicated &plus;6.9% but was approved for &plus;4.2%, and <a class="ca-link" href="/article/carrier/progressive.html">Progressive</a> came in at &plus;2.0% &mdash; so Virginia&rsquo;s big carriers moved up only slightly in 2026, a long way from the double-digit spikes of 2025.</p>
+
+    <h2>Meanwhile, Virginia&rsquo;s biggest insurer <em>cut</em> rates</h2>
+    <p>Here is the part your renewal notice will never mention. While GEICO nudged up, <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a> &mdash; the largest auto insurer in Virginia &mdash; <strong>cut &minus;6.5%</strong> on roughly 1.43 million policyholders, on top of an earlier &minus;4.0% cut. <a class="ca-link" href="/article/carrier/usaa.html">USAA</a> trimmed &minus;1.3% across ~182,000 members, and part of <a class="ca-link" href="/article/carrier/nationwide.html">Nationwide</a>&rsquo;s book came down &minus;5.0%. The Virginia market did not move up in lockstep &mdash; some of the biggest books moved <em>down</em>. A GEICO increase, against that backdrop, is a strong reason to see what a competitor would charge you today.</p>
+
+    <h2>What to do with your renewal</h2>
+    <p>Approved changes apply <strong>at renewal, not mid-term</strong>, and usually reach new customers before existing ones &mdash; so two identical drivers can pay different rates for months purely on renewal timing. Your renewal shows GEICO&rsquo;s price for your coverage; it does not tell you what State Farm, USAA or anyone else would charge for the same coverage. Running your ZIP and profile against every carrier takes a couple of minutes and costs nothing &mdash; and given who&rsquo;s cutting in Virginia right now, it&rsquo;s worth doing before you renew.</p>''',
+ 'faq':[
+  ('Why did my GEICO rate go up in Virginia in 2026?',
+   'GEICO filed for and received an approved +3.8% average auto rate increase in Virginia (SERFF GECC-134876961), effective for new business April 15, 2026, on about 181,473 policyholders. GEICO took exactly its indicated +3.8% - the amount its own actuaries said the loss data justified - and the Virginia Bureau of Insurance approved it.'),
+  ('How much did GEICO actually raise my Virginia rate?',
+   'The +3.8% is a statewide average. GEICO\'s own filing reports the change ranged from roughly +10% to about -28% depending on the driver\'s ZIP, vehicle, age, and history - so many Virginia GEICO drivers saw far more or far less than 3.8%, and some were cut. Your actual change is not the headline average.'),
+  ('Are other Virginia auto insurers cutting rates in 2026?',
+   'Yes. While GEICO raised +3.8%, State Farm - Virginia\'s largest auto insurer - cut -6.5% on about 1.43 million policyholders, on top of an earlier -4.0% cut. USAA cut -1.3% across about 182,000 members and part of Nationwide\'s book fell -5.0%. A GEICO increase is a strong reason to compare competitors.'),
+  ('Will shopping actually lower my bill if GEICO raised me?',
+   'Possibly. Rate changes apply at renewal, not mid-term, and a carrier that raised you can be more expensive than a competitor cutting rates in your ZIP. Comparing every carrier for your exact ZIP and profile is the only way to know whether GEICO is still your lowest current price.'),
  ],
 },
 ]
