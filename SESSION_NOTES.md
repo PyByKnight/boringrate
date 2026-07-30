@@ -56,9 +56,15 @@ big mid-article `.tooltiles` (ZIP+coverage-calculator) module AND the bottom `.a
 block (still live on all 38 carrier pages, off-thesis). Copy is carrier-specific: "Instantly compare
 <Carrier> to all carriers in your ZIP:". Commits `7f9e0042`→`a6e6088e`, pushed. See memory
 [[boringrate-article-cta-template]] for the full spec.
-  - **NEXT: roll out to the other ~315 zip-bar pages** via patch script (pull <Carrier>/<State> from each
-    page's h1), + strip dead `.zip-embed`/`.article-email`/`.tooltiles` CSS/JS, + bake into the generators
-    (carrier/state/metro pages are generated — a regen would otherwise wipe the patch). Deferred: near session limit.
+  - **ROLLOUT DONE (2026-07-30, commit `7e38d034`, pushed):** `patch_article_ctas.py` stamped the template
+    onto **280 pages** (carrier/state/metro/compare/guide/rate-changes). Subject copy: carrier name from h1
+    (slug `-auto` guard for Direct Auto/Safe Auto), state/metro from kicker. Defensive skips: 22 non-standard
+    pages (6 no by-state/footer cta2 anchor, 14 no article-email block, 2 no article-body) — NOT patched;
+    review + handle those next. QA 605/0 JS errors; all 280 validated (div-balanced, exactly 2 rz-zip, 0
+    article-email, 0 tooltiles). **STILL TODO:** (a) the 22 skipped pages; (b) strip now-dead
+    `.zip-embed`/`.article-email`/`.tooltiles` CSS + email-submit JS (harmless, self-guards); (c) **bake the
+    template into the generators** (gen_metro_page, gen_*state*, carrier gens, patch_carrier_filings, etc.)
+    so a regen doesn't wipe the patch — currently only the live HTML is patched, not the generators.
 
 **STILL PENDING:**
 1. Free re-parse of on-disk OH/IL/PA/MI jackets to backfill max_pct/min_pct into their ledger rows
