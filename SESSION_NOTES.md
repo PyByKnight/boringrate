@@ -49,6 +49,17 @@ See memory [[boringrate-nav-singlesource]].
   Next content: more state features (we have data for PA + the aggregator states), more reactive combos as
   increases appear. Missing carrier pages noticed: Grange, National General, The Hanover, Frankenmuth.
 
+**DONE 2026-07-30 (pt 3) — article CTA template LOCKED (prototype on carrier/bristol-west.html):**
+Owner-approved thin-CTA layout mirroring the reactive pages: sticky top zip-bar + TWO thin `.rz-zip`
+ZIP CTAs in-body (one after the highlights, one ABOVE the by-state/by-metro compare links). Removed the
+big mid-article `.tooltiles` (ZIP+coverage-calculator) module AND the bottom `.article-email` email-capture
+block (still live on all 38 carrier pages, off-thesis). Copy is carrier-specific: "Instantly compare
+<Carrier> to all carriers in your ZIP:". Commits `7f9e0042`→`a6e6088e`, pushed. See memory
+[[boringrate-article-cta-template]] for the full spec.
+  - **NEXT: roll out to the other ~315 zip-bar pages** via patch script (pull <Carrier>/<State> from each
+    page's h1), + strip dead `.zip-embed`/`.article-email`/`.tooltiles` CSS/JS, + bake into the generators
+    (carrier/state/metro pages are generated — a regen would otherwise wipe the patch). Deferred: near session limit.
+
 **STILL PENDING:**
 1. Free re-parse of on-disk OH/IL/PA/MI jackets to backfill max_pct/min_pct into their ledger rows
    (jackets already on disk — no re-pull). Unlocks the tier-1 spread stat for non-VA reactive pages.
