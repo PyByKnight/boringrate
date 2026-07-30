@@ -65,23 +65,12 @@ def thinzip(label):
       '<input class="rz-zip-input" name="zc" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />'
       '<button type="submit" class="rz-zip-btn">Compare &rarr;</button></form></div>')
 
-# Late <style> appended after the template's ca-link-style. Two fixes:
-#  (1) nav — article-page inline CSS predates the dropdown nav, so the base
-#      (desktop) .nav-dd-* styling is missing and build_nav's Tools/Product
-#      buttons render unstyled. Port the tool-page rules (base + <=480 inline row).
-#  (2) rz-zip — the thin inline ZIP component that replaces the big two-tile module.
-NAVZIP_STYLE = (
-'<!-- nav-desktop-fix + rz-zip --><style>'
-'nav.primary{align-items:center;gap:20px;margin-left:auto;}'
-'.nav-dd-group{position:relative;}'
-'.nav-dd-btn{font-family:var(--mono);font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-soft);background:none;border:1px solid var(--rule);padding:6px 12px;cursor:pointer;white-space:nowrap;transition:all 120ms;}'
-'.nav-dd-btn:hover,.nav-dd-btn[aria-expanded="true"]{color:var(--ink);border-color:var(--ink);background:var(--paper-deep);}'
-'.nav-dd-panel{display:none;position:absolute;top:calc(100% + 6px);left:0;background:var(--paper);border:1px solid var(--ink);min-width:180px;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,0.08);}'
-'.nav-dd-panel.open{display:flex;flex-direction:column;}'
-'.nav-dd-panel a{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;padding:9px 14px;border-bottom:1px solid var(--rule);white-space:nowrap;transition:background 100ms,color 100ms;}'
-'.nav-dd-panel a:last-child{border-bottom:none;}'
-'.nav-dd-panel a:hover{background:var(--paper-deep);color:var(--ink);}'
-'.nav-dd-panel a.active{background:var(--ink);color:var(--paper);}'
+# Late <style> appended after the template's ca-link-style: page-specific styles
+# for the thin rz-zip CTA and the 5-column rate table. (Nav dropdown CSS is NOT
+# here — it's single-sourced in partials/nav-css.html and stamped by build_nav.py,
+# so run build_nav.py after generating these pages.)
+RZ_STYLE = (
+'<!-- rz-style --><style>'
 '.rz-zip{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:22px 0;padding:12px 16px;background:var(--paper-deep);border:1px solid var(--rule);}'
 '.rz-zip-label{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);}'
 '.rz-zip form{display:flex;gap:8px;margin:0;}'
@@ -100,12 +89,6 @@ NAVZIP_STYLE = (
 '.rate-table td.fil a{font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-decoration:none;white-space:nowrap;}'
 '.rate-table td.fil a:hover{color:var(--accent);}'
 '@media (max-width:480px){'
-'.nav-dd-group{display:none;}'
-'.nav-dd-group:has(#navDdProductPanel){display:flex;order:10;width:100%;border-top:1px solid var(--rule);margin-top:8px;}'
-'.nav-dd-group:has(#navDdProductPanel) > .nav-dd-btn{display:none;}'
-'.nav-dd-group:has(#navDdProductPanel) > .nav-dd-panel{display:flex !important;position:static;border:1px solid var(--rule);box-shadow:none;background:transparent;width:100%;min-width:0;}'
-'.nav-dd-group:has(#navDdProductPanel) > .nav-dd-panel a{flex:1;text-align:center;border-right:1px solid var(--rule);border-bottom:none;padding:7px 4px;font-size:10px;}'
-'.nav-dd-group:has(#navDdProductPanel) > .nav-dd-panel a:last-child{border-right:none;}'
 '.rz-zip{flex-direction:column;align-items:flex-start;}'
 '}'
 '</style>')
@@ -152,7 +135,7 @@ def build(cfg):
     # ---- append nav-fix + rz-zip style after the template's ca-link-style ----
     CALINK = '.article-body a.ca-link:hover{border-bottom-color:var(--accent);}</style>'
     assert CALINK in s, 'ca-link-style anchor missing'
-    s = s.replace(CALINK, CALINK + NAVZIP_STYLE, 1)
+    s = s.replace(CALINK, CALINK + RZ_STYLE, 1)
     # ---- site-alert banner ----
     s = s.replace('      <span class="site-alert-tag">Tennessee</span>\n      <span class="site-alert-text">State Farm cut Tennessee auto rates twice in a year &mdash; see every approved 2026 filing.</span>',
                   f'      <span class="site-alert-tag">{cfg["state"]}</span>\n      <span class="site-alert-text">{cfg["alert"]}</span>')
