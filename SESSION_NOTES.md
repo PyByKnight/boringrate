@@ -15,6 +15,21 @@ permanently done. Full detail in the "content scale-up (pt 3)" block below + mem
 [[boringrate-article-cta-template]]. **Optional leftovers:** the 22 skipped pages; strip now-dead
 `.zip-embed`/`.article-email`/`.tooltiles` CSS+JS (harmless). All pushed through `2373b2e4`.
 
+## ANALYTICS — moved Plausible → Umami (2026-08-03)
+Plausible free trial ended; swapped to **Umami Cloud** (free tier, boringrate@gmail.com account —
+see [[boringrate-account-consolidation]]). Commit `7a4101cd`, QA 606/0.
+- **Website id** `ce2e7f7c-eb06-4865-9d46-70143943e9b6`, tag `https://cloud.umami.is/script.js` (EU/cloud endpoint).
+- **Single source** = `plausible_snippet.py` (filename kept; now emits the Umami tag; SCRIPT_ID = the website id,
+  used as idempotency marker). `patch_plausible.py` + the ~8 generators' `ensure()` bake it → rebuilds stay Umami.
+- **Events:** the `window.track(name, props)` layer on the 3 tool pages (index / home/index / renters/index)
+  now transports via `window.umami.track(name, props)`. Existing events unchanged: `results_shown`
+  (product/state — fires when the ranking renders = "used the tool") and `min_coverage_toggled` (on/product).
+- **Migration:** one-time `migrate_to_umami.py` (exact-string swap, validated: 0 plausible residue, 603 Umami).
+  editorial-standards disclosure copy updated Plausible→Umami in `gen_trust_pages.py`.
+- **What's tracked today:** pageviews (incl. `/?zip=NNNNN` landing URLs from ZIP submits) + those 2 events.
+  NOT yet tracked as discrete events: ZIP-entered, CTA/link clicks, outbound carrier clicks — easy to add via
+  `data-umami-event="..."` attrs or by wiring `window.track()` into the handlers (owner to decide scope).
+
 ## (prev) RESUME (2026-07-29) — ★ VIRGINIA AUTO COMPLETE + non-standard bases anchored
 **VA auto backfill DONE.** 101 jackets pulled (Tier-1 complete minus 1 access-restricted USAA; Tier-2
 near-complete) → 70 ledger rows in `serff_filings.json` (state VA), 45 movers in `rate_changes.json`.
