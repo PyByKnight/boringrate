@@ -26,9 +26,19 @@ see [[boringrate-account-consolidation]]). Commit `7a4101cd`, QA 606/0.
   (product/state — fires when the ranking renders = "used the tool") and `min_coverage_toggled` (on/product).
 - **Migration:** one-time `migrate_to_umami.py` (exact-string swap, validated: 0 plausible residue, 603 Umami).
   editorial-standards disclosure copy updated Plausible→Umami in `gen_trust_pages.py`.
-- **What's tracked today:** pageviews (incl. `/?zip=NNNNN` landing URLs from ZIP submits) + those 2 events.
-  NOT yet tracked as discrete events: ZIP-entered, CTA/link clicks, outbound carrier clicks — easy to add via
-  `data-umami-event="..."` attrs or by wiring `window.track()` into the handlers (owner to decide scope).
+- **Full first-party event layer already existed** on the 3 tool pages (fires via `window.track`, now → Umami):
+  `tool_entry, zip_submitted {zip,product,source}, results_shown, min_coverage_toggled, refine_expanded,
+  refine_changed, quote_clicked {carrier,product}, agent_clicked, cross_sell_clicked, demo_cta_clicked,
+  email_signup`. All carry over automatically — nothing to re-declare (Umami auto-collects events; no
+  Plausible-style "goals" setup). UTM tags on the reactive-page CTAs (`?utm_source=va-geico` …) also flow in.
+- **Delegated events (my add) cover the ~600 ARTICLE pages** that had NO event layer. `plausible_snippet.EVENTS`
+  is a delegated submit/click listener that **bails if `window.track` exists** (so it never double-counts on
+  tool pages): fires `zip_submitted {zip,source}` (article ZIP CTAs) + `outbound {url}` (SERFF/DOI citation +
+  carrier clicks). Baked into the snippet + `gen_metro_base.html`; synced by `patch_umami_events.py` (re-sync:
+  strips+reinserts, picks up EVENTS edits). Full ZIP + full URL captured. Commits `21e295ff`→`357eb4ee`.
+- **Optional Umami dashboard-side (no code):** Funnels (pageview→zip_submitted→quote_clicked→outbound is a
+  natural conversion funnel), a shareable public dashboard. Only base script was ever used (no Plausible
+  script extensions to port).
 
 ## (prev) RESUME (2026-07-29) — ★ VIRGINIA AUTO COMPLETE + non-standard bases anchored
 **VA auto backfill DONE.** 101 jackets pulled (Tier-1 complete minus 1 access-restricted USAA; Tier-2
@@ -112,7 +122,8 @@ block (still live on all 38 carrier pages, off-thesis). Copy is carrier-specific
 1. Free re-parse of on-disk OH/IL/PA/MI jackets to backfill max_pct/min_pct into their ledger rows
    (jackets already on disk — no re-pull). Unlocks the tier-1 spread stat for non-VA reactive pages.
 2. Consider adding **Elephant** (32K VA book) to VA STATE_LOCAL_CARRIERS (currently has near-zero MMG).
-3. Owner TODO: create Plausible goal `min_coverage_toggled`.
+3. ~~Owner TODO: create Plausible goal `min_coverage_toggled`~~ MOOT — moved to Umami (2026-08-03),
+   which auto-collects events (no goal pre-declaration needed). See the ANALYTICS block up top.
 
 ---
 
