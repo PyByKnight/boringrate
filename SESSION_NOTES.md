@@ -1,7 +1,21 @@
 # BoringRate — Session Notes
-_Last updated: 2026-07-29 (Opus 4.8)_
+_Last updated: 2026-08-03 (Opus 4.8)_
 
-## ▶▶ RESUME HERE (2026-07-29) — ★ VIRGINIA AUTO COMPLETE + non-standard bases anchored
+## ▶▶ RESUME HERE (2026-08-03) — ★ ARTICLE CTA TEMPLATE ROLLOUT + METRO GENERATOR BAKE — COMPLETE
+Replaced the old article CTA modules (mid-article `.tooltiles` two-tile block / dark `.zip-embed` box +
+bottom `.article-email` email-capture) with the locked thin-CTA template: sticky top zip-bar + TWO thin
+`.rz-zip` ZIP CTAs in-body (one after the article-body open, one above the by-state/by-metro compare
+links), copy carrier/state/metro-specific ("Instantly compare <Carrier> to all carriers in your ZIP:").
+Prototyped + owner-approved on `article/carrier/bristol-west.html`, then rolled out via
+`patch_article_ctas.py` to **280 pages** (commit `7e38d034`). 22 non-standard pages defensively skipped.
+**Baked into the ONLY at-risk generator** (`gen_metro_page.py` → 11 managed metros): it now applies the
+shared `patch_article_ctas.transform()` at write time and reads a pristine base `gen_metro_base.html`
+(commit `82801e17`); idempotent, QA 606/0. All other page types are static (no full-page generator), so
+permanently done. Full detail in the "content scale-up (pt 3)" block below + memory
+[[boringrate-article-cta-template]]. **Optional leftovers:** the 22 skipped pages; strip now-dead
+`.zip-embed`/`.article-email`/`.tooltiles` CSS+JS (harmless). All pushed through `2373b2e4`.
+
+## (prev) RESUME (2026-07-29) — ★ VIRGINIA AUTO COMPLETE + non-standard bases anchored
 **VA auto backfill DONE.** 101 jackets pulled (Tier-1 complete minus 1 access-restricted USAA; Tier-2
 near-complete) → 70 ledger rows in `serff_filings.json` (state VA), 45 movers in `rate_changes.json`.
 Parser now captures **max_pct/min_pct** (the within-filing SPREAD — tier-1 content juice; see
