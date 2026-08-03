@@ -1483,21 +1483,17 @@
   "sameAs": []
 }
 </script>
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-v219GyiG5lJT1bQSRxP_Z.js"></script>
+<!-- Privacy-friendly analytics by Umami -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="ce2e7f7c-eb06-4865-9d46-70143943e9b6"></script>
 <script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
-<script>
-/* BoringRate event layer — Plausible transport live (custom events + props).
+/* BoringRate event layer — Umami transport live (custom events + props).
    Set window.BR_DEBUG=true to log in console; window.brEvents keeps the buffer. */
 window.brEvents = window.brEvents || [];
 window.track = function (name, props) {
   var ev = { name: name, props: props || {}, ts: Date.now(), path: location.pathname };
   window.brEvents.push(ev);
   try { if (window.BR_DEBUG) console.log("[track]", name, ev.props); } catch (e) {}
-  try { window.plausible(name, { props: ev.props }); } catch (e) {}
+  try { if (window.umami) window.umami.track(name, ev.props); } catch (e) {}
 };
 </script>
 </head>
@@ -5951,7 +5947,7 @@ document.getElementById("zipInput").addEventListener("input", e => {
   if (typeof window.track !== "function") return;
   var PRODUCT = "auto";
   // Classify where a tool entry came from (internal referrer) so the funnel can be
-  // broken down by landing page type in Plausible. ZIP forms navigate via location.href,
+  // broken down by landing page type in Umami. ZIP forms navigate via location.href,
   // so document.referrer is the content page they clicked "See rates" on.
   function classifyReferrer() {
     var ref = document.referrer || "";

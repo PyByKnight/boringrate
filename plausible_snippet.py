@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""Single source of the Plausible analytics snippet + an idempotent inserter.
+"""Single source of the analytics snippet + an idempotent inserter.
+
+Provider: **Umami** (Umami Cloud) as of 2026-08-03 — swapped from Plausible. Filename kept as
+plausible_snippet.py so the ~8 generators + patch_plausible.py that import it are unaffected
+(rename is a possible later cleanup). Umami auto-tracks pageviews from the tag; custom events use
+window.umami.track(name, props) via the window.track layer on the tool pages.
 
 Generators that emit their own <head> (home/renters/press/rate-filings) call ensure() at write
-time so the analytics snippet is baked in natively — it survives a regen without depending on
-patch_plausible.py being re-run afterward. patch_plausible.py imports SNIPPET from here too, so
-the script id is defined in exactly one place.
+time so the snippet is baked in natively — it survives a regen without depending on
+patch_plausible.py being re-run afterward. SCRIPT_ID = the Umami website id, used as the
+idempotency marker (defined in exactly one place).
 """
 
-SCRIPT_ID = "pa-v219GyiG5lJT1bQSRxP_Z.js"
+SCRIPT_ID = "ce2e7f7c-eb06-4865-9d46-70143943e9b6"  # Umami website id (idempotency marker)
 SNIPPET = (
-    "<!-- Privacy-friendly analytics by Plausible -->\n"
-    f'<script async src="https://plausible.io/js/{SCRIPT_ID}"></script>\n'
-    "<script>\n"
-    "  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},"
-    "plausible.init=plausible.init||function(i){plausible.o=i||{}};\n"
-    "  plausible.init()\n"
-    "</script>\n"
+    "<!-- Privacy-friendly analytics by Umami -->\n"
+    f'<script defer src="https://cloud.umami.is/script.js" data-website-id="{SCRIPT_ID}"></script>\n'
 )
 
 

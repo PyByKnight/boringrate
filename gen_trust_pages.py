@@ -161,7 +161,7 @@ ed_body = """
 
       <h2><span class="num">§ 05</span>Privacy</h2>
 
-      <p>There is no email capture and no lead form on this site. We use privacy-friendly, cookieless analytics (Plausible) to understand which pages help, and we don't collect personal information to sell. The reason we can be this blunt about which carriers are expensive is that we don't owe any of them a shopper.</p>
+      <p>There is no email capture and no lead form on this site. We use privacy-friendly, cookieless analytics (Umami) to understand which pages help, and we don't collect personal information to sell. The reason we can be this blunt about which carriers are expensive is that we don't owe any of them a shopper.</p>
 
       <div class="footnotes">
         <h3>Referenced sources</h3>

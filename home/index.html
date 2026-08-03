@@ -374,21 +374,17 @@ footer p{font-size:14px;color:rgba(246,241,232,.7);margin-top:12px;max-width:320
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"BoringRate Home Insurance Rate Comparison","url":"https://boringrate.com/home/index.html","description":"Compare home insurance carrier rates by ZIP code. Personalize by dwelling coverage, deductible, and bundle discount.","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
 </script>
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-v219GyiG5lJT1bQSRxP_Z.js"></script>
+<!-- Privacy-friendly analytics by Umami -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="ce2e7f7c-eb06-4865-9d46-70143943e9b6"></script>
 <script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
-<script>
-/* BoringRate event layer — Plausible transport live (custom events + props).
+/* BoringRate event layer — Umami transport live (custom events + props).
    Set window.BR_DEBUG=true to log in console; window.brEvents keeps the buffer. */
 window.brEvents = window.brEvents || [];
 window.track = function (name, props) {
   var ev = { name: name, props: props || {}, ts: Date.now(), path: location.pathname };
   window.brEvents.push(ev);
   try { if (window.BR_DEBUG) console.log("[track]", name, ev.props); } catch (e) {}
-  try { window.plausible(name, { props: ev.props }); } catch (e) {}
+  try { if (window.umami) window.umami.track(name, ev.props); } catch (e) {}
 };
 </script>
 </head>
