@@ -258,7 +258,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
 .nav-dd-group:has(#navDdProductPanel) > .nav-dd-panel a:last-child{border-right:none;}
 }
 </style>
-</head>
+<!-- rz-cta-css --><style>.rz-zip{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:22px 0;padding:12px 16px;background:var(--paper-deep);border:1px solid var(--rule);}.rz-zip-label{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);}.rz-zip form{display:flex;gap:8px;margin:0;}.rz-zip-input{font-family:var(--mono);font-size:14px;padding:8px 10px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);width:92px;}.rz-zip-btn{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;padding:8px 16px;background:var(--accent);color:var(--paper);border:none;cursor:pointer;white-space:nowrap;}.rz-zip-btn:hover{opacity:0.9;}@media (max-width:480px){.rz-zip{flex-direction:column;align-items:flex-start;}}</style></head>
 <body>
 
 <header class="top">
@@ -345,7 +345,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
 
 <div class="wrap-narrow">
   <div class="article-body">
-<div class="tooltiles"><div class="tile"><div class="tile-kicker">Compare rates</div><div class="tile-name">Cheapest car insurance for your ZIP</div><div class="tile-desc">Rank every carrier by estimated price for your exact ZIP and profile &mdash; in seconds, no calls.</div><form class="tile-zipform" onsubmit="event.preventDefault();var z=(this.zc.value||'').replace(/\D/g,'').slice(0,5);if(/^\d{5}$/.test(z)){location.href='/?zip='+z}else{this.zc.focus()}"><input class="tile-zip-input" name="zc" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="tile-zip-btn">Compare &rarr;</button></form></div><div class="tile"><div class="tile-kicker">Coverage calculator</div><div class="tile-name">Not sure how much you need?</div><div class="tile-desc">See what to buy and what to skip &mdash; and how each choice changes your price.</div><a class="tbtn secondary" href="/coverage.html">Help me choose my coverage options &rarr;</a></div></div>
+<div class="rz-zip"><span class="rz-zip-label">Instantly compare every carrier in your ZIP:</span><form onsubmit="event.preventDefault();var z=(this.zc.value||'').replace(/\D/g,'').slice(0,5);if(/^\d{5}$/.test(z)){location.href='/?zip='+z}else{this.zc.focus()}"><input class="rz-zip-input" name="zc" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="rz-zip-btn">Compare &rarr;</button></form></div>
 
 
     <h2>How concentrated is the U.S. auto market?</h2>
@@ -404,6 +404,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
       <div class="email-thanks" id="articleEmailThanks">You're on the list.</div>
     </div>
 
+<div class="rz-zip"><span class="rz-zip-label">Ready to stop overpaying? Compare every carrier in your ZIP:</span><form onsubmit="event.preventDefault();var z=(this.zc.value||'').replace(/\D/g,'').slice(0,5);if(/^\d{5}$/.test(z)){location.href='/?zip='+z}else{this.zc.focus()}"><input class="rz-zip-input" name="zc" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="rz-zip-btn">Compare &rarr;</button></form></div>
   </div>
 </div>
 

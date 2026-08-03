@@ -84,8 +84,9 @@ def transform(path, html):
     and by generators that want to bake the template into their output."""
     if 'class="rz-zip"' in html: return ('skip-has-rz', None, None)
     if '<div class="article-body">' not in html: return ('skip-no-body', None, None)
-    if not EMAIL_RE.search(html): return ('skip-no-email-block', None, None)
     if '</head>' not in html: return ('skip-no-head', None, None)
+    # NOTE: no email-block gate — guides have no .article-email; email removal below is a
+    # no-op when absent. Safety is preserved by requiring a valid CTA#2 anchor (skips otherwise).
     la, lb = labels(path, html)
     # 1. CSS (idempotent)
     if '<!-- rz-cta-css -->' not in html:
