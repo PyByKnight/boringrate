@@ -14,26 +14,24 @@ idempotency marker (defined in exactly one place).
 
 SCRIPT_ID = "ce2e7f7c-eb06-4865-9d46-70143943e9b6"  # Umami website id (idempotency marker)
 
-# Delegated interaction tracking (one listener set, works for dynamically-added result CTAs).
-# Fires umami events: zip_submit {source,zip3}, outbound {host,cta}, cta_click {cta}.
-# EVENTS_MARKER lets patch_umami_events.py add this to pages that predate it.
+# Delegated interaction tracking for pages WITHOUT the first-party window.track layer
+# (i.e. the ~600 article/static pages — the tool pages already fire richer events).
+# Each handler bails if window.track exists (tool page) so nothing double-counts.
+# Fires umami events unified with the tool: zip_submitted {zip,source}, outbound {url}.
 EVENTS_MARKER = "br-analytics-events"
 EVENTS = (
     '<!-- br-analytics-events --><script>(function(){'
     'function T(n,d){try{if(window.umami)window.umami.track(n,d)}catch(e){}}'
-    "var C=['rank-quote-cta','qcta-action','rank-cta','cross-sell-cta','refine-coverage-cta','article-sticky-cta'];"
-    'function cta(el){for(var e=el;e&&e.nodeType===1;e=e.parentElement){'
-    "var c=' '+((typeof e.className==='string'?e.className:'')||'')+' ';"
-    "for(var i=0;i<C.length;i++)if(c.indexOf(' '+C[i]+' ')>-1)return C[i];}return '';}"
-    "document.addEventListener('submit',function(e){var f=e.target;if(!f||f.tagName!=='FORM')return;"
+    "document.addEventListener('submit',function(e){if(window.track)return;"
+    "var f=e.target;if(!f||f.tagName!=='FORM')return;"
     'var inp=f.querySelector(\'input[name="zc"],#zipBarInput\');if(!inp)return;'
     "var z=(inp.value||'').replace(/\\D/g,'').slice(0,5);var cl=(f.className||'')+'';"
     "var s=cl.indexOf('zip-bar')>-1?'zipbar':cl.indexOf('tile')>-1?'tile':'rz';"
-    "T('zip_submit',{source:s,zip:z,path:location.pathname});},true);"
-    "document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a'):null;"
-    "if(a&&a.hostname&&a.hostname!==location.hostname&&/^https?:/.test(a.protocol)){"
-    "T('outbound',{url:a.href,cta:cta(a)||'link',path:location.pathname});return;}"
-    "var k=cta(e.target);if(k)T('cta_click',{cta:k,path:location.pathname});},true);"
+    "T('zip_submitted',{zip:z,source:s,path:location.pathname});},true);"
+    "document.addEventListener('click',function(e){if(window.track)return;"
+    "var a=e.target.closest?e.target.closest('a'):null;"
+    "if(a&&a.hostname&&a.hostname!==location.hostname&&/^https?:/.test(a.protocol))"
+    "T('outbound',{url:a.href,path:location.pathname});},true);"
     '})();</script>\n'
 )
 SNIPPET = (
