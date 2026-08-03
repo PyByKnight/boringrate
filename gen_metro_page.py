@@ -234,6 +234,12 @@ def build_page(cfg):
     _status, _new, _where = _cta_transform(str(out), html)
     if _new is not None:
         html = _new
+    # Then strip the now-dead CTA CSS/JS (zip-embed / article-email / supabase handler) so a
+    # regen matches the stripped live pages instead of reintroducing them. See strip_dead_cta.
+    from strip_dead_cta import strip as _strip_dead
+    _sstat, _stripped = _strip_dead(str(out), html)
+    if _stripped is not None:
+        html = _stripped
     out.write_text(html, encoding="utf-8")
     return out, avg, p
 

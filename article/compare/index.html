@@ -438,8 +438,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
   var strip=document.getElementById("articleStickyCta");
   if(!strip)return;
   var targets=[];
-  ["zipBarForm","embedZipForm"].forEach(function(id){var e=document.getElementById(id);if(e)targets.push(e);});
-  var ae=document.querySelector(".article-email");if(ae)targets.push(ae);
+  ["zipBarForm"].forEach(function(id){var e=document.getElementById(id);if(e)targets.push(e);});
   var ft=document.querySelector("footer");if(ft)targets.push(ft);
   if(!targets.length)return;
   var visible=new Set();
@@ -450,7 +449,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
   targets.forEach(function(t){io.observe(t);});
   strip.addEventListener("click",function(e){
     e.preventDefault();
-    var inp=document.getElementById("zipBarInput")||document.getElementById("embedZipInput");
+    var inp=document.getElementById("zipBarInput");
     if(inp){inp.scrollIntoView({behavior:"smooth",block:"center"});setTimeout(function(){try{inp.focus();}catch(_){}}, 450);}
     else{window.location.href="/";}
   });
