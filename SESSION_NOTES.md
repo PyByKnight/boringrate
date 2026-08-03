@@ -85,8 +85,13 @@ block (still live on all 38 carrier pages, off-thesis). Copy is carrier-specific
     caught + fixed a gap: the 11 metros used the dark `.zip-embed` box (not .tooltiles), which the first
     rollout left in place — `transform()` now strips `.zip-embed` too. Re-ran gen_metros_batch: idempotent
     (2nd run = no git diff), QA 606/0. rebuild.sh will no longer revert these.
-  - **STILL TODO:** (a) the 22 skipped pages; (b) strip now-dead `.zip-embed`/`.article-email`/`.tooltiles`
-    CSS + email-submit JS from live pages (harmless, self-guards, cosmetic cleanup only).
+  - **SKIPPED PAGES NOW HANDLED (2026-08-03):** the 6 state pages (`43721332`, placement fix `d66f7a1e` —
+    CTA#2 anchors on the "…rate breakdowns" h2, near bottom, not stacked at top) + 13 guide pages
+    (`49500295`, generic "compare every carrier in your ZIP" copy, relaxed the email-block gate). Remaining
+    skips are intentional: `article/index.html` + `article/compare/index.html` (not article pages) and
+    `article/state-rankings.html` (custom bottom, no safe CTA#2 anchor — left alone).
+  - **OPTIONAL LEFTOVER:** strip now-dead `.zip-embed`/`.article-email`/`.tooltiles` CSS + email-submit JS
+    from live pages (harmless, self-guards, cosmetic only).
 
 **STILL PENDING:**
 1. Free re-parse of on-disk OH/IL/PA/MI jackets to backfill max_pct/min_pct into their ledger rows
