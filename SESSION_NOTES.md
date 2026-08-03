@@ -23,11 +23,11 @@ see [[boringrate-account-consolidation]]). Commit `7a4101cd`, QA 606/0.
   used as idempotency marker). `patch_plausible.py` + the ~8 generators' `ensure()` bake it → rebuilds stay Umami.
 - **Events:** the `window.track(name, props)` layer on the 3 tool pages (index / home/index / renters/index)
   now transports via `window.umami.track(name, props)`. Existing events unchanged: `results_shown`
-  (product/state — fires when the ranking renders = "used the tool") and `min_coverage_toggled` (on/product).
+  (product/state — fires when the ranking renders = "used the tool") and `high_risk_standard_toggle` {segment:high_risk|standard} (renamed from the misleading `min_coverage_toggled` — it's the Standard-Auto vs High-Risk-Drivers segment toggle, not a coverage-limit toggle).
 - **Migration:** one-time `migrate_to_umami.py` (exact-string swap, validated: 0 plausible residue, 603 Umami).
   editorial-standards disclosure copy updated Plausible→Umami in `gen_trust_pages.py`.
 - **Full first-party event layer already existed** on the 3 tool pages (fires via `window.track`, now → Umami):
-  `tool_entry, zip_submitted {zip,product,source}, results_shown, min_coverage_toggled, refine_expanded,
+  `tool_entry, zip_submitted {zip,product,source}, results_shown, high_risk_standard_toggle, refine_expanded,
   refine_changed, quote_clicked {carrier,product}, agent_clicked, cross_sell_clicked, demo_cta_clicked,
   email_signup`. All carry over automatically — nothing to re-declare (Umami auto-collects events; no
   Plausible-style "goals" setup). UTM tags on the reactive-page CTAs (`?utm_source=va-geico` …) also flow in.

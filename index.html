@@ -5734,7 +5734,7 @@ document.getElementById("curCarrier").addEventListener("change", e => {
     });
     lastOrder = [];
     renderRanking();
-    try { window.track && track("min_coverage_toggled", { on: on, product: "auto" }); } catch (e) {}
+    try { window.track && track("high_risk_standard_toggle", { segment: on ? "high_risk" : "standard", product: "auto" }); } catch (e) {}
   }
   if (stdSeg) stdSeg.addEventListener("click", function () { setMinCoverage(false); });
   if (hrSeg) hrSeg.addEventListener("click", function () { setMinCoverage(true); });
