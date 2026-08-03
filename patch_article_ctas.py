@@ -73,7 +73,10 @@ EMAIL_RE = re.compile(r'<div class="article-email">.*?id="articleEmailThanks"[^>
 TILES_RE = re.compile(r'(?m)^[ \t]*<div class="tooltiles">.*</div></div>[ \t]*\n')
 EMBED_RE = re.compile(r'[ \t]*<div class="zip-embed">.*?</form>\s*</div>\n?', re.S)
 BYSTATE_RE = re.compile(r'<h2[^>]*>[^<]*rates by state[^<]*</h2>')
-COMPARE_H2_RE = re.compile(r'<h2[^>]*>(?:(?!</h2>).)*</h2>(?=(?:\s*<p\b[^>]*>.*?</p>)?\s*<[^>]*class="internal-links)', re.S)
+# The compare-links section heading near the bottom of state pages ("Metro-level rate
+# breakdowns"). Kept as a simple, NON-spanning text match — an earlier lookahead-to-
+# internal-links version backtracked across the whole article and matched the first h2.
+COMPARE_H2_RE = re.compile(r'<h2[^>]*>[^<]*rate breakdowns[^<]*</h2>')
 FOOT_RE = re.compile(r'(\n[ \t]*</div>\s*</div>\s*<footer>)')
 
 def transform(path, html):
