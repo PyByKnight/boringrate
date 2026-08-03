@@ -29,10 +29,10 @@ EVENTS = (
     'var inp=f.querySelector(\'input[name="zc"],#zipBarInput\');if(!inp)return;'
     "var z=(inp.value||'').replace(/\\D/g,'').slice(0,5);var cl=(f.className||'')+'';"
     "var s=cl.indexOf('zip-bar')>-1?'zipbar':cl.indexOf('tile')>-1?'tile':'rz';"
-    "T('zip_submit',{source:s,zip3:z.slice(0,3),path:location.pathname});},true);"
+    "T('zip_submit',{source:s,zip:z,path:location.pathname});},true);"
     "document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a'):null;"
     "if(a&&a.hostname&&a.hostname!==location.hostname&&/^https?:/.test(a.protocol)){"
-    "T('outbound',{host:a.hostname,cta:cta(a)||'link',path:location.pathname});return;}"
+    "T('outbound',{url:a.href,cta:cta(a)||'link',path:location.pathname});return;}"
     "var k=cta(e.target);if(k)T('cta_click',{cta:k,path:location.pathname});},true);"
     '})();</script>\n'
 )
