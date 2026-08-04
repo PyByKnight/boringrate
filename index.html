@@ -3498,7 +3498,13 @@ const CARRIERS_NONSTANDARD = [
   { name: "AssuranceAmerica", base: 1.28, csGrade: "C", stability: 2, tag: "Non-standard · Southeast & Southwest (VA-anchored blend)",
     sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.16, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } },
   { name: "First Acceptance", base: 1.48, csGrade: "C", stability: 1, tag: "FirstChoice · state-minimum & SR-22 (PROVISIONAL base)",
-    sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.15, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } }
+    sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.15, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } },
+  { name: "Safeway", base: 1.15, csGrade: "C", stability: 2, tag: "Louisiana value non-standard · low-cost minimum coverage (PROVISIONAL base)", states: ["LA"],
+    sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.16, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } },
+  { name: "Imperial", base: 1.35, csGrade: "C", stability: 2, tag: "Louisiana non-standard · SR-22 & minimum coverage (PROVISIONAL base)", states: ["LA"],
+    sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.16, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } },
+  { name: "Old American", base: 1.40, csGrade: "C", stability: 2, tag: "Louisiana non-standard · minimum coverage & SR-22 (PROVISIONAL base)", states: ["LA"],
+    sens: { own: -0.01, rent: 0.00, age: { "18-24": 0.16, "25-34": 0.04, "35-54": -0.01, "55+": -0.03 }, multi: -0.02, single: 0.01, lapsed: 0.04, renewal: 0.02 } }
 ];
 
 const CARRIER_LINKS = {
@@ -3622,6 +3628,9 @@ const CARRIER_RESEARCH_LINKS = {
   "Dairyland":             "/article/carrier/dairyland.html",
   "Kemper":                "/article/carrier/kemper.html",
   "Bristol West":          "/article/carrier/bristol-west.html",
+  "Safeway":               "/article/carrier/safeway.html",
+  "Imperial":              "/article/carrier/imperial.html",
+  "Old American":          "/article/carrier/old-american.html",
 };
 
 const CARRIER_HERO = {
@@ -4085,7 +4094,10 @@ const COVERAGE_MULT_NS = {
   "National General": { minimum: 0.75, standard: 1.00, premium: 1.20 },
   "Gainsco":      { minimum: 0.72, standard: 1.00, premium: 1.14 },
   "AssuranceAmerica": { minimum: 0.72, standard: 1.00, premium: 1.14 },
-  "First Acceptance": { minimum: 0.71, standard: 1.00, premium: 1.13 }
+  "First Acceptance": { minimum: 0.71, standard: 1.00, premium: 1.13 },
+  "Safeway": { minimum: 0.72, standard: 1.00, premium: 1.13 },
+  "Imperial": { minimum: 0.73, standard: 1.00, premium: 1.16 },
+  "Old American": { minimum: 0.73, standard: 1.00, premium: 1.16 }
 };
 
 // Shop multipliers for non-standard — most are agent or phone heavy
@@ -4102,7 +4114,10 @@ const SHOP_MULT_NS = {
   "National General": { web: 1.00, phone: 1.01, agent: 1.03 },
   "Gainsco":      { web: 1.00, phone: 1.01, agent: 1.03 },
   "AssuranceAmerica": { web: 1.00, phone: 1.01, agent: 1.03 },
-  "First Acceptance": { web: 1.00, phone: 1.01, agent: 1.03 }
+  "First Acceptance": { web: 1.00, phone: 1.01, agent: 1.03 },
+  "Safeway": { web: 1.00, phone: 1.01, agent: 1.02 },
+  "Imperial": { web: 1.00, phone: 1.01, agent: 1.03 },
+  "Old American": { web: 1.00, phone: 1.01, agent: 1.03 }
 };
 
 // Per-state carrier competitiveness adjustments (multiplied against national base).
@@ -5166,7 +5181,10 @@ function isNonStandard() {
 }
 
 function activeCarriers() {
-  if (isNonStandard()) return CARRIERS_NONSTANDARD;   // high-risk-accepting set only
+  if (isNonStandard()) {   // high-risk-accepting set only; entries with states:[...] show only in those states
+    const nsCode = stateData && stateData.code;
+    return CARRIERS_NONSTANDARD.filter(c => !c.states || (nsCode && c.states.includes(nsCode)));
+  }
   if (!stateData) return CARRIERS_STANDARD;
   const localNames = STATE_LOCAL_CARRIERS[stateData.code] || [];
   const locals = localNames.map(n => {
