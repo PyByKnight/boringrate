@@ -36,9 +36,15 @@ see [[boringrate-account-consolidation]]). Commit `7a4101cd`, QA 606/0.
   tool pages): fires `zip_submitted {zip,source}` (article ZIP CTAs) + `outbound {url}` (SERFF/DOI citation +
   carrier clicks). Baked into the snippet + `gen_metro_base.html`; synced by `patch_umami_events.py` (re-sync:
   strips+reinserts, picks up EVENTS edits). Full ZIP + full URL captured. Commits `21e295ff`→`357eb4ee`.
+- **Event RENAMED (2026-08-03, `ed1523b6`):** `min_coverage_toggled` → **`high_risk_standard_toggle`**
+  {segment: high_risk|standard}. It was a misnomer — the toggle switches the ranking between the Standard-Auto
+  and High-Risk-Drivers carrier sets (stdSeg/hrSeg in index.html), NOT coverage limits. Auto tool only.
+- **Exclude your own visits:** run `localStorage.setItem('umami.disabled','1')` in the browser console on
+  boringrate.com (per browser/device; undo with `removeItem`). Umami's script honors that flag and stops
+  counting you — cleaner than filtering out city=Monument (which would drop all Monument visitors).
 - **Optional Umami dashboard-side (no code):** Funnels (pageview→zip_submitted→quote_clicked→outbound is a
   natural conversion funnel), a shareable public dashboard. Only base script was ever used (no Plausible
-  script extensions to port).
+  script extensions to port). **Analytics migration COMPLETE — nothing outstanding.**
 
 ## (prev) RESUME (2026-07-29) — ★ VIRGINIA AUTO COMPLETE + non-standard bases anchored
 **VA auto backfill DONE.** 101 jackets pulled (Tier-1 complete minus 1 access-restricted USAA; Tier-2
