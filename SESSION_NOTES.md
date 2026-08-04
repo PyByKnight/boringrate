@@ -15,6 +15,28 @@ permanently done. Full detail in the "content scale-up (pt 3)" block below + mem
 [[boringrate-article-cta-template]]. **Optional leftovers:** the 22 skipped pages; strip now-dead
 `.zip-embed`/`.article-email`/`.tooltiles` CSS+JS (harmless). All pushed through `2373b2e4`.
 
+## ▶▶ LOUISIANA AUTO — COMPLETE (2026-08-04)
+LA private-passenger auto pulled from SERFF (Tier 1+2, 34 jackets, 30 w/ rate tables). Market: big books
+cutting, GEICO raising — State Farm −5.8% (1.04M PH), Progressive −4/−6.6% (472K), LA Farm Bureau −10.6%,
+Shelter −2.4%, Imperial −2.9%, Safeway −5.8%; GEICO +7.8% & American National +5.0% the raisers. Tracker: 2
+raised / 10 cut. Commits `56b92000` (Atlanta fix), `53f9c7e0` (backfill), `f0ee7e06`+`ca389a4e` (carrier pages).
+- **New scripts:** `append_la.py` (entity-name family map — LA shares the GMMX filer code; excludes SF Classic
+  collector garbage; disposition-window guard drops the out-of-window 2024 Safeway pulled for context),
+  `add_la_changes.py` (keeps 5 LDI press changes → serff_match auto-cites; adds 7 SERFF movers, PH≥4000/|pct|≥1),
+  `gen_ns_carrier_pages.py` (clones alfa.html → Safeway/Imperial/Old American pages, grounded in filings, no fabricated stats).
+- **★ REGRESSION FIXED — `gen_rate_tracker` + `gen_metro_page` Atlanta leak:** the dead-code strip removed
+  `<div class="article-email">` from atlanta.html, which was the body-replace ANCHOR both generators used →
+  the replace silently no-op'd and leaked Atlanta metro content. Fix: scaffold off pristine `gen_metro_base.html`
+  + apply transform/strip at write time. **LESSON: any generator that scaffolds off a live page and anchors its
+  body-replace on `.article-email` will break — that block is gone site-wide now.** [[boringrate-filter-twin-pattern]]-style.
+- **STILL OPEN — LA non-standard carriers NOT in the ZIP-tool rankings.** Safeway/Imperial/Old American have
+  carrier PAGES + are in the ledger/tracker, but the tool's `CARRIERS_NONSTANDARD` set is NATIONAL (no
+  state-scoping) — adding them shows them nationwide (wrong). Needs a small state-scoped-non-standard feature
+  (a `states:[...]` field on CARRIERS_NONSTANDARD + a filter in `activeCarriers()` when `isNonStandard()`).
+  Proposed bases when built: Safeway 1.15, Imperial 1.35, Old American 1.40 (modeled non-standard, CURE-aware).
+- **Housekeeping left:** clear the LA zips from `~/` (kept until parsed — done now safe to clear), IndexNow ping
+  the new URLs (3 carrier pages + LA tracker). Also owner still trying Safeway 2025 access — got it (PERR-134665768).
+
 ## ANALYTICS — moved Plausible → Umami (2026-08-03)
 Plausible free trial ended; swapped to **Umami Cloud** (free tier, boringrate@gmail.com account —
 see [[boringrate-account-consolidation]]). Commit `7a4101cd`, QA 606/0.
