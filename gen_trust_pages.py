@@ -147,7 +147,7 @@ ed_body = """
 
       <h2><span class="num">§ 03</span>Estimates, not quotes</h2>
 
-      <p>Every price on BoringRate is an <strong>editorial estimate of typical positioning</strong>, not a quote. We don't have your full underwriting profile, and no site without it does. We show which carriers are likely to come back competitive for someone in your situation, so you can stop after a few calls instead of a dozen. The <a href="/methodology.html">methodology</a> spells out exactly how the estimate is built and rounded, and why we show a directional delta instead of a fake-precise dollar figure.</p>
+      <p>Every price on BoringRate is an <strong>editorial estimate of typical positioning</strong>, not a quote. We don't have your full underwriting profile, and no site without it does. We show which carriers are likely to come back competitive for someone in your situation, so you can stop after a few calls instead of a dozen. The <a href="/methodology.html">methodology</a> spells out exactly how the estimate is built and rounded, and why the dollar figures are rounded estimates rather than fake-precise quotes.</p>
 
       <h2><span class="num">§ 04</span>Accuracy &amp; corrections</h2>
 
