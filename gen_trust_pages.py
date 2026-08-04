@@ -138,8 +138,6 @@ ed_body = """
 
       <p>No carrier, agency, or lead buyer pays for placement, and none can influence a ranking. A carrier that cuts rates is marked as a cutter and a carrier that raises them is marked as a raiser, regardless of size, relationship, or how the result reads.</p>
 
-      <p>BoringRate does not monetize today. If that changes, it will be in ways aligned with the reader's interest — for example, paid ad placement for independent agents who provide genuine comparison value. One thing will never be for sale: a carrier, agent, or anyone else paying to change a ranking. Rankings are ordered by the data — best rates first — full stop.</p>
-
       <h2><span class="num">§ 02b</span>How pages are produced</h2>
 
       <p>Our rankings, trackers, and rate figures are generated from a maintained dataset of parsed filings, not written by hand per page — which is what keeps them internally consistent and lets a correction propagate everywhere at once. Editorial judgment — which filings are material, how to frame a market, where to be skeptical — is applied deliberately and is the responsibility of the site's operator.</p>
