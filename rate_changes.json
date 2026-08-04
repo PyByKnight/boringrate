@@ -2780,6 +2780,76 @@
    "min_pct": null,
    "source": "Virginia Bureau of Insurance (SERFF)",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134946988"
+  },
+  {
+   "carrier": "American National",
+   "state": "LA",
+   "pct": 4.97,
+   "dir": "increase",
+   "effective": "2026-04-03",
+   "affected": 4212,
+   "source": "Louisiana Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134762926"
+  },
+  {
+   "carrier": "Root",
+   "state": "LA",
+   "pct": 1.6,
+   "dir": "decrease",
+   "effective": "2026-04-24",
+   "affected": 4127,
+   "source": "Louisiana Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134871980"
+  },
+  {
+   "carrier": "GEICO",
+   "state": "LA",
+   "pct": 7.8,
+   "dir": "increase",
+   "effective": "2026-03-17",
+   "affected": 26816,
+   "source": "Louisiana Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134834194"
+  },
+  {
+   "carrier": "Imperial",
+   "state": "LA",
+   "pct": 2.9,
+   "dir": "decrease",
+   "effective": "2026-01-15",
+   "affected": 32712,
+   "source": "Louisiana Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134796306"
+  },
+  {
+   "carrier": "State Farm",
+   "state": "LA",
+   "pct": 5.84,
+   "dir": "decrease",
+   "effective": "2026-01-01",
+   "affected": 1044832,
+   "source": "Louisiana Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134723185"
+  },
+  {
+   "carrier": "Shelter",
+   "state": "LA",
+   "pct": 2.4,
+   "dir": "decrease",
+   "effective": "2026-01-02",
+   "affected": 49068,
+   "source": "Louisiana Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134694255"
+  },
+  {
+   "carrier": "Safeway",
+   "state": "LA",
+   "pct": 5.8,
+   "dir": "decrease",
+   "effective": "2025-12-01",
+   "affected": 5228,
+   "source": "Louisiana Department of Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665768"
   }
  ]
 }
