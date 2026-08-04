@@ -11,7 +11,11 @@ from datetime import date
 from gen_metro_page import STATE, esc, _json
 
 ROOT = pathlib.Path(__file__).parent
-TEMPLATE = ROOT / "article" / "metro" / "atlanta.html"
+# Pristine OLD-format scaffold (keeps the <div class="article-email"> anchor the body-replace
+# regex needs — the live atlanta.html had it stripped, which silently no-op'd the replace and
+# leaked Atlanta metro content into every tracker). CTA/email cleanup happens via transform+strip
+# at write time, same as gen_metro_page.
+TEMPLATE = ROOT / "gen_metro_base.html"
 OUTDIR = ROOT / "article" / "rate-changes"
 RED, GREEN = "#b4321a", "#2f6b3a"
 MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -137,6 +141,16 @@ def render(slug, title, desc, h1, dek, body_html, faq, in_subdir=True):
 
     OUTDIR.mkdir(exist_ok=True)
     out = OUTDIR / f"{slug}.html"
+    # Apply the locked CTA template (thin rz-zip CTAs; drop .zip-embed/.article-email) so the
+    # tracker matches the site and the email/zip-embed scaffold from the base doesn't survive.
+    from patch_article_ctas import transform as _cta_transform
+    _st, _new, _w = _cta_transform(str(out), html)
+    if _new is not None:
+        html = _new
+    from strip_dead_cta import strip as _strip_dead
+    _ss, _stripped = _strip_dead(str(out), html)
+    if _stripped is not None:
+        html = _stripped
     out.write_text(html, encoding="utf-8")
     return out, url
 
