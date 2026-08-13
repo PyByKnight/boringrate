@@ -1,5 +1,22 @@
 # BoringRate — Session Notes
-_Last updated: 2026-08-03 (Opus 4.8)_
+_Last updated: 2026-08-13 (Opus 4.8)_
+
+## ▶▶ NEW JERSEY (auto + home) — COMPLETE (2026-08-13)
+Both-boxes SERFF pull (TOI 4+19). **Auto: 19 filings** in serff_filings.json; **home: 5 new** in
+serff_home_filings.json (deduped vs the 20 from July). Auto read: NJM 0% (503K) & State Farm 0% (351K)
+flat, **GEICO −3.6%** (343K) & **Palisades −5%** cutting, Allstate +3.5% (231K), CURE +6%, Selective/
+Farmers/Encompass/Bristol West +6.5–7% raising → tracker 6 raised / 2 cut. Home broadly raising (Palisades
++7.5%, Homesite +6.7%, Stillwater +7%, Plymouth Rock +4.5%, Preferred +6.6%; NJM near-flat).
+- **Scripts:** `append_nj.py` (both pipelines, entity-name family map), `add_nj_changes.py` (AUTO-ONLY —
+  home movers flow from serff_home_filings.json via gen_home_rate_tracker; adding them to rate_changes.json
+  leaked home carriers onto the AUTO tracker — fixed; **rate_changes.json is the AUTO tracker's source, home
+  has its own**), `gen_nj_carrier_pages.py` (CURE/Palisades/Plymouth Rock pages from the alfa template).
+- **Carrier pages + tool rankings DONE** (`2bb37194`, `ae5af904`): CURE + Palisades wired into
+  STATE_LOCAL_CARRIERS['NJ']; Plymouth Rock into NY/PA/CT/NH (MA already). New Palisades LOCAL_CARRIER_DEF
+  (base 0.98). This is the reusable pattern for STANDARD state regionals (vs the state-scoped-non-standard
+  path used for LA's Safeway/Imperial). Commits `f277d793`→`ae5af904`, all pushed. QA 613/0, prose 0 drift.
+- Skipped (no extractable table / not grabbed): Travelers auto, Progressive NJ (both entities), Midvale/
+  Liberty auto. Not worth chasing. Next state candidates: **GA** (have auto, add home) or **AZ** (both new).
 
 ## ▶▶ RESUME HERE (2026-08-03) — ★ ARTICLE CTA TEMPLATE ROLLOUT + METRO GENERATOR BAKE — COMPLETE
 Replaced the old article CTA modules (mid-article `.tooltiles` two-tile block / dark `.zip-embed` box +
