@@ -29,13 +29,26 @@ raised / 10 cut. Commits `56b92000` (Atlanta fix), `53f9c7e0` (backfill), `f0ee7
   the replace silently no-op'd and leaked Atlanta metro content. Fix: scaffold off pristine `gen_metro_base.html`
   + apply transform/strip at write time. **LESSON: any generator that scaffolds off a live page and anchors its
   body-replace on `.article-email` will break — that block is gone site-wide now.** [[boringrate-filter-twin-pattern]]-style.
-- **STILL OPEN — LA non-standard carriers NOT in the ZIP-tool rankings.** Safeway/Imperial/Old American have
-  carrier PAGES + are in the ledger/tracker, but the tool's `CARRIERS_NONSTANDARD` set is NATIONAL (no
-  state-scoping) — adding them shows them nationwide (wrong). Needs a small state-scoped-non-standard feature
-  (a `states:[...]` field on CARRIERS_NONSTANDARD + a filter in `activeCarriers()` when `isNonStandard()`).
-  Proposed bases when built: Safeway 1.15, Imperial 1.35, Old American 1.40 (modeled non-standard, CURE-aware).
-- **Housekeeping left:** clear the LA zips from `~/` (kept until parsed — done now safe to clear), IndexNow ping
-  the new URLs (3 carrier pages + LA tracker). Also owner still trying Safeway 2025 access — got it (PERR-134665768).
+- **✅ TOOL RANKINGS DONE (commit `e7fc8879`):** built state-scoped non-standard — `CARRIERS_NONSTANDARD`
+  entries now take an optional `states:[...]` field; `activeCarriers()` filters the NS set to entries without
+  states (national) + those whose states include the current state. Added Safeway 1.15 / Imperial 1.35 /
+  Old American 1.40 (PROVISIONAL, CURE-aware) w/ COVERAGE_MULT_NS + SHOP_MULT_NS + internal page links — they
+  surface ONLY in the LA high-risk view. QA 609/0. **Reusable: this is how any future state-local non-standard
+  carrier gets added.** Housekeeping done: LA zips cleared from `~/`, IndexNow HTTP 200 (8 URLs).
+- LOUISIANA AUTO IS FULLY COMPLETE end-to-end: pull → ledger → tracker → carrier pages → tool rankings.
+
+## ANALYTICS INTERPRETATION — Umami "Direct" is mostly bots + shared-link/social (2026-08-13)
+Owner surprised by 74% Direct in Umami's first days. Diagnosis (reusable): **Direct = any visit with no
+referrer**, NOT typed-URL. Breakdown of a low-traffic day: (a) **bots/crawlers** — 0-event sessions from
+datacenter cities (Boydton=Azure, Boardman=AWS, Dallas, Singapore, Rotterdam) + Linux-desktop-Chrome;
+expected + GOOD (search/AI crawlers, summoned by deploy + IndexNow ping — they're the SEO engine). (b)
+**shared-link/social** — owner posted to **Nextdoor**; in-app browsers (Nextdoor/iMessage/FB/IG webviews)
+**strip the referrer → bucket as Direct** + show as "iOS webview," and Nextdoor is hyperlocal so they cluster
+in the owner's metro (Colorado Springs/Peyton, near Monument). Those fired real events (one did 5).
+**RULES: (1) score by EVENTS, not channel/pageviews — 0-event sessions are noise. (2) tag shared links with
+UTMs** (`?utm_source=nextdoor&utm_medium=social`) so social traffic is measurable instead of vanishing into
+Direct (Umami reads UTMs; UTM plumbing already exists on reactive CTAs). (3) crawled ≠ ranked — watch GSC, not
+Umami, for the SEO payoff. See [[boringrate-account-consolidation]] (Umami on boringrate@) + analytics block below.
 
 ## ANALYTICS — moved Plausible → Umami (2026-08-03)
 Plausible free trial ended; swapped to **Umami Cloud** (free tier, boringrate@gmail.com account —
