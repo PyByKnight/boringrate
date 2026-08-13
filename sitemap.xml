@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://boringrate.com/</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://boringrate.com/coverage.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/methodology.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://boringrate.com/about.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/editorial-standards.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://boringrate.com/</loc><lastmod>2026-08-13</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://boringrate.com/coverage.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/methodology.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://boringrate.com/about.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/editorial-standards.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://boringrate.com/article/state/alabama.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/state/alaska.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/state/arizona.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -22,7 +22,7 @@
   <url><loc>https://boringrate.com/article/state/iowa.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/state/kansas.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/state/kentucky.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://boringrate.com/article/state/louisiana.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://boringrate.com/article/state/louisiana.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/state/maine.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/state/maryland.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/state/massachusetts.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -56,47 +56,47 @@
   <url><loc>https://boringrate.com/article/state/west-virginia.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/state/wisconsin.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/state/wyoming.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/allstate.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/american-family.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/amica.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/auto-owners.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/erie.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/farmers.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/geico.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/liberty-mutual.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/nationwide.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/progressive.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/state-farm.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/usaa.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/travelers.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/safeco.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/allstate.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/american-family.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/amica.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/auto-owners.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/erie.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/farmers.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/geico.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/liberty-mutual.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/nationwide.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/progressive.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/state-farm.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/usaa.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/travelers.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/safeco.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/the-hartford.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/root-insurance.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/aaa.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/texas-farm-bureau.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/georgia-farm-bureau.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/tennessee-farm-bureau.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/aaa.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/texas-farm-bureau.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/georgia-farm-bureau.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/tennessee-farm-bureau.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/nc-farm-bureau.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/kentucky-farm-bureau.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/louisiana-farm-bureau.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/louisiana-farm-bureau.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/pemco.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/njm.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/wawanesa.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/mercury.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/shelter.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/njm.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/wawanesa.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/mercury.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/shelter.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/mapfre.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/nycm.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/nycm.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/alfa.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/safeway.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/imperial.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/old-american.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/country-financial.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/the-general.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/country-financial.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/the-general.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/direct-auto.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/safe-auto.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/carrier/dairyland.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/kemper.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/carrier/bristol-west.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/kemper.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/carrier/bristol-west.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/metro/new-york-city.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/metro/los-angeles.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/metro/chicago.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -181,8 +181,8 @@
   <url><loc>https://boringrate.com/article/metro/portland-me.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/metro/new-jersey.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/index.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://boringrate.com/article/state-rankings.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://boringrate.com/article/market-share.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://boringrate.com/article/state-rankings.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://boringrate.com/article/market-share.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/article/florida-rates-dropping.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/why-did-my-geico-rate-go-up-virginia.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/why-did-my-erie-rate-go-up-virginia.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -275,7 +275,7 @@
   <url><loc>https://boringrate.com/article/compare/usaa-vs-safeco.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/compare/usaa-vs-the-hartford.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/renters/index.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://boringrate.com/renters/coverage.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/renters/coverage.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/renters/state/alabama.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/renters/state/alaska.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/renters/state/arizona.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -424,7 +424,7 @@
   <url><loc>https://boringrate.com/renters/carrier/amica.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/renters/carrier/usaa.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/home/index.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://boringrate.com/home/coverage.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/home/coverage.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/home/state/alabama.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://boringrate.com/home/state/alaska.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://boringrate.com/home/state/arizona.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -513,16 +513,16 @@
   <url><loc>https://boringrate.com/article/metro/dayton.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/metro/akron.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/metro/chattanooga.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/rate-changes/</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://boringrate.com/article/rate-changes/new-york.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/rate-changes/nevada.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/rate-changes/louisiana.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/rate-changes/california.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/rate-changes/florida.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/rate-changes/michigan.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/texas.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/illinois.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/ohio.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/pennsylvania.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/index.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://boringrate.com/article/rate-changes/georgia.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/rate-changes/south-carolina.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/article/rate-changes/tennessee.html</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/rate-changes/</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://boringrate.com/article/rate-changes/new-york.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/rate-changes/nevada.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/rate-changes/louisiana.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/rate-changes/california.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/rate-changes/florida.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/rate-changes/michigan.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/texas.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/illinois.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/ohio.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/pennsylvania.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://boringrate.com/article/rate-changes/index.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://boringrate.com/article/rate-changes/georgia.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/rate-changes/south-carolina.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://boringrate.com/article/rate-changes/tennessee.html</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 
   <url><loc>https://boringrate.com/article/cheapest-car-insurance-young-drivers.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/article/cheapest-car-insurance-after-accident.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -557,8 +557,8 @@
   <url><loc>https://boringrate.com/home/does-homeowners-insurance-cover-storm-damage.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/home/does-homeowners-insurance-cover-sewer-backup.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://boringrate.com/home/does-homeowners-insurance-cover-dog-bites.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://boringrate.com/press/</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://boringrate.com/rate-filings/</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://boringrate.com/press/</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://boringrate.com/rate-filings/</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://boringrate.com/home/rate-changes/</loc><lastmod>2026-08-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://boringrate.com/home/metro/akron.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://boringrate.com/home/metro/albany.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>

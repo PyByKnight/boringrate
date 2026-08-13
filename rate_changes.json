@@ -2850,6 +2850,94 @@
    "affected": 5228,
    "source": "Louisiana Department of Insurance (SERFF)",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665768"
+  },
+  {
+   "carrier": "Encompass",
+   "state": "NJ",
+   "product": "auto",
+   "pct": 6.9,
+   "dir": "increase",
+   "effective": "2026-10-24",
+   "affected": 5267,
+   "source": "New Jersey Department of Banking and Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134806021"
+  },
+  {
+   "carrier": "GEICO",
+   "state": "NJ",
+   "product": "auto",
+   "pct": 3.6,
+   "dir": "decrease",
+   "effective": "2026-07-01",
+   "affected": 343076,
+   "source": "New Jersey Department of Banking and Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134961490"
+  },
+  {
+   "carrier": "Allstate",
+   "state": "NJ",
+   "product": "auto",
+   "pct": 3.5,
+   "dir": "increase",
+   "effective": "2026-06-15",
+   "affected": 231099,
+   "source": "New Jersey Department of Banking and Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134675302"
+  },
+  {
+   "carrier": "Farmers",
+   "state": "NJ",
+   "product": "auto",
+   "pct": 7.0,
+   "dir": "increase",
+   "effective": "2026-05-24",
+   "affected": 7379,
+   "source": "New Jersey Department of Banking and Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134703203"
+  },
+  {
+   "carrier": "Palisades",
+   "state": "NJ",
+   "product": "auto",
+   "pct": 5.0,
+   "dir": "decrease",
+   "effective": "2026-04-17",
+   "affected": 97715,
+   "source": "New Jersey Department of Banking and Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134859181"
+  },
+  {
+   "carrier": "CURE",
+   "state": "NJ",
+   "product": "auto",
+   "pct": 6.0,
+   "dir": "increase",
+   "effective": "2025-11-22",
+   "affected": 45552,
+   "source": "New Jersey Department of Banking and Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134400950"
+  },
+  {
+   "carrier": "Selective Insurance",
+   "state": "NJ",
+   "product": "auto",
+   "pct": 6.8,
+   "dir": "increase",
+   "effective": "2025-09-30",
+   "affected": 21017,
+   "source": "New Jersey Department of Banking and Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134599344"
+  },
+  {
+   "carrier": "Bristol West",
+   "state": "NJ",
+   "product": "auto",
+   "pct": 5.1,
+   "dir": "increase",
+   "effective": "2025-09-12",
+   "affected": 58109,
+   "source": "New Jersey Department of Banking and Insurance (SERFF)",
+   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134378141"
   }
  ]
 }
