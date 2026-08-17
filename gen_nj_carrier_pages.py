@@ -94,6 +94,7 @@ def build(cfg):
     h = re.sub(r'(<meta property="og:url" content=")[^"]*(")', lambda m: m.group(1)+f"https://boringrate.com/article/carrier/{cfg['slug']}.html"+m.group(2), h)
     h = h.replace('"description": "Alfa Insurance is a regional Southeast specialist with competitive pricing and strong agent networks in Alabama, Georgia, Mississippi, and surrounding states.",', f'"description": "{cfg["jsonld"]}",')
     h = h.replace('"name": "Alfa",', f'"name": "{cfg["name"]}",')
+    h = h.replace('"url": "https://boringrate.com/article/carrier/alfa.html"', f'"url": "https://boringrate.com/article/carrier/{cfg["slug"]}.html"', 1)
     h = h.replace('"headline": "Alfa Insurance Auto Review 2026",', f'"headline": "{cfg["full"]} Review 2026",')
     h = h.replace('Local Carrier Research &nbsp;&middot;&nbsp; Southeast', f'Local Carrier Research &nbsp;&middot;&nbsp; {cfg["region"]}')
     h = re.sub(r'<div class="stat-pill"[^>]*>[^<]*</div>', f'<div class="stat-pill" style="background:#1a4a8a;">{cfg["pill"]}</div>', h, count=1)
