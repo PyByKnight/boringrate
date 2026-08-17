@@ -129,3 +129,50 @@ rates rather than a % change, which makes them usable as renters *base* anchors,
 `./rebuild.sh home` covers the recompute + patches + QA. Expect: `home/rate-changes/virginia.html` (new,
 10th home tracker) + rate-filings roll-up + `home/state/virginia.html` highlights + VA carrier page
 filing sections. Then reconcile against the home tool rankings per the tool↔filing consistency rule.
+
+---
+
+## ★ FINDING (2026-08-17): jacket book averages are LINE-BLENDED — do not use them as base anchors
+
+Computing `written_premium / affected` off the SERFF jacket gives a number that looks like an
+average premium but is not an HO-3 average. The jacket's policy count and written premium span
+**every sub-line in the filed program** — homeowners + condo + tenant + mobile home — and the
+blend fraction differs per carrier, so the contamination is not a constant you can divide out.
+
+**Proof (State Farm, the one VA filing whose zip included Supporting Document attachments):**
+
+| measure | value | source |
+|---|---|---|
+| jacket book average | **$1,055** | $642,413,555 / 608,900 (jacket) |
+| projected EP per policy, Non-Tenant Homeowners | **$1,478.10** | Exhibit 1M, `VA HO 2026 Filing.pdf` |
+| tool modeled VA price | **$1,496** | 1558 x base 0.97 x tilt 0.99 |
+
+The jacket average is 29% BELOW the modeled price; the actuarial memo's HO-only figure is **1% below
+it**. The tool's State Farm base was accurate all along. The SFMA jacket confirms the blend directly —
+it discusses "Condominium Unitowners" deductible pages inside the same "Virginia Homeowners Program".
+
+**Which VA jackets visibly mention other sub-lines** (so their book average is definitely blended):
+VRFB-134994651 (condominium, mobile home, tenant) · NWPP-134558137 (condominium, tenant) ·
+AOIC-134474539 (renters, tenant). The rest mention none, but absence of the word is not proof of a
+pure HO-3 book — State Farm's own program name gave no hint either.
+
+**Consequence — retracted:** an earlier pass in this session computed correlation(tool base, jacket
+book average) = -0.27 across 11 VA carriers and read it as "the tool's price ordering is inverted vs
+the filings." That correlation is computed on contaminated denominators and should not be relied on.
+Dwelling-value mix is still a real confounder, but line mix is the larger one and it is the one proven
+here.
+
+**Consequence — method:** filings CAN anchor home bases, but only from the actuarial memo's
+**projected earned premium per policy** exhibit (State Farm Exhibit 1M; other carriers file an
+equivalent), never from the jacket's Company Rate Information block. That exhibit lives in
+**Supporting Document Attachments**, which are a separate checkbox on the SERFF download page and were
+not included in most of this pull. Jacket-derived `overall_pct` remains fully valid — it is a
+percentage change, immune to the mix problem. This is why `apply_home_filings.py` treats filings as a
+DRIFT layer only, and that design stands.
+
+**Open: Virginia Farm Bureau base.** Still unrostered, still contradicting the tracker (5 mentions on
+`home/rate-changes/virginia.html`). The peer argument (every Farm Bureau in the roster sits below the
+state average: MI 0.90, TX 0.78, LA 0.88) and the book argument (VAFB blends at $1,603 vs State Farm's
+blended $1,055, implying VAFB is materially more expensive) now point in OPPOSITE directions, and the
+book argument can't be trusted until VAFB's own EP-per-policy is read. Resolve by re-downloading
+**VRFB-134994651 with Supporting Document Attachments checked** and reading its EP-per-policy exhibit.
