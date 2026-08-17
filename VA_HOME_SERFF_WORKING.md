@@ -176,3 +176,51 @@ state average: MI 0.90, TX 0.78, LA 0.88) and the book argument (VAFB blends at 
 blended $1,055, implying VAFB is materially more expensive) now point in OPPOSITE directions, and the
 book argument can't be trusted until VAFB's own EP-per-policy is read. Resolve by re-downloading
 **VRFB-134994651 with Supporting Document Attachments checked** and reading its EP-per-policy exhibit.
+
+## VAFB base: RESOLVED as un-anchorable (2026-08-17, after full re-pull)
+
+Re-pulled `VRFB-134994651` with all attachments (2.2MB vs the 19KB jacket-only original). Every
+primary-source route to a Virginia Farm Bureau base is a dead end:
+
+| source | result |
+|---|---|
+| Actuarial memo / rate-change breakdown | **Bypassed** in both VAFB filings — does not exist |
+| COF-1 Rate Certification | Signature attestation only (actuary Christopher Pett, 06/23/2026). No rate data. |
+| `..._Manual.pdf` + tracked | Scheduled-personal-property endorsement rules. No base factors. |
+| `..._Factor_Pages.pdf` | Base rates + program factors only — **Table 2 (amount-of-insurance factors) not filed** |
+
+VAFB filed only the pages that CHANGED. Table 2 didn't change, so it isn't in the filing, and without
+it the base rate can't be scaled to the tool's $300k-dwelling archetype.
+
+**But the factor pages settle the original question anyway.** VAFB's filed annual base rates:
+
+| program | base rate | note |
+|---|---|---|
+| Homeowner | **$2,240.04** | $250 ded / $100k liab / $1,000 med pay; RC Coverage C on Protector Plus |
+| Tenant | **$74.65** | same coverage basis |
+| Mobile Home | **$377.48** | same coverage basis |
+
+Program factors: Protector 1.0000 · Protector Plus 1.1345 · Homeowners 1.2185.
+
+A single jacket containing both $2,240 homeowner policies and $74.65 tenant policies cannot yield a
+meaningful average premium — which is exactly what the $1,603 jacket figure was. This **kills the
+book-anchored 1.03 option** outright, and it also undercuts the peer-anchored 0.90: VAFB's blended
+average lands at the VA market average ($1,603 vs $1,602) *despite* heavy tenant/mobile dilution,
+which implies its homeowner rates sit ABOVE market, not below it like MI (0.90) or TX (0.78) Farm Bureau.
+
+**Recommendation: base 1.00, PROVISIONAL** — the least-wrong point between a peer prior that's now
+clearly too cheap and a dilution-corrected read that's above market but unquantifiable. Revisit if
+Table 2 ever appears in a future VAFB filing.
+
+## NEW TOOL: serff_pdftext_cid.py
+
+Rate manuals and factor pages export from Word/Excel with **subset CID fonts** — text is hex glyph IDs
+(`<0057><018C> TJ`) plus a ToUnicode CMap, not literal `(string) Tj`. `serff_pdftext.py` returns EMPTY
+on these, which reads as "no text in this PDF" rather than "wrong decoder" — the trap that made the
+factor pages look unreadable. `serff_pdftext_cid.py` builds the glyph→unicode map from the embedded
+CMaps and decodes. Use it as the second attempt whenever `serff_pdftext.py` returns little or nothing
+on an ATTACHMENT (jackets are fine with the original).
+
+Known wart: CMaps are merged across fonts, so a few letters can transpose in headings ("BMse RMPe" =
+"Base Rate"). Digits decode correctly, which is what rate tables need. Add `--per-font` if prose
+accuracy is ever needed.
