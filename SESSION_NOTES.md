@@ -16,7 +16,20 @@ Farmers/Encompass/Bristol West +6.5–7% raising → tracker 6 raised / 2 cut. H
   (base 0.98). This is the reusable pattern for STANDARD state regionals (vs the state-scoped-non-standard
   path used for LA's Safeway/Imperial). Commits `f277d793`→`ae5af904`, all pushed. QA 613/0, prose 0 drift.
 - Skipped (no extractable table / not grabbed): Travelers auto, Progressive NJ (both entities), Midvale/
-  Liberty auto. Not worth chasing. Next state candidates: **GA** (have auto, add home) or **AZ** (both new).
+  Liberty auto. Not worth chasing.
+
+## STRUCTURED DATA / GSC (2026-08-17)
+GSC flagged "Unparsable structured data / Incorrect value type." Root cause: `article/state/delaware.html`
+FAQPage JSON-LD had a **trailing comma** after the last mainEntity item → invalid JSON. Fixed + full re-scan
+= 0 failures (`e0976bdb`). Owner should click **Validate Fix** in GSC once re-crawled. Also fixed the 6
+generated carrier pages (LA + NJ) whose Article JSON-LD `url` pointed to alfa.html (template leftover) +
+patched both generators. **Reusable diagnostic** — scan every page's JSON-LD for parse errors:
+`python3 -c "import re,json,glob; [print(f) for f in glob.glob('**/*.html',recursive=True) for m in re.finditer(r'<script type=.application/ld.json.>(.*?)</script>',open(f,encoding='utf-8').read(),re.S) if _try(m)]"` (wrap json.loads in try).
+
+## ▶ NEXT STATE (owner's choice)
+**GA** (have auto/20 filings, add home via both-boxes) or **AZ** (both auto+home net-new). Same proven flow:
+paste the both-boxes SERFF results → I triage Tier 1+2 pull lists → drop zips in ~/ ("Linux files") →
+extract/parse/append/cascade. NC lower priority (collective NC Rate Bureau = less carrier-granular).
 
 ## ▶▶ RESUME HERE (2026-08-03) — ★ ARTICLE CTA TEMPLATE ROLLOUT + METRO GENERATOR BAKE — COMPLETE
 Replaced the old article CTA modules (mid-article `.tooltiles` two-tile block / dark `.zip-embed` box +
