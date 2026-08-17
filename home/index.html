@@ -858,6 +858,7 @@ const HOME_DRIFT = {
   "NJ": { "CSAA / AAA": 0.9632, "Farmers": 0.9766, "Palisades": 1.0293, "Plymouth Rock": 1.0006 },
   "PA": { "Farmers": 0.8536, "USAA": 1.0072 },
   "TX": { "Chubb": 1.024, "Liberty Mutual": 0.9932, "Nationwide": 0.9912 },
+  "VA": { "Amica Mutual": 0.9433, "Farmers": 0.9452, "Nationwide": 1.0077 },
 };
 // ── END HOME_DRIFT ──
 
@@ -906,9 +907,11 @@ const HOME_METRO_ZIP3 = {"070":"nyc","071":"nyc","072":"nyc","073":"nyc","074":"
 // GATED on coverage (only carriers filed in >= N states). Absent carriers keep their static score.
 // Measures RECENT rate pressure (~1yr of filings), not lifetime volatility. Do NOT hand-edit.
 const HOME_STABILITY_ADJ = {
+  "Allstate": 3,
   "Central": 2,
   "Cincinnati Insurance": 3,
   "Farmers": 4,
+  "Homesite": 4,
   "Liberty Mutual": 3,
   "Nationwide": 5,
   "Progressive": 1,
