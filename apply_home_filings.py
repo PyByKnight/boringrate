@@ -67,9 +67,12 @@ def roster_name(carrier):
 def load_model():
     """Parse the home roster names, STATE_CARRIER_ADJ, and per-state avg from home/index.html."""
     html = INDEX.read_text(encoding="utf-8")
-    roster = set(re.findall(r'\{\s*\n\s*name:"([^"]+)"', html))
-    if not roster:  # roster objects are on one line in some builds
-        roster = set(re.findall(r'name:"([^"]+)",\s*base:', html))
+    # Anchor on `name:"X", base:` — the one shape every roster entry has. The older
+    # `{\n name:` anchor silently dropped all 16 comment-prefixed entries (Louisiana Farm
+    # Bureau, Allied Trust, Selective, Donegal, Grange, NYCM, ...): they parsed as "not in
+    # home roster" and never received drift, even though they had a base and were ranked.
+    # The old fallback never fired because the brittle pattern still matched ~44 entries.
+    roster = set(re.findall(r'name:"([^"]+)",\s*base:', html))
     adj = {}
     block = re.search(r"const STATE_CARRIER_ADJ\s*=\s*\{(.*?)\n\};", html, re.DOTALL)
     if not block:
