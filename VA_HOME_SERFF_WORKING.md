@@ -224,3 +224,22 @@ on an ATTACHMENT (jackets are fine with the original).
 Known wart: CMaps are merged across fonts, so a few letters can transpose in headings ("BMse RMPe" =
 "Base Rate"). Digits decode correctly, which is what rate tables need. Add `--per-font` if prose
 accuracy is ever needed.
+
+## STILL OUTSTANDING
+
+**Travelers — the one real roster gap.** Both `TRVD-G135009179` (Quantum) and `TRVD-G135009170`
+(Legacy) return **not authorized** on retry, so it isn't session expiry. Both are **"Multiple"**
+company filings; multi-company jackets are the ones VA's public access tends to restrict. Every
+OTHER Travelers row in the results is single-company (Travelers Personal Insurance Company, NAIC
+38130) — try those instead, newest first:
+
+https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=135001927
+https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134829082
+https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134676836
+https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134594472
+https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134581015
+
+Until one lands, Travelers is a rostered VA home carrier priced off its static base with no drift.
+
+**Wesco `PERR-134966214`** — also not authorized. Deprioritized: it's renters, and the renters tier
+produced no extractable rate data at all, so it would add nothing even if it opened.
