@@ -855,10 +855,10 @@ const STATE_CARRIER_ADJ = {
 const HOME_DRIFT = {
   "IL": { "Allstate": 0.9262 },
   "MI": { "Auto-Owners": 0.9951, "Michigan Farm Bureau": 0.9894, "The Hanover": 1.017, "The Hartford": 0.9933 },
-  "NJ": { "CSAA / AAA": 0.9632, "Farmers": 0.9766, "Palisades": 1.0293, "Plymouth Rock": 1.0006 },
+  "NJ": { "CSAA / AAA": 0.9606, "Farmers": 0.974, "Palisades": 1.0265, "Plymouth Rock": 0.9979, "Preferred Mutual": 1.0179 },
   "PA": { "Farmers": 0.8536, "USAA": 1.0072 },
   "TX": { "Chubb": 1.024, "Liberty Mutual": 0.9932, "Nationwide": 0.9912 },
-  "VA": { "Amica Mutual": 0.9433, "Farmers": 0.9452, "Nationwide": 1.0077 },
+  "VA": { "Amica Mutual": 0.9409, "Farmers": 0.9428, "Nationwide": 1.0051, "Virginia Farm Bureau": 1.0062 },
 };
 // ── END HOME_DRIFT ──
 
@@ -1190,6 +1190,25 @@ const HOME_CARRIERS = [
     restricted:true, availNote:"Louisiana only — membership required",
     states:["LA"],
     links:"https://www.lfbins.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    // Aggregator-blind regional. Base is NOT derivable from primary source here: VAFB bypassed the
+    // actuarial memo and filed only changed manual pages, so the amount-of-insurance factor table
+    // (Table 2) needed to scale their base rate to the $300k archetype does not exist in the filing.
+    // 1.00 is PROVISIONAL. The peer Farm Bureau prior (MI 0.90 / TX 0.78) is too cheap for this book:
+    // VAFB's blended jacket average lands at the VA market average ($1,603 vs $1,602) DESPITE heavy
+    // dilution from tenant ($74.65 filed base rate) and mobile home ($377.48) sitting in the same book
+    // as homeowners ($2,240.04) — so their homeowner rates read as at-or-above market, not below it.
+    // Revisit if a future VAFB filing includes Table 2. See VA_HOME_SERFF_WORKING.md.
+    // naic 1.0 / csGrade B are neutral placeholders — no complaint-index data pulled for this carrier.
+    name:"Virginia Farm Bureau", base:1.0,
+    tag:"Virginia member mutual · state-exclusive (PROVISIONAL base)",
+    bestFor:"Virginia members",
+    naic:1.0, csGrade:"B", stability:4,
+    restricted:true, availNote:"Virginia only — membership required",
+    states:["VA"],
+    links:"https://www.vafb.com",
     sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
   },
   {
