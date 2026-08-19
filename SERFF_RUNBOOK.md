@@ -348,3 +348,35 @@ SERFF public access and most DOI portals 403 bots and their terms prohibit
 scraping (confirmed June 2026). Monthly cadence doesn't need automation; the
 value is the primary sourcing, not the speed. Everything downstream of the
 copy-paste IS automated.
+
+## After a pull: compact the PDFs (owner policy, 2026-08-19)
+
+SERFF PDFs are bulky and re-downloadable from the portal; their **text is neither**. Once a pull is
+parsed and appended, run:
+
+```
+python3 serff_compact.py --apply
+```
+
+It extracts every PDF under `_serff/` to a sibling `<dir>_txt/`, then deletes the PDFs. It refuses to
+delete anything whose extraction came back under 200 chars, so a bad decode can't silently destroy the
+source. First run (2026-08-19) took `_serff/` from 36MB → 16MB, 500 PDFs → 500 .txt, zero failures.
+
+**Keep the text, not the PDF.** The ledger JSON holds the parsed numbers, but only the jacket text
+carries the context that answers follow-up questions without a re-download:
+- **Supporting Document Schedules** — distinguishes "no actuarial memo exists" (Bypassed) from "we
+  didn't check that download box". This is what settled the VA Farm Bureau base question.
+- **Program scope** — e.g. State Farm's VA jacket discussing Condominium Unitowners, which is how the
+  line-blending problem was caught.
+- **DOI objection letters** — e.g. Virginia telling Liberty Mutual to file its indications and in-force
+  counts.
+- **Rate-manual base rates** from attachments (VAFB Homeowner $2,240.04 / Tenant $74.65 / Mobile $377.48).
+
+Note `_serff/` is **gitignored** — nothing in it is recoverable from git. The text is the only copy.
+
+Two extractors, try in this order (serff_compact.py already does both and keeps the better result):
+- `serff_pdftext.py` — jackets (literal `(string) Tj`)
+- `serff_pdftext_cid.py` — attachments (subset CID fonts: hex glyph IDs + ToUnicode CMap). The original
+  returns EMPTY on these, which misreads as "no text in this PDF" rather than "wrong decoder".
+
+No poppler in this container, so PDFs cannot be rendered to images — text extraction is the only path.

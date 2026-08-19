@@ -63,3 +63,4 @@ step python3 audit_prose.py
 echo
 echo "✅ cascade complete. Review 'git diff', then commit."
 echo "   Reminders: add any NEW page URLs to sitemap.xml by hand; ping IndexNow; clear ~/*.zip + scratchpad."
+echo "   Then compact the PDFs: python3 serff_compact.py --apply   (text is durable, PDFs are cache)"
