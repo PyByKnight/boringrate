@@ -1,5 +1,5 @@
 # BoringRate — Session Notes
-_Last updated: 2026-08-13 (Opus 4.8)_
+_Last updated: 2026-08-19 (Opus 5)_
 
 ## ▶▶ NEW JERSEY (auto + home) — COMPLETE (2026-08-13)
 Both-boxes SERFF pull (TOI 4+19). **Auto: 19 filings** in serff_filings.json; **home: 5 new** in
@@ -26,10 +26,60 @@ generated carrier pages (LA + NJ) whose Article JSON-LD `url` pointed to alfa.ht
 patched both generators. **Reusable diagnostic** — scan every page's JSON-LD for parse errors:
 `python3 -c "import re,json,glob; [print(f) for f in glob.glob('**/*.html',recursive=True) for m in re.finditer(r'<script type=.application/ld.json.>(.*?)</script>',open(f,encoding='utf-8').read(),re.S) if _try(m)]"` (wrap json.loads in try).
 
+## ▶▶ VIRGINIA HOME — COMPLETE (2026-08-17). Full detail in `VA_HOME_SERFF_WORKING.md`.
+Picked VA over the GA/AZ pointer below: VA already had the deepest auto book (70 filings) with zero home
+rows, tops GSC state impressions, and home is the near-term wedge. **10th home state; VA now PASSES the
+home coverage gate** (State Farm, Allstate, USAA, Farmers, Liberty Mutual, Nationwide) → HOME_DRIFT live.
+
+**18 home rows** from 20 Tier-1 pulls (`365bf135`). VA is a RAISING market:
+Progressive/ASI **+10.0%** (asked 13.1) · Erie **+8.0%** (asked 11.0, 167k PH) · Auto-Owners +6.7% ·
+USAA +3.80% (premium-weighted, 4 entities, 307k PH) · VA Farm Bureau +3.8% · Nationwide +3.62% ·
+State Farm +1.7% (608,900 PH — the biggest VA home book) · Allstate +0.6% · Homesite −0.4%.
+Only cutters: **Amica −3.0%** (own indication said −8.0) and Farmers Fire Exchange −2.8%.
+Multi-entity filings collapse to the dominant entity (existing home-store convention) but `overall_pct`
+is the premium-weighted family average with PH/premium summed, so USAA isn't read as its largest entity.
+
+**★ Renters was a bust — don't re-pull it.** All 12 tenant (04.0004) jackets returned "Rate data does NOT
+apply" and carried no Rate/Rule attachments: no percentages, no base rates. Recorded only the 4 new-program
+launches (Allstate ANAIC, National General, MIC General, New South) as market-entry facts with null rates.
+
+**★★ METHOD FINDING — jacket book averages are LINE-BLENDED** (`80a85b2c`, memory
+`boringrate-jacket-averages-blended`). `written_premium/affected` spans HO+condo+tenant+mobile, and the
+blend fraction varies per carrier. State Farm's jacket says $1,055; its own actuarial memo (Exhibit 1M)
+says **$1,478** for Non-Tenant Homeowners vs $1,496 modeled — 1% off, i.e. the base was right all along.
+VAFB's own factor pages prove it directly: Homeowner base rate **$2,240.04**, Tenant **$74.65**, Mobile
+Home **$377.48**, all in the one jacket whose "average" was $1,603. **Never set a home base from a jacket
+average.** Retracted this session's earlier correlation(base, jacket avg) = −0.27 claim — contaminated
+denominators. `overall_pct` is unaffected (a % change is immune to mix), so the drift-layer design stands.
+
+**Virginia Farm Bureau wired at PROVISIONAL base 1.00** (`658ca790`) — VA's 4th-biggest home book, was
+named 5× on the tracker with no tool entry. Not derivable from primary source: VAFB bypassed the actuarial
+memo and filed only changed pages, so the amount-of-insurance factor table doesn't exist in the filing.
+1.00 not the peer prior (MI 0.90 / TX 0.78) because its blended average sits AT market despite heavy
+tenant/mobile dilution → homeowner rates read at-or-above market. Revisit if Table 2 ever appears.
+
+**★ BUG FIXED — 16 carriers never received drift** (`703532e3`). `apply_home_filings.py` parsed the roster
+with `{\n name:"X"`, so every comment-prefixed entry was invisible (LA Farm Bureau, Allied Trust, Selective,
+Donegal, Grange, NYCM, Motorists, Preferred Mutual, Central, Celina, Kingstone, Madison Mutual, Ohio Mutual,
+Pekin, US Coastal, + VAFB). Ranked in the tool, reported "not in home roster", never drifted. Its fallback
+never fired because the brittle pattern still matched ~44. Auto twin `apply_filed_changes.py` is clean.
+
+**NEW TOOL `serff_pdftext_cid.py`** (`7ca7021d`) — rate manuals/factor pages use subset CID fonts (hex glyph
+IDs + ToUnicode CMap). `serff_pdftext.py` returns EMPTY on them, which misreads as "no text" rather than
+"wrong decoder". Try this second on any ATTACHMENT. Note: no poppler in this container, so `Read` cannot
+render PDFs — text extraction is the only path.
+
+**OUTSTANDING:** Travelers `TRVD-G135009179` + `TRVD-G135009170` both "not authorized" on retry — they're
+**"Multiple"** company filings, which is what VA public access restricts. Use the 5 single-company Quantum
+Home 2.0 trackings instead (listed in `VA_HOME_SERFF_WORKING.md`). Travelers is currently rostered in VA
+with no drift — the one real gap. Wesco `PERR-134966214` parked (renters, worthless per above).
+
 ## ▶ NEXT STATE (owner's choice)
 **GA** (have auto/20 filings, add home via both-boxes) or **AZ** (both auto+home net-new). Same proven flow:
 paste the both-boxes SERFF results → I triage Tier 1+2 pull lists → drop zips in ~/ ("Linux files") →
 extract/parse/append/cascade. NC lower priority (collective NC Rate Bureau = less carrier-granular).
+Worth grabbing on any future pull: the **territory-dislocation exhibits** (8 VA carriers filed one) — they
+are sub-state rate dispersion, which `gen_home_metro_offsets.py` currently models WITHOUT filing data.
 
 ## ▶▶ RESUME HERE (2026-08-03) — ★ ARTICLE CTA TEMPLATE ROLLOUT + METRO GENERATOR BAKE — COMPLETE
 Replaced the old article CTA modules (mid-article `.tooltiles` two-tile block / dark `.zip-embed` box +
