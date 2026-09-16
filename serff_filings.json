@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "purpose": "Durable structured dataset of primary-source SERFF rate filings \u2014 the analytical superset behind rate_changes.json. Feeds future charts/tools (liability-vs-physical-damage splits, rate trajectory, book-size weighting). rate_changes.json remains the tracker DISPLAY feed; this file is the RAW reference, joined by tracking #.",
+  "purpose": "Durable structured dataset of primary-source SERFF rate filings — the analytical superset behind rate_changes.json. Feeds future charts/tools (liability-vs-physical-damage splits, rate trajectory, book-size weighting). rate_changes.json remains the tracker DISPLAY feed; this file is the RAW reference, joined by tracking #.",
   "schema": {
    "state": "2-letter",
    "carrier": "family name",
@@ -20,13 +20,13 @@
    "affected": "policyholders or insured vehicles | null",
    "count_basis": "vehicles | policyholders",
    "coverage_changes": "per-coverage % {BI,PD,UM,MED,COMP,COLL,...} where the filing/PC-form exposed it | null (jacket-only filings don't break it out)",
-   "premium_as_of": "valuation date of written_premium/affected (PC form Part 2 '@ MM/DD/YYYY' header) \u2014 REQUIRED for market-share-over-time | null if not captured",
+   "premium_as_of": "valuation date of written_premium/affected (PC form Part 2 '@ MM/DD/YYYY' header) — REQUIRED for market-share-over-time | null if not captured",
    "recorded_date": "date WE logged this filing",
    "market_share_sc": "carrier's stated % share of the SC auto market (SC PC form field) | null; SC-specific, other states' forms may differ"
   },
-  "coverage_note": "Per-coverage splits come from the PC form 'Part 1 / Requested Percent Changes by Type of Coverage' or a Rate Level Effect exhibit. Jacket-only zips (and image-based exhibits) don't expose them, so coverage_changes is null there. Capture Part 1 going forward when text-available \u2014 it powers the 'is your increase liability- or repair-driven' angle.",
+  "coverage_note": "Per-coverage splits come from the PC form 'Part 1 / Requested Percent Changes by Type of Coverage' or a Rate Level Effect exhibit. Jacket-only zips (and image-based exhibits) don't expose them, so coverage_changes is null there. Capture Part 1 going forward when text-available — it powers the 'is your increase liability- or repair-driven' angle.",
   "last_updated": "2026-07-06",
-  "refind": "Re-find any filing by searching its `tracking` number in SERFF Filing Access for that state (SERFF Tracking Number field) \u2014 works for '-G' numbers too, unlike the filingId deep link. We do NOT store individual attachment filenames; re-download the filing zip if a specific document (PC form, exhibit) is needed.",
+  "refind": "Re-find any filing by searching its `tracking` number in SERFF Filing Access for that state (SERFF Tracking Number field) — works for '-G' numbers too, unlike the filingId deep link. We do NOT store individual attachment filenames; re-download the filing zip if a specific document (PC form, exhibit) is needed.",
   "pulls": [
    {
     "state": "NV",
@@ -34,7 +34,7 @@
     "pulled_on": "2026-07-01",
     "scanned": 22,
     "kept": 3,
-    "note": "June only \u2014 still owes Oct 2025-May 2026 backfill"
+    "note": "June only — still owes Oct 2025-May 2026 backfill"
    },
    {
     "state": "GA",
@@ -50,7 +50,7 @@
     "pulled_on": "2026-07-02",
     "scanned": 149,
     "kept": 6,
-    "note": "Selective (SELC-134783974, increase, prior +30%) deferred \u2014 exact % unread. Big finding: State Farm -8.1% on 1.2M PH."
+    "note": "Selective (SELC-134783974, increase, prior +30%) deferred — exact % unread. Big finding: State Farm -8.1% on 1.2M PH."
    },
    {
     "state": "GA",
@@ -74,19 +74,19 @@
     "pulled_on": "2026-07-06",
     "scanned": "499 Closed Personal Auto filings (API)",
     "kept": 18,
-    "note": "TX is TDI open-data (data.texas.gov), NOT SERFF click-through \u2014 pulled entirely via Socrata API, joined percent_change (ittv-5xew) to auto index (iubg-btfs) on serff_id. No PH/premium in the data. TX broadly SOFTENING: State Farm -3%, Progressive -2.5%, Germania -7.9% (repeat cutter), Mid-Century -10.1%, Farmers -5.2%; USAA/Liberty/Safeco/Nationwide/Travelers flat; only GEICO +2% and Allstate (+2..+10% in 2026 after -11.4% in 2025) raising. Texas Farm Bureau: NO in-window auto filing.",
+    "note": "TX is TDI open-data (data.texas.gov), NOT SERFF click-through — pulled entirely via Socrata API, joined percent_change (ittv-5xew) to auto index (iubg-btfs) on serff_id. No PH/premium in the data. TX broadly SOFTENING: State Farm -3%, Progressive -2.5%, Germania -7.9% (repeat cutter), Mid-Century -10.1%, Farmers -5.2%; USAA/Liberty/Safeco/Nationwide/Travelers flat; only GEICO +2% and Allstate (+2..+10% in 2026 after -11.4% in 2025) raising. Texas Farm Bureau: NO in-window auto filing.",
     "roster_audit": "Tool roster = 14 nationals + 3 TX regionals (Texas Farm Bureau, Germania, Mercury). Covered/verified all EXCEPT: The Hartford (no clean filing - AARP/fronting), Kemper, Mercury, Texas Farm Bureau (TX #1) = NO in-window auto filing. Root +1.2% + 5 flat nationals added in completeness pass."
    }
   ],
-  "count_note": "NV PC forms report 'Number of Insured Vehicles'; GA jackets report 'Number of Policy Holders Affected' \u2014 different denominators (~1.5 vehicles/policy). written_premium/count therefore yields $/vehicle for NV, $/policy for GA. Record the exact basis; don't mix them in a per-unit average.",
+  "count_note": "NV PC forms report 'Number of Insured Vehicles'; GA jackets report 'Number of Policy Holders Affected' — different denominators (~1.5 vehicles/policy). written_premium/count therefore yields $/vehicle for NV, $/policy for GA. Record the exact basis; don't mix them in a per-unit average.",
   "presentation_uses": {
    "_intent": "Fields captured not just for the model but to make the customer-facing rate presentation more credible/useful. Keep capturing these; they unlock the angles below.",
-   "coverage_changes": "\"Your increase is liability-driven, not repair-cost\" \u2014 split BI/UM vs COMP/COLL so a shopper sees WHY.",
-   "indicated_pct vs overall_pct": "\"The carrier asked the state for +24%; the regulator approved -10%\" \u2014 regulator-as-protection narrative.",
-   "prior_revision_pct": "Rate trajectory \u2014 \"this carrier has raised twice this cycle (+7% then +5.5%)\" vs a one-off.",
-   "effective_new vs effective_renewal": "\"You won't see this until your renewal on <date> \u2014 shop before then\" \u2014 the tracker's signature timing angle.",
-   "written_premium + affected": "Scale/credibility \u2014 \"affects 109,120 drivers / a $404M book,\" and enables book-size-weighted charts.",
-   "disposition_date + premium_as_of": "Freshness/as-of recency \u2014 lets us say how current each figure is."
+   "coverage_changes": "\"Your increase is liability-driven, not repair-cost\" — split BI/UM vs COMP/COLL so a shopper sees WHY.",
+   "indicated_pct vs overall_pct": "\"The carrier asked the state for +24%; the regulator approved -10%\" — regulator-as-protection narrative.",
+   "prior_revision_pct": "Rate trajectory — \"this carrier has raised twice this cycle (+7% then +5.5%)\" vs a one-off.",
+   "effective_new vs effective_renewal": "\"You won't see this until your renewal on <date> — shop before then\" — the tracker's signature timing angle.",
+   "written_premium + affected": "Scale/credibility — \"affects 109,120 drivers / a $404M book,\" and enables book-size-weighted charts.",
+   "disposition_date + premium_as_of": "Freshness/as-of recency — lets us say how current each figure is."
   }
  },
  "filings": [
@@ -318,7 +318,7 @@
    "affected": 2800,
    "count_basis": "policyholders",
    "coverage_changes": null,
-   "note": "Donegal is NerdWallet's cheapest-named GA auto carrier \u2014 model-validation datapoint.",
+   "note": "Donegal is NerdWallet's cheapest-named GA auto carrier — model-validation datapoint.",
    "premium_as_of": null,
    "recorded_date": "2026-07-02"
   },
@@ -1495,7 +1495,7 @@
   {
    "state": "TN",
    "carrier": "Tennessee Farm Bureau",
-   "entity": "Tennessee Farmers Mutual Insurance Company (pre-window \u2014 effective before the 2025-07 tracking window; pre-baked into the anchor snapshot, not a 2026 move)",
+   "entity": "Tennessee Farmers Mutual Insurance Company (pre-window — effective before the 2025-07 tracking window; pre-baked into the anchor snapshot, not a 2026 move)",
    "tracking": "TNFA-133965333",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=133965333",
    "product": "Private Passenger Auto 06/01/24",
@@ -2157,7 +2157,7 @@
    "premium_as_of": null,
    "recorded_date": "2026-07-06",
    "source_note": "TX TDI open data (data.texas.gov iubg-btfs/ittv-5xew); no PH/premium published",
-   "note": "0% overall \u2014 USAA held TX flat. Clears top-5 coverage.",
+   "note": "0% overall — USAA held TX flat. Clears top-5 coverage.",
    "entity_aggregate": true
   },
   {
@@ -2206,7 +2206,7 @@
    "premium_as_of": null,
    "recorded_date": "2026-07-06",
    "source_note": "TX TDI open data (data.texas.gov iubg-btfs/ittv-5xew); no PH/premium published",
-   "note": "-10.1% on Farmers' Mid-Century of Texas book \u2014 a large cut."
+   "note": "-10.1% on Farmers' Mid-Century of Texas book — a large cut."
   },
   {
    "state": "TX",
@@ -2278,7 +2278,7 @@
    "premium_as_of": null,
    "recorded_date": "2026-07-06",
    "source_note": "TX TDI open data (data.texas.gov); no PH/premium",
-   "note": "+1.2% \u2014 the only Root TX move in-window. Files under CLIN- prefix (missed in first pass)."
+   "note": "+1.2% — the only Root TX move in-window. Files under CLIN- prefix (missed in first pass)."
   },
   {
    "state": "TX",
@@ -2302,7 +2302,7 @@
    "premium_as_of": null,
    "recorded_date": "2026-07-06",
    "source_note": "TX TDI open data (data.texas.gov); no PH/premium",
-   "note": "0% \u2014 Liberty held TX flat (9 in-window filings all 0%). eff post-anchor but 0% -> drift no-op."
+   "note": "0% — Liberty held TX flat (9 in-window filings all 0%). eff post-anchor but 0% -> drift no-op."
   },
   {
    "state": "TX",
@@ -2326,7 +2326,7 @@
    "premium_as_of": null,
    "recorded_date": "2026-07-06",
    "source_note": "TX TDI open data (data.texas.gov); no PH/premium",
-   "note": "0% \u2014 Travelers held TX flat (2 filings, symbol-only)."
+   "note": "0% — Travelers held TX flat (2 filings, symbol-only)."
   },
   {
    "state": "TX",
@@ -2350,7 +2350,7 @@
    "premium_as_of": null,
    "recorded_date": "2026-07-06",
    "source_note": "TX TDI open data (data.texas.gov); no PH/premium",
-   "note": "0% \u2014 Safeco held TX flat (7 filings all 0%)."
+   "note": "0% — Safeco held TX flat (7 filings all 0%)."
   },
   {
    "state": "TX",
@@ -2374,7 +2374,7 @@
    "premium_as_of": null,
    "recorded_date": "2026-07-06",
    "source_note": "TX TDI open data (data.texas.gov); no PH/premium",
-   "note": "0% \u2014 Nationwide held TX flat."
+   "note": "0% — Nationwide held TX flat."
   },
   {
    "state": "TX",
@@ -2398,7 +2398,7 @@
    "premium_as_of": null,
    "recorded_date": "2026-07-06",
    "source_note": "TX TDI open data (data.texas.gov); no PH/premium",
-   "note": "0% \u2014 National General held TX flat (2 filings)."
+   "note": "0% — National General held TX flat (2 filings)."
   },
   {
    "state": "CA",
@@ -2917,7 +2917,7 @@
    "premium_as_of": null,
    "recorded_date": "2026-07-09",
    "source_note": "NY SERFF Filing Access jacket; Company Rate Information block.",
-   "note": "0% impact \u2014 MODEL-YEAR-FACTORS update (jacket cites model year factors). Not USAA's rate revision.",
+   "note": "0% impact — MODEL-YEAR-FACTORS update (jacket cites model year factors). Not USAA's rate revision.",
    "drift_exclude": true
   },
   {
@@ -2990,7 +2990,7 @@
    "premium_as_of": null,
    "recorded_date": "2026-07-09",
    "source_note": "NY SERFF Filing Access jacket; Company Rate Information block.",
-   "note": "0% \u2014 jacket states 'no rate impact... statewide impact 0.0%'. Model-year factors only.",
+   "note": "0% — jacket states 'no rate impact... statewide impact 0.0%'. Model-year factors only.",
    "drift_exclude": true
   },
   {
@@ -3458,7 +3458,7 @@
   {
    "state": "PA",
    "carrier": "GEICO",
-   "entity": "GEICO Indemnity/Casualty/Gov Employees/Advantage (symbol/tier \u2014 held PA flat)",
+   "entity": "GEICO Indemnity/Casualty/Gov Employees/Advantage (symbol/tier — held PA flat)",
    "tracking": "GECC-134936442",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134936442",
    "product": "PPA",
@@ -3508,7 +3508,7 @@
   {
    "state": "PA",
    "carrier": "Farmers",
-   "entity": "Mid-Century Insurance (Farmers) \u2014 held PA flat",
+   "entity": "Mid-Century Insurance (Farmers) — held PA flat",
    "tracking": "FARM-134807503",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134807503",
    "product": "PPA",
@@ -3532,7 +3532,7 @@
   {
    "state": "PA",
    "carrier": "Allstate",
-   "entity": "Allstate Fire & Casualty (symbol/model \u2014 held flat; last rev +5.2% pre-window)",
+   "entity": "Allstate Fire & Casualty (symbol/model — held flat; last rev +5.2% pre-window)",
    "tracking": "ALSE-134916840",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134916840",
    "product": "PPA",
@@ -4312,7 +4312,7 @@
   {
    "state": "IL",
    "carrier": "Allstate",
-   "entity": "Allstate Fire & Casualty (mainline \u2014 held flat)",
+   "entity": "Allstate Fire & Casualty (mainline — held flat)",
    "tracking": "ALSE-134914535",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134914535",
    "product": "PPA",
@@ -4361,7 +4361,7 @@
   {
    "state": "IL",
    "carrier": "Erie",
-   "entity": "Erie Insurance Exchange (symbol/revenue-neutral \u2014 held flat)",
+   "entity": "Erie Insurance Exchange (symbol/revenue-neutral — held flat)",
    "tracking": "ERAP-134926673",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134926673",
    "product": "PPA",
@@ -6076,7 +6076,7 @@
   {
    "state": "OH",
    "carrier": "Nationwide",
-   "entity": "Nationwide Insurance Company of America (FLAG: single-entity filing \u2014 only in-window Nationwide rate filing; understates the OH book, do not present as family-wide)",
+   "entity": "Nationwide Insurance Company of America (FLAG: single-entity filing — only in-window Nationwide rate filing; understates the OH book, do not present as family-wide)",
    "tracking": "NWPP-G134739089",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134739089",
    "product": "PPA",
@@ -10542,9 +10542,15 @@
    "written_premium_change": null,
    "affected": 51746,
    "count_basis": "policyholders",
-   "coverage_changes": null,
+   "coverage_changes": {
+    "BI": 3.0,
+    "PD": -1.0,
+    "COMP": -1.0,
+    "COLL": -1.0
+   },
    "premium_as_of": null,
-   "recorded_date": "2026-07-29"
+   "recorded_date": "2026-07-29",
+   "coverage_source": "SERFF VRFB-134968347 (desc): BI Liability has been increased by 3%. PD Liability, Comprehensive and Collision have been decreased by 1%. The overall rate impact for these changes is 0.0%."
   },
   {
    "state": "VA",
@@ -10566,9 +10572,15 @@
    "written_premium_change": null,
    "affected": 26644,
    "count_basis": "policyholders",
-   "coverage_changes": null,
+   "coverage_changes": {
+    "BI": 3.0,
+    "PD": -1.0,
+    "COMP": -1.0,
+    "COLL": -1.0
+   },
    "premium_as_of": null,
-   "recorded_date": "2026-07-29"
+   "recorded_date": "2026-07-29",
+   "coverage_source": "SERFF VRFB-134968381 (desc): BI Liability has been increased by 3%. PD Liability, Comprehensive and Collision have been decreased by 1%. The overall rate impact for these changes is 0.0%."
   },
   {
    "state": "VA",
@@ -11406,9 +11418,16 @@
    "count_basis": "policyholders",
    "max_pct": 15.4,
    "min_pct": -15.5,
-   "coverage_changes": null,
+   "coverage_changes": {
+    "BI": 8.0,
+    "UMBI": 30.0,
+    "UIMBI": 30.0,
+    "PD": 20.0,
+    "UMPD": 20.0
+   },
    "premium_as_of": null,
-   "recorded_date": "2026-08-13"
+   "recorded_date": "2026-08-13",
+   "coverage_source": "SERFF CURE-134400950 (desc): Increase Bodily Injury base rates by +8% / Increase Uninsured Motorist/Underinsured Motorist Bodily Injury by +30% / Increase Property Damage and Uninsured/Underinsured Motorist base rates by +20%"
   },
   {
    "state": "NJ",

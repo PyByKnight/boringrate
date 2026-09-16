@@ -98,6 +98,16 @@ def source_label(url, note):
     return m.group(1) if m else "source"
 
 
+COV_LABEL = {
+    "BI": "Bodily injury liability", "PD": "Property damage liability",
+    "COMP": "Comprehensive", "COLL": "Collision", "MED": "Medical payments",
+    "PIP": "Personal injury protection", "UM": "Uninsured motorist",
+    "UIM": "Underinsured motorist", "UMBI": "Uninsured motorist — bodily injury",
+    "UIMBI": "Underinsured motorist — bodily injury",
+    "UMPD": "Uninsured motorist — property damage", "OTHER": "Other coverages",
+}
+
+
 def pct_str(v):
     """Signed percent in the house style (− is a real minus sign, not a hyphen)."""
     sign = "+" if v > 0 else ("−" if v < 0 else "±")
@@ -111,18 +121,27 @@ def detail_html(d):
     thin data shows a short panel rather than a grid of em-dashes. Returns "" when we
     have nothing beyond what the visible row already says."""
     bits = []
-    state_name = STATE[d["state"]][0]
 
-    # asked-vs-approved: the regulator doing (or not doing) its job
-    if d["indicated"] is not None and abs(d["indicated"] - d["pct"]) >= 0.05:
-        verb = "trimmed" if d["indicated"] > d["pct"] else "approved above"
-        bits.append(
-            f'<p><strong>{esc(d["carrier"])} asked {esc(state_name)} for '
-            f'{pct_str(d["indicated"])}</strong> and was approved for {pct_str(d["pct"])} — '
-            f'regulators {verb} the request.</p>')
-    elif d["indicated"] is not None:
-        bits.append(f'<p><strong>{esc(d["carrier"])} asked for {pct_str(d["indicated"])}</strong> '
-                    f'and was approved for the full amount.</p>')
+    # indicated-vs-taken. `indicated_pct` is the carrier's OWN actuarial indication — what its
+    # analysis says the book needs — NOT a request submitted to the regulator. Carriers routinely
+    # file below indication voluntarily (rate capping, competitive pressure), so phrasing this as
+    # "asked the state for X and was approved for Y" would assert regulator action the data does
+    # not establish. House voice, matching the reactive pages: "its actuaries indicated it needed".
+    ind, took = d["indicated"], d["pct"]
+    if ind is not None and abs(ind - took) >= 0.05:
+        if took < ind:
+            bits.append(
+                f'<p><strong>{esc(d["carrier"])}&rsquo;s actuaries indicated it needed '
+                f'{pct_str(ind)}</strong>, and it filed {pct_str(took)}. A carrier that prices '
+                f'below its own indication is under-earning on the book &mdash; which often means '
+                f'another filing follows.</p>')
+        else:
+            bits.append(
+                f'<p><strong>{esc(d["carrier"])} filed {pct_str(took)}</strong>, above the '
+                f'{pct_str(ind)} its actuaries indicated the book needed.</p>')
+    elif ind is not None:
+        bits.append(f'<p>{esc(d["carrier"])} filed {pct_str(took)} &mdash; exactly the change its '
+                    f'actuaries indicated the book needed.</p>')
 
     # the spread — the single most useful number for "why is mine different"
     if d["max_pct"] is not None and d["min_pct"] is not None and d["max_pct"] != d["min_pct"]:
@@ -130,6 +149,18 @@ def detail_html(d):
             f'<p>The {pct_str(d["pct"])} is a <em>statewide average</em>. Individual policies in this '
             f'filing moved <strong>{pct_str(d["max_pct"])} to {pct_str(d["min_pct"])}</strong> '
             f'depending on the vehicle, ZIP code, driving record and coverages on the policy.</p>')
+
+    # per-coverage splits, where the filing stated them (backfill_coverage_changes.py).
+    # This is the sharpest version of "the average isn't your bill": VA Farm Bureau filed an
+    # overall 0.0% while BI went +3% and PD/COMP/COLL went -1%.
+    cc = d.get("coverage_changes") or {}
+    if cc:
+        parts = "".join(
+            f'<li><span>{esc(COV_LABEL.get(k, k))}</span>'
+            f'<span style="color:{RED if v > 0 else (GREEN if v < 0 else MUTE)};font-weight:600;">'
+            f'{pct_str(v)}</span></li>'
+            for k, v in sorted(cc.items(), key=lambda kv: -abs(kv[1])))
+        bits.append(f'<p>Not every coverage moved the same way:</p><ul class="rf-cov">{parts}</ul>')
 
     if d["affected"]:
         basis = esc(d["count_basis"])
@@ -190,6 +221,7 @@ def collect():
             "max_pct": num(r.get("max_pct")), "min_pct": num(r.get("min_pct")),
             "affected": num(r.get("affected")), "count_basis": r.get("count_basis") or "policyholders",
             "prior": num(r.get("prior_revision_pct")),
+            "coverage_changes": r.get("coverage_changes") or None,
             "desc": DIGEST.get(r.get("tracking") or "", {}).get("desc"),
         })
     # sort: biggest absolute move first (default view)
@@ -301,6 +333,9 @@ def build():
     .rf-quote{margin:12px 0 9px;padding:10px 0 4px 14px;border-left:2px solid var(--rule);}
     .rf-quote{font-family:var(--serif);font-size:14px;line-height:1.55;color:var(--ink-soft);font-style:italic;}
     .rf-quote cite{display:block;font-family:var(--mono);font-size:11px;font-style:normal;color:var(--ink-mute);letter-spacing:0.04em;margin-top:7px;}
+    .rf-cov{list-style:none;margin:2px 0 11px;padding:0;max-width:330px;}
+    .rf-cov li{display:flex;justify-content:space-between;gap:16px;font-family:var(--sans);font-size:14px;padding:4px 0;border-bottom:1px dotted var(--rule);}
+    .rf-cov li span:first-child{color:var(--ink-soft);}
     .rf-detail-src{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;text-transform:uppercase;}
     @media (max-width:640px){.rf-detail-inner{padding-left:10px;}}
     .rf-row:target td{background:rgba(180,50,26,0.10);}
