@@ -36,6 +36,12 @@ try:
 except Exception:
     DIGEST = {}
 
+# Rate-capping rules (mine_capping.py). Optional, same as the digest.
+try:
+    CAPS = json.load(open(ROOT / "filing_caps.json"))["caps"]
+except Exception:
+    CAPS = {}
+
 scaff = (ROOT / "home" / "state" / "florida.html").read_text(encoding="utf-8")
 STYLE = scaff[scaff.index("<style>"):scaff.index("</style>") + len("</style>")]
 NAV = scaff[scaff.index('<header class="top">'):scaff.index("</header>") + len("</header>")]
@@ -143,12 +149,32 @@ def detail_html(d):
         bits.append(f'<p>{esc(d["carrier"])} filed {pct_str(took)} &mdash; exactly the change its '
                     f'actuaries indicated the book needed.</p>')
 
-    # the spread — the single most useful number for "why is mine different"
+    # the spread — the single most useful number for "why is mine different".
+    # MUST be qualified where the filing carries a rate-capping rule: an unqualified spread is
+    # wrong in one of two directions, and the corpus has both. Michigan told Bristol West its
+    # filed +14% was "before any capping" (overstates what anyone felt); Louisiana told Imperial
+    # the filed maximum was itself a capped figure and the real one was +163% (understates).
+    cap = CAPS.get(d["tracking"] or "")
     if d["max_pct"] is not None and d["min_pct"] is not None and d["max_pct"] != d["min_pct"]:
+        before = " before capping" if cap and cap.get("direction") == "overstates" else ""
         bits.append(
             f'<p>The {pct_str(d["pct"])} is a <em>statewide average</em>. Individual policies in this '
-            f'filing moved <strong>{pct_str(d["max_pct"])} to {pct_str(d["min_pct"])}</strong> '
-            f'depending on the vehicle, ZIP code, driving record and coverages on the policy.</p>')
+            f'filing moved <strong>{pct_str(d["max_pct"])} to {pct_str(d["min_pct"])}</strong>'
+            f'{before} depending on the vehicle, ZIP code, driving record and coverages on the '
+            f'policy.</p>')
+    if cap:
+        if cap.get("direction") == "corrected":
+            bits.append('<p class="rf-cap">The carrier first reported a <strong>capped</strong> '
+                        'maximum here. State regulators required it to publish the real one &mdash; '
+                        'which is the figure shown above.</p>')
+        elif cap.get("cap"):
+            bits.append(f'<p class="rf-cap">This filing caps individual rate changes at '
+                        f'<strong>{esc(cap["cap"])}</strong>, so a policy moves toward its full '
+                        f'new rate over several renewals rather than all at once.</p>')
+        else:
+            bits.append('<p class="rf-cap">This filing carries a <strong>rate-capping rule</strong>, '
+                        'which limits how far any single policy can move at one renewal — so the '
+                        'range above may not be what any one customer actually saw.</p>')
 
     # per-coverage splits, where the filing stated them (backfill_coverage_changes.py).
     # This is the sharpest version of "the average isn't your bill": VA Farm Bureau filed an
@@ -336,6 +362,7 @@ def build():
     .rf-cov{list-style:none;margin:2px 0 11px;padding:0;max-width:330px;}
     .rf-cov li{display:flex;justify-content:space-between;gap:16px;font-family:var(--sans);font-size:14px;padding:4px 0;border-bottom:1px dotted var(--rule);}
     .rf-cov li span:first-child{color:var(--ink-soft);}
+    .rf-cap{background:var(--paper);border-left:2px solid var(--accent);padding:8px 12px;margin:10px 0 11px !important;font-size:14px !important;}
     .rf-detail-src{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;text-transform:uppercase;}
     @media (max-width:640px){.rf-detail-inner{padding-left:10px;}}
     .rf-row:target td{background:rgba(180,50,26,0.10);}

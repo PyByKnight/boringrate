@@ -390,6 +390,7 @@ every pull, in this order:
 python3 serff_compact.py --apply    # PDFs -> text, delete PDFs
 python3 mine_filing_text.py         # text -> filing_digests.json.gz  (committed, 25x smaller)
 python3 mine_discounts.py           # digest -> rate_modifiers.json
+python3 mine_capping.py             # digest -> filing_caps.json (qualifies the spread)
 ```
 
 The digest keeps filing descriptions, DOI objection letters, carrier responses and reviewer notes —

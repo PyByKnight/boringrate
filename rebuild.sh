@@ -64,4 +64,4 @@ echo
 echo "✅ cascade complete. Review 'git diff', then commit."
 echo "   Reminders: add any NEW page URLs to sitemap.xml by hand; ping IndexNow; clear ~/*.zip + scratchpad."
 echo "   Then compact the PDFs: python3 serff_compact.py --apply   (text is durable, PDFs are cache)"
-echo "   Then mine the text:   python3 mine_filing_text.py && python3 mine_discounts.py   (see EXTRACTION_PLAN.md)"
+echo "   Then mine the text:   python3 mine_filing_text.py && python3 mine_discounts.py && python3 mine_capping.py   (see EXTRACTION_PLAN.md)"

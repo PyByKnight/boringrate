@@ -1,0 +1,477 @@
+{
+ "_meta": {
+  "purpose": "Filings carrying a rate-capping / rate-stabilization rule, which limits how far a single policy can move at renewal. Used to qualify the max/min spread on /rate-filings/, where an unqualified spread misleads in both directions.",
+  "built": "2026-09-16",
+  "filings": 47,
+  "verified": 6,
+  "caveat": "Presence is pattern-detected; cap VALUES are asserted only where hand-verified."
+ },
+ "caps": {
+  "HART-135009297": {
+   "state": "IL",
+   "carrier": null,
+   "line": null,
+   "evidence": [
+    "The intent of rate capping is to limit the impact of the rating factor changes to existing customers."
+   ],
+   "verified": false
+  },
+  "GMMX-134796306": {
+   "state": "LA",
+   "carrier": "Imperial",
+   "line": "auto",
+   "evidence": [],
+   "cap": null,
+   "direction": "corrected",
+   "quote": "Louisiana objected that the filed maximum was a capped figure: \"0% is a capped maximum change, remove it and display the actual expected maximum change of +163.\"",
+   "verified": true
+  },
+  "SPIS-134785306": {
+   "state": "LA",
+   "carrier": "Vault",
+   "line": "auto",
+   "evidence": [
+    "After a careful review of the Rate Capping guidance, we have revised Rule 412 to ensure full compliance.",
+    "Rate Capping (Rule 412) Vault is proposing the implementation of rate capping of ±10% for a period of five years."
+   ],
+   "cap": "±10%, for five years",
+   "quote": "Vault is proposing the implementation of rate capping of ±10% for a period of five years.",
+   "verified": true
+  },
+  "HMSS-134914202": {
+   "state": "MI",
+   "carrier": "Homesite",
+   "line": "home",
+   "evidence": [
+    "Rate Stabilization."
+   ],
+   "verified": false
+  },
+  "BRWS-134728991": {
+   "state": "MI",
+   "carrier": "Bristol West",
+   "line": "auto",
+   "evidence": [
+    "Related Objection 1 Comments: We understand rate increases are capped at 10% and rate decreases are capped at -5% Please clarify that the maximum rate change shown in the Rate Information section of +14% is before any capping.",
+    "Based on their review, the following objection(s) require your response: Objection 1 Comments: We understand rate increases are capped at 10% and rate decreases are capped at -5% Please clarify that the maximum rate change shown in the Rate Information section of +14% is before any capping."
+   ],
+   "cap": "+10% / −5%",
+   "direction": "overstates",
+   "quote": "rate increases are capped at 10% and rate decreases are capped at -5% ... the maximum rate change shown in the Rate Information section of +14% is before any capping.",
+   "verified": true
+  },
+  "FBMI-134672996": {
+   "state": "MI",
+   "carrier": "Michigan Farm Bureau",
+   "line": "auto",
+   "evidence": [
+    "Please provide further explanation for the need to permit rate capping up to 101%.",
+    "Related Objection 1 Comments: Please provide explanation why there is continued use of the rate stabilization factor and not an end after a five year period."
+   ],
+   "verified": false
+  },
+  "GECC-134628548": {
+   "state": "MI",
+   "carrier": null,
+   "line": null,
+   "evidence": [
+    "RATE CAPPING: This rule is marked as reserved for future use yet language and rate factors in the rate manual have been included.",
+    "RATE CAPPING: This rule is marked as reserved for future use yet language and rate factors in the rate manual have been included."
+   ],
+   "verified": false
+  },
+  "HART-134800906": {
+   "state": "MI",
+   "carrier": "The Hartford",
+   "line": "auto",
+   "evidence": [
+    "The intent of rate capping is to limit the impact of the rating factor changes to existing customers."
+   ],
+   "verified": false
+  },
+  "MEEM-134521550": {
+   "state": "MI",
+   "carrier": "MEEMIC",
+   "line": "auto",
+   "evidence": [
+    "Related Objection 1 Applies To: - Checklist Submission - Auto (Supporting Document) Comments: Please complete the Rate Capping/Stabilization tab of the P&C Checklist to support what the company has advised of 99% of policies being at their full rate before the end of the five year period.",
+    "Objection 2 Comments: Rate capping/stabilization rules should return policyholders to their full rate in 5 years or less to ensure that any subsequent rate changes will be fully implemented within a reasonable timeframe."
+   ],
+   "verified": false
+  },
+  "PRGS-134782430": {
+   "state": "MI",
+   "carrier": "Progressive",
+   "line": "auto",
+   "evidence": [
+    "In the Rate Capping/Stabilization exhibit, why are most policies currently capped? Conclusion: As a result of the noted Objection(s), this filing is incomplete."
+   ],
+   "verified": false
+  },
+  "PRGS-134782455": {
+   "state": "MI",
+   "carrier": "Progressive",
+   "line": "auto",
+   "evidence": [
+    "In the Rate Capping/Stabilization exhibit, why are most policies currently capped? Conclusion: As a result of the noted Objection(s), this filing is incomplete."
+   ],
+   "verified": false
+  },
+  "SFMA-134766938": {
+   "state": "MI",
+   "carrier": "State Farm",
+   "line": "auto",
+   "evidence": [
+    "You noted these revisions are still in progress and may affect the rate capping and impact exhibit.",
+    "You noted these revisions are still in progress and may affect the rate capping and impact exhibit."
+   ],
+   "verified": false
+  },
+  "BRWS-134378141": {
+   "state": "NJ",
+   "carrier": "Bristol West",
+   "line": "auto",
+   "evidence": [
+    "With this rate revision we are making updates to our base rates, FDL factors, and rate capping rule P30."
+   ],
+   "verified": false
+  },
+  "HPIC-134781377": {
+   "state": "NJ",
+   "carrier": "Palisades",
+   "line": "home",
+   "evidence": [
+    "Exhibit Name Rule # or Page # Rate Action Previous State Filing Number Date Submitted 1 Rule - Renewal Rate Stabilization 509 Replacement HPIC-133419929 04/17/2026 By: Jack McLoughlin 02/16/2026 Submitted Date 02/16/2026 Dear Mandi Valachovic, Introduction: Please see our response to the objection questions in the Supporting Documents tab."
+   ],
+   "verified": false
+  },
+  "NJMI-134641996": {
+   "state": "NJ",
+   "carrier": "NJM Insurance",
+   "line": "home",
+   "evidence": [
+    "Related Objection 2 Comments: Renewal Rate Capping includes a 9.1% cap to forms HO-3 and HO-5, a -/+ 25% cap to form HO-4, and a -10%/+25% cap to form HO-6..",
+    "If the impact to owners and renters is neutral from a percentage perspective, it the $0 correct? Or is that just a result of multiplying the premium by 0.0%? Objection 2 Comments: Renewal Rate Capping includes a 9.1% cap to forms HO-3 and HO-5, a -/+ 25% cap to form HO-4, and a - 10%/+25% cap to form HO-6.."
+   ],
+   "verified": false
+  },
+  "CLIN-134595066": {
+   "state": "OH",
+   "carrier": "Root",
+   "line": "auto",
+   "evidence": [
+    "11/05/2025 Submitted Date 11/05/2025 Dear Trent Emig, Introduction: Response 1 Comments: We are updating the rate capping to -10% and +10% to be effective on 11/7/2025 and have updated the RFD to reflect these capping thresholds.",
+    "Related Objection 1 Comments: The proposed rate capping threshold is -5% and +10%."
+   ],
+   "cap": "+10% / −10%",
+   "quote": "We are updating the rate capping to -10% and +10% to be effective on 11/7/2025.",
+   "verified": true
+  },
+  "GECC-134589418": {
+   "state": "OH",
+   "carrier": "GEICO",
+   "line": "auto",
+   "evidence": [
+    "Related Objection 1 Comments: The SERFF Rate/Rule Schedule tab should display the Overall % Rate Impact without the application of any rate capping.",
+    "Objection 1 Comments: The SERFF Rate/Rule Schedule tab should display the Overall % Rate Impact without the application of any rate capping."
+   ],
+   "verified": false
+  },
+  "GECC-134725147": {
+   "state": "OH",
+   "carrier": "GEICO",
+   "line": "auto",
+   "evidence": [
+    "RATE CAPPING to clarify the specific end date after which no policies will be rate capped.",
+    "RATE CAPPING to clarify the specific end date after which no policies will be rate capped."
+   ],
+   "verified": false
+  },
+  "HNVR-G134638986": {
+   "state": "OH",
+   "carrier": null,
+   "line": null,
+   "evidence": [
+    "Objection 4 Comments: Because this is an introductory filing, it appears that the capping rule is unnecessary at this time.",
+    "Remove the rate capping rule or explain why it is needed."
+   ],
+   "verified": false
+  },
+  "IACA-134831927": {
+   "state": "OH",
+   "carrier": "Auto Club",
+   "line": "auto",
+   "evidence": [
+    "Objection 9 - Revised OH Premium Transition Rule, Premium Transition Rule (Rate) - Marked Up Rating Rules (Supporting Document) Comments: Revise the Premium Transition Rule to clarify the specific end date after which no policies will be rate capped."
+   ],
+   "verified": false
+  },
+  "SELC-134557134": {
+   "state": "OH",
+   "carrier": "Selective",
+   "line": "auto",
+   "evidence": [
+    "Capping Rule SICSC is proposing capping at +20%/-20%.",
+    "07/09/2025 Submitted Date 07/09/2025 Dear Brad Wolfenbarger, Introduction: Response 1 Comments: The language in the rule has been revised to reflect the proposed rate capping will cease to be applicable after 7/31/2028."
+   ],
+   "cap": "+20% / −20%",
+   "quote": "Capping Rule SICSC is proposing capping at +20%/-20%.",
+   "verified": true
+  },
+  "SELC-134891661": {
+   "state": "OH",
+   "carrier": "Selective",
+   "line": "auto",
+   "evidence": [
+    "Capping Rule Capping is set at +20%/-20%.",
+    "04/14/2026 Submitted Date 04/14/2026 Dear Brad Schroer, Introduction: Response 1 Comments: Per your guidance, we have withdrawn the proposed 3.7 Premium Capping rule from this filing."
+   ],
+   "cap": "+20% / −20%",
+   "quote": "Capping Rule Capping is set at +20%/-20%.",
+   "verified": true
+  },
+  "USAA-134827654": {
+   "state": "OH",
+   "carrier": "USAA",
+   "line": "auto",
+   "evidence": [
+    "Additionally, we are revising our rate capping rate factors and rule to clarify that rate capping is not currently being applied."
+   ],
+   "verified": false
+  },
+  "HART-134721091": {
+   "state": "PA",
+   "carrier": null,
+   "line": null,
+   "evidence": [
+    "Rate Capping is being introduced with this review.",
+    "The intent of rate capping is to limit the impact of the rating factor changes to existing customer."
+   ],
+   "verified": false
+  },
+  "HNVR-G134656976": {
+   "state": "PA",
+   "carrier": "Hanover",
+   "line": "auto",
+   "evidence": [
+    "If you have any rate capping procedure for renewal business, you should report above information under both capped and uncapped condition."
+   ],
+   "verified": false
+  },
+  "PRGS-134556786": {
+   "state": "PA",
+   "carrier": "Progressive",
+   "line": "auto",
+   "evidence": [
+    "ANPC-134342421: They have a premium capping rule."
+   ],
+   "verified": false
+  },
+  "SELC-134573770": {
+   "state": "PA",
+   "carrier": "Selective",
+   "line": "auto",
+   "evidence": [
+    "Capping Rule SICSE is proposing capping at +20% Capping."
+   ],
+   "verified": false
+  },
+  "ALSE-134750995": {
+   "state": "VA",
+   "carrier": "Allstate",
+   "line": "renters",
+   "evidence": [
+    "Please note, the Bureau would not accept a company to use a rate adjustment factor and a rate capping plan simultaneously.",
+    "Please note, the Bureau would not accept a company to use a rate adjustment factor and a rate capping plan simultaneously."
+   ],
+   "verified": false
+  },
+  "ERPP-134682697": {
+   "state": "VA",
+   "carrier": "Erie",
+   "line": "home",
+   "evidence": [
+    "If the intent of the company was to submit Form 345-A, please clarify the new rate capping program, or rate capping amendments, the company intended to include in this filing.",
+    "Please amend the Tier Capping rule on Page 188 to include that if the insured's insurance score improves, the movement is not capped."
+   ],
+   "verified": false
+  },
+  "NWPP-134558137": {
+   "state": "VA",
+   "carrier": "Nationwide",
+   "line": "home",
+   "evidence": [
+    "01/26/2026 Submitted Date 01/26/2026 Dear Erin Marchetti, Introduction: Response 1 Comments: Please see attached Related Objection 1 Comments: The Company will need to submit a signed Rate Stabilization Certification form that is attached with this objection.",
+    "The company states the reason for the factor is to avoid Fixed Expense Base rates from being affected by the rate stabilization, so why wouldn't the company take fixed expense base rates out of the premium calculation prior to stabilization and simply include this rate after the stabilized rate was calculated."
+   ],
+   "verified": false
+  },
+  "ASRN-134823844": {
+   "state": "VA",
+   "carrier": "AssuranceAmerica",
+   "line": "auto",
+   "evidence": [
+    "Related Objection 4 Applies To: - Renewal Rate Stabilization, VA AAIC Rule Manual - POL VA 15 (Rate) Comments: Amend the rule to add the commencement date of the Rate Stabilization Plan.",
+    "Exhibit Name Rule # or Page # Rate Action Previous State Filing Number Date Submitted 1 Renewal Rate Stabilization VA AAIC Rule Manual - POL VA 15 Replacement ASRN-133729794 03/04/2026 By: Tanya Ranguma Previous Version 1 Renewal Rate Stabilization VA AAIC Rule Manual - POL VA 15 Replacement ASRN-133729794 02/09/2026 By: John Binek No Supporting Documents changed."
+   ],
+   "verified": false
+  },
+  "ASRN-134823905": {
+   "state": "VA",
+   "carrier": "AssuranceAmerica",
+   "line": "auto",
+   "evidence": [
+    "Related Objection 5 Comments: Amend the Rate Stabilization Rule to add the commencement date plan.",
+    "Exhibit Name Rule # or Page # Rate Action Previous State Filing Number Date Submitted 1 Renewal Rate Stabilization VA IMIC Rule Manual - POL VA 15 Replacement ASRN-134611250 03/04/2026 By: Tanya Ranguma Previous Version 1 Renewal Rate Stabilization VA IMIC Rule Manual - POL VA 15 Replacement ASRN-134611250 02/09/2026 By: John Binek No Supporting Documents changed."
+   ],
+   "verified": false
+  },
+  "CLIN-134751148": {
+   "state": "VA",
+   "carrier": "Root",
+   "line": "auto",
+   "evidence": [
+    "Thank you! 02/26/2026 Submitted Date 02/26/2026 Dear Jeanne Brannan, Introduction: Response 1 Comments: We have reverted our rate stabilization plan to the previously approved plan.",
+    "Related Objection 1 Applies To: - Rates, null (Rate) - Rules, null (Rate) Comments: Rule P13.07 Rate Stabilization - The company cannot extend or continue a rate stabilization plan by changing the dates of the plan."
+   ],
+   "verified": false
+  },
+  "CNNB-134906341": {
+   "state": "VA",
+   "carrier": null,
+   "line": null,
+   "evidence": [
+    "Conclusion: Sincerely, Erin Saunders 06/05/2026 Submitted Date 06/08/2026 Dear Flora Worthington, Introduction: Response 1 Comments: We have added the note to Rule Manual page B-11 and amended the rate capping plan to never generate more total revenue than would otherwise be generated in the absence of the plan.",
+    "Additionally, we confirm that the rate stabilization plan does not cap or reduce the level of premium improvement following a positive exposure change (like the completion of a mature driver safety course)."
+   ],
+   "verified": false
+  },
+  "DNGL-134464968": {
+   "state": "VA",
+   "carrier": "Donegal Insurance",
+   "line": "auto",
+   "evidence": [
+    "Specifically regarding the insurance score adjustment factor, it is included to be compliant with the VA code below which states rate stabilization shall not apply to any decrease as a result of an insurance score improvement.",
+    "A rate stabilization rule shall not apply to any decrease as a result of the application of the provisions of §§ 38.2-2126 (property) and 38.2-2234 (personal auto) of the Code of Virginia."
+   ],
+   "verified": false
+  },
+  "FARM-134912560": {
+   "state": "VA",
+   "carrier": "Farmers",
+   "line": "auto",
+   "evidence": [
+    "Objection 3 - VA Farmers Flex Personal Auto Rules Manual, R-70 (Rate) Comments: The rule submission must be amended to include the following: -Whether the rate stabilization plan is designed to converge with uncapped rates in subsequent rate failings.",
+    "-Any limitations on tier movement that will be utilized for rate stabilization."
+   ],
+   "verified": false
+  },
+  "GECC-134876961": {
+   "state": "VA",
+   "carrier": "GEICO",
+   "line": "auto",
+   "evidence": [
+    "Related Objection 1 Applies To: - VA GG General Rule Pages, Rule #11 (Rate) - VA GS General Rule Pages, Rule #11 (Rate) Comments: Rule G-11 Rate Capping requires additional clarification.",
+    "and Chapter 345 set forth in Title 14 of the VAC, there are specific instances where rate capping or rate stabilization may be utilized, including (i) any rate increase or decrease on its renewal policies, (ii) policies acquired by an insurer from another insurer pursuant to written agreement, or (iii) policies acquired by an agent book of transfer."
+   ],
+   "verified": false
+  },
+  "GMMX-134572663": {
+   "state": "VA",
+   "carrier": null,
+   "line": null,
+   "evidence": [
+    "Should the company need to use rate stabilization in the future, it may submit a new filing at that time."
+   ],
+   "verified": false
+  },
+  "GMMX-134645053": {
+   "state": "VA",
+   "carrier": null,
+   "line": null,
+   "evidence": [
+    "Should the company need to use rate stabilization in the future, it may submit a new filing at that time."
+   ],
+   "verified": false
+  },
+  "GMMX-134645144": {
+   "state": "VA",
+   "carrier": null,
+   "line": null,
+   "evidence": [
+    "Should the company need to use rate stabilization in the future, it may submit a new filing at that time."
+   ],
+   "verified": false
+  },
+  "GNSC-134500272": {
+   "state": "VA",
+   "carrier": "MGA Insurance",
+   "line": "auto",
+   "evidence": [
+    "Conclusion: Thank you for your review! Sincerely, Tian Jiang 07/23/2025 Submitted Date 07/23/2025 Dear Flora Worthington, Introduction: Response 1 Comments: Thank you for outlining the requirements needed prior to implementing a new rate capping program.",
+    "For full transparency, please note that our previous rate stabilization program has been completed."
+   ],
+   "verified": false
+  },
+  "MERY-134801987": {
+   "state": "VA",
+   "carrier": "Mercury",
+   "line": "auto",
+   "evidence": [
+    "With this filing we are reintroducing and updating the rate-capping factors.",
+    "Objection 2 Comments: The attached Form 345-A must be completed for the new rate capping plan."
+   ],
+   "verified": false
+  },
+  "NWPP-G134710034": {
+   "state": "VA",
+   "carrier": "Nationwide",
+   "line": "auto",
+   "evidence": [
+    "Related Objection 1 Applies To: - VA PPA NICOA Rate Capping Manual Addendum, Cover, 2 through 6 (Rate) - VA PPA NICOA Rule Manual, Cover, 2 - 50 (Rate) Comments: Refer to Advanced Rate Stabilization rule.",
+    "Virginia Code §38.2-1906.F permits the use of rate stabilization as it applies to rate increases/decreases for rate level changes only."
+   ],
+   "verified": false
+  },
+  "NWPP-G134710037": {
+   "state": "VA",
+   "carrier": "Nationwide",
+   "line": "auto",
+   "evidence": [
+    "Related Objection 1 Applies To: - VA PPA NMIC Rate Capping Manual Addendum, Cover, 2, 3 (Rate) - VA PPA NMIC Rule Manual, Cover, 2 - 36 (Rate) Comments: Refer to Advanced Rate Stabilization rule.",
+    "Virginia Code §38.2-1906.F permits the use of rate stabilization as it applies to rate increases/decreases for rate level changes only."
+   ],
+   "verified": false
+  },
+  "PNPR-134846271": {
+   "state": "VA",
+   "carrier": "Penn National",
+   "line": "auto",
+   "evidence": [
+    "Pages 90-92 have been revised to remove the capping rule and all other pages have been renumbered as pages 90 - 95.",
+    "For example, the rate capping rule could note \"reserved for future use\"."
+   ],
+   "verified": false
+  },
+  "SELC-134920657": {
+   "state": "VA",
+   "carrier": "Selective",
+   "line": "auto",
+   "evidence": [
+    "Capping Rule Capping is set at +25%/-25% Company and Contact 05/19/2026 Submitted Date 05/19/2026 Dear Erin Marchetti, Introduction: Response 1 Comments: Please find the answers to the department's questions.",
+    "The capping rule has been amended to add \"Rate stabilization is designed to converge with uncapped rates in subsequent rate filings and movement between rating tiers are not limited by the stabilization\"."
+   ],
+   "verified": false
+  },
+  "VKNG-134875890": {
+   "state": "VA",
+   "carrier": "Peak",
+   "line": "auto",
+   "evidence": [
+    "With this revision, we are removing rate capping.",
+    "Related Objection 1 Applies To: - VA Rate Manual, null (Rate) Comments: The Cap Class rate table must either be withdrawn or marked \"Reserved for Future Use\" since the company is removing rate capping with this filing."
+   ],
+   "verified": false
+  }
+ }
+}
