@@ -380,3 +380,20 @@ Two extractors, try in this order (serff_compact.py already does both and keeps 
   returns EMPTY on these, which misreads as "no text in this PDF" rather than "wrong decoder".
 
 No poppler in this container, so PDFs cannot be rendered to images — text extraction is the only path.
+
+## After compacting: mine the text (2026-09-16)
+
+`serff_compact.py` keeps the jacket text; **`mine_filing_text.py` makes it useful.** Run both after
+every pull, in this order:
+
+```
+python3 serff_compact.py --apply    # PDFs -> text, delete PDFs
+python3 mine_filing_text.py         # text -> filing_digests.json.gz  (committed, 25x smaller)
+python3 mine_discounts.py           # digest -> rate_modifiers.json
+```
+
+The digest keeps filing descriptions, DOI objection letters, carrier responses and reviewer notes —
+the parts that answer "what actually changed and what did the regulator say", which the ledger's
+percentage cannot. It is committed to git, so filing narrative survives a `_serff/` wipe.
+
+Full rationale, what is still unmined, and the extraction rules: **`EXTRACTION_PLAN.md`**.

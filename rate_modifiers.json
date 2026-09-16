@@ -1,144 +1,798 @@
 {
  "_meta": {
-  "purpose": "Opportunistic per-carrier rating modifiers aligned to the tool's UX inputs. Dated + primary-sourced. Feeds a FUTURE per-carrier P(profile) term; until a factor clears the coverage gate it is a CHECK on the generic curve, not a driver. Full plan in MODIFIERS_PLAN.md.",
-  "gate": "Do NOT make P per-carrier for a factor until that factor is captured for >= the top-N carriers a user actually compares in a state (mirrors the drift coverage gate). Below the gate: use as sanity-check/prior only.",
-  "discipline": "Grab when a filing already exposes it during serff_filings.json triage. Never a separate hunt, never parse a full manual for it. Missing is fine; half-applied per-carrier is harmful (false ranking differences).",
-  "schema": {
-   "state": "2-letter",
-   "carrier": "family name",
-   "entity": "exact filing company | null (family-level)",
-   "factor": "ux slug: young_driver | age_band | homeowner | multi_car | multi_policy | good_student | prior_coverage | credit_tier",
-   "value": "number or object \u2014 discount as signed % (e.g. -0.07) OR a relativity table {band: factor}",
-   "value_kind": "discount_pct | surcharge_pct | relativity_table | factor",
-   "prior_value": "same shape as value, if the filing shows a CHANGE | null",
-   "tracking": "SERFF tracking # (join key to serff_filings.json)",
-   "url": "filingSummary deep link",
-   "effective_date": "YYYY-MM-DD (effective_new of the filing)",
-   "source_doc": "which PDF/section it came from (e.g. 'Rate-Rule: Rule 12 Homeowner Discount')",
-   "recorded_date": "YYYY-MM-DD we logged it",
-   "confidence": "stated | derived | inferred-from-prose"
-  }
+  "purpose": "Per-carrier discount/surcharge program changes mined from SERFF filing narrative (see MODIFIERS_PLAN.md). Each row cites a SERFF tracking number. Built by mine_discounts.py from filing_digests.json.gz.",
+  "built": "2026-09-16",
+  "rows": 55,
+  "caveat": "Sentence-level extraction from filing prose. Values are as STATED by the carrier or regulator and are not independently verified against the rate manual; treat as citable quotes, not as computed factors."
  },
  "modifiers": [
   {
-   "state": "TN",
-   "carrier": "GEICO",
-   "entity": "GEICO Marine Insurance Company",
-   "factor": "homeowner",
-   "value_kind": "relativity_table",
-   "value": {
-    "_note": "homeowner=TRUE factors (non-homeowner=1.00 baseline) by coverage x Prior BI Tier A-D; PROPOSED/current factors from this filing.",
-    "BI": {
-     "A": 0.84,
-     "B": 0.88,
-     "C": 0.9,
-     "D": 0.84
-    },
-    "PD": {
-     "A": 0.9,
-     "B": 0.88,
-     "C": 0.89,
-     "D": 0.82
-    },
-    "MED": {
-     "A": 0.89,
-     "B": 0.88,
-     "C": 0.94,
-     "D": 0.86
-    },
-    "UMBI": {
-     "A": 0.8,
-     "B": 0.86,
-     "C": 0.89,
-     "D": 0.8
-    },
-    "UMPD": {
-     "A": 0.89,
-     "B": 0.87,
-     "C": 0.88,
-     "D": 0.85
-    },
-    "COMP": {
-     "A": 0.93,
-     "B": 0.88,
-     "C": 0.94,
-     "D": 0.92
-    },
-    "COLL": {
-     "A": 0.89,
-     "B": 0.87,
-     "C": 0.88,
-     "D": 0.85
-    },
-    "ERS": {
-     "A": 0.87,
-     "B": 0.83,
-     "C": 0.86,
-     "D": 0.9
-    },
-    "RENT": {
-     "A": 0.82,
-     "B": 0.79,
-     "C": 0.82,
-     "D": 0.79
-    },
-    "MBI": {
-     "A": 0.95,
-     "B": 0.95,
-     "C": 0.98,
-     "D": 0.98
-    }
-   },
-   "prior_value": {
-    "_note": "tiers A/B were cut ~-4.5% / -4.3% in this filing; tiers C/D unchanged. Prior (current-before) BI tier-A/B factors shown.",
-    "BI": {
-     "A": 0.88,
-     "B": 0.92
-    },
-    "PD": {
-     "A": 0.94,
-     "B": 0.92
-    },
-    "MED": {
-     "A": 0.93,
-     "B": 0.92
-    },
-    "UMBI": {
-     "A": 0.84,
-     "B": 0.9
-    },
-    "UMPD": {
-     "A": 0.93,
-     "B": 0.91
-    },
-    "COMP": {
-     "A": 0.97,
-     "B": 0.92
-    },
-    "COLL": {
-     "A": 0.93,
-     "B": 0.91
-    },
-    "ERS": {
-     "A": 0.91,
-     "B": 0.87
-    },
-    "RENT": {
-     "A": 0.86,
-     "B": 0.83
-    },
-    "MBI": {
-     "A": 0.99,
-     "B": 0.99
-    }
-   },
-   "tracking": "GECC-134888920",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134888920",
-   "effective_date": "2026-04-09",
-   "source_doc": "Exhibit 5 - Homeowner's Discount (Sheets 1-10, GEICO Marine GB)",
-   "recorded_date": "2026-07-04",
-   "confidence": "stated",
-   "note": "Homeowner discount is jointly indexed on homeowner status AND Prior BI Tier (A-D). GEICO Indemnity (GI) in the same filing has its own near-identical table (not separately captured). Non-homeowners = 1.00 (no discount)."
+   "tracking": "ERAP-134710318",
+   "state": "IL",
+   "carrier": "Erie Insurance Company, ...",
+   "line": null,
+   "effective": "10/31/2025",
+   "source": "description",
+   "programs": [
+    "Payment Plan"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "The following rate changes are being made to the Private Passenger Auto Rate pages: Payment Plan Discount The purpose of this filing is to revise the Payment Plan Discount factors applicable under both the Traditional Auto and Rate Lock programs."
+  },
+  {
+   "tracking": "ERAP-134710318",
+   "state": "IL",
+   "carrier": "Erie Insurance Company, ...",
+   "line": null,
+   "effective": "10/31/2025",
+   "source": "description",
+   "programs": [
+    "Payment Plan"
+   ],
+   "pcts": [],
+   "removal": true,
+   "text": "The revision removes the distinction in discount factors between policies that pay by credit card and those pay by non-credit card methods under the Annual Payment Plan (Plan A)."
+  },
+  {
+   "tracking": "UTRN-134740540",
+   "state": "IL",
+   "carrier": "Kemper",
+   "line": "auto",
+   "effective": "11/18/2025",
+   "source": "description",
+   "programs": [],
+   "pcts": [],
+   "removal": false,
+   "text": "- License Type Surcharge  The factors have been adjusted to offset the changes made to Profile Tier."
+  },
+  {
+   "tracking": "SHEL-134682271",
+   "state": "IL",
+   "carrier": "Shelter",
+   "line": "auto",
+   "effective": "10/08/2025",
+   "source": "description",
+   "programs": [
+    "Evidence of Continuous Insurance",
+    "Prior Coverage",
+    "Loyalty",
+    "Tenure"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "Loyalty Discount, Length of Ownership Discount, Prior Carrier Tenure Discount, Prior Coverage Discount and Evidence of Continuous Insurance Discount factors have been revised."
+  },
+  {
+   "tracking": "GMMX-134796306",
+   "state": "LA",
+   "carrier": "Imperial",
+   "line": "auto",
+   "effective": "01/28/2026",
+   "source": "doi_objection",
+   "programs": [],
+   "pcts": [],
+   "removal": false,
+   "text": "2.Provide a general description of the methodology that produced the changes proposed in this filing for the following: a.Updated PPA Base rates b.Updated PPA COMP deductible factor c.Updated PPA Vehicle Symbol set d.Updated PPA Vehicle Symbol factors e.Updated PPA Vehicle model year factors f.Updated PPA discount rates for in agency discount"
+  },
+  {
+   "tracking": "SHEL-134694255",
+   "state": "LA",
+   "carrier": "Shelter",
+   "line": "auto",
+   "effective": "10/08/2025",
+   "source": "description",
+   "programs": [
+    "Evidence of Continuous Insurance",
+    "Prior Coverage",
+    "Loyalty",
+    "Tenure"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "The Loyalty Discount, Length of Ownership Discount, Prior Carrier Tenure Discount, Prior Coverage Discount and Evidence of Continuous Insurance Discount factors have been revised."
+  },
+  {
+   "tracking": "USAA-134739508",
+   "state": "LA",
+   "carrier": "USAA",
+   "line": "auto",
+   "effective": "11/20/2025",
+   "source": "description",
+   "programs": [
+    "Participation in Safe Driving"
+   ],
+   "pcts": [
+    15.0
+   ],
+   "removal": false,
+   "text": "We are making the following changes: - Increasing our Participation in Safe Driving Discount to 15% - Deductible Optionality - We are implementing new $750, $1500, $2000, $2500, and $5000 deductible options for Comprehensive and Collision coverage deductibles."
+  },
+  {
+   "tracking": "ALSE-134840116",
+   "state": "MI",
+   "carrier": "Allstate",
+   "line": "auto",
+   "effective": "05/01/2026",
+   "source": "description",
+   "programs": [
+    "Early Signing"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "Allstate is proposing revisions to the following rating plans: Early Signing Discount Factors."
+  },
+  {
+   "tracking": "ACEH-134765370",
+   "state": "MI",
+   "carrier": "Chubb",
+   "line": "home",
+   "effective": "12/30/2025",
+   "source": "description",
+   "programs": [],
+   "pcts": [],
+   "removal": false,
+   "text": "We are revising our Base Rates, Writing Company Factors, Primary Liability Surcharge and Deductible Factors."
+  },
+  {
+   "tracking": "DNGL-134902602",
+   "state": "MI",
+   "carrier": "Donegal Insurance",
+   "line": "auto",
+   "effective": "06/29/2026",
+   "source": "description",
+   "programs": [
+    "Multi-Car"
+   ],
+   "pcts": [
+    10.0,
+    20.0
+   ],
+   "removal": false,
+   "text": "In order to improve our competitiveness within the state we are proposing to decrease base rates to several coverages as well as increase our Multi-Car discount from 10% to 20%."
+  },
+  {
+   "tracking": "DNGL-134902602",
+   "state": "MI",
+   "carrier": "Donegal Insurance",
+   "line": "auto",
+   "effective": "06/29/2026",
+   "source": "carrier_response",
+   "programs": [
+    "Multi-Car",
+    "Renewal"
+   ],
+   "pcts": [
+    10.0,
+    20.0
+   ],
+   "removal": false,
+   "text": "Killingsworth Response 1 Comments: We are going to revise the filing so all policyholders who have multiple cars, new and renewal, will receive the increased multi-car discount (from 10% to 20%."
+  },
+  {
+   "tracking": "USAA-134740627",
+   "state": "MI",
+   "carrier": "USAA",
+   "line": "auto",
+   "effective": "01/08/2026",
+   "source": "description",
+   "programs": [
+    "Participation in Safe Driving",
+    "Telematics"
+   ],
+   "pcts": [
+    15.0
+   ],
+   "removal": false,
+   "text": "We are making the following changes to our telematics program: -Increasing our Participation in Safe Driving Discount to 15%"
+  },
+  {
+   "tracking": "CURE-134400950",
+   "state": "NJ",
+   "carrier": "CURE",
+   "line": "auto",
+   "effective": "11/03/2025",
+   "source": "note",
+   "programs": [
+    "Full Coverage"
+   ],
+   "pcts": [
+    8.0,
+    30.0,
+    20.0,
+    3.0,
+    4.3
+   ],
+   "removal": false,
+   "text": "We are proposing the following changes: Increase Bodily Injury base rates by +8% Increase Uninsured Motorist/Underinsured Motorist Bodily Injury by +30% Increase Property Damage and Uninsured/Underinsured Motorist base rates by +20% Introduce a Full Coverage Discount of 3% and a Liability Only Surcharge of 4.3% These changes are requested to be proposed effective on August 29th, 2025, for New"
+  },
+  {
+   "tracking": "PMUT-134806565",
+   "state": "NJ",
+   "carrier": "Preferred Mutual",
+   "line": "home",
+   "effective": "07/31/2026",
+   "source": "description",
+   "programs": [],
+   "pcts": [],
+   "removal": false,
+   "text": "Decrease deductible credits for $250 and $500 deductibles."
+  },
+  {
+   "tracking": "USAA-134719983",
+   "state": "NJ",
+   "carrier": "USAA",
+   "line": "auto",
+   "effective": "03/05/2026",
+   "source": "description",
+   "programs": [
+    "Safe Driving"
+   ],
+   "pcts": [
+    15.0
+   ],
+   "removal": false,
+   "text": "Collision coverages, and increase the Safe Driving Discount to 15%."
+  },
+  {
+   "tracking": "IACA-134831927",
+   "state": "OH",
+   "carrier": "Auto Club",
+   "line": "auto",
+   "effective": "06/10/2026",
+   "source": "doi_objection",
+   "programs": [
+    "Welcome"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "- Revised OH Persistency Discount Rule, Persistency Discount Rule (Rate) - Revised Prior Liability Insurance Factor Rule, Prior Liability Insurance Factor Rule (Rate) - New OH Auto Rating Rules, Welcome Advantage Discount (Rate) - Revised OH Auto Tiering Rules - Redacted, Tiering Rules (Rate) - Revised OH Auto Tiering Table, Tiering Structure (Rate)"
+  },
+  {
+   "tracking": "IACA-134831927",
+   "state": "OH",
+   "carrier": "Auto Club",
+   "line": "auto",
+   "effective": "06/10/2026",
+   "source": "carrier_response",
+   "programs": [
+    "Welcome"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "- Revised OH Persistency Discount Rule, Persistency Discount Rule (Rate) - Revised OH Premium Transition Rule, Premium Transition Rule (Rate) - Revised Prior Liability Insurance Factor Rule, Prior Liability Insurance Factor Rule (Rate) - New OH Auto Rating Rules, Welcome Advantage Discount (Rate) - Revised OH Auto Tiering Rules - Redacted, Tiering Rules (Rate)"
+  },
+  {
+   "tracking": "CEMC-134665345",
+   "state": "OH",
+   "carrier": "Central",
+   "line": "auto",
+   "effective": "10/22/2025",
+   "source": "description",
+   "programs": [
+    "Elite Policy",
+    "Renewal"
+   ],
+   "pcts": [],
+   "removal": true,
+   "text": "Effective December 1, 2025, new and renewal business, we wish to place on file the following changes: Base rate changes have been applied to reflect the indicated rate changes by coverage Removing Med Pay limits above 25,000 and rolling existing policies with higher limits down to 25,000 Removing Elite Policy Discount (factors will change to 1.00)"
+  },
+  {
+   "tracking": "DNGL-134631459",
+   "state": "OH",
+   "carrier": "Donegal",
+   "line": "auto",
+   "effective": "08/18/2025",
+   "source": "description",
+   "programs": [],
+   "pcts": [
+    9.0
+   ],
+   "removal": false,
+   "text": "The discount will be 9% for the first term and gradually decrease over the course of 2 years."
+  },
+  {
+   "tracking": "ERAP-134762298",
+   "state": "OH",
+   "carrier": "Erie",
+   "line": "auto",
+   "effective": "01/02/2026",
+   "source": "description",
+   "programs": [
+    "Payment Plan"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "The following changes are being made to the Private Passenger Auto Rate pages: Payment Plan Discount The purpose of this filing is to revise the Payment Plan Discount factors applicable under both the Traditional Auto and Rate Lock programs."
+  },
+  {
+   "tracking": "ERAP-134762298",
+   "state": "OH",
+   "carrier": "Erie",
+   "line": "auto",
+   "effective": "01/02/2026",
+   "source": "description",
+   "programs": [
+    "Payment Plan"
+   ],
+   "pcts": [],
+   "removal": true,
+   "text": "The revision removes the distinction in discount factors between policies that pay by credit card and those that pay by non-credit card methods under the Annual Payment Plan (Plan A)."
+  },
+  {
+   "tracking": "ERAP-134778141",
+   "state": "OH",
+   "carrier": "Erie",
+   "line": "auto",
+   "effective": "01/12/2026",
+   "source": "description",
+   "programs": [
+    "Payment Plan"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "Along with minor editorial changes, the following changes are made to the Private Passenger Auto Rate pages: Payment Plan Discount The purpose of this filing is to revise the Payment Plan Discount factors."
+  },
+  {
+   "tracking": "ERAP-134778141",
+   "state": "OH",
+   "carrier": "Erie",
+   "line": "auto",
+   "effective": "01/12/2026",
+   "source": "description",
+   "programs": [
+    "Payment Plan"
+   ],
+   "pcts": [],
+   "removal": true,
+   "text": "The revision removes the distinction in discount factors between policies that pay by credit card and those that pay by non-credit card methods under the Annual Payment Plan (Plan A)."
+  },
+  {
+   "tracking": "ERAP-134872060",
+   "state": "OH",
+   "carrier": "Erie",
+   "line": "auto",
+   "effective": "04/09/2026",
+   "source": "description",
+   "programs": [
+    "Violation Free",
+    "Renewal"
+   ],
+   "pcts": [
+    3.8
+   ],
+   "removal": false,
+   "text": "Claims Violation Free discount for renewal policies (Traditional Auto) Motorcycle base rates The proposed overall change for our auto program is -3.8% and results in a premium decrease of $20,634,380."
+  },
+  {
+   "tracking": "GRAN-134895429",
+   "state": "OH",
+   "carrier": "Grange",
+   "line": "auto",
+   "effective": "06/18/2026",
+   "source": "carrier_response",
+   "programs": [
+    "Advance Quote"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "Please see the newly added Advance Quote Discount Comparison on the Rate/Rule Schedule tab for current and proposed factors as well as percent change from current to proposed factors."
+  },
+  {
+   "tracking": "SHEL-134793932",
+   "state": "OH",
+   "carrier": "Shelter",
+   "line": "auto",
+   "effective": "02/20/2026",
+   "source": "description",
+   "programs": [
+    "Loyalty"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "The Loyalty Discount and Companion Property Discount factors have been revised."
+  },
+  {
+   "tracking": "USAA-134717646",
+   "state": "OH",
+   "carrier": "USAA",
+   "line": "auto",
+   "effective": "11/07/2025",
+   "source": "description",
+   "programs": [
+    "Participation in Safe Driving",
+    "Telematics"
+   ],
+   "pcts": [
+    15.0
+   ],
+   "removal": false,
+   "text": "We are making the following changes to our telematics program:  Increasing our Participation in Safe Driving Discount to 15%"
+  },
+  {
+   "tracking": "HNVR-G134656976",
+   "state": "PA",
+   "carrier": "Hanover",
+   "line": "auto",
+   "effective": "02/18/2026",
+   "source": "description",
+   "programs": [],
+   "pcts": [
+    5.8
+   ],
+   "removal": false,
+   "text": "-Base Rates -Intent to Cancel -Rate Caps -Adding 5k, 10k Auto Physical Damage Limits -Rental Reimbursement -Territory -Kia/Hyundai Make Factors -Rule R7 - Account Credit -Rule P36 - Prestige Global Rental The overall proposed change is 5.8%."
+  },
+  {
+   "tracking": "LBPM-134770292",
+   "state": "PA",
+   "carrier": "Liberty Mutual",
+   "line": "auto",
+   "effective": "03/05/2026",
+   "source": "description",
+   "programs": [],
+   "pcts": [],
+   "removal": false,
+   "text": "Please see attached exhibits for justification, we are proposing changes to the following: 1)Base Rates 2)Model Year Factor 3)Account Discount 4)PD Limit Factor Please note that on our prior filing LBPM-133777732, we inadvertently filed the incorrect Base Rate exhibits per the October objection."
+  },
+  {
+   "tracking": "NWPP-134775715",
+   "state": "PA",
+   "carrier": "Nationwide Insurance Company of America",
+   "line": null,
+   "effective": "01/23/2026",
+   "source": "doi_objection",
+   "programs": [],
+   "pcts": [
+    16.9
+   ],
+   "removal": false,
+   "text": "Similarly, the currently approved new vehicle discount also phases out over five years and includes relatively large initial discounts that vary by coverage (for example, an initial discount of 16.9% for BI)."
+  },
+  {
+   "tracking": "PRGS-134556786",
+   "state": "PA",
+   "carrier": "Progressive",
+   "line": "auto",
+   "effective": "12/07/2025",
+   "source": "doi_objection",
+   "programs": [
+    "Renewal"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "The rates/rules must state that the Kia/Hyundai surcharge factors are in place only until 11/13/2026 for new business and 12/17/2026 for renewal business."
+  },
+  {
+   "tracking": "PRGS-134556786",
+   "state": "PA",
+   "carrier": "Progressive",
+   "line": "auto",
+   "effective": "12/07/2025",
+   "source": "carrier_response",
+   "programs": [],
+   "pcts": [],
+   "removal": false,
+   "text": "The only change that we have made (outside of the objection responses) is updating the factor pages to note the Kia/Hyundai COMP surcharge will expire on 1/1/2027."
+  },
+  {
+   "tracking": "PRGS-134556786",
+   "state": "PA",
+   "carrier": "Progressive",
+   "line": "auto",
+   "effective": "12/07/2025",
+   "source": "note",
+   "programs": [],
+   "pcts": [
+    40.0
+   ],
+   "removal": false,
+   "text": "Weve proposed a reduction of the Kia/Hyundai COMP surcharge - to 40% - within this filing."
+  },
+  {
+   "tracking": "HART-134721091",
+   "state": "PA",
+   "carrier": "Sentinel Insurance Company, Ltd., ...",
+   "line": null,
+   "effective": "05/28/2026",
+   "source": "description",
+   "programs": [
+    "Telematics",
+    "Good Payer"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "Telematics Program / Participation Discount, Number of Rated Drivers / Number of Drivers No-Hit MVR, Permissive Use Accidents (PUA) with Company, Underwriting Tier Factor, Minimum Rating Factor, Spin-Off Policy New Business Discount, New Business Discount Transition, Good Payer Discount, Full Pay Discount, Account Credit, Companion Auto, Years Clean,"
+  },
+  {
+   "tracking": "HART-134721091",
+   "state": "PA",
+   "carrier": "Sentinel Insurance Company, Ltd., ...",
+   "line": null,
+   "effective": "05/28/2026",
+   "source": "doi_objection",
+   "programs": [],
+   "pcts": [],
+   "removal": false,
+   "text": "I do not think that you should compensate (adjust) for the performance difference in one channel by introducing extra discount/surcharge factor for the other channel."
+  },
+  {
+   "tracking": "HART-134721091",
+   "state": "PA",
+   "carrier": "Sentinel Insurance Company, Ltd., ...",
+   "line": null,
+   "effective": "05/28/2026",
+   "source": "doi_objection",
+   "programs": [],
+   "pcts": [],
+   "removal": false,
+   "text": "Your response to question 17 indicates that the channel deviation factor is used to address the structural discounts unique to each channel to align agency premium to the direct rate level."
+  },
+  {
+   "tracking": "HART-134721091",
+   "state": "PA",
+   "carrier": "Sentinel Insurance Company, Ltd., ...",
+   "line": null,
+   "effective": "05/28/2026",
+   "source": "doi_objection",
+   "programs": [],
+   "pcts": [],
+   "removal": false,
+   "text": "b) For AARP membership discount, why is it necessary to propose different applications of the discount by channel and then introduce another extra deviation factor to cover the difference, but rather than propose a uniform application of AARP discount for both channels?"
+  },
+  {
+   "tracking": "HART-134721091",
+   "state": "PA",
+   "carrier": "Sentinel Insurance Company, Ltd., ...",
+   "line": null,
+   "effective": "05/28/2026",
+   "source": "doi_objection",
+   "programs": [],
+   "pcts": [],
+   "removal": true,
+   "text": "Why cannot the discount be applied to both channels uniformly and remove the different impact from the Channel Deviation factor?"
+  },
+  {
+   "tracking": "HART-134721091",
+   "state": "PA",
+   "carrier": "Sentinel Insurance Company, Ltd., ...",
+   "line": null,
+   "effective": "05/28/2026",
+   "source": "doi_objection",
+   "programs": [],
+   "pcts": [
+    15.0
+   ],
+   "removal": false,
+   "text": "For your response to question 25 regarding roll away discount for new business, please note that the proposed rolling away discounts may preempt the Departments prior approval authority on regulating rate increases, the Department generally would not be able to approve rolling away discounts at an aggregate level of larger than 15%."
+  },
+  {
+   "tracking": "USAA-134753046",
+   "state": "PA",
+   "carrier": "USAA",
+   "line": "auto",
+   "effective": "03/13/2026",
+   "source": "doi_objection",
+   "programs": [
+    "Participation in Safe Driving"
+   ],
+   "pcts": [
+    15.0
+   ],
+   "removal": false,
+   "text": "02/27/2026 Submitted Date 02/27/2026 Respond By Date 03/06/2026 Dear Jenifer Heintz, Introduction: This filing proposes to increase the Participation in Safe Driving Discount to 15%."
+  },
+  {
+   "tracking": "USAA-134753046",
+   "state": "PA",
+   "carrier": "USAA",
+   "line": "auto",
+   "effective": "03/13/2026",
+   "source": "carrier_response",
+   "programs": [
+    "Renewal"
+   ],
+   "pcts": [
+    15.7,
+    16.1,
+    10.0,
+    15.0
+   ],
+   "removal": false,
+   "text": "The Earned Discount has averaged between 15.7% to 16.1% for the past two years, indicating that increasing the Participation Discount from 10% to 15% would minimize disruption at renewal for the average participant."
+  },
+  {
+   "tracking": "AOIC-134764711",
+   "state": "VA",
+   "carrier": "Auto-Owners",
+   "line": "auto",
+   "effective": "04/15/2026",
+   "source": "carrier_response",
+   "programs": [
+    "Defensive Driver"
+   ],
+   "pcts": [],
+   "removal": true,
+   "text": "Conclusion: Sincerely, Caitlin Carmody Amendment Letter Submitted Date: 05/07/2026 Comments: As described in our email correspondence on 05/05/2026, factors on page Rates  1.61 for Defensive Driver and Teen Monitoring discounts were inadvertently removed from the page when we were making other modifications to the page."
+  },
+  {
+   "tracking": "CNNB-134586864",
+   "state": "VA",
+   "carrier": "Cincinnati Insurance",
+   "line": "auto",
+   "effective": "10/31/2025",
+   "source": "doi_objection",
+   "programs": [],
+   "pcts": [],
+   "removal": false,
+   "text": "5) The rate tables on RC-17 and RC-18 (Coverage History Factor and Coverage Lapse Surcharge) require amendment to reflect the changes implemented in 8."
+  },
+  {
+   "tracking": "ERAP-134691371",
+   "state": "VA",
+   "carrier": "Erie",
+   "line": "auto",
+   "effective": "12/03/2025",
+   "source": "description",
+   "programs": [
+    "Violation Free"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "The filing includes changes to the following: Exchange and Company Base Rates by Coverage/Zone Rate Lock Base Rates by Coverage Transportation Expenses Increased Limit Factors Deductible Factors Exchange Claims/Violation Free Discount Factors Model Year Factors This filing also includes changes to the following components for motorcycle risks:"
+  },
+  {
+   "tracking": "ERAP-134691371",
+   "state": "VA",
+   "carrier": "Erie",
+   "line": "auto",
+   "effective": "12/03/2025",
+   "source": "description",
+   "programs": [
+    "Accident Prevention Course"
+   ],
+   "pcts": [],
+   "removal": true,
+   "text": "Under Rule 23 Premium Determination  Accident Prevention Course Discount, reference to the class factor is removed as this can be found in the Rate pages."
+  },
+  {
+   "tracking": "ERAP-134691371",
+   "state": "VA",
+   "carrier": "Erie",
+   "line": "auto",
+   "effective": "12/03/2025",
+   "source": "description",
+   "programs": [],
+   "pcts": [],
+   "removal": true,
+   "text": "Under Rule 23 Premium Determination  Age 55 or Over Discount, reference to the class factor and eligible coverages are removed as this can be found in the Rate pages."
+  },
+  {
+   "tracking": "ERAP-134777464",
+   "state": "VA",
+   "carrier": "Erie",
+   "line": "auto",
+   "effective": "01/22/2026",
+   "source": "description",
+   "programs": [
+    "Payment Plan"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "The following rate changes are being made to the Private Passenger Auto Rate pages: Payment Plan Discount The purpose of this filing is to revise the Payment Plan Discount factors applicable under both the Traditional Auto and Rate Lock programs."
+  },
+  {
+   "tracking": "ERAP-134777464",
+   "state": "VA",
+   "carrier": "Erie",
+   "line": "auto",
+   "effective": "01/22/2026",
+   "source": "description",
+   "programs": [
+    "Payment Plan"
+   ],
+   "pcts": [],
+   "removal": true,
+   "text": "The revision removes the distinction in discount factors between policies that pay by credit card and those pay by non-credit card methods under the Annual Payment Plan (Plan A)."
+  },
+  {
+   "tracking": "ERAP-134817517",
+   "state": "VA",
+   "carrier": "Erie Insurance Property and Casualty Company",
+   "line": null,
+   "effective": "02/26/2026",
+   "source": "description",
+   "programs": [
+    "Payment Plan"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "The following rate changes are being made to the Private Passenger Auto Rate pages: Payment Plan Discount The purpose of this filing is to revise the Payment Plan Discount factors."
+  },
+  {
+   "tracking": "ERAP-134817517",
+   "state": "VA",
+   "carrier": "Erie Insurance Property and Casualty Company",
+   "line": null,
+   "effective": "02/26/2026",
+   "source": "description",
+   "programs": [
+    "Payment Plan"
+   ],
+   "pcts": [],
+   "removal": true,
+   "text": "The revision removes the distinction in discount factors between policies that pay by credit card and those that pay by non-credit card methods under the Annual Payment Plan (Plan A)."
+  },
+  {
+   "tracking": "MERY-134801987",
+   "state": "VA",
+   "carrier": "Mercury",
+   "line": "auto",
+   "effective": "04/09/2026",
+   "source": "description",
+   "programs": [
+    "Affinity",
+    "Group"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "Discount, Luxury Vehicle Factor, Multi Policy Discount (add Umbrella), Payment Discount, Affinity Group Discount, Full Glass and Bad Debt Factor."
+  },
+  {
+   "tracking": "GMMX-134634752",
+   "state": "VA",
+   "carrier": "National General",
+   "line": "auto",
+   "effective": "10/17/2025",
+   "source": "description",
+   "programs": [
+    "Welcome"
+   ],
+   "pcts": [],
+   "removal": false,
+   "text": "This filing proposes revisions to the following: - Table of Contents - Installment/Down Payment - Territorial Relativities - Base Rates - Welcome Discount - Fixed Expense Rating Factors Editorial: - Model Year Factor  COLL/COMP Please refer to the enclosed filing for more information."
+  },
+  {
+   "tracking": "DNGL-134873440",
+   "state": "VA",
+   "carrier": "Peninsula Insurance Company",
+   "line": null,
+   "effective": "04/07/2026",
+   "source": "description",
+   "programs": [],
+   "pcts": [],
+   "removal": false,
+   "text": "The annual factor is on the base rate page and revisions to several discount rate pages are included to now contemplate annual policies."
+  },
+  {
+   "tracking": "PNPR-134846271",
+   "state": "VA",
+   "carrier": "Penn National",
+   "line": "auto",
+   "effective": "04/16/2026",
+   "source": "description",
+   "programs": [
+    "Renewal"
+   ],
+   "pcts": [],
+   "removal": true,
+   "text": "revised Muti-Policy discount to .850 (see on page 84) Rule  Capping Factor  Remove Capping Factor rule, applied solely to policies with inception dates prior to April 15, 2019 and only for their first three subsequent renewals."
+  },
+  {
+   "tracking": "USAA-134728239",
+   "state": "VA",
+   "carrier": "USAA",
+   "line": "auto",
+   "effective": "12/05/2025",
+   "source": "description",
+   "programs": [
+    "Participation in Safe Driving"
+   ],
+   "pcts": [
+    15.0
+   ],
+   "removal": false,
+   "text": "The following structures have been revised for all companies: - Increasing our Participation in Safe Driving Discount to 15% - Tier Placement - can be located in SERFF tr # USAA-134728342"
   }
  ]
 }
