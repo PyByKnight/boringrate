@@ -5,7 +5,7 @@ One page: every captured 2026 auto + home rate filing, by state and carrier, eac
 row linked to its primary source (SERFF tracking # + the DOI portal/dataset). Rows
 are server-rendered (crawlable + citable); vanilla JS adds sort/filter. Draws from
 serff_filings.json (auto) + serff_home_filings.json (home). Output: rate-filings/index.html."""
-import json, re, pathlib
+import json, re, gzip, pathlib
 from filing_cite import anchor, portal_url
 from datetime import date
 from gen_metro_page import STATE, esc
@@ -27,6 +27,14 @@ def market_share(carrier, product):
     if product != "Auto":
         return None
     return _MS.get(carrier) or _MS.get(_MS_ALIAS.get(carrier, ""))
+
+
+# Filing narrative (mine_filing_text.py). Optional: the page degrades to numbers-only
+# if the digest hasn't been built yet, so this generator never hard-fails on it.
+try:
+    DIGEST = json.load(gzip.open(ROOT / "filing_digests.json.gz"))["digests"]
+except Exception:
+    DIGEST = {}
 
 scaff = (ROOT / "home" / "state" / "florida.html").read_text(encoding="utf-8")
 STYLE = scaff[scaff.index("<style>"):scaff.index("</style>") + len("</style>")]
@@ -90,6 +98,69 @@ def source_label(url, note):
     return m.group(1) if m else "source"
 
 
+def pct_str(v):
+    """Signed percent in the house style (− is a real minus sign, not a hyphen)."""
+    sign = "+" if v > 0 else ("−" if v < 0 else "±")
+    return f"{sign}{abs(v):.1f}%"
+
+
+def detail_html(d):
+    """The expandable panel: what the headline percentage leaves out.
+
+    Built only from fields we actually hold — every clause is conditional, so a row with
+    thin data shows a short panel rather than a grid of em-dashes. Returns "" when we
+    have nothing beyond what the visible row already says."""
+    bits = []
+    state_name = STATE[d["state"]][0]
+
+    # asked-vs-approved: the regulator doing (or not doing) its job
+    if d["indicated"] is not None and abs(d["indicated"] - d["pct"]) >= 0.05:
+        verb = "trimmed" if d["indicated"] > d["pct"] else "approved above"
+        bits.append(
+            f'<p><strong>{esc(d["carrier"])} asked {esc(state_name)} for '
+            f'{pct_str(d["indicated"])}</strong> and was approved for {pct_str(d["pct"])} — '
+            f'regulators {verb} the request.</p>')
+    elif d["indicated"] is not None:
+        bits.append(f'<p><strong>{esc(d["carrier"])} asked for {pct_str(d["indicated"])}</strong> '
+                    f'and was approved for the full amount.</p>')
+
+    # the spread — the single most useful number for "why is mine different"
+    if d["max_pct"] is not None and d["min_pct"] is not None and d["max_pct"] != d["min_pct"]:
+        bits.append(
+            f'<p>The {pct_str(d["pct"])} is a <em>statewide average</em>. Individual policies in this '
+            f'filing moved <strong>{pct_str(d["max_pct"])} to {pct_str(d["min_pct"])}</strong> '
+            f'depending on the vehicle, ZIP code, driving record and coverages on the policy.</p>')
+
+    if d["affected"]:
+        basis = esc(d["count_basis"])
+        bits.append(f'<p>Book size: <strong>{d["affected"]:,}</strong> {basis}.</p>')
+
+    if d["prior"] is not None:
+        bits.append(f'<p>The carrier&rsquo;s previous revision in this state was '
+                    f'<strong>{pct_str(d["prior"])}</strong>.</p>')
+
+    # the carrier in its own words — unique, citable, and crawlable
+    if d.get("desc"):
+        q = re.sub(r"\s+", " ", d["desc"]).strip()
+        if len(q) > 340:
+            cut = q[:340].rsplit(" ", 1)[0]
+            q = cut + "…"
+        bits.append(f'<blockquote class="rf-quote">{esc(q)}'
+                    f'<cite>&mdash; {esc(d["carrier"])}, filing {esc(d["tracking"])}</cite></blockquote>')
+
+    if not bits:
+        return ""
+    return ('<div class="rf-detail-inner">' + "".join(bits) +
+            f'<p class="rf-detail-src"><a href="{esc(portal_url(d))}" target="_blank" '
+            f'rel="noopener nofollow">Read the filing at {esc(d["src"])} &rarr;</a></p></div>')
+
+
+def num(v):
+    """Ledger hygiene: 12 rows carry indicated_pct as '' rather than null (parser artifact).
+    Coerce anything non-numeric to None so the detail panel simply omits that clause."""
+    return v if isinstance(v, (int, float)) and not isinstance(v, bool) else None
+
+
 def collect():
     _bt, _eb = brand_share.build()
     rows = []
@@ -110,6 +181,16 @@ def collect():
             "src": source_label(r.get("url") or "", r.get("source_note") or ""),
             "share": market_share(r["carrier"], product),
             "brand": brand_share.share(r, _bt, _eb) if product == "Auto" else None,
+            # ── detail-row payload ──────────────────────────────────────────────
+            # Held in the ledger all along but never rendered: the headline % alone
+            # cannot answer "why did MINE go up more than that?". indicated = what the
+            # carrier asked for, max/min = how far individual policies actually moved,
+            # affected = book size, desc = the carrier's own account of the change.
+            "indicated": num(r.get("indicated_pct")),
+            "max_pct": num(r.get("max_pct")), "min_pct": num(r.get("min_pct")),
+            "affected": num(r.get("affected")), "count_basis": r.get("count_basis") or "policyholders",
+            "prior": num(r.get("prior_revision_pct")),
+            "desc": DIGEST.get(r.get("tracking") or "", {}).get("desc"),
         })
     # sort: biggest absolute move first (default view)
     out.sort(key=lambda x: (-abs(x["pct"]), x["state"]))
@@ -163,6 +244,12 @@ def build():
             f'<td class="rf-num rf-share">{share_cell}</td>'
             f'<td class="rf-num rf-share">{brand_cell}</td>'
             f'<td class="rf-src">{src} {trk}</td></tr>')
+        # Detail row: server-rendered (crawlable + citable), collapsed via CSS, toggled by JS.
+        det = detail_html(d)
+        if det:
+            trs[-1] = trs[-1].replace('<tr id=', '<tr data-detail="1" id=', 1)
+            trs.append(f'<tr class="rf-detail" data-for="{anchor(d)}" hidden>'
+                       f'<td colspan="8">{det}</td></tr>')
     table = ('<div class="rf-tablewrap"><table class="rf-table" id="rfTable"><thead><tr>'
              '<th data-sort="state">State</th><th data-sort="product">Product</th><th data-sort="carrier">Carrier</th>'
              '<th data-sort="pct" class="rf-num">Change</th><th data-sort="eff">Effective</th>'
@@ -200,8 +287,22 @@ def build():
     .rf-ent{color:var(--ink-mute);font-size:12px;}
     .rf-trk{font-family:var(--mono);font-size:11px;color:var(--ink-mute);}
     .rf-src{font-size:12px;}
-    .rf-row.hidden{display:none;}
+    .rf-row.hidden,.rf-detail.hidden{display:none;}
     .rf-row{scroll-margin-top:96px;}
+    /* expandable filing detail */
+    .rf-row[data-detail]{cursor:pointer;}
+    .rf-row[data-detail]:hover td{background:rgba(0,0,0,0.025);}
+    .rf-row[data-detail] td:first-child::before{content:"▸";color:var(--ink-mute);font-size:10px;margin-right:6px;display:inline-block;transition:transform .12s;}
+    .rf-row[data-detail][aria-expanded="true"] td:first-child::before{transform:rotate(90deg);}
+    .rf-row[data-detail]:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+    .rf-detail > td{background:var(--paper-deep);padding:0 8px 4px 8px;border-bottom:1px solid var(--rule);}
+    .rf-detail-inner{max-width:680px;padding:14px 4px 16px 22px;}
+    .rf-detail-inner p{font-family:var(--serif);font-size:15px;line-height:1.55;margin:0 0 9px;}
+    .rf-quote{margin:12px 0 9px;padding:10px 0 4px 14px;border-left:2px solid var(--rule);}
+    .rf-quote{font-family:var(--serif);font-size:14px;line-height:1.55;color:var(--ink-soft);font-style:italic;}
+    .rf-quote cite{display:block;font-family:var(--mono);font-size:11px;font-style:normal;color:var(--ink-mute);letter-spacing:0.04em;margin-top:7px;}
+    .rf-detail-src{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;text-transform:uppercase;}
+    @media (max-width:640px){.rf-detail-inner{padding-left:10px;}}
     .rf-row:target td{background:rgba(180,50,26,0.10);}
     .rf-row:target td:first-child{box-shadow:inset 3px 0 0 var(--accent);}
     /* wide container for the table; keep prose at a readable measure */
@@ -211,7 +312,14 @@ def build():
 
     script = '''<script>
     (function(){
-      var tbl=document.getElementById("rfTable"), rows=[].slice.call(tbl.tBodies[0].rows);
+      var tbl=document.getElementById("rfTable");
+      // Only .rf-row are data rows. Detail rows (.rf-detail) are paired to a parent and must
+      // never be filtered, counted, or sorted as if they were filings — they ride along.
+      var rows=[].slice.call(tbl.querySelectorAll("tbody > tr.rf-row"));
+      rows.forEach(function(r){
+        var d=r.nextElementSibling;
+        r._detail=(d&&d.classList.contains("rf-detail"))?d:null;
+      });
       var q=document.getElementById("rfSearch"),fp=document.getElementById("rfProduct"),
           fs=document.getElementById("rfState"),fd=document.getElementById("rfDir"),cnt=document.getElementById("rfCount");
       function apply(){
@@ -219,6 +327,8 @@ def build():
         rows.forEach(function(r){
           var ok=(!p||r.dataset.product===p)&&(!st||r.dataset.state===st)&&(!d||r.dataset.dir===d)&&(!s||r.dataset.carrier.indexOf(s)>=0);
           r.classList.toggle("hidden",!ok); if(ok)shown++;
+          // a filtered-out row takes its (possibly open) detail panel with it
+          if(r._detail){r._detail.classList.toggle("hidden",!ok); if(!ok){r._detail.hidden=true;r.setAttribute("aria-expanded","false");}}
         });
         cnt.textContent=shown+" of "+rows.length+" filings";
       }
@@ -234,7 +344,31 @@ def build():
             else{va=a.dataset[k]||"";vb=b.dataset[k]||"";}
             return (va<vb?-1:va>vb?1:0)*(asc?1:-1);
           });
-          var tb=tbl.tBodies[0]; rows.forEach(function(r){tb.appendChild(r);});
+          // re-append each row followed immediately by its detail panel, so sorting
+          // never separates a panel from the filing it describes
+          var tb=tbl.tBodies[0];
+          rows.forEach(function(r){tb.appendChild(r); if(r._detail)tb.appendChild(r._detail);});
+        });
+      });
+      // expand / collapse a filing's detail panel
+      function toggle(r){
+        if(!r._detail)return;
+        var open=r._detail.hidden;
+        r._detail.hidden=!open;
+        r.setAttribute("aria-expanded",open?"true":"false");
+        if(open&&window.track)window.track("filing_detail_opened",{state:r.dataset.state,product:r.dataset.product});
+      }
+      rows.forEach(function(r){
+        if(!r._detail)return;
+        r.setAttribute("aria-expanded","false");
+        r.setAttribute("tabindex","0");
+        r.setAttribute("role","button");
+        r.addEventListener("click",function(e){
+          if(e.target.closest("a"))return;   // let source links through
+          toggle(r);
+        });
+        r.addEventListener("keydown",function(e){
+          if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle(r);}
         });
       });
       // deep-link: /rate-filings/?state=TX&product=Home&dir=inc preselects filters (metro/data pages link in)
