@@ -768,45 +768,6 @@ renderTable();
 <script>(function(){var dds=document.querySelectorAll('.nav-dd-btn');dds.forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();var panel=document.getElementById(btn.id+'Panel');if(!panel)return;var wasOpen=panel.classList.contains('open');document.querySelectorAll('.nav-dd-panel').forEach(function(p){p.classList.remove('open');});document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.setAttribute('aria-expanded','false');});if(!wasOpen){panel.classList.add('open');btn.setAttribute('aria-expanded','true');}});});document.addEventListener('click',function(){document.querySelectorAll('.nav-dd-panel').forEach(function(p){p.classList.remove('open');});document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.setAttribute('aria-expanded','false');});});})();</script>
 <script>(function(){var btn=document.getElementById('navHamburger');var mega=document.getElementById('navMega');if(!btn||!mega)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});mega.addEventListener('click',function(e){var tab=e.target.closest('.nav-res-tab');if(!tab)return;e.stopPropagation();var pid=tab.dataset.panel;var isActive=tab.classList.contains('active');mega.querySelectorAll('.nav-res-tab').forEach(function(t){t.classList.remove('active');});mega.querySelectorAll('.nav-res-panel').forEach(function(p){p.classList.remove('active');});if(!isActive&&pid){tab.classList.add('active');var panel=document.getElementById(pid);if(panel)panel.classList.add('active');}});})();</script>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script>
-(function(){
-  var _sb=supabase.createClient("https://uayypfeqltlrxkdqgvcz.supabase.co","sb_publishable_gAKR-IoPDphx8Zp0GlVt7Q_JeYKeU5f");
-  var btn=document.getElementById("articleEmailBtn");
-  if(!btn)return;
-  (document.getElementById("articleEmailZip")||{addEventListener:function(){}}).addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
-  btn.addEventListener("click",async function(){
-    var email=document.getElementById("articleEmailInput").value.trim();
-    var zip=document.getElementById("articleEmailZip").value.trim();
-    var carrier=document.getElementById("articleEmailCarrier").value;
-    var renewal=document.getElementById("articleEmailMonth").value;
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){document.getElementById("articleEmailInput").focus();return;}
-    if(!/^\d{5}$/.test(zip)){document.getElementById("articleEmailZip").focus();return;}
-    var src=window.location.pathname.replace(/\/article\//,'').replace(/\.html$/,'').replace('/','_');
-    localStorage.setItem("br_notify",JSON.stringify({zip,carrier,renewal,source:src}));
-    btn.textContent="Sending…";btn.disabled=true;
-    var r=await _sb.auth.signInWithOtp({email,options:{emailRedirectTo:window.location.href,data:{source:src}}});
-    if(!r.error){
-      document.getElementById("articleEmailForm").style.display="none";
-      var t=document.getElementById("articleEmailThanks");
-      t.textContent="✓ Check your inbox — click the link to confirm.";
-      t.style.display="block";
-    } else{btn.textContent="Notify me";btn.disabled=false;}
-  });
-  _sb.auth.onAuthStateChange(async function(event,session){
-    if(event==="SIGNED_IN"&&session&&session.user){
-      var stored=JSON.parse(localStorage.getItem("br_notify")||"{}");
-      var profile=JSON.parse(localStorage.getItem("br_profile")||"{}");
-      var src=stored.source||window.location.pathname.replace(/\/article\//,'').replace(/\.html$/,'').replace('/','_');
-      await _sb.from("profiles").upsert({id:session.user.id,source:src,zip:stored.zip||profile.zip||null,carrier:stored.carrier||null,renewal_month:stored.renewal||null,updated_at:new Date().toISOString()});
-      var t=document.getElementById("articleEmailThanks");
-      if(t){t.textContent="✓ You're confirmed — we'll notify you when rates change.";t.style.display="block";}
-      var f=document.getElementById("articleEmailForm");
-      if(f)f.style.display="none";
-    }
-  });
-})();
-</script>
 <script>(function(){function goZip(fid,iid){var f=document.getElementById(fid),i=document.getElementById(iid);if(!f||!i)return;f.addEventListener("submit",function(e){e.preventDefault();var z=i.value.replace(/\D/g,"").substring(0,5);if(!/^\d{5}$/.test(z)){i.focus();return;}window.location.href="/?zip="+z;});}goZip("zipBarForm","zipBarInput");})();</script>
 <script>
 (function(){

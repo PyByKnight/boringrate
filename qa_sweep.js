@@ -12,8 +12,6 @@ function stub(w) {
   w.Element.prototype.scrollIntoView = function () {};
   w.IntersectionObserver = class { observe() {} unobserve() {} disconnect() {} };
   w.matchMedia = w.matchMedia || function () { return { matches: false, addEventListener() {}, addListener() {} }; };
-  const sb = { auth: { onAuthStateChange() {}, getSession: async () => ({ data: { session: null } }) }, from: () => ({ insert: async () => ({}), select: () => ({ eq: () => ({}) }) }) };
-  w.supabase = { createClient: () => sb };
 }
 const files = walk(".", []);
 const bad = [];

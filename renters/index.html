@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <style>
 :root {
   --ink:#161512;--ink-soft:#3a3631;--ink-mute:#6b665e;
@@ -572,20 +571,7 @@ window.track = function (name, props) {
 </div>
 
 <!-- ── Email capture ── -->
-<div class="email-section" id="emailSection" style="display:none">
-  <div class="email-box">
-    <div class="email-hed">Get notified when renters rates change in your ZIP.</div>
-    <div class="email-sub">No spam. One email when something meaningful shifts.</div>
-    <div id="emailForm">
-      <div class="email-row">
-        <input class="email-input" id="emailInput" type="email" placeholder="your@email.com" />
-        <button class="email-btn" id="emailBtn">Notify Me</button>
-      </div>
-    </div>
-    <div class="email-thanks" id="emailThanks">✓ Check your inbox for a confirmation link.</div>
-    <div class="email-signed-in" id="emailSignedIn">✓ You're subscribed as <span id="emailSignedInUser"></span></div>
-  </div>
-</div>
+
 
 <!-- ── Below fold: state grid ── -->
 <div class="below-fold">
@@ -940,12 +926,6 @@ function renderAgentPanel() {
 
 
 <script>
-// ── Supabase ──
-const SUPABASE_URL = "https://uayypfeqltlrxkdqgvcz.supabase.co";
-const SUPABASE_KEY = "sb_publishable_gAKR-IoPDphx8Zp0GlVt7Q_JeYKeU5f";
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-let currentUser = null;
-
 // ── ZIP → state lookup ──
 const ZIP3_TO_STATE = {
   "005":"NY","006":"PR","007":"PR","008":"VI","009":"PR",
@@ -1745,8 +1725,6 @@ function renderRanking() {
   document.getElementById("rankFoot").innerHTML =
     'Estimates based on state avg rate × carrier price position from public filings. Not a quote. NAIC marks reflect renters complaint indices. <a href="/methodology.html">How we rank &rarr;</a>';
 
-  document.getElementById("emailSection").style.display = "block";
-
   // Cross-sell auto: renters buyers can bundle with auto for a discount.
   var _csState = document.getElementById("crossSellAutoState");
   var _csLink = document.getElementById("crossSellAuto");
@@ -1800,37 +1778,6 @@ function applyRefinementsToUI() {
     });
   });
 }
-
-// ── Supabase email capture ──
-sb.auth.onAuthStateChange((event, session) => {
-  currentUser = session?.user || null;
-  if (currentUser) {
-    const ef = document.getElementById("emailForm");
-    const es = document.getElementById("emailSignedIn");
-    if (ef) ef.style.display = "none";
-    if (es) { es.style.display = "block"; document.getElementById("emailSignedInUser").textContent = currentUser.email; }
-  }
-});
-sb.auth.getSession().then(({ data: { session } }) => {
-  if (session?.user) {
-    currentUser = session.user;
-    const ef = document.getElementById("emailForm");
-    const es = document.getElementById("emailSignedIn");
-    if (ef) ef.style.display = "none";
-    if (es) { es.style.display = "block"; document.getElementById("emailSignedInUser").textContent = currentUser.email; }
-  }
-});
-document.getElementById("emailBtn").addEventListener("click", async () => {
-  const email = document.getElementById("emailInput").value.trim();
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById("emailInput").focus(); return; }
-  const zip = document.getElementById("zipInput").value.trim();
-  localStorage.setItem("br_renters_notify", JSON.stringify({zip, source:"renters"}));
-  const { error } = await sb.auth.signInWithOtp({email, options:{emailRedirectTo:window.location.origin}});
-  if (!error) {
-    document.getElementById("emailForm").style.display = "none";
-    document.getElementById("emailThanks").style.display = "block";
-  }
-});
 
 // ── Pill refinement handlers ──
 document.querySelectorAll("#refineBar .pill-row").forEach(group => {
@@ -1986,8 +1933,6 @@ document.getElementById("zipInput").addEventListener("input", e => {
     rbar.addEventListener("click", markRefined, true);
     rbar.addEventListener("change", markRefined, true);
   }
-  var eb = document.getElementById("emailBtn");
-  if (eb) eb.addEventListener("click", function () { track("email_signup", { product: PRODUCT }); });
   document.addEventListener("click", function (e) {
     if (!e.target.closest) return;
     var q = e.target.closest(".rank-quote-cta");

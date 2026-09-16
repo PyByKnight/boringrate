@@ -1504,32 +1504,8 @@ window.track = function (name, props) {
   <div class="wrap top-inner">
     <a href="index.html" class="brand"><span class="brand-mark"></span>BoringRate</a>
     <div class="header-auth" id="headerAuth">
-      <div id="headerAuthOut">
-        <button class="header-notify-btn" id="headerNotifyBtn">Notify me &#9662;</button>
-        <div class="header-auth-panel" id="headerAuthPanel" style="display:none;">
-          <p class="header-panel-label">Notify me when rates change &nbsp;·&nbsp; <span class="header-panel-signin">returning? sign in below</span></p>
-          <div class="header-panel-row">
-            <input type="email" class="auth-email-input" id="authEmailInput" placeholder="your@email.com" />
-            <input type="text" class="auth-email-input auth-zip-input" id="authZipInput" placeholder="Enter ZIP" maxlength="5" inputmode="numeric" aria-label="ZIP code" />
-          </div>
-          <select class="auth-select" id="authCarrierInput" aria-label="Current carrier (optional)">
-            <option value="">Current carrier (optional)</option>
-            <option>State Farm</option><option>GEICO</option><option>Progressive</option><option>Allstate</option><option>USAA</option><option>Liberty Mutual</option><option>Farmers</option><option>Travelers</option><option>Nationwide</option><option>American Family</option><option>Erie</option><option>Root Insurance</option><option>Safeco</option><option>The Hartford</option><option>Amica</option><option>Other</option>
-          </select>
-          <select class="auth-select" id="authMonthInput" aria-label="Renewal month (optional)">
-            <option value="">Renewal month (optional)</option>
-            <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
-          </select>
-          <button class="auth-btn auth-btn-ghost" id="authMagicBtn" style="margin-top:8px;width:100%;">Notify me</button>
-          <div id="authMagicSent" style="display:none;" class="header-panel-sent">&#10003; Check your email — click the link to confirm.</div>
-          <p class="header-panel-reassure">We never spam you — just a heads up if your rates are changing.</p>
-        </div>
-      </div>
-      <div id="headerAuthIn" style="display:none;" class="header-auth-in">
-        <span id="authUserEmail" class="header-auth-email"></span>
-        <a href="#emailSignedIn" class="auth-btn-link" id="headerEditProfileBtn" onclick="document.getElementById('editProfileBtn').click();this.blur();">Edit profile</a>
-        <button class="auth-btn-link" id="authSignOutBtn">Sign out</button>
-      </div>
+      
+      
     </div>
     <nav class="primary">
       <div class="nav-dd-group">
@@ -1829,53 +1805,7 @@ window.track = function (name, props) {
       <span class="cross-sell-cta">Compare renters rates in <span id="crossSellState">your state</span> &rarr;</span>
     </a>
 
-    <div class="email-capture">
-      <div class="email-capture-text">
-        <strong>Notify me when my rates change.</strong>
-        <p>We never spam you. We'll just let you know if your rates are changing.</p>
-      </div>
-      <div class="email-form" id="emailForm">
-        <input class="email-input" id="emailInput" type="email" placeholder="your@email.com" aria-label="Email address" />
-        <button type="button" class="email-btn email-btn-ghost" id="emailBtn">Notify me</button>
-        <button type="button" class="email-more-toggle" id="emailMoreToggle" aria-expanded="false">Add carrier &amp; renewal details (optional)</button>
-        <div class="email-extra" id="emailExtra" style="display:none;">
-          <input class="email-input email-zip" id="emailZipInput" type="text" inputmode="numeric" placeholder="ZIP code" maxlength="5" aria-label="ZIP code" />
-          <select class="email-select" id="emailCarrierInput" aria-label="Current carrier (optional)">
-            <option value="">Current carrier (optional)</option>
-            <option>State Farm</option><option>GEICO</option><option>Progressive</option><option>Allstate</option><option>USAA</option><option>Liberty Mutual</option><option>Farmers</option><option>Travelers</option><option>Nationwide</option><option>American Family</option><option>Erie</option><option>Root Insurance</option><option>Safeco</option><option>The Hartford</option><option>Amica</option><option>Other</option>
-          </select>
-          <select class="email-select email-month" id="emailMonthInput" aria-label="Renewal month (optional)">
-            <option value="">Renewal month (optional)</option>
-            <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
-          </select>
-        </div>
-      </div>
-      <div class="email-thanks" id="emailThanks" style="display:none;">&#10003; Check your email — magic link sent.</div>
-      <div class="email-signed-in" id="emailSignedIn" style="display:none;">
-        <div id="profileView">
-          <div class="profile-confirmed">&#10003; Subscribed &nbsp;&mdash;&nbsp; <strong id="emailSignedInUser"></strong></div>
-          <div class="profile-details" id="profileDetails"></div>
-          <button class="auth-btn-link" id="editProfileBtn" style="margin-top:8px;">Edit profile</button>
-        </div>
-        <div id="profileEdit" style="display:none;margin-top:12px;">
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <input class="email-input email-zip" id="editZipInput" type="text" inputmode="numeric" placeholder="ZIP code" maxlength="5" aria-label="ZIP code" />
-            <select class="email-select" id="editCarrierInput" aria-label="Current carrier">
-              <option value="">Current carrier (optional)</option>
-              <option>State Farm</option><option>GEICO</option><option>Progressive</option><option>Allstate</option><option>USAA</option><option>Liberty Mutual</option><option>Farmers</option><option>Travelers</option><option>Nationwide</option><option>American Family</option><option>Erie</option><option>Root Insurance</option><option>Safeco</option><option>The Hartford</option><option>Amica</option><option>Other</option>
-            </select>
-            <select class="email-select email-month" id="editMonthInput" aria-label="Renewal month">
-              <option value="">Renewal month (optional)</option>
-              <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
-            </select>
-          </div>
-          <div style="display:flex;gap:12px;align-items:center;margin-top:10px;">
-            <button class="email-btn" id="saveProfileBtn">Save</button>
-            <button class="auth-btn-link" id="cancelEditBtn">Cancel</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </section>
 </div>
 
@@ -2059,7 +1989,6 @@ window.track = function (name, props) {
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 // Full state data — avg is annual full-coverage premium (2025 estimates)
 const STATE_DATA = {
@@ -3092,7 +3021,6 @@ function saveProfile() {
   if (!/^\d{5}$/.test(zip)) return;
   try {
     localStorage.setItem(PROFILE_KEY, JSON.stringify({ zip, refinement: { ...refinement } }));
-    if (currentUser) syncToSupabase();
   } catch(e) {}
 }
 
@@ -3138,207 +3066,6 @@ function loadProfile() {
     setTimeout(() => { note.style.display = "none"; }, 4000);
   } catch(e) {}
 }
-
-// ── Supabase auth ────────────────────────────────────────────
-const SUPABASE_URL = "https://uayypfeqltlrxkdqgvcz.supabase.co";
-const SUPABASE_KEY = "sb_publishable_gAKR-IoPDphx8Zp0GlVt7Q_JeYKeU5f";
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-let currentUser = null;
-
-async function syncToSupabase() {
-  if (!currentUser) return;
-  try {
-    const saved = JSON.parse(localStorage.getItem(PROFILE_KEY));
-    const notify = JSON.parse(localStorage.getItem("br_notify") || "{}");
-    if (!saved && !notify.zip) return;
-    await sb.from("profiles").upsert({
-      id: currentUser.id,
-      zip: saved?.zip || notify.zip || null,
-      refinements: saved?.refinement || null,
-      carrier: notify.carrier || null,
-      renewal_month: notify.renewal || null,
-      updated_at: new Date().toISOString()
-    });
-  } catch(e) {}
-}
-
-async function loadFromSupabase() {
-  if (!currentUser) return false;
-  try {
-    const { data } = await sb.from("profiles").select("*").eq("id", currentUser.id).single();
-    if (!data) return false;
-    localStorage.setItem(PROFILE_KEY, JSON.stringify({ zip: data.zip, refinement: data.refinements }));
-    if (data.zip || data.carrier || data.renewal_month) {
-      const existing = JSON.parse(localStorage.getItem("br_notify") || "{}");
-      localStorage.setItem("br_notify", JSON.stringify({
-        zip: data.zip || existing.zip || null,
-        carrier: data.carrier || existing.carrier || null,
-        renewal: data.renewal_month || existing.renewal || null,
-        source: existing.source || null
-      }));
-    }
-    return true;
-  } catch(e) { return false; }
-}
-
-function renderProfileDetails() {
-  const notify = JSON.parse(localStorage.getItem("br_notify") || "{}");
-  const profile = JSON.parse(localStorage.getItem(PROFILE_KEY) || "{}");
-  const zip = notify.zip || profile.zip || null;
-  const carrier = notify.carrier || null;
-  const renewal = notify.renewal || null;
-  const parts = [];
-  if (zip) parts.push("ZIP " + zip);
-  if (carrier) parts.push(carrier);
-  if (renewal) parts.push("renews " + renewal);
-  const el = document.getElementById("profileDetails");
-  if (el) el.textContent = parts.length ? parts.join(" · ") : "No profile info yet";
-  // Pre-fill edit form
-  const zi = document.getElementById("editZipInput");
-  const ci = document.getElementById("editCarrierInput");
-  const mi = document.getElementById("editMonthInput");
-  if (zi) zi.value = zip || "";
-  if (ci) ci.value = carrier || "";
-  if (mi) mi.value = renewal || "";
-}
-
-function updateAuthUI(user) {
-  const headerOut = document.getElementById("headerAuthOut");
-  const headerIn = document.getElementById("headerAuthIn");
-  const emailForm = document.getElementById("emailForm");
-  const emailSignedIn = document.getElementById("emailSignedIn");
-  if (user) {
-    headerOut.style.display = "none";
-    headerIn.style.display = "flex";
-    document.getElementById("authUserEmail").textContent = user.email;
-    if (emailForm) emailForm.style.display = "none";
-    if (emailSignedIn) {
-      emailSignedIn.style.display = "block";
-      document.getElementById("emailSignedInUser").textContent = user.email;
-    }
-    renderProfileDetails();
-  } else {
-    headerOut.style.display = "block";
-    headerIn.style.display = "none";
-    if (emailForm) emailForm.style.display = "flex";
-    if (emailSignedIn) emailSignedIn.style.display = "none";
-  }
-}
-
-function showToast(msg) {
-  const t = document.getElementById("authToast");
-  t.textContent = msg;
-  t.classList.add("show");
-  setTimeout(() => t.classList.remove("show"), 4000);
-}
-
-sb.auth.onAuthStateChange(async (event, session) => {
-  currentUser = session?.user || null;
-  updateAuthUI(currentUser);
-  if (event === "SIGNED_IN" && currentUser) {
-    const loaded = await loadFromSupabase();
-    if (loaded) loadProfile();
-    else syncToSupabase();
-    showToast("✓ You're confirmed — we'll notify you when rates change.");
-  }
-});
-
-sb.auth.getSession().then(({ data: { session } }) => {
-  if (session?.user) {
-    currentUser = session.user;
-    updateAuthUI(currentUser);
-    loadFromSupabase().then(loaded => { if (loaded) loadProfile(); });
-  }
-});
-
-// Header "Notify me" dropdown toggle
-document.getElementById("headerNotifyBtn").addEventListener("click", e => {
-  e.stopPropagation();
-  const panel = document.getElementById("headerAuthPanel");
-  panel.style.display = panel.style.display === "none" ? "block" : "none";
-});
-document.addEventListener("click", e => {
-  const auth = document.getElementById("headerAuth");
-  if (auth && !auth.contains(e.target)) {
-    document.getElementById("headerAuthPanel").style.display = "none";
-  }
-});
-
-// Header panel — Google + magic link
-document.getElementById("authZipInput").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, "").substring(0, 5); });
-document.getElementById("authMagicBtn").addEventListener("click", async () => {
-  const email = document.getElementById("authEmailInput").value.trim();
-  const zip = document.getElementById("authZipInput").value.trim();
-  const carrier = document.getElementById("authCarrierInput").value;
-  const renewal = document.getElementById("authMonthInput").value;
-  if (!email) { document.getElementById("authEmailInput").focus(); return; }
-  if (!/^\d{5}$/.test(zip)) { document.getElementById("authZipInput").focus(); return; }
-  localStorage.setItem("br_notify", JSON.stringify({ zip, carrier, renewal, source: "index" }));
-  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
-  if (!error) {
-    document.getElementById("authMagicSent").style.display = "block";
-  }
-});
-document.getElementById("authSignOutBtn").addEventListener("click", async () => {
-  await sb.auth.signOut();
-});
-
-// Email capture section — Google + magic link
-document.getElementById("emailZipInput").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, "").substring(0, 5); });
-document.getElementById("emailBtn").addEventListener("click", async () => {
-  const email = document.getElementById("emailInput").value.trim();
-  const zip = document.getElementById("emailZipInput").value.trim();
-  const carrier = document.getElementById("emailCarrierInput").value;
-  const renewal = document.getElementById("emailMonthInput").value;
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById("emailInput").focus(); return; }
-  if (!/^\d{5}$/.test(zip)) {
-    // ZIP lives in the (collapsed) optional section — reveal it so the user can fix it
-    document.getElementById("emailExtra").style.display = "flex";
-    document.getElementById("emailMoreToggle").setAttribute("aria-expanded", "true");
-    document.getElementById("emailZipInput").focus();
-    return;
-  }
-  localStorage.setItem("br_notify", JSON.stringify({ zip, carrier, renewal, source: "index" }));
-  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
-  if (!error) {
-    document.getElementById("emailForm").style.display = "none";
-    document.getElementById("emailThanks").style.display = "block";
-  }
-});
-
-// Optional carrier/renewal details — collapsed by default to keep the ask to one field
-document.getElementById("emailMoreToggle").addEventListener("click", function () {
-  var extra = document.getElementById("emailExtra");
-  var open = extra.style.display !== "flex";
-  extra.style.display = open ? "flex" : "none";
-  this.setAttribute("aria-expanded", String(open));
-});
-
-// Profile edit / save
-document.getElementById("editProfileBtn").addEventListener("click", () => {
-  document.getElementById("profileView").style.display = "none";
-  document.getElementById("profileEdit").style.display = "block";
-});
-document.getElementById("cancelEditBtn").addEventListener("click", () => {
-  document.getElementById("profileEdit").style.display = "none";
-  document.getElementById("profileView").style.display = "block";
-});
-document.getElementById("editZipInput").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, "").substring(0, 5); });
-document.getElementById("saveProfileBtn").addEventListener("click", async () => {
-  const zip = document.getElementById("editZipInput").value.trim();
-  const carrier = document.getElementById("editCarrierInput").value;
-  const renewal = document.getElementById("editMonthInput").value;
-  if (!/^\d{5}$/.test(zip)) { document.getElementById("editZipInput").focus(); return; }
-  const existing = JSON.parse(localStorage.getItem("br_notify") || "{}");
-  localStorage.setItem("br_notify", JSON.stringify({ ...existing, zip, carrier, renewal }));
-  const profileSaved = JSON.parse(localStorage.getItem(PROFILE_KEY) || "{}");
-  localStorage.setItem(PROFILE_KEY, JSON.stringify({ ...profileSaved, zip }));
-  await syncToSupabase();
-  renderProfileDetails();
-  document.getElementById("profileEdit").style.display = "none";
-  document.getElementById("profileView").style.display = "block";
-  showToast("✓ Profile updated.");
-});
 
 // ── Refine bar toggle ───────────────────────────────────────
 function initRefineToggle() {
@@ -5550,11 +5277,6 @@ function renderRanking() {
     _csLink.href = /^\d{5}$/.test(_csZip) ? "/renters/?zip=" + _csZip : "/renters/";
   }
 
-  // Prefill the notify-form ZIP from the search so the user needn't retype it
-  const _ez = document.getElementById("emailZipInput");
-  const _ezSrc = document.getElementById("zipInput").value.trim();
-  if (_ez && !_ez.value && /^\d{5}$/.test(_ezSrc)) _ez.value = _ezSrc;
-
   renderAgentPanel();
 }
 
@@ -6029,8 +5751,6 @@ document.getElementById("zipInput").addEventListener("input", e => {
     rbar.addEventListener("click", markRefined, true);
     rbar.addEventListener("change", markRefined, true);
   }
-  var eb = document.getElementById("emailBtn");
-  if (eb) eb.addEventListener("click", function () { track("email_signup", { product: PRODUCT }); });
   document.addEventListener("click", function (e) {
     if (!e.target.closest) return;
     var q = e.target.closest(".rank-quote-cta");

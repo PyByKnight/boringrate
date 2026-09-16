@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <style>
 :root {
   --ink:#161512;--ink-soft:#3a3631;--ink-mute:#6b665e;
@@ -524,20 +523,7 @@ window.track = function (name, props) {
   </div>
 </div>
 
-<div class="email-section" id="emailSection" style="display:none">
-  <div class="email-box">
-    <div class="email-hed">Get notified when home insurance rates change in your ZIP.</div>
-    <div class="email-sub">No spam. One email when something meaningful shifts.</div>
-    <div id="emailForm">
-      <div class="email-row">
-        <input class="email-input" id="emailInput" type="email" placeholder="your@email.com" />
-        <button class="email-btn" id="emailBtn">Notify Me</button>
-      </div>
-    </div>
-    <div class="email-thanks" id="emailThanks">&#10003; Check your inbox for a confirmation link.</div>
-    <div class="email-signed-in" id="emailSignedIn">&#10003; You're subscribed as <span id="emailSignedInUser"></span></div>
-  </div>
-</div>
+
 
 <div class="below-fold">
   <h2 class="below-hed">Average home insurance cost by state</h2>
@@ -1862,8 +1848,6 @@ function renderRanking() {
   document.getElementById("rankFoot").innerHTML =
     'Estimates based on state avg rate &times; carrier price position from public filings. Not a quote. Rates in FL, LA, TX, OK, CO may vary significantly. NAIC marks reflect home complaint indices. <a href="/methodology.html">How we rank &rarr;</a>';
 
-  document.getElementById("emailSection").style.display = "block";
-
   // Cross-sell auto: homeowners bundle home + auto for the biggest discount.
   var _csState = document.getElementById("crossSellAutoState");
   var _csLink = document.getElementById("crossSellAuto");
@@ -1990,40 +1974,7 @@ document.getElementById("zipInput").addEventListener("input", e => {
   loadProfile();
 })();
 </script>
-<script>
-// Supabase email capture
-const SUPABASE_URL = "https://uayypfeqltlrxkdqgvcz.supabase.co";
-const SUPABASE_KEY = "sb_publishable_gAKR-IoPDphx8Zp0GlVt7Q_JeYKeU5f";
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-sb.auth.onAuthStateChange((event, session) => {
-  const u = session?.user || null;
-  if (u) {
-    const ef = document.getElementById("emailForm");
-    const es = document.getElementById("emailSignedIn");
-    if (ef) ef.style.display = "none";
-    if (es) { es.style.display = "block"; document.getElementById("emailSignedInUser").textContent = u.email; }
-  }
-});
-sb.auth.getSession().then(({ data: { session } }) => {
-  if (session?.user) {
-    const ef = document.getElementById("emailForm");
-    const es = document.getElementById("emailSignedIn");
-    if (ef) ef.style.display = "none";
-    if (es) { es.style.display = "block"; document.getElementById("emailSignedInUser").textContent = session.user.email; }
-  }
-});
-document.getElementById("emailBtn").addEventListener("click", async () => {
-  const email = document.getElementById("emailInput").value.trim();
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById("emailInput").focus(); return; }
-  const zip = document.getElementById("zipInput").value.trim();
-  localStorage.setItem("br_home_notify", JSON.stringify({zip, source:"home"}));
-  const { error } = await sb.auth.signInWithOtp({email, options:{emailRedirectTo:window.location.origin}});
-  if (!error) {
-    document.getElementById("emailForm").style.display = "none";
-    document.getElementById("emailThanks").style.display = "block";
-  }
-});
-</script>
+
 <script>(function(){var dds=document.querySelectorAll('.nav-dd-btn');dds.forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();var panel=document.getElementById(btn.id+'Panel');if(!panel)return;var wasOpen=panel.classList.contains('open');document.querySelectorAll('.nav-dd-panel').forEach(function(p){p.classList.remove('open');});document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.setAttribute('aria-expanded','false');});if(!wasOpen){panel.classList.add('open');btn.setAttribute('aria-expanded','true');}});});document.addEventListener('click',function(){document.querySelectorAll('.nav-dd-panel').forEach(function(p){p.classList.remove('open');});document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.setAttribute('aria-expanded','false');});});})();</script>
 <script>(function(){var btn=document.getElementById('navHamburger');var mega=document.getElementById('navMega');if(!btn||!mega)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=!mega.classList.contains('open');mega.classList.toggle('open',open);btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!mega.contains(e.target)){mega.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});mega.addEventListener('click',function(e){var tab=e.target.closest('.nav-res-tab');if(!tab)return;e.stopPropagation();var pid=tab.dataset.panel;var isActive=tab.classList.contains('active');mega.querySelectorAll('.nav-res-tab').forEach(function(t){t.classList.remove('active');});mega.querySelectorAll('.nav-res-panel').forEach(function(p){p.classList.remove('active');});if(!isActive&&pid){tab.classList.add('active');var panel=document.getElementById(pid);if(panel)panel.classList.add('active');}});})();</script>
 <script>
@@ -2109,8 +2060,6 @@ document.getElementById("emailBtn").addEventListener("click", async () => {
     rbar.addEventListener("click", markRefined, true);
     rbar.addEventListener("change", markRefined, true);
   }
-  var eb = document.getElementById("emailBtn");
-  if (eb) eb.addEventListener("click", function () { track("email_signup", { product: PRODUCT }); });
   document.addEventListener("click", function (e) {
     if (!e.target.closest) return;
     var q = e.target.closest(".rank-quote-cta");
