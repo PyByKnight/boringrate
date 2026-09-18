@@ -11,6 +11,13 @@ Config-driven: add a PAGES entry (all prose + the filing figures) and re-run. Th
 shared shell (CSS/nav/CTA/email/scripts) is inherited verbatim from the template,
 so nav + analytics + coverage tiles stay single-source. Idempotent: rewrites files.
 
+  python3 gen_reactive_pages.py            # auto pages + hub
+  python3 gen_reactive_pages.py --home     # home pages (serff_home_filings.json, /home/ CTA)
+
+Output is self-contained — do NOT chase this with patch_article_ctas.py. That script
+already skips every page here via its `skip-has-rz` guard, and this generator strips the
+rz-cta-css block it stamped into the template so the CSS is not emitted twice.
+
 Every figure is a real approved filing in serff_filings.json — keep them accurate.
 """
 import json, re, html
@@ -140,7 +147,15 @@ def build(cfg):
                lambda _m: '<script type="application/ld+json">\n'+breadcrumb(cfg["title"], cfg["url"])+'\n</script>', s, count=1, flags=re.S)
     s = re.sub(r'<script type="application/ld\+json">\s*\{\s*"@context": "https://schema.org",\s*"@type": "FAQPage".*?</script>',
                lambda _m: '<script type="application/ld+json">\n'+faqld(cfg["faq"])+'\n</script>', s, count=1, flags=re.S)
-    # ---- append nav-fix + rz-zip style after the template's ca-link-style ----
+    # ---- rz-zip styles ----
+    # The template is itself an article page, so patch_article_ctas.py has stamped an
+    # `<!-- rz-cta-css -->` block into it. RZ_STYLE below is a SUPERSET of that block (same
+    # .rz-zip rules plus the 5-column rate-table styles these pages need), so inheriting the
+    # template's copy would ship the same declarations twice on every generated page. Strip
+    # the inherited block first, then append ours — this keeps output identical whether or not
+    # the template has been patched, which is what made regeneration look like a regression.
+    # (patch_article_ctas.py itself already skips these pages via its `skip-has-rz` guard.)
+    s = re.sub(r'<!-- rz-cta-css --><style>.*?</style>', '', s, count=1, flags=re.S)
     CALINK = '.article-body a.ca-link:hover{border-bottom-color:var(--accent);}</style>'
     assert CALINK in s, 'ca-link-style anchor missing'
     s = s.replace(CALINK, CALINK + RZ_STYLE, 1)
