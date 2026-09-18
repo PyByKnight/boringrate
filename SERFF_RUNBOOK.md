@@ -469,3 +469,37 @@ Verified by fetching, not from memory:
 - **NAIC** — no filing-level public data centrally. **No state** offers RSS/email alerts on new
   filings, and **no state** publishes actuarial memoranda or per-coverage exhibits in structured
   form — those stay jacket-only everywhere, including TX/CA/IL.
+
+## ★ Illinois is scripted, and it is the RICHEST non-SERFF source (2026-09-18)
+
+IDOI runs its own Company Rate Information app — state-hosted, not SERFF, no account, no CAPTCHA,
+and `idoi.illinois.gov/robots.txt` is `Allow: /`.
+
+```
+python3 fetch_il_filings.py --carrier "State Farm" --year 2025
+python3 fetch_il_filings.py --carrier "Allstate" --year 2024 --line auto
+python3 fetch_il_filings.py --carrier "State Farm" --year 2025 --write
+```
+
+Unlike TX/CA (a percent and little else) it returns, per filing:
+**indicated % · taken % · written premium change $ · policyholder count · written premium $ ·
+max % · min % ·** SERFF tracking number — i.e. nearly the whole Company Rate Information block we
+open jackets for, **and multiple years in a single call.** State Farm IL home came back with 15
+filings spanning 2012-2025; Allstate IL with auto and home back to 2014.
+
+**The chain (ASP.NET WebForms — VIEWSTATE must be carried between steps):**
+1. `RegEntPortal/Default.aspx` — GET, postback `rdbCriteria=5` to reveal the search box, then
+   postback company name + year → links carrying `?EntityNumber=NNNNNN`
+2. `SearchRF3.aspx/TOINamesForFein` — JSON PageMethod, `{EntityIDStr, filingYear}` → TOI list
+3. `SearchRF3.aspx` postback with the chosen TOI → the filing table
+
+**Traps:**
+- Step 3 needs BOTH `TOINameList` (the AJAX-populated select) and `TOINameListHold`. Sending only
+  the hold field makes the server throw *"Index was outside the bounds of the array"*.
+- `EntityNumber` is NOT a small sequential id (probing 1-40 returns nothing) — it is a 6-digit
+  registry number, and the PageMethod name `TOINamesForFein` hints it keys off the FEIN. Get it
+  from step 1, never guess it.
+- Coverage is partial and skews older; ~6 of 24 spot-checked entity/year combos returned data, and
+  IDOI's own page points to SERFF for electronic filings. **Supplements the IL manual pull, does
+  not replace it.**
+- Requests are serialised with a delay. It is a small legacy app; do not hammer it.
