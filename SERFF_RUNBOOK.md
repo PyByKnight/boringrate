@@ -425,3 +425,47 @@ Two traps found building it, both worth remembering for any future state feed:
 - **Substring family matching is dangerous.** `"ace "` matched "hor*ace* mann", filing Horace Mann
   under Chubb. The matcher is word-boundary now and returns None rather than guessing, because a
   wrong family silently corrupts the drift layer.
+
+## California is a bulk download, not a manual read (2026-09-18)
+
+CDI publishes the Approval/Closed list as a stable YTD `.xlsx` (3,993 rows, all P&C lines,
+refreshed ~15 days after each month end). We had been hand-reading it.
+
+```
+python3 fetch_ca_filings.py            # material personal auto/home not yet in the ledger
+python3 fetch_ca_filings.py --write    # -> ca_filings_new.json for review
+```
+
+**★ CA gives us something no SERFF state does for free: `% RATE CHNG REQ` alongside
+`% RATE CHNG APPVD`.** Requested vs approved, as a column. In SERFF states that comparison is the
+indicated-vs-taken story we can only get by opening each jacket. California is prior-approval
+(Prop 103), so regulators genuinely trim — State Farm asked +40.8% on home and was approved +8.7%.
+
+Terms: `insurance.ca.gov/robots.txt` disallows `/0100-consumers/`, the statistical-plan archives,
+`loader.cfm` and `login.cfm`. The rate-filing path is not restricted.
+
+Parsed with `zipfile` + regex over `sheet1.xml` — openpyxl is not installed and is not needed,
+since an .xlsx is a zip of XML.
+
+## Survey of all 51 jurisdictions (2026-09-18)
+
+The old ledger claim "only TX+CA publish rate-filing open data" was **mostly true but incomplete**.
+Verified by fetching, not from memory:
+
+- **TX** — Socrata API. Scripted (`fetch_tx_filings.py`).
+- **CA** — bulk xlsx, richer than we credited. Scripted (`fetch_ca_filings.py`).
+- **IL** — ★ the new find. `insurance.illinois.gov/Applications/CompanyRateInfo/SearchRF3.aspx`
+  is state-hosted, non-SERFF, no auth, no CAPTCHA, and `idoi.illinois.gov/robots.txt` is
+  `Allow: /`. Carries indicated %, taken %, written premium change, policyholder count AND the
+  max/min spread — i.e. nearly everything we read jackets for. Needs a carrier→EntityNumber
+  lookup then a two-call scripted loop. **Not yet built; highest-value remaining automation.**
+- **~40 states** — flat SERFF pointer, no alternative. Confirmed per state, not assumed.
+- **FL, LA** — a non-SERFF tool with the right data exists, but both are bot-walled (FLOIR
+  CAPTCHA; LDI Cloudflare Turnstile). Treated as equivalent to SERFF's bot ban. Worth a direct
+  data-sharing request rather than scraping.
+- **CO** — real structured data, no login, but `robots.txt` has a blanket `Disallow: /pls/real/`
+  covering the exact endpoint. **Owner decision, not automated.**
+- **AL, MS** — on-domain forms, no stated restriction, but need scripted form posts. Unbuilt.
+- **NAIC** — no filing-level public data centrally. **No state** offers RSS/email alerts on new
+  filings, and **no state** publishes actuarial memoranda or per-coverage exhibits in structured
+  form — those stay jacket-only everywhere, including TX/CA/IL.

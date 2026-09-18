@@ -2,7 +2,7 @@
  "_meta": {
   "purpose": "HOME (homeowners) primary-source rate filings \u2014 parallel to serff_filings.json (auto). Seeded 07-10, deepened 07-13 (full re-scan of the two automated states). Feeds home/rate-changes/ + rate-filings/ roll-up + home/state highlights.",
   "line": "homeowners (owner-occupied, HO-3)",
-  "sources": "CA = CDI Approval/Closed List Excel (LINE CODE HOMEOWNERS MULTI-PERIL). TX = data.texas.gov iubg-btfs (state_type_of_insurance=Homeowners; percent_change has trailing % \u2014 strip). Both lack PH/premium. Only TX+CA publish rate-filing open data; all other states are SERFF-manual.",
+  "sources": "CA = CDI Approval/Closed List Excel (LINE CODE HOMEOWNERS MULTI-PERIL). TX = data.texas.gov iubg-btfs (state_type_of_insurance=Homeowners; percent_change has trailing % \u2014 strip). Both lack PH/premium. TX, CA and IL publish rate-filing data outside SERFF (verified 2026-09-18 by fetching each of 51 jurisdictions; see SERFF_RUNBOOK.md). TX+CA are scripted; IL is not yet. FL/LA have the data but are bot-walled; CO is robots-disallowed. ~40 states are genuinely SERFF-only.",
   "coverage_note": "Recognizable nationals + major regionals + biggest movers per state; TX has 70 carriers with material moves (crisis market) \u2014 obscure surplus/fronting carriers omitted.",
   "recorded": "2026-07-13"
  },
