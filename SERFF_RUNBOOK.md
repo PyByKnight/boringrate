@@ -503,3 +503,81 @@ filings spanning 2012-2025; Allstate IL with auto and home back to 2014.
   IDOI's own page points to SERFF for electronic filings. **Supplements the IL manual pull, does
   not replace it.**
 - Requests are serialised with a delay. It is a small legacy app; do not hammer it.
+
+## Creative-sourcing pass — what else exists (2026-09-18)
+
+Second research pass, scoped to legitimately obtainable channels only. **No CAPTCHA solving, no
+Cloudflare bypass, no ignoring robots.txt.** A site whose credibility rests on being a trustworthy
+primary source cannot be caught scraping a regulator against its terms; the reputational cost
+dwarfs the data. FL (FLOIR CAPTCHA) and LA (LDI Cloudflare) therefore stay closed to us.
+
+**Net result: this pass converted ZERO additional states to automatable.** Manual SERFF pulling
+stays the backbone for 35+ of the 40 SERFF-only states. Three things are still worth doing:
+
+**1. Write to Colorado.** DORA has real structured filing data, no login, no CAPTCHA — the only
+obstacle is a `robots.txt` DORA itself wrote. That makes it the single best candidate for simply
+asking: we are not asking them to build anything, only to export what their own site already shows
+a human. Draft letter below.
+
+**2. Mine the FL and LA aggregate reports.** Both states are bot-walled at the filing level but
+publish unrestricted statutory reports nobody has mined:
+  - **FLOIR Property Insurance Stability Report** — semi-annual PDF at
+    `floir.gov/docs-sf/default-source/property-and-casualty/stability-unit-reports/<month>-<year>-isu-report.pdf`
+    (note: `floir.com` 302s to `floir.gov`). Carries the 30-day and 180-day AVERAGE RATE REQUEST
+    for homeowners plus counts of filings by decrease/0%/increase, back to 2023 — i.e. a citable
+    regulator number for "is Florida cooling off", which our 8 FL filings cannot support.
+    **Caveat: partially machine-readable only.** The jacket extractor pulls ~53k chars but the
+    headline figures live in tables it cannot reach, and there is no poppler in this container for
+    a visual read. Treat as a manual read per issue, not a feed.
+  - **LA LDI annual report + Louisiana P&C Insurance Commission report to the legislature** —
+    confirmed to exist, contents not yet mined.
+
+**3. Send the same letter to FL, LA, NJ, IL, WA, VA, GA.** Expect most to bounce to "just use
+SERFF" — when Consumer Reports/ProPublica needed this data they *bought* commercial access rather
+than winning it via records request. Treat one conversion as a win, not seven.
+
+### Draft request (from hello@boringrate.com, adapt per state)
+
+> Subject: Bulk/structured export of approved P&C rate filings — independent publisher request
+>
+> I'm the editor of BoringRate (boringrate.com), an independent insurance-rate research site. We
+> maintain a sourced ledger of auto and home rate filings (boringrate.com/rate-filings/) and a
+> press page for journalists (boringrate.com/press/) — every figure we publish traces back to the
+> underlying regulatory filing.
+>
+> For [STATE] we currently read each disposition individually via [SERFF Filing Access / your rate
+> filing search]. A few states publish this same information as a structured export: Texas
+> (data.texas.gov dataset `iubg-btfs`), California (the CDI approval/closed .xlsx), and Illinois
+> (the Company Rate Information app).
+>
+> Does [STATE DOI] have, or could it produce, a similar structured export (CSV/XLSX/API) of
+> approved personal auto and homeowners rate filings? We would cite the department as the source
+> on every figure, as we already do for filings we pull manually.
+>
+> Happy to discuss by phone. Thank you for your time.
+
+### Ruled out, with reasons
+
+- **S&P Global (SNL Insurance Product Filings)** and **AM Best (Best's State Rate Filings)** both
+  sell exactly this data. Pricing unpublished and **redistribution rights unstated** — licensed
+  data is useless to us unless republication on a public site is permitted in writing. Do not
+  pursue without that in hand.
+- **rateauthority.org** (Rate Authority / PolicyChat) — a CC BY 4.0 API covering 16 states, which
+  looks like the shortcut. **Do not use.** Its own methodology says it does not scrape SERFF, yet
+  its coverage includes states this survey confirmed are SERFF-only with no alternative portal.
+  That contradiction is unresolved from the outside, it is a commercial competitor's byproduct,
+  and building on it would mean republishing data whose collection method may be exactly what we
+  declined to do ourselves. Our primary-source credibility is the asset; this trades it cheaply.
+- **NAIC** — no free filing-level product. Its 2018-2025 homeowners market data call is real but
+  NOT public; a consumer-group coalition is petitioning for release. Worth watching, not building
+  against.
+- **CKAN / ArcGIS / data.gov** federated search — checked, nothing beyond the known TX set. Not
+  exhaustive; worth a quarterly recheck since TX and IL were both found under unglamorous titles.
+- **Wayback Machine** — legitimate for backfilling a specific historical gap (reading an existing
+  archive is not defeating an access control), useless for monitoring since snapshots do not track
+  disposition cadence.
+
+### Free and unused: NAIC Consumer Information Source
+`content.naic.org` CIS publishes company-level complaint counts and policies-in-force by state and
+line, free and unrestricted. Does not answer "did my rate go up", but does answer "does this
+carrier draw more complaints than its peers" — adjacent, cheap, currently unused.
