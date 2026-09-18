@@ -398,3 +398,30 @@ the parts that answer "what actually changed and what did the regulator say", wh
 percentage cannot. It is committed to git, so filing narrative survives a `_serff/` wipe.
 
 Full rationale, what is still unmined, and the extraction rules: **`EXTRACTION_PLAN.md`**.
+
+## Texas does not need a manual pull (2026-09-18)
+
+TDI publishes every personal auto and homeowners rate filing to `data.texas.gov` as a plain
+Socrata dataset (`iubg-btfs`) — 18,043 rows, no session, no terms barrier, updated continuously.
+We had been hand-pulling a state that has an API.
+
+```
+python3 fetch_tx_filings.py                 # material 2026 filings not yet in the ledger
+python3 fetch_tx_filings.py --write         # -> tx_filings_new.json for review
+```
+
+**What it does NOT give you.** The feed carries company, percent change, effective dates, SERFF id
+and status, and nothing else: no policyholders affected, no written premium, no indicated-vs-taken,
+no max/min spread, no filing narrative. TX rows stay thinner than hand-pulled states. This buys
+coverage and freshness, not depth.
+
+**It reports, it does not append.** The ledgers are curated — family mapping, editorial notes and
+the tool↔filing consistency rule need judgement — so merging stays a human step.
+
+Two traps found building it, both worth remembering for any future state feed:
+- **TDI emits one row per COMPANY**, so a multi-company filing repeats its `serff_id` with a
+  different percentage each time (FARM-134961095 appears 4× at 6.2/5.4/2.2/6.2%). Collapse per
+  tracking or you double-count one filing as several.
+- **Substring family matching is dangerous.** `"ace "` matched "hor*ace* mann", filing Horace Mann
+  under Chubb. The matcher is word-boundary now and returns None rather than guessing, because a
+  wrong family silently corrupts the drift layer.
