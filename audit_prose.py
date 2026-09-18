@@ -171,6 +171,37 @@ def collect(product):
     return rows, cfg
 
 
+# ── in-body claim check ────────────────────────────────────────────────────────
+# displayed_avg() reads only the META DESCRIPTION. That missed a live contradiction:
+# article/state/wyoming.html carried a correct $1,572 meta and body while its TLDR card
+# claimed "Wyoming averages around $1,986/year". Any page can restate the average in
+# prose, so check the explicit claim form wherever it appears in the body too.
+BODY_CLAIM = re.compile(r'averages around \$([0-9,]+)/year')
+
+
+def body_claim_drift(product):
+    """(slug, shown, expected) for in-body 'averages around $X/year' claims that
+    disagree with the model. Exact-match, not tolerance-based: this phrasing restates
+    the model's own number, so any difference is an error rather than drift."""
+    cfg = PRODUCTS[product]
+    src = (ROOT / cfg["idx"]).read_text(encoding="utf-8")
+    state_avg = parse_state_avgs(src, cfg["state_var"])
+    sd_block = block(cfg["state_var"], "{", "}", src)
+    out = []
+    for code, avg in state_avg.items():
+        nm = re.search(r'"%s":\s*\{\s*name:\s*"([^"]+)"' % code, sd_block)
+        if not nm:
+            continue
+        f = ROOT / cfg["state_dir"] / f"{state_slug(nm.group(1))}.html"
+        if not f.exists():
+            continue
+        for m in BODY_CLAIM.finditer(f.read_text(encoding="utf-8", errors="replace")):
+            shown = int(m.group(1).replace(",", ""))
+            if abs(shown - avg) > 2:
+                out.append((state_slug(nm.group(1)), shown, avg))
+    return out
+
+
 def report(product, rows):
     drift = [r for r in rows if abs(r[2] - r[3]) > max(TOL * r[3], FLOOR)]
     drift.sort(key=lambda r: -abs(r[2] - r[3]) / r[3])
@@ -184,7 +215,11 @@ def report(product, rows):
         for kind, slug, disp, exp, st in drift:
             off = (disp - exp) / exp * 100
             print("  %-6s %-22s %10s %10s %+7.0f%%" % (kind, slug, f"${disp:,}", f"${exp:,}", off))
-    return drift
+    body = body_claim_drift(product)
+    print("  body claims   : %d wrong" % len(body))
+    for slug, shown, exp in body:
+        print("    %-22s says $%-9s model says $%s" % (slug, f"{shown:,}", f"{exp:,}"))
+    return drift + [("body", s_, v, e, None) for s_, v, e in body]
 
 
 def main():
