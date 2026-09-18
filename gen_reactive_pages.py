@@ -18,13 +18,14 @@ import json, re, html
 TEMPLATE = 'article/tennessee-rates-dropping.html'
 SERFF = 'https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId='
 
-_LEDGER = None
-def _led():
-    global _LEDGER
-    if _LEDGER is None:
-        d = json.load(open('serff_filings.json'))
-        _LEDGER = {r['tracking']: r for r in (d if isinstance(d, list) else d['filings'])}
-    return _LEDGER
+# Ledger is per-LINE: auto pages cite serff_filings.json, home pages
+# serff_home_filings.json. Cached per path so a mixed run loads each once.
+_LEDGERS = {}
+def _led(path='serff_filings.json'):
+    if path not in _LEDGERS:
+        d = json.load(open(path))
+        _LEDGERS[path] = {r['tracking']: r for r in (d if isinstance(d, list) else d['filings'])}
+    return _LEDGERS[path]
 
 def _ph(n):
     if not n: return '&mdash;'
@@ -36,11 +37,11 @@ def _eff(d):
     if not d: return '&mdash;'
     y, m, dd = d.split('-'); return f"{int(m)}/{int(dd)}/{y[2:]}"
 
-def row(name, href, trk, fid, change, note, up):
+def row(name, href, trk, fid, change, note, up, ledger='serff_filings.json'):
     """Concise data row. Policyholders + Eff. Date are pulled from the ledger by
     tracking # so they can't drift from the source. `note` is retained in the
     config as per-row reference but no longer rendered (the prose carries nuance)."""
-    r = _led().get(trk, {})
+    r = _led(ledger).get(trk, {})
     cn = f'<a class="ca-link" href="{href}">{name}</a>' if href else name
     cls = 'rn up' if up else ('rn down' if '&minus;' in change else 'rn')
     return (f'          <tr>\n'
@@ -51,17 +52,18 @@ def row(name, href, trk, fid, change, note, up):
             f'            <td class="fil"><a class="clink" href="{SERFF}{fid}" target="_blank" rel="noopener nofollow">{trk} &rarr;</a></td>\n'
             f'          </tr>\n')
 
-def table(rows):
-    body = ''.join(row(*r) for r in rows)
+def table(rows, ledger='serff_filings.json'):
+    body = ''.join(row(*r, ledger=ledger) for r in rows)
     return ('    <div id="rate-table">\n      <table class="rate-table">\n        <thead>\n'
             '          <tr><th>Carrier</th><th>Rate Change</th><th>Policyholders</th><th>Eff. Date</th><th>Filing #</th></tr>\n'
             '        </thead>\n        <tbody>\n' + body +
             '        </tbody>\n      </table>\n    </div>\n')
 
-def thinzip(label):
+def thinzip(label, tool='/'):
     """A thin, single-row ZIP entry — small enough that the reader keeps reading."""
     return ('<div class="rz-zip"><span class="rz-zip-label">'+label+'</span>'
-      '<form onsubmit="event.preventDefault();var z=(this.zc.value||\'\').replace(/\\D/g,\'\').slice(0,5);if(/^\\d{5}$/.test(z)){location.href=\'/?zip=\'+z}else{this.zc.focus()}">'
+      '<form onsubmit="event.preventDefault();var z=(this.zc.value||\'\').replace(/\\D/g,\'\').slice(0,5);'
+      'if(/^\\d{5}$/.test(z)){location.href=\'' + tool + '?zip=\'+z}else{this.zc.focus()}">'
       '<input class="rz-zip-input" name="zc" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" />'
       '<button type="submit" class="rz-zip-btn">Compare &rarr;</button></form></div>')
 
@@ -130,14 +132,14 @@ def build(cfg):
         s = s.replace(k, v)
     # og:description + twitter:description (share cfg['ogdesc'])
     s = re.sub(r'<meta property="og:description" content="[^"]*" />',
-               f'<meta property="og:description" content="{cfg["ogdesc"]}" />', s, count=1)
+               lambda _m: f'<meta property="og:description" content="{cfg["ogdesc"]}" />', s, count=1)
     s = re.sub(r'<meta name="twitter:description" content="[^"]*" />',
-               f'<meta name="twitter:description" content="{cfg["ogdesc"]}" />', s, count=1)
+               lambda _m: f'<meta name="twitter:description" content="{cfg["ogdesc"]}" />', s, count=1)
     # ---- JSON-LD (regenerate both blocks) ----
     s = re.sub(r'<script type="application/ld\+json">\s*\{\s*"@context": "https://schema.org",\s*"@type": "BreadcrumbList".*?</script>',
-               '<script type="application/ld+json">\n'+breadcrumb(cfg["title"], cfg["url"])+'\n</script>', s, count=1, flags=re.S)
+               lambda _m: '<script type="application/ld+json">\n'+breadcrumb(cfg["title"], cfg["url"])+'\n</script>', s, count=1, flags=re.S)
     s = re.sub(r'<script type="application/ld\+json">\s*\{\s*"@context": "https://schema.org",\s*"@type": "FAQPage".*?</script>',
-               '<script type="application/ld+json">\n'+faqld(cfg["faq"])+'\n</script>', s, count=1, flags=re.S)
+               lambda _m: '<script type="application/ld+json">\n'+faqld(cfg["faq"])+'\n</script>', s, count=1, flags=re.S)
     # ---- append nav-fix + rz-zip style after the template's ca-link-style ----
     CALINK = '.article-body a.ca-link:hover{border-bottom-color:var(--accent);}</style>'
     assert CALINK in s, 'ca-link-style anchor missing'
@@ -157,9 +159,11 @@ def build(cfg):
       f'    <p class="article-dek">{cfg["dek"]}</p>\n'
       f'    <div class="article-byline">BoringRate Editorial &nbsp;&middot;&nbsp; July 2026</div>\n'
       f'  </div>\n\n  <div class="article-body">\n')
-    mid = cfg['hub_body'] if cfg.get('hub_body') else (table(cfg["rows"]) + '\n' + cfg["prose"])
-    body = (header + thinzip(top) + '\n\n' + mid
-            + '\n\n    ' + thinzip(bot) + '\n\n  </div>\n</div>\n\n')
+    ledger = cfg.get('ledger', 'serff_filings.json')
+    tool = cfg.get('tool', '/')
+    mid = cfg['hub_body'] if cfg.get('hub_body') else (table(cfg["rows"], ledger) + '\n' + cfg["prose"])
+    body = (header + thinzip(top, tool) + '\n\n' + mid
+            + '\n\n    ' + thinzip(bot, tool) + '\n\n  </div>\n</div>\n\n')
     i0 = s.index('<div class="article-header">'); i1 = s.index('<footer>')
     s = s[:i0] + body + s[i1:]
     open(cfg["path"], 'w', encoding='utf-8').write(s)
@@ -221,9 +225,19 @@ def hub_cfg(pages):
     }
 
 if __name__ == '__main__':
-    from gen_reactive_config import PAGES
-    print(f'stamping {len(PAGES)} reactive pages + hub from {TEMPLATE}')
-    for cfg in PAGES:
-        build(cfg)
-    build(hub_cfg(PAGES))
-    print('  wrote article/why-your-rate-went-up.html (hub)')
+    import sys
+    # `--home` stamps the home-line pages (gen_reactive_home_config) instead of auto.
+    # The hub is auto-only for now: three home pages do not warrant one, and
+    # home/why-did-my-home-insurance-go-up.html already covers the generic question.
+    if '--home' in sys.argv:
+        from gen_reactive_home_config import PAGES
+        print(f'stamping {len(PAGES)} HOME reactive pages from {TEMPLATE}')
+        for cfg in PAGES:
+            build(cfg)
+    else:
+        from gen_reactive_config import PAGES
+        print(f'stamping {len(PAGES)} reactive pages + hub from {TEMPLATE}')
+        for cfg in PAGES:
+            build(cfg)
+        build(hub_cfg(PAGES))
+        print('  wrote article/why-your-rate-went-up.html (hub)')
