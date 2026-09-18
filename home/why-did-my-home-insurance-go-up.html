@@ -218,7 +218,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
 .nav-dd-group:has(#navDdProductPanel) > .nav-dd-panel a:last-child{border-right:none;}
 }
 </style>
-</head>
+<!-- rz-cta-css --><style>.rz-zip{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:22px 0;padding:12px 16px;background:var(--paper-deep);border:1px solid var(--rule);}.rz-zip-label{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);}.rz-zip form{display:flex;gap:8px;margin:0;}.rz-zip-input{font-family:var(--mono);font-size:14px;padding:8px 10px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);width:92px;}.rz-zip-btn{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;padding:8px 16px;background:var(--accent);color:var(--paper);border:none;cursor:pointer;white-space:nowrap;}.rz-zip-btn:hover{opacity:0.9;}@media (max-width:480px){.rz-zip{flex-direction:column;align-items:flex-start;}}</style></head>
 <body>
 <header class="top">
   <div class="wrap top-inner">
@@ -253,6 +253,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
     <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; from primary-source rate filings</div>
   </div>
   <div class="article-body">
+<div class="rz-zip"><span class="rz-zip-label">Instantly compare every home insurer in your ZIP:</span><form onsubmit="event.preventDefault();var z=(this.zc.value||'').replace(/\D/g,'').slice(0,5);if(/^\d{5}$/.test(z)){location.href='/home/?zip='+z}else{this.zc.focus()}"><input class="rz-zip-input" name="zc" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="rz-zip-btn">Compare &rarr;</button></form></div>
     <p style="font-size:20px;line-height:1.5;max-width:660px;">You open your renewal and it&rsquo;s up double digits. But the news says your carrier &ldquo;held rates steady,&rdquo; or the filing you find says <strong>+2%</strong>. You&rsquo;re not being gaslit, and the filing isn&rsquo;t wrong &mdash; <strong>the rate a carrier files is a statewide average, not your rate.</strong></p>
 
     <h2>The average hides an enormous spread</h2>
@@ -274,6 +275,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
     <h3 style="margin-bottom:4px;">Why did my home insurance go up if my insurer says rates are flat?</h3><p>The rate change a carrier files is a statewide average. Within that one filing, individual rating territories (roughly your ZIP) can move far more — or less — than the average. A filing that averages 0% can still raise your ZIP by 20-40% while lowering others, because the carrier is redistributing where the risk sits.</p><h3 style="margin-bottom:4px;">What is a statewide average rate change?</h3><p>It's the single percentage a carrier reports to the state for a filing — the change to its total premium across everyone it insures in that state. It is not your personal rate change. Your change depends on your territory, home age, roof, and coverage.</p><h3 style="margin-bottom:4px;">Can my rate go up when my insurer filed a 0% change?</h3><p>Yes. A 0% overall filing means the carrier's total premium doesn't change — but it can still shift premium between ZIPs, raising higher-risk areas and cutting lower-risk ones. We've logged 0%-overall home filings that moved individual territories by more than 40 percentage points.</p><h3 style="margin-bottom:4px;">How do I find out my actual rate change?</h3><p>Re-shop your exact ZIP. Filed changes reach you at renewal, and a cut often reaches new customers first. Comparing carriers for your address is the only way to see where you actually land versus the average.</p>
 
     <p style="font-size:13px;color:var(--ink-mute);margin-top:20px;">Figures are filed statewide-average changes and their by-territory ranges, taken from carriers&rsquo; own rate filings with state insurance regulators. Individual rates vary by home, roof age, and risk. Not a quote.</p>
+<div class="rz-zip"><span class="rz-zip-label">Ready to stop overpaying? Compare every home insurer in your ZIP:</span><form onsubmit="event.preventDefault();var z=(this.zc.value||'').replace(/\D/g,'').slice(0,5);if(/^\d{5}$/.test(z)){location.href='/home/?zip='+z}else{this.zc.focus()}"><input class="rz-zip-input" name="zc" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="rz-zip-btn">Compare &rarr;</button></form></div>
   </div>
 </div>
 <footer>
