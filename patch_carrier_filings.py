@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Inject a per-carrier 'Recent rate filings' section into article/carrier/<slug>.html.
+"""Inject a per-carrier 'Recent rate filings' section into article/carrier/ AND home/carrier/.
 
 The reactive shopper's first query is "why did my <carrier> insurance go up." These pages are
 where that traffic lands, but they carried no primary-source filing evidence. We already hold
@@ -7,6 +7,11 @@ where that traffic lands, but they carried no primary-source filing evidence. We
 cross-state filing record as a sourced table, the strongest byline-free E-E-A-T artifact we can
 build without new data. Every row deep-links the /rate-filings/ ledger anchor + the state portal
 (shared filing_cite helpers, so the anchors agree with the ledger and the trackers).
+
+Both trees are covered. The home tree was missed for a long time — article/carrier carried this
+section on 36 of 44 pages while home/carrier had it on 0 of 12, even though the home ledger was
+already loaded here. Each page leads with its own line (a home carrier page opens with its home
+filings, not its auto ones) and lists the other line after.
 
 Carrier pages are hand-built (no live generator), so this is a PATCH: insert before the first
 "<h2>Compare …" heading (the internal-links footer cluster), never replacing a block
@@ -20,7 +25,14 @@ import pathlib
 from filing_cite import anchor, portal_url
 
 ROOT = pathlib.Path(__file__).parent
-CARRIER_DIR = ROOT / "article" / "carrier"
+# (directory, product to lead with). The home tree was never covered: article/carrier
+# had this section on 36 of 44 pages while home/carrier had it on 0 of 12, despite the
+# home ledger already being loaded here. A home carrier page leads with HOME filings —
+# opening USAA's home page with its auto filings buries the relevant line.
+CARRIER_DIRS = [
+    (ROOT / "article" / "carrier", "Auto"),
+    (ROOT / "home" / "carrier", "Home"),
+]
 BEGIN = "<!-- carrier-filing-record start -->"
 END = "<!-- carrier-filing-record end -->"
 SECTION_RE = re.compile(re.escape(BEGIN) + r".*?" + re.escape(END) + r"\s*", re.DOTALL)
@@ -74,9 +86,9 @@ def phrase(rows, product):
             f'{states} state{"s" if states != 1 else ""}, averaging {sign}{abs(mean):.1f}%')
 
 
-def section(name, rows):
-    # most-recent first, auto before home
-    rows = sorted(rows, key=lambda r: (r["_product"] != "Auto",
+def section(name, rows, lead="Auto"):
+    # most-recent first, with the page's own line first
+    rows = sorted(rows, key=lambda r: (r["_product"] != lead,
                                        -(int((r.get("effective_new") or r.get("disposition_date") or "0-0-0")
                                              .replace("-", "") or 0))))
     body = []
@@ -100,11 +112,12 @@ def section(name, rows):
              '<th style="padding:9px 8px;">Effective</th><th style="padding:9px 8px;">SERFF filing</th></tr></thead>'
              '<tbody>' + "".join(body) + '</tbody></table></div>')
 
-    auto = [r for r in rows if r["_product"] == "Auto"]
-    home = [r for r in rows if r["_product"] == "Home"]
-    clauses = [phrase(auto, "Auto")] if auto else []
-    if home:
-        clauses.append(phrase(home, "Home"))
+    first = [r for r in rows if r["_product"] == lead]
+    second = [r for r in rows if r["_product"] != lead]
+    other = "Home" if lead == "Auto" else "Auto"
+    clauses = [phrase(first, lead)] if first else []
+    if second:
+        clauses.append(phrase(second, other))
     summary = " and ".join(clauses)
     lead = (f'<p>The actual rate changes <strong>{name}</strong> filed with state insurance '
             f'regulators &mdash; primary-source numbers, not estimates. In the filings we track, '
@@ -125,7 +138,8 @@ def carrier_name(rows):
 
 def main():
     added = refreshed = skipped = 0
-    for p in sorted(CARRIER_DIR.glob("*.html")):
+    for carrier_dir, lead in CARRIER_DIRS:
+      for p in sorted(carrier_dir.glob("*.html")):
         html = p.read_text(encoding="utf-8")
         had = BEGIN in html
         html = SECTION_RE.sub("", html)  # strip any prior section (idempotent refresh)
@@ -134,20 +148,20 @@ def main():
         if not rows:
             if had:
                 p.write_text(html, encoding="utf-8"); skipped += 1
-                print(f"  stripped (no filings) {p.name}")
+                print(f"  stripped (no filings) {carrier_dir.parent.name}/carrier/{p.name}")
             continue
         name = carrier_name(rows)
-        sec = section(name, rows)
+        sec = section(name, rows, lead)
         if INSERT_BEFORE.search(html):
             html = INSERT_BEFORE.sub(sec + "<h2>Compare ", html, count=1)
         elif FALLBACK in html:
             html = html.replace(FALLBACK, sec + FALLBACK, 1)
         else:
-            print(f"  SKIP (no anchor) {p.name}"); continue
+            print(f"  SKIP (no anchor) {carrier_dir.parent.name}/carrier/{p.name}"); continue
         p.write_text(html, encoding="utf-8")
         refreshed += had
         added += not had
-        print(f"  {'refreshed' if had else 'added'} {p.name}  ({len(rows)} filings, {name})")
+        print(f"  {'refreshed' if had else 'added'} {carrier_dir.parent.name}/carrier/{p.name}  ({len(rows)} filings, {name})")
     print(f"\nadded {added}, refreshed {refreshed}, stripped {skipped}")
 
 
