@@ -426,6 +426,79 @@ Two traps found building it, both worth remembering for any future state feed:
   under Chubb. The matcher is word-boundary now and returns None rather than guessing, because a
   wrong family silently corrupts the drift layer.
 
+## ★★ THE OPEN-DATA FEEDS NEEDED FOUR FILTERS THEY DIDN'T HAVE (2026-10-13)
+
+First real merge from the TX + CA feeds. They proposed **29 rows; only 17 were publishable.**
+The 12 rejects were not edge cases — they were four systematic holes, all now fixed in the
+scripts. **Any future state feed needs all four checks.**
+
+**1. The line/type field is NOT a personal-lines filter.** CA's `LINE CODE` of
+"AUTO LIAB/PHYS DAMAGE" covers *commercial* auto, so the feed reported Farmers' COMMERCIAL
+AUTO V1 (+27.3%), Truck Insurance Exchange GARAGE LIABILITY (+22.9%), State Farm Commercial
+Auto (+15.5%) and Nationwide Agribusiness Commercial Auto — Farm Operations (+13.5%) as
+personal auto. CDI publishes the discriminator as its own column, **`LINE TYPE`
+(PERSONAL | COMMERCIAL)**, which the script ignored. TX's twin: `state_type_of_insurance`
+= "Personal Automobile" **includes motor-home, travel-trailer and RV programs**; use
+**`state_subtype_of_insurance`**. Without it, Progressive's "TX RV 202201" −4.5% would have
+published as a Progressive personal-auto *cut*.
+
+**2. Never discard the PROGRAM / product name.** It carries the scope the line code flattens.
+State Farm General's CA **+32.8% was "RENTAL DWELLING"** — a landlord dwelling-fire program,
+not owner-occupied homeowners. (A prior commit message reported that figure as a State Farm
+home increase; it is not one.) The genuine State Farm CA home filing is the adjacent
+`SFMA-134139896`, **+17.0% approved against +30.0% requested**. Same lesson in TX: "Antique
+and Classic Auto Program" sits under subtype Personal Auto.
+
+**3. "Closed" ≠ approved.** TDI sets `status = Closed` on a **withdrawal**. The real
+disposition is **`closed_type`**, and only `"Reviewed"` means the rates stand. A status-only
+check reported `HRMN-134858222` (+5.1% TX auto, withdrawn by all three Horace Mann entities)
+as an approved increase. With the filter in place the same pull drops **11 Withdrawn + 3
+Rejected**. Horace Mann then refiled lower (`HRMN-134950957`, +4.2%) — the withdrawal is
+itself the story.
+
+**4. Per-tracking dedupe does not catch sibling TRACKINGS.** Both feeds collapse repeated rows
+*within* one tracking number (one row per company). The other shape is one rate action filed
+as **several tracking numbers, one per entity**: the ledger already held USAA-134678224 as one
+aggregated +6.9% CA home row, and the workbook also lists USAA-134678302 (Garrison) and
+USAA-134678297 (USAA GIC) at +6.9%, same disposition date. Merging would have counted one
+increase three times. **`filing_dupes.py`** (shared by both feeds, so the guard cannot be
+added to one twin and missed in the other) flags same state+family+line+percent+disposition
+as `possible_duplicate_of`. **It warns, it does not skip** — two filings on one day at one
+percentage can legitimately be distinct programs, and a false skip silently loses a real
+filing.
+
+Also fixed: CDI's `CLOSED DATE` is a numeric cell, so it arrived as an **Excel serial**
+(`46241`) and was being written to the ledger as the disposition date verbatim.
+
+### ★ The CDI workbook is MUTABLE — treat a CA figure as a snapshot, not a record
+The YTD file is **revised in place, not appended**. Between 2026-09-18 and 2026-10-13 its row
+count went 3,994 → 3,993 and the State Farm filing cited in the Sept commit message
+(**requested +40.8%, approved +8.7%**) **vanished entirely** — zero rows in the current
+workbook contain 40.8. So a requested-vs-approved pair read today may not be re-verifiable
+later. **Capture `indicated_pct` into `serff_filings.json` at pull time**; do not plan to
+re-derive it from a future download. (TDI's Socrata feed has not shown this behaviour, but
+assume the same of any bulk file.)
+
+### Carrier-family mapping: owned ≠ same book
+`foremost` and `bristol west` both mapped to **Farmers** (Farmers owns both). Foremost is the
+specialty/mobile-home arm and Bristol West the nonstandard auto arm — folding either into
+"Farmers" drifts the standard Farmers exchange offset off a book Farmers' own customers are
+not in. They are now their own families. Same principle as the word-boundary fix: a wrong
+family silently corrupts the drift layer.
+
+### What the residual market gets: a row, never a drift
+Texas FAIR Plan filed **+16.9%** (Dwelling/TDP) and **−7.5%** (Condo). That is a real signal
+about the TX home market and worth publishing, but TFPA is not a carrier a shopper can choose,
+so both rows carry **`drift_exclude: true`**. Same treatment for specialty programs. The
+`CARRIER_RECORD_ONLY` / `SUBTYPE_RECORD_ONLY` / `PROGRAM_RECORD_ONLY` sets in
+`fetch_tx_filings.py` encode this.
+
+### CA rows can never drift the model, by design
+The CDI workbook has **no effective-date column at all**. `apply_filed_changes.py` keys drift
+off effective date vs the state anchor, so every CA row is record-only. California buys
+coverage and the requested-vs-approved angle — not drift. Each row now says so in its
+`source_note` rather than leaving it to be rediscovered.
+
 ## California is a bulk download, not a manual read (2026-09-18)
 
 CDI publishes the Approval/Closed list as a stable YTD `.xlsx` (3,993 rows, all P&C lines,

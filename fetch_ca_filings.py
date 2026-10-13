@@ -23,6 +23,8 @@ an .xlsx is a zip of XML, so this needs no third-party dependency.
 """
 import argparse, json, re, sys, zipfile, io, datetime, collections, urllib.request
 
+import filing_dupes
+
 INDEX = ("https://www.insurance.ca.gov/0250-insurers/0800-rate-filings/"
          "0100-rate-filing-lists/rate-filing-approvals/index.cfm")
 BASE = "https://www.insurance.ca.gov"
@@ -33,6 +35,20 @@ LINE_CODE = {
     "HOMEOWNERS MULTI-PERIL": ("home", "HO"),
     "AUTO LIAB/PHYS DAMAGE": ("auto", "PPA"),
 }
+
+# ★ LINE CODE IS NOT A PERSONAL/COMMERCIAL FILTER, and filtering on it alone was wrong.
+# "AUTO LIAB/PHYS DAMAGE" covers COMMERCIAL auto too, so the old filter reported Farmers'
+# "COMMERCIAL AUTO V1" (+27.3%), Truck Insurance Exchange "GARAGE LIABILITY" (+22.9%),
+# State Farm "Commercial Auto" (+15.5%) and Nationwide Agribusiness "Commercial Auto (Farm
+# Operations)" (+13.5%) as personal-auto rate changes. 6 of 10 candidates were not personal.
+# CDI publishes the discriminator as its own column, `LINE TYPE` (PERSONAL | COMMERCIAL).
+LINE_TYPE_OK = "PERSONAL"
+
+# PROGRAM carries the scope the line code flattens away. "RENTAL DWELLING" is a landlord
+# dwelling-fire policy, not owner-occupied homeowners — State Farm General's +32.8% was that,
+# and reads as a homeowners increase if PROGRAM is discarded (as it was).
+PROGRAM_REJECT = re.compile(r"rental dwelling|dwelling fire|landlord|street legal|off-?road|"
+                            r"motorcycle|commercial", re.I)
 
 FAMILY = [
     ("state farm", "State Farm"), ("geico", "GEICO"), ("government employees", "GEICO"),
@@ -99,6 +115,19 @@ def sheet_rows(blob):
     return header, out[1:]
 
 
+def xl_date(v):
+    """CDI's CLOSED DATE is a numeric cell, so it arrives as an Excel serial (46241), not a
+    date. It was being written to the ledger raw — `disposition_date: 46241`. Serials are
+    days from the 1900 epoch, which Excel offsets by two (its fictional 1900 leap day)."""
+    try:
+        n = int(float(str(v).strip()))
+    except (TypeError, ValueError):
+        return None
+    if not 20000 < n < 60000:          # ~1954..2064; anything else is not a date cell
+        return None
+    return (datetime.date(1899, 12, 30) + datetime.timedelta(days=n)).isoformat()
+
+
 def num(v):
     if v is None:
         return None
@@ -124,7 +153,7 @@ def main():
     header, rows = sheet_rows(blob)
     print(f"workbook: {url.rsplit('/', 1)[-1]}  ({len(rows)} rows)")
 
-    need = ["NAME", "LINE CODE", "% RATE CHNG APPVD", "% RATE CHNG REQ", "STATUS",
+    need = ["NAME", "LINE CODE", "LINE TYPE", "% RATE CHNG APPVD", "% RATE CHNG REQ", "STATUS",
             "CLOSED DATE", "SERFF FILING #", "PROGRAM", "FILING TYPE"]
     missing = [c for c in need if c not in header]
     if missing:
@@ -154,6 +183,13 @@ def main():
         if not args.all_lines and code not in LINE_CODE:
             skip["other line"] += 1
             continue
+        if not args.all_lines and (g(r, "LINE TYPE") or "").strip().upper() != LINE_TYPE_OK:
+            skip["commercial, not personal"] += 1
+            continue
+        program = (g(r, "PROGRAM") or "").strip()
+        if not args.all_lines and PROGRAM_REJECT.search(program):
+            skip[f"program out of scope ({program[:24]})"] += 1
+            continue
         appvd = num(g(r, "% RATE CHNG APPVD"))
         if appvd is None:
             skip["no approved %"] += 1
@@ -179,11 +215,11 @@ def main():
             unmapped[name] += 1
             continue
         line, product = LINE_CODE.get(code, ("auto", "PPA"))
-        closed = (g(r, "CLOSED DATE") or "").strip() or None
+        closed = xl_date(g(r, "CLOSED DATE"))
         kept.append({
             "state": "CA", "line": line, "carrier": fam,
             "entity": name.title() + (f" (dominant of {len(sibs)} entities)" if len(sibs) > 1 else ""),
-            "tracking": trk, "url": PORTAL, "product": product,
+            "tracking": trk, "url": PORTAL, "product": program or product,
             "filing_type": (g(r, "FILING TYPE") or "").strip() or None,
             "disposition_date": closed, "effective_new": None, "effective_renewal": None,
             "overall_pct": appvd,
@@ -194,11 +230,18 @@ def main():
             "coverage_changes": None, "premium_as_of": None,
             "recorded_date": datetime.date.today().isoformat(),
             "status": (g(r, "STATUS") or "").strip() or None,
-            "source_note": "CA CDI Approval/Closed List (YTD xlsx); no PH/premium.",
+            # The workbook has no effective-date column at all, so effective_new/renewal stay
+            # null and apply_filed_changes.py (which keys drift off the effective date vs the
+            # state anchor) can never drift a CA row. CA is coverage + the requested-vs-approved
+            # angle, not drift. Say so in the row rather than leaving it to be rediscovered.
+            "source_note": ("CA CDI Approval/Closed List (YTD xlsx); no PH/premium; CDI "
+                            "publishes no effective date, so this row cannot drift the model."),
             "note": None,
         })
 
     kept.sort(key=lambda r: -abs(r["overall_pct"]))
+    # one rate action can arrive as several sibling tracking numbers (see filing_dupes)
+    kept, dupes = filing_dupes.annotate(kept)
     for k, v in skip.most_common():
         print(f"  skipped, {k:<20} {v}")
     print(f"\nNEW material filings not in our ledger: {len(kept)}")
@@ -217,6 +260,8 @@ def main():
         for r in trimmed[:8]:
             print(f"  {r['carrier']:<18} requested {r['indicated_pct']:+.1f}%, "
                   f"approved {r['overall_pct']:+.1f}%  ({r['tracking']})")
+
+    filing_dupes.report(dupes)
 
     if unmapped:
         print(f"\nUNMAPPED companies ({sum(unmapped.values())} filings):")

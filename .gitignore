@@ -7,3 +7,8 @@ node_modules/
 _gsc/
 _serff/
 proposed_adjustments.json
+
+# Regenerable feed review artifacts (python3 fetch_tx_filings.py --write, etc.)
+tx_filings_new.json
+ca_filings_new.json
+il_filings_new.json

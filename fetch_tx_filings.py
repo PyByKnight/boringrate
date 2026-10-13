@@ -23,9 +23,32 @@ prints a diff against what we already hold; appending stays a human decision.
 """
 import argparse, json, urllib.request, urllib.parse, datetime, re, sys, collections
 
+import filing_dupes
+
 API = "https://data.texas.gov/resource/iubg-btfs.json"
 PORTAL = "https://data.texas.gov/d/iubg-btfs"
 LINES = {"Personal Automobile": ("auto", "PPA"), "Homeowners": ("home", "HO")}
+
+# `state_type_of_insurance` is NOT specific enough on its own. TDI files motor-home, travel-
+# trailer and RV programs under "Personal Automobile", so the type filter alone let
+# "TX RV 202201" through as a Progressive personal-auto CUT (-4.5%) — a program the tool does
+# not model and a number we would have published as a private-passenger rate change.
+# `state_subtype_of_insurance` is the real discriminator and was being ignored.
+SUBTYPE_OK = {"Personal Auto", "Homeowners"}
+# Real filings, but not the standard-coverage book the tool prices -> keep the market fact,
+# never let it drift the model. "Dwelling" is the residual-market/landlord dwelling policy.
+SUBTYPE_RECORD_ONLY = {"Dwelling"}
+
+# Programs inside subtype "Personal Auto" that still are not a daily-driver book. Collector-car
+# books price on agreed value and limited use; their rate changes say nothing about the
+# private-passenger market. Belt-and-braces behind the subtype filter.
+PROGRAM_RECORD_ONLY = re.compile(
+    r"antique|classic|collector|motor\s*home|travel\s*trailer|\brv\b|motorcycle|golf\s*cart", re.I)
+
+# The residual market is a real and newsworthy signal about a state's home market, but it is
+# not a carrier a shopper can choose, so it must never move a priced offset. TFPA files both a
+# Dwelling (TDP) and a Homeowners/Condo program; the subtype rule only catches the first.
+CARRIER_RECORD_ONLY = {"Texas FAIR Plan"}
 
 # company name -> carrier family. Deliberately conservative: an unmapped company is REPORTED,
 # not guessed, because a wrong family silently corrupts the tool's drift layer.
@@ -33,7 +56,12 @@ FAMILY = [
     ("state farm", "State Farm"), ("geico", "GEICO"), ("government employees", "GEICO"),
     ("progressive", "Progressive"), ("allstate", "Allstate"), ("usaa", "USAA"),
     ("garrison", "USAA"), ("farmers", "Farmers"), ("fire insurance exchange", "Farmers"),
-    ("mid-century", "Farmers"), ("foremost", "Farmers"), ("bristol west", "Farmers"),
+    ("mid-century", "Farmers"),
+    # Foremost and Bristol West are Farmers-OWNED but are separate books: Foremost is the
+    # specialty/mobile-home arm, Bristol West the nonstandard auto arm (its own tool entry,
+    # base 1.54). Folding either into "Farmers" would drift the standard Farmers exchange
+    # offset off a book Farmers' own customers are not in.
+    ("foremost", "Foremost"), ("bristol west", "Bristol West"),
     ("horace mann", "Horace Mann"), ("teachers insurance", "Horace Mann"),
     ("liberty", "Liberty Mutual"), ("safeco", "Safeco"), ("nationwide", "Nationwide"),
     ("allied", "Nationwide"), ("travelers", "Travelers"), ("american family", "American Family"),
@@ -122,6 +150,12 @@ def main():
         if not args.include_pending and r.get("status") != "Closed":
             skipped["not approved"] += 1
             continue
+        # ★ A WITHDRAWN filing is also status "Closed". Checking status alone reported
+        # HRMN-134858222 (+5.1% TX auto, all 3 entities withdrawn) as an approved increase.
+        # `closed_type` is the disposition; only "Reviewed" means TDI let the rates stand.
+        if not args.include_pending and (r.get("closed_type") or "") != "Reviewed":
+            skipped[f"closed as {r.get('closed_type') or 'unknown'}"] += 1
+            continue
         if abs(p) < args.min_pct:
             skipped["below threshold"] += 1
             continue
@@ -129,11 +163,19 @@ def main():
         if not trk or trk in have:
             skipped["already in ledger"] += 1
             continue
+        subtype = (r.get("state_subtype_of_insurance") or "").strip()
+        if subtype not in SUBTYPE_OK and subtype not in SUBTYPE_RECORD_ONLY:
+            skipped[f"subtype {subtype or 'blank'}"] += 1
+            continue
+        program = (r.get("product_name") or "").strip()
         line, product = LINES[r["state_type_of_insurance"]]
         fam = family(r["company_name"])
         if not fam:
             unmapped[r["company_name"]] += 1
             continue
+        record_only = (subtype in SUBTYPE_RECORD_ONLY
+                       or fam in CARRIER_RECORD_ONLY
+                       or bool(PROGRAM_RECORD_ONLY.search(program)))
         siblings = grouped.get(trk, [r])
         # only emit once per tracking, from its largest-magnitude entity
         dom = max(siblings, key=lambda x: abs(pct(x) or 0))
@@ -147,7 +189,10 @@ def main():
         kept.append({
             "state": "TX", "line": line, "carrier": fam,
             "entity": ent, "tracking": trk, "url": PORTAL,
-            "product": product, "filing_type": None,
+            # the real TDI program name, not a generic "PPA"/"HO" — this is the field that
+            # exposes "Motor Home Program" / "Antique and Classic Auto" hiding under
+            # state_type_of_insurance = Personal Automobile. Never discard it again.
+            "product": program or product, "subtype": subtype, "filing_type": None,
             "disposition_date": iso(r.get("received_date")),
             "effective_new": iso(r.get("effective_date_new_business")),
             "effective_renewal": iso(r.get("effective_date_renewal")),
@@ -157,10 +202,18 @@ def main():
             "recorded_date": datetime.date.today().isoformat(),
             "status": r.get("status"),
             "source_note": "TX TDI open data (data.texas.gov iubg-btfs); no PH/premium; file-and-use.",
-            "note": None,
+            "note": ((f"Residual market ({program or subtype}) — a real TX home-market signal, "
+                      "but not a carrier a shopper can choose. Recorded as a market fact only."
+                      if fam in CARRIER_RECORD_ONLY else
+                      f"Specialty program ({program or subtype}) — real filing, but not the "
+                      "standard-coverage book the tool prices. Recorded as a market fact only.")
+                     if record_only else None),
+            **({"drift_exclude": True} if record_only else {}),
         })
 
     kept.sort(key=lambda r: -abs(r["overall_pct"]))
+    # one rate action can arrive as several sibling tracking numbers (see filing_dupes)
+    kept, dupes = filing_dupes.annotate(kept)
     print(f"TDI rows since {args.since}: {len(rows)}")
     for k, v in skipped.most_common():
         print(f"  skipped, {k:<20} {v}")
@@ -171,6 +224,8 @@ def main():
               f"{str(r['effective_new'] or '—'):<11} {r['tracking']}")
     if len(kept) > 40:
         print(f"  ... and {len(kept) - 40} more")
+
+    filing_dupes.report(dupes)
 
     if unmapped:
         print(f"\nUNMAPPED companies ({sum(unmapped.values())} filings) — add to FAMILY or ignore "
