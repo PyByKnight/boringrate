@@ -216,16 +216,50 @@ def build_page(cfg):
     <h2>Frequently asked questions</h2>
     <div class="callout"><p><strong>What is the cheapest car insurance in {esc(metro)}?</strong><br>For drivers with clean records, <a class="ca-link" href="/article/carrier/geico.html">GEICO</a>, <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a>, and <a class="ca-link" href="/article/carrier/usaa.html">USAA</a> (military and veterans) are frequently the most competitive in {esc(st_name)}. Enter ZIP above to see current rankings for your specific location &mdash; rates vary across the state.</p></div>
     <div class="callout"><p><strong>Why is car insurance priced the way it is in {esc(metro)}?</strong><br>{esc(metro)} runs {word} the national average. Urban density, repair costs, theft, and claims frequency are the main factors; rural parts of {esc(st_name)} usually price lower.</p></div>
-    {sources_note}<div class="article-email">'''
-    html = re.sub(r'<div class="article-body">.*?<div class="article-email">',
-                  '<div class="article-body">' + body, html, count=1, flags=re.DOTALL)
+    {sources_note}'''
+    # ---- ★ THE ATLANTA LEAK, THIRD INSTANCE — read before touching this anchor ----
+    # The template above used to end with a re-emitted `<div class="article-email">`, because
+    # the old replacement consumed that opening tag and had to put it back. The new anchor
+    # stops before the body's closing tags instead, so re-emitting it would append a stray
+    # unbalanced div AND reintroduce the email-capture block the site deliberately removed
+    # (05c3cf56 / 21cd3734; email capture is a locked no).
+    #
+    # This replacement used to run up to `<div class="article-email">`. Commit 21cd3734
+    # ("Strip the dead email-capture block ... sitewide") removed that div from
+    # gen_metro_base.html too, so the pattern stopped matching and re.sub SILENTLY no-opped:
+    # every regen wrote Atlanta's entire article body — TLDR, prose, FAQ, metro-compare
+    # block, Georgia state link — onto all 11 managed metros (Akron, Reno, Worcester...).
+    # HEAD's committed pages were correct, so this stayed latent from 2026-09-18 until the
+    # next gen_metros_batch run.
+    #
+    # The body now ends where the page ends: `</div></div><footer>`. Anchor on that, and
+    # HARD-FAIL if it is ever missing. A silent no-op is what made this recur three times
+    # (see also the LA-session note on .article-email anchors in SESSION_NOTES).
+    body_pat = re.compile(r'<div class="article-body">.*?(?=\s*</div>\s*</div>\s*<footer)',
+                          re.DOTALL)
+    if not body_pat.search(html):
+        raise SystemExit(
+            "gen_metro_page: article-body anchor NOT FOUND in gen_metro_base.html. Refusing "
+            "to write — this is the failure that silently published Atlanta's body on every "
+            "managed metro page. Fix the anchor before regenerating.")
+    # lambda, not a replacement string: `body` is generated HTML and may contain
+    # backslashes, which re.sub would interpret as group references.
+    html = body_pat.sub(lambda _m: '<div class="article-body">' + body, html, count=1)
 
-    # ---- article-email: swap the city name in the reminder line ----
+    # ---- remaining Atlanta-specific strings in the template chrome ----
+    # The first is a no-op now that the email block is gone; kept so a template that still
+    # carries it cannot leak "Atlanta" into another metro's page.
     html = html.replace("when Atlanta rates move", f"when {metro} rates move")
     # ---- sticky mobile CTA label (carried over from the template) ----
     html = html.replace("Compare Atlanta rates", f"Compare {metro} rates")
 
     out = ROOT / "article" / "metro" / f"{slug}.html"
+    # Belt-and-braces: gen_metro_base.html is a copy of the old atlanta.html, so anything
+    # stamped site-wide also lands in the template — move_ctas_up.py put an Atlanta
+    # <!-- state-rankings --> table in it (5a7adbe5). The body replacement above now covers
+    # that region, but strip it explicitly so a future base edit cannot leak it back.
+    html = re.sub(r"<!-- state-rankings-start -->.*?<!-- state-rankings-end -->\s*", "",
+                  html, flags=re.S)
     # Bake the locked article-CTA template (thin rz-zip CTAs; drop the .zip-embed dark box
     # and the .article-email block) so a regen matches the site-wide rollout instead of
     # reverting to the old modules. See patch_article_ctas.transform / memory
