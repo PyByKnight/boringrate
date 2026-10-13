@@ -1,5 +1,66 @@
 # BoringRate — Session Notes
-_Last updated: 2026-08-19 (Opus 5)_
+_Last updated: 2026-10-13 (Opus 5)_
+
+## ▶▶ RESUME HERE (2026-10-13) — TX+CA open-data merge, feed hardening, ★ Atlanta leak #3 fixed
+
+**First real merge from the scripted feeds. They proposed 29 rows; 17 were publishable.** The 12
+rejects were four systematic holes, all now fixed in the scripts — full detail in
+`SERFF_RUNBOOK.md` ("THE OPEN-DATA FEEDS NEEDED FOUR FILTERS THEY DIDN'T HAVE"):
+1. **the line/type field is not a personal-lines filter** — CA `LINE CODE` "AUTO LIAB/PHYS
+   DAMAGE" includes COMMERCIAL auto (6 of 10 CA candidates were commercial); TX
+   `state_type_of_insurance` "Personal Automobile" includes RV/motor-home/travel-trailer.
+   Use CA `LINE TYPE` and TX `state_subtype_of_insurance`.
+2. **never discard PROGRAM / product_name** — State Farm's CA **+32.8% is "RENTAL DWELLING"**,
+   not homeowners. The real CA home filing is `SFMA-134139896`, **+17.0% approved vs +30.0%
+   requested**. (The 2026-09-18 commit message's "+40.8% → +8.7%" row is GONE from the
+   workbook — see the mutability note below.)
+3. **"Closed" ≠ approved** — TDI marks a WITHDRAWAL status=Closed; `closed_type` is the real
+   disposition. Horace Mann's +5.1% TX auto was withdrawn and would have published as approved.
+   Filter now drops 11 Withdrawn + 3 Rejected.
+4. **per-tracking dedupe misses sibling TRACKINGS** — USAA filed one CA home +6.9% under three
+   tracking numbers; the ledger held one, the feed offered the other two. New shared
+   **`filing_dupes.py`** flags (never silently skips) same state+family+line+pct+disposition.
+   Shared module on purpose: this is the [[boringrate-filter-twin-pattern]] guard, 5th instance.
+
+**★ The CDI workbook is MUTABLE** — revised in place, not appended (3,994 → 3,993 rows between
+Sept 18 and Oct 13; the +40.8% State Farm row vanished). **Capture `indicated_pct` at pull time;
+a CA req-vs-approved pair may not be re-verifiable later.** Also: CDI publishes NO effective
+date, so every CA row is permanently drift-ineligible — CA buys coverage + the
+requested-vs-approved angle, not drift.
+
+**MERGED (`append_tx_ca_2026_10.py`, idempotent, records every reject + why):** auto ledger
+485→494, home 192→200, rate_changes 253→257. TX: GEICO +8.9%, Allstate +6.9%/+5.5% auto and
++8.0% home, Farmers +6.2% home / −4.4% auto, Mercury −3.3% home, Horace Mann +4.2%/+4.4%,
+AmFam Connect +4.8%; Texas FAIR Plan +16.9% / −7.5% and Foremost's antique-car book carry
+`drift_exclude` (residual market / specialty — real facts, must never move a priced offset).
+CA: State Farm General +17.0% (CA's biggest home writer, **previously absent from the ledger**)
+and Auto Club of SoCal +3.3%. Foremost + Bristol West split OUT of the Farmers family (owned ≠
+same book). Horace Mann + American Family Connect added to `expansion_candidates.json`.
+
+**★★ ATLANTA LEAK, THIRD INSTANCE — FIXED (`gen_metro_page.py`).** `./rebuild.sh all` silently
+published **Atlanta's entire article body** (TLDR, prose, FAQ, rankings table, Georgia state
+link) onto all 11 generator-managed metros — Akron, Reno, Worcester, Dayton… Root cause: the
+body replacement anchored on `<div class="article-email">`, and commit `21cd3734` ("Strip the
+dead email-capture block … sitewide") removed that div from `gen_metro_base.html` too, so the
+`re.sub` matched nothing and **no-opped without error**. Latent since 2026-09-18; HEAD's
+committed pages were correct, so only a regen exposed it.
+  - Re-anchored on the body's real end (`</div></div><footer>`) and it now **raises SystemExit
+    if the anchor is missing** — the silent no-op is what let this recur three times.
+  - Also dropped the template's re-emitted trailing `<div class="article-email">`, which the new
+    anchor no longer consumes; leaving it appended a stray unbalanced div and reintroduced the
+    email-capture block that is a locked NO.
+  - **Verified by idempotence: `gen_metros_batch.py` now reproduces the 11 committed pages with
+    a ZERO diff.** That is the regression test — re-run it after any base-template edit.
+  - **STANDING RULE: never edit `gen_metro_base.html` (or stamp it site-wide) without re-running
+    `gen_metros_batch.py` and confirming a zero diff.** `move_ctas_up.py` also put an Atlanta
+    `<!-- state-rankings -->` table in the base (`5a7adbe5`); the generator strips it explicitly now.
+
+**NOT APPLIED — owner decision pending.** `apply_filed_changes.py` now proposes TX drift from the
+two Allstate filings: **Allstate TX ADJ 1.07 → 1.0854** (+6.2% = mean of +6.9/+5.5), and a state
+level drift **stateAvg 3136 → 3283 (F̄=1.047)**. Applying needs the TX anchor advanced to
+2026-08-31 per the standing anchor rule. The level move is large off two filings with no
+written_premium (weighting falls back to NAIC share) — worth a look before applying.
+Consistency verifier: **HARD=1, still only the documented/accepted OH Allstate case.**
 
 ## ▶▶ NEW JERSEY (auto + home) — COMPLETE (2026-08-13)
 Both-boxes SERFF pull (TOI 4+19). **Auto: 19 filings** in serff_filings.json; **home: 5 new** in
