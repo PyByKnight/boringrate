@@ -2938,6 +2938,46 @@
    "affected": 58109,
    "source": "New Jersey Department of Banking and Insurance (SERFF)",
    "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134378141"
+  },
+  {
+   "carrier": "GEICO",
+   "state": "TX",
+   "pct": 8.9,
+   "dir": "increase",
+   "effective": "2026-02-26",
+   "source": "TX TDI rate filing GECC-134796944 (data.texas.gov)",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "note": "GEICO Texas County Mutual, +8.9% effective Feb 26, 2026 (TDI filing GECC-134796944). TX open data publishes no policyholder counts."
+  },
+  {
+   "carrier": "Allstate",
+   "state": "TX",
+   "pct": 6.9,
+   "dir": "increase",
+   "effective": "2026-08-31",
+   "source": "TX TDI rate filing ALSE-135059215 (data.texas.gov)",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "note": "Allstate North American +6.9% effective Aug 31, 2026; Allstate County Mutual filed +5.5% the same day (ALSE-135071772). TDI filing ALSE-135059215."
+  },
+  {
+   "carrier": "American Family",
+   "state": "TX",
+   "pct": 4.8,
+   "dir": "increase",
+   "effective": "approved 2026-03",
+   "source": "TX TDI rate filing PRCA-134883893 (data.texas.gov)",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "note": "American Family Connect private passenger auto, +4.8% (TDI filing PRCA-134883893). TDI publishes no effective date for this filing."
+  },
+  {
+   "carrier": "Farmers",
+   "state": "TX",
+   "pct": 4.4,
+   "dir": "decrease",
+   "effective": "2026-05-08",
+   "source": "TX TDI rate filing FAIG-134926549 (data.texas.gov)",
+   "url": "https://data.texas.gov/d/iubg-btfs",
+   "note": "Farmers Property & Casualty 'Automobile' program, -4.4% effective May 8, 2026 (TDI filing FAIG-134926549)."
   }
  ]
 }

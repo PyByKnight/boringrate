@@ -3,7 +3,8 @@
   "purpose": "Running list of standard/preferred auto carriers seen filing REAL rate changes in SERFF pulls but NOT yet in the tool's auto roster (index.html CARRIERS_STANDARD / LOCAL_CARRIER_DEFS). Candidates for future roster expansion \u2014 data-driven, built as we triage each state's full filing list.",
   "how_built": "During each state's SERFF triage, non-roster carriers with a real (non-0%, non-symbol) PPA rate filing get added here with the state. Recognizable standard/regional/insurtech only; pure nonstandard/high-risk writers (First Acceptance, Unique, American Freedom, American Hallmark, MICO, Miami Mutual, Mendakota, Cimarron, Young America, First Chicago) are intentionally excluded \u2014 not roster-expansion material for a standard-rate comparison tool.",
   "next_step": "When a candidate shows up across several states with real volume, add it to the roster (base + STATE_CARRIER_ADJ) and recalibrate. American National is the strongest \u2014 seen filing in NV/GA/SC/TN.",
-  "started": "2026-07-03"
+  "started": "2026-07-03",
+  "last_updated": "2026-10-13"
  },
  "candidates": {
   "American National": {
@@ -70,6 +71,28 @@
     "TN"
    ],
    "note": "Ohio-based small regional (Celina Insurance Group)."
+  },
+  "Horace Mann": {
+   "entities": [
+    "Horace Mann Insurance Company",
+    "Horace Mann Property & Casualty Insurance Company",
+    "Teachers Insurance Company"
+   ],
+   "type": "standard/affinity",
+   "states_seen": [
+    "TX"
+   ],
+   "note": "Educator-affinity standard carrier, auto AND home. TX auto +4.2% (HRMN-134950957, 3 entities) and TX home +4.4% (HRMN-134962356) \u2014 ranked in neither roster. Notable: it WITHDREW an earlier +5.1% TX auto filing (HRMN-134858222) and refiled lower."
+  },
+  "American Family Connect": {
+   "entities": [
+    "American Family Connect Property And Casualty Insurance Company"
+   ],
+   "type": "direct",
+   "states_seen": [
+    "TX"
+   ],
+   "note": "American Family's direct arm (ex-Ameriprise/IDS). TX PPA +4.8% (PRCA-134883893). American Family is already a tool carrier but is NOT in the TX roster; Connect is a separate book from the agency exchange."
   }
  }
 }
