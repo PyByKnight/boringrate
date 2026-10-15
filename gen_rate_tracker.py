@@ -139,6 +139,14 @@ def render(slug, title, desc, h1, dek, body_html, faq, in_subdir=True):
     html = html.replace("when Atlanta rates move", "when rates move in your area")
     html = html.replace("Compare Atlanta rates", "Compare rates")
 
+    # Same guard gen_metro_page.py carries: gen_metro_base.html IS the old atlanta.html, so
+    # move_ctas_up.py's Atlanta <!-- state-rankings --> table rides along in the template.
+    # Without this strip every tracker page shows "Cheapest car insurance carriers in Atlanta"
+    # regardless of its state (leaked into all 16 pages in 7b5ce562). See memory
+    # boringrate-filter-twin-pattern - a guard added to one script is usually missing in its twin.
+    html = re.sub(r"<!-- state-rankings-start -->.*?<!-- state-rankings-end -->\s*", "",
+                  html, flags=re.S)
+
     OUTDIR.mkdir(exist_ok=True)
     out = OUTDIR / f"{slug}.html"
     # Apply the locked CTA template (thin rz-zip CTAs; drop .zip-embed/.article-email) so the
@@ -295,7 +303,11 @@ def state_page(code, changes):
     if incs: bits.append(phrase(len(incs), "raised"))
     if decs: bits.append(phrase(len(decs), "cut"))
     summary = " and ".join(bits) if bits else "carriers changed"
-    title = f"{name} Auto Insurance Rate Changes (2026) — Who Raised, Who Cut"
+    # Keep the SERP title inside ~60 chars with the hook intact (memory
+    # boringrate-title-length-rule). Long state names drop "Insurance" rather than
+    # lose "Who Cut, Who Raised", which is the distinctive half.
+    _full = f"{name} Auto Insurance Rate Changes 2026 — Who Cut, Who Raised"
+    title = _full if len(_full) <= 60 else f"{name} Auto Rate Changes 2026 — Who Cut, Who Raised"
     desc = (f"{summary[0].upper() + summary[1:]} {name} auto rates in 2026. "
             f"See the filings, effective dates, and whether you're getting the new rate.")
     h1 = f"{name} auto insurance rate changes in 2026"
@@ -363,7 +375,7 @@ def hub_page(data):
     states = sorted({c["state"] for c in changes})
     by_state = {s: [c for c in changes if c["state"] == s] for s in states}
     m = data["_meta"]
-    title = "Auto Insurance Rate Change Tracker (2026) — By State & Carrier"
+    title = "Auto Insurance Rate Change Tracker 2026 — By State & Carrier"
     desc = ("Which auto insurers raised or cut rates in 2026, by state — from approved DOI filings. "
             "And how to tell if you're actually getting the new rate.")
     h1 = "Auto insurance rate change tracker &mdash; 2026"

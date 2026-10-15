@@ -210,7 +210,9 @@ def state_page(code, changes):
     if decs: bits.append(phrase(len(decs), "cut"))
     summary = " and ".join(bits) if bits else "carriers changed"
     max_inc = max((c["overall_pct"] for c in incs), default=0)
-    title = f"{name} Homeowners Insurance Rate Changes (2026) — Who Raised, Who Cut"
+    # SERP title <=60 chars, hook intact (memory boringrate-title-length-rule).
+    _full = f"{name} Home Insurance Rate Changes 2026 — Who Cut, Who Raised"
+    title = _full if len(_full) <= 60 else f"{name} Home Rate Changes 2026 — Who Cut, Who Raised"
     desc = (f"{summary[0].upper() + summary[1:]} {name} homeowners insurance rates in 2026. "
             f"See the filings, effective dates, and whether you're getting the new rate.")
     h1 = f"{name} homeowners insurance rate changes in 2026"
@@ -263,7 +265,7 @@ def state_page(code, changes):
 
 
 def hub_page(by_state):
-    title = "Homeowners Insurance Rate Change Tracker (2026) — By State & Carrier"
+    title = "Home Insurance Rate Change Tracker 2026 — By State & Carrier"
     desc = ("Which home insurers raised or cut rates in 2026, by state — from approved DOI filings. "
             "And how to tell if you're actually getting the new rate.")
     h1 = "Homeowners insurance rate change tracker &mdash; 2026"
