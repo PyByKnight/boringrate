@@ -84,7 +84,7 @@ def _subject(rows):
         return None
     return max(ups, key=lambda r: (r.get('affected') or 0, r.get('effective_new') or ''))
 
-def _context(ledger_rows, state, exclude_carrier):
+def _context(ledger_rows, state, exclude_carrier, subject_affected=0):
     """Other carriers in the same state — cutters first, they are the reason to switch."""
     best = {}
     for r in ledger_rows:
@@ -95,9 +95,24 @@ def _context(ledger_rows, state, exclude_carrier):
         c = r['carrier']
         if c not in best or (r.get('affected') or 0) > (best[c].get('affected') or 0):
             best[c] = r
-    ranked = sorted(best.values(),
-                    key=lambda r: (r['overall_pct'] >= 0, -(r.get('affected') or 0)))
-    return ranked[:CONTEXT_ROWS]
+    # Pick peers NEAREST this carrier in book size rather than always the same
+    # statewide top-5. Two carriers in one state otherwise get near-identical
+    # pages - same table, same prose - which reads as duplicate content and is
+    # what suppresses a page type rather than ranking it.
+    cand = list(best.values())
+    if subject_affected:
+        cand.sort(key=lambda r: abs((r.get('affected') or 0) - subject_affected))
+        near = cand[:CONTEXT_ROWS]
+    else:
+        cand.sort(key=lambda r: -(r.get('affected') or 0))
+        near = cand[:CONTEXT_ROWS]
+    # always surface the biggest cutter even if it is not a size peer - it is the
+    # reason a reader would act
+    cuts = sorted((r for r in best.values() if r['overall_pct'] < 0),
+                  key=lambda r: r['overall_pct'])
+    if cuts and cuts[0] not in near:
+        near = near[:CONTEXT_ROWS - 1] + [cuts[0]]
+    return sorted(near, key=lambda r: (r['overall_pct'] >= 0, -(r.get('affected') or 0)))
 
 def _row_tuple(r, line):
     name = r['carrier']
@@ -132,7 +147,7 @@ def derive(carrier, state, ledger_rows, line='auto'):
         evidence.append('spread')
     if aff:
         evidence.append('scale')
-    ctx = _context(ledger_rows, state, carrier)
+    ctx = _context(ledger_rows, state, carrier, subj.get('affected') or 0)
     cutters = [r for r in ctx if r['overall_pct'] < 0]
     if cutters:
         evidence.append('cutters')
@@ -178,6 +193,20 @@ def derive(carrier, state, ledger_rows, line='auto'):
     # ---- prose: one section per evidence point we actually hold -------------
     who = 'household' if line == 'home' else 'driver'
     P = []
+    state_ups = sorted((r['overall_pct'] for r in ledger_rows
+                        if r.get('state') == state and fg.has_pct(r) and fg.is_driftable(r)
+                        and not fg.too_small(r) and (r.get('overall_pct') or 0) > 0), reverse=True)
+    rank = state_ups.index(pct) + 1 if pct in state_ups else None
+    rank_txt = ''
+    if rank and len(state_ups) >= 4:
+        ordinal = {1: 'largest', 2: 'second-largest', 3: 'third-largest'}.get(rank)
+        if ordinal:
+            rank_txt = (f' That makes it the <strong>{ordinal}</strong> {LNAME} increase filed in '
+                        f'{sname} among the {len(state_ups)} we have recorded.')
+        elif rank <= len(state_ups) / 2:
+            rank_txt = (f' That puts it in the steeper half of the {len(state_ups)} {LNAME} increases '
+                        f'filed in {sname} that we have recorded.')
+
     P.append(f'    <p>If your {carrier} renewal in {sname} came in higher, this is the source: '
              f'{carrier} filed for a rate increase (SERFF <strong>{trk}</strong>) and it was approved at '
              f'<strong>{_pct(pct)}</strong>'
@@ -214,6 +243,23 @@ def derive(carrier, state, ledger_rows, line='auto'):
                  f'<strong>{_pct(pct)}</strong> it actually took. That gap matters for what comes next: a '
                  f'carrier that took less than it indicated has an unclosed gap, and the remainder often '
                  f'arrives in a later filing rather than disappearing.</p>\n')
+
+    prior = subj.get('prior_revision_pct')
+    if prior is not None and abs(prior) >= 0.5:
+        compounded = ((1 + pct / 100) * (1 + prior / 100) - 1) * 100
+        if prior > 0:
+            P.append(f'\n    <h2>This is the second {carrier} increase, not the first.</h2>\n'
+                     f'    <p>The filing records a prior revision of <strong>{_pct(prior)}</strong> before '
+                     f'this one. Taken together the two compound to roughly '
+                     f'<strong>{_pct(compounded)}</strong> on the same book &mdash; which is why a renewal '
+                     f'can feel far worse than the {_pct(pct)} headline suggests. Rate changes stack; '
+                     f'your renewal notice shows only the latest one.</p>\n')
+        else:
+            P.append(f'\n    <h2>{carrier} cut {sname} rates before this increase.</h2>\n'
+                     f'    <p>The filing records a prior revision of <strong>{_pct(prior)}</strong>, so this '
+                     f'{_pct(pct)} partly reverses an earlier cut &mdash; the two net to about '
+                     f'<strong>{_pct(compounded)}</strong> on the same book. Where you land depends on '
+                     f'whether you were on the books for both.</p>\n')
 
     if cutters:
         sel = cutters[:3]
