@@ -36,6 +36,7 @@ import re
 import sys
 from collections import defaultdict
 from datetime import date
+import filing_guards as fg
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -112,8 +113,7 @@ def load_model():
     return adj, stateavg
 
 
-def eff_date(row):
-    return row.get("effective_new") or row.get("effective_renewal")
+eff_date = fg.eff_date
 
 
 def base_tracking(t):
@@ -136,16 +136,10 @@ def load_market_share():
     return weight
 
 
-MIN_BOOK = 4000  # mirrors verify_filing_tool_consistency.py
-
-def _too_small(r):
-    """A tiny sub-brand filing is not the carrier family's trajectory.
-    verify_filing_tool_consistency.py has always skipped these; this script did
-    NOT, so drift could move a whole family's offset off a token book -- e.g.
-    GA Allstate +5.5% filed by Allstate Indemnity on 434 policyholders would
-    have raised the displayed Allstate GA price $2,488 -> $2,624 for everyone."""
-    aff = r.get("affected")
-    return aff is not None and aff < MIN_BOOK and abs(r.get("overall_pct") or 0) >= 1
+# Guards live in filing_guards.py so every consumer moves together - see that
+# module's header and memory boringrate-filter-twin-pattern.
+MIN_BOOK = fg.MIN_BOOK
+_too_small = fg.too_small
 
 
 def main():

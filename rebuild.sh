@@ -58,6 +58,7 @@ step python3 patch_sitemap_lastmod.py        # refresh <lastmod> from git dates
 
 echo "══════════ VALIDATE ══════════"
 step node qa_sweep.js
+step python3 verify_scaffold_leaks.py   # scaffold clones must not carry another place's rankings block
 step python3 audit_prose.py
 
 echo

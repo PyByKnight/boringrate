@@ -15,6 +15,7 @@ Read-only; exit 1 on hard contradictions."""
 import re, json, sys
 from collections import defaultdict
 from functools import reduce
+import filing_guards as fg
 
 THRESH, HARD = 5.0, 10.0
 
@@ -78,10 +79,9 @@ def main():
     model = load_model()
     fil = defaultdict(list)
     for r in sf:
-        if r.get("overall_pct") is None or r.get("drift_exclude"): continue
+        if not fg.has_pct(r) or not fg.is_driftable(r): continue
         # a tiny-book filing (e.g. a 654-PH sub-brand) isn't the carrier's trajectory — skip it
-        aff = r.get("affected")
-        if aff is not None and aff < 4000 and abs(r["overall_pct"]) >= 1: continue
+        if fg.too_small(r): continue
         fil[(r["state"], r["carrier"])].append(r)
     hard = 0
     for st in sorted({s for s, _ in fil}):

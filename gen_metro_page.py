@@ -10,6 +10,7 @@ Idempotent-ish: overwrites the target file.
 """
 import pathlib
 import re
+import scaffold_guards as sg
 
 ROOT = pathlib.Path(__file__).parent
 # Pristine OLD-format base (pre-CTA-rollout atlanta): keeps the .article-email anchor the
@@ -123,7 +124,10 @@ def build_page(cfg):
     avg = int(round(st_avg * offset / 10) * 10)  # round to $10
     p, word, pill = pct_phrase(avg)
     url = f"https://boringrate.com/article/metro/{slug}.html"
-    title = f"{metro} Car Insurance Rates (2026) — Average Cost & Cheapest Carriers"
+    # <=60 chars so Google does not truncate the intent words (memory
+    # boringrate-title-length-rule). Long metro names drop "Rates".
+    _full = f"{metro} Car Insurance Rates (2026) — Cheapest Carriers"
+    title = _full if len(_full) <= 60 else f"{metro} Car Insurance (2026) — Cheapest Carriers"
     desc = (f"{metro} averages ~${avg:,}/yr for auto insurance — {word} the national norm. "
             f"Carrier pricing varies widely. Compare rates in your ZIP.")
 
@@ -258,8 +262,7 @@ def build_page(cfg):
     # stamped site-wide also lands in the template — move_ctas_up.py put an Atlanta
     # <!-- state-rankings --> table in it (5a7adbe5). The body replacement above now covers
     # that region, but strip it explicitly so a future base edit cannot leak it back.
-    html = re.sub(r"<!-- state-rankings-start -->.*?<!-- state-rankings-end -->\s*", "",
-                  html, flags=re.S)
+    html = sg.strip_rankings(html)
     # Bake the locked article-CTA template (thin rz-zip CTAs; drop the .zip-embed dark box
     # and the .article-email block) so a regen matches the site-wide rollout instead of
     # reverting to the old modules. See patch_article_ctas.transform / memory

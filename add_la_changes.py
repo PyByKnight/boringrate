@@ -4,6 +4,7 @@ Keeps the 5 existing LDI press-release changes (they carry narrative + press cit
 serff_match the ledger for an inline SERFF cite). Adds only market-weight movers those don't cover:
 PH >= 4000 and |pct| >= 1.0, family not already represented, flats excluded."""
 import json, collections
+import filing_guards as fg  # thresholds are single-source; do not re-hardcode
 led = json.load(open('serff_filings.json'))
 rows = led if isinstance(led, list) else led['filings']
 rc = json.load(open('rate_changes.json'))
@@ -17,7 +18,7 @@ for r in rows:
         continue
     if r['carrier'] in covered:
         continue
-    if abs(r['overall_pct']) < 1.0 or (r['affected'] or 0) < 4000:
+    if abs(r['overall_pct']) < fg.MIN_PCT or (r['affected'] or 0) < fg.MIN_BOOK:
         continue
     if not r.get('effective_new') or r['url'] in have_urls:
         continue

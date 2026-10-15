@@ -29,6 +29,7 @@ RANKINGS = json.loads(_RANKF.read_text()) if _RANKF.exists() else {}
 # displayed headline (tool↔filing consistency). Otherwise we keep the existing source.
 import brand_share
 from filing_cite import anchor, portal_url
+import scaffold_guards as sg
 _SERFF_AUTO = json.loads((ROOT / "serff_filings.json").read_text())["filings"]
 
 
@@ -144,8 +145,7 @@ def render(slug, title, desc, h1, dek, body_html, faq, in_subdir=True):
     # Without this strip every tracker page shows "Cheapest car insurance carriers in Atlanta"
     # regardless of its state (leaked into all 16 pages in 7b5ce562). See memory
     # boringrate-filter-twin-pattern - a guard added to one script is usually missing in its twin.
-    html = re.sub(r"<!-- state-rankings-start -->.*?<!-- state-rankings-end -->\s*", "",
-                  html, flags=re.S)
+    html = sg.strip_rankings(html)
 
     OUTDIR.mkdir(exist_ok=True)
     out = OUTDIR / f"{slug}.html"

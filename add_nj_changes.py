@@ -2,6 +2,7 @@
 """Add NJ movers to rate_changes.json from both ledgers (auto + home).
 Threshold: PH>=4000 and |pct|>=1.0; flats excluded. No existing NJ changes to reconcile."""
 import json
+import filing_guards as fg  # thresholds are single-source; do not re-hardcode
 rc = json.load(open('rate_changes.json'))
 have = {(c['carrier'], c.get('product', 'auto')) for c in rc['changes'] if c.get('state') == 'NJ'}
 SRC = 'New Jersey Department of Banking and Insurance (SERFF)'
@@ -16,7 +17,7 @@ def pull(fn, product, is_home):
         if is_home and r.get('line') != 'home': continue
         if not is_home and r.get('line') == 'home': continue
         op = r.get('overall_pct')
-        if op is None or abs(op) < 1.0 or (r.get('affected') or 0) < 4000: continue
+        if op is None or abs(op) < fg.MIN_PCT or (r.get('affected') or 0) < fg.MIN_BOOK: continue
         if not r.get('effective_new'): continue
         if (r['carrier'], product) in have: continue
         out.append({'carrier': r['carrier'], 'state': 'NJ', 'product': product,
