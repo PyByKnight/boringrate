@@ -36,6 +36,7 @@ import sys
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
+import filing_guards as fg
 
 ROOT = Path(__file__).resolve().parent
 INDEX = ROOT / "home" / "index.html"
@@ -87,8 +88,7 @@ def load_model():
     return roster, adj, stateavg
 
 
-def eff_date(row):
-    return row.get("effective_new") or row.get("effective_renewal")
+eff_date = fg.eff_date
 
 
 def base_tracking(t):
@@ -141,9 +141,13 @@ def compute(roster, adj, stateavg, filings, anchors, ms_weight=None):
         for (s2, rc), rows in by_sc.items():
             if s2 != st:
                 continue
-            post = [r for r in rows if eff_date(r) and eff_date(r) > anc
-                    and r.get("overall_pct") not in (None, 0, 0.0)
-                    and not r.get("drift_exclude")]
+            # Shared guard stack (filing_guards.py). This script previously had only
+            # drift_exclude: no book-size floor and no upper date bound, so a token-book
+            # filing (MI Central +35.1% on 1,121 policyholders) and a not-yet-effective
+            # one (TX Horace Mann +4.4% eff. 2026-12-01) both moved live home prices.
+            # Its auto twin apply_filed_changes.py has had both guards since 571ac8c7 /
+            # 924bda09 - the same twin gap as memory boringrate-filter-twin-pattern.
+            post = fg.drift_rows(rows, anc, allow_zero=False)
             if not post:
                 continue
             num = den = 0.0

@@ -71,7 +71,7 @@ def build():
 
     today = date.today()
     url = "https://boringrate.com/press/"
-    title = "2026 Insurance Rate Filings — Data for Journalists | BoringRate"
+    title = "2026 Insurance Rate Filings — Data for Journalists"
     desc = (f"A primary-source summary of the 2026 U.S. auto and home insurance rate landscape: who is "
             f"raising and cutting rates, by how much, across {n_states} states. Every figure links to its "
             f"state Department of Insurance filing. Free to cite.")

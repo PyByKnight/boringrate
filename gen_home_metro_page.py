@@ -112,6 +112,12 @@ def build(code):
     tphrase = tier_phrase(avg)
     c1, c2, c3 = [n for n, _ in top[:3]]
     url = f"https://boringrate.com/home/metro/{slug}.html"
+    # <=60 chars so Google does not truncate (memory boringrate-title-length-rule).
+    # Compound metro names ("Riverside / Inland Empire") overflow the full form.
+    _t_full  = f"{esc(name)} Home Insurance Rates (2026) — Cheapest Carriers"
+    _t_short = f"{esc(name)} Home Insurance (2026) — Cheapest Carriers"
+    _title   = _t_full if len(_t_full) <= 60 else (
+        _t_short if len(_t_short) <= 60 else f"{esc(name)} Home Insurance (2026) — Cheapest")
     desc = (f"Home insurance in {name} averages about ${avg:,}/year — {tphrase}. The cheapest carriers are "
             f"{c1}, {c2} and {c3}. Compare homeowners rates for your ZIP.")
     rows = ""
@@ -142,7 +148,7 @@ def build(code):
 <meta charset="UTF-8" />
 <link rel="canonical" href="{url}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{esc(name)} Home Insurance Rates (2026) — Cheapest Carriers</title>
+<title>{_title}</title>
 <meta name="description" content="{esc(desc)}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
