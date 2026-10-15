@@ -247,7 +247,7 @@ PAGES = [
  'ledger': LEDGER, 'tool': TOOL,
  'path': 'home/why-did-my-state-farm-home-rate-go-up-louisiana.html',
  'url': H + 'why-did-my-state-farm-home-rate-go-up-louisiana.html',
- 'title': 'Why did my State Farm home insurance rate go up in Louisiana?',
+ 'title': 'Why did my State Farm home rate go up in Louisiana?',
  'desc': 'State Farm raised Louisiana homeowners rates +9.7% in 2026 across ~303,638 households - '
          'the largest home book in the state. See the approved filing and the two carriers cutting Louisiana home rates.',
  'ogdesc': 'State Farm raised Louisiana home rates +9.7% on ~303,638 households. See the approved '

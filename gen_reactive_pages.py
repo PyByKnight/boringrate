@@ -239,20 +239,42 @@ def hub_cfg(pages):
      ],
     }
 
+def _with_derived(hand, line, limit):
+    """Hand-written configs, plus ledger-derived ones for combos nobody wrote.
+
+    Hand-written always wins: gen_reactive_derive only fills gaps. See that
+    module for why each derived sentence is gated on the field backing it.
+    """
+    import gen_reactive_derive as drv
+    led = 'serff_home_filings.json' if line == 'home' else 'serff_filings.json'
+    have = {c['path'] for c in hand}
+    extra = drv.derive_all(led, line=line, limit=limit, skip_paths=have)
+    print(f'  {len(hand)} hand-written + {len(extra)} derived'
+          + (f' (top {limit} by affected)' if limit else ''))
+    return hand + extra
+
 if __name__ == '__main__':
     import sys
+    # `--derive[=N]` appends ledger-derived pages for carrier x state combos that
+    # have no hand-written entry; N caps how many, highest `affected` first.
+    limit = None
+    derive = any(a.startswith('--derive') for a in sys.argv)
+    for a in sys.argv:
+        if a.startswith('--derive=') and a.split('=', 1)[1].isdigit():
+            limit = int(a.split('=', 1)[1])
+
     # `--home` stamps the home-line pages (gen_reactive_home_config) instead of auto.
-    # The hub is auto-only for now: three home pages do not warrant one, and
-    # home/why-did-my-home-insurance-go-up.html already covers the generic question.
     if '--home' in sys.argv:
         from gen_reactive_home_config import PAGES
-        print(f'stamping {len(PAGES)} HOME reactive pages from {TEMPLATE}')
-        for cfg in PAGES:
+        pages = _with_derived(PAGES, 'home', limit) if derive else PAGES
+        print(f'stamping {len(pages)} HOME reactive pages from {TEMPLATE}')
+        for cfg in pages:
             build(cfg)
     else:
         from gen_reactive_config import PAGES
-        print(f'stamping {len(PAGES)} reactive pages + hub from {TEMPLATE}')
-        for cfg in PAGES:
+        pages = _with_derived(PAGES, 'auto', limit) if derive else PAGES
+        print(f'stamping {len(pages)} reactive pages + hub from {TEMPLATE}')
+        for cfg in pages:
             build(cfg)
-        build(hub_cfg(PAGES))
+        build(hub_cfg(pages))
         print('  wrote article/why-your-rate-went-up.html (hub)')
