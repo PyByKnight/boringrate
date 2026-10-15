@@ -184,7 +184,7 @@ def build(slug, cfg):
 <meta charset="UTF-8" />
 <link rel="canonical" href="{url}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{cfg["title"]} — BoringRate</title>
+<title>{cfg["title"]}</title>
 <meta name="description" content="{esc(desc)}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

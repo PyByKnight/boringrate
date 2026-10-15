@@ -123,8 +123,8 @@ def build(cfg):
     HEAD = {
       '<link rel="canonical" href="https://boringrate.com/article/tennessee-rates-dropping.html" />':
         f'<link rel="canonical" href="{cfg["url"]}" />',
-      '<title>Tennessee auto insurance rate changes in 2026: who cut and who raised — BoringRate</title>':
-        f'<title>{cfg["title"]} — BoringRate</title>',
+      '<title>Tennessee Car Insurance Rate Changes 2026 — Who Cut, Who Raised</title>':
+        f'<title>{cfg["title"]}</title>',
       '<meta name="description" content="State Farm cut twice (-10.7% then -6.8%), Progressive -4.3%, Shelter -3.4%. See every approved 2026 Tennessee auto insurance rate filing - who cut, who raised, and whether your renewal reflects it." />':
         f'<meta name="description" content="{cfg["desc"]}" />',
       '<meta property="og:url" content="https://boringrate.com/article/tennessee-rates-dropping.html" />':
@@ -220,7 +220,7 @@ def hub_cfg(pages):
     return {
      'path': 'article/why-your-rate-went-up.html',
      'url': 'https://boringrate.com/article/why-your-rate-went-up.html',
-     'title': 'Why did my car insurance rate go up? Find your carrier and state',
+     'title': 'Why Did My Car Insurance Rate Go Up? (2026)',
      'desc': 'Your carrier raised your rate? Find the actual approved SERFF filing behind it - how much, the range by driver, and which competitors are cutting rates in your state right now.',
      'ogdesc': 'Find the actual approved rate filing behind your car insurance increase - by carrier and state - plus who is cutting rates near you. Primary-source, no estimates.',
      'state': 'Rate increases', 'read': '2', 'tracker': '/article/rate-changes/',

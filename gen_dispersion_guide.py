@@ -144,7 +144,7 @@ def build():
 <meta charset="UTF-8" />
 <link rel="canonical" href="{url}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{title} | BoringRate</title>
+<title>{title}</title>
 <meta name="description" content="{esc(desc)}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

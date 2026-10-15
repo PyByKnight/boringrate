@@ -68,7 +68,7 @@ ARTICLES = {
  cross=("/home/coverage.html","Home Coverage Calculator")),
 
 "does-homeowners-insurance-cover": dict(
- title="Does Homeowners Insurance Cover That? (Roof, Water, Mold &amp; More)",
+ title="Does Homeowners Insurance Cover Roof, Water &amp; Mold? (2026)",
  h1="Does homeowners insurance cover that? The common questions.",
  dek="Roof damage, water damage, mold, a fallen tree, your dog, theft, foundation cracks — honest answers to the scenarios homeowners actually search for.",
  kicker="Home Basics",
@@ -159,7 +159,7 @@ ARTICLES = {
  cross=("/home/does-homeowners-insurance-cover.html","Does homeowners insurance cover that?")),
 
 "does-homeowners-insurance-cover-roof-damage": dict(
- title="Does Homeowners Insurance Cover Roof Damage, Leaks &amp; Replacement? (2026)",
+ title="Does Homeowners Insurance Cover Roof Replacement? (2026)",
  h1="Does homeowners insurance cover roof damage? Storm yes, age no.",
  dek="Sudden damage from a storm, hail, or fallen tree is covered. A roof that simply wore out is not — and many insurers now pay depreciated value on older roofs. Here's how roof claims actually work.",
  kicker="Home Basics", read="6",
@@ -205,7 +205,7 @@ ARTICLES = {
  cross=("/home/does-homeowners-insurance-cover-water-damage.html","Does homeowners insurance cover water damage?")),
 
 "does-homeowners-insurance-cover-tree-damage": dict(
- title="Does Homeowners Insurance Cover Tree Damage &amp; Fallen Trees? (2026)",
+ title="Does Homeowners Insurance Cover Fallen Trees? (2026)",
  h1="Does homeowners insurance cover a fallen tree? Usually — if it hits something.",
  dek="A tree that hits your house, garage, fence, or car is covered, including removal up to a limit. A tree that falls and hits nothing usually isn't removed. Here's how it works — and whose policy pays.",
  kicker="Home Basics", read="5",
@@ -317,7 +317,7 @@ ARTICLES = {
  cross=("/home/does-homeowners-insurance-cover.html","Does homeowners insurance cover that?")),
 
 "does-homeowners-insurance-cover-storm-damage": dict(
- title="Does Homeowners Insurance Cover Wind, Hail &amp; Storm Damage? (2026)",
+ title="Does Homeowners Insurance Cover Storm &amp; Hail Damage? (2026)",
  h1="Does homeowners insurance cover storm damage? Wind and hail yes — with a catch.",
  dek="Wind, hail, and hurricane damage are covered perils — but a separate wind/hurricane deductible and depreciated roof payouts can shrink what you collect. Here's how storm claims really work.",
  kicker="Home Basics", read="6",
@@ -354,7 +354,7 @@ def build(slug, c):
 <meta charset="UTF-8" />
 <link rel="canonical" href="{url}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{c["title"]} — BoringRate</title>
+<title>{c["title"]}</title>
 <meta name="description" content="{esc(c["dek"])}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

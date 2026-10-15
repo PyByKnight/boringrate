@@ -36,7 +36,7 @@ head = f'''<!DOCTYPE html>
 <meta charset="UTF-8" />
 <link rel="canonical" href="{URL}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Hidden Cost of Not Shopping for Car Insurance (2026) — BoringRate</title>
+<title>The Hidden Cost of Not Shopping for Car Insurance (2026)</title>
 <meta name="description" content="{DEK}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

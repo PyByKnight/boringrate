@@ -69,7 +69,7 @@ ARTICLES = {
  cross=("/renters/coverage.html","Renters Coverage Calculator")),
 
 "does-renters-insurance-cover": dict(
- title="Does Renters Insurance Cover That? (Water Damage, Theft, Dogs &amp; More)",
+ title="Does Renters Insurance Cover Dogs, Theft &amp; Water Damage?",
  h1="Does renters insurance cover that? The common questions.",
  dek="Water damage, theft, your dog, a roommate's stuff, a car break-in, moving — quick, honest answers to the scenarios renters actually search for.",
  kicker="Renters Basics",
@@ -134,7 +134,7 @@ ARTICLES = {
  cross=("/renters/coverage.html","Renters Coverage Calculator")),
 
 "does-renters-insurance-cover-water-damage": dict(
- title="Does Renters Insurance Cover Water Damage? Leaks, Burst Pipes &amp; Floods (2026)",
+ title="Does Renters Insurance Cover Water Damage? (2026)",
  h1="Does renters insurance cover water damage? Usually — but not floods or slow leaks.",
  dek="Sudden, accidental water — a burst pipe, an overflowing appliance, a leak from the unit above — is covered. Flood, gradual leaks, and neglect are not. Here's the full breakdown, plus what to do when water hits your stuff.",
  kicker="Renters Basics",
@@ -160,7 +160,7 @@ ARTICLES = {
  cross=("/renters/what-does-renters-insurance-cover.html","What renters insurance covers")),
 
 "does-renters-insurance-cover-carpet-damage": dict(
- title="Does Renters Insurance Cover Carpet Damage? Usually Not Yours to Claim (2026)",
+ title="Does Renters Insurance Cover Carpet Damage? (2026)",
  h1="Does renters insurance cover carpet damage? Usually not — because the carpet isn&rsquo;t yours.",
  dek="Wall-to-wall carpet in a rental belongs to the landlord, so it isn&rsquo;t your property to claim. What your policy can do is pay the landlord when you accidentally ruin it — and that is a different part of the policy than most renters expect.",
  kicker="Renters Basics",
@@ -186,7 +186,7 @@ ARTICLES = {
  cross=("/renters/does-renters-insurance-cover-water-damage.html","Renters water damage guide")),
 
 "does-renters-insurance-cover-theft": dict(
- title="Does Renters Insurance Cover Theft? Burglary, Robbery &amp; Stolen Belongings (2026)",
+ title="Does Renters Insurance Cover Theft &amp; Stolen Items? (2026)",
  h1="Does renters insurance cover theft? Yes — burglary, robbery, and off-premises too.",
  dek="Theft of your belongings is covered whether someone breaks into your apartment, mugs you on the street, or steals from your car. Here's exactly what's covered, the limits that surprise people, and what to do after a theft.",
  kicker="Renters Basics",
@@ -274,7 +274,7 @@ def build(slug, c):
 <meta charset="UTF-8" />
 <link rel="canonical" href="{url}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{c["title"]} — BoringRate</title>
+<title>{c["title"]}</title>
 <meta name="description" content="{esc(c["dek"])}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

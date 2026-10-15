@@ -67,7 +67,7 @@ ARTICLES = {
  cross=("/coverage.html","Coverage Calculator")),
 
 "how-long-does-an-accident-stay-on-your-insurance": dict(
- title="How Long Does an Accident, Ticket, or DUI Stay on Your Insurance? (2026)",
+ title="How Long Does an Accident Stay on Your Insurance? (2026)",
  h1="How long do accidents, tickets, and DUIs follow your insurance?",
  dek="Most surcharges fade after 3 years — but a DUI can haunt your rate for up to 10. Here's the timeline for each, and the move that saves you money: re-shopping the moment it drops off.",
  kicker="Rates &amp; Records",
@@ -97,7 +97,7 @@ ARTICLES = {
  cross=("/article/cheapest-car-insurance-after-accident.html","Cheapest Car Insurance After an Accident")),
 
 "does-car-insurance-cover": dict(
- title="What Does Car Insurance Actually Cover? (Rentals, Deer, Theft &amp; More)",
+ title="What Does Car Insurance Cover? Rentals, Deer &amp; Theft (2026)",
  h1="Does car insurance cover that? The common scenarios.",
  dek="Rental cars, hitting a deer, theft, a friend borrowing your car, weather damage — what's covered depends on which coverages you carry. Here's the plain-English breakdown.",
  kicker="Coverage Basics",
@@ -187,7 +187,7 @@ def build(slug, c):
 <meta charset="UTF-8" />
 <link rel="canonical" href="{url}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{c["title"]} — BoringRate</title>
+<title>{c["title"]}</title>
 <meta name="description" content="{esc(c["dek"])}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

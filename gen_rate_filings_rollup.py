@@ -263,7 +263,7 @@ def build():
     n_dec = sum(1 for d in data if d["pct"] < 0)
     today = date.today()
     url = "https://boringrate.com/rate-filings/"
-    title = "2026 U.S. Auto & Home Insurance Rate Filings — By State & Carrier"
+    title = "2026 Auto & Home Insurance Rate Filings by State & Carrier"
     desc = (f"A primary-source roll-up of {len(data)} approved 2026 auto and homeowners insurance rate "
             f"filings across {n_states} states, each linked to its state DOI source. Sortable and filterable.")
 
