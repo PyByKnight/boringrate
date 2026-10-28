@@ -216,7 +216,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
 .nav-dd-group:has(#navDdProductPanel) > .nav-dd-panel a:last-child{border-right:none;}
 }
 </style>
-</head>
+<!-- rz-cta-css --><style>.rz-zip{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:22px 0;padding:12px 16px;background:var(--paper-deep);border:1px solid var(--rule);}.rz-zip-label{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);}.rz-zip form{display:flex;gap:8px;margin:0;}.rz-zip-input{font-family:var(--mono);font-size:14px;padding:8px 10px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);width:92px;}.rz-zip-btn{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;padding:8px 16px;background:var(--accent);color:var(--paper);border:none;cursor:pointer;white-space:nowrap;}.rz-zip-btn:hover{opacity:0.9;}@media (max-width:480px){.rz-zip{flex-direction:column;align-items:flex-start;}}</style></head>
 <body>
 <header class="top">
   <div class="wrap top-inner">
@@ -251,6 +251,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
     <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; directional estimates from public rate filings &amp; NAIC data</div>
   </div>
   <div class="article-body">
+<div class="rz-zip"><span class="rz-zip-label">Instantly compare every home insurer in your ZIP:</span><form onsubmit="event.preventDefault();var z=(this.zc.value||'').replace(/\D/g,'').slice(0,5);if(/^\d{5}$/.test(z)){location.href='/home/?zip='+z}else{this.zc.focus()}"><input class="rz-zip-input" name="zc" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="rz-zip-btn">Compare &rarr;</button></form></div>
     <h2>Cheapest home insurance carriers in Fresno</h2>
     <p>Estimated annual premiums for a standard policy (~$300k dwelling, $1,000 deductible), ranked cheapest first &mdash; Fresno averages about <strong>$1,086/yr</strong> (median of the carriers below: $1,036/yr). Enter ZIP for a ranking tuned to your home.</p>
     <table style="width:100%;border-collapse:collapse;font-size:16px;margin:16px 0;max-width:660px;">
@@ -266,6 +267,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
 
     <p style="font-size:14px;"><a class="ca-link" href="/home/state/california.html">See all California home rates &amp; carriers &rarr;</a> &nbsp;·&nbsp; <a class="ca-link" href="/home/rate-changes/california.html">Who&rsquo;s raising &amp; cutting California home rates &rarr;</a></p>
     <p style="font-size:13px;color:var(--ink-mute);max-width:660px;margin-top:14px;">Directional estimates from <a class="ca-link" href="/rate-filings/?state=CA&amp;product=Home">public rate filings</a> and NAIC data &mdash; not a quote. Metro figures apply a modeled Fresno offset to the California average, which is anchored to those approved filings; your actual rate depends on dwelling amount, deductible, roof age, claims history, and exact ZIP.</p>
+<div class="rz-zip"><span class="rz-zip-label">Ready to stop overpaying? Compare every home insurer in your ZIP:</span><form onsubmit="event.preventDefault();var z=(this.zc.value||'').replace(/\D/g,'').slice(0,5);if(/^\d{5}$/.test(z)){location.href='/home/?zip='+z}else{this.zc.focus()}"><input class="rz-zip-input" name="zc" type="text" maxlength="5" inputmode="numeric" placeholder="ZIP" aria-label="ZIP code" /><button type="submit" class="rz-zip-btn">Compare &rarr;</button></form></div>
   </div>
 </div>
 <footer>

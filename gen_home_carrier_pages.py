@@ -256,30 +256,11 @@ def build(slug):
     <div class="callout"><p><strong>Is {name} good for homeowners insurance?</strong><br>It carries an NAIC complaint ratio of {d['naic']} ({naic_note}) and {d['grade']} financial strength. {d['bottom']}</p></div>
     <div class="callout"><p><strong>Not sure how much coverage you need?</strong><br>Use the <a href="/home/coverage.html">home coverage calculator</a> to size your dwelling, liability, and add-ons before you compare {name} against other carriers.</p></div>
 
-    <div class="article-email">
-      <strong>Get notified when {name} home insurance rates change.</strong>
-      <div class="sub">No spam, no calls, no selling your information.</div>
-      <div class="email-row" id="articleEmailForm">
-        <input class="email-input" id="articleEmailInput" type="email" placeholder="your@email.com" aria-label="Email address" />
-        <input class="email-input email-zip" id="articleEmailZip" type="text" inputmode="numeric" placeholder="ZIP code" maxlength="5" aria-label="ZIP code" />
-        <select class="email-select" id="articleEmailCarrier" aria-label="Current carrier (optional)">
-          <option value="">{name} (current)</option>
-          <option>USAA</option><option>Amica</option><option>Auto-Owners</option><option>Erie</option>
-          <option>Travelers</option><option>American Family</option><option>Nationwide</option>
-          <option>State Farm</option><option>Progressive</option><option>Farmers</option>
-          <option>Allstate</option><option>Liberty Mutual</option><option>Other</option>
-        </select>
-        <select class="email-select email-month" id="articleEmailMonth" aria-label="Renewal month (optional)">
-          <option value="">Renewal month (optional)</option>
-          <option>January</option><option>February</option><option>March</option>
-          <option>April</option><option>May</option><option>June</option>
-          <option>July</option><option>August</option><option>September</option>
-          <option>October</option><option>November</option><option>December</option>
-        </select>
-        <button type="button" class="email-btn" id="articleEmailBtn">Notify me</button>
-      </div>
-      <div class="email-thanks" id="articleEmailThanks">&#10003; You&#39;re on the list.</div>
-    </div>
+    <!-- Email-capture block removed 2026-10-28. It had no JavaScript (no handler, no
+         endpoint) and contradicts the no-email-capture rule in memory
+         boringrate-positioning-thesis. The same dead form was removed from the 51 home
+         state pages in 0d24df66; this generator would have reinstated it on 12 carrier
+         pages the next time it ran. -->
   </div>
 </div>'''
 
