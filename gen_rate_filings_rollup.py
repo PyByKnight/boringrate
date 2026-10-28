@@ -97,7 +97,7 @@ def fdate(iso):
 def source_label(url, note):
     if "data.texas.gov" in url: return "TX TDI open data"
     if "insurance.ca.gov" in url: return "CA CDI filings list"
-    if "filingaccess.serff.com" in url: return "SERFF Filing Access"
+    if "serff-sfa.naic.org/serff/sfa/" in url: return "SERFF Filing Access"
     if "irfssearch.floir.gov" in url or "floir" in url: return "FL FLOIR IRFS"
     if "newsroom" in url: return "Carrier newsroom"
     m = re.search(r"https?://([^/]+)", url)

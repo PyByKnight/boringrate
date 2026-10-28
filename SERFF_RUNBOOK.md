@@ -67,16 +67,16 @@ micro-writers.
 
 | State | Portal | Notes |
 |---|---|---|
-| NV | https://filingaccess.serff.com/sfa/home/NV | standard SERFF flow above |
-| GA | https://filingaccess.serff.com/sfa/home/GA | standard |
-| SC | https://filingaccess.serff.com/sfa/home/SC | standard |
-| TN | https://filingaccess.serff.com/sfa/home/TN | standard |
+| NV | https://serff-sfa.naic.org/serff/sfa/home/NV | standard SERFF flow above |
+| GA | https://serff-sfa.naic.org/serff/sfa/home/GA | standard |
+| SC | https://serff-sfa.naic.org/serff/sfa/home/SC | standard |
+| TN | https://serff-sfa.naic.org/serff/sfa/home/TN | standard |
 | LA | https://ldi.la.gov/news/press-releases | they PRESS-RELEASE approvals — read the list, no search needed; SERFF LA also works |
 | FL | https://irfs.fldfs.com/ (FLOIR filing search) | FL runs its own system; also watch https://floir.gov/newsroom |
 | TX | https://www.tdi.texas.gov + data.texas.gov | open-data CSVs of rate filings — downloadable, no clicking |
 | CA | https://interactive.web.insurance.ca.gov/apex_extprd/f?p=192:1 (CDI rate filing search) | CA is not in SERFF public access |
 | WA (expansion) | https://www.insurance.wa.gov (search "rate increases") | OIC publishes approved changes as a browsable list |
-| NY/PA/OH/IL (expansion) | https://filingaccess.serff.com/sfa/home/{NY,PA,OH,IL} | add once the 8 are routine |
+| NY/PA/OH/IL (expansion) | https://serff-sfa.naic.org/serff/sfa/home/{NY,PA,OH,IL} | add once the 8 are routine |
 
 ## Top-carrier entity map (families file under many names)
 
@@ -180,7 +180,7 @@ The single best method, no copy-paste:
   current book" = skip.
 - Filings WITHOUT a PC form (e.g. Progressive) state the impact in the cover
   letter's first paragraphs.
-- **Citation URL format:** `https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=<digits of tracking #>`.
+- **Citation URL format:** `https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=<digits of tracking #>`.
   Deep links may bounce readers to a terms page — cite as "NV DOI rate filing
   ALSE-XXXX (SERFF)" so the tracking # is searchable regardless. The portal
   403s bots (verified 2026-07-02) — fetching must stay human.
@@ -259,7 +259,7 @@ label + the single clickable link per row.
    meeting the thresholds; name the skips and WHY (symbol/model-year
    attachments, Form-only, withdrawn, advisory orgs like ISO/AIPSO/LexisNexis)
    so the user's eye keeps calibrating. Give direct next links:
-   `https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=<tracking digits>`.
+   `https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=<tracking digits>`.
 2. **Log a completed filing into TWO files:**
    a. `rate_changes.json` `changes[]` (the tracker DISPLAY feed): carrier
       (family name + entity in note), state, pct (TOTAL row, 3 decimals), dir,

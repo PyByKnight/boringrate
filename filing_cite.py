@@ -32,6 +32,6 @@ def portal_url(row):
     """
     url = row.get("url") or ""
     st = (row.get("state") or "").upper()
-    if "filingaccess.serff.com" in url and st:
-        return f"https://filingaccess.serff.com/sfa/home/{st}"
+    if "serff-sfa.naic.org/serff/sfa/" in url and st:
+        return f"https://serff-sfa.naic.org/serff/sfa/home/{st}"
     return url

@@ -134,7 +134,7 @@
    "flat": false,
    "effective": "2026-05-08",
    "tracking": "TRVD-G134911970",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134911970",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134911970",
    "n_filings": 1
   },
   {
@@ -145,7 +145,7 @@
    "flat": false,
    "effective": "2026-06-01",
    "tracking": "AMMA-134629855",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134629855",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134629855",
    "n_filings": 1
   },
   {
@@ -156,7 +156,7 @@
    "flat": false,
    "effective": "2026-10-01",
    "tracking": "PRCA-134928738",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134928738",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134928738",
    "n_filings": 1
   },
   {
@@ -167,7 +167,7 @@
    "flat": false,
    "effective": "2026-07-13",
    "tracking": "ALSE-134945888",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134945888",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134945888",
    "n_filings": 1
   },
   {
@@ -178,7 +178,7 @@
    "flat": false,
    "effective": "2026-04-01",
    "tracking": "DNGL-134767488",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134767488",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134767488",
    "n_filings": 1
   },
   {
@@ -189,7 +189,7 @@
    "flat": false,
    "effective": "2026-02-02",
    "tracking": "FAIG-134716067",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134716067",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134716067",
    "n_filings": 2
   },
   {
@@ -200,7 +200,7 @@
    "flat": false,
    "effective": "2025-08-21",
    "tracking": "GECC-134514872",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134514872",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134514872",
    "n_filings": 2
   },
   {
@@ -211,7 +211,7 @@
    "flat": false,
    "effective": "2025-12-05",
    "tracking": "PRGS-134655228",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134655228",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134655228",
    "n_filings": 1
   },
   {
@@ -222,7 +222,7 @@
    "flat": false,
    "effective": "2026-08-31",
    "tracking": "LBPM-134994822",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134994822",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134994822",
    "n_filings": 1
   },
   {
@@ -233,7 +233,7 @@
    "flat": false,
    "effective": "2025-11-28",
    "tracking": "SFMA-134677514",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134677514",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134677514",
    "n_filings": 3
   },
   {
@@ -244,7 +244,7 @@
    "flat": true,
    "effective": "2027-03-01",
    "tracking": "GFBR-134943848",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134943848",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134943848",
    "n_filings": 2
   },
   {
@@ -255,7 +255,7 @@
    "flat": true,
    "effective": "2026-06-15",
    "tracking": "USAA-134846158",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134846158",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134846158",
    "n_filings": 3
   },
   {
@@ -266,7 +266,7 @@
    "flat": true,
    "effective": "2026-05-25",
    "tracking": "NWPP-G134728249",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134728249",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134728249",
    "n_filings": 1
   },
   {
@@ -277,7 +277,7 @@
    "flat": false,
    "effective": "2026-05-25",
    "tracking": "UTRN-134957968",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134957968",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134957968",
    "n_filings": 2
   },
   {
@@ -288,7 +288,7 @@
    "flat": false,
    "effective": "2025-12-04",
    "tracking": "SFMA-134704563",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134704563",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134704563",
    "n_filings": 5
   },
   {
@@ -299,7 +299,7 @@
    "flat": false,
    "effective": "2026-06-24",
    "tracking": "CFPC-134932067",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134932067",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134932067",
    "n_filings": 2
   },
   {
@@ -310,7 +310,7 @@
    "flat": false,
    "effective": "2026-06-18",
    "tracking": "AMFC-134924309",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134924309",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134924309",
    "n_filings": 2
   },
   {
@@ -321,7 +321,7 @@
    "flat": false,
    "effective": "2026-09-03",
    "tracking": "ALSE-134997297",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134997297",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134997297",
    "n_filings": 2
   },
   {
@@ -332,7 +332,7 @@
    "flat": false,
    "effective": "2025-08-22",
    "tracking": "TRVD-G134637362",
-   "url": "https://filingaccess.serff.com/sfa/home/IL",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/IL",
    "n_filings": 1
   },
   {
@@ -343,7 +343,7 @@
    "flat": false,
    "effective": "2026-07-24",
    "tracking": "ANPC-134917316",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134917316",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134917316",
    "n_filings": 1
   },
   {
@@ -354,7 +354,7 @@
    "flat": false,
    "effective": "2025-12-06",
    "tracking": "SHEL-134682271",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134682271",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134682271",
    "n_filings": 1
   },
   {
@@ -365,7 +365,7 @@
    "flat": false,
    "effective": "2026-08-01",
    "tracking": "GRCP-134960623",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134960623",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134960623",
    "n_filings": 2
   },
   {
@@ -376,7 +376,7 @@
    "flat": false,
    "effective": "2025-09-11",
    "tracking": "LBPM-134665401",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665401",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134665401",
    "n_filings": 1
   },
   {
@@ -387,7 +387,7 @@
    "flat": false,
    "effective": "2026-01-18",
    "tracking": "FARM-134792823",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134792823",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134792823",
    "n_filings": 2
   },
   {
@@ -398,7 +398,7 @@
    "flat": false,
    "effective": "2025-09-05",
    "tracking": "PKNS-134584404",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134584404",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134584404",
    "n_filings": 1
   },
   {
@@ -409,7 +409,7 @@
    "flat": false,
    "effective": "2026-06-01",
    "tracking": "LBPM-134870075",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134870075",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134870075",
    "n_filings": 1
   },
   {
@@ -420,7 +420,7 @@
    "flat": false,
    "effective": "2026-06-19",
    "tracking": "PRGS-134970180",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134970180",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134970180",
    "n_filings": 3
   },
   {
@@ -431,7 +431,7 @@
    "flat": false,
    "effective": "2025-07-29",
    "tracking": "AOIC-134571348",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134571348",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134571348",
    "n_filings": 2
   },
   {
@@ -442,7 +442,7 @@
    "flat": false,
    "effective": "2026-02-05",
    "tracking": "HART-134789514",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134789514",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134789514",
    "n_filings": 1
   },
   {
@@ -453,7 +453,7 @@
    "flat": false,
    "effective": "2026-04-29",
    "tracking": "MERY-134908597",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134908597",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134908597",
    "n_filings": 2
   },
   {
@@ -464,7 +464,7 @@
    "flat": false,
    "effective": "2026-04-03",
    "tracking": "GECC-134888662",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134888662",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134888662",
    "n_filings": 1
   },
   {
@@ -475,7 +475,7 @@
    "flat": true,
    "effective": "2026-08-01",
    "tracking": "HNVR-G134928255",
-   "url": "https://filingaccess.serff.com/sfa/home/IL",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/IL",
    "n_filings": 2
   },
   {
@@ -486,7 +486,7 @@
    "flat": true,
    "effective": "2026-02-15",
    "tracking": "USAA-134721830",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134721830",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134721830",
    "n_filings": 1
   },
   {
@@ -497,7 +497,7 @@
    "flat": true,
    "effective": "2026-08-01",
    "tracking": "ERAP-134926673",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134926673",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134926673",
    "n_filings": 1
   },
   {
@@ -508,7 +508,7 @@
    "flat": true,
    "effective": "2025-09-08",
    "tracking": "NWPP-134551229",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134551229",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134551229",
    "n_filings": 1
   },
   {
@@ -519,7 +519,7 @@
    "flat": false,
    "effective": "2026-06-01",
    "tracking": "APCG-134615404",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134615404",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134615404",
    "n_filings": 1
   },
   {
@@ -530,7 +530,7 @@
    "flat": false,
    "effective": "2026-02-05",
    "tracking": "ONST-134817628",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134817628",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134817628",
    "n_filings": 1
   },
   {
@@ -541,7 +541,7 @@
    "flat": false,
    "effective": "2025-11-03",
    "tracking": "GMMX-134720358",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134720358",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134720358",
    "n_filings": 1
   },
   {
@@ -552,7 +552,7 @@
    "flat": false,
    "effective": "2026-07-25",
    "tracking": "SFBC-134913662",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134913662",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134913662",
    "n_filings": 1
   },
   {
@@ -563,7 +563,7 @@
    "flat": false,
    "effective": "2026-03-11",
    "tracking": "SPIS-134785306",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134785306",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134785306",
    "n_filings": 1
   },
   {
@@ -574,7 +574,7 @@
    "flat": false,
    "effective": "2025-11-15",
    "tracking": "PRIV-134590666",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134590666",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134590666",
    "n_filings": 1
   },
   {
@@ -585,7 +585,7 @@
    "flat": false,
    "effective": "2025-09-30",
    "tracking": "HUGO-134671603",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134671603",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134671603",
    "n_filings": 1
   },
   {
@@ -596,7 +596,7 @@
    "flat": false,
    "effective": "2026-03-17",
    "tracking": "GECC-134834194",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134834194",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134834194",
    "n_filings": 1
   },
   {
@@ -607,7 +607,7 @@
    "flat": false,
    "effective": "2026-04-09",
    "tracking": "ALSE-134805735",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134805735",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134805735",
    "n_filings": 2
   },
   {
@@ -618,7 +618,7 @@
    "flat": false,
    "effective": "2026-01-16",
    "tracking": "PRGS-134737690",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134737690",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134737690",
    "n_filings": 2
   },
   {
@@ -629,7 +629,7 @@
    "flat": false,
    "effective": "2026-08-01",
    "tracking": "AMMA-134704578",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134704578",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134704578",
    "n_filings": 1
   },
   {
@@ -640,7 +640,7 @@
    "flat": false,
    "effective": "2026-01-01",
    "tracking": "SFMA-134723185",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134723185",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134723185",
    "n_filings": 1
   },
   {
@@ -651,7 +651,7 @@
    "flat": false,
    "effective": "2025-12-01",
    "tracking": "PERR-134665768",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665768",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134665768",
    "n_filings": 1
   },
   {
@@ -662,7 +662,7 @@
    "flat": false,
    "effective": "2026-04-03",
    "tracking": "ANPC-134762926",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134762926",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134762926",
    "n_filings": 1
   },
   {
@@ -673,7 +673,7 @@
    "flat": false,
    "effective": "2026-03-27",
    "tracking": "BRWS-134888530",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134888530",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134888530",
    "n_filings": 1
   },
   {
@@ -684,7 +684,7 @@
    "flat": false,
    "effective": "2025-12-02",
    "tracking": "HMSS-134668827",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134668827",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134668827",
    "n_filings": 1
   },
   {
@@ -695,7 +695,7 @@
    "flat": false,
    "effective": "2026-01-15",
    "tracking": "GMMX-134796306",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134796306",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134796306",
    "n_filings": 1
   },
   {
@@ -706,7 +706,7 @@
    "flat": false,
    "effective": "2026-01-02",
    "tracking": "SHEL-134694255",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134694255",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134694255",
    "n_filings": 1
   },
   {
@@ -717,7 +717,7 @@
    "flat": false,
    "effective": "2026-04-24",
    "tracking": "CLIN-134871980",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134871980",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134871980",
    "n_filings": 1
   },
   {
@@ -728,7 +728,7 @@
    "flat": false,
    "effective": "2026-06-27",
    "tracking": "LBPM-134894992",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134894992",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134894992",
    "n_filings": 1
   },
   {
@@ -739,7 +739,7 @@
    "flat": true,
    "effective": "2025-10-01",
    "tracking": "VICO-134665497",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665497",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134665497",
    "n_filings": 1
   },
   {
@@ -750,7 +750,7 @@
    "flat": true,
    "effective": "2026-01-01",
    "tracking": "AAAM-134620625",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134620625",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134620625",
    "n_filings": 1
   },
   {
@@ -761,7 +761,7 @@
    "flat": true,
    "effective": "2026-01-01",
    "tracking": "LBPM-134721926",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134721926",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134721926",
    "n_filings": 1
   },
   {
@@ -772,7 +772,7 @@
    "flat": true,
    "effective": "2026-04-03",
    "tracking": "USAA-134739508",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134739508",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134739508",
    "n_filings": 1
   },
   {
@@ -783,7 +783,7 @@
    "flat": false,
    "effective": "2026-07-15",
    "tracking": "DNGL-134902602",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134902602",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134902602",
    "n_filings": 2
   },
   {
@@ -794,7 +794,7 @@
    "flat": false,
    "effective": "2026-07-20",
    "tracking": "GMMX-134900456",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134900456",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134900456",
    "n_filings": 3
   },
   {
@@ -805,7 +805,7 @@
    "flat": false,
    "effective": "2026-07-01",
    "tracking": "CNNB-134778441",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134778441",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134778441",
    "n_filings": 2
   },
   {
@@ -816,7 +816,7 @@
    "flat": false,
    "effective": "2026-02-05",
    "tracking": "SFMA-134697302",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134697302",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134697302",
    "n_filings": 4
   },
   {
@@ -827,7 +827,7 @@
    "flat": false,
    "effective": "2026-05-01",
    "tracking": "FRNK-134683592",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134683592",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134683592",
    "n_filings": 2
   },
   {
@@ -838,7 +838,7 @@
    "flat": false,
    "effective": "2025-12-01",
    "tracking": "HRMN-134645804",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134645804",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134645804",
    "n_filings": 1
   },
   {
@@ -849,7 +849,7 @@
    "flat": false,
    "effective": "2026-04-24",
    "tracking": "PRGS-134782430",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134782430",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134782430",
    "n_filings": 4
   },
   {
@@ -860,7 +860,7 @@
    "flat": false,
    "effective": "2026-07-01",
    "tracking": "CEMC-134896832",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134896832",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134896832",
    "n_filings": 1
   },
   {
@@ -871,7 +871,7 @@
    "flat": false,
    "effective": "2026-07-01",
    "tracking": "HAST-134815324",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134815324",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134815324",
    "n_filings": 1
   },
   {
@@ -882,7 +882,7 @@
    "flat": false,
    "effective": "2026-03-13",
    "tracking": "BRWS-134728991",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134728991",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134728991",
    "n_filings": 1
   },
   {
@@ -893,7 +893,7 @@
    "flat": false,
    "effective": "2025-07-22",
    "tracking": "NMIC-134608564",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134608564",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134608564",
    "n_filings": 1
   },
   {
@@ -904,7 +904,7 @@
    "flat": true,
    "effective": "2026-07-09",
    "tracking": "HART-134800906",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134800906",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134800906",
    "n_filings": 1
   },
   {
@@ -915,7 +915,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "ALSE-134840116",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134840116",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134840116",
    "n_filings": 3
   },
   {
@@ -926,7 +926,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "CURE-134852791",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134852791",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134852791",
    "n_filings": 1
   },
   {
@@ -937,7 +937,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "FAIG-134855251",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134855251",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134855251",
    "n_filings": 2
   },
   {
@@ -948,7 +948,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "GRAN-134892742",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134892742",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134892742",
    "n_filings": 2
   },
   {
@@ -959,7 +959,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "ONST-134837021",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134837021",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134837021",
    "n_filings": 1
   },
   {
@@ -970,7 +970,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "TRVD-G134882818",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134882818",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134882818",
    "n_filings": 1
   },
   {
@@ -981,7 +981,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "ACEH-134813463",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134813463",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134813463",
    "n_filings": 1
   },
   {
@@ -992,7 +992,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "AOIC-134796379",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134796379",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134796379",
    "n_filings": 2
   },
   {
@@ -1003,7 +1003,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "BRFI-134894516",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134894516",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134894516",
    "n_filings": 1
   },
   {
@@ -1014,7 +1014,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "PRIV-134847699",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134847699",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134847699",
    "n_filings": 1
   },
   {
@@ -1025,7 +1025,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "GECC-134917903",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134917903",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134917903",
    "n_filings": 1
   },
   {
@@ -1036,7 +1036,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "FABF-134797442",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134797442",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134797442",
    "n_filings": 3
   },
   {
@@ -1047,7 +1047,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "PERR-134914276",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134914276",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134914276",
    "n_filings": 1
   },
   {
@@ -1058,7 +1058,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "MEEM-134797437",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134797437",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134797437",
    "n_filings": 2
   },
   {
@@ -1069,7 +1069,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "FBMI-134672996",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134672996",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134672996",
    "n_filings": 2
   },
   {
@@ -1080,7 +1080,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "HNVR-G134814267",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134814267",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134814267",
    "n_filings": 2
   },
   {
@@ -1091,7 +1091,7 @@
    "flat": true,
    "effective": "2026-11-06",
    "tracking": "USAA-134934684",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134934684",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134934684",
    "n_filings": 3
   },
   {
@@ -1102,7 +1102,7 @@
    "flat": false,
    "effective": "2026-05-24",
    "tracking": "FARM-134703203",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134703203",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134703203",
    "n_filings": 1
   },
   {
@@ -1113,7 +1113,7 @@
    "flat": false,
    "effective": "2026-10-24",
    "tracking": "GMMX-134806021",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134806021",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134806021",
    "n_filings": 1
   },
   {
@@ -1124,7 +1124,7 @@
    "flat": false,
    "effective": "2026-10-02",
    "tracking": "MERY-134759707",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134759707",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134759707",
    "n_filings": 1
   },
   {
@@ -1135,7 +1135,7 @@
    "flat": false,
    "effective": "2025-09-30",
    "tracking": "SELC-134599344",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134599344",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134599344",
    "n_filings": 1
   },
   {
@@ -1146,7 +1146,7 @@
    "flat": false,
    "effective": "2026-05-15",
    "tracking": "PRIV-134638422",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134638422",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134638422",
    "n_filings": 1
   },
   {
@@ -1157,7 +1157,7 @@
    "flat": false,
    "effective": "2025-11-22",
    "tracking": "CURE-134400950",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134400950",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134400950",
    "n_filings": 1
   },
   {
@@ -1168,7 +1168,7 @@
    "flat": false,
    "effective": "2025-09-12",
    "tracking": "BRWS-134378141",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134378141",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134378141",
    "n_filings": 1
   },
   {
@@ -1179,7 +1179,7 @@
    "flat": false,
    "effective": "2026-04-17",
    "tracking": "HPIC-134859181",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134859181",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134859181",
    "n_filings": 1
   },
   {
@@ -1190,7 +1190,7 @@
    "flat": false,
    "effective": "2026-07-01",
    "tracking": "GECC-134961490",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134961490",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134961490",
    "n_filings": 1
   },
   {
@@ -1201,7 +1201,7 @@
    "flat": false,
    "effective": "2026-06-15",
    "tracking": "ALSE-134675302",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134675302",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134675302",
    "n_filings": 2
   },
   {
@@ -1212,7 +1212,7 @@
    "flat": true,
    "effective": "2026-10-01",
    "tracking": "AMMA-134740625",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134740625",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134740625",
    "n_filings": 1
   },
   {
@@ -1223,7 +1223,7 @@
    "flat": true,
    "effective": "2026-01-01",
    "tracking": "APCG-134652591",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134652591",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134652591",
    "n_filings": 1
   },
   {
@@ -1234,7 +1234,7 @@
    "flat": true,
    "effective": "2026-01-01",
    "tracking": "GMMX-134649881",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134649881",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134649881",
    "n_filings": 1
   },
   {
@@ -1245,7 +1245,7 @@
    "flat": true,
    "effective": "2026-01-01",
    "tracking": "HART-134610008",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134610008",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134610008",
    "n_filings": 1
   },
   {
@@ -1256,7 +1256,7 @@
    "flat": true,
    "effective": "2026-05-01",
    "tracking": "NJMI-134601162",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134601162",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134601162",
    "n_filings": 1
   },
   {
@@ -1267,7 +1267,7 @@
    "flat": true,
    "effective": "2026-01-01",
    "tracking": "SFMA-134653651",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134653651",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134653651",
    "n_filings": 1
   },
   {
@@ -1278,7 +1278,7 @@
    "flat": true,
    "effective": "2026-01-01",
    "tracking": "SPIS-134715716",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134715716",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134715716",
    "n_filings": 1
   },
   {
@@ -1289,7 +1289,7 @@
    "flat": true,
    "effective": "2026-06-26",
    "tracking": "USAA-134719983",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134719983",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134719983",
    "n_filings": 1
   },
   {
@@ -1300,7 +1300,7 @@
    "flat": false,
    "effective": "2026-07-06",
    "tracking": "ALSE-134923648",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134923648",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134923648",
    "n_filings": 2
   },
   {
@@ -1311,7 +1311,7 @@
    "flat": false,
    "effective": "2026-05-16",
    "tracking": "LBPM-134798717",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134798717",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134798717",
    "n_filings": 1
   },
   {
@@ -1322,7 +1322,7 @@
    "flat": false,
    "effective": "2025-08-18",
    "tracking": "FAIG-134358402",
-   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/NY",
    "n_filings": 1
   },
   {
@@ -1333,7 +1333,7 @@
    "flat": false,
    "effective": "2026-06-23",
    "tracking": "MERY-134872955",
-   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/NY",
    "n_filings": 1
   },
   {
@@ -1344,7 +1344,7 @@
    "flat": false,
    "effective": "2026-04-29",
    "tracking": "LBPM-134738048",
-   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/NY",
    "n_filings": 1
   },
   {
@@ -1355,7 +1355,7 @@
    "flat": false,
    "effective": "2026-08-22",
    "tracking": "NYCM-134694570",
-   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/NY",
    "n_filings": 1
   },
   {
@@ -1366,7 +1366,7 @@
    "flat": false,
    "effective": "2025-03-10",
    "tracking": "GECC-134404337",
-   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/NY",
    "n_filings": 1
   },
   {
@@ -1377,7 +1377,7 @@
    "flat": false,
    "effective": "2025-12-29",
    "tracking": "TRVD-G134680232",
-   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/NY",
    "n_filings": 1
   },
   {
@@ -1388,7 +1388,7 @@
    "flat": false,
    "effective": "2026-03-06",
    "tracking": "PRGS-134858552",
-   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/NY",
    "n_filings": 1
   },
   {
@@ -1399,7 +1399,7 @@
    "flat": true,
    "effective": "2025-11-17",
    "tracking": "SFMA-134399932",
-   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/NY",
    "n_filings": 1
   },
   {
@@ -1410,7 +1410,7 @@
    "flat": true,
    "effective": "2025-12-18",
    "tracking": "USAA-134556435",
-   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/NY",
    "n_filings": 1
   },
   {
@@ -1421,7 +1421,7 @@
    "flat": true,
    "effective": "2026-07-22",
    "tracking": "NWPP-G134819543",
-   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/NY",
    "n_filings": 1
   },
   {
@@ -1432,7 +1432,7 @@
    "flat": true,
    "effective": "2025-06-21",
    "tracking": "ALSE-134438903",
-   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/NY",
    "n_filings": 1
   },
   {
@@ -1443,7 +1443,7 @@
    "flat": true,
    "effective": "2026-01-01",
    "tracking": "ERAP-134659417",
-   "url": "https://filingaccess.serff.com/sfa/home/NY",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/NY",
    "n_filings": 1
   },
   {
@@ -1454,7 +1454,7 @@
    "flat": false,
    "effective": "2026-03-25",
    "tracking": "SHEL-134793932",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134793932",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134793932",
    "n_filings": 1
   },
   {
@@ -1465,7 +1465,7 @@
    "flat": true,
    "effective": "2025-12-20",
    "tracking": "NWPP-G134739089",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134739089",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134739089",
    "n_filings": 1
   },
   {
@@ -1476,7 +1476,7 @@
    "flat": false,
    "effective": "2026-02-01",
    "tracking": "GRCP-134675159",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134675159",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134675159",
    "n_filings": 1
   },
   {
@@ -1487,7 +1487,7 @@
    "flat": false,
    "effective": "2026-05-07",
    "tracking": "HART-134890745",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134890745",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134890745",
    "n_filings": 2
   },
   {
@@ -1498,7 +1498,7 @@
    "flat": false,
    "effective": "2026-03-02",
    "tracking": "HRMN-134536849",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134536849",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134536849",
    "n_filings": 3
   },
   {
@@ -1509,7 +1509,7 @@
    "flat": false,
    "effective": "2026-06-15",
    "tracking": "OHMG-134945306",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134945306",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134945306",
    "n_filings": 3
   },
   {
@@ -1520,7 +1520,7 @@
    "flat": false,
    "effective": "2026-01-01",
    "tracking": "WMIN-134700884",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134700884",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134700884",
    "n_filings": 1
   },
   {
@@ -1531,7 +1531,7 @@
    "flat": false,
    "effective": "2026-04-03",
    "tracking": "GECC-134888669",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134888669",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134888669",
    "n_filings": 13
   },
   {
@@ -1542,7 +1542,7 @@
    "flat": false,
    "effective": "2025-11-21",
    "tracking": "PRGS-134729388",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134729388",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134729388",
    "n_filings": 12
   },
   {
@@ -1553,7 +1553,7 @@
    "flat": false,
    "effective": "2025-12-04",
    "tracking": "SFMA-134699767",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134699767",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134699767",
    "n_filings": 4
   },
   {
@@ -1564,7 +1564,7 @@
    "flat": false,
    "effective": "2026-06-23",
    "tracking": "CLIN-134833383",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134833383",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134833383",
    "n_filings": 2
   },
   {
@@ -1575,7 +1575,7 @@
    "flat": false,
    "effective": "2025-12-01",
    "tracking": "CEMC-134665345",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665345",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134665345",
    "n_filings": 1
   },
   {
@@ -1586,7 +1586,7 @@
    "flat": false,
    "effective": "2026-06-01",
    "tracking": "ERAP-134872060",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134872060",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134872060",
    "n_filings": 3
   },
   {
@@ -1597,7 +1597,7 @@
    "flat": false,
    "effective": "2025-12-03",
    "tracking": "ACUT-134665080",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665080",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134665080",
    "n_filings": 3
   },
   {
@@ -1608,7 +1608,7 @@
    "flat": false,
    "effective": "2026-03-01",
    "tracking": "CNNB-134646555",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134646555",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134646555",
    "n_filings": 2
   },
   {
@@ -1619,7 +1619,7 @@
    "flat": false,
    "effective": "2026-01-16",
    "tracking": "HNVR-G134755148",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134755148",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134755148",
    "n_filings": 1
   },
   {
@@ -1630,7 +1630,7 @@
    "flat": false,
    "effective": "2025-12-01",
    "tracking": "BUCK-134682744",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134682744",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134682744",
    "n_filings": 2
   },
   {
@@ -1641,7 +1641,7 @@
    "flat": false,
    "effective": "2025-08-22",
    "tracking": "TRVD-G134633727",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134633727",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134633727",
    "n_filings": 4
   },
   {
@@ -1652,7 +1652,7 @@
    "flat": false,
    "effective": "2026-05-01",
    "tracking": "PRCA-134811925",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134811925",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134811925",
    "n_filings": 2
   },
   {
@@ -1663,7 +1663,7 @@
    "flat": false,
    "effective": "2026-07-01",
    "tracking": "ALSE-134990846",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134990846",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134990846",
    "n_filings": 10
   },
   {
@@ -1674,7 +1674,7 @@
    "flat": false,
    "effective": "2026-02-01",
    "tracking": "AMMA-134696635",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134696635",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134696635",
    "n_filings": 1
   },
   {
@@ -1685,7 +1685,7 @@
    "flat": false,
    "effective": "2026-02-01",
    "tracking": "IFMI-134770304",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134770304",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134770304",
    "n_filings": 1
   },
   {
@@ -1696,7 +1696,7 @@
    "flat": false,
    "effective": "2026-06-28",
    "tracking": "LBPM-134878625",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134878625",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134878625",
    "n_filings": 9
   },
   {
@@ -1707,7 +1707,7 @@
    "flat": false,
    "effective": "2025-07-20",
    "tracking": "MTRS-134581282",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134581282",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134581282",
    "n_filings": 8
   },
   {
@@ -1718,7 +1718,7 @@
    "flat": false,
    "effective": "2025-12-20",
    "tracking": "GRAN-134743417",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134743417",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134743417",
    "n_filings": 3
   },
   {
@@ -1729,7 +1729,7 @@
    "flat": false,
    "effective": "2025-11-01",
    "tracking": "CEIN-134649865",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134649865",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134649865",
    "n_filings": 2
   },
   {
@@ -1740,7 +1740,7 @@
    "flat": false,
    "effective": "2026-03-02",
    "tracking": "ACEH-134796713",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134796713",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134796713",
    "n_filings": 7
   },
   {
@@ -1751,7 +1751,7 @@
    "flat": false,
    "effective": "2026-04-23",
    "tracking": "AOIC-134774421",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134774421",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134774421",
    "n_filings": 3
   },
   {
@@ -1762,7 +1762,7 @@
    "flat": true,
    "effective": "2026-05-01",
    "tracking": "HAST-134712938",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134712938",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134712938",
    "n_filings": 1
   },
   {
@@ -1773,7 +1773,7 @@
    "flat": true,
    "effective": "2026-06-01",
    "tracking": "IACA-134831927",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134831927",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134831927",
    "n_filings": 1
   },
   {
@@ -1784,7 +1784,7 @@
    "flat": true,
    "effective": "2025-08-11",
    "tracking": "FARM-134614960",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134614960",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134614960",
    "n_filings": 4
   },
   {
@@ -1795,7 +1795,7 @@
    "flat": true,
    "effective": "2026-03-01",
    "tracking": "WSRG-134773758",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134773758",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134773758",
    "n_filings": 3
   },
   {
@@ -1806,7 +1806,7 @@
    "flat": true,
    "effective": "2025-10-15",
    "tracking": "DNGL-134631459",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134631459",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134631459",
    "n_filings": 1
   },
   {
@@ -1817,7 +1817,7 @@
    "flat": true,
    "effective": "2026-05-01",
    "tracking": "FRNK-134799519",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134799519",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134799519",
    "n_filings": 1
   },
   {
@@ -1828,7 +1828,7 @@
    "flat": true,
    "effective": "2026-06-08",
    "tracking": "GMMX-134898867",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134898867",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134898867",
    "n_filings": 1
   },
   {
@@ -1839,7 +1839,7 @@
    "flat": true,
    "effective": "2026-05-02",
    "tracking": "NJMI-134768822",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134768822",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134768822",
    "n_filings": 2
   },
   {
@@ -1850,7 +1850,7 @@
    "flat": true,
    "effective": "2025-09-05",
    "tracking": "PKNS-134612816",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134612816",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134612816",
    "n_filings": 1
   },
   {
@@ -1861,7 +1861,7 @@
    "flat": true,
    "effective": "2026-04-30",
    "tracking": "SELC-134891661",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134891661",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134891661",
    "n_filings": 3
   },
   {
@@ -1872,7 +1872,7 @@
    "flat": true,
    "effective": "2026-06-25",
    "tracking": "USAA-134827654",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134827654",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134827654",
    "n_filings": 8
   },
   {
@@ -1883,7 +1883,7 @@
    "flat": true,
    "effective": "2026-03-15",
    "tracking": "WSUN-134764062",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134764062",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134764062",
    "n_filings": 2
   },
   {
@@ -1894,7 +1894,7 @@
    "flat": false,
    "effective": "2026-01-31",
    "tracking": "NWPP-G134710868",
-   "url": "https://filingaccess.serff.com/sfa/home/PA",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/PA",
    "n_filings": 1
   },
   {
@@ -1905,7 +1905,7 @@
    "flat": false,
    "effective": "2026-06-01",
    "tracking": "GRAN-134679118",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134679118",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134679118",
    "n_filings": 1
   },
   {
@@ -1916,7 +1916,7 @@
    "flat": false,
    "effective": "2025-12-31",
    "tracking": "SELC-134573770",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134573770",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134573770",
    "n_filings": 1
   },
   {
@@ -1927,7 +1927,7 @@
    "flat": false,
    "effective": "2026-03-13",
    "tracking": "HNVR-G134656976",
-   "url": "https://filingaccess.serff.com/sfa/home/PA",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/PA",
    "n_filings": 1
   },
   {
@@ -1938,7 +1938,7 @@
    "flat": false,
    "effective": "2025-12-26",
    "tracking": "ANPC-134643362",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134643362",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134643362",
    "n_filings": 1
   },
   {
@@ -1949,7 +1949,7 @@
    "flat": false,
    "effective": "2026-05-16",
    "tracking": "CNNB-134712275",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134712275",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134712275",
    "n_filings": 1
   },
   {
@@ -1960,7 +1960,7 @@
    "flat": false,
    "effective": "2025-09-22",
    "tracking": "TRVD-G134643181",
-   "url": "https://filingaccess.serff.com/sfa/home/PA",
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/PA",
    "n_filings": 2
   },
   {
@@ -1971,7 +1971,7 @@
    "flat": false,
    "effective": "2026-05-28",
    "tracking": "PGAC-134907337",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134907337",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134907337",
    "n_filings": 1
   },
   {
@@ -1982,7 +1982,7 @@
    "flat": false,
    "effective": "2026-09-01",
    "tracking": "PRAC-134967675",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134967675",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134967675",
    "n_filings": 1
   },
   {
@@ -1993,7 +1993,7 @@
    "flat": false,
    "effective": "2026-06-01",
    "tracking": "LBPM-134770292",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134770292",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134770292",
    "n_filings": 1
   },
   {
@@ -2004,7 +2004,7 @@
    "flat": false,
    "effective": "2026-03-23",
    "tracking": "SFMA-134758176",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134758176",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134758176",
    "n_filings": 1
   },
   {
@@ -2015,7 +2015,7 @@
    "flat": false,
    "effective": "2026-09-15",
    "tracking": "DNGL-135003371",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=135003371",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=135003371",
    "n_filings": 1
   },
   {
@@ -2026,7 +2026,7 @@
    "flat": false,
    "effective": "2026-09-15",
    "tracking": "NJMI-134893231",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134893231",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134893231",
    "n_filings": 2
   },
   {
@@ -2037,7 +2037,7 @@
    "flat": false,
    "effective": "2026-01-09",
    "tracking": "PRGS-134556786",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134556786",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134556786",
    "n_filings": 1
   },
   {
@@ -2048,7 +2048,7 @@
    "flat": false,
    "effective": "2026-07-23",
    "tracking": "HART-134941173",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134941173",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134941173",
    "n_filings": 1
   },
   {
@@ -2059,7 +2059,7 @@
    "flat": true,
    "effective": "2026-10-01",
    "tracking": "AOIC-134954567",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134954567",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134954567",
    "n_filings": 1
   },
   {
@@ -2070,7 +2070,7 @@
    "flat": true,
    "effective": "2026-09-01",
    "tracking": "ERAP-134924958",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134924958",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134924958",
    "n_filings": 1
   },
   {
@@ -2081,7 +2081,7 @@
    "flat": true,
    "effective": "2026-08-01",
    "tracking": "GECC-134936442",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134936442",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134936442",
    "n_filings": 1
   },
   {
@@ -2092,7 +2092,7 @@
    "flat": true,
    "effective": "2026-08-01",
    "tracking": "USAA-134753046",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134753046",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134753046",
    "n_filings": 5
   },
   {
@@ -2103,7 +2103,7 @@
    "flat": true,
    "effective": "2026-01-27",
    "tracking": "FARM-134807503",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134807503",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134807503",
    "n_filings": 1
   },
   {
@@ -2114,7 +2114,7 @@
    "flat": true,
    "effective": "2026-05-25",
    "tracking": "ALSE-134916840",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134916840",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134916840",
    "n_filings": 1
   },
   {
@@ -2125,7 +2125,7 @@
    "flat": false,
    "effective": "2026-04-03",
    "tracking": "ANPC-134772485",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134772485",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134772485",
    "n_filings": 1
   },
   {
@@ -2136,7 +2136,7 @@
    "flat": false,
    "effective": "2026-09-01",
    "tracking": "PRCA-134889827",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134889827",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134889827",
    "n_filings": 1
   },
   {
@@ -2147,7 +2147,7 @@
    "flat": false,
    "effective": "2026-02-16",
    "tracking": "SFMA-134701541",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134701541",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134701541",
    "n_filings": 1
   },
   {
@@ -2158,7 +2158,7 @@
    "flat": false,
    "effective": "2026-02-23",
    "tracking": "ALSE-134847054",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134847054",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134847054",
    "n_filings": 1
   },
   {
@@ -2169,7 +2169,7 @@
    "flat": false,
    "effective": "2026-02-01",
    "tracking": "SFBC-134687931",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134687931",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134687931",
    "n_filings": 1
   },
   {
@@ -2180,7 +2180,7 @@
    "flat": false,
    "effective": "2026-04-01",
    "tracking": "AMMA-134748444",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134748444",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134748444",
    "n_filings": 1
   },
   {
@@ -2191,7 +2191,7 @@
    "flat": true,
    "effective": "2026-04-18",
    "tracking": "PRGS-134867118",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134867118",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134867118",
    "n_filings": 1
   },
   {
@@ -2202,7 +2202,7 @@
    "flat": true,
    "effective": "2026-05-07",
    "tracking": "GECC-134873243",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134873243",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134873243",
    "n_filings": 2
   },
   {
@@ -2213,7 +2213,7 @@
    "flat": true,
    "effective": "2026-08-24",
    "tracking": "USAA-134900762",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134900762",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134900762",
    "n_filings": 2
   },
   {
@@ -2224,7 +2224,7 @@
    "flat": true,
    "effective": "2026-08-23",
    "tracking": "NWPP-G134870398",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134870398",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134870398",
    "n_filings": 1
   },
   {
@@ -2235,7 +2235,7 @@
    "flat": false,
    "effective": "2026-03-06",
    "tracking": "NWPP-G134730628",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134730628",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134730628",
    "n_filings": 4
   },
   {
@@ -2246,7 +2246,7 @@
    "flat": false,
    "effective": "2026-06-26",
    "tracking": "ANPC-134881820",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134881820",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134881820",
    "n_filings": 2
   },
   {
@@ -2257,7 +2257,7 @@
    "flat": false,
    "effective": "2026-06-01",
    "tracking": "SFMA-134859733",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134859733",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134859733",
    "n_filings": 4
   },
   {
@@ -2268,7 +2268,7 @@
    "flat": false,
    "effective": "2026-03-06",
    "tracking": "CFPC-134718424",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134718424",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134718424",
    "n_filings": 3
   },
   {
@@ -2279,7 +2279,7 @@
    "flat": false,
    "effective": "2026-05-29",
    "tracking": "CLIN-134910716",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134910716",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134910716",
    "n_filings": 1
   },
   {
@@ -2290,7 +2290,7 @@
    "flat": false,
    "effective": "2026-04-09",
    "tracking": "GECC-134888920",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134888920",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134888920",
    "n_filings": 4
   },
   {
@@ -2301,7 +2301,7 @@
    "flat": false,
    "effective": "2026-08-11",
    "tracking": "PRCA-134868307",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134868307",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134868307",
    "n_filings": 1
   },
   {
@@ -2312,7 +2312,7 @@
    "flat": false,
    "effective": "2026-05-29",
    "tracking": "PRGS-134800104",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134800104",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134800104",
    "n_filings": 4
   },
   {
@@ -2323,7 +2323,7 @@
    "flat": false,
    "effective": "2026-05-13",
    "tracking": "SHEL-134846853",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134846853",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134846853",
    "n_filings": 1
   },
   {
@@ -2334,7 +2334,7 @@
    "flat": false,
    "effective": "2026-06-09",
    "tracking": "FARM-134932086",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134932086",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134932086",
    "n_filings": 3
   },
   {
@@ -2345,7 +2345,7 @@
    "flat": true,
    "effective": "2026-05-01",
    "tracking": "AMMA-134682165",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134682165",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134682165",
    "n_filings": 2
   },
   {
@@ -2356,7 +2356,7 @@
    "flat": true,
    "effective": "2026-05-26",
    "tracking": "AOIC-134836495",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134836495",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134836495",
    "n_filings": 1
   },
   {
@@ -2367,7 +2367,7 @@
    "flat": true,
    "effective": "2026-06-01",
    "tracking": "TNFA-134754677",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134754677",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134754677",
    "n_filings": 2
   },
   {
@@ -2378,7 +2378,7 @@
    "flat": true,
    "effective": "2026-04-28",
    "tracking": "ALSE-134820921",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134820921",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134820921",
    "n_filings": 1
   },
   {
@@ -2389,7 +2389,7 @@
    "flat": true,
    "effective": "2026-09-01",
    "tracking": "DNGL-134935028",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134935028",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134935028",
    "n_filings": 1
   },
   {
@@ -2400,7 +2400,7 @@
    "flat": true,
    "effective": "2026-07-01",
    "tracking": "ERAP-134830669",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134830669",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134830669",
    "n_filings": 2
   },
   {
@@ -2411,7 +2411,7 @@
    "flat": true,
    "effective": "2026-08-01",
    "tracking": "LBPM-134893094",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134893094",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134893094",
    "n_filings": 1
   },
   {
@@ -2422,7 +2422,7 @@
    "flat": true,
    "effective": "2026-05-03",
    "tracking": "TRVD-G134842611",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134842611",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134842611",
    "n_filings": 3
   },
   {
@@ -2433,7 +2433,7 @@
    "flat": true,
    "effective": "2026-11-13",
    "tracking": "USAA-134934508",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134934508",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134934508",
    "n_filings": 4
   },
   {
@@ -2620,7 +2620,7 @@
    "flat": false,
    "effective": "2026-06-12",
    "tracking": "BRWS-134973519",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134973519",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134973519",
    "n_filings": 2
   },
   {
@@ -2631,7 +2631,7 @@
    "flat": false,
    "effective": "2026-02-01",
    "tracking": "CNNB-134586864",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134586864",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134586864",
    "n_filings": 1
   },
   {
@@ -2642,7 +2642,7 @@
    "flat": false,
    "effective": "2025-11-03",
    "tracking": "GMMX-134634752",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134634752",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134634752",
    "n_filings": 4
   },
   {
@@ -2653,7 +2653,7 @@
    "flat": false,
    "effective": "2026-05-29",
    "tracking": "ANPC-134879394",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134879394",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134879394",
    "n_filings": 2
   },
   {
@@ -2664,7 +2664,7 @@
    "flat": false,
    "effective": "2024-11-15",
    "tracking": "CLEA-134264224",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134264224",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134264224",
    "n_filings": 1
   },
   {
@@ -2675,7 +2675,7 @@
    "flat": false,
    "effective": "2026-02-20",
    "tracking": "GNSC-134847500",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134847500",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134847500",
    "n_filings": 2
   },
   {
@@ -2686,7 +2686,7 @@
    "flat": false,
    "effective": "2025-12-11",
    "tracking": "SFMA-134688491",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134688491",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134688491",
    "n_filings": 2
   },
   {
@@ -2697,7 +2697,7 @@
    "flat": false,
    "effective": "2026-07-20",
    "tracking": "DNGL-134975511",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134975511",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134975511",
    "n_filings": 3
   },
   {
@@ -2708,7 +2708,7 @@
    "flat": false,
    "effective": "2026-04-14",
    "tracking": "TSIS-134874643",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134874643",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134874643",
    "n_filings": 1
   },
   {
@@ -2719,7 +2719,7 @@
    "flat": false,
    "effective": "2026-06-04",
    "tracking": "NWPP-G134897540",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134897540",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134897540",
    "n_filings": 4
   },
   {
@@ -2730,7 +2730,7 @@
    "flat": false,
    "effective": "2026-08-24",
    "tracking": "UTCX-134973380",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134973380",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134973380",
    "n_filings": 2
   },
   {
@@ -2741,7 +2741,7 @@
    "flat": false,
    "effective": "2026-06-24",
    "tracking": "ACUT-134883176",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134883176",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134883176",
    "n_filings": 2
   },
   {
@@ -2752,7 +2752,7 @@
    "flat": false,
    "effective": "2026-11-01",
    "tracking": "AMMA-134896488",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134896488",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134896488",
    "n_filings": 2
   },
   {
@@ -2763,7 +2763,7 @@
    "flat": false,
    "effective": "2026-06-23",
    "tracking": "LBPM-134893945",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134893945",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134893945",
    "n_filings": 1
   },
   {
@@ -2774,7 +2774,7 @@
    "flat": false,
    "effective": "2026-04-15",
    "tracking": "GECC-134876961",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134876961",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134876961",
    "n_filings": 1
   },
   {
@@ -2785,7 +2785,7 @@
    "flat": false,
    "effective": "2026-04-04",
    "tracking": "GRAN-134791278",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134791278",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134791278",
    "n_filings": 3
   },
   {
@@ -2796,7 +2796,7 @@
    "flat": false,
    "effective": "2026-06-14",
    "tracking": "AOIC-134764711",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134764711",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134764711",
    "n_filings": 1
   },
   {
@@ -2807,7 +2807,7 @@
    "flat": false,
    "effective": "2026-07-27",
    "tracking": "ALSE-134970309",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134970309",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134970309",
    "n_filings": 4
   },
   {
@@ -2818,7 +2818,7 @@
    "flat": false,
    "effective": "2026-05-01",
    "tracking": "RMUT-134834645",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134834645",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134834645",
    "n_filings": 1
   },
   {
@@ -2829,7 +2829,7 @@
    "flat": false,
    "effective": "2025-05-16",
    "tracking": "PRGS-134458370",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134458370",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134458370",
    "n_filings": 1
   },
   {
@@ -2840,7 +2840,7 @@
    "flat": false,
    "effective": "2026-01-26",
    "tracking": "VSGP-134749505",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134749505",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134749505",
    "n_filings": 3
   },
   {
@@ -2851,7 +2851,7 @@
    "flat": false,
    "effective": "2026-02-10",
    "tracking": "ASRN-134823844",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134823844",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134823844",
    "n_filings": 2
   },
   {
@@ -2862,7 +2862,7 @@
    "flat": false,
    "effective": "2026-04-27",
    "tracking": "FARM-134912560",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134912560",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134912560",
    "n_filings": 2
   },
   {
@@ -2873,7 +2873,7 @@
    "flat": false,
    "effective": "2026-09-01",
    "tracking": "ERAP-134950961",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134950961",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134950961",
    "n_filings": 3
   },
   {
@@ -2884,7 +2884,7 @@
    "flat": false,
    "effective": "2026-03-01",
    "tracking": "USAA-134728239",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134728239",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134728239",
    "n_filings": 1
   },
   {
@@ -2895,7 +2895,7 @@
    "flat": true,
    "effective": "2026-04-10",
    "tracking": "EINS-134875403",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134875403",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134875403",
    "n_filings": 2
   },
   {
@@ -2906,7 +2906,7 @@
    "flat": true,
    "effective": "2026-04-12",
    "tracking": "TRVD-G134864387",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134864387",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134864387",
    "n_filings": 1
   },
   {
@@ -2917,7 +2917,7 @@
    "flat": true,
    "effective": "2026-02-25",
    "tracking": "MERY-134801987",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134801987",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134801987",
    "n_filings": 2
   },
   {
@@ -2928,7 +2928,7 @@
    "flat": true,
    "effective": "2026-07-31",
    "tracking": "CLIN-134751148",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134751148",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134751148",
    "n_filings": 1
   },
   {
@@ -2939,7 +2939,7 @@
    "flat": true,
    "effective": "2026-04-28",
    "tracking": "FRST-134902043",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134902043",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134902043",
    "n_filings": 1
   },
   {
@@ -2950,7 +2950,7 @@
    "flat": true,
    "effective": "2026-07-09",
    "tracking": "HART-134875417",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134875417",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134875417",
    "n_filings": 1
   },
   {
@@ -2961,7 +2961,7 @@
    "flat": true,
    "effective": "2026-10-08",
    "tracking": "HNVR-G134954446",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134954446",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134954446",
    "n_filings": 4
   },
   {
@@ -2972,7 +2972,7 @@
    "flat": true,
    "effective": "2025-01-30",
    "tracking": "PGAC-134378701",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134378701",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134378701",
    "n_filings": 1
   },
   {
@@ -2983,7 +2983,7 @@
    "flat": true,
    "effective": "2026-06-15",
    "tracking": "PNPR-134846271",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134846271",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134846271",
    "n_filings": 1
   },
   {
@@ -2994,7 +2994,7 @@
    "flat": true,
    "effective": "2026-05-31",
    "tracking": "SELC-134920657",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134920657",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134920657",
    "n_filings": 1
   },
   {
@@ -3005,7 +3005,7 @@
    "flat": true,
    "effective": "2026-05-11",
    "tracking": "SPIS-134876513",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134876513",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134876513",
    "n_filings": 1
   },
   {
@@ -3016,7 +3016,7 @@
    "flat": true,
    "effective": "2026-04-11",
    "tracking": "VKNG-134875890",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134875890",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134875890",
    "n_filings": 1
   },
   {
@@ -3027,7 +3027,7 @@
    "flat": true,
    "effective": "2026-09-01",
    "tracking": "VRFB-134968347",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134968347",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134968347",
    "n_filings": 2
   }
  ]

@@ -34,7 +34,7 @@ def iso(d):
     m, dd, y = d.split('/')
     return f"{y}-{m}-{dd}"
 
-url = lambda t: f"https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId={t.split('-', 1)[1].lstrip('G')}"
+url = lambda t: f"https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId={t.split('-', 1)[1].lstrip('G')}"
 
 # Rule-only / revenue-neutral jackets: "Rate data does NOT apply to filing" + 0.000% impact,
 # $0 WP change, 0 policyholders. Real filings on real books, so they belong in the open-book

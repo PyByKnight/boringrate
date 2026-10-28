@@ -1044,7 +1044,7 @@ site that supports the user." Did the on-instruction work, then wrapped (didn't 
   next, or keep pulling more home states first? Auto backfill PA/IL/OH still teed up if wanted.
 
 ## This session (2026-07-09, Opus 4.8) — NY published (9th tracker state, richest backfill)
-Standard **SERFF Filing Access** (filingaccess.serff.com/sfa/home/NY) = the clean workflow FLOIR wasn't.
+Standard **SERFF Filing Access** (serff-sfa.naic.org/serff/sfa/home/NY) = the clean workflow FLOIR wasn't.
 User pulled 13 jacket ZIPs (top-10 + Mercury/Farmers); Claude unzipped + parsed each **"Company Rate
 Information"** block (label header then per-entity value rows: name, Indicated%, **RateImpact%**, WP-change,
 policyholders, WP, Max%, Min%). Two block formats: the label-header table (GEICO/Progressive/etc) AND a
@@ -1080,7 +1080,7 @@ filing-level **"Overall Percentage Rate Impact For This Filing"** line — use t
   press entry says Progressive FL **-8%** (Mar 2026) = a trajectory (cut then small raise). **florida.html
   NOT updated** pending reconciliation (tool↔filing consistency rule). Liberty -7.9% is a clean new add
   when we do update the tracker.
-- **NEXT: NY via standard SERFF Filing Access** (filingaccess.serff.com/sfa/home/NY) — the clean
+- **NEXT: NY via standard SERFF Filing Access** (serff-sfa.naic.org/serff/sfa/home/NY) — the clean
   jacket-ZIP workflow that made TN/GA/SC/TX easy (Company Rate Information block = overall % + premium +
   PH), far better than FLOIR. Then PA/IL/OH same way. FL keeps its press-sourced tracker page.
 
@@ -1212,13 +1212,13 @@ overall % + premium + policyholders, and feeding them into the primary-source pi
    aggregators (rateauthority.org, AM Best State Rate Filings) exist but are secondary/paywalled = off-limits.
    **✅ NY DONE (07-09) — 9th tracker state, most complete (5/5 top-5, 10/10 top-10).** Standard SERFF FA
    jacket-ZIP workflow (clean, gave premium+PH). 12 backbone rows; published 7 movers to new-york.html.
-   **NEXT big markets same workflow: PA, IL, OH** (filingaccess.serff.com/sfa/home/<ST>). Recipe below
+   **NEXT big markets same workflow: PA, IL, OH** (serff-sfa.naic.org/serff/sfa/home/<ST>). Recipe below
    worked perfectly — reuse it.
 2. **NV** — deprioritized (only 2 carriers; tracker already covered by press). Skip for now.
 3. Then big markets (NY/PA/OH/IL SERFF) once the tracked 8 are done.
 
 **The loop (per state, ~repeat of TN):**
-1. Search SERFF FilingAccess (`https://filingaccess.serff.com/sfa/home/<ST>`, session-bound, no
+1. Search SERFF FilingAccess (`https://serff-sfa.naic.org/serff/sfa/home/<ST>`, session-bound, no
    deep-links) → P&C → TOI **19.0001 Private Passenger Auto** → **Rate / Rate-Rule**, **Closed-Approved**,
    recent. Skip Form / Rule(UWG) / Motorcycle(19.0002) / RV(19.0003) / Withdrawn. Pull the newest
    "Multiple"/statewide rate/rule ZIP per carrier to `/home/knighttyler/<TRACKING>.zip`.

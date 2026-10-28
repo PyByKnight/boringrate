@@ -303,7 +303,7 @@
    "renewal": "2026-08-10",
    "affected": 111863,
    "source": "NV DOI rate filing ALSE-134923648 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134923648",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134923648",
    "note": "Approved June 11, 2026 \u2014 BoringRate read the filing directly. The increase is entirely liability-driven: bodily injury +17.3% and uninsured-motorist +14.6%, while property damage, collision and comprehensive are flat. New business July 6; existing customers see it at renewals from Aug 10. Count is insured vehicles (~$298M book, Allstate's main NV program)."
   },
   {
@@ -315,7 +315,7 @@
    "renewal": "2026-08-10",
    "affected": 1455,
    "source": "NV DOI rate filing ALSE-134923710 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134923710",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134923710",
    "note": "Approved June 11, 2026 \u2014 filed alongside the Fire & Casualty increase. Bodily injury +10.7%, uninsured-motorist +47.4%, comprehensive down 4.5%. Small legacy book (~$6.3M premium). Count is insured vehicles."
   },
   {
@@ -327,7 +327,7 @@
    "renewal": "2026-07-17",
    "affected": 17980,
    "source": "NV DOI rate filing LBPM-134798717 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134798717",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134798717",
    "note": "Filed January, approved June 1, 2026 after Division objections. Bodily injury +16.3% while comprehensive (\u22123.6%) and collision (\u22123.5%) fall. New business May 16; renewals from July 17. Count is insured vehicles."
   },
   {
@@ -508,7 +508,7 @@
    "effective": "2025-11-28",
    "renewal": "2025-12-28",
    "source": "GA DOI rate filing SFMA-134677514 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134677514",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134677514",
    "note": "State Farm Mutual Automobile, -3.0% across 2.07M policyholders ($3.39B book, -$101.8M) despite a +4.4% indicated need; new business Nov 28, 2025, renewals Dec 28. Now primary-sourced to the GA filing (was newsroom). Latest of several cuts totaling ~10% over the past year; cites fewer claims + GA legal reforms. Count is policyholders.",
    "affected": 2069411
   },
@@ -521,7 +521,7 @@
    "renewal": "2025-10-12",
    "affected": 176619,
    "source": "GA DOI rate filing GECC-134514872 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134514872",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134514872",
    "note": "GEICO Casualty + GEICO Secure, +4.6% (indicated +7.7%) across 176,619 policyholders ($578M book, +$26.6M) \u2014 GEICO's most recent GA revision, effective Aug 21, 2025. GEICO raised while State Farm cut and USAA held flat. Count is policyholders."
   },
   {
@@ -532,7 +532,7 @@
    "effective": "2025-12-05",
    "renewal": "2026-01-09",
    "source": "GA DOI rate filing PRGS-134655228 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134655228",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134655228",
    "note": "Progressive's four GA personal-auto entities (American, Freedom, Mountain, Southeastern). Filed at \u22122.7%, approved as amended at \u22124.1% (revised Exhibit 12; approved Nov 4, 2025). A physical-damage-driven cut: property damage \u221212%, collision \u221214%, comprehensive \u22128%, while bodily injury (+7%) and uninsured-motorist BI (+10%) rose. New business Dec 5, 2025; renewals from Jan 9, 2026."
   },
   {
@@ -544,7 +544,7 @@
    "renewal": "2026-06-07",
    "affected": 109120,
    "source": "GA DOI rate filing TRVD-G134911970 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134911970",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134911970",
    "note": "Travelers Property Casualty (Quantum Auto 2.0). Overall \u221210.1% rate impact (indicated \u221224%), \u2212$40.8M across 109,120 policyholders \u2014 the largest 2026 Georgia auto move in our data. Approved Apr 29, 2026; new business May 8, renewals from June 7. Count is insured vehicles."
   },
   {
@@ -555,7 +555,7 @@
    "effective": "2026-06-01",
    "affected": 19212,
    "source": "GA DOI rate filing AMMA-134629855 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134629855",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134629855",
    "note": "Amica Mutual, +8.9% across 19,212 policyholders, effective June 1, 2026 (approved Jan 14). Follows a +14.7% prior revision. Count is insured vehicles."
   },
   {
@@ -566,7 +566,7 @@
    "effective": "2026-10-01",
    "affected": 654,
    "source": "GA DOI rate filing PRCA-134928738 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134928738",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134928738",
    "note": "American Family Connect P&C (direct brand), +7.5% on a small 654-policyholder book; renewals from Oct 1, 2026 (approved Apr 30). Prior revision +7.2%. Count is insured vehicles."
   },
   {
@@ -578,7 +578,7 @@
    "renewal": "2026-08-16",
    "affected": 434,
    "source": "GA DOI rate filing ALSE-134945888 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134945888",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134945888",
    "note": "Allstate Indemnity Company (legacy book, closed to new business; 434 policyholders), +5.5% via revised Rate Adjustment Factors. New business July 13, renewals from Aug 16 (approved June 22). Follows a +7.0% revision effective Jan 2026 \u2014 Allstate has raised GA twice this cycle. Count is insured vehicles."
   },
   {
@@ -589,7 +589,7 @@
    "effective": "2026-04-01",
    "affected": 2800,
    "source": "GA DOI rate filing DNGL-134767488 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134767488",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134767488",
    "note": "Donegal Group (Southern Insurance Company of Virginia), +5.0% across 2,800 policyholders, renewals from Apr 1, 2026 (approved Jan 6). Prior revision +9.9%. Donegal is the cheapest-named GA auto carrier in published data (NerdWallet). Count is insured vehicles."
   },
   {
@@ -600,7 +600,7 @@
    "effective": "2026-08-31",
    "affected": 13476,
    "source": "GA DOI rate filing LBPM-134994822 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134994822",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134994822",
    "note": "Liberty Mutual (LM General Insurance Company), +3.4% (indicated +5.9%) across 13,476 policyholders; renewals from Aug 31, 2026 (approved June 25; no separate new-business date). Follows a +14.5% prior revision. Count is insured vehicles."
   },
   {
@@ -612,7 +612,7 @@
    "renewal": "2026-02-16",
    "affected": 1199271,
    "source": "SC DOI rate filing SFMA-134701541 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134701541",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134701541",
    "note": "State Farm Mutual Auto \u22128.1% across 1,199,271 policyholders (\u2212$117M); companion Fire & Casualty \u22126.0% (72,652). Combined \u2212$127M (matches the newsroom figure). State Farm holds 25.5% of SC's auto market. Follows a prior \u22126.7% (Jul 2025) \u2014 ~14% over two filings. Approved Dec 15, 2025; effective Feb 16, 2026. Count is policyholders."
   },
   {
@@ -624,7 +624,7 @@
    "renewal": "2026-05-15",
    "affected": 5901,
    "source": "SC DOI rate filing ANPC-134772485 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134772485",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134772485",
    "note": "American National P&C, +18.96% across 5,901 policyholders. Approved Mar 9, 2026; new business Apr 3, renewals May 15. Count is policyholders."
   },
   {
@@ -635,7 +635,7 @@
    "effective": "2026-09-01",
    "affected": 8107,
    "source": "SC DOI rate filing PRCA-134889827 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134889827",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134889827",
    "note": "American Family Connect P&C (direct brand), +8.8% across 8,107 policyholders; renewals from Sep 1, 2026 (approved May 7). Prior revision +14.0%. Count is policyholders."
   },
   {
@@ -646,7 +646,7 @@
    "effective": "2026-02-23",
    "renewal": "2026-04-27",
    "source": "SC DOI rate filing ALSE-134847054 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134847054",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134847054",
    "note": "Allstate North American, overall \u22127.0% (RAF rate decrease). Approved Mar 31, 2026; new business Feb 23, renewals from Apr 27."
   },
   {
@@ -658,7 +658,7 @@
    "renewal": "2026-02-01",
    "affected": 68542,
    "source": "SC DOI rate filing SFBC-134687931 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134687931",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134687931",
    "note": "Southern Farm Bureau Casualty, \u22123.86% across 68,542 policyholders (\u2212$6.4M); holds 2.4% of SC's auto market. Approved Nov 12, 2025; effective Feb 1, 2026. Follows a prior +11.2%. Count is policyholders."
   },
   {
@@ -670,7 +670,7 @@
    "renewal": "2026-05-01",
    "affected": 5657,
    "source": "SC DOI rate filing AMMA-134748444 (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134748444",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134748444",
    "note": "Amica Mutual, +3.0% across 5,657 policyholders. Approved Feb 19, 2026; new business Apr 1, renewals May 1. Count is policyholders."
   },
   {
@@ -681,7 +681,7 @@
    "effective": "2025-12-15",
    "renewal": "2026-01-15",
    "source": "SERFF (TN DOI filing SFMA-134611724, PV-48953)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134611724",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134611724",
    "note": "Primary-sourced: State Farm Mutual -10.7% (Fire & Casualty -7.0%), $148.5M off a 1.3M-policyholder book. New business Dec 15 2025, renewals Jan 15 2026.",
    "affected": 1309799
   },
@@ -693,7 +693,7 @@
    "effective": "2026-06-26",
    "affected": 1998,
    "source": "SERFF (TN DOI filing ANPC-134881820)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134881820",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134881820",
    "renewal": "2026-09-30"
   },
   {
@@ -704,7 +704,7 @@
    "effective": "2026-03-06",
    "affected": 3783,
    "source": "SERFF (TN DOI filing CFPC-134718424)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134718424"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134718424"
   },
   {
    "carrier": "Root",
@@ -714,7 +714,7 @@
    "effective": "2026-05-29",
    "affected": 8010,
    "source": "SERFF (TN DOI filing CLIN-134910716)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134910716",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134910716",
    "renewal": "2026-07-01"
   },
   {
@@ -725,7 +725,7 @@
    "effective": "2026-05-29",
    "affected": 444034,
    "source": "SERFF (TN DOI filing PRGS-134800104)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134800104",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134800104",
    "renewal": "2026-07-03"
   },
   {
@@ -736,7 +736,7 @@
    "effective": "2026-08-11",
    "affected": 3209,
    "source": "SERFF (TN DOI filing PRCA-134868307)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134868307",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134868307",
    "renewal": "2026-08-11"
   },
   {
@@ -747,7 +747,7 @@
    "effective": "2026-05-13",
    "affected": 90672,
    "source": "SERFF (TN DOI filing SHEL-134846853)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134846853"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134846853"
   },
   {
    "carrier": "Nationwide",
@@ -757,7 +757,7 @@
    "effective": "2026-03-06",
    "affected": 25649,
    "source": "SERFF (TN DOI filing NWPP-G134730628)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134730628",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134730628",
    "renewal": "2026-04-18"
   },
   {
@@ -768,7 +768,7 @@
    "effective": "2026-06-09",
    "affected": 32328,
    "source": "SERFF (TN DOI filing FARM-134932086)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134932086",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134932086",
    "renewal": "2026-07-12"
   },
   {
@@ -779,7 +779,7 @@
    "effective": "2026-05-26",
    "affected": 46476,
    "source": "SERFF (TN DOI filing AOIC-134836495)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134836495",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134836495",
    "renewal": "2026-07-01"
   },
   {
@@ -791,7 +791,7 @@
    "renewal": "2026-07-01",
    "affected": 1334001,
    "source": "SERFF (TN DOI filing SFMA-134859733, PV-49363)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134859733",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134859733",
    "note": "State Farm Mutual's second TN auto cut in a year (Fire & Casualty -8.6%), $87M off a 1.33M-policyholder book."
   },
   {
@@ -803,7 +803,7 @@
    "renewal": "2026-06-07",
    "affected": 44545,
    "source": "SERFF (TN DOI filing GECC-134888920)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134888920",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134888920",
    "note": "GEICO Indemnity & Marine cut -5.0% (indicated -6.4% to -6.9%); ~44,545 policyholders."
   },
   {
@@ -833,7 +833,7 @@
    "dir": "increase",
    "effective": "2026-04-29",
    "source": "NY SERFF Filing Access (Company Rate Information)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134738048",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134738048",
    "note": "Indicated +20.2%, approved +4.95%. 142K policyholders, $640M written premium."
   },
   {
@@ -843,7 +843,7 @@
    "dir": "increase",
    "effective": "2026-08-22",
    "source": "NY SERFF Filing Access (Company Rate Information)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134694570",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134694570",
    "note": "Regional NY writer. 2026 Prism + Non-Prism rate change; indicated +21.5%, approved +4.94%."
   },
   {
@@ -853,7 +853,7 @@
    "dir": "increase",
    "effective": "2026-06-23",
    "source": "NY SERFF Filing Access (Company Rate Information)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134872955",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134872955",
    "note": "Small NY book (749 policyholders); +5.0%."
   },
   {
@@ -863,7 +863,7 @@
    "dir": "increase",
    "effective": "2026-03-06",
    "source": "NY SERFF Filing Access (Company Rate Information)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134858552",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134858552",
    "note": "Flex program; +1.1% on a 524K-policyholder, $1.54B book."
   },
   {
@@ -873,7 +873,7 @@
    "dir": "increase",
    "effective": "2025-03-10",
    "source": "NY SERFF Filing Access (Company Rate Information)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134404337",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134404337",
    "note": "NY's #1 auto writer \u2014 current in-force rate (approved 2025). +4.9% across a 1.53M-policyholder, $4.44B book; indicated +8.1%."
   },
   {
@@ -883,7 +883,7 @@
    "dir": "increase",
    "effective": "2025-12-29",
    "source": "NY SERFF Filing Access (Company Rate Information)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134680232",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134680232",
    "note": "Quantum Auto 2.0; +3.0% (eff late 2025), 228K policyholders, $750M premium."
   },
   {
@@ -893,7 +893,7 @@
    "dir": "increase",
    "effective": "2025-08-18",
    "source": "NY SERFF Filing Access (Company Rate Information)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134358402",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134358402",
    "note": "Current in-force rate (eff 2025). Indicated +42.8%, approved +8.7%."
   },
   {
@@ -904,7 +904,7 @@
    "effective": "2026-03-23",
    "affected": 2180522,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134758176"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134758176"
   },
   {
    "carrier": "Erie",
@@ -914,7 +914,7 @@
    "effective": "2026-09-01",
    "affected": 949661,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134924958"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134924958"
   },
   {
    "carrier": "Progressive",
@@ -924,7 +924,7 @@
    "effective": "2026-01-09",
    "affected": 827597,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134556786"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134556786"
   },
   {
    "carrier": "The General",
@@ -934,7 +934,7 @@
    "effective": "2026-05-28",
    "affected": 69974,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134907337"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134907337"
   },
   {
    "carrier": "Nationwide",
@@ -944,7 +944,7 @@
    "effective": "2026-01-31",
    "affected": 10280,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/home/PA"
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/PA"
   },
   {
    "carrier": "Liberty Mutual",
@@ -954,7 +954,7 @@
    "effective": "2026-06-01",
    "affected": 55969,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134770292"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134770292"
   },
   {
    "carrier": "Selective",
@@ -964,7 +964,7 @@
    "effective": "2025-12-31",
    "affected": 11227,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134573770"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134573770"
   },
   {
    "carrier": "Grange",
@@ -974,7 +974,7 @@
    "effective": "2026-06-01",
    "affected": 8200,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134679118"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134679118"
   },
   {
    "carrier": "Hanover",
@@ -984,7 +984,7 @@
    "effective": "2026-03-13",
    "affected": 10704,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/home/PA"
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/PA"
   },
   {
    "carrier": "Plymouth Rock",
@@ -994,7 +994,7 @@
    "effective": "2026-09-01",
    "affected": 11599,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134967675"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134967675"
   },
   {
    "carrier": "Donegal",
@@ -1004,7 +1004,7 @@
    "effective": "2026-09-15",
    "affected": 47506,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=135003371"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=135003371"
   },
   {
    "carrier": "The Hartford",
@@ -1014,7 +1014,7 @@
    "effective": "2026-07-23",
    "affected": 17191,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134941173"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134941173"
   },
   {
    "carrier": "NJM",
@@ -1024,7 +1024,7 @@
    "effective": "2026-06-01",
    "affected": 3574,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134757403"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134757403"
   },
   {
    "carrier": "NJM",
@@ -1034,7 +1034,7 @@
    "effective": "2026-09-15",
    "affected": 19505,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134893231"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134893231"
   },
   {
    "carrier": "American National",
@@ -1044,7 +1044,7 @@
    "effective": "2025-12-26",
    "affected": 6994,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134643362"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134643362"
   },
   {
    "carrier": "Cincinnati",
@@ -1054,7 +1054,7 @@
    "effective": "2026-05-16",
    "affected": 3649,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134712275"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134712275"
   },
   {
    "carrier": "Auto-Owners",
@@ -1064,7 +1064,7 @@
    "effective": "2026-10-01",
    "affected": 25215,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134954567"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134954567"
   },
   {
    "carrier": "Travelers",
@@ -1074,7 +1074,7 @@
    "effective": "2025-09-22",
    "affected": 158430,
    "source": "Pennsylvania Insurance Department (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/home/PA"
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/PA"
   },
   {
    "carrier": "State Farm",
@@ -1084,7 +1084,7 @@
    "effective": "2025-07-18",
    "affected": 3179517,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134548953"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134548953"
   },
   {
    "carrier": "State Farm",
@@ -1094,7 +1094,7 @@
    "effective": "2025-12-04",
    "affected": 3330568,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134704563"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134704563"
   },
   {
    "carrier": "Country Financial",
@@ -1104,7 +1104,7 @@
    "effective": "2025-12-24",
    "affected": 302139,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134703367"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134703367"
   },
   {
    "carrier": "Country Financial",
@@ -1114,7 +1114,7 @@
    "effective": "2026-06-24",
    "affected": 241547,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134932067"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134932067"
   },
   {
    "carrier": "Progressive",
@@ -1124,7 +1124,7 @@
    "effective": "2025-08-15",
    "affected": 746310,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134633994"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134633994"
   },
   {
    "carrier": "Progressive",
@@ -1134,7 +1134,7 @@
    "effective": "2026-01-30",
    "affected": 762218,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134785395"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134785395"
   },
   {
    "carrier": "Progressive",
@@ -1144,7 +1144,7 @@
    "effective": "2026-06-19",
    "affected": 793969,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134970180"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134970180"
   },
   {
    "carrier": "American Family",
@@ -1154,7 +1154,7 @@
    "effective": "2025-12-05",
    "affected": 57697,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134711267"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134711267"
   },
   {
    "carrier": "American Family",
@@ -1164,7 +1164,7 @@
    "effective": "2026-06-18",
    "affected": 61561,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134924309"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134924309"
   },
   {
    "carrier": "Grinnell",
@@ -1174,7 +1174,7 @@
    "effective": "2026-02-01",
    "affected": 4623,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134704653"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134704653"
   },
   {
    "carrier": "Grinnell",
@@ -1184,7 +1184,7 @@
    "effective": "2026-08-01",
    "affected": 4266,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134960623"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134960623"
   },
   {
    "carrier": "Travelers",
@@ -1194,7 +1194,7 @@
    "effective": "2025-08-22",
    "affected": 83377,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/home/IL"
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/IL"
   },
   {
    "carrier": "Shelter",
@@ -1204,7 +1204,7 @@
    "effective": "2025-12-06",
    "affected": 38403,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134682271"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134682271"
   },
   {
    "carrier": "Mercury",
@@ -1214,7 +1214,7 @@
    "effective": "2025-12-17",
    "affected": 6558,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134766294"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134766294"
   },
   {
    "carrier": "Mercury",
@@ -1224,7 +1224,7 @@
    "effective": "2026-04-29",
    "affected": 6083,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134908597"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134908597"
   },
   {
    "carrier": "Liberty Mutual",
@@ -1234,7 +1234,7 @@
    "effective": "2025-09-11",
    "affected": 27054,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665401"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134665401"
   },
   {
    "carrier": "Pekin",
@@ -1244,7 +1244,7 @@
    "effective": "2025-09-05",
    "affected": 31093,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134584404"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134584404"
   },
   {
    "carrier": "Auto-Owners",
@@ -1254,7 +1254,7 @@
    "effective": "2025-07-29",
    "affected": 88283,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134571348"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134571348"
   },
   {
    "carrier": "Auto-Owners",
@@ -1264,7 +1264,7 @@
    "effective": "2026-02-12",
    "affected": 88468,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134786248"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134786248"
   },
   {
    "carrier": "The Hartford",
@@ -1274,7 +1274,7 @@
    "effective": "2026-02-05",
    "affected": 13568,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134789514"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134789514"
   },
   {
    "carrier": "Kemper",
@@ -1284,7 +1284,7 @@
    "effective": "2025-11-24",
    "affected": 13280,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134740540"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134740540"
   },
   {
    "carrier": "Kemper",
@@ -1294,7 +1294,7 @@
    "effective": "2026-05-25",
    "affected": 18797,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134957968"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134957968"
   },
   {
    "carrier": "American National",
@@ -1304,7 +1304,7 @@
    "effective": "2026-07-24",
    "affected": 1088,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134917316"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134917316"
   },
   {
    "carrier": "Safeco",
@@ -1314,7 +1314,7 @@
    "effective": "2026-06-01",
    "affected": 20957,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134870075"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134870075"
   },
   {
    "carrier": "Farmers",
@@ -1324,7 +1324,7 @@
    "effective": "2026-01-18",
    "affected": 63749,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134792823"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134792823"
   },
   {
    "carrier": "GEICO",
@@ -1334,7 +1334,7 @@
    "effective": "2026-04-03",
    "affected": 112552,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134888662"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134888662"
   },
   {
    "carrier": "Hanover",
@@ -1344,7 +1344,7 @@
    "effective": "2026-01-16",
    "affected": 24063,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/home/IL"
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/IL"
   },
   {
    "carrier": "Hanover",
@@ -1354,7 +1354,7 @@
    "effective": "2026-08-01",
    "affected": 24487,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/home/IL"
+   "url": "https://serff-sfa.naic.org/serff/sfa/home/IL"
   },
   {
    "carrier": "Allstate",
@@ -1364,7 +1364,7 @@
    "effective": "2026-09-03",
    "affected": 1715,
    "source": "Illinois Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134997297"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134997297"
   },
   {
    "carrier": "Chubb",
@@ -1374,7 +1374,7 @@
    "effective": "2026-03-02",
    "affected": 1435,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134796713"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134796713"
   },
   {
    "carrier": "Acuity",
@@ -1384,7 +1384,7 @@
    "effective": "2025-12-03",
    "affected": 4459,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665080"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134665080"
   },
   {
    "carrier": "Allstate",
@@ -1394,7 +1394,7 @@
    "effective": "2025-07-07",
    "affected": 79136,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134591448"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134591448"
   },
   {
    "carrier": "Allstate",
@@ -1404,7 +1404,7 @@
    "effective": "2025-09-30",
    "affected": 105026,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134684339"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134684339"
   },
   {
    "carrier": "Allstate",
@@ -1414,7 +1414,7 @@
    "effective": "2026-03-17",
    "affected": 158300,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134879528"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134879528"
   },
   {
    "carrier": "Allstate",
@@ -1424,7 +1424,7 @@
    "effective": "2026-07-01",
    "affected": 1229,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134990846"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134990846"
   },
   {
    "carrier": "American Modern",
@@ -1434,7 +1434,7 @@
    "effective": "2026-02-01",
    "affected": 6243,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134696635"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134696635"
   },
   {
    "carrier": "Auto-Owners",
@@ -1444,7 +1444,7 @@
    "effective": "2026-04-23",
    "affected": 97434,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134774421"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134774421"
   },
   {
    "carrier": "Buckeye",
@@ -1454,7 +1454,7 @@
    "effective": "2025-12-01",
    "affected": 5780,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134682744"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134682744"
   },
   {
    "carrier": "Celina",
@@ -1464,7 +1464,7 @@
    "effective": "2025-11-01",
    "affected": 3474,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134649865"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134649865"
   },
   {
    "carrier": "Celina",
@@ -1474,7 +1474,7 @@
    "effective": "2025-11-01",
    "affected": 9202,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134650030"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134650030"
   },
   {
    "carrier": "Central",
@@ -1484,7 +1484,7 @@
    "effective": "2025-12-01",
    "affected": 12924,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665345"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134665345"
   },
   {
    "carrier": "Root",
@@ -1494,7 +1494,7 @@
    "effective": "2026-06-23",
    "affected": 13283,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134833383"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134833383"
   },
   {
    "carrier": "Cincinnati",
@@ -1504,7 +1504,7 @@
    "effective": "2026-03-01",
    "affected": 35574,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134646555"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134646555"
   },
   {
    "carrier": "Erie",
@@ -1514,7 +1514,7 @@
    "effective": "2026-06-01",
    "affected": 275438,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134872060"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134872060"
   },
   {
    "carrier": "Farmers",
@@ -1524,7 +1524,7 @@
    "effective": "2025-08-11",
    "affected": 20684,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134614960"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134614960"
   },
   {
    "carrier": "GEICO",
@@ -1534,7 +1534,7 @@
    "effective": "2026-04-03",
    "affected": 82496,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134888669"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134888669"
   },
   {
    "carrier": "Grange",
@@ -1544,7 +1544,7 @@
    "effective": "2025-12-20",
    "affected": 106260,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134743417"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134743417"
   },
   {
    "carrier": "Grinnell",
@@ -1554,7 +1554,7 @@
    "effective": "2026-02-01",
    "affected": 1307,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134675159"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134675159"
   },
   {
    "carrier": "The Hartford",
@@ -1564,7 +1564,7 @@
    "effective": "2026-05-07",
    "affected": 12187,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134890745"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134890745"
   },
   {
    "carrier": "Hastings",
@@ -1574,7 +1574,7 @@
    "effective": "2026-05-01",
    "affected": 13555,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134712938"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134712938"
   },
   {
    "carrier": "Hanover",
@@ -1584,7 +1584,7 @@
    "effective": "2026-01-16",
    "affected": 9122,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134755148"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134755148"
   },
   {
    "carrier": "Harleysville",
@@ -1594,7 +1594,7 @@
    "effective": "2026-03-02",
    "affected": 1425,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134536849"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134536849"
   },
   {
    "carrier": "Auto Club",
@@ -1604,7 +1604,7 @@
    "effective": "2026-06-01",
    "affected": 12846,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134831927"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134831927"
   },
   {
    "carrier": "Indiana Farmers",
@@ -1614,7 +1614,7 @@
    "effective": "2026-02-01",
    "affected": 83,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134770304"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134770304"
   },
   {
    "carrier": "Liberty Mutual",
@@ -1624,7 +1624,7 @@
    "effective": "2025-05-17",
    "affected": 12755,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134524595"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134524595"
   },
   {
    "carrier": "Liberty Mutual",
@@ -1634,7 +1634,7 @@
    "effective": "2025-06-25",
    "affected": 39574,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134577826"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134577826"
   },
   {
    "carrier": "Liberty Mutual",
@@ -1644,7 +1644,7 @@
    "effective": "2025-07-24",
    "affected": 14564,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134611025"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134611025"
   },
   {
    "carrier": "Liberty Mutual",
@@ -1654,7 +1654,7 @@
    "effective": "2026-06-28",
    "affected": 53886,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134878625"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134878625"
   },
   {
    "carrier": "Motorists",
@@ -1664,7 +1664,7 @@
    "effective": "2025-07-20",
    "affected": 11489,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134581282"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134581282"
   },
   {
    "carrier": "Nationwide",
@@ -1674,7 +1674,7 @@
    "effective": "2025-12-20",
    "affected": 28168,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134739089"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134739089"
   },
   {
    "carrier": "Ohio Mutual",
@@ -1684,7 +1684,7 @@
    "effective": "2025-11-01",
    "affected": 10370,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134688799"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134688799"
   },
   {
    "carrier": "Ohio Mutual",
@@ -1694,7 +1694,7 @@
    "effective": "2025-11-01",
    "affected": 4027,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134691392"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134691392"
   },
   {
    "carrier": "Ohio Mutual",
@@ -1704,7 +1704,7 @@
    "effective": "2026-06-15",
    "affected": 13909,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134945306"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134945306"
   },
   {
    "carrier": "American Family",
@@ -1714,7 +1714,7 @@
    "effective": "2026-05-01",
    "affected": 5002,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134811925"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134811925"
   },
   {
    "carrier": "Progressive",
@@ -1724,7 +1724,7 @@
    "effective": "2025-06-20",
    "affected": 550850,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134516714"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134516714"
   },
   {
    "carrier": "Progressive",
@@ -1734,7 +1734,7 @@
    "effective": "2025-11-21",
    "affected": 445515,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134729388"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134729388"
   },
   {
    "carrier": "Progressive",
@@ -1744,7 +1744,7 @@
    "effective": "2026-04-17",
    "affected": 581638,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134879605"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134879605"
   },
   {
    "carrier": "State Farm",
@@ -1754,7 +1754,7 @@
    "effective": "2025-10-20",
    "affected": 2176914,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134637347"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134637347"
   },
   {
    "carrier": "State Farm",
@@ -1764,7 +1764,7 @@
    "effective": "2025-12-04",
    "affected": 2278688,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134699767"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134699767"
   },
   {
    "carrier": "Shelter",
@@ -1774,7 +1774,7 @@
    "effective": "2026-03-25",
    "affected": 10139,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134793932"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134793932"
   },
   {
    "carrier": "Travelers",
@@ -1784,7 +1784,7 @@
    "effective": "2025-06-06",
    "affected": 67929,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134532492"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134532492"
   },
   {
    "carrier": "Travelers",
@@ -1794,7 +1794,7 @@
    "effective": "2025-08-22",
    "affected": 67059,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134633727"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134633727"
   },
   {
    "carrier": "Wayne Mutual",
@@ -1804,7 +1804,7 @@
    "effective": "2026-01-01",
    "affected": 9236,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134700884"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134700884"
   },
   {
    "carrier": "Westfield",
@@ -1814,7 +1814,7 @@
    "effective": "2026-03-01",
    "affected": 32698,
    "source": "Ohio Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134773758"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134773758"
   },
   {
    "carrier": "Chubb",
@@ -1824,7 +1824,7 @@
    "effective": "2026-07-01",
    "affected": 997,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134813463"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134813463"
   },
   {
    "carrier": "Allstate",
@@ -1834,7 +1834,7 @@
    "effective": "2026-07-01",
    "affected": 130189,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134840116"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134840116"
   },
   {
    "carrier": "Auto-Owners",
@@ -1844,7 +1844,7 @@
    "effective": "2026-03-24",
    "affected": 563228,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134765723"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134765723"
   },
   {
    "carrier": "Auto-Owners",
@@ -1854,7 +1854,7 @@
    "effective": "2026-07-01",
    "affected": 563228,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134796379"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134796379"
   },
   {
    "carrier": "Branch",
@@ -1864,7 +1864,7 @@
    "effective": "2026-07-01",
    "affected": 973,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134894516"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134894516"
   },
   {
    "carrier": "Bristol West",
@@ -1874,7 +1874,7 @@
    "effective": "2026-03-13",
    "affected": 36840,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134728991"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134728991"
   },
   {
    "carrier": "Central",
@@ -1884,7 +1884,7 @@
    "effective": "2026-07-01",
    "affected": 745,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134896832"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134896832"
   },
   {
    "carrier": "Cincinnati Insurance",
@@ -1894,7 +1894,7 @@
    "effective": "2026-07-01",
    "affected": 5482,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134778441"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134778441"
   },
   {
    "carrier": "Cincinnati Insurance",
@@ -1904,7 +1904,7 @@
    "effective": "2026-07-01",
    "affected": 10459,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134779502"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134779502"
   },
   {
    "carrier": "CURE",
@@ -1914,7 +1914,7 @@
    "effective": "2026-07-01",
    "affected": 50157,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134852791"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134852791"
   },
   {
    "carrier": "Donegal Insurance",
@@ -1924,7 +1924,7 @@
    "effective": "2026-07-15",
    "affected": 1344,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134902602"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134902602"
   },
   {
    "carrier": "Auto Club Group (AAA)",
@@ -1934,7 +1934,7 @@
    "effective": "2026-07-01",
    "affected": 296837,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134797442"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134797442"
   },
   {
    "carrier": "Farmers",
@@ -1944,7 +1944,7 @@
    "effective": "2026-07-01",
    "affected": 590,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134855251"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134855251"
   },
   {
    "carrier": "Michigan Farm Bureau",
@@ -1954,7 +1954,7 @@
    "effective": "2026-07-01",
    "affected": 176315,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134821691"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134821691"
   },
   {
    "carrier": "Frankenmuth Insurance",
@@ -1964,7 +1964,7 @@
    "effective": "2026-05-01",
    "affected": 73763,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134683592"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134683592"
   },
   {
    "carrier": "Frankenmuth Insurance",
@@ -1974,7 +1974,7 @@
    "effective": "2026-07-01",
    "affected": 70024,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134885337"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134885337"
   },
   {
    "carrier": "GEICO",
@@ -1984,7 +1984,7 @@
    "effective": "2026-07-01",
    "affected": 37756,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134917903"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134917903"
   },
   {
    "carrier": "National General",
@@ -1994,7 +1994,7 @@
    "effective": "2026-04-16",
    "affected": 28867,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134756538"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134756538"
   },
   {
    "carrier": "National General",
@@ -2004,7 +2004,7 @@
    "effective": "2026-07-20",
    "affected": 1,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134900456"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134900456"
   },
   {
    "carrier": "Grange",
@@ -2014,7 +2014,7 @@
    "effective": "2026-07-01",
    "affected": 257,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134892742"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134892742"
   },
   {
    "carrier": "The Hartford",
@@ -2024,7 +2024,7 @@
    "effective": "2026-07-09",
    "affected": 14491,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134800906"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134800906"
   },
   {
    "carrier": "Hastings Mutual",
@@ -2034,7 +2034,7 @@
    "effective": "2026-07-01",
    "affected": 16288,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134815324"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134815324"
   },
   {
    "carrier": "The Hanover",
@@ -2044,7 +2044,7 @@
    "effective": "2026-02-23",
    "affected": 190045,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134685654"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134685654"
   },
   {
    "carrier": "Horace Mann",
@@ -2054,7 +2054,7 @@
    "effective": "2025-12-01",
    "affected": 11570,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134645804"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134645804"
   },
   {
    "carrier": "MEEMIC",
@@ -2064,7 +2064,7 @@
    "effective": "2026-07-01",
    "affected": 121383,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134797437"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134797437"
   },
   {
    "carrier": "Northern Mutual",
@@ -2074,7 +2074,7 @@
    "effective": "2025-07-22",
    "affected": 19709,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134608564"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134608564"
   },
   {
    "carrier": "GM National",
@@ -2084,7 +2084,7 @@
    "effective": "2026-07-01",
    "affected": 2104,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134837021"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134837021"
   },
   {
    "carrier": "Wolverine",
@@ -2094,7 +2094,7 @@
    "effective": "2026-07-01",
    "affected": 6292,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134914276"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134914276"
   },
   {
    "carrier": "Progressive",
@@ -2104,7 +2104,7 @@
    "effective": "2025-10-31",
    "affected": 259667,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134425680"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134425680"
   },
   {
    "carrier": "Progressive",
@@ -2114,7 +2114,7 @@
    "effective": "2025-10-31",
    "affected": 556624,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134425693"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134425693"
   },
   {
    "carrier": "Progressive",
@@ -2124,7 +2124,7 @@
    "effective": "2026-04-24",
    "affected": 584973,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134782430"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134782430"
   },
   {
    "carrier": "Progressive",
@@ -2134,7 +2134,7 @@
    "effective": "2026-04-24",
    "affected": 237660,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134782455"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134782455"
   },
   {
    "carrier": "PURE",
@@ -2144,7 +2144,7 @@
    "effective": "2026-07-01",
    "affected": 1133,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134847699"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134847699"
   },
   {
    "carrier": "State Farm",
@@ -2154,7 +2154,7 @@
    "effective": "2026-02-05",
    "affected": 1327368,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134697302"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134697302"
   },
   {
    "carrier": "State Farm",
@@ -2164,7 +2164,7 @@
    "effective": "2026-08-18",
    "affected": 1324174,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134766938"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134766938"
   },
   {
    "carrier": "State Farm",
@@ -2174,7 +2174,7 @@
    "effective": "2026-07-01",
    "affected": 1324174,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134810820"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134810820"
   },
   {
    "carrier": "State Farm",
@@ -2184,7 +2184,7 @@
    "effective": "2026-09-28",
    "affected": 1303598,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134828462"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134828462"
   },
   {
    "carrier": "Travelers",
@@ -2194,7 +2194,7 @@
    "effective": "2026-07-01",
    "affected": 1750,
    "source": "Michigan Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134882818"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134882818"
   },
   {
    "carrier": "Acuity",
@@ -2207,7 +2207,7 @@
    "max_pct": 31.8,
    "min_pct": -14.1,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134506395"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134506395"
   },
   {
    "carrier": "Acuity",
@@ -2220,7 +2220,7 @@
    "max_pct": 24.5,
    "min_pct": -9.0,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134883176"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134883176"
   },
   {
    "carrier": "Allstate",
@@ -2233,7 +2233,7 @@
    "max_pct": -10.0,
    "min_pct": -0.3,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134803401"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134803401"
   },
   {
    "carrier": "Allstate",
@@ -2246,7 +2246,7 @@
    "max_pct": 18.2,
    "min_pct": -16.2,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134970309"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134970309"
   },
   {
    "carrier": "Amica",
@@ -2259,7 +2259,7 @@
    "max_pct": 5.0,
    "min_pct": -9.0,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134743612"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134743612"
   },
   {
    "carrier": "Amica",
@@ -2272,7 +2272,7 @@
    "max_pct": 5.0,
    "min_pct": -13.0,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134896488"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134896488"
   },
   {
    "carrier": "American National",
@@ -2285,7 +2285,7 @@
    "max_pct": 88.4,
    "min_pct": -5.2,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134645401"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134645401"
   },
   {
    "carrier": "American National",
@@ -2298,7 +2298,7 @@
    "max_pct": 22.1,
    "min_pct": -9.4,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134879394"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134879394"
   },
   {
    "carrier": "Auto-Owners",
@@ -2311,7 +2311,7 @@
    "max_pct": 18.8,
    "min_pct": -38.8,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134764711"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134764711"
   },
   {
    "carrier": "AssuranceAmerica",
@@ -2324,7 +2324,7 @@
    "max_pct": 10.0,
    "min_pct": -10.0,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134823844"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134823844"
   },
   {
    "carrier": "AssuranceAmerica",
@@ -2337,7 +2337,7 @@
    "max_pct": 10.0,
    "min_pct": -10.0,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134823905"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134823905"
   },
   {
    "carrier": "Bristol West",
@@ -2350,7 +2350,7 @@
    "max_pct": 15.0,
    "min_pct": 0.0,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134875921"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134875921"
   },
   {
    "carrier": "Bristol West",
@@ -2363,7 +2363,7 @@
    "max_pct": 25.0,
    "min_pct": 0.0,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134973519"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134973519"
   },
   {
    "carrier": "Clearcover",
@@ -2376,7 +2376,7 @@
    "max_pct": 14.0,
    "min_pct": 5.6,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134264224"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134264224"
   },
   {
    "carrier": "Cincinnati Insurance",
@@ -2389,7 +2389,7 @@
    "max_pct": 41.0,
    "min_pct": -3.6,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134586864"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134586864"
   },
   {
    "carrier": "Donegal Insurance",
@@ -2402,7 +2402,7 @@
    "max_pct": 0.0,
    "min_pct": -20.0,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134975511"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134975511"
   },
   {
    "carrier": "Elephant",
@@ -2415,7 +2415,7 @@
    "max_pct": 7.0,
    "min_pct": -4.3,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134875403"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134875403"
   },
   {
    "carrier": "Erie",
@@ -2428,7 +2428,7 @@
    "max_pct": 34.2,
    "min_pct": -30.0,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134691371"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134691371"
   },
   {
    "carrier": "Erie",
@@ -2441,7 +2441,7 @@
    "max_pct": 18.6,
    "min_pct": -14.5,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134950961"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134950961"
   },
   {
    "carrier": "Farmers",
@@ -2454,7 +2454,7 @@
    "max_pct": 11.6,
    "min_pct": -37.0,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134912560"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134912560"
   },
   {
    "carrier": "GEICO",
@@ -2467,7 +2467,7 @@
    "max_pct": 10.0,
    "min_pct": -27.78,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134876961"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134876961"
   },
   {
    "carrier": "National General",
@@ -2480,7 +2480,7 @@
    "max_pct": 10.2,
    "min_pct": -26.2,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134634752"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134634752"
   },
   {
    "carrier": "National General",
@@ -2493,7 +2493,7 @@
    "max_pct": 151.9,
    "min_pct": -44.2,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134733507"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134733507"
   },
   {
    "carrier": "National General",
@@ -2506,7 +2506,7 @@
    "max_pct": 99.8,
    "min_pct": -35.4,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134733508"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134733508"
   },
   {
    "carrier": "MGA Insurance",
@@ -2519,7 +2519,7 @@
    "max_pct": 148.8,
    "min_pct": -93.8,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134500272"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134500272"
   },
   {
    "carrier": "MGA Insurance",
@@ -2532,7 +2532,7 @@
    "max_pct": 114.4,
    "min_pct": -65.0,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134847500"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134847500"
   },
   {
    "carrier": "Grange",
@@ -2545,7 +2545,7 @@
    "max_pct": 45.4,
    "min_pct": -37.3,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134575207"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134575207"
   },
   {
    "carrier": "Grange",
@@ -2558,7 +2558,7 @@
    "max_pct": 3.0,
    "min_pct": -16.1,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134767576"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134767576"
   },
   {
    "carrier": "Grange",
@@ -2571,7 +2571,7 @@
    "max_pct": 9.5,
    "min_pct": -18.8,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134791278"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134791278"
   },
   {
    "carrier": "The Hanover",
@@ -2584,7 +2584,7 @@
    "max_pct": -26.9,
    "min_pct": 33.8,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134889282"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134889282"
   },
   {
    "carrier": "Liberty Mutual",
@@ -2597,7 +2597,7 @@
    "max_pct": 81.9,
    "min_pct": -17.7,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134893945"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134893945"
   },
   {
    "carrier": "Mercury",
@@ -2610,7 +2610,7 @@
    "max_pct": 63.8,
    "min_pct": -38.7,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134559971"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134559971"
   },
   {
    "carrier": "Mercury",
@@ -2623,7 +2623,7 @@
    "max_pct": 52.7,
    "min_pct": -35.8,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134801987"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134801987"
   },
   {
    "carrier": "Nationwide",
@@ -2636,7 +2636,7 @@
    "max_pct": 31.9,
    "min_pct": -41.2,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134897540"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134897540"
   },
   {
    "carrier": "Progressive",
@@ -2649,7 +2649,7 @@
    "max_pct": 14.627,
    "min_pct": -8.981,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134458370"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134458370"
   },
   {
    "carrier": "Rockingham",
@@ -2662,7 +2662,7 @@
    "max_pct": 27.0,
    "min_pct": -19.0,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134834645"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134834645"
   },
   {
    "carrier": "State Farm",
@@ -2675,7 +2675,7 @@
    "max_pct": null,
    "min_pct": null,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134526917"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134526917"
   },
   {
    "carrier": "State Farm",
@@ -2688,7 +2688,7 @@
    "max_pct": null,
    "min_pct": null,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134688491"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134688491"
   },
   {
    "carrier": "Travelers",
@@ -2701,7 +2701,7 @@
    "max_pct": 56.3,
    "min_pct": -41.2,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134864387"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134864387"
   },
   {
    "carrier": "Tesla",
@@ -2714,7 +2714,7 @@
    "max_pct": 79.95,
    "min_pct": -29.51,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134874643"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134874643"
   },
   {
    "carrier": "USAA",
@@ -2727,7 +2727,7 @@
    "max_pct": 8.5,
    "min_pct": -20.6,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134728239"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134728239"
   },
   {
    "carrier": "Utica/Republic-Franklin",
@@ -2740,7 +2740,7 @@
    "max_pct": 0.2,
    "min_pct": -6.8,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134973380"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134973380"
   },
   {
    "carrier": "Trexis",
@@ -2753,7 +2753,7 @@
    "max_pct": -2.4,
    "min_pct": -12.3,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134630774"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134630774"
   },
   {
    "carrier": "Trexis",
@@ -2766,7 +2766,7 @@
    "max_pct": null,
    "min_pct": null,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134749505"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134749505"
   },
   {
    "carrier": "Trexis",
@@ -2779,7 +2779,7 @@
    "max_pct": null,
    "min_pct": null,
    "source": "Virginia Bureau of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134946988"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134946988"
   },
   {
    "carrier": "American National",
@@ -2789,7 +2789,7 @@
    "effective": "2026-04-03",
    "affected": 4212,
    "source": "Louisiana Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134762926"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134762926"
   },
   {
    "carrier": "Root",
@@ -2799,7 +2799,7 @@
    "effective": "2026-04-24",
    "affected": 4127,
    "source": "Louisiana Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134871980"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134871980"
   },
   {
    "carrier": "GEICO",
@@ -2809,7 +2809,7 @@
    "effective": "2026-03-17",
    "affected": 26816,
    "source": "Louisiana Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134834194"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134834194"
   },
   {
    "carrier": "Imperial",
@@ -2819,7 +2819,7 @@
    "effective": "2026-01-15",
    "affected": 32712,
    "source": "Louisiana Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134796306"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134796306"
   },
   {
    "carrier": "State Farm",
@@ -2829,7 +2829,7 @@
    "effective": "2026-01-01",
    "affected": 1044832,
    "source": "Louisiana Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134723185"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134723185"
   },
   {
    "carrier": "Shelter",
@@ -2839,7 +2839,7 @@
    "effective": "2026-01-02",
    "affected": 49068,
    "source": "Louisiana Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134694255"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134694255"
   },
   {
    "carrier": "Safeway",
@@ -2849,7 +2849,7 @@
    "effective": "2025-12-01",
    "affected": 5228,
    "source": "Louisiana Department of Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134665768"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134665768"
   },
   {
    "carrier": "Encompass",
@@ -2860,7 +2860,7 @@
    "effective": "2026-10-24",
    "affected": 5267,
    "source": "New Jersey Department of Banking and Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134806021"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134806021"
   },
   {
    "carrier": "GEICO",
@@ -2871,7 +2871,7 @@
    "effective": "2026-07-01",
    "affected": 343076,
    "source": "New Jersey Department of Banking and Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134961490"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134961490"
   },
   {
    "carrier": "Allstate",
@@ -2882,7 +2882,7 @@
    "effective": "2026-06-15",
    "affected": 231099,
    "source": "New Jersey Department of Banking and Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134675302"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134675302"
   },
   {
    "carrier": "Farmers",
@@ -2893,7 +2893,7 @@
    "effective": "2026-05-24",
    "affected": 7379,
    "source": "New Jersey Department of Banking and Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134703203"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134703203"
   },
   {
    "carrier": "Palisades",
@@ -2904,7 +2904,7 @@
    "effective": "2026-04-17",
    "affected": 97715,
    "source": "New Jersey Department of Banking and Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134859181"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134859181"
   },
   {
    "carrier": "CURE",
@@ -2915,7 +2915,7 @@
    "effective": "2025-11-22",
    "affected": 45552,
    "source": "New Jersey Department of Banking and Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134400950"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134400950"
   },
   {
    "carrier": "Selective Insurance",
@@ -2926,7 +2926,7 @@
    "effective": "2025-09-30",
    "affected": 21017,
    "source": "New Jersey Department of Banking and Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134599344"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134599344"
   },
   {
    "carrier": "Bristol West",
@@ -2937,7 +2937,7 @@
    "effective": "2025-09-12",
    "affected": 58109,
    "source": "New Jersey Department of Banking and Insurance (SERFF)",
-   "url": "https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134378141"
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134378141"
   },
   {
    "carrier": "GEICO",

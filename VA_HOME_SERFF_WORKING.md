@@ -1,8 +1,8 @@
 # VA Homeowners SERFF Pull — Working List
 
 Search: Property & Casualty · TOI 04.0 Homeowners · disposition **07-01-25 → 08-17-26** · 241 results (3 pages).
-Portal: https://filingaccess.serff.com/sfa/home/VA
-URL scheme: `https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=<digits>` (strip the `XXXX-` and any `G`).
+Portal: https://serff-sfa.naic.org/serff/sfa/home/VA
+URL scheme: `https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=<digits>` (strip the `XXXX-` and any `G`).
 
 Targets: `serff_home_filings.json` (VA becomes the 10th home state) + `serff_renters_filings.json`
 (currently 2 rows, MI only — the tenant block below is the first real renters pull).
@@ -233,11 +233,11 @@ company filings; multi-company jackets are the ones VA's public access tends to 
 OTHER Travelers row in the results is single-company (Travelers Personal Insurance Company, NAIC
 38130) — try those instead, newest first:
 
-https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=135001927
-https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134829082
-https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134676836
-https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134594472
-https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId=134581015
+https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=135001927
+https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134829082
+https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134676836
+https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134594472
+https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134581015
 
 Until one lands, Travelers is a rostered VA home carrier priced off its static base with no drift.
 

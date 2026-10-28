@@ -117,7 +117,9 @@ def _context(ledger_rows, state, exclude_carrier, subject_affected=0):
 def _row_tuple(r, line):
     name = r['carrier']
     return (name, carrier_href(name, line), r['tracking'],
-            re.sub(r'^[A-Z]+-', '', r['tracking']), _pct(r['overall_pct']),
+            # strip the alpha prefix AND the G in trackings like TRVD-G134530272;
+            # the ledgers store the clean numeric filingId, so leaving the G 404s.
+            re.sub(r'^[A-Z]+-G?', '', r['tracking']), _pct(r['overall_pct']),
             '', r['overall_pct'] >= 0)
 
 def derive(carrier, state, ledger_rows, line='auto'):

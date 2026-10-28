@@ -23,7 +23,7 @@ Every figure is a real approved filing in serff_filings.json — keep them accur
 import json, re, html
 
 TEMPLATE = 'article/tennessee-rates-dropping.html'
-SERFF = 'https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId='
+SERFF = 'https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId='
 
 # Ledger is per-LINE: auto pages cite serff_filings.json, home pages
 # serff_home_filings.json. Cached per path so a mixed run loads each once.

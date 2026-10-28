@@ -29,7 +29,7 @@ def make(j,line,product,source):
     if len(cands)>1: ent+=f" (dominant of {len(cands)} entities)"
     if not dom['affected'] and dom['overall_pct']==0: ent+=" (rate-neutral: 0% impact, 0 PH - NOT a rate change)"
     return {'state':'MI','line':line,'carrier':fam,'entity':ent,'tracking':j['tracking'],
-        'url':f"https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId={j['tracking'].split('-',1)[1].lstrip('G')}",
+        'url':f"https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId={j['tracking'].split('-',1)[1].lstrip('G')}",
         'product':product,'filing_type':j.get('filing_type') or None,
         'disposition_date':iso(j.get('disposition_date')),
         'effective_new':iso(j.get('effective_new')),'effective_renewal':iso(j.get('effective_renewal')),

@@ -40,7 +40,7 @@ parsed = json.load(open('/tmp/oh_parsed.json'))
 auto_led = json.load(open('serff_filings.json')); auto_rows = auto_led['filings']
 home_led = json.load(open('serff_home_filings.json')); home_rows = home_led['filings']
 auto_have = {r['tracking'] for r in auto_rows}; home_have = {r['tracking'] for r in home_rows}
-url = lambda t: f"https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId={t.split('-',1)[1].lstrip('G')}"
+url = lambda t: f"https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId={t.split('-',1)[1].lstrip('G')}"
 na, nh, skip = 0, 0, []
 for j in parsed:
     t = j['tracking']; dom, nc = dom_of(j)

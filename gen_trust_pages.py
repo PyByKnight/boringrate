@@ -86,7 +86,7 @@ about_body = """
       <div class="footnotes">
         <h3>Primary sources we work from</h3>
         <ol>
-          <li><strong>System for Electronic Rates &amp; Forms Filing (SERFF).</strong> Approved carrier rate filings — the underlying source for our rate-change trackers and price positioning. <a href="https://filingaccess.serff.com/">filingaccess.serff.com</a></li>
+          <li><strong>System for Electronic Rates &amp; Forms Filing (SERFF).</strong> Approved carrier rate filings — the underlying source for our rate-change trackers and price positioning. <a href="https://serff-sfa.naic.org/serff/sfa/">serff-sfa.naic.org/serff/sfa/</a></li>
           <li><strong>State insurance-department open data.</strong> Texas Department of Insurance (data.texas.gov) and California Department of Insurance publish machine-readable filing data.</li>
           <li><strong>NAIC.</strong> National Association of Insurance Commissioners — market-share and complaint data. <a href="https://content.naic.org/">content.naic.org</a></li>
           <li><strong>The full audit trail.</strong> <a href="/rate-filings/">Every filing we've captured</a>, each linking its primary source.</li>
@@ -164,7 +164,7 @@ ed_body = """
       <div class="footnotes">
         <h3>Referenced sources</h3>
         <ol>
-          <li><strong>SERFF.</strong> System for Electronic Rates &amp; Forms Filing. <a href="https://filingaccess.serff.com/">filingaccess.serff.com</a></li>
+          <li><strong>SERFF.</strong> System for Electronic Rates &amp; Forms Filing. <a href="https://serff-sfa.naic.org/serff/sfa/">serff-sfa.naic.org/serff/sfa/</a></li>
           <li><strong>ISO standard policy forms.</strong> Homeowners HO-3 (HO&nbsp;00&nbsp;03) and Personal Auto (PP&nbsp;00&nbsp;01) — the baseline forms most carrier policies build on.</li>
           <li><strong>NAIC.</strong> Market share and complaint data. <a href="https://content.naic.org/">content.naic.org</a></li>
           <li><strong>Full filing audit trail.</strong> <a href="/rate-filings/">rate-filings roll-up</a>.</li>

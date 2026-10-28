@@ -29,7 +29,7 @@ for j in parsed:
     if not dom['affected'] and dom['overall_pct']==0:
         ent+=" (rate-neutral: 0% impact, 0 policyholders affected - NOT a rate change)"
     new.append({'state':'MI','carrier':fam,'entity':ent,'tracking':j['tracking'],
-        'url':f"https://filingaccess.serff.com/sfa/search/filingSummary.xhtml?filingId={j['tracking'].split('-',1)[1].lstrip('G')}",
+        'url':f"https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId={j['tracking'].split('-',1)[1].lstrip('G')}",
         'product':'PPA','filing_type':j.get('filing_type') or None,
         'disposition_date':iso(j.get('disposition_date')),
         'effective_new':iso(j.get('effective_new')),'effective_renewal':iso(j.get('effective_renewal')),

@@ -34,7 +34,7 @@ def home_src(url):
     """Clean primary-source label for a home filing from its URL."""
     if "texas.gov" in url: return "TX TDI open data"
     if "insurance.ca.gov" in url: return "CA CDI filings list"
-    if "filingaccess.serff.com" in url: return "SERFF Filing Access"
+    if "serff-sfa.naic.org/serff/sfa/" in url: return "SERFF Filing Access"
     return "State DOI filing"
 
 
