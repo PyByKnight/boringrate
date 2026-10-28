@@ -329,7 +329,26 @@ def build():
       system (session-bound — cited by tracking number), Texas TDI open data (data.texas.gov), and the California
       CDI filings list. Please cite as &ldquo;BoringRate, 2026 rate-filing roll-up, {today:%B %Y}.&rdquo;</p></div>'''
 
+    # The only CTA on this page used to be CTA_TILES, which sits AFTER the table.
+    # The table body is ~1MB, so in the 2026-10-28 Umami pull this page drew 194 US
+    # views and converted 5.2% into the tool against a 13.5% site baseline - the CTA
+    # was simply never reached. This thin one goes above the table, where readers are.
+    rf_zip = ('<div class="rz-zip"><span class="rz-zip-label">See what you&rsquo;d actually pay '
+              'in your ZIP:</span><form onsubmit="event.preventDefault();'
+              "var z=(this.zc.value||'').replace(/\\D/g,'').slice(0,5);"
+              "if(/^\\d{5}$/.test(z)){location.href='/?zip='+z}else{this.zc.focus()}\">"
+              '<input class="rz-zip-input" name="zc" type="text" maxlength="5" inputmode="numeric" '
+              'placeholder="ZIP" aria-label="ZIP code" />'
+              '<button type="submit" class="rz-zip-btn">Compare &rarr;</button></form></div>')
+
     style_extra = '''<style>
+    .rz-zip{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:22px 0;padding:12px 16px;background:var(--paper-deep);border:1px solid var(--rule);}
+    .rz-zip-label{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);}
+    .rz-zip form{display:flex;gap:8px;margin:0;}
+    .rz-zip-input{font-family:var(--mono);font-size:14px;padding:8px 10px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);width:92px;}
+    .rz-zip-btn{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;padding:8px 16px;background:var(--accent);color:var(--paper);border:none;cursor:pointer;white-space:nowrap;}
+    .rz-zip-btn:hover{opacity:0.9;}
+    @media (max-width:480px){.rz-zip{flex-direction:column;align-items:flex-start;}}
     .rf-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0;}
     .rf-controls input,.rf-controls select{font-family:var(--sans);font-size:14px;padding:8px 10px;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:2px;}
     .rf-controls input{flex:1;min-width:150px;}
@@ -451,6 +470,7 @@ def build():
   </div>
   <div class="article-body">
     {intro}
+    {rf_zip}
     {controls}
     {table}
     {CTA_TILES}
