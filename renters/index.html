@@ -1570,6 +1570,15 @@ function renderRanking() {
   const mid = Math.floor(top10.length/2);
   const median = top10.length%2===0 ? Math.round((top10[mid-1]+top10[mid])/2) : top10[mid];
 
+  // Funnel middle step: fire once when the user first sees a ranking (not on every
+  // re-render). Mirrors index.html — without it the renters tool reported no results at
+  // all, so only the auto funnel was measurable.
+  if (!window.__resultsTracked && typeof window.track === "function") {
+    window.__resultsTracked = true;
+    var _rz = ((document.getElementById("zipInput") || {}).value || "").replace(/\D/g, "").slice(0, 5);
+    try { window.track("results_shown", { product: "renters", state: (typeof stateData !== "undefined" && stateData) ? stateData.code : null, metro: (typeof currentMetro !== "undefined" ? currentMetro : null), zip: /^\d{5}$/.test(_rz) ? _rz : null, carriers: ranked.length }); } catch (e) {}
+  }
+
   const list = document.getElementById("rankList");
   list.innerHTML = "";
 
@@ -1946,6 +1955,57 @@ document.getElementById("zipInput").addEventListener("input", e => {
     var dc = e.target.closest("#demoBannerCta, .demo-banner a");
     if (dc) { track("demo_cta_clicked", { product: PRODUCT }); return; }
   }, true);
+})();
+</script>
+<!-- br-tool-entry --><script>
+/* Records WHICH page sent someone into the tool. Previously this fired only on
+   index.html and only inside an `if (?zip= present)` branch, so it never fired at
+   all - from_path had zero rows after 90 days. It is also the only way to tell
+   whether the filings / reactive / metro pages actually feed the tool or just get
+   read. Self-contained and inserted as its own block, never replacing an existing
+   one (see the patch-safety rule in CLAUDE.md). */
+(function () {
+  function product() {
+    var p = location.pathname;
+    if (p.indexOf('/home/') === 0) return 'home';
+    if (p.indexOf('/renters/') === 0) return 'renters';
+    return 'auto';
+  }
+  function classify(ref) {
+    if (!ref) return { type: 'direct', path: '' };
+    try {
+      var u = new URL(ref);
+      if (u.host !== location.host) return { type: 'external', path: u.host };
+      var p = u.pathname;
+      if (p === '/' || p === '/index.html') return { type: 'home_tool', path: p };
+      var pairs = [
+        ['why-did-my-', 'reactive'], ['/rate-changes/', 'tracker'], ['/rate-filings', 'ledger'],
+        ['/state/', 'state'], ['/metro/', 'metro'], ['/carrier/', 'carrier'],
+        ['/compare/', 'compare'], ['/coverage', 'coverage']
+      ];
+      for (var i = 0; i < pairs.length; i++) {
+        if (p.indexOf(pairs[i][0]) !== -1) return { type: pairs[i][1], path: p };
+      }
+      if (p.indexOf('/article/') === 0) return { type: 'guide', path: p };
+      if (p.indexOf('/home/') === 0 || p.indexOf('/renters/') === 0) return { type: 'guide', path: p };
+      return { type: 'other', path: p };
+    } catch (e) { return { type: 'unknown', path: '' }; }
+  }
+  function fire() {
+    if (window.__toolEntryTracked || typeof window.track !== 'function') return;
+    window.__toolEntryTracked = true;
+    var rf = classify(document.referrer || '');
+    var z = '';
+    try { z = (new URLSearchParams(location.search).get('zip') || '').replace(/\D/g, '').slice(0, 5); } catch (e) {}
+    try {
+      window.track('tool_entry', {
+        product: product(), from: rf.type, from_path: rf.path,
+        deeplink: /^\d{5}$/.test(z) ? 'zip' : 'none'
+      });
+    } catch (e) {}
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fire);
+  else fire();
 })();
 </script>
 </body>
