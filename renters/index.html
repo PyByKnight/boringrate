@@ -2008,5 +2008,34 @@ document.getElementById("zipInput").addEventListener("input", e => {
   else fire();
 })();
 </script>
+<!-- br-cov-handoff --><script>
+/* Carry the ZIP across to the coverage calculator. The nav link is single-source
+   (partials/nav-mega.html) so it cannot be per-page; this rewrites coverage links
+   at runtime once a ZIP is known, which keeps the bridge intuitive in BOTH
+   directions - coverage already hands its ZIP and tier back via /?zip=..&cov=.. */
+(function () {
+  function zip() {
+    try {
+      var u = (new URLSearchParams(location.search).get('zip') || '').replace(/\D/g, '');
+      if (/^\d{5}$/.test(u)) return u;
+      var el = document.getElementById('zipInput');
+      var v = ((el || {}).value || '').replace(/\D/g, '');
+      return /^\d{5}$/.test(v) ? v : '';
+    } catch (e) { return ''; }
+  }
+  function sync() {
+    var z = zip(); if (!z) return;
+    document.querySelectorAll('a[href*="coverage.html"]').forEach(function (a) {
+      var h = a.getAttribute('href') || '';
+      if (h.indexOf('zip=') > -1) return;
+      a.setAttribute('href', h + (h.indexOf('?') > -1 ? '&' : '?') + 'zip=' + z);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', sync);
+  else sync();
+  document.addEventListener('submit', sync, true);
+  setTimeout(sync, 1500);
+})();
+</script>
 </body>
 </html>

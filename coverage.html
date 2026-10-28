@@ -1682,5 +1682,26 @@ onProfileChange();
 }
 </script>
 
+<!-- br-zip-handoff --><script>
+/* Accept a ZIP handed over from the rate tool or a content page and prefill it,
+   so the coverage calculator is a continuation rather than a restart. home/ and
+   renters/coverage.html already did this; the auto one did not, and it is the most
+   used of the three. Pairs with the handoff on the tool pages, which appends the
+   ZIP to coverage links once one is known. */
+(function () {
+  try {
+    var z = (new URLSearchParams(location.search).get('zip') || '').replace(/\D/g, '').slice(0, 5);
+    if (!/^\d{5}$/.test(z)) return;
+    ['zipInput', 'bottomZipInput'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el && !el.value) {
+        el.value = z;
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    });
+    if (typeof refreshCtaLink === 'function') refreshCtaLink();
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>
