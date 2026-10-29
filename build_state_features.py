@@ -9,6 +9,72 @@ from gen_reactive_config import CALL
 
 FEATURES = [
 {
+ 'path':'home/illinois-home-insurance-increases.html',
+ 'url':'https://boringrate.com/home/illinois-home-insurance-increases.html',
+ 'title':'Illinois home insurance rose 54% in three years',
+ 'desc':'State Farm has raised Illinois homeowners rates three times since 2023, compounding to +54% across 1.49 million policyholders. Every filing, from the state\'s own records - and who raised less.',
+ 'ogdesc':'Three State Farm filings since 2023 compound to +54% on 1.49 million Illinois homeowners. The filings, the amounts, and which carriers moved least.',
+ 'state':'Illinois','read':'5','tracker':'/home/rate-changes/illinois.html',
+ 'ledger':'serff_home_filings.json','tool':'/home/',
+ 'alert':'Illinois home rates: State Farm has compounded <strong>&plus;54%</strong> across 1.49 million policyholders since 2023.',
+ 'h1':'Illinois home insurance rose 54% in three years',
+ 'dek':'Three State Farm filings since 2023 compound to <strong>&plus;54%</strong> on <strong>1.49 million</strong> Illinois homeowners &mdash; and each one was approved for less than the company said it needed. Every figure below comes from Illinois&rsquo; own public filing records.',
+ 'rows':[
+   ('State Farm','/home/carrier/state-farm.html','SFMA-135045614','135045614','&plus;7.9%','', True),
+   ('Erie','/home/carrier/erie.html','ERPP-135045878','135045878','&plus;8.9%','', True),
+   ('American Family','/home/carrier/american-family.html','AMFC-135002345','135002345','0.0%','', False)],
+ 'prose':
+"""    <p>Illinois publishes more rate detail than almost any state. Its Department of Insurance runs
+    its own filing database &mdash; not SERFF &mdash; carrying each filing&rsquo;s indicated change,
+    the change actually taken, the policyholder count and the spread. That makes it possible to do
+    something you normally cannot: follow one company&rsquo;s book, filing by filing, over years.</p>
+
+    <h2>State Farm: three filings, &plus;54% compounded</h2>
+    <p>State Farm is the largest home insurer in Illinois by a wide margin &mdash; roughly
+    <strong>1.49 million policyholders</strong>. Since late 2023 it has filed three times:</p>
+    <table style="width:100%;border-collapse:collapse;font-size:15px;margin:14px 0;max-width:660px;">
+    <thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">
+    <th style="padding:8px 6px;">Filed</th><th style="padding:8px 6px;">Taken</th><th style="padding:8px 6px;">Wanted</th><th style="padding:8px 6px;">Running total</th></tr></thead>
+    <tbody>
+    <tr style="border-bottom:1px solid var(--rule);"><td style="padding:8px 6px;">Feb 2024</td><td style="padding:8px 6px;"><strong>&plus;12.3%</strong></td><td style="padding:8px 6px;color:var(--ink-mute);">&plus;13.6%</td><td style="padding:8px 6px;">&plus;12.3%</td></tr>
+    <tr style="border-bottom:1px solid var(--rule);"><td style="padding:8px 6px;">Jun 2025</td><td style="padding:8px 6px;"><strong>&plus;27.2%</strong></td><td style="padding:8px 6px;color:var(--ink-mute);">&plus;32.5%</td><td style="padding:8px 6px;">&plus;42.8%</td></tr>
+    <tr style="border-bottom:1px solid var(--rule);"><td style="padding:8px 6px;">Aug 2026</td><td style="padding:8px 6px;"><strong>&plus;7.9%</strong></td><td style="padding:8px 6px;color:var(--ink-mute);">&plus;12.5%</td><td style="padding:8px 6px;"><strong>&plus;54.1%</strong></td></tr>
+    </tbody></table>
+    <p>Rate changes stack. A renewal notice shows only the latest one, so a household that has been
+    with State Farm since 2023 has absorbed all three &mdash; <strong>&plus;54%</strong> compounded,
+    not the &plus;7.9% on this year&rsquo;s letter.</p>
+
+    <h2>Every one was approved for less than requested</h2>
+    <p>In all three filings State Farm&rsquo;s own analysis called for more than it took:
+    &plus;13.6% against &plus;12.3%, &plus;32.5% against &plus;27.2%, &plus;12.5% against
+    &plus;7.9%. A carrier that repeatedly takes less than its indication is carrying an unclosed
+    gap, and that gap is the single best predictor that another filing is coming.</p>
+    <p>The 2026 filing also reports its own spread: individual changes ran from
+    <strong>&plus;36.5% to &minus;9.4%</strong>. The &ldquo;&plus;7.9% average&rdquo; is a blend, and
+    which end you landed on depends on your ZIP, roof and claims history.</p>
+
+    <h2>Not every Illinois insurer moved like this</h2>
+    <p>The three-year picture varies more than the headlines suggest. <strong>American Family</strong>
+    compounded <strong>&plus;43.9%</strong> over four filings on about 69,000 policyholders, and
+    <strong>Erie</strong> &plus;18.3%. On the auto side the spread is wider still: <strong>Kemper</strong>
+    has compounded <strong>&plus;139%</strong> in three years across four filings, while
+    <strong>Allstate</strong> &mdash; a far larger Illinois book at roughly 371,000 drivers &mdash;
+    moved only <strong>&plus;7.7%</strong> over the same period.</p>
+    <p>That dispersion is the practical point. These carriers price the same state, the same weather
+    and the same repair costs, and over three years they have diverged by tens of percentage points.
+    Staying put through a stretch like that is a decision, even when it does not feel like one.</p>
+    <p style="font-size:14px;margin:10px 0;"><a class="ca-link" href="/home/rate-changes/illinois.html">See every approved Illinois home rate filing &rarr;</a></p>
+""",
+ 'faq':[
+  ('How much have Illinois home insurance rates gone up?',
+   'State Farm, the largest home insurer in Illinois with about 1.49 million policyholders, has filed three rate increases since late 2023: +12.3% in February 2024, +27.2% in June 2025 and +7.9% in August 2026. Compounded, that is +54.1%. Other carriers vary widely - American Family compounded +43.9% over the same period and Erie +18.3%.'),
+  ('Why is my increase bigger than the percentage in the filing?',
+   'Two reasons. Rate changes compound, and your renewal notice shows only the most recent one - a household with State Farm since 2023 has absorbed all three filings, not just the latest. And a statewide figure is an average: State Farm\'s 2026 filing reports individual changes ranging from +36.5% to -9.4% depending on ZIP, roof and claims history.'),
+  ('Where does this data come from?',
+   'The Illinois Department of Insurance publishes its own Company Rate Information database, separate from SERFF, which records each filing\'s indicated change, the change taken, the policyholder count and the minimum and maximum change. Every figure on this page comes from that record.'),
+ ],
+},
+{
  'path':'home/georgia-farm-bureau-rate-cut-blocked.html',
  'url':'https://boringrate.com/home/georgia-farm-bureau-rate-cut-blocked.html',
  'title':'Georgia blocked a home insurance rate CUT in 2026',
