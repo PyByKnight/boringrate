@@ -60,11 +60,17 @@ for car, items in by_carrier.items():
                 f'The actual approved rate change {car} filed in your state &mdash; and who&rsquo;s cutting.',
                 [(f'Why did my {car} rate go up in {st}?', chg, href) for st, chg, href in items])
     if apply(f'article/carrier/{slug(car)}.html', blk): n += 1
-feat = {f['state']: (f['url'].replace('https://boringrate.com', ''), f['title']) for f in FEATURES}
-for st in sorted(set(by_state) | set(feat)):
+# Key by (state, line), not state alone: Georgia now has BOTH an auto feature and a
+# home one, and a state-only key silently dropped whichever came second. `line` is
+# taken from the feature's own ledger field, defaulting to auto.
+def _line(fe):
+    return 'home' if fe.get('ledger', '').startswith('serff_home') else 'auto'
+feat = {(fe['state'], _line(fe)): (fe['url'].replace('https://boringrate.com', ''), fe['title'])
+        for fe in FEATURES}
+for st in sorted(set(by_state) | {k[0] for k in feat}):
     items = []
-    if st in feat:                                       # lead with the full state report
-        url, title = feat[st]
+    if (st, 'auto') in feat:                             # lead with the full state report
+        url, title = feat[(st, 'auto')]
         items.append((title, '2026 report', url))
     for car, chg, href in sorted(by_state.get(st, [])):
         items.append((f'Why did my {car} rate go up in {st}?', chg, href))
@@ -72,4 +78,15 @@ for st in sorted(set(by_state) | set(feat)):
                 f'The full {st} rate report and primary-source explainers &mdash; who raised, who cut, and by how much.',
                 items)
     if apply(f'article/state/{slug(st)}.html', blk): n += 1
+
+# home-line features get their own block on the HOME state page, which the loop
+# above never touched - that left the GA home feature an orphan on first build.
+for (st, ln), (url, title) in sorted(feat.items()):
+    if ln != 'home':
+        continue
+    blk = block(f'{st} home rate changes &mdash; see the filings',
+                f'The full {st} homeowners rate report &mdash; who raised, who cut, and what the '
+                f'state approved.',
+                [(title, '2026 report', url)])
+    if apply(f'home/state/{slug(st)}.html', blk): n += 1
 print(f'reactive-links: patched {n} carrier/state pages')

@@ -9,6 +9,77 @@ from gen_reactive_config import CALL
 
 FEATURES = [
 {
+ 'path':'home/georgia-farm-bureau-rate-cut-blocked.html',
+ 'url':'https://boringrate.com/home/georgia-farm-bureau-rate-cut-blocked.html',
+ 'title':'Georgia blocked a home insurance rate CUT in 2026',
+ 'desc':'Georgia Farm Bureau asked to cut homeowners rates 5.2% - a $7.8M reduction across 90,296 households - and the state said no. The reason: the cut was paid for with a mandatory deductible above $1,500.',
+ 'ogdesc':'Georgia Farm Bureau filed to CUT home rates 5.2% for 90,296 households. The Department disapproved it, because the saving came from forcing a higher mandatory deductible. The filing, in full.',
+ 'state':'Georgia','read':'5','tracker':'/home/rate-changes/georgia.html',
+ 'ledger':'serff_home_filings.json','tool':'/home/',
+ 'alert':'Georgia&rsquo;s largest home insurer asked to <strong>cut</strong> rates 5.2%. The state disapproved it.',
+ 'h1':'Georgia blocked a home insurance rate cut in 2026',
+ 'dek':'Georgia Farm Bureau filed to <strong>lower</strong> homeowners premiums by 5.2% &mdash; nearly <strong>$7.8 million</strong> across <strong>90,296 households</strong> &mdash; and the Department of Insurance <strong>disapproved it</strong>. The objection was not the price. It was how the saving was paid for.',
+ 'rows':[
+   ('Georgia Farm Bureau','/article/carrier/georgia-farm-bureau.html','GFBR-134795612','134795612','&minus;5.2%',
+    'Disapproved 03/23/2026. Requested effective 02/01/2027.', False),
+   ('Georgia Farm Bureau','/article/carrier/georgia-farm-bureau.html','GFBR-134859106','134859106','0.0%','', False),
+   ('Georgia Farm Bureau','/article/carrier/georgia-farm-bureau.html','GFBR-134707855','134707855','0.0%','', False),
+   ('American Family','/home/carrier/american-family.html','AMFC-134883419','134883419','&plus;7.6%','', True),
+   ('Amica','/home/carrier/amica.html','AMMA-134467010','134467010','&plus;9.8%','', True),
+   ('Safeco','/home/carrier/safeco.html','LBPM-134861427','134861427','&plus;9.9%','', True)],
+ 'prose':
+"""    <p>On 23 March 2026 the Georgia Department of Insurance disapproved a rate filing from
+    <strong>Georgia Farm Bureau Mutual</strong>, the state&rsquo;s largest home insurer. That is
+    unusual on its own &mdash; disapprovals are rare. What makes this one worth reading is the
+    direction: the filing asked to make insurance <em>cheaper</em>.</p>
+
+    <h2>The carrier asked for less than its own analysis said it needed</h2>
+    <p>Filing <strong>GFBR-134795612</strong> covers Compass Homeowners, Georgia Farm Bureau&rsquo;s
+    owner-occupied program. Its own actuarial indication said the book needed
+    <strong>&plus;5.1%</strong>. The company instead requested <strong>&minus;5.2%</strong> &mdash; a
+    premium reduction of <strong>$7,786,865</strong> across <strong>90,296 policyholders</strong>,
+    with individual changes running from no change down to <strong>&minus;13.3%</strong>.</p>
+
+    <h2>The Department&rsquo;s reason, in full</h2>
+    <div class="callout"><p>&ldquo;The Department has taken the position of not allowing mandatory
+    deductibles higher than $1,500.&rdquo;<br>
+    <span style="font-size:13px;color:var(--ink-mute);">&mdash; Georgia Department of Insurance,
+    disposition dated 23 March 2026</span></p></div>
+    <p>That single line is the whole decision. The regulator did not object to the price. It objected
+    to how the price was reached: the lower premium was financed by moving policyholders onto a
+    <strong>mandatory deductible above $1,500</strong>. A homeowner would pay less each year and more
+    at the moment of a claim.</p>
+    <p>Read that way the decision is a judgment about what counts as a saving. A cut that shifts risk
+    onto the household is not the same product at a lower price &mdash; it is a cheaper, thinner
+    product. Georgia decided homeowners should not be moved onto one without a choice.</p>
+
+    <h2>What it means for the rest of the market</h2>
+    <p>Georgia Farm Bureau has filed four times on this book in the current window. Three were
+    approved at <strong>0.0%</strong>; the fourth, the cut above, was disapproved. So the carrier
+    that looks like it is simply holding rates steady is in fact the one carrier that tried to move
+    them <em>down</em> and was stopped.</p>
+    <p>Everyone else moved the other way. Twelve Georgia home insurers raised rates in the same
+    period and none cut &mdash; American Family &plus;7.6% on 28,722 households, Amica &plus;9.8%,
+    Safeco &plus;9.9%, Homesite &plus;12.9%. Against that backdrop, a blocked 5.2% decrease is the
+    only downward pressure the Georgia home market saw this year.</p>
+
+    <h2>What to do with this</h2>
+    <p>If you are insured with Georgia Farm Bureau, your rate did not change &mdash; and the reduction
+    you might have received in February 2027 is not coming in its current form. If you are with one
+    of the carriers that raised, the gap between you and the market has widened. Either way the
+    comparison is worth running.</p>
+    <p style="font-size:14px;margin:10px 0;"><a class="ca-link" href="/home/rate-changes/georgia.html">See every approved Georgia home rate filing &rarr;</a></p>
+""",
+ 'faq':[
+  ('Why did Georgia disapprove a rate decrease?',
+   'The Department of Insurance objected to the mechanism, not the price. Georgia Farm Bureau proposed funding the 5.2% premium reduction by moving policyholders onto a mandatory deductible above $1,500, and the Department stated it does not allow mandatory deductibles at that level. The disposition is dated 23 March 2026.'),
+  ('How much would Georgia Farm Bureau customers have saved?',
+   'The filing requested a 5.2% decrease worth $7,786,865 in total premium across 90,296 policyholders, with individual changes ranging from no change to a 13.3% reduction. It would have taken effect 1 February 2027 had it been approved.'),
+  ('Is Georgia Farm Bureau raising home rates?',
+   'No. Its other three filings in this window were all approved at 0.0%, so its rates are unchanged. That is notable because twelve other Georgia home insurers raised rates in the same period and none cut - including American Family at +7.6%, Amica at +9.8% and Safeco at +9.9%.'),
+ ],
+},
+{
  'path':'article/virginia-car-insurance-rate-changes-2026.html',
  'url':'https://boringrate.com/article/virginia-car-insurance-rate-changes-2026.html',
  'title':'Virginia car insurance rate changes in 2026: who cut and who raised',

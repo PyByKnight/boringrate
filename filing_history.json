@@ -1,0 +1,1266 @@
+{
+ "IL": {
+  "Allstate": {
+   "auto": {
+    "filings": [
+     {
+      "date": "2014-01-20",
+      "line": "auto",
+      "indicated_pct": 35.9,
+      "overall_pct": 35.7,
+      "affected": 2792,
+      "max_pct": 150.0,
+      "min_pct": -50.0,
+      "tracking": "ALSE-129381582"
+     },
+     {
+      "date": "2014-09-04",
+      "line": "auto",
+      "indicated_pct": 4.6,
+      "overall_pct": 3.3,
+      "affected": 267613,
+      "max_pct": 48.1,
+      "min_pct": -30.4,
+      "tracking": "ALSE-129708216"
+     },
+     {
+      "date": "2015-04-23",
+      "line": "auto",
+      "indicated_pct": 2.9,
+      "overall_pct": 2.9,
+      "affected": 299332,
+      "max_pct": 8.6,
+      "min_pct": 0.0,
+      "tracking": "ALSE-130046079"
+     },
+     {
+      "date": "2015-11-05",
+      "line": "auto",
+      "indicated_pct": 5.7,
+      "overall_pct": 5.7,
+      "affected": 320268,
+      "max_pct": 28.6,
+      "min_pct": -19.8,
+      "tracking": "ALSE-130290835"
+     },
+     {
+      "date": "2016-05-11",
+      "line": "auto",
+      "indicated_pct": 6.9,
+      "overall_pct": 6.9,
+      "affected": 318627,
+      "max_pct": 43.9,
+      "min_pct": -66.3,
+      "tracking": "ALSE-130568034"
+     },
+     {
+      "date": "2017-01-19",
+      "line": "auto",
+      "indicated_pct": 6.5,
+      "overall_pct": 5.9,
+      "affected": 316558,
+      "max_pct": 35.1,
+      "min_pct": -18.3,
+      "tracking": "ALSE-130886718"
+     },
+     {
+      "date": "2019-07-03",
+      "line": "auto",
+      "indicated_pct": 1.7,
+      "overall_pct": 1.6,
+      "affected": 329640,
+      "max_pct": 4.9,
+      "min_pct": -0.2,
+      "tracking": "ALSE-132002810"
+     },
+     {
+      "date": "2021-09-21",
+      "line": "auto",
+      "indicated_pct": 17.4,
+      "overall_pct": 2.5,
+      "affected": 366610,
+      "max_pct": 5.0,
+      "min_pct": 0.3,
+      "tracking": "ALSE-132987836"
+     },
+     {
+      "date": "2021-09-21",
+      "line": "auto",
+      "indicated_pct": 4.9,
+      "overall_pct": 4.9,
+      "affected": 7584,
+      "max_pct": 10.4,
+      "min_pct": 0.0,
+      "tracking": "ALSE-132987870"
+     },
+     {
+      "date": "2022-01-17",
+      "line": "auto",
+      "indicated_pct": 16.3,
+      "overall_pct": 12.0,
+      "affected": 369191,
+      "max_pct": 24.6,
+      "min_pct": 1.8,
+      "tracking": "ALSE-133115068"
+     },
+     {
+      "date": "2022-07-18",
+      "line": "auto",
+      "indicated_pct": 20.0,
+      "overall_pct": 16.0,
+      "affected": 371121,
+      "max_pct": 28.0,
+      "min_pct": 3.4,
+      "tracking": "ALSE-133328127"
+     },
+     {
+      "date": "2022-09-14",
+      "line": "auto",
+      "indicated_pct": 6.5,
+      "overall_pct": 6.5,
+      "affected": 5681,
+      "max_pct": 12.1,
+      "min_pct": 0.0,
+      "tracking": "ALSE-133399043"
+     },
+     {
+      "date": "2023-01-12",
+      "line": "auto",
+      "indicated_pct": 7.6,
+      "overall_pct": 7.6,
+      "affected": 364376,
+      "max_pct": 40.8,
+      "min_pct": 4.8,
+      "tracking": "ALSE-133502458"
+     },
+     {
+      "date": "2023-07-07",
+      "line": "auto",
+      "indicated_pct": 11.2,
+      "overall_pct": 11.2,
+      "affected": 350060,
+      "max_pct": 14.7,
+      "min_pct": 0.8,
+      "tracking": "ALSE-133737001"
+     },
+     {
+      "date": "2024-01-10",
+      "line": "auto",
+      "indicated_pct": 5.0,
+      "overall_pct": 3.0,
+      "affected": 343012,
+      "max_pct": 31.5,
+      "min_pct": 0.0,
+      "tracking": "ALSE-133947907"
+     },
+     {
+      "date": "2024-07-09",
+      "line": "auto",
+      "indicated_pct": 2.3,
+      "overall_pct": 2.3,
+      "affected": 335102,
+      "max_pct": 48.5,
+      "min_pct": -3.3,
+      "tracking": "ALSE-134172010"
+     },
+     {
+      "date": "2025-11-06",
+      "line": "auto",
+      "indicated_pct": 4.7,
+      "overall_pct": 4.7,
+      "affected": 2206,
+      "max_pct": 9.8,
+      "min_pct": 0.0,
+      "tracking": "ALSE-134731626"
+     },
+     {
+      "date": "2026-01-22",
+      "line": "auto",
+      "indicated_pct": 2.2,
+      "overall_pct": 2.2,
+      "affected": 261039,
+      "max_pct": 7.0,
+      "min_pct": 0.0,
+      "tracking": "ALSE-134810256"
+     },
+     {
+      "date": "2026-06-25",
+      "line": "auto",
+      "indicated_pct": 4.8,
+      "overall_pct": 4.8,
+      "affected": 1715,
+      "max_pct": 7.8,
+      "min_pct": 0.0,
+      "tracking": "ALSE-134997297"
+     }
+    ],
+    "first": "2014-01-20",
+    "last": "2026-06-25",
+    "n": 19,
+    "n_main_book": 14,
+    "compounded_pct": 121.7,
+    "main_book_affected": 371121,
+    "max_affected": 371121
+   }
+  },
+  "American Family": {
+   "auto": {
+    "filings": [
+     {
+      "date": "2023-03-21",
+      "line": "auto",
+      "indicated_pct": 16.6,
+      "overall_pct": 15.8,
+      "affected": 4791,
+      "max_pct": 31.7,
+      "min_pct": -3.5,
+      "tracking": "MRTN-133593994"
+     },
+     {
+      "date": "2024-03-19",
+      "line": "auto",
+      "indicated_pct": 18.0,
+      "overall_pct": 16.6,
+      "affected": 4834,
+      "max_pct": 163.5,
+      "min_pct": -10.1,
+      "tracking": "MRTN-133933138"
+     },
+     {
+      "date": "2024-05-31",
+      "line": "auto",
+      "indicated_pct": 0.4,
+      "overall_pct": 0.4,
+      "affected": 4834,
+      "max_pct": 10.0,
+      "min_pct": 0.0,
+      "tracking": "MRTN-134124722"
+     },
+     {
+      "date": "2025-02-20",
+      "line": "auto",
+      "indicated_pct": 6.4,
+      "overall_pct": 6.4,
+      "affected": 4749,
+      "max_pct": 42.8,
+      "min_pct": -5.0,
+      "tracking": "MRTN-134426270"
+     },
+     {
+      "date": "2026-03-26",
+      "line": "auto",
+      "indicated_pct": 16.3,
+      "overall_pct": 5.0,
+      "affected": 4657,
+      "max_pct": 26.8,
+      "min_pct": -0.8,
+      "tracking": "MRTN-134869206"
+     }
+    ],
+    "first": "2023-03-21",
+    "last": "2026-03-26",
+    "n": 5,
+    "n_main_book": 5,
+    "compounded_pct": 51.5,
+    "main_book_affected": 4834,
+    "max_affected": 4834
+   },
+   "home": {
+    "filings": [
+     {
+      "date": "2018-02-12",
+      "line": "home",
+      "indicated_pct": 3.3,
+      "overall_pct": 3.0,
+      "affected": 30388,
+      "max_pct": 19.4,
+      "min_pct": -19.7,
+      "tracking": "AMFC-131373107"
+     },
+     {
+      "date": "2019-02-13",
+      "line": "home",
+      "indicated_pct": 9.3,
+      "overall_pct": 5.4,
+      "affected": 40438,
+      "max_pct": 31.8,
+      "min_pct": -10.3,
+      "tracking": "AMFC-131825850"
+     },
+     {
+      "date": "2020-02-26",
+      "line": "home",
+      "indicated_pct": 15.6,
+      "overall_pct": 5.8,
+      "affected": 44599,
+      "max_pct": 16.8,
+      "min_pct": -20.6,
+      "tracking": "AMFC-132261502"
+     },
+     {
+      "date": "2022-02-03",
+      "line": "home",
+      "indicated_pct": 10.7,
+      "overall_pct": 8.6,
+      "affected": 57394,
+      "max_pct": 35.7,
+      "min_pct": -16.6,
+      "tracking": "AMFC-133136437"
+     },
+     {
+      "date": "2023-01-18",
+      "line": "home",
+      "indicated_pct": 27.4,
+      "overall_pct": 20.0,
+      "affected": 63780,
+      "max_pct": 104.7,
+      "min_pct": -35.0,
+      "tracking": "AMFC-133525817"
+     },
+     {
+      "date": "2024-01-23",
+      "line": "home",
+      "indicated_pct": 33.2,
+      "overall_pct": 30.0,
+      "affected": 69409,
+      "max_pct": 65.2,
+      "min_pct": -1.8,
+      "tracking": "AMFC-133960245"
+     },
+     {
+      "date": "2024-08-06",
+      "line": "home",
+      "indicated_pct": 14.0,
+      "overall_pct": 9.8,
+      "affected": 69088,
+      "max_pct": 18.4,
+      "min_pct": 0.0,
+      "tracking": "AMFC-134203178"
+     },
+     {
+      "date": "2024-12-20",
+      "line": "home",
+      "indicated_pct": 5.0,
+      "overall_pct": 0.8,
+      "affected": 67026,
+      "max_pct": -40.4,
+      "min_pct": 63.3,
+      "tracking": "AMFC-134360180"
+     },
+     {
+      "date": "2026-02-02",
+      "line": "home",
+      "indicated_pct": 1.8,
+      "overall_pct": 0.0,
+      "affected": 67889,
+      "max_pct": 195.2,
+      "min_pct": -67.8,
+      "tracking": "AMFC-134821591"
+     }
+    ],
+    "first": "2018-02-12",
+    "last": "2026-02-02",
+    "n": 9,
+    "n_main_book": 9,
+    "compounded_pct": 115.4,
+    "main_book_affected": 69409,
+    "max_affected": 69409
+   }
+  },
+  "American National": {
+   "auto": {
+    "filings": [
+     {
+      "date": "2016-12-16",
+      "line": "auto",
+      "indicated_pct": 10.7,
+      "overall_pct": 7.7,
+      "affected": 4225,
+      "max_pct": 50.0,
+      "min_pct": -50.1,
+      "tracking": "ANPC-130843826"
+     },
+     {
+      "date": "2023-04-18",
+      "line": "auto",
+      "indicated_pct": 14.5,
+      "overall_pct": 11.5,
+      "affected": 3062,
+      "max_pct": 14.5,
+      "min_pct": 4.1,
+      "tracking": "ANPC-133637605"
+     },
+     {
+      "date": "2023-09-28",
+      "line": "auto",
+      "indicated_pct": 7.6,
+      "overall_pct": 6.8,
+      "affected": 3392,
+      "max_pct": 20.0,
+      "min_pct": 0.0,
+      "tracking": "ANPC-133820250"
+     },
+     {
+      "date": "2025-09-26",
+      "line": "auto",
+      "indicated_pct": -4.6,
+      "overall_pct": 0.0,
+      "affected": 4953,
+      "max_pct": 81.4,
+      "min_pct": -20.1,
+      "tracking": "ANPC-134683815"
+     },
+     {
+      "date": "2026-04-27",
+      "line": "auto",
+      "indicated_pct": 8.8,
+      "overall_pct": 3.0,
+      "affected": 1088,
+      "max_pct": 13.5,
+      "min_pct": -15.9,
+      "tracking": "ANPC-134917316"
+     }
+    ],
+    "first": "2016-12-16",
+    "last": "2026-04-27",
+    "n": 5,
+    "n_main_book": 4,
+    "compounded_pct": 28.3,
+    "main_book_affected": 4953,
+    "max_affected": 4953
+   }
+  },
+  "Central": {
+   "auto": {
+    "filings": [
+     {
+      "date": "2013-05-02",
+      "line": "auto",
+      "indicated_pct": 6.2,
+      "overall_pct": 5.0,
+      "affected": 3684,
+      "max_pct": 22.7,
+      "min_pct": -12.7,
+      "tracking": "CEMC-129011699"
+     },
+     {
+      "date": "2014-04-04",
+      "line": "auto",
+      "indicated_pct": 4.5,
+      "overall_pct": 4.0,
+      "affected": 4189,
+      "max_pct": 15.1,
+      "min_pct": -12.8,
+      "tracking": "CEMC-129486328"
+     },
+     {
+      "date": "2015-05-11",
+      "line": "auto",
+      "indicated_pct": 5.9,
+      "overall_pct": 4.0,
+      "affected": 4581,
+      "max_pct": 0.0,
+      "min_pct": 0.0,
+      "tracking": "CEMC-130071671"
+     },
+     {
+      "date": "2016-04-15",
+      "line": "auto",
+      "indicated_pct": 16.0,
+      "overall_pct": 6.0,
+      "affected": 4674,
+      "max_pct": 22.2,
+      "min_pct": -4.0,
+      "tracking": "CEMC-130531858"
+     },
+     {
+      "date": "2016-07-22",
+      "line": "auto",
+      "indicated_pct": 17.8,
+      "overall_pct": 0.0,
+      "affected": 4674,
+      "max_pct": 25.0,
+      "min_pct": -25.0,
+      "tracking": "CEMC-130663215"
+     },
+     {
+      "date": "2017-05-02",
+      "line": "auto",
+      "indicated_pct": 16.0,
+      "overall_pct": 7.5,
+      "affected": 4674,
+      "max_pct": 22.2,
+      "min_pct": -4.0,
+      "tracking": "CEMC-131023714"
+     },
+     {
+      "date": "2018-04-09",
+      "line": "auto",
+      "indicated_pct": 6.8,
+      "overall_pct": 5.5,
+      "affected": 4437,
+      "max_pct": 12.3,
+      "min_pct": -11.1,
+      "tracking": "CEMC-131450250"
+     },
+     {
+      "date": "2019-04-01",
+      "line": "auto",
+      "indicated_pct": 6.6,
+      "overall_pct": 2.1,
+      "affected": 3941,
+      "max_pct": 18.1,
+      "min_pct": -12.1,
+      "tracking": "CEMC-131887429"
+     },
+     {
+      "date": "2020-06-17",
+      "line": "auto",
+      "indicated_pct": 2.3,
+      "overall_pct": 2.0,
+      "affected": 3216,
+      "max_pct": 144.7,
+      "min_pct": -63.7,
+      "tracking": "CEMC-132425445"
+     },
+     {
+      "date": "2023-04-28",
+      "line": "auto",
+      "indicated_pct": 11.3,
+      "overall_pct": 9.9,
+      "affected": 2739,
+      "max_pct": 26.8,
+      "min_pct": -16.4,
+      "tracking": "CEMC-133648589"
+     },
+     {
+      "date": "2023-11-17",
+      "line": "auto",
+      "indicated_pct": 11.1,
+      "overall_pct": 8.8,
+      "affected": 3274,
+      "max_pct": 13.5,
+      "min_pct": 4.1,
+      "tracking": "CEMC-133895272"
+     },
+     {
+      "date": "2024-06-19",
+      "line": "auto",
+      "indicated_pct": 11.3,
+      "overall_pct": 11.0,
+      "affected": 3122,
+      "max_pct": 40.8,
+      "min_pct": -5.5,
+      "tracking": "CEMC-134149481"
+     },
+     {
+      "date": "2025-06-05",
+      "line": "auto",
+      "indicated_pct": 17.9,
+      "overall_pct": 17.6,
+      "affected": 2478,
+      "max_pct": 64.2,
+      "min_pct": -17.7,
+      "tracking": "CEMC-134557918"
+     },
+     {
+      "date": "2026-01-06",
+      "line": "auto",
+      "indicated_pct": 7.1,
+      "overall_pct": 7.1,
+      "affected": 2433,
+      "max_pct": 16.1,
+      "min_pct": 0.0,
+      "tracking": "CEMC-134790195"
+     }
+    ],
+    "first": "2013-05-02",
+    "last": "2026-01-06",
+    "n": 14,
+    "n_main_book": 14,
+    "compounded_pct": 137.7,
+    "main_book_affected": 4674,
+    "max_affected": 4674
+   },
+   "home": {
+    "filings": [
+     {
+      "date": "2015-09-01",
+      "line": "home",
+      "indicated_pct": 10.8,
+      "overall_pct": 4.0,
+      "affected": 4963,
+      "max_pct": 6.4,
+      "min_pct": -4.0,
+      "tracking": "CEMC-130226989"
+     },
+     {
+      "date": "2016-07-14",
+      "line": "home",
+      "indicated_pct": 19.0,
+      "overall_pct": 8.5,
+      "affected": 4926,
+      "max_pct": 13.7,
+      "min_pct": -10.7,
+      "tracking": "CEMC-130652621"
+     },
+     {
+      "date": "2017-08-14",
+      "line": "home",
+      "indicated_pct": 5.2,
+      "overall_pct": 3.0,
+      "affected": 4799,
+      "max_pct": 16.1,
+      "min_pct": -21.8,
+      "tracking": "CEMC-131153969"
+     },
+     {
+      "date": "2018-10-08",
+      "line": "home",
+      "indicated_pct": 9.7,
+      "overall_pct": 7.0,
+      "affected": 5797861,
+      "max_pct": -37.3,
+      "min_pct": 156.2,
+      "tracking": "CEMC-131676369"
+     },
+     {
+      "date": "2019-10-01",
+      "line": "home",
+      "indicated_pct": 5.5,
+      "overall_pct": 5.1,
+      "affected": 4135,
+      "max_pct": -25.6,
+      "min_pct": 30.1,
+      "tracking": "CEMC-132100922"
+     },
+     {
+      "date": "2020-09-09",
+      "line": "home",
+      "indicated_pct": 5.3,
+      "overall_pct": 4.0,
+      "affected": 3031,
+      "max_pct": 26.6,
+      "min_pct": -2.3,
+      "tracking": "CEMC-132521756"
+     },
+     {
+      "date": "2023-05-09",
+      "line": "home",
+      "indicated_pct": 3.4,
+      "overall_pct": 3.1,
+      "affected": 2899,
+      "max_pct": 9.1,
+      "min_pct": 1.0,
+      "tracking": "CEMC-133660665"
+     },
+     {
+      "date": "2024-05-30",
+      "line": "home",
+      "indicated_pct": 11.6,
+      "overall_pct": 11.1,
+      "affected": 3229,
+      "max_pct": 127.0,
+      "min_pct": -38.9,
+      "tracking": "CEMC-134122798"
+     },
+     {
+      "date": "2025-08-15",
+      "line": "home",
+      "indicated_pct": 32.9,
+      "overall_pct": 30.8,
+      "affected": 2764,
+      "max_pct": 128.3,
+      "min_pct": 0.0,
+      "tracking": "CEMC-134637698"
+     },
+     {
+      "date": "2026-01-19",
+      "line": "home",
+      "indicated_pct": 5.5,
+      "overall_pct": 4.7,
+      "affected": 2623,
+      "max_pct": 16.2,
+      "min_pct": -0.3,
+      "tracking": "CEMC-134805373"
+     }
+    ],
+    "first": "2015-09-01",
+    "last": "2026-01-19",
+    "n": 10,
+    "n_main_book": 1,
+    "compounded_pct": 7.0,
+    "main_book_affected": 5797861,
+    "max_affected": 5797861
+   }
+  },
+  "Erie": {
+   "home": {
+    "filings": [
+     {
+      "date": "2025-03-26",
+      "line": "home",
+      "indicated_pct": 10.6,
+      "overall_pct": 10.5,
+      "affected": 68893,
+      "max_pct": 103.5,
+      "min_pct": -8.6,
+      "tracking": "ERPP-134428818"
+     },
+     {
+      "date": "2025-06-24",
+      "line": "home",
+      "indicated_pct": 3.4,
+      "overall_pct": 3.2,
+      "affected": 7061,
+      "max_pct": 8.2,
+      "min_pct": 3.1,
+      "tracking": "ERPP-134581355"
+     },
+     {
+      "date": "2026-03-27",
+      "line": "home",
+      "indicated_pct": 7.6,
+      "overall_pct": 7.1,
+      "affected": 107000,
+      "max_pct": 176.5,
+      "min_pct": -11.1,
+      "tracking": "ERPP-134891551"
+     },
+     {
+      "date": "2026-08-06",
+      "line": "home",
+      "indicated_pct": 8.9,
+      "overall_pct": 8.9,
+      "affected": 6365,
+      "max_pct": 9.5,
+      "min_pct": 8.5,
+      "tracking": "ERPP-135045878"
+     }
+    ],
+    "first": "2025-03-26",
+    "last": "2026-08-06",
+    "n": 4,
+    "n_main_book": 2,
+    "compounded_pct": 18.3,
+    "main_book_affected": 107000,
+    "max_affected": 107000
+   }
+  },
+  "Grange": {
+   "home": {
+    "filings": [
+     {
+      "date": "2019-02-07",
+      "line": "home",
+      "indicated_pct": 11.5,
+      "overall_pct": 1.5,
+      "affected": 1024,
+      "max_pct": 13.8,
+      "min_pct": -13.5,
+      "tracking": "GRAN-131773441"
+     },
+     {
+      "date": "2019-08-23",
+      "line": "home",
+      "indicated_pct": 14.0,
+      "overall_pct": 1.6,
+      "affected": 1137,
+      "max_pct": 2.8,
+      "min_pct": 1.1,
+      "tracking": "GRAN-132044539"
+     },
+     {
+      "date": "2021-11-19",
+      "line": "home",
+      "indicated_pct": 26.7,
+      "overall_pct": 5.7,
+      "affected": 2291,
+      "max_pct": 17.5,
+      "min_pct": -2.6,
+      "tracking": "GRAN-133056739"
+     },
+     {
+      "date": "2022-11-17",
+      "line": "home",
+      "indicated_pct": 34.8,
+      "overall_pct": 10.2,
+      "affected": 2249,
+      "max_pct": 20.1,
+      "min_pct": -13.8,
+      "tracking": "GRAN-133463207"
+     },
+     {
+      "date": "2023-10-09",
+      "line": "home",
+      "indicated_pct": 36.0,
+      "overall_pct": 33.4,
+      "affected": 4574,
+      "max_pct": 56.5,
+      "min_pct": 0.0,
+      "tracking": "GRAN-133837309"
+     },
+     {
+      "date": "2024-09-16",
+      "line": "home",
+      "indicated_pct": 30.8,
+      "overall_pct": 20.0,
+      "affected": 4442,
+      "max_pct": 46.7,
+      "min_pct": 0.0,
+      "tracking": "GRAN-134240759"
+     },
+     {
+      "date": "2025-09-11",
+      "line": "home",
+      "indicated_pct": 13.7,
+      "overall_pct": 2.8,
+      "affected": 3974,
+      "max_pct": 5.5,
+      "min_pct": 0.0,
+      "tracking": "GRAN-134665006"
+     },
+     {
+      "date": "2026-03-30",
+      "line": "home",
+      "indicated_pct": 4.4,
+      "overall_pct": 0.2,
+      "affected": 3720,
+      "max_pct": 18.2,
+      "min_pct": -6.4,
+      "tracking": "GRAN-134887924"
+     }
+    ],
+    "first": "2019-02-07",
+    "last": "2026-03-30",
+    "n": 8,
+    "n_main_book": 6,
+    "compounded_pct": 92.1,
+    "main_book_affected": 4574,
+    "max_affected": 4574
+   }
+  },
+  "Grinnell": {
+   "auto": {
+    "filings": [
+     {
+      "date": "2023-03-30",
+      "line": "auto",
+      "indicated_pct": 29.0,
+      "overall_pct": 23.1,
+      "affected": 5297,
+      "max_pct": 70.2,
+      "min_pct": 10.3,
+      "tracking": "GRCP-133617918"
+     },
+     {
+      "date": "2023-09-05",
+      "line": "auto",
+      "indicated_pct": 17.7,
+      "overall_pct": 17.4,
+      "affected": 7015,
+      "max_pct": 71.5,
+      "min_pct": -21.6,
+      "tracking": "GRCP-133802837"
+     },
+     {
+      "date": "2024-03-27",
+      "line": "auto",
+      "indicated_pct": 8.9,
+      "overall_pct": 8.8,
+      "affected": 6944,
+      "max_pct": 40.0,
+      "min_pct": -40.0,
+      "tracking": "GRCP-134046615"
+     },
+     {
+      "date": "2024-08-29",
+      "line": "auto",
+      "indicated_pct": 3.6,
+      "overall_pct": 1.8,
+      "affected": 6150,
+      "max_pct": 56.5,
+      "min_pct": -38.4,
+      "tracking": "GRCP-134231848"
+     },
+     {
+      "date": "2026-05-22",
+      "line": "auto",
+      "indicated_pct": 10.3,
+      "overall_pct": 2.7,
+      "affected": 4266,
+      "max_pct": 11.5,
+      "min_pct": -5.8,
+      "tracking": "GRCP-134960623"
+     }
+    ],
+    "first": "2023-03-30",
+    "last": "2026-05-22",
+    "n": 5,
+    "n_main_book": 5,
+    "compounded_pct": 64.4,
+    "main_book_affected": 7015,
+    "max_affected": 7015
+   }
+  },
+  "Kemper": {
+   "auto": {
+    "filings": [
+     {
+      "date": "2024-01-03",
+      "line": "auto",
+      "indicated_pct": 11.0,
+      "overall_pct": 11.0,
+      "affected": 362,
+      "max_pct": 28.7,
+      "min_pct": -9.0,
+      "tracking": "UTRN-133863042"
+     },
+     {
+      "date": "2024-11-14",
+      "line": "auto",
+      "indicated_pct": 7.2,
+      "overall_pct": 7.0,
+      "affected": 10676,
+      "max_pct": 15.0,
+      "min_pct": -6.3,
+      "tracking": "UTRN-134320456"
+     },
+     {
+      "date": "2024-11-14",
+      "line": "auto",
+      "indicated_pct": 10.2,
+      "overall_pct": 10.0,
+      "affected": 9998,
+      "max_pct": 20.6,
+      "min_pct": -3.9,
+      "tracking": "UTRN-134320425"
+     },
+     {
+      "date": "2025-05-22",
+      "line": "auto",
+      "indicated_pct": 20.0,
+      "overall_pct": 19.8,
+      "affected": 14542,
+      "max_pct": 68.1,
+      "min_pct": -14.4,
+      "tracking": "UTRN-134540476"
+     },
+     {
+      "date": "2025-05-22",
+      "line": "auto",
+      "indicated_pct": 22.3,
+      "overall_pct": 21.5,
+      "affected": 22865,
+      "max_pct": 74.1,
+      "min_pct": -13.7,
+      "tracking": "UTRN-134540469"
+     },
+     {
+      "date": "2025-11-14",
+      "line": "auto",
+      "indicated_pct": 20.2,
+      "overall_pct": 19.2,
+      "affected": 13280,
+      "max_pct": 35.4,
+      "min_pct": -6.4,
+      "tracking": "UTRN-134740540"
+     },
+     {
+      "date": "2025-11-14",
+      "line": "auto",
+      "indicated_pct": 30.4,
+      "overall_pct": 29.9,
+      "affected": 27473,
+      "max_pct": 73.2,
+      "min_pct": -1.8,
+      "tracking": "UTRN-134740700"
+     },
+     {
+      "date": "2026-05-21",
+      "line": "auto",
+      "indicated_pct": 28.0,
+      "overall_pct": 27.1,
+      "affected": 9155,
+      "max_pct": 65.1,
+      "min_pct": 0.0,
+      "tracking": "UTRN-134958025"
+     },
+     {
+      "date": "2026-05-21",
+      "line": "auto",
+      "indicated_pct": 41.7,
+      "overall_pct": 41.5,
+      "affected": 18797,
+      "max_pct": 53.2,
+      "min_pct": 15.7,
+      "tracking": "UTRN-134957968"
+     }
+    ],
+    "first": "2024-01-03",
+    "last": "2026-05-21",
+    "n": 9,
+    "n_main_book": 4,
+    "compounded_pct": 139.0,
+    "main_book_affected": 27473,
+    "max_affected": 27473
+   }
+  },
+  "Progressive": {
+   "auto": {
+    "filings": [
+     {
+      "date": "2013-02-27",
+      "line": "auto",
+      "indicated_pct": 8.4,
+      "overall_pct": 8.5,
+      "affected": 8058,
+      "max_pct": 12.3,
+      "min_pct": 0.0,
+      "tracking": "PRGS-128912236"
+     },
+     {
+      "date": "2013-07-26",
+      "line": "auto",
+      "indicated_pct": -5.5,
+      "overall_pct": 0.9,
+      "affected": 6622,
+      "max_pct": 11.4,
+      "min_pct": -22.1,
+      "tracking": "PRGS-128994965"
+     },
+     {
+      "date": "2018-03-01",
+      "line": "auto",
+      "indicated_pct": -18.0,
+      "overall_pct": 2.8,
+      "affected": 29789,
+      "max_pct": 57.4,
+      "min_pct": -34.9,
+      "tracking": "PRGS-131380043"
+     },
+     {
+      "date": "2020-09-17",
+      "line": "auto",
+      "indicated_pct": -9.5,
+      "overall_pct": 1.4,
+      "affected": 30843,
+      "max_pct": 115.4,
+      "min_pct": -55.0,
+      "tracking": "PRGS-132448158"
+     },
+     {
+      "date": "2021-09-21",
+      "line": "auto",
+      "indicated_pct": -6.6,
+      "overall_pct": 1.1,
+      "affected": 35317,
+      "max_pct": 88.4,
+      "min_pct": -35.7,
+      "tracking": "PRGS-132975160"
+     },
+     {
+      "date": "2021-12-29",
+      "line": "auto",
+      "indicated_pct": 4.2,
+      "overall_pct": 4.2,
+      "affected": 2242,
+      "max_pct": 10.0,
+      "min_pct": -6.6,
+      "tracking": "PRGS-133097160"
+     },
+     {
+      "date": "2023-04-24",
+      "line": "auto",
+      "indicated_pct": 8.3,
+      "overall_pct": 5.2,
+      "affected": 1564,
+      "max_pct": 15.1,
+      "min_pct": -4.2,
+      "tracking": "PRGS-133635983"
+     },
+     {
+      "date": "2024-08-21",
+      "line": "auto",
+      "indicated_pct": 1.1,
+      "overall_pct": 2.6,
+      "affected": 39618,
+      "max_pct": 280.8,
+      "min_pct": -53.2,
+      "tracking": "PRGS-134064672"
+     },
+     {
+      "date": "2026-10-14",
+      "line": "auto",
+      "indicated_pct": -6.4,
+      "overall_pct": 0.6,
+      "affected": 1567,
+      "max_pct": 115.9,
+      "min_pct": -35.1,
+      "tracking": "PRGS-135018979"
+     }
+    ],
+    "first": "2013-02-27",
+    "last": "2026-10-14",
+    "n": 9,
+    "n_main_book": 4,
+    "compounded_pct": 8.1,
+    "main_book_affected": 39618,
+    "max_affected": 39618
+   }
+  },
+  "State Farm": {
+   "home": {
+    "filings": [
+     {
+      "date": "2012-10-24",
+      "line": "home",
+      "indicated_pct": 7.4,
+      "overall_pct": 4.7,
+      "affected": 1241384,
+      "max_pct": 29.6,
+      "min_pct": -11.2,
+      "tracking": "SFMA-128667686"
+     },
+     {
+      "date": "2013-10-07",
+      "line": "home",
+      "indicated_pct": 7.1,
+      "overall_pct": 4.9,
+      "affected": 1270056,
+      "max_pct": 21.6,
+      "min_pct": -6.2,
+      "tracking": "SFMA-129211930"
+     },
+     {
+      "date": "2014-10-03",
+      "line": "home",
+      "indicated_pct": 4.2,
+      "overall_pct": 1.6,
+      "affected": 1308522,
+      "max_pct": 19.7,
+      "min_pct": -11.9,
+      "tracking": "SFMA-129725673"
+     },
+     {
+      "date": "2016-11-23",
+      "line": "home",
+      "indicated_pct": 7.3,
+      "overall_pct": 0.2,
+      "affected": 1348967,
+      "max_pct": 17.3,
+      "min_pct": -21.0,
+      "tracking": "SFMA-130775370"
+     },
+     {
+      "date": "2017-08-04",
+      "line": "home",
+      "indicated_pct": 11.5,
+      "overall_pct": 0.3,
+      "affected": 1368639,
+      "max_pct": 149.1,
+      "min_pct": -60.5,
+      "tracking": "SFMA-131124313"
+     },
+     {
+      "date": "2017-10-16",
+      "line": "home",
+      "indicated_pct": 10.9,
+      "overall_pct": 3.9,
+      "affected": 1368639,
+      "max_pct": 13.9,
+      "min_pct": -3.9,
+      "tracking": "SFMA-131177578"
+     },
+     {
+      "date": "2018-11-07",
+      "line": "home",
+      "indicated_pct": 8.7,
+      "overall_pct": 1.1,
+      "affected": 1360530,
+      "max_pct": 36.2,
+      "min_pct": -36.7,
+      "tracking": "SFMA-131696159"
+     },
+     {
+      "date": "2021-04-05",
+      "line": "home",
+      "indicated_pct": 9.9,
+      "overall_pct": 3.8,
+      "affected": 1362088,
+      "max_pct": 5.2,
+      "min_pct": 0.0,
+      "tracking": "SFMA-132674381"
+     },
+     {
+      "date": "2022-01-31",
+      "line": "home",
+      "indicated_pct": 8.5,
+      "overall_pct": 1.7,
+      "affected": 1397975,
+      "max_pct": 28.8,
+      "min_pct": -20.9,
+      "tracking": "SFMA-133132157"
+     },
+     {
+      "date": "2023-02-17",
+      "line": "home",
+      "indicated_pct": 7.9,
+      "overall_pct": 2.4,
+      "affected": 1420029,
+      "max_pct": 37.3,
+      "min_pct": -40.5,
+      "tracking": "SFMA-133553055"
+     },
+     {
+      "date": "2023-06-02",
+      "line": "home",
+      "indicated_pct": 10.1,
+      "overall_pct": 4.2,
+      "affected": 1427210,
+      "max_pct": 6.1,
+      "min_pct": 0.0,
+      "tracking": "SFMA-133697472"
+     },
+     {
+      "date": "2024-02-12",
+      "line": "home",
+      "indicated_pct": 13.6,
+      "overall_pct": 12.3,
+      "affected": 1451178,
+      "max_pct": 22.8,
+      "min_pct": -1.7,
+      "tracking": "SFMA-133973747"
+     },
+     {
+      "date": "2025-06-02",
+      "line": "home",
+      "indicated_pct": 32.5,
+      "overall_pct": 27.2,
+      "affected": 1491665,
+      "max_pct": 39.9,
+      "min_pct": 0.0,
+      "tracking": "SFMA-134393024"
+     },
+     {
+      "date": "2026-08-26",
+      "line": "home",
+      "indicated_pct": 12.5,
+      "overall_pct": 7.9,
+      "affected": 1483264,
+      "max_pct": 36.5,
+      "min_pct": -9.4,
+      "tracking": "SFMA-135045614"
+     }
+    ],
+    "first": "2012-10-24",
+    "last": "2026-08-26",
+    "n": 14,
+    "n_main_book": 14,
+    "compounded_pct": 104.5,
+    "main_book_affected": 1491665,
+    "max_affected": 1491665
+   }
+  }
+ }
+}

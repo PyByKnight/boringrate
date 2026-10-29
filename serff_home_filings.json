@@ -6341,6 +6341,35 @@
    "max_pct": 0.0,
    "min_pct": null,
    "note": null
+  },
+  {
+   "state": "GA",
+   "line": "home",
+   "carrier": "Georgia Farm Bureau",
+   "entity": "Georgia Farm Bureau Mutual Insurance Company",
+   "tracking": "GFBR-134795612",
+   "url": "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId=134795612",
+   "product": "Compass Homeowners",
+   "filing_type": "Rate/Rule",
+   "disposition_date": "2026-03-23",
+   "effective_new": "2027-02-01",
+   "effective_renewal": "2027-02-01",
+   "overall_pct": -5.2,
+   "indicated_pct": 5.1,
+   "prior_revision_pct": null,
+   "written_premium": 149747400.0,
+   "written_premium_change": -7786865.0,
+   "affected": 90296,
+   "count_basis": "policyholders",
+   "coverage_changes": null,
+   "premium_as_of": null,
+   "recorded_date": "2026-10-29",
+   "status": "Disapproved",
+   "drift_exclude": true,
+   "max_pct": 0.0,
+   "min_pct": -13.3,
+   "source_note": "GA OCI SERFF Filing Access jacket; Company Rate Information block.",
+   "note": "DISAPPROVED 2026-03-23. Requested a 5.2% DECREASE (indicated +5.1%) funded by a mandatory deductible above $1,500; the Department disapproved on that basis: \"The Department has taken the position of not allowing mandatory deductibles higher than $1500.\" drift_exclude: a disapproved filing never took effect and must not move the rate model."
   }
  ]
 }
