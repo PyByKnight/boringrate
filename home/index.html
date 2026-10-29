@@ -894,18 +894,19 @@ const HOME_METRO_ZIP3 = {"070":"nyc","071":"nyc","072":"nyc","073":"nyc","074":"
 // GATED on coverage (only carriers filed in >= N states). Absent carriers keep their static score.
 // Measures RECENT rate pressure (~1yr of filings), not lifetime volatility. Do NOT hand-edit.
 const HOME_STABILITY_ADJ = {
-  "Allstate": 3,
   "American Family": 5,
   "CSAA / AAA": 4,
   "Central": 2,
   "Cincinnati Insurance": 3,
   "Donegal": 5,
   "Farmers": 4,
+  "Homesite": 2,
   "Liberty Mutual": 3,
   "Nationwide": 5,
   "Progressive": 1,
+  "Selective": 3,
   "State Farm": 2,
-  "USAA": 4,
+  "USAA": 3,
 };
 // ── END HOME_STABILITY_ADJ ──
 
@@ -1167,6 +1168,21 @@ const HOME_CARRIERS = [
     restricted:true, availNote:"Not available in all states — check availability",
     states:["TX"],
     links:"https://www.txfb-ins.com",
+    sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
+  },
+  {
+    // Base from the carrier's OWN disapproved filing GFBR-134795612: $149,747,400 written
+    // premium over 90,296 policyholders on the 04.0003 Owner Occupied program = $1,658;
+    // /1,976 GA average = 0.839. Scoped to owner-occupied, so NOT the blended HO+condo+tenant
+    // ratio memory boringrate-jacket-averages-blended warns against. That filing's actuarial
+    // exhibit implies $936/policy - under half the state average, a misread denominator -
+    // so the written-premium figure is the supported one. Owner decision 2026-10-29.
+    name:"Georgia Farm Bureau", base:0.839,
+    tag:"Georgia member mutual &middot; state-exclusive &middot; held rates flat in 2026",
+    bestFor:"Georgia members \u2014 the only large GA home insurer that did not raise in 2026",
+    naic:0.65, csGrade:"A-", stability:5,
+    restricted:true, availNote:"Georgia only \u2014 membership required", states:["GA"],
+    links:"https://www.gfb.org/insurance",
     sens:{bundle:-0.11, claims1:0.42, claims2:0.82, covLow:-0.26, covHigh:0.42, dedLow:0.13, dedHigh:-0.13}
   },
   {
