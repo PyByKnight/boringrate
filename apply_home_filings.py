@@ -58,6 +58,12 @@ ROSTER_ALIAS = {
     "Hartford": "The Hartford",
     "The Hartford": "The Hartford",
     "Erie": "Erie Insurance",
+    # spelling variants already in the ledger (GA/LA/NJ/MI); without these the rows
+    # silently fall out as "not in home roster" once they go post-anchor.
+    "Cincinnati": "Cincinnati Insurance",
+    "COUNTRY Financial": "Country Financial",
+    "Hanover": "The Hanover",
+    "Donegal Insurance": "Donegal",
 }
 
 
