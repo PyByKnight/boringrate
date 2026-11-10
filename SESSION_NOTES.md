@@ -1,5 +1,28 @@
 # BoringRate — Session Notes
-_Last updated: 2026-10-13 (Opus 5)_
+_Last updated: 2026-11-10 (Opus 5.5)_
+
+## ▶▶ RESUME HERE (2026-11-10) — TENNESSEE HOME backfill (Tier 1) — DONE, not pushed
+`fa30467d` ledger · `321d6645` cascade/pages · `f39b23a6` roster aliases. **37 TN home rows** from 39
+jackets (`append_tn_home.py`, idempotent; `parse_ga_jackets.py TN` — parser now takes the state).
+TN home is RAISING: **State Farm +9.9%** (ind +17.9, 374,436 PH, eff 2026-11-15 new / 2027-01-15
+renewal), Allstate AVPIC +9.5% (101K), Erie Ins Co +8.0% (117K), Nationwide +5.8%, Grange +4.8%
+(ind +24.7), USAA +2.6%, Auto-Owners +2.4%. Cutters: Encompass −6.4%, Homesite −4.8%, Celina −3.7%,
+Shelter −2.9%. Erie Insurance EXCHANGE is a CLOSED book (renewal-only) → drift_exclude.
+- New pages: `home/rate-changes/tennessee.html` + 7 TN home reactive pages (+ IL State Farm home,
+  missed after the 10-29 IL recovery). Sitemap updated. QA 724/0, leaks 0, prose 0, HARD=1 (OH).
+- HOME_DRIFT TN = Homesite 0.9737 / Liberty Mutual 1.0442 / Safeco 1.0432 (only 3 post-anchor,
+  in-force, ≥4,000-PH filings). **Re-run `./rebuild.sh home` after 2026-11-15** so State Farm's +9.9%
+  drifts — until then the tool and the TN callouts disagree on State Farm.
+- Renormalizing over only 3 filers makes ±2% filings read as ±4% tilts (direction right,
+  magnitude ~2×) — model-wide behavior, not TN-specific; owner call whether to revisit.
+- **Generator copy bug (all states):** reactive pages say the "renewal" increase is "effective
+  <new-business date>" — State Farm TN renewals actually hit 2027-01-15. Fix in gen_reactive_pages.
+- **Still to pull (TN):** Tier-1 Selective SELC-134703566 / SELC-134698561, Cincinnati
+  CNNB-134929303 / CNNB-134761578; all 47 Tier 2 (list: ~/tn_home_jackets.html). Re-run
+  `parse_ga_jackets.py TN && append_tn_home.py` (add the new trackings to META first).
+- Gotcha: `gen_reactive_pages.py` has NO --help — any unknown flag runs the AUTO default and
+  strips the derived entries from `article/why-your-rate-went-up.html`. Always pass `--derive`.
+
 
 ## ▶▶ RESUME HERE (2026-10-13) — TX+CA open-data merge, feed hardening, ★ Atlanta leak #3 fixed
 
