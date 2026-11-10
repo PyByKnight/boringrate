@@ -54,6 +54,24 @@ def _pct(v):
 def _n(v):
     return f'{v:,}' if isinstance(v, (int, float)) else None
 
+def _eff_phrase(r):
+    """'effective ...' clause naming BOTH dates when they differ.
+
+    These pages are read by people whose RENEWAL went up, and a filing usually reaches
+    new business weeks or months before renewals (State Farm TN home: Nov 15, 2026 new,
+    Jan 15, 2027 renewal). A bare 'effective <new-business date>' told a renewing
+    customer the wrong date.
+    """
+    new, ren = _eff_human(r.get('effective_new')), _eff_human(r.get('effective_renewal'))
+    if new and ren and new != ren:
+        return f'effective for new business {new} and at renewal from {ren}'
+    if new:
+        return f'effective {new}' if ren else f'effective for new business {new}'
+    if ren:
+        return f'effective at renewal from {ren}'
+    return None
+
+
 def _eff_human(iso):
     if not iso:
         return None
@@ -136,7 +154,7 @@ def derive(carrier, state, ledger_rows, line='auto'):
     indicated= subj.get('indicated_pct')
     mx, mn   = subj.get('max_pct'), subj.get('min_pct')
     aff      = subj.get('affected')
-    eff      = _eff_human(subj.get('effective_new') or subj.get('effective_renewal'))
+    eff      = _eff_phrase(subj)
     trk      = subj['tracking']
     lname    = 'home' if line == 'home' else 'auto'
     LNAME    = 'homeowners' if line == 'home' else 'auto'
@@ -213,7 +231,7 @@ def derive(carrier, state, ledger_rows, line='auto'):
              f'{carrier} filed for a rate increase (SERFF <strong>{trk}</strong>) and it was approved at '
              f'<strong>{_pct(pct)}</strong>'
              + (f' on about {_n(aff)} {subj.get("count_basis") or "policyholders"}' if aff else '')
-             + (f', effective {eff}' if eff else '')
+             + (f', {eff}' if eff else '')
              + '. The figures below are approved filings pulled from the public SERFF system '
                '&mdash; not estimates &mdash; and every one links to its filing.</p>\n')
 
@@ -282,7 +300,7 @@ def derive(carrier, state, ledger_rows, line='auto'):
     faq = [(f'Why did my {carrier} rate go up in {sname} in 2026?',
             f'{carrier} filed for and received an approved {pct:+.1f}% {sname} {LNAME} rate increase '
             f'(SERFF {trk})'
-            + (f', effective {eff}' if eff else '')
+            + (f', {eff}' if eff else '')
             + (f', on about {_n(aff)} {subj.get("count_basis") or "policyholders"}' if aff else '')
             + '.')]
     if 'spread' in evidence:
