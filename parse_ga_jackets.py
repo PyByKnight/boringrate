@@ -98,7 +98,11 @@ def parse(pdf):
             # policyholder integer are distinguishable by their own formatting.
             raw = []
             while i < len(L) and len(raw) < 7 and (NUM.match(L[i]) or EMPTY.match(L[i])):
-                raw.append(None if EMPTY.match(L[i]) else L[i].strip()); i += 1
+                # Keep an EMPTY cell as its bare '%' / '$' so it still counts as a percent /
+                # dollar SLOT below. Dropping it to None shifted every later percent left:
+                # CO Allstate ALSE-134766565 (blank indicated) read impact 0.9 / max -0.1
+                # instead of 0.0 / 0.9.
+                raw.append(L[i].strip()); i += 1
             vals = [None if r is None else num(r) for r in raw]
             key = ' '.join(name)[:70]
             if name and len(vals) >= 2 and key not in seen:
