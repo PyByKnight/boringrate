@@ -325,7 +325,7 @@ PAGES = [
     <p>Approved changes apply <strong>at renewal, not mid-term</strong>, and usually reach new customers first. Your renewal shows Allstate&rsquo;s price for your coverage; it does not tell you what State Farm, USAA or Erie would charge for the same coverage. With a large indicated gap still unfilled, running your ZIP against every carrier is worth doing now &mdash; it&rsquo;s free and takes a couple of minutes.</p>''',
  'faq':[
   ('Why did my Allstate rate go up in Virginia in 2026?',
-   'Allstate filed for and received an approved +3.0% Virginia auto rate increase (SERFF ALSE-134970309), effective July 27, 2026, on about 68,527 policyholders. Its actuarial indication was +10.0%, so the state approved less than a third of what Allstate said its data justified.'),
+   'Allstate filed for and received an approved +3.0% Virginia auto rate increase (SERFF ALSE-134970309), effective for new business July 27, 2026 and at renewal from August 27, 2026, on about 68,527 policyholders. Its actuarial indication was +10.0%, so the state approved less than a third of what Allstate said its data justified.'),
   ('Allstate asked for how much in Virginia?',
    'Allstate indicated it needed +10.0% but was approved for only +3.0%, leaving roughly seven points of its own indicated need unfilled - a gap carriers typically try to close with follow-up filings.'),
   ('How much did Allstate actually raise my Virginia rate?',
@@ -364,7 +364,7 @@ PAGES = [
     <p>Approved changes apply <strong>at renewal, not mid-term</strong>. Your renewal shows Liberty Mutual&rsquo;s price for your coverage; it does not tell you what State Farm, USAA or Erie would charge for the same coverage. Given how wide Liberty Mutual&rsquo;s spread ran, comparing your ZIP against every carrier is especially worth it &mdash; it&rsquo;s free and takes a couple of minutes.</p>''',
  'faq':[
   ('Why did my Liberty Mutual rate go up in Virginia in 2026?',
-   'Liberty Mutual filed for and received an approved +4.0% Virginia auto rate increase (SERFF LBPM-134893945), effective June 23, 2026, on about 46,227 policyholders. Its indication was +5.3%, and the Virginia Bureau of Insurance approved it.'),
+   'Liberty Mutual filed for and received an approved +4.0% Virginia auto rate increase (SERFF LBPM-134893945), effective for new business June 23, 2026 and at renewal from July 28, 2026, on about 46,227 policyholders. Its indication was +5.3%, and the Virginia Bureau of Insurance approved it.'),
   ('Why did my Liberty Mutual bill jump far more than 4%?',
    'Because +4.0% is a statewide average, not your change. Liberty Mutual\'s own filing reports the change ranged from about +82% to about -18% by driver - one of the widest spreads in Virginia. Where you land depends on your ZIP, vehicle, age, claims and coverage.'),
   ('Are other Virginia auto insurers cutting rates?',
@@ -442,7 +442,7 @@ PAGES = [
     <p>Approved changes apply <strong>at renewal, not mid-term</strong>. Your renewal shows Kemper&rsquo;s price for your coverage; it does not tell you what State Farm, Country Financial or Progressive would charge for the same coverage today. After a 41% increase, running your ZIP against every carrier is the single highest-value thing you can do &mdash; it&rsquo;s free and takes a couple of minutes.</p>''',
  'faq':[
   ('Why did my Kemper rate go up in Illinois in 2026?',
-   'Kemper filed for and received an approved +41.5% Illinois auto rate increase (SERFF UTRN-134957968), effective May 25, 2026, on about 18,797 policyholders. Its actuarial indication was +41.7%, so Kemper took essentially the full amount its own loss data justified, and Illinois regulators approved it.'),
+   'Kemper filed for and received an approved +41.5% Illinois auto rate increase (SERFF UTRN-134957968), effective for new business May 25, 2026 and at renewal from June 25, 2026, on about 18,797 policyholders. Its actuarial indication was +41.7%, so Kemper took essentially the full amount its own loss data justified, and Illinois regulators approved it.'),
   ('Is a 41% Kemper increase normal?',
    'No - it is an unusually steep single filing, the kind that appears when a book\'s loss experience (often on higher-risk or non-standard drivers) has run far ahead of its prices. Because the indicated need matched the approved change, the increase is unlikely to reverse.'),
   ('Are other Illinois insurers cutting rates?',

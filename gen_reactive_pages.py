@@ -44,6 +44,16 @@ def _eff(d):
     if not d: return '&mdash;'
     y, m, dd = d.split('-'); return f"{int(m)}/{int(dd)}/{y[2:]}"
 
+def _eff_cell(r):
+    """Both dates when renewals lag new business: these readers are RENEWING, and the
+    new-business date alone told them the wrong date (State Farm TN home 11/15/26 vs 1/15/27)."""
+    new, ren = r.get("effective_new"), r.get("effective_renewal")
+    if new and ren and new != ren:
+        return f'new {_eff(new)}<br>renew {_eff(ren)}'
+    if not new and ren:
+        return f'renew {_eff(ren)}'
+    return _eff(new)
+
 def row(name, href, trk, fid, change, note, up, ledger='serff_filings.json'):
     """Concise data row. Policyholders + Eff. Date are pulled from the ledger by
     tracking # so they can't drift from the source. `note` is retained in the
@@ -55,7 +65,7 @@ def row(name, href, trk, fid, change, note, up, ledger='serff_filings.json'):
             f'            <td class="cn">{cn}</td>\n'
             f'            <td class="{cls}">{change}</td>\n'
             f'            <td class="ph">{_ph(r.get("affected"))}</td>\n'
-            f'            <td class="eff">{_eff(r.get("effective_new"))}</td>\n'
+            f'            <td class="eff">{_eff_cell(r)}</td>\n'
             f'            <td class="fil"><a class="clink" href="{SERFF}{fid}" target="_blank" rel="noopener nofollow">{trk} &rarr;</a></td>\n'
             f'          </tr>\n')
 

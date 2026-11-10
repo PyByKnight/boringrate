@@ -57,7 +57,7 @@ PAGES = [
  'rows': [
    ('USAA', '/home/carrier/usaa.html', 'USAA-134785241', '134785241', '&plus;15.8%',
     'The filing behind your increase. Approved &plus;15.8% on ~105,620 households; the range runs '
-    '&plus;63.7% to &minus;25.8% by home. Eff. Mar 16, 2026.', True),
+    '&plus;63.7% to &minus;25.8% by home. Eff. new business Mar 16, 2026; renewals Jun 1, 2026.', True),
    ('Grange', '', 'GRAN-134602478', '134602478', '&plus;5.7%',
     'Raised &plus;5.7% on ~99,058 households against an &plus;11.7% indicated need.', True),
    ('Ohio Mutual', '', 'OHMG-134556446', '134556446', '&plus;7.3%',
@@ -79,7 +79,7 @@ PAGES = [
  ],
  'prose': '''    <h2>What the filing actually says</h2>
     <p>USAA&rsquo;s approved Ohio homeowners increase is <strong>&plus;15.8%</strong>, effective
-    March 16, 2026, on roughly <strong>105,620 households</strong>. That is the headline number, and
+    for new business March 16, 2026 and at renewal from June 1, 2026, on roughly <strong>105,620 households</strong>. That is the headline number, and
     it is the number that will be quoted anywhere this filing gets mentioned. It is also not
     your rate.</p>
     <p>The filing discloses its own spread: individual policies move anywhere from
@@ -119,7 +119,7 @@ PAGES = [
  'faq': [
    ('How much did USAA raise home insurance rates in Ohio?',
     'USAA received approval for a +15.8% statewide average homeowners rate increase in Ohio '
-    '(SERFF USAA-134785241), effective March 16, 2026, affecting about 105,620 households. The '
+    '(SERFF USAA-134785241), effective for new business March 16, 2026 and at renewal from June 1, 2026, affecting about 105,620 households. The '
     'filing discloses that individual policies move between +63.7% and -25.8%, so a specific '
     'home can be far above or below the 15.8% average.'),
    ('Why did my USAA home premium go up more than 15.8%?',
@@ -162,7 +162,7 @@ PAGES = [
    ('USAA', '/home/carrier/usaa.html', 'USAA-134827676', '134827676', '&plus;3.8%',
     'The filing behind your increase. Approved &plus;3.8% (premium-weighted across four USAA '
     'entities) on ~307,356 households against a &plus;4.5% indicated need; range &plus;36.5% to '
-    '&minus;31.0%. Eff. Apr 20, 2026.', True),
+    '&minus;31.0%. Eff. new business Apr 20, 2026; renewals Jul 6, 2026.', True),
    ('Progressive', '/home/carrier/progressive.html', 'AMSI-134485084', '134485084', '&plus;10.0%',
     'Raised &plus;10.0% on ~48,058 households against a &plus;13.1% indication &mdash; the steepest '
     'Virginia home increase we recorded.', True),
@@ -188,7 +188,7 @@ PAGES = [
  ],
  'prose': '''    <h2>What the filing actually says</h2>
     <p>USAA&rsquo;s approved Virginia homeowners increase is <strong>&plus;3.8%</strong>, effective
-    April 20, 2026. That figure is a premium-weighted average across USAA&rsquo;s four Virginia
+    for new business April 20, 2026 and at renewal from July 6, 2026. That figure is a premium-weighted average across USAA&rsquo;s four Virginia
     entities &mdash; United Services Automobile Association, USAA Casualty, USAA General Indemnity
     and Garrison &mdash; which between them cover about <strong>307,356 households</strong>. It is
     the largest USAA home book in any state we track.</p>
@@ -225,7 +225,7 @@ PAGES = [
  'faq': [
    ('How much did USAA raise home insurance rates in Virginia?',
     'USAA received approval for a +3.8% premium-weighted average homeowners increase in Virginia '
-    '(SERFF USAA-134827676), effective April 20, 2026, across about 307,356 households in four '
+    '(SERFF USAA-134827676), effective for new business April 20, 2026 and at renewal from July 6, 2026, across about 307,356 households in four '
     'USAA entities. The filing discloses a range of +36.5% to -31.0% for individual policies.'),
    ('Why did my USAA home premium rise more than 3.8%?',
     'The 3.8% is a statewide, premium-weighted average across USAA’s four Virginia companies. '
@@ -264,7 +264,7 @@ PAGES = [
  'rows': [
    ('State Farm', '/home/carrier/state-farm.html', 'SFMA-134661164', '134661164', '&plus;9.7%',
     'The filing behind your increase. Approved &plus;9.7% on ~303,638 households against a '
-    '&plus;10.3% indicated need. Eff. Oct 15, 2025.', True),
+    '&plus;10.3% indicated need. Eff. new business Oct 15, 2025; renewals Dec 15, 2025.', True),
    ('Louisiana Farm Bureau', '', 'SFBC-134582157', '134582157', '&plus;14.8%',
     'Raised &plus;14.8% on ~7,321 households against a &plus;17.8% indication &mdash; the steepest '
     'Louisiana home increase we recorded.', True),
@@ -282,7 +282,7 @@ PAGES = [
  ],
  'prose': '''    <h2>What the filing actually says</h2>
     <p>State Farm&rsquo;s approved Louisiana homeowners increase is <strong>&plus;9.7%</strong>,
-    effective October 15, 2025, on roughly <strong>303,638 households</strong>. Its own actuarial
+    effective for new business October 15, 2025 and at renewal from December 15, 2025, on roughly <strong>303,638 households</strong>. Its own actuarial
     analysis indicated it needed <strong>&plus;10.3%</strong>, so it filed very close to its full
     indication &mdash; this was not a carrier holding back.</p>
     <p>Scale matters here. State Farm&rsquo;s Louisiana home book is larger than the next three
@@ -321,7 +321,7 @@ PAGES = [
  'faq': [
    ('How much did State Farm raise home insurance rates in Louisiana?',
     'State Farm received approval for a +9.7% statewide average homeowners increase in Louisiana '
-    '(SERFF SFMA-134661164), effective October 15, 2025, affecting about 303,638 households. Its '
+    '(SERFF SFMA-134661164), effective for new business October 15, 2025 and at renewal from December 15, 2025, affecting about 303,638 households. Its '
     'own actuarial analysis indicated it needed +10.3%, so it filed close to its full indication.'),
    ('Why are Louisiana home insurance rates rising so fast?',
     'Hurricane exposure, reinsurance costs and litigation have pushed Gulf Coast property rates '
