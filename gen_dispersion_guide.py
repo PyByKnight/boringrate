@@ -5,7 +5,7 @@ Data-driven from serff_home_filings.json so the hero examples stay accurate: pul
 dramatic low-filed-average / high-by-ZIP filings (the 'the statewide average is not your rate'
 proof) + a '0% overall but big swing' redistribution example + a 'wanted more than they filed'
 example. Output: home/why-did-my-home-insurance-go-up.html."""
-import json, pathlib
+import json, pathlib, re
 from datetime import date
 from gen_metro_page import STATE, esc, _json
 
@@ -17,6 +17,10 @@ scaff = (ROOT / "home" / "state" / "florida.html").read_text(encoding="utf-8")
 STYLE = scaff[scaff.index("<style>"):scaff.index("</style>") + len("</style>")]
 NAV = scaff[scaff.index('<header class="top">'):scaff.index("</header>") + len("</header>")]
 TAIL = scaff[scaff.index("<footer>"):]
+# The scaffold is home/state/florida.html; its sticky CTA's aria-label said "Florida" on every
+# page built from it (screen readers announced it). Neutralize label + visible text.
+TAIL = re.sub(r'aria-label="Compare [A-Za-z ]+ home rates"', 'aria-label="Compare home rates"', TAIL)
+TAIL = re.sub(r'>Compare [A-Za-z ]+ home rates <span class="ascta-arrow">', '>Compare home rates <span class="ascta-arrow">', TAIL)
 
 
 def pct(v):
