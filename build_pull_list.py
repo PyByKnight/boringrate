@@ -19,9 +19,9 @@ from collections import OrderedDict
 
 ROOT = pathlib.Path(__file__).parent
 CAP = 3
-CAP_OVERRIDE = {"State Farm": 4, "Farmers": 4, "Liberty Mutual / Safeco": 5}
+CAP_OVERRIDE = {"State Farm": 4, "Farmers": 4, "Liberty Mutual / Safeco": 5, "Allstate": 7}
 # Family label -> roster names it covers (labels that are not roster names verbatim).
-FAMILY_ROSTER = {"Liberty Mutual / Safeco": ["Liberty Mutual", "Safeco"]}
+FAMILY_ROSTER = {"Liberty Mutual / Safeco": ["Liberty Mutual", "Safeco"], "Amica": ["Amica Mutual"]}
 ORDER = ["State Farm", "Allstate", "USAA", "Farmers", "Liberty Mutual / Safeco", "Travelers",
          "Nationwide", "American Family"]
 SERFF = "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId="
