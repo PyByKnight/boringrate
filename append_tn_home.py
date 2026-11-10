@@ -10,11 +10,8 @@ tracking are skipped. Same conventions as the GA home merge (0d7ec1d2):
   - the per-company rows are used, not the summary block: SERFF does not aggregate across
     entities, so the summary can read 0.000% (Farmers FARM-134862806 does exactly that).
 """
-import json, datetime, sys
-import filing_dupes
+import append_home_jackets
 
-LEDGER = "serff_home_filings.json"
-TODAY = datetime.date.today().isoformat()
 
 # tracking -> (carrier family, product). Family names match the home roster keys or the
 # ROSTER_ALIAS in apply_home_filings.py, so a TN row can actually drift.
@@ -77,89 +74,13 @@ NOTES = {
 DRIFT_EXCLUDE = {"ERPP-134705628", "ERPP-135041201"}
 
 
-def iso(d):
-    if not d: return None
-    try: return datetime.datetime.strptime(d.strip(), "%m/%d/%Y").date().isoformat()
-    except ValueError: return None
-
-
-def collapse(comps):
-    """Fold per-company rows into one family row (GA convention)."""
-    live = [c for c in comps if c.get("impact") is not None]
-    if not live: return None
-    wp = sum(c["wp"] or 0 for c in live)
-    if wp:
-        pct = sum((c["impact"] or 0) * (c["wp"] or 0) for c in live) / wp
-        ind = (sum((c["indicated"] or 0) * (c["wp"] or 0) for c in live) / wp
-               if all(c["indicated"] is not None for c in live) else None)
-    else:
-        pct = sum(c["impact"] for c in live) / len(live)
-        ind = live[0]["indicated"]
-    big = max(live, key=lambda c: c["wp"] or 0)
-    ent = big["entity"] + (f" (+{len(live)-1} entities)" if len(live) > 1 else "")
-    rng = [v for c in live for v in (c["max_pct"], c["min_pct"]) if v is not None]
-    aff = sum(c["affected"] or 0 for c in live)
-    wpc = [c["wp_change"] for c in live if c["wp_change"] is not None]
-    return dict(entity=ent, pct=round(pct, 3), ind=None if ind is None else round(ind, 3),
-                wp=wp or None, aff=aff or None, wpc=sum(wpc) if wpc else None,
-                mx=max(rng) if rng else None, mn=min(rng) if rng else None)
-
-
 def main():
-    P = json.load(open("_serff/TN/_parsed.json"))
-    led = json.load(open(LEDGER))
-    have = {r["tracking"] for r in led["filings"]}
-    unknown = [t for t in P if t not in META and t not in SKIP]
-    if unknown: sys.exit(f"unmapped trackings: {unknown}")
-
-    new = []
-    for t, p in sorted(P.items()):
-        if t in SKIP or t in have: continue
-        carrier, product = META[t]
-        c = collapse(p["companies"])
-        if c is None: sys.exit(f"{t}: no company rate rows")
-        note = []
-        if c["mx"] is not None:
-            note.append(f"within-filing range {c['mx']:+.1f}% to {c['mn']:+.1f}%.")
-        if c["ind"] is not None and c["ind"] - c["pct"] >= 3:
-            note.append(f"Indicated {c['ind']:+.1f}%, took {c['pct']:+.1f}% — gap unclosed.")
-        if t in NOTES: note.append(NOTES[t])
-        row = {
-            "state": "TN", "line": "home", "carrier": carrier, "entity": c["entity"],
-            "tracking": t,
-            "url": f"https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId={t.split('-')[1]}",
-            "product": product, "filing_type": "Rate/Rule",
-            "disposition_date": iso(p["disposition"]),
-            "effective_new": iso(p["eff_new"]), "effective_renewal": iso(p["eff_ren"]),
-            "overall_pct": c["pct"], "indicated_pct": c["ind"], "prior_revision_pct": None,
-            "written_premium": c["wp"], "written_premium_change": c["wpc"],
-            "affected": c["aff"], "count_basis": "policyholders", "coverage_changes": None,
-            "premium_as_of": None, "recorded_date": TODAY, "status": p["status"],
-            "source_note": "TN SERFF Filing Access jacket; Company Rate Information block.",
-            "max_pct": c["mx"], "min_pct": c["mn"], "note": " ".join(note) or None,
-        }
-        if t in DRIFT_EXCLUDE: row["drift_exclude"] = True
-        new.append(row)
-
-    _, flagged = filing_dupes.annotate(new, led["filings"])
-    filing_dupes.report(flagged)
-    for r in sorted(new, key=lambda r: -abs(r["overall_pct"])):
-        print(f"  {r['carrier']:20} {r['overall_pct']:+7.2f}%  ind {r['indicated_pct']}  "
-              f"{r['affected'] or '':>8}  {r['tracking']}{'  [drift_exclude]' if r.get('drift_exclude') else ''}")
-    if "--apply" not in sys.argv:
-        print(f"\n{len(new)} new rows (dry run; --apply to write)"); return
-    led["filings"] += new
-    if not any(p.get("state") == "TN" and p.get("line") == "home" for p in led["_meta"]["pulls"]):
-        led["_meta"]["pulls"].append({
-            "state": "TN", "line": "home", "window": "2025-07-01..2026-11-05",
-            "date_pulled": TODAY, "scanned": 268, "kept": len(new),
-            "note": ("106 rate-bearing of 268 results; 39 of the 43 Tier-1 jackets pulled. "
-                     "Not yet pulled: Selective SELC-134703566 / SELC-134698561, Cincinnati "
-                     "CNNB-134929303 / CNNB-134761578, and all of Tier 2 (47). Skipped: "
-                     + "; ".join(f"{k} {v}" for k, v in SKIP.items())),
-        })
-    json.dump(led, open(LEDGER, "w"), indent=1, ensure_ascii=False)
-    print(f"\nappended {len(new)} TN home rows -> {LEDGER}")
+    append_home_jackets.merge(
+        "TN", META, skip=SKIP, notes=NOTES, drift_exclude=DRIFT_EXCLUDE,
+        pull={"window": "2025-07-01..2026-11-05", "date_pulled": "2026-11-10", "scanned": 268,
+              "note": ("106 rate-bearing of 268 results; 39 of the 43 Tier-1 jackets pulled. "
+                       "Not yet pulled: Selective SELC-134703566 / SELC-134698561, Cincinnati "
+                       "CNNB-134929303 / CNNB-134761578, and all of Tier 2 (47).")})
 
 
 if __name__ == "__main__":

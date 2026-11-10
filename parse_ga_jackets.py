@@ -27,6 +27,9 @@ NUM = re.compile(r'^-?[\d,]+\.?\d*%$|^\$-?[\d,]+$|^-?[\d,]+$')
 EMPTY = re.compile(r'^[%$]$')
 
 def text(pdf):
+    txt = os.path.join(os.path.dirname(pdf) + '_txt', os.path.basename(pdf)[:-4] + '.txt')
+    if not os.path.exists(pdf) and os.path.exists(txt):
+        return open(txt, encoding='utf-8', errors='replace').read()
     try:
         return subprocess.run(['python3', 'serff_pdftext.py', pdf],
                               capture_output=True, text=True, timeout=180).stdout
@@ -42,10 +45,27 @@ def parse(pdf):
     L = [l.strip() for l in text(pdf).splitlines()]
     out = {'companies': [], 'summary': {}, 'disposition': None,
            'eff_new': None, 'eff_ren': None, 'status': None}
+    DATE = re.compile(r'^\d{2}/\d{2}/\d{4}$')
+
+    def val(i, l):
+        """Value on the label line, else (label alone on its line) the next line if it is a date."""
+        v = l.split(':', 1)[1].strip()
+        if not v and i + 1 < len(L) and DATE.match(L[i + 1]):
+            v = L[i + 1]
+        return v or None
+
+    req_new = req_ren = None
     for i, l in enumerate(L):
-        if l.startswith('Disposition Date:'): out['disposition'] = l.split(':', 1)[1].strip()
-        elif l.startswith('Effective Date (New):'): out['eff_new'] = l.split(':', 1)[1].strip()
-        elif l.startswith('Effective Date (Renewal):'): out['eff_ren'] = l.split(':', 1)[1].strip()
+        # FIRST non-empty wins: the header block is the current disposition. Later
+        # 'Disposition Date:' lines are the disposition HISTORY, oldest last - the old
+        # last-wins rule read CO State Farm SFMA-134942134 as 08/12 instead of 10/21.
+        if l.startswith('Disposition Date:'): out['disposition'] = out['disposition'] or val(i, l)
+        elif l.startswith('Effective Date (New):'): out['eff_new'] = out['eff_new'] or val(i, l)
+        elif l.startswith('Effective Date (Renewal):'): out['eff_ren'] = out['eff_ren'] or val(i, l)
+        # Colorado (file & use) leaves the two fields above blank and carries the dates
+        # only as 'Effective Date / Requested (New):' in the header.
+        elif l.startswith('Requested (New):'): req_new = req_new or val(i, l)
+        elif l.startswith('Requested (Renewal):'): req_ren = req_ren or val(i, l)
         elif l.startswith('Status:') and not out['status']: out['status'] = l.split(':', 1)[1].strip()
         # multi-company summary: label line, value on the next
         elif l.startswith('Overall Percentage Rate Impact For This Filing'):
@@ -56,6 +76,9 @@ def parse(pdf):
             out['summary']['affected'] = num(L[i+1]) if i+1 < len(L) else None
         elif l.startswith('Effect of Rate Filing-Written Premium Change'):
             out['summary']['wp_change'] = num(L[i+1]) if i+1 < len(L) else None
+
+    if not out['eff_new'] and req_new: out['eff_new'], out['eff_requested'] = req_new, True
+    if not out['eff_ren'] and req_ren: out['eff_ren'], out['eff_requested'] = req_ren, True
 
     # per-company rows. The header block repeats on every page of a long jacket,
     # so walk ALL occurrences and keep the first complete row per entity.
