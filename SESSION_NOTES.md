@@ -1,6 +1,15 @@
 # BoringRate — Session Notes
 _Last updated: 2026-11-10 (Opus 5.5)_
 
+## ▶▶ 2026-11-10 (later) — slow-leak explainer + NEXT: COLORADO HOME pull
+- `home/slow-leak-claim-denied.html` (from a Castle Rock CO Nextdoor post about a State Farm leak
+  denial; poster NOT named) + water-damage guide expanded. Primary sources: State Farm HW-2136
+  (OK DOI) / FP-7955 (NV DOI), Ellis v. State Farm (10th Cir. 2009). **Gap: State Farm's COLORADO
+  form edition not read** — grab it from the CO SERFF pull (form filing) and confirm the page.
+- 29 home pages have sticky-CTA aria-label "Compare Florida home rates" (template leak) — unfixed.
+- **NEXT: CO home SERFF pull** — owner pastes TOI 04.0 results (disposition 07/01/2025–today) →
+  build ~/co_home_jackets.html → zips → parse_ga_jackets.py CO → append script (clone append_tn_home.py).
+
 ## ▶▶ RESUME HERE (2026-11-10) — TENNESSEE HOME backfill (Tier 1) — DONE, not pushed
 `fa30467d` ledger · `321d6645` cascade/pages · `f39b23a6` roster aliases. **37 TN home rows** from 39
 jackets (`append_tn_home.py`, idempotent; `parse_ga_jackets.py TN` — parser now takes the state).
