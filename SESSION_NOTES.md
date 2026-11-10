@@ -1,6 +1,18 @@
 # BoringRate — Session Notes
 _Last updated: 2026-11-10 (Opus 5.5)_
 
+## ▶▶ 2026-11-10 (latest) — COLORADO HOME backfill (partial) — committed, NOT pushed
+`2712f30d` parser/shared module · `9aec6d10` 27 CO rows · `8849e4d3` reactive year/name fix · `eb0be420` pages.
+CO home: USAA +19.3%, State Farm +16.4% (then +2.9%), Nationwide +13.1%, Hartford +9–13%; only Homesite cut.
+- **Still to do (CO):** paste PAGE 1 of the TOI 04.0 results (A–E: Allstate, AmFam, COUNTRY, CO Farm
+  Bureau) → add rows to `_serff/CO/candidates.tsv` → `build_pull_list.py CO Colorado` → pull →
+  `parse_ga_jackets.py CO && append_co_home.py` (add trackings to META). Pending start-here: Travelers ×2,
+  NWPP-G134716289. Then compact PDFs.
+- New pipeline: `build_pull_list.py` (pull list from candidates.tsv) → `parse_ga_jackets.py ST` →
+  `append_<st>_home.py` (config only; logic in `append_home_jackets.py`).
+- Parser fix: disposition = FIRST date (header), not last (history). GA had 2 wrong rows — fixed.
+- Pull list served at http://penguin.linux.test:8765/ (a python http.server on ~, from an earlier session).
+
 ## ▶▶ 2026-11-10 (later) — slow-leak explainer + NEXT: COLORADO HOME pull
 - `home/slow-leak-claim-denied.html` (from a Castle Rock CO Nextdoor post about a State Farm leak
   denial; poster NOT named) + water-damage guide expanded. Primary sources: State Farm HW-2136
