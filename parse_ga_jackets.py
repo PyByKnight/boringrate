@@ -97,10 +97,12 @@ def parse(pdf):
     return out
 
 if __name__ == '__main__':
+    st = sys.argv[1] if len(sys.argv) > 1 else 'GA'
     res = {}
-    for d in sorted(glob.glob('_serff/GA/*/')):
+    for d in sorted(glob.glob(f'_serff/{st}/*/')):
+        if d.rstrip('/').endswith('_txt'): continue
         t = os.path.basename(d.rstrip('/'))
         res[t] = parse(os.path.join(d, t + '.pdf'))
         print('.', end='', flush=True)
-    json.dump(res, open('_serff/GA/_parsed.json', 'w'), indent=1)
-    print(f"\nparsed {len(res)} jackets -> _serff/GA/_parsed.json")
+    json.dump(res, open(f'_serff/{st}/_parsed.json', 'w'), indent=1)
+    print(f"\nparsed {len(res)} jackets -> _serff/{st}/_parsed.json")
