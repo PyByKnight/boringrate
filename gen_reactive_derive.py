@@ -54,6 +54,15 @@ def _pct(v):
 def _n(v):
     return f'{v:,}' if isinstance(v, (int, float)) else None
 
+# 'Why did my The Hartford rate go up' -> 'my Hartford rate'. Not for brands where
+# "The" IS the name (The General would become "my General").
+KEEP_THE = {"The General"}
+
+
+def my_carrier(name):
+    return name if name in KEEP_THE else re.sub(r'^The ', '', name)
+
+
 def _eff_phrase(r):
     """'effective ...' clause naming BOTH dates when they differ.
 
@@ -155,6 +164,11 @@ def derive(carrier, state, ledger_rows, line='auto'):
     mx, mn   = subj.get('max_pct'), subj.get('min_pct')
     aff      = subj.get('affected')
     eff      = _eff_phrase(subj)
+    # Year the increase took effect - NOT a hard-coded 2026 (CO State Farm's +16.4% took
+    # effect July 2025 and read 'raised ... in 2026').
+    yr       = (subj.get('effective_new') or subj.get('effective_renewal')
+                or subj.get('disposition_date') or '2026')[:4]
+    my_name  = my_carrier(carrier)
     trk      = subj['tracking']
     lname    = 'home' if line == 'home' else 'auto'
     LNAME    = 'homeowners' if line == 'home' else 'auto'
@@ -184,8 +198,8 @@ def derive(carrier, state, ledger_rows, line='auto'):
     big_cut = max(cutters, key=lambda r: abs(r['overall_pct'])) if cutters else None
 
     # ---- head ---------------------------------------------------------------
-    title = f'Why did my {carrier} rate go up in {sname}?'
-    desc_bits = [f'{carrier} raised {sname} {LNAME} rates {pct:+.1f}% in 2026.']
+    title = f'Why did my {my_name} rate go up in {sname}?'
+    desc_bits = [f'{carrier} raised {sname} {LNAME} rates {pct:+.1f}% in {yr}.']
     if indicated is not None and indicated > pct + 0.4:
         desc_bits.append(f'It indicated {indicated:+.1f}% and took less.')
     if big_cut:
@@ -193,12 +207,12 @@ def derive(carrier, state, ledger_rows, line='auto'):
     desc_bits.append('See the filing and who to compare.')
     desc = ' '.join(desc_bits)
 
-    alert = (f'{carrier} raised {sname} {LNAME} rates <strong>{_pct(pct)}</strong> in 2026'
+    alert = (f'{carrier} raised {sname} {LNAME} rates <strong>{_pct(pct)}</strong> in {yr}'
              + (f' &mdash; the filing ranges {_pct(mx)} to {_pct(mn)} by '
                 + ('household' if line == 'home' else 'driver') + '.'
                 if mx is not None and mn is not None else '.'))
 
-    dek = [f'{carrier} raised its {sname} {LNAME} rates <strong>{_pct(pct)}</strong> in 2026']
+    dek = [f'{carrier} raised its {sname} {LNAME} rates <strong>{_pct(pct)}</strong> in {yr}']
     if indicated is not None and indicated > pct + 0.4:
         dek.append(f' &mdash; it indicated a need for {_pct(indicated)} and took less &mdash;')
     dek.append('.' if len(dek) == 1 else '')
@@ -297,7 +311,7 @@ def derive(carrier, state, ledger_rows, line='auto'):
     prose = ''.join(P)
 
     # ---- FAQ ----------------------------------------------------------------
-    faq = [(f'Why did my {carrier} rate go up in {sname} in 2026?',
+    faq = [(f'Why did my {my_name} rate go up in {sname} in {yr}?',
             f'{carrier} filed for and received an approved {pct:+.1f}% {sname} {LNAME} rate increase '
             f'(SERFF {trk})'
             + (f', {eff}' if eff else '')

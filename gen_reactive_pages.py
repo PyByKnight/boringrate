@@ -21,6 +21,7 @@ rz-cta-css block it stamped into the template so the CSS is not emitted twice.
 Every figure is a real approved filing in serff_filings.json — keep them accurate.
 """
 import json, re, html
+from gen_reactive_derive import my_carrier
 
 TEMPLATE = 'article/tennessee-rates-dropping.html'
 SERFF = 'https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId='
@@ -217,7 +218,7 @@ def hub_body(pages, line='auto'):
     for st in sorted(by_state):
         out.append(f'<h3>{st}</h3>\n<ul>')
         for car, chg, href in sorted(by_state[st]):
-            out.append(f'<li><a href="{href}">Why did my {car} rate go up in {st}? '
+            out.append(f'<li><a href="{href}">Why did my {my_carrier(car)} rate go up in {st}? '
                        f'<span class="hub-chg">{chg}</span></a></li>')
         out.append('</ul>')
     out.append('</div>')
