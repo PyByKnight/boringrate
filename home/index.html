@@ -839,6 +839,7 @@ const STATE_CARRIER_ADJ = {
 // re-calibrated, so the tool becomes more primary-sourced as filings accrue without double-counting.
 // Empty {} = no post-anchor filings drift that state yet (aggregator baseline stands). Do NOT hand-edit.
 const HOME_DRIFT = {
+  "CO": { "Cincinnati Insurance": 0.9734, "Homesite": 0.9608, "Liberty Mutual": 0.9754, "State Farm": 1.0037, "The Hartford": 1.0777 },
   "GA": { "Chubb": 1.0051, "Farmers": 0.9456, "Safeco": 1.0096 },
   "IL": { "Allstate": 0.9262 },
   "MI": { "Auto-Owners": 0.9951, "Michigan Farm Bureau": 0.9894, "The Hanover": 1.017, "The Hartford": 0.9933 },
@@ -898,10 +899,9 @@ const HOME_STABILITY_ADJ = {
   "American Family": 5,
   "CSAA / AAA": 4,
   "Central": 2,
-  "Cincinnati Insurance": 2,
+  "Chubb": 4,
+  "Cincinnati Insurance": 3,
   "Donegal": 5,
-  "Liberty Mutual": 3,
-  "Nationwide": 5,
   "Progressive": 1,
   "State Farm": 2,
   "USAA": 3,
