@@ -15,8 +15,7 @@ Shelter −2.9%. Erie Insurance EXCHANGE is a CLOSED book (renewal-only) → dri
   drifts — until then the tool and the TN callouts disagree on State Farm.
 - Renormalizing over only 3 filers makes ±2% filings read as ±4% tilts (direction right,
   magnitude ~2×) — model-wide behavior, not TN-specific; owner call whether to revisit.
-- **Generator copy bug (all states):** reactive pages say the "renewal" increase is "effective
-  <new-business date>" — State Farm TN renewals actually hit 2027-01-15. Fix in gen_reactive_pages.
+- **FIXED** renewal-date copy bug in derived reactive pages (gen_reactive_derive._eff_phrase).
 - **Still to pull (TN):** Tier-1 Selective SELC-134703566 / SELC-134698561, Cincinnati
   CNNB-134929303 / CNNB-134761578; all 47 Tier 2 (list: ~/tn_home_jackets.html). Re-run
   `parse_ga_jackets.py TN && append_tn_home.py` (add the new trackings to META first).
