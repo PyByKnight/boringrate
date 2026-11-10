@@ -6,7 +6,7 @@ _Last updated: 2026-11-10 (Opus 5.5)_
   denial; poster NOT named) + water-damage guide expanded. Primary sources: State Farm HW-2136
   (OK DOI) / FP-7955 (NV DOI), Ellis v. State Farm (10th Cir. 2009). **Gap: State Farm's COLORADO
   form edition not read** — grab it from the CO SERFF pull (form filing) and confirm the page.
-- 29 home pages have sticky-CTA aria-label "Compare Florida home rates" (template leak) — unfixed.
+- FIXED: Florida sticky-CTA aria-label leak (28 pages + 4 scaffold generators).
 - **NEXT: CO home SERFF pull** — owner pastes TOI 04.0 results (disposition 07/01/2025–today) →
   build ~/co_home_jackets.html → zips → parse_ga_jackets.py CO → append script (clone append_tn_home.py).
 
