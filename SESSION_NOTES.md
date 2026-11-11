@@ -7,8 +7,8 @@ _Last updated: 2026-11-10 (Opus 5.5)_
 - `/privacy.html` (gen_trust_pages.py privacy.html) — AdSense-required ad-cookie disclosure; footer link sitewide.
 - `patch_adsense.py` — loader on 724 CONTENT pages only (never tools/results/calculators/trust pages), writes
   ads.txt, `--remove` rollback, in rebuild.sh. NO-OP until `adsense.json` = {"client":"ca-pub-…"}.
-- NEXT: owner signs up (boringrate@gmail.com) → gives ca-pub → write adsense.json → `patch_adsense.py --apply`
-  → push. In AdSense: enable Privacy & messaging EU/UK consent; keep Auto ads OFF; after approval add 2 manual
+- DONE 2026-11-11 (`2dc690e9`): ca-pub-9438885843936206 live — loader on 724 content pages, verification meta on all
+  735 (homepage = ad-free tool, so verify via META TAG or ADS.TXT, not the code snippet), /ads.txt live. Then: In AdSense: enable Privacy & messaging EU/UK consent; keep Auto ads OFF; after approval add 2 manual
   in-article units (after intro, before FAQ). Model (Umami 28d: 934 US PV, 67 results sessions): AdSense
   ~$10–30/mo now; real money = click marketplace on results (~10× traffic needed) + filings-data B2B.
 
