@@ -52,6 +52,8 @@ META = {
     "CFPC-134758720": ("Country Financial", "Homeowners (COUNTRY Preferred)"),
     "SFBC-134626630": ("Colorado Farm Bureau", "Homeowners"),
     "SFBC-134690984": ("Colorado Farm Bureau", "Legacy Personal Property (Homeowners, Farm Dwelling, Mobile Home, Inland Marine)"),
+    "LBPM-134879329": ("Safeco", "Homeowners (American Economy)"),
+    "LBPM-134998497": ("Safeco", "Homeowners (American Economy)"),
 }
 
 SKIP = {
