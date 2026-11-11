@@ -22,6 +22,9 @@ def shell(title, desc, slug, kicker, h1_html, deck, meta_line, body, jsonld=""):
     head = PRE
     # Swap head meta (these exact strings all appear in methodology.html's head).
     head = head.replace("Methodology — BoringRate", title)
+    # methodology.html's <title> was later shortened to bare "Methodology" (title-length rule),
+    # so the line above no longer reaches it.
+    head = head.replace("<title>Methodology</title>", f"<title>{title}</title>")
     head = head.replace(
         "How BoringRate ranks auto insurance carriers. Plain-English explanation of our data sources, scoring rules, and the limits of what we know.",
         desc)
@@ -159,7 +162,7 @@ ed_body = """
 
       <h2><span class="num">§ 05</span>Privacy</h2>
 
-      <p>There is no email capture and no lead form on this site. We use privacy-friendly, cookieless analytics (Umami) to understand which pages help, and we don't collect personal information to sell. The reason we can be this blunt about which carriers are expensive is that we don't owe any of them a shopper.</p>
+      <p>There is no email capture and no lead form on this site, and we don't sell personal information. Our own analytics (Umami) are cookieless. Article pages may carry Google ads, which use cookies; the rate tools never do. The <a href="/privacy.html">privacy policy</a> has the details and the opt-out links.</p>
 
       <div class="footnotes">
         <h3>Referenced sources</h3>
@@ -186,6 +189,47 @@ ed_jsonld = """<script type="application/ld+json">
 }
 </script>"""
 
+
+privacy_body = """
+      <p>This page says what BoringRate collects, what third parties collect when you use the site, and how to opt out. It is written to be read, not to be skimmed past.</p>
+
+      <h2><span class="num">§ 01</span>What we collect</h2>
+
+      <p><strong>No accounts, no email capture, no lead forms.</strong> Nothing on this site asks for your name, email, phone number, or address, and nothing routes your details to an insurer, agent, or lead buyer. We do not sell personal information.</p>
+
+      <p><strong>Analytics.</strong> We use Umami, a cookieless analytics tool, to count page views and see which pages help. It records the page you viewed, the referring site, your country and city as inferred from your IP address, and your device, browser, and operating system type. It does not set cookies or build a profile of you across sites.</p>
+
+      <p><strong>Tool events.</strong> When you enter a ZIP code anywhere on the site or use a rate tool, we record events such as "ZIP submitted" and "results shown" so we can tell whether the tools work. The <strong>ZIP code you enter is included</strong> in that event, along with the page, the product (auto, home, or renters), and the carrier or outside link you click, if any. We use it to see which areas people are comparing, not to identify anyone.</p>
+
+      <p><strong>Your browser.</strong> The tools save your ZIP and your refinement choices in your browser's local storage so they are still there when you come back. That data stays on your device; clearing your browser's site data removes it.</p>
+
+      <h2><span class="num">§ 02</span>Advertising</h2>
+
+      <p>Article pages may show ads served by Google AdSense. <strong>The rate tools and their results never show ads</strong>, and no advertiser can pay to change a ranking or a rate estimate (see <a href="/editorial-standards.html">editorial standards</a>).</p>
+
+      <p>Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visits to this site and/or other sites on the Internet.</p>
+
+      <p>You can opt out of personalized advertising from Google in <a href="https://adssettings.google.com/" rel="nofollow noopener" target="_blank">Google Ads Settings</a>, and from many other third-party vendors at <a href="https://optout.aboutads.info/" rel="nofollow noopener" target="_blank">aboutads.info</a>. Google explains how it uses information from sites that show its ads at <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow noopener" target="_blank">policies.google.com/technologies/partner-sites</a>.</p>
+
+      <h2><span class="num">§ 03</span>Links to other sites</h2>
+
+      <p>We link to carriers, regulators, and SERFF filings. Those sites have their own privacy practices, which this policy does not cover.</p>
+
+      <h2><span class="num">§ 04</span>Contact and changes</h2>
+
+      <p>Questions or requests go to <a href="mailto:hello@boringrate.com">hello@boringrate.com</a>. If this policy changes, the date at the top of the page changes with it.</p>
+"""
+
+privacy_jsonld = """<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy",
+  "url": "https://boringrate.com/privacy.html",
+  "publisher": {"@type": "Organization", "name": "BoringRate", "url": "https://boringrate.com"}
+}
+</script>"""
+
 pages = [
     dict(path="about.html",
          title="About BoringRate",
@@ -205,9 +249,24 @@ pages = [
          deck="What we source and in what order of authority, how we stay independent, what we will and won't claim, and how we fix mistakes.",
          meta_line="Last updated · July 2026 &nbsp;·&nbsp; Reviewed quarterly &nbsp;·&nbsp; Corrections logged below",
          body=ed_body, jsonld=ed_jsonld),
+    dict(path="privacy.html",
+         title="Privacy Policy",
+         desc="What BoringRate collects (cookieless analytics, the ZIP you enter in a tool), how Google ads on article pages use cookies, and how to opt out.",
+         slug="privacy.html",
+         kicker="§ Privacy",
+         h1_html="What we collect, and <em>what we don't.</em>",
+         deck="No accounts, no lead forms, no selling your details. Cookieless analytics, and Google ads on article pages only.",
+         meta_line="Last updated · November 2026",
+         body=privacy_body, jsonld=privacy_jsonld),
 ]
 
+# Optional: build only the named paths (python3 gen_trust_pages.py privacy.html). A full run
+# rewrites about/editorial from the methodology shell, which can drop later surgical patches.
+import sys
+only = set(sys.argv[1:])
 for pg in pages:
+    if only and pg["path"] not in only:
+        continue
     html = shell(pg["title"], pg["desc"], pg["slug"], pg["kicker"], pg["h1_html"],
                  pg["deck"], pg["meta_line"], pg["body"], pg["jsonld"])
     pathlib.Path(pg["path"]).write_text(html, encoding="utf-8")
