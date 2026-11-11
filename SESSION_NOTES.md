@@ -1,7 +1,12 @@
 # BoringRate — Session Notes
 _Last updated: 2026-11-10 (Opus 5.5)_
 
-## ▶▶ 2026-11-10 (latest) — COLORADO HOME backfill (partial) — committed, NOT pushed
+## ▶▶ 2026-11-11 — COLORADO HOME backfill: start-here COMPLETE, pushed (43 rows)
+Pages 1-3 triaged; 43 of 46 start-here + 5 CO Farm Bureau pulled. Filer-restricted on CO public access:
+Travelers ×2, American Family ×2, NWPP-G134716289. Allstate AVPIC +15.9% (144K), Safeco +11.0%,
+CO Farm Bureau −3.7%, Amica 0% vs −24.4% indicated. Second parser fix: empty % cell keeps its column.
+Only the second tier remains (~/co_home_jackets.html). Then `serff_compact.py --apply`.
+(Older notes for this block follow.)
 `2712f30d` parser/shared module · `9aec6d10` 27 CO rows · `8849e4d3` reactive year/name fix · `eb0be420` pages.
 CO home: USAA +19.3%, State Farm +16.4% (then +2.9%), Nationwide +13.1%, Hartford +9–13%; only Homesite cut.
 - **Still to do (CO):** paste PAGE 1 of the TOI 04.0 results (A–E: Allstate, AmFam, COUNTRY, CO Farm
