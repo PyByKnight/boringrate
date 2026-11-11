@@ -22,6 +22,7 @@ import json, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).parent
 MARK = "<!-- br-adsense -->"
+META_MARK = "<!-- br-adsense-meta -->"
 CFG = ROOT / "adsense.json"
 
 # Never ads: tools + results, calculators, trust/policy pages, templates, previews.
@@ -50,6 +51,20 @@ def pages():
         yield p, rel
 
 
+def meta(c):
+    # Ownership verification only - loads no script and shows no ads. Goes on EVERY page,
+    # tools included, because Google verifies the homepage (which is the ad-free ZIP tool).
+    return f'{META_MARK}<meta name="google-adsense-account" content="{c}">\n'
+
+
+def all_pages():
+    for p in sorted(ROOT.rglob("*.html")):
+        rel = p.relative_to(ROOT).as_posix()
+        if set(p.relative_to(ROOT).parts) & SKIP_DIRS or rel in ("gen_metro_base.html", "cta-preview.html"):
+            continue
+        yield p, rel
+
+
 def snippet(c):
     return (f'{MARK}<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
             f'?client={c}" crossorigin="anonymous"></script>\n')
@@ -64,6 +79,7 @@ def main():
                 continue
             s = p.read_text(encoding="utf-8")
             t = rx.sub("", s)
+            t = re.sub(re.escape(META_MARK) + r'<meta name="google-adsense-account" content="[^"]*">\n?', "", t)
             if t != s:
                 p.write_text(t, encoding="utf-8"); n += 1
         print(f"removed AdSense loader from {n} pages")
@@ -92,6 +108,14 @@ def main():
     for p, s in todo:
         i = s.index("</head>")
         p.write_text(s[:i] + snippet(c) + s[i:], encoding="utf-8")
+    nm = 0
+    for p, rel in all_pages():
+        s = p.read_text(encoding="utf-8")
+        if META_MARK in s or "</head>" not in s:
+            continue
+        i = s.index("</head>")
+        p.write_text(s[:i] + meta(c) + s[i:], encoding="utf-8"); nm += 1
+    print(f"verification meta tag added to {nm} pages")
     pub = c.replace("ca-", "")
     (ROOT / "ads.txt").write_text(f"google.com, {pub}, DIRECT, f08c47fec0942fa0\n", encoding="utf-8")
     print(f"patched {len(todo)} pages; wrote ads.txt")
