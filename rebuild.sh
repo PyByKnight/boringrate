@@ -53,6 +53,7 @@ step python3 patch_metro_citations.py        # Layer-2 sources note on auto metr
 step python3 patch_carrier_filings.py        # per-carrier SERFF filing sections on carrier pages
 step python3 patch_reactive_links.py         # contextual links to reactive rate-increase explainers
 step python3 patch_plausible.py              # analytics backstop (generators now bake it in)
+step python3 patch_adsense.py --apply        # AdSense loader on content pages only (no-op until adsense.json)
 step python3 build_nav.py                    # stamp single-source nav across every page
 step python3 patch_sitemap_lastmod.py        # refresh <lastmod> from git dates
 
