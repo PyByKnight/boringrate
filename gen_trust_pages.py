@@ -105,7 +105,7 @@ about_jsonld = """<script type="application/ld+json">
     "@type": "Organization",
     "name": "BoringRate",
     "url": "https://boringrate.com",
-    "description": "Independent insurance-rate research built from carriers' own approved rate filings. No lead sales, no email capture, no commissioned carrier relationships.",
+    "description": "Independent insurance-rate research built from carriers' own approved rate filings. No lead sales, no email capture, and rankings that payment never changes.",
     "foundingDate": "2024",
     "knowsAbout": ["auto insurance rates", "homeowners insurance rates", "renters insurance", "insurance rate filings", "SERFF"],
     "publishingPrinciples": "https://boringrate.com/editorial-standards.html",
@@ -136,7 +136,7 @@ ed_body = """
 
       <h2><span class="num">§ 02</span>Independence</h2>
 
-      <p>No carrier, agency, or lead buyer pays for placement, and none can influence a ranking. A carrier that cuts rates is marked as a cutter and a carrier that raises them is marked as a raiser, regardless of size, relationship, or how the result reads.</p>
+      <p>BoringRate may carry advertising and sponsored placements. They are always labeled and kept separate from the rankings: no carrier, agency, or lead buyer can pay for a ranking position or influence one, and payment never changes a rate estimate. A carrier that cuts rates is marked as a cutter and a carrier that raises them is marked as a raiser, regardless of size, relationship, or how the result reads.</p>
 
       <h2><span class="num">§ 02b</span>How pages are produced</h2>
 
@@ -189,7 +189,7 @@ ed_jsonld = """<script type="application/ld+json">
 pages = [
     dict(path="about.html",
          title="About BoringRate",
-         desc="Who's behind BoringRate: an independent insurance-rate research project built from carriers' own approved rate filings. No lead sales, no email capture, no carrier commissions.",
+         desc="Who's behind BoringRate: an independent insurance-rate research project built from carriers' own approved rate filings. No lead sales, no email capture, and rankings that payment never changes.",
          slug="about.html",
          kicker="§ About · Who's behind BoringRate",
          h1_html="Independent rate research. <em>Boring on purpose.</em>",

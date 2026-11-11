@@ -108,7 +108,7 @@ def build():
     <h1 class="article-title">The 2026 insurance rate landscape, from the filings up</h1>
     <p class="article-dek">BoringRate tracks approved auto and home insurance rate filings, carrier by carrier,
       straight from state insurance regulators. Here is what they show &mdash; every figure links to its source.</p>
-    <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; independent &nbsp;·&nbsp; no commissioned carrier relationships</div>
+    <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; independent &nbsp;·&nbsp; rankings never ordered by payment</div>
   </div>
   <div class="article-body">
     {lede}
@@ -163,7 +163,7 @@ def build():
     </div>
 
     <p style="font-size:13px;color:var(--ink-mute);margin-top:18px;">BoringRate is independent insurance
-      research with no commissioned relationships with any carrier named here. Coverage spans {n_states} states
+      research; rankings and rate estimates are never ordered or changed by payment. Coverage spans {n_states} states
       and is expanding. Figures are statewide averages and are not quotes.</p>
   </div>
 </div>'''
