@@ -1,6 +1,17 @@
 # BoringRate — Session Notes
 _Last updated: 2026-11-10 (Opus 5.5)_
 
+## ▶▶ 2026-11-11 — MONETIZATION: disclosure rewritten, AdSense ready (waiting on owner's ca-pub id)
+- Owner decision: the site WILL make money; disclosures say payment never orders/changes rankings, not
+  "we earn nothing". Footer (all pages), homepage FAQ, About, Press, Editorial § 02 + § 05 rewritten.
+- `/privacy.html` (gen_trust_pages.py privacy.html) — AdSense-required ad-cookie disclosure; footer link sitewide.
+- `patch_adsense.py` — loader on 724 CONTENT pages only (never tools/results/calculators/trust pages), writes
+  ads.txt, `--remove` rollback, in rebuild.sh. NO-OP until `adsense.json` = {"client":"ca-pub-…"}.
+- NEXT: owner signs up (boringrate@gmail.com) → gives ca-pub → write adsense.json → `patch_adsense.py --apply`
+  → push. In AdSense: enable Privacy & messaging EU/UK consent; keep Auto ads OFF; after approval add 2 manual
+  in-article units (after intro, before FAQ). Model (Umami 28d: 934 US PV, 67 results sessions): AdSense
+  ~$10–30/mo now; real money = click marketplace on results (~10× traffic needed) + filings-data B2B.
+
 ## ▶▶ 2026-11-11 — COLORADO HOME backfill: start-here COMPLETE, pushed (43 rows)
 Pages 1-3 triaged; 43 of 46 start-here + 5 CO Farm Bureau pulled. Filer-restricted on CO public access:
 Travelers ×2, American Family ×2, NWPP-G134716289. Allstate AVPIC +15.9% (144K), Safeco +11.0%,
