@@ -121,15 +121,26 @@ def parse(pdf):
                 'affected':  int(ints[0]) if ints and ints[0] is not None else None})
             elif not name:
                 i += 1
+    # The same company table can print twice with the name wrapped differently ("Safeco
+    # Insurance" / "Safeco Insurance Company of America", LA 2026-11): same numbers, name one
+    # a prefix of the other. Keep the longest name; the `seen` key alone missed these.
+    nums = lambda c: tuple(v for k, v in c.items() if k != 'entity')
+    cs = out['companies']
+    out['companies'] = [c for c in cs if not any(
+        d is not c and nums(d) == nums(c) and d['entity'] != c['entity']
+        and d['entity'].startswith(c['entity']) for d in cs)]
     return out
 
 if __name__ == '__main__':
     st = sys.argv[1] if len(sys.argv) > 1 else 'GA'
     res = {}
-    for d in sorted(glob.glob(f'_serff/{st}/*/')):
-        if d.rstrip('/').endswith('_txt'): continue
-        t = os.path.basename(d.rstrip('/'))
-        res[t] = parse(os.path.join(d, t + '.pdf'))
+    # After serff_compact.py a filing can survive as <ID>_txt/<ID>.txt only (its <ID>/ dir gone).
+    ids = sorted({os.path.basename(d.rstrip('/')).removesuffix('_txt')
+                  for d in glob.glob(f'_serff/{st}/*-*/')})
+    for t in ids:
+        if not (os.path.exists(f'_serff/{st}/{t}/{t}.pdf') or os.path.exists(f'_serff/{st}/{t}_txt/{t}.txt')):
+            continue
+        res[t] = parse(f'_serff/{st}/{t}/{t}.pdf')
         print('.', end='', flush=True)
     json.dump(res, open(f'_serff/{st}/_parsed.json', 'w'), indent=1)
     print(f"\nparsed {len(res)} jackets -> _serff/{st}/_parsed.json")
