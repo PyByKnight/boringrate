@@ -1,6 +1,18 @@
 # BoringRate — Session Notes
 _Last updated: 2026-11-12 (Opus 5.5)_
 
+## ▶▶ 2026-11-12 (later) — LOUISIANA HOME start-here: 9 rows, NOT pushed
+- 351 search rows → 52 candidates (`_serff/LA/candidates.tsv`, 13 already-in-ledger LA filings left off) →
+  `~/la_home_jackets.html`. 16 start-here pulled → 9 rows (`96e41930`), 7 skipped (LIGA recoupment notices,
+  new program, endorsement, "not updating rates", Farm Bureau SFBC-134997216 has no % on the jacket).
+- LA Farm Bureau Dwelling Package +10.9 (ind +24.0), Allied Trust −4.7 (ind −13.5), Progressive +2.9,
+  Allstate Indemnity +1.0, Safeco/Liberty ≈0. Home tool gained an LA drift block (Liberty 0.9877,
+  Progressive 1.0164, Safeco 0.9875); New Orleans: Safeco moves above Hartford.
+- Parser fixes (`71e2aaca`): duplicate company rows from wrapped names (LA prints the table twice);
+  compacted filings (text-only `<ID>_txt/`) now reparse - before, CO dropped to 48 of 74.
+- Not pulled: Hanover HNVR-G135011922, Chubb ACEH-134493420, 34-filing second tier.
+- TODO: push; delete LA zips in ~; serff_compact.py --apply.
+
 ## ▶▶ 2026-11-12 — COLORADO HOME second tier DONE (16 rows), NOT pushed
 - 26 jackets pulled → 16 rows (`f696228d`), 10 skipped (no rate data / new program / withdrawal / effective
   before 2025-07-01). Progressive/ASI +15.0/+10.0/+8.5, Midwest Family +21.5 (indicated +71.4), Horace Mann
