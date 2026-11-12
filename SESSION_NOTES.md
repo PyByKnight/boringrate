@@ -1,5 +1,16 @@
 # BoringRate — Session Notes
-_Last updated: 2026-11-10 (Opus 5.5)_
+_Last updated: 2026-11-12 (Opus 5.5)_
+
+## ▶▶ 2026-11-12 — COLORADO HOME second tier DONE (16 rows), NOT pushed
+- 26 jackets pulled → 16 rows (`f696228d`), 10 skipped (no rate data / new program / withdrawal / effective
+  before 2025-07-01). Progressive/ASI +15.0/+10.0/+8.5, Midwest Family +21.5 (indicated +71.4), Horace Mann
+  +8.5, Farmers +3.9 (exchanges, 123K) / +5.0, Kin −24.0 (149 policies), Acuity 0 vs −9.1 indicated.
+- Kin + Stillwater FDLY-134988992 jackets put 0.000% in the indicated field (placeholder) → nulled so the page
+  doesn't say "wanted ±0%". Allstate ALSE-134876134 still shows "wanted ±0%" (same pattern, not touched).
+- CO still filer-restricted: Travelers ×2, American Family ×2, NWPP-G134716289.
+- AdSense: status "Getting ready" (under review) as of 2026-11-12. Don't remove loader/meta/ads.txt.
+- `build_pull_list.py` now puts the state SERFF portal link in the sticky bar.
+- TODO: push; `serff_compact.py --apply`; delete the 30 SERFF zips in ~ (keep the GSC exports); then LA home.
 
 ## ▶▶ 2026-11-11 — MONETIZATION: disclosure rewritten, AdSense ready (waiting on owner's ca-pub id)
 - Owner decision: the site WILL make money; disclosures say payment never orders/changes rankings, not
