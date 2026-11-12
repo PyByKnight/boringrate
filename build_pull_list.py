@@ -89,7 +89,8 @@ def main():
            f'Tenant/Mobile/Condo/Other sub-TOIs, ISO &amp; vendor filings, loss costs).\n'
            f' Click a link, hit <b>Download Zip File</b>; the box ticks itself. Drop the zips in <b>Linux files</b>.</div>\n'
            + (f'<div class="sub" style="color:#b4321a;font-weight:600">{html.escape(note)}</div>\n' if note else "")
-           + f'<div id="bar"><b><span id="done">0</span></b> opened &middot; <b>Start here = {n_start}</b><button id="reset">reset</button></div>\n'
+           + f'<div id="bar"><b><span id="done">0</span></b> opened &middot; <b>Start here = {n_start}</b><button id="reset">reset</button>'
+           f' &middot; <a href="https://serff-sfa.naic.org/serff/sfa/home/{st}" target="_blank">{st} SERFF portal &rarr;</a></div>\n'
            f'<h2>START HERE &mdash; {n_start} jackets</h2>\n'
            f'<div class="sub">All in the home roster, so these move a displayed price. Big families capped at the newest few.</div>\n'
            + "\n".join(block(f, rs) for f, rs in start.items())
