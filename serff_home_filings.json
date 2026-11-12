@@ -9133,7 +9133,7 @@
    "effective_new": "2026-08-07",
    "effective_renewal": "2026-09-26",
    "overall_pct": 0.4,
-   "indicated_pct": 0.0,
+   "indicated_pct": null,
    "prior_revision_pct": null,
    "written_premium": 1995465.0,
    "written_premium_change": 7982.0,
@@ -9146,7 +9146,7 @@
    "source_note": "CO DOI SERFF Filing Access jacket; Company Rate Information block. Colorado is file & use: effective dates are the carrier's requested dates.",
    "max_pct": 26.1,
    "min_pct": -16.7,
-   "note": "within-filing range +26.1% to -16.7%.",
+   "note": "within-filing range +26.1% to -16.7%. Indicated field entered as 0.000% on the jacket (placeholder); left blank.",
    "effective_is_requested": true
   },
   {
@@ -9247,7 +9247,7 @@
    "effective_new": "2025-11-15",
    "effective_renewal": "2026-01-20",
    "overall_pct": -24.0,
-   "indicated_pct": 0.0,
+   "indicated_pct": null,
    "prior_revision_pct": null,
    "written_premium": 409000.0,
    "written_premium_change": -97000.0,
@@ -9260,7 +9260,7 @@
    "source_note": "CO DOI SERFF Filing Access jacket; Company Rate Information block. Colorado is file & use: effective dates are the carrier's requested dates.",
    "max_pct": -7.0,
    "min_pct": -49.0,
-   "note": "within-filing range -7.0% to -49.0%. Indicated +0.0%, took -24.0% — gap unclosed. Young program (149 policies): -24.0% overall.",
+   "note": "within-filing range -7.0% to -49.0%. Indicated +0.0%, took -24.0% — gap unclosed. Young program (149 policies): -24.0% overall. Indicated field entered as 0.000% on the jacket (placeholder); left blank.",
    "effective_is_requested": true
   },
   {
