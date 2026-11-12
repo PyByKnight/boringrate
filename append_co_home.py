@@ -54,6 +54,23 @@ META = {
     "SFBC-134690984": ("Colorado Farm Bureau", "Legacy Personal Property (Homeowners, Farm Dwelling, Mobile Home, Inland Marine)"),
     "LBPM-134879329": ("Safeco", "Homeowners (American Economy)"),
     "LBPM-134998497": ("Safeco", "Homeowners (American Economy)"),
+    # second tier (pulled 2026-11-12)
+    "ACUT-134512267": ("Acuity", "Homeowners"),
+    "ACUT-134713041": ("Acuity", "Homeowners"),
+    "AMSI-134363401": ("Progressive", "Homeowners (American Strategic / ASI)"),
+    "AMSI-134594846": ("Progressive", "Homeowners (American Strategic / ASI)"),
+    "AMSI-134638649": ("Progressive", "Homeowners (American Strategic / ASI)"),
+    "CALC-134599582": ("California Casualty", "Homeowners"),
+    "FAIG-134762154": ("Farmers", "Homeowners (Farmers Casualty)"),
+    "FAIG-134848115": ("Farmers", "Homeowners (Farmers Casualty)"),
+    "FARM-134840145": ("Farmers", "LHO/NGHO/FSPH/SPRC/FLEX Home (Farmers exchanges)"),
+    "FDLY-134709915": ("Stillwater", "Homeowners"),
+    "FDLY-134988992": ("Stillwater", "Homeowners"),
+    "GRIA-134641318": ("Grange Insurance Association", "Homeowners"),
+    "HIPO-134574228": ("Hippo", "HO3 (Spinnaker) - water risk"),
+    "HRMN-134642398": ("Horace Mann", "Homeowners"),
+    "KINN-134732328": ("Kin", "House & Property"),
+    "MWFM-134640317": ("Midwest Family", "First Class Portfolio Homeowners"),
 }
 
 SKIP = {
@@ -62,6 +79,16 @@ SKIP = {
     "SFBC-133603969": "Colorado Farm Bureau +10.0%: took effect 2023-09-01 (closed in SERFF 2026-01-20) - outside the window by effective date.",
     "SFBC-134756142": "Colorado Farm Bureau Personal Property: new rate structure for dwelling package / mobile home, 0.0% overall.",
     "SFBC-134770841": "Colorado Farm Bureau Personal Property: rate-programming corrections, 0.0%, 0 policyholders.",
+    "FAIG-134502404": "Farmers A360: new 2025-04-25 / renewal 2025-06-19 - outside the window by effective date.",
+    "FDLY-134295662": "Stillwater +11.75%: new 2024-11-29 / renewal 2025-01-15 - outside the window by effective date.",
+    "FDLY-134490397": "Stillwater +0.04%: effective 2025-05-09 - outside the window by effective date.",
+    "FARM-134518705": "Farmers FLEX Home 0.0%: effective 2025-06-09 - outside the window by effective date.",
+    "FARM-134581069": "Farmers FLEX Home rate transition plan: 'Rate data does NOT apply'.",
+    "FARM-134667665": "Farmers expense exhibit: 'Rate data does NOT apply'.",
+    "LEMO-134519839": "Metromile/Lemonade by-peril segmentation: 'Rate data does NOT apply'.",
+    "KINN-134494338": "Kin initial program filing (new program, no rate change).",
+    "WOOD-134708186": "MSI Wingsail new homeowner program (no rate change).",
+    "WSMU-135120665": "Western/Residence Mutual withdrawing the homeowners manual (no rate change).",
 }
 
 NOTES = {
@@ -72,6 +99,12 @@ NOTES = {
     "AMMA-134792744": "Indicated a 24.4% DECREASE; filed 0.0% overall (redistribution +11% / -8%).",
     "ALSE-134766565": "Introduces a Landlords and Hosts endorsement; 0.0% overall.",
     "SFBC-134690984": "Legacy book: one rate change across homeowners, farm dwellings, mobile homes and inland marine.",
+    "FAIG-134848115": "Rate-neutral revision (0.0%) on 5,299 policyholders.",
+    "HIPO-134574228": "Water-risk rate/rule revision, 0.0% overall.",
+    "KINN-134732328": "Young program (149 policies): -24.0% overall.",
+    "MWFM-134640317": "Indicated +71.4%; took +21.5%.",
+    "ACUT-134512267": "Indicated a 9.1% DECREASE; filed 0.0% overall.",
+    "ACUT-134713041": "Indicated a 6.0% DECREASE; took -0.04%.",
 }
 
 if __name__ == "__main__":
@@ -79,9 +112,8 @@ if __name__ == "__main__":
         "CO", META, skip=SKIP, notes=NOTES,
         source_note=("CO DOI SERFF Filing Access jacket; Company Rate Information block. Colorado is "
                      "file & use: effective dates are the carrier's requested dates."),
-        pull={"window": "2025-07-01..2026-11-10", "date_pulled": "2026-11-10", "scanned": 243,
-              "note": ("All 3 pages of the TOI 04.0 search triaged. 41 of 46 start-here jackets pulled + 5 "
-                       "Colorado Farm Bureau; not yet: Travelers TRVD-G134688466 / TRVD-G134585304, "
-                       "Nationwide NWPP-G134716289, American Family AMFC-134941999 / AMFC-134776756, "
-                       "Safeco LBPM-134998497 / LBPM-134879329. Rest of second tier unpulled - list in "
-                       "~/co_home_jackets.html.")})
+        pull={"window": "2025-07-01..2026-11-12", "date_pulled": "2026-11-12", "scanned": 243,
+              "note": ("Second tier: 26 jackets pulled (Acuity, Progressive/ASI, California Casualty, "
+                       "Farmers, Stillwater, Grange Insurance Association, Hippo, Horace Mann, Kin, "
+                       "Midwest Family, Lemonade, MSI, Western Mutual). Still filer-restricted on CO "
+                       "public access: Travelers x2, American Family x2, Nationwide NWPP-G134716289.")})
