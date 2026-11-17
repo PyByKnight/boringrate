@@ -1,5 +1,17 @@
 # BoringRate — Session Notes
-_Last updated: 2026-11-12 (Opus 5.5)_
+_Last updated: 2026-11-17 (Opus 5.5)_
+
+## ▶▶ 2026-11-17 — AdSense REJECTED (content quality) → thin-page cleanup, pushed; owner re-ticked policy box
+- Account-level rejection (Sites greyed out, generic "Meet AdSense program policies"). Owner resubmitted same day.
+- `patch_thin_pages.py` (rebuild step, BEFORE patch_adsense): noindex,follow + out of sitemap for 206 metro
+  pages + 66 compare pages under 600 body words. Hubs stay indexed. `--remove` undoes the meta.
+- `patch_adsense.py`: no loader on home/renters state + metro dirs or any noindexed page; auto state keeps ads.
+- Home state generator: generic advice + visible FAQ cut (78% → 68% shared). Renters state (static, no
+  generator): `trim_renters_state.py` one-off — boilerplate/FAQ cut, fixed "Lemonade, State Farm, and GEICO"
+  replaced by each page's table top 3 (was contradicting the table), 11 literal {name} fixed (69% → 57%).
+  ⚠ renters prose top-3 is static text: if the renters ranking table changes, re-check it.
+- Similarity must be measured with nav stripped — the ~1,100-word nav inflated every early number.
+- If rejected again: next suspects are remaining generic prose on home/renters state pages, then site age/traffic.
 
 ## ▶▶ 2026-11-12 (later) — LOUISIANA HOME start-here: 9 rows, NOT pushed
 - 351 search rows → 52 candidates (`_serff/LA/candidates.tsv`, 13 already-in-ledger LA filings left off) →
