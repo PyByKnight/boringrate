@@ -38,6 +38,11 @@ EXCLUDE = {
     "gen_metro_base.html", "cta-preview.html",
 }
 SKIP_DIRS = {"_serff", "_umami", "_gsc", "node_modules", "partials", ".git", "__pycache__"}
+# No ads on the templated near-duplicate pages either (AdSense content-quality rejection,
+# 2026-11-17): metro pages are noindexed (patch_thin_pages.py), state pages are 90% one template
+# until they carry their own filings data. Ads stay on filings, carrier, compare and article pages.
+NO_AD_DIRS = ("home/metro/", "renters/metro/", "article/metro/",
+              "home/state/", "renters/state/", "article/state/")
 
 
 def client():
@@ -144,7 +149,7 @@ def place_units(s, c, sl):
 def pages():
     for p in sorted(ROOT.rglob("*.html")):
         rel = p.relative_to(ROOT).as_posix()
-        if rel in EXCLUDE or set(p.relative_to(ROOT).parts) & SKIP_DIRS:
+        if rel in EXCLUDE or rel.startswith(NO_AD_DIRS) or set(p.relative_to(ROOT).parts) & SKIP_DIRS:
             continue
         yield p, rel
 
@@ -188,6 +193,20 @@ def main():
     if not c:
         print("adsense: not configured (adsense.json needs {\"client\": \"ca-pub-<16 digits>\"}) - no-op")
         return
+    rx = re.compile(re.escape(MARK) + r'<script async src="https://pagead2\.googlesyndication\.com[^"]*" crossorigin="anonymous"></script>\n?')
+    stripped = 0
+    for p in sorted(ROOT.rglob("*.html")):
+        rel = p.relative_to(ROOT).as_posix()
+        if not rel.startswith(NO_AD_DIRS):
+            continue
+        s = p.read_text(encoding="utf-8")
+        t = UNIT_RX.sub("", rx.sub("", s)).replace(AD_CSS, "")
+        if t != s:
+            stripped += 1
+            if "--apply" in sys.argv:
+                p.write_text(t, encoding="utf-8")
+    if stripped:
+        print(f"adsense: loader/units {'stripped from' if '--apply' in sys.argv else 'to strip from'} {stripped} no-ad pages")
     todo, have, nohead = [], 0, []
     for p, rel in pages():
         s = p.read_text(encoding="utf-8")
