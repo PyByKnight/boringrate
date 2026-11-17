@@ -259,21 +259,18 @@ def build(code):
     </div>
 
     <h2>What is the average cost of homeowners insurance in {name}?</h2>
-    <p>The average cost of homeowners insurance in {name} is <strong>${avg:,} per year</strong> — about ${monthly:,}/month — for a standard policy with roughly $300,000 in dwelling coverage and a $1,000 deductible. That puts {name} {tphrase} of about ${NATIONAL:,}. The single biggest factor behind {name}'s rates is {peril}. {peril_detail} The spread between the cheapest and most expensive carrier for the same home is often $600–1,500/year, so shopping at renewal genuinely pays off.</p>
-    <p>Carrier selection matters more than most homeowners assume. {c1}, {c2}, and {c3} tend to price most competitively in {name}, but the right answer depends on your dwelling amount, roof age, and whether you bundle auto. Entering your ZIP takes about two minutes and reveals current carrier pricing for your specific location.</p>
+    <p>The average cost of homeowners insurance in {name} is <strong>${avg:,} per year</strong> — about ${monthly:,}/month — for a standard policy with roughly $300,000 in dwelling coverage and a $1,000 deductible. That puts {name} {tphrase} of about ${NATIONAL:,}. The single biggest factor behind {name}'s rates is {peril}. {peril_detail}</p>
 
     <h2>Cheapest homeowners insurance companies in {name}</h2>
-    <p>{c1}, {c2}, and {c3} are consistently among the most competitive options for homeowners insurance in {name}. Bundling your auto policy is usually the single largest discount available — often 10–20% — followed by raising your deductible and adding modern roof, security, or smart-home credits. Comparing all three at renewal takes about 10 minutes and typically reveals a several-hundred-dollar spread for the same coverage.</p>
-    <p>One thing many homeowners underestimate: under-insuring the dwelling to save on premium is a costly mistake. Coverage A should reflect your home's <strong>rebuild cost</strong>, not its market value — and many policies pro-rate even partial claims if you insure for less than 80% of rebuild cost. Use the <a href="/home/coverage.html">home coverage calculator</a> to get the levels right before you shop.</p>
+    <p>{c1}, {c2}, and {c3} come out lowest-priced for a standard {name} policy in our model. Set your dwelling amount to rebuild cost, not market value, before comparing (<a href="/home/coverage.html">coverage calculator</a>).</p>
 
     <h2>What drives homeowners insurance rates in {name}?</h2>
-    <p>{name}'s premiums are shaped primarily by {peril}. {peril_detail} On top of regional risk, insurers price your individual home on its age, roof type and age, construction, distance to a fire station, prior claims, and increasingly your insurance-based credit score. Two homes on the same street can pay very different rates based on roof age alone.</p>
+    <p>{name}'s premiums are shaped primarily by {peril}. {peril_detail} Within the state, roof age, construction and claims history move an individual rate the most.</p>
 
     <h2>Is homeowners insurance required in {name}?</h2>
-    <p>No state law in {name} requires homeowners insurance. However, if you carry a mortgage, your lender will require it as a condition of the loan and can force-place a (usually more expensive) policy if you let coverage lapse. Even without a mortgage, most owners carry it — a home is the largest asset most people own, and a total loss without coverage is financially catastrophic.</p>
-    <p>Remember that a standard policy <strong>excludes flood and earthquake</strong>. In {name}, if you're in a flood-prone area you'll need a separate NFIP or private flood policy; earthquake is a separate policy or endorsement. The base policy alone can leave you exposed on the very loss most likely to total your home.</p>
+    <p>No state law in {name} requires homeowners insurance; a mortgage lender will. Standard policies <strong>exclude flood and earthquake</strong>, which are bought separately.</p>
 
-    <div class="callout"><p><strong>{name} homeowners insurance average:</strong> ${avg:,}/year (${monthly:,}/month). Rates here run {tphrase} and are driven mostly by {peril}. Bundling auto and getting your dwelling amount right are the two biggest levers on your premium.</p></div>
+    <div class="callout"><p><strong>{name} homeowners insurance average:</strong> ${avg:,}/year (${monthly:,}/month). Rates here run {tphrase} and are driven mostly by {peril}.</p></div>
 
     <div class="zip-embed">
       <div class="zip-embed-label">Compare homeowners insurance in {name}</div>
@@ -284,12 +281,6 @@ def build(code):
         <button type="submit" class="zip-embed-btn">Compare →</button>
       </form>
     </div>
-
-    <h2>Frequently asked questions</h2>
-    <div class="callout"><p><strong>What is the average cost of homeowners insurance in {name}?</strong><br>The average is ${avg:,}/year (about ${monthly:,}/month) for ~$300k dwelling coverage with a $1,000 deductible — {tphrase} of ${NATIONAL:,}. Rates vary by ZIP, dwelling amount, roof age, and claims history.</p></div>
-    <div class="callout"><p><strong>What is the cheapest homeowners insurance in {name}?</strong><br>{c1}, {c2}, and {c3} are consistently among the cheapest in {name}. Enter ZIP to compare current carrier rankings for your area.</p></div>
-    <div class="callout"><p><strong>What drives {name} home insurance rates?</strong><br>Mainly {peril}. {peril_detail}</p></div>
-    <div class="callout"><p><strong>Is homeowners insurance required in {name}?</strong><br>Not by state law, but mortgage lenders require it. Standard policies exclude flood and earthquake — buy those separately if you're exposed.</p></div>
 
     <!-- The email-capture block that used to sit here was removed 2026-10-28. It had no
          JavaScript at all: it rendered, accepted an address, and did nothing - no handler,
