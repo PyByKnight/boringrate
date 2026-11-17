@@ -41,8 +41,10 @@ SKIP_DIRS = {"_serff", "_umami", "_gsc", "node_modules", "partials", ".git", "__
 # No ads on the templated near-duplicate pages either (AdSense content-quality rejection,
 # 2026-11-17): metro pages are noindexed (patch_thin_pages.py), state pages are 90% one template
 # until they carry their own filings data. Ads stay on filings, carrier, compare and article pages.
-NO_AD_DIRS = ("home/metro/", "renters/metro/", "article/metro/",
-              "home/state/", "renters/state/", "article/state/")
+# Auto state pages (article/state, ~26% shared) keep ads. Any page patch_thin_pages.py marked
+# noindex (NOINDEX_MARK) is also no-ad.
+NO_AD_DIRS = ("home/metro/", "renters/metro/", "article/metro/", "home/state/", "renters/state/")
+NOINDEX_MARK = "<!-- br-noindex -->"
 
 
 def client():
@@ -151,6 +153,8 @@ def pages():
         rel = p.relative_to(ROOT).as_posix()
         if rel in EXCLUDE or rel.startswith(NO_AD_DIRS) or set(p.relative_to(ROOT).parts) & SKIP_DIRS:
             continue
+        if NOINDEX_MARK in p.read_text(encoding="utf-8"):
+            continue
         yield p, rel
 
 
@@ -197,9 +201,11 @@ def main():
     stripped = 0
     for p in sorted(ROOT.rglob("*.html")):
         rel = p.relative_to(ROOT).as_posix()
-        if not rel.startswith(NO_AD_DIRS):
+        if set(p.relative_to(ROOT).parts) & SKIP_DIRS:
             continue
         s = p.read_text(encoding="utf-8")
+        if not (rel.startswith(NO_AD_DIRS) or NOINDEX_MARK in s):
+            continue
         t = UNIT_RX.sub("", rx.sub("", s)).replace(AD_CSS, "")
         if t != s:
             stripped += 1

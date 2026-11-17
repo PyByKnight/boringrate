@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 """Keep templated near-duplicate pages out of Google's index (and out of the sitemap).
 
+Also the thin template compare pages (see COMPARE_MIN_WORDS). patch_adsense.py keeps its loader off
+any page carrying MARK, so run this BEFORE patch_adsense.py.
+
 Why (2026-11-17): AdSense rejected the site for content quality. The metro pages are one
 template filled per city - home/metro Akron vs Dayton share 97% of their words - and earned
 22 of ~300 search clicks in the 3 months to 2026-10-15 (none above 2). They stay live and
@@ -22,11 +25,26 @@ TAG = f'{MARK}<meta name="robots" content="noindex,follow">\n'
 SITE = "https://boringrate.com/"
 
 
+# Compare pages: most are a ~400-word template (66 of 80, ~70% shared words, 5 clicks in 3
+# months); the hand-written ones run 600-1,200 words and stay indexed. Measured on body text
+# (nav/header/footer/script/style stripped) so the ~1,100-word nav doesn't count.
+COMPARE_DIR, COMPARE_MIN_WORDS = "article/compare", 600
+
+
+def body_words(s):
+    s = re.sub(r"<script.*?</script>|<style.*?</style>|<nav.*?</nav>|<header.*?</header>|<footer.*?</footer>",
+               "", s, flags=re.S)
+    return len(re.sub(r"<[^>]+>", " ", s).split())
+
+
 def thin_pages():
     for d in THIN_DIRS:
         for p in sorted((ROOT / d).glob("*.html")):
             if p.name == "index.html":      # section hub (gen_section_hubs.py) stays indexable
                 continue
+            yield p, p.relative_to(ROOT).as_posix()
+    for p in sorted((ROOT / COMPARE_DIR).glob("*.html")):
+        if p.name != "index.html" and body_words(p.read_text(encoding="utf-8")) < COMPARE_MIN_WORDS:
             yield p, p.relative_to(ROOT).as_posix()
 
 
