@@ -55,6 +55,7 @@ step python3 patch_reactive_links.py         # contextual links to reactive rate
 step python3 patch_plausible.py              # analytics backstop (generators now bake it in)
 step python3 patch_thin_pages.py --apply     # noindex,follow + out of sitemap: metro + thin compare pages (BEFORE adsense)
 step python3 patch_adsense.py --apply        # AdSense loader on content pages only (no-op until adsense.json)
+step python3 patch_contact_link.py --apply   # footer Contact -> /contact.html (not a bare mailto)
 step python3 build_nav.py                    # stamp single-source nav across every page
 step python3 patch_sitemap_lastmod.py        # refresh <lastmod> from git dates
 
