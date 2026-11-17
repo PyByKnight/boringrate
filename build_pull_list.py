@@ -58,8 +58,8 @@ def block(fam, rows):
 
 def main():
     st, name = sys.argv[1], sys.argv[2]
-    line = sys.argv[sys.argv.index("--line") + 1] if "--line" in sys.argv else "home"
-    sdir = st if line == "home" else f"{st}_{line}"      # auto jackets parse separately: _serff/CO_auto/
+    lob = sys.argv[sys.argv.index("--line") + 1] if "--line" in sys.argv else "home"
+    sdir = st if lob == "home" else f"{st}_{lob}"      # auto jackets parse separately: _serff/CO_auto/
     note = sys.argv[sys.argv.index("--note") + 1] if "--note" in sys.argv else ""
     rows = []
     for line in (ROOT / "_serff" / sdir / "candidates.tsv").read_text().splitlines():
@@ -67,7 +67,7 @@ def main():
             continue
         f = (line.split("\t") + [""] * 5)[:5]
         rows.append(dict(tracking=f[0], family=f[1], product=f[2], type=f[3], note=f[4]))
-    ros = roster(line, st)
+    ros = roster(lob, st)
     fams = OrderedDict()
     for r in sorted(rows, key=lambda r: fid(r["tracking"]), reverse=True):
         fams.setdefault(r["family"], []).append(r)
@@ -82,7 +82,7 @@ def main():
             start[fam] = rs[:cap]
             if rs[cap:]:
                 rest[fam] = rs[cap:]
-        elif line == "home":
+        elif lob == "home":
             rest[fam] = rs            # auto lists tool carriers only (owner, 2026-11-17)
     rank = lambda fam: (ORDER.index(fam) if fam in ORDER else len(ORDER), -len(start.get(fam, rest.get(fam, []))))
     start = OrderedDict(sorted(start.items(), key=lambda kv: rank(kv[0])))
@@ -92,9 +92,9 @@ def main():
 
     tn = (pathlib.Path.home() / "tn_home_jackets.html").read_text(encoding="utf-8")
     style = tn[tn.index("<style>"):tn.index("</style>") + len("</style>")]
-    key = f"{st.lower()}_{line}_jackets"
-    lname = "homeowners" if line == "home" else "personal auto"
-    out = (f'<!doctype html><meta charset="utf-8"><title>{st} {line} filings</title>\n{style}\n'
+    key = f"{st.lower()}_{lob}_jackets"
+    lname = "homeowners" if lob == "home" else "personal auto"
+    out = (f'<!doctype html><meta charset="utf-8"><title>{st} {lob} filings</title>\n{style}\n'
            f'<h1>{html.escape(name)} {lname} filings</h1>\n'
            f'<div class="sub">{len(rows)} rate-bearing filings (dropped: Form-only and Rule-only, Withdrawn, '
            f'non-owner sub-TOIs, ISO &amp; vendor filings, loss costs).\n'
@@ -103,7 +103,7 @@ def main():
            + f'<div id="bar"><b><span id="done">0</span></b> opened &middot; <b>Start here = {n_start}</b><button id="reset">reset</button>'
            f' &middot; <a href="https://serff-sfa.naic.org/serff/sfa/home/{st}" target="_blank">{st} SERFF portal &rarr;</a></div>\n'
            f'<h2>START HERE &mdash; {n_start} jackets</h2>\n'
-           f'<div class="sub">All in the {line} tool roster, so these move a displayed price. Big families capped at the newest few.</div>\n'
+           f'<div class="sub">All in the {lob} tool roster, so these move a displayed price. Big families capped at the newest few.</div>\n'
            + "\n".join(block(f, rs) for f, rs in start.items())
            + f'\n<details><summary>Second tier &mdash; {n_rest} more (older filings of the big families, non-roster carriers)</summary>\n'
            + "\n".join(block(f, rs) for f, rs in rest.items()) + "</details>\n"
@@ -115,7 +115,7 @@ def main():
            "document.querySelectorAll('a').forEach(a=>a.onclick=()=>{const i=a.closest('li').querySelector('input');if(!i.checked){i.checked=true;i.onchange();}});\n"
            "document.getElementById('reset').onclick=()=>{localStorage.removeItem(K);b.forEach(x=>x.checked=false);paint();};\n"
            "paint();\n</script>\n")
-    dest = pathlib.Path.home() / f"{st.lower()}_{line}_jackets.html"
+    dest = pathlib.Path.home() / f"{st.lower()}_{lob}_jackets.html"
     dest.write_text(out, encoding="utf-8")
     print(f"{dest}: start here {n_start} ({', '.join(f'{k} {len(v)}' for k, v in start.items())}); second tier {n_rest}")
 
