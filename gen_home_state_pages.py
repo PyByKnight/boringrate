@@ -8,6 +8,8 @@ import os, json, re
 from plausible_snippet import ensure
 
 NATIONAL = 1915
+import datetime
+UPDATED = datetime.date.today().strftime('%B %Y')   # byline: regenerated pages show when
 RED, GREEN = "#b4321a", "#2f6b3a"
 
 # ── Model: parsed live from home/index.html so the static state pages never drift
@@ -243,7 +245,7 @@ def build(code):
     <div class="stat-pill">{code} · {pill}</div>
     <h1 class="article-title">The cheapest homeowners insurance in {name} (2026).</h1>
     <p class="article-dek">{name} homeowners pay an average of ${avg:,}/year (${monthly:,}/month) — {tphrase}. Rates here are shaped largely by {peril}.</p>
-    <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; June 2026</div>
+    <div class="article-byline">BoringRate Editorial &nbsp;·&nbsp; Updated {UPDATED}</div>
   </div>
   <div class="article-body">
 {rblock}
