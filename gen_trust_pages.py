@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 gen_trust_pages.py — build the E-E-A-T trust surfaces (/about.html, /editorial-standards.html)
-by cloning the methodology.html shell (head styles + single-source nav + footer + nav scripts),
+(+ /privacy.html, /contact.html) by cloning the methodology.html shell (head styles + single-source nav + footer + nav scripts),
 swapping only the <head> meta and the <article> body. Nav stays in sync via build_nav.py.
 
 Run: python3 gen_trust_pages.py   (idempotent; overwrites the two target files)
@@ -230,6 +230,39 @@ privacy_jsonld = """<script type="application/ld+json">
 }
 </script>"""
 
+contact_body = """
+      <p>BoringRate is run by a small independent team. There is no call center and no sales line, and we never pass your details to an insurer, agent or lead buyer. The fastest way to reach us is email:</p>
+
+      <p style="font-size:1.25em;margin:22px 0;"><a href="mailto:hello@boringrate.com"><strong>hello@boringrate.com</strong></a></p>
+
+      <p>We read everything and usually reply within two business days.</p>
+
+      <h2><span class="num">§ 01</span>What to write to us about</h2>
+
+      <p><strong>Data corrections.</strong> If a rate change, filing date or average on this site doesn't match what a state insurance department published, send the page and the filing (the SERFF tracking number helps). We check it against the source, fix it, and log material corrections on the <a href="/editorial-standards.html">editorial standards</a> page.</p>
+
+      <p><strong>Press and research.</strong> Journalists and researchers can use the filing data with attribution. The <a href="/press/">press page</a> has the current figures and how to cite them; write to us for anything it doesn't cover.</p>
+
+      <p><strong>Carriers.</strong> If you work for an insurer and a filing is described inaccurately, tell us and point to the filing. Rankings and rate estimates are never ordered or changed by payment, so we can't take requests to move a carrier, only corrections of fact.</p>
+
+      <h2><span class="num">§ 02</span>What we can't help with</h2>
+
+      <p>BoringRate is not an insurance producer or a licensed agent. We can't quote, sell or service a policy, and we can't advise on a specific claim. For your own policy, contact your insurer or agent. For a complaint about an insurer, contact your state's department of insurance; the <a href="https://content.naic.org/state-insurance-departments" rel="noopener" target="_blank">NAIC lists every state's department</a>.</p>
+
+      <p>How we handle what you send is covered in the <a href="/privacy.html">privacy policy</a>.</p>
+"""
+
+contact_jsonld = """<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact BoringRate",
+  "url": "https://boringrate.com/contact.html",
+  "publisher": {"@type": "Organization", "name": "BoringRate", "url": "https://boringrate.com",
+                "email": "hello@boringrate.com"}
+}
+</script>"""
+
 pages = [
     dict(path="about.html",
          title="About BoringRate",
@@ -258,6 +291,15 @@ pages = [
          deck="No accounts, no lead forms, no selling your details. Cookieless analytics, and Google ads on article pages only.",
          meta_line="Last updated · November 2026",
          body=privacy_body, jsonld=privacy_jsonld),
+    dict(path="contact.html",
+         title="Contact BoringRate",
+         desc="How to reach BoringRate: email hello@boringrate.com for data corrections, press and research, or carrier questions. We don't sell, quote or service insurance.",
+         slug="contact.html",
+         kicker="§ Contact",
+         h1_html="Write to us. <em>A person reads it.</em>",
+         deck="Corrections, press, research and carrier questions go to one inbox. We don't sell insurance or take your details.",
+         meta_line="Last updated · November 2026",
+         body=contact_body, jsonld=contact_jsonld),
 ]
 
 # Optional: build only the named paths (python3 gen_trust_pages.py privacy.html). A full run

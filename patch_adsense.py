@@ -34,7 +34,7 @@ CFG = ROOT / "adsense.json"
 EXCLUDE = {
     "index.html", "home/index.html", "renters/index.html",
     "coverage.html", "home/coverage.html", "renters/coverage.html",
-    "about.html", "editorial-standards.html", "methodology.html", "privacy.html", "press/index.html",
+    "about.html", "editorial-standards.html", "methodology.html", "privacy.html", "contact.html", "press/index.html",
     "gen_metro_base.html", "cta-preview.html",
 }
 SKIP_DIRS = {"_serff", "_umami", "_gsc", "node_modules", "partials", ".git", "__pycache__"}
