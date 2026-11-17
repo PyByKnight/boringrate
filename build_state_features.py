@@ -92,7 +92,7 @@ FEATURES = [
    ('Georgia Farm Bureau','/article/carrier/georgia-farm-bureau.html','GFBR-134707855','134707855','0.0%','', False),
    ('American Family','/home/carrier/american-family.html','AMFC-134883419','134883419','&plus;7.6%','', True),
    ('Amica','/home/carrier/amica.html','AMMA-134467010','134467010','&plus;9.8%','', True),
-   ('Safeco','/home/carrier/safeco.html','LBPM-134861427','134861427','&plus;9.9%','', True)],
+   ('Safeco','/article/carrier/safeco.html','LBPM-134861427','134861427','&plus;9.9%','', True)],
  'prose':
 """    <p>On 23 March 2026 the Georgia Department of Insurance disapproved a rate filing from
     <strong>Georgia Farm Bureau Mutual</strong>, the state&rsquo;s largest home insurer. That is

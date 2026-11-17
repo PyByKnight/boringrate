@@ -306,7 +306,7 @@ def derive(carrier, state, ledger_rows, line='auto'):
                  f'signal there is that the market has moved and your renewal has not.</p>\n')
 
     P.append(f'\n    <p style="font-size:14px;margin:10px 0;"><a class="ca-link" '
-             f'href="/article/rate-changes/{sslug}.html">See every approved {sname} '
+             f'href="/{"home" if line == "home" else "article"}/rate-changes/{sslug}.html">See every approved {sname} '
              f'{LNAME} rate filing &rarr;</a></p>\n')
     prose = ''.join(P)
 
