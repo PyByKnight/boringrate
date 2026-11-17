@@ -27,9 +27,17 @@ ORDER = ["State Farm", "Allstate", "USAA", "Farmers", "Liberty Mutual / Safeco",
 SERFF = "https://serff-sfa.naic.org/serff/sfa/search/filingSummary.xhtml?filingId="
 
 
-def roster():
-    h = (ROOT / "home" / "index.html").read_text(encoding="utf-8")
-    return set(re.findall(r'name:"([^"]+)",\s*base:', h))
+def roster(line="home", st=None):
+    if line == "home":
+        h = (ROOT / "home" / "index.html").read_text(encoding="utf-8")
+        return set(re.findall(r'name:"([^"]+)",\s*base:', h))
+    # Auto tool (index.html): national carriers carry a base:, regionals are listed per state.
+    h = (ROOT / "index.html").read_text(encoding="utf-8")
+    names = set(re.findall(r'\{\s*name:\s*"([^"]+)",\s*base:', h))
+    m = re.search(r'"' + st + r'":\s*\[([^\]]*)\]', h[h.find('"AL": ["') - 2000 if '"AL": ["' in h else 0:])
+    if m:
+        names |= set(re.findall(r'"([^"]+)"', m.group(1)))
+    return names
 
 
 def fid(t):
@@ -50,14 +58,16 @@ def block(fam, rows):
 
 def main():
     st, name = sys.argv[1], sys.argv[2]
+    line = sys.argv[sys.argv.index("--line") + 1] if "--line" in sys.argv else "home"
+    sdir = st if line == "home" else f"{st}_{line}"      # auto jackets parse separately: _serff/CO_auto/
     note = sys.argv[sys.argv.index("--note") + 1] if "--note" in sys.argv else ""
     rows = []
-    for line in (ROOT / "_serff" / st / "candidates.tsv").read_text().splitlines():
+    for line in (ROOT / "_serff" / sdir / "candidates.tsv").read_text().splitlines():
         if not line.strip() or line.startswith("#"):
             continue
         f = (line.split("\t") + [""] * 5)[:5]
         rows.append(dict(tracking=f[0], family=f[1], product=f[2], type=f[3], note=f[4]))
-    ros = roster()
+    ros = roster(line, st)
     fams = OrderedDict()
     for r in sorted(rows, key=lambda r: fid(r["tracking"]), reverse=True):
         fams.setdefault(r["family"], []).append(r)
@@ -72,8 +82,8 @@ def main():
             start[fam] = rs[:cap]
             if rs[cap:]:
                 rest[fam] = rs[cap:]
-        else:
-            rest[fam] = rs
+        elif line == "home":
+            rest[fam] = rs            # auto lists tool carriers only (owner, 2026-11-17)
     rank = lambda fam: (ORDER.index(fam) if fam in ORDER else len(ORDER), -len(start.get(fam, rest.get(fam, []))))
     start = OrderedDict(sorted(start.items(), key=lambda kv: rank(kv[0])))
     rest = OrderedDict(sorted(rest.items(), key=lambda kv: (-len(kv[1]), kv[0])))
@@ -82,17 +92,18 @@ def main():
 
     tn = (pathlib.Path.home() / "tn_home_jackets.html").read_text(encoding="utf-8")
     style = tn[tn.index("<style>"):tn.index("</style>") + len("</style>")]
-    key = f"{st.lower()}_home_jackets"
-    out = (f'<!doctype html><meta charset="utf-8"><title>{st} home filings</title>\n{style}\n'
-           f'<h1>{html.escape(name)} homeowners filings</h1>\n'
+    key = f"{st.lower()}_{line}_jackets"
+    lname = "homeowners" if line == "home" else "personal auto"
+    out = (f'<!doctype html><meta charset="utf-8"><title>{st} {line} filings</title>\n{style}\n'
+           f'<h1>{html.escape(name)} {lname} filings</h1>\n'
            f'<div class="sub">{len(rows)} rate-bearing filings (dropped: Form-only and Rule-only, Withdrawn, '
-           f'Tenant/Mobile/Condo/Other sub-TOIs, ISO &amp; vendor filings, loss costs).\n'
+           f'non-owner sub-TOIs, ISO &amp; vendor filings, loss costs).\n'
            f' Click a link, hit <b>Download Zip File</b>; the box ticks itself. Drop the zips in <b>Linux files</b>.</div>\n'
            + (f'<div class="sub" style="color:#b4321a;font-weight:600">{html.escape(note)}</div>\n' if note else "")
            + f'<div id="bar"><b><span id="done">0</span></b> opened &middot; <b>Start here = {n_start}</b><button id="reset">reset</button>'
            f' &middot; <a href="https://serff-sfa.naic.org/serff/sfa/home/{st}" target="_blank">{st} SERFF portal &rarr;</a></div>\n'
            f'<h2>START HERE &mdash; {n_start} jackets</h2>\n'
-           f'<div class="sub">All in the home roster, so these move a displayed price. Big families capped at the newest few.</div>\n'
+           f'<div class="sub">All in the {line} tool roster, so these move a displayed price. Big families capped at the newest few.</div>\n'
            + "\n".join(block(f, rs) for f, rs in start.items())
            + f'\n<details><summary>Second tier &mdash; {n_rest} more (older filings of the big families, non-roster carriers)</summary>\n'
            + "\n".join(block(f, rs) for f, rs in rest.items()) + "</details>\n"
@@ -104,7 +115,7 @@ def main():
            "document.querySelectorAll('a').forEach(a=>a.onclick=()=>{const i=a.closest('li').querySelector('input');if(!i.checked){i.checked=true;i.onchange();}});\n"
            "document.getElementById('reset').onclick=()=>{localStorage.removeItem(K);b.forEach(x=>x.checked=false);paint();};\n"
            "paint();\n</script>\n")
-    dest = pathlib.Path.home() / f"{st.lower()}_home_jackets.html"
+    dest = pathlib.Path.home() / f"{st.lower()}_{line}_jackets.html"
     dest.write_text(out, encoding="utf-8")
     print(f"{dest}: start here {n_start} ({', '.join(f'{k} {len(v)}' for k, v in start.items())}); second tier {n_rest}")
 
