@@ -1494,8 +1494,22 @@ window.track = function (name, props) {
   var ev = { name: name, props: props || {}, ts: Date.now(), path: location.pathname };
   window.brEvents.push(ev);
   try { if (window.BR_DEBUG) console.log("[track]", name, ev.props); } catch (e) {}
-  try { if (window.umami) window.umami.track(name, ev.props); } catch (e) {}
+  // Umami loads deferred: an event fired during page parse (results rendered straight from a
+  // ?zip= link) arrived before window.umami existed and was silently dropped. Queue + flush.
+  try {
+    if (window.umami) window.umami.track(name, ev.props);
+    else (window.__brQ = window.__brQ || []).push([name, ev.props]);
+  } catch (e) {}
 };
+(function () {
+  var tries = 0, t = setInterval(function () {
+    if (window.umami && window.__brQ) {
+      var q = window.__brQ; window.__brQ = [];
+      q.forEach(function (x) { try { window.umami.track(x[0], x[1]); } catch (e) {} });
+    }
+    if (++tries > 40 || (window.umami && !(window.__brQ || []).length && tries > 4)) clearInterval(t);
+  }, 250);
+})();
 </script>
 <!-- br-adsense-meta --><meta name="google-adsense-account" content="ca-pub-9438885843936206">
 </head>
