@@ -127,7 +127,78 @@ def section(name, rows, lead="Auto"):
             'changes from each state&rsquo;s Department of Insurance; a filed average is not your rate &mdash; '
             'your change depends on your ZIP, coverage, and risk profile, and a cut often reaches new customers '
             'before renewals. Not a quote.</p>')
-    return (f'{BEGIN}\n    <h2>{name}&rsquo;s recent rate filings</h2>\n    {lead}\n    {table}\n    {note}\n    {END}\n    ')
+    return (f'{BEGIN}\n    <h2 id="filing-record">{name}&rsquo;s recent rate filings</h2>\n    {lead}\n    {table}\n    {note}\n    {END}\n    ')
+
+
+TOP_BEGIN = "<!-- carrier-filing-top start -->"
+TOP_END = "<!-- carrier-filing-top end -->"
+TOP_RE = re.compile(re.escape(TOP_BEGIN) + r".*?" + re.escape(TOP_END) + r"\s*", re.DOTALL)
+TOOL = {"Auto": "/", "Home": "/home/"}
+
+
+def _when(r):
+    return r.get("effective_new") or r.get("disposition_date") or ""
+
+
+def _chip(r):
+    return f'{r["state"]} {signed(r["overall_pct"])} <span style="color:var(--ink-mute);">({eff(r)})</span>'
+
+
+def top_summary(name, key, rows, lead):
+    """Above-the-fold filing summary (2026-11-17, Umami: carrier pages bounce 81% and only 7%
+    reach the tool - visitors are researching a carrier; the rate-change pages, which lead
+    with filings, convert best). Latest filing per state for the page's own line, then who
+    filed CUTS in the states where this carrier raised (tool<->filing consistency: name the
+    cutters, never invent). Links down to the full sourced table."""
+    rows = [r for r in rows if not r.get("drift_exclude")]   # closed books: renewal-only, not what a shopper gets
+    if not rows:
+        return ""
+    own = [r for r in rows if r["_product"] == lead] or rows
+    prod = own[0]["_product"]
+    # Newest filing per state that actually moved the rate: a carrier files several books per
+    # state, and a newer 0% endorsement (CO Allstate landlords rider) must not hide its +15.9%.
+    latest = {}
+    for r in sorted(own, key=_when):
+        cur = latest.get(r["state"])
+        if cur is None or r["overall_pct"] != 0 or cur["overall_pct"] == 0:
+            latest[r["state"]] = r
+    recent = sorted(latest.values(), key=_when, reverse=True)[:5]
+    up = [r for r in recent if r["overall_pct"] > 0]
+    down = [r for r in recent if r["overall_pct"] < 0]
+    flat = [r for r in recent if r["overall_pct"] == 0]
+    parts = []
+    if up:
+        parts.append("raised rates in " + ", ".join(_chip(r) for r in up))
+    if down:
+        parts.append("cut rates in " + ", ".join(_chip(r) for r in down))
+    if flat:
+        parts.append("held rates flat in " + ", ".join(r["state"] for r in flat))
+    line = "; ".join(parts)
+
+    # cutters: other carriers, same line, newest filing per carrier+state is a cut, in a state this one raised
+    ledger = AUTO if prod == "Auto" else HOME
+    newest = {}
+    for k, rs in ledger.items():
+        if k == key:
+            continue
+        for r in rs:
+            if r["state"] in {u["state"] for u in up} and not r.get("drift_exclude"):
+                kk = (k, r["state"])
+                if kk not in newest or _when(r) > _when(newest[kk]):
+                    newest[kk] = r
+    cutters = sorted((r for r in newest.values() if r["overall_pct"] <= -1.0), key=lambda r: r["overall_pct"])[:3]
+    cut_line = ""
+    if cutters:
+        cut_line = ("<br>Filing <strong>cuts</strong> in the same states: " +
+                    ", ".join(f'{r["carrier"]} ({r["state"]} {signed(r["overall_pct"])})' for r in cutters) + ".")
+    tool = TOOL[prod]
+    return (f'{TOP_BEGIN}\n    <div style="margin:22px 0;padding:14px 16px;border-left:3px solid var(--ink);background:var(--paper-deep);max-width:660px;">'
+            f'<div style="font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-mute);margin-bottom:6px;">'
+            f'{name} {prod.lower()} rate filings &middot; from state regulators</div>'
+            f'<p style="margin:0;">In its latest approved {prod.lower()} filings, {name} {line}.{cut_line}</p>'
+            f'<p style="margin:8px 0 0;font-size:14px;"><a href="#filing-record" style="color:var(--ink);border-bottom:1px solid var(--rule);text-decoration:none;">Full filing record with SERFF numbers &darr;</a>'
+            f' &nbsp;&middot;&nbsp; <a href="{tool}" style="color:var(--accent);text-decoration:none;font-weight:600;">Compare {name} to every insurer in your ZIP &rarr;</a></p>'
+            f'</div>\n    {TOP_END}\n    ')
 
 
 def carrier_name(rows):
@@ -143,6 +214,7 @@ def main():
         html = p.read_text(encoding="utf-8")
         had = BEGIN in html
         html = SECTION_RE.sub("", html)  # strip any prior section (idempotent refresh)
+        html = TOP_RE.sub("", html)
         key = norm(p.stem.replace("-", ""))
         rows = AUTO.get(key, []) + HOME.get(key, [])
         if not rows:
@@ -158,6 +230,11 @@ def main():
             html = html.replace(FALLBACK, sec + FALLBACK, 1)
         else:
             print(f"  SKIP (no anchor) {carrier_dir.parent.name}/carrier/{p.name}"); continue
+        # top summary: before the first <h2> that follows the TLDR card
+        t = html.find('<div class="tldr-card">')
+        h2 = html.find("<h2", t if t >= 0 else html.find("<h1"))
+        if h2 > 0:
+            html = html[:h2] + top_summary(name, key, rows, lead) + html[h2:]
         p.write_text(html, encoding="utf-8")
         refreshed += had
         added += not had
