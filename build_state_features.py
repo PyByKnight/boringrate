@@ -199,10 +199,10 @@ FEATURES = [
  'path':'article/ohio-car-insurance-rate-changes-2026.html',
  'url':'https://boringrate.com/article/ohio-car-insurance-rate-changes-2026.html',
  'title':'Ohio car insurance rate changes in 2026: who cut and who raised',
- 'desc':'Almost every big Ohio auto insurer cut rates in 2026 - State Farm -4.2%, GEICO -4.9%, Progressive -4.4%, Erie -3.8%. A couple raised. Every approved SERFF filing, and whether your renewal reflects it.',
+ 'desc':'Almost every big Ohio auto insurer cut rates in 2026, and Allstate cut three times - about -11% combined. State Farm, GEICO, Progressive and Erie also cut. Every approved SERFF filing.',
  'ogdesc':'Ohio\'s biggest auto carriers cut in 2026 - State Farm, GEICO, Progressive and Erie all down. See every approved filing and compare.',
  'state':'Ohio','read':'6','tracker':'/article/rate-changes/ohio.html',
- 'alert':'Ohio 2026: State Farm, GEICO, Progressive and Erie all cut rates &mdash; a broadly cheaper market.',
+ 'alert':'Ohio 2026: Allstate cut three times (about &minus;11% combined) and State Farm, GEICO, Progressive and Erie all cut &mdash; a broadly cheaper market.',
  'h1':'Ohio car insurance rate changes in 2026: who cut and who raised',
  'dek':'Almost every big auto insurer in Ohio cut rates in 2026 &mdash; State Farm, GEICO, Progressive and Erie all moved down. A couple nudged up, and one held back a double-digit increase. Every figure below links to its approved SERFF filing.',
  'rows':[
@@ -218,7 +218,11 @@ FEATURES = [
 '''    <p>These are approved <strong>Ohio Department of Insurance</strong> filings, pulled from the public SERFF system &mdash; not estimates. Every figure above links to its filing by tracking number. The headline: Ohio in 2026 is a broadly <em>cheaper</em> market, with nearly every large carrier cutting.</p>
 
     <h2>A broadly cheaper market</h2>
-    <p>The cuts are led by the biggest books. <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a> cut &minus;4.2% on roughly <strong>2.3 million</strong> policyholders; <a class="ca-link" href="/article/carrier/geico.html">GEICO</a> cut &minus;4.9% (against a &minus;11.5% indication &mdash; it could have cut more); <a class="ca-link" href="/article/carrier/progressive.html">Progressive</a> cut &minus;4.4%; <a class="ca-link" href="/article/carrier/erie.html">Erie</a> &minus;3.8%; <a class="ca-link" href="/article/carrier/allstate.html">Allstate</a> &minus;3.0%. When this many large carriers move down at once, staying on an old policy is the expensive choice &mdash; new-business rates are where the cuts land first.</p>
+    <p>The cuts are led by the biggest books. <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a> cut &minus;4.2% on roughly <strong>2.3 million</strong> policyholders, on top of a &minus;3.9% cut two months earlier; <a class="ca-link" href="/article/carrier/geico.html">GEICO</a> cut &minus;4.9% (against a &minus;11.5% indication &mdash; it could have cut more); <a class="ca-link" href="/article/carrier/progressive.html">Progressive</a> cut &minus;4.4%; <a class="ca-link" href="/article/carrier/erie.html">Erie</a> &minus;3.8%; <a class="ca-link" href="/article/carrier/allstate.html">Allstate</a> &minus;3.0% (its third cut in nine months &mdash; see below). When this many large carriers move down at once, staying on an old policy is the expensive choice &mdash; new-business rates are where the cuts land first.</p>
+
+    <h2>Allstate cut three times &mdash; about &minus;11% combined</h2>
+    <p>The table shows each carrier&rsquo;s latest filing, which undersells a carrier that keeps cutting. <a class="ca-link" href="/article/carrier/allstate.html">Allstate</a> cut its main Ohio book (Allstate North American, about <strong>158,000</strong> policyholders) three times in nine months: &minus;5.4% in July 2025 (ALSE-134591448), &minus;3.0% in September 2025 (ALSE-134684339) and &minus;3.0% in March 2026 (ALSE-134879528). Stacked, that is roughly <strong>&minus;11%</strong> &mdash; the deepest cumulative cut among Ohio&rsquo;s large carriers. <a class="ca-link" href="/article/carrier/state-farm.html">State Farm</a>&rsquo;s two cuts (&minus;3.9% in October 2025, &minus;4.2% in December) stack to about &minus;7.9% on its 2.3-million-policyholder book.</p>
+    <p>Repeated cuts usually mean a carrier is pricing to win new customers. If you got an Allstate quote before mid-2025, it is worth getting a fresh one. The <a class="ca-link" href="/article/rate-changes/ohio.html">Ohio rate tracker</a> lists every carrier that cut more than once.</p>
 
     <h2>Who raised &mdash; and the one holding back</h2>
     <p>A few carriers went up. <a class="ca-link" href="/article/carrier/liberty-mutual.html">Liberty Mutual</a> raised &plus;2.0%. The one to watch is Grange: it took only &plus;1.9%, but its filing indicated a need of <strong>&plus;17.1%</strong> &mdash; a fifteen-point gap between what its actuaries said it needed and what it took. Gaps that large tend to close through follow-up filings, so Grange customers should expect continued increases even though this one was small.</p>
@@ -234,9 +238,9 @@ FEATURES = [
     <p>Approved cuts are statewide averages and apply <strong>at renewal, not mid-term</strong>, usually reaching new customers before existing ones. So two identical drivers can pay different rates for months on timing alone. Your renewal shows your carrier&rsquo;s price; it doesn&rsquo;t tell you what a competitor would charge for the same coverage today &mdash; and in a market cutting this broadly, that gap is worth checking. It&rsquo;s free and takes a couple of minutes.</p>''',
  'faq':[
   ('Did Ohio car insurance rates go down in 2026?',
-   'For most large carriers, yes. Approved Ohio Department of Insurance filings show State Farm cut -4.2% on about 2.3 million policyholders, GEICO -4.9%, Progressive -4.4%, Erie -3.8% and Allstate -3.0%. A few raised: Liberty Mutual +2.0% and Grange +1.9% (though Grange indicated it needed +17.1%).'),
+   'For most large carriers, yes. Approved Ohio Department of Insurance filings show State Farm cut -4.2% on about 2.3 million policyholders, GEICO -4.9%, Progressive -4.4%, Erie -3.8% and Allstate -3.0% (its third cut since July 2025, about -11% combined). A few raised: Liberty Mutual +2.0% and Grange +1.9% (though Grange indicated it needed +17.1%).'),
   ('Which Ohio insurer cut rates the most?',
-   'Among large carriers, GEICO cut the most at -4.9% (its indication was -11.5%, so it could have cut further), followed by Progressive -4.4% and State Farm -4.2% on its ~2.3 million-policyholder book.'),
+   'Counting repeat filings, Allstate: three cuts since July 2025 (-5.4%, -3.0%, -3.0%) stack to about -11% on its roughly 158,000-policyholder Allstate North American book. State Farm\'s two cuts stack to about -7.9% on ~2.3 million policyholders. In a single filing, GEICO cut the most at -4.9% (its indication was -11.5%), followed by Progressive -4.4%.'),
   ('If my Ohio carrier cut rates, will my bill go down automatically?',
    'Not necessarily. Approved cuts are statewide averages, apply at renewal rather than mid-term, and often reach new customers first. Your individual change also depends on your profile. Re-shopping is the reliable way to capture the lowest current Ohio rate.'),
  ],
