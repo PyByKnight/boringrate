@@ -11,10 +11,10 @@ from datetime import date
 from gen_metro_page import STATE, esc, _json
 
 ROOT = pathlib.Path(__file__).parent
-# Pristine OLD-format scaffold (keeps the <div class="article-email"> anchor the body-replace
-# regex needs — the live atlanta.html had it stripped, which silently no-op'd the replace and
-# leaked Atlanta metro content into every tracker). CTA/email cleanup happens via transform+strip
-# at write time, same as gen_metro_page.
+# The Atlanta metro scaffold. render() swaps the body between <div class="article-body"> and the
+# closing divs before <footer>, and exits if that anchor is missing (the old article-email anchor
+# vanished in the CTA cleanup and leaked the Atlanta article into every tracker, 7b5ce562).
+# CTA/email cleanup happens via transform+strip at write time, same as gen_metro_page.
 TEMPLATE = ROOT / "gen_metro_base.html"
 OUTDIR = ROOT / "article" / "rate-changes"
 RED, GREEN = "#b4321a", "#2f6b3a"
@@ -298,6 +298,50 @@ def faq_join(rows):
     return "; ".join(f'{r["carrier"]} ({r["pct"]:+g}%)' for r in rows)
 
 
+def repeat_block(code, name):
+    """'Cut more than once' - compounded cuts on one book (single source: repeat_cutters.py)."""
+    import repeat_cutters
+    best = {}
+    for x in repeat_cutters.repeat_cutters(_SERFF_AUTO, code):
+        if x["carrier"] not in best or x["affected"] > best[x["carrier"]]["affected"]:
+            best[x["carrier"]] = x       # one row per carrier: its largest book
+    rows = sorted(best.values(), key=lambda x: x["net_pct"])
+    if not rows:
+        return ""
+    trs = []
+    for x in rows:
+        seq = " &rarr; ".join(
+            f'&minus;{abs(f["overall_pct"]):.1f}% <span style="color:var(--ink-mute);">({fdate(fg_eff(f))})</span>'
+            if f["overall_pct"] < 0 else
+            f'{"+" if f["overall_pct"] > 0 else ""}{f["overall_pct"]:.1f}% <span style="color:var(--ink-mute);">({fdate(fg_eff(f))})</span>'
+            for f in x["filings"])
+        trk = ", ".join(sorted({f["tracking"].split("-")[0] + "-" + f["tracking"].split("-")[1] for f in x["filings"]}))
+        trs.append('<tr style="border-bottom:1px solid var(--rule);">'
+                   f'<td style="padding:8px 6px;"><strong>{esc(x["carrier"])}</strong><br>'
+                   f'<span style="font-size:13px;color:var(--ink-mute);">{esc(x["entity"])}</span></td>'
+                   f'<td style="padding:8px 6px;font-size:14px;">{seq}<br><span style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);">SERFF {esc(trk)}</span></td>'
+                   f'<td style="padding:8px 6px;"><span style="color:{GREEN};font-weight:600;">&minus;{abs(x["net_pct"]):.1f}%</span></td>'
+                   f'<td style="padding:8px 6px;">{x["affected"]:,}</td></tr>')
+    # lead with the deepest cut on a real book (>= 50K PH), not a token one; else deepest overall
+    lead = next((x for x in rows if x["affected"] >= 50000), rows[0])
+    return (f'<h2>Carriers that cut {esc(name)} rates more than once</h2>'
+            f'<p>A single filing undersells a carrier that keeps cutting. These carriers cut the same book '
+            f'two or more times, and the cuts stack: {esc(lead["carrier"])}&rsquo;s {len(lead["filings"])} filings add up to about '
+            f'<strong>&minus;{abs(lead["net_pct"]):.1f}%</strong> on {lead["affected"]:,} policyholders. Repeated cuts usually mean a carrier is pricing '
+            f'to win new customers &mdash; worth a quote if you haven&rsquo;t checked it lately.</p>'
+            '<table style="width:100%;border-collapse:collapse;font-size:15px;margin:14px 0;max-width:660px;">'
+            '<thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">'
+            '<th style="padding:8px 6px;">Carrier</th><th style="padding:8px 6px;">Cuts, in order</th>'
+            '<th style="padding:8px 6px;">Combined</th><th style="padding:8px 6px;">Policyholders</th></tr></thead>'
+            '<tbody>' + "".join(trs) + '</tbody></table>'
+            '<p style="font-size:13px;color:var(--ink-mute);max-width:660px;">Combined = the filings compounded on one '
+            'company&rsquo;s book, counting only changes already in effect. Statewide averages; your change varies.</p>')
+
+
+def fg_eff(f):
+    return f.get("effective_new") or f.get("effective_renewal")
+
+
 def state_page(code, changes):
     name, slug, _ = STATE[code]
     incs = [c for c in changes if c["dir"] == "increase"]
@@ -332,6 +376,10 @@ def state_page(code, changes):
                  f'The fastest way to stop overpaying is to compare carriers for your ZIP &mdash; the cheapest options in {esc(name)} are below.</p>')
     # 2) cheapest carriers + ZIP entry box
     parts.append(ranking_block(code, name))
+    # 2b) repeat cutters - the cumulative angle a one-row-per-filing table hides
+    _rb = repeat_block(code, name)
+    if _rb:
+        parts.append(_rb)
     # 3) the filing detail (who changed, by how much, sourced)
     if incs:
         parts.append(f'<h2>Carriers that raised {esc(name)} rates in 2026</h2>' + rows_table(incs))
