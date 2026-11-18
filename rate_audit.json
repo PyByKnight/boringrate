@@ -3,7 +3,7 @@
     "note": "Verification ledger for every auto rate atom. Integrity SLA: each atom must be re-verified against a real source at least every 30 days. A snapshot of each value is stored; if index.html later differs, the atom is DRIFTED and must be re-verified. Update dates only via `audit_rates.py --mark`/`--mark-all` after an actual source check.",
     "sla_days": 30,
     "baseline": "2026-06-17",
-    "last_run": "2026-06-23",
+    "last_run": "2026-11-18",
     "sources": {
       "state_avg": "ValuePenguin 'Car Insurance Rates by State' (full-coverage annual), pub 2026-06-16 — https://www.valuepenguin.com/car-insurance-by-state",
       "cs_grade": "NAIC complaint index — PENDING verification (next batch)",
@@ -1185,21 +1185,21 @@
       "category": "state_offset",
       "name": "GEICO in CO",
       "snapshot": {
-        "mult": 0.96
+        "mult": 0.9885
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/CO/USAA": {
       "category": "state_offset",
       "name": "USAA in CO",
       "snapshot": {
-        "mult": 0.92
+        "mult": 0.9525
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/CT/GEICO": {
       "category": "state_offset",
@@ -1295,31 +1295,31 @@
       "category": "state_offset",
       "name": "GEICO in GA",
       "snapshot": {
-        "mult": 0.88
+        "mult": 0.924
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/GA/State Farm": {
       "category": "state_offset",
       "name": "State Farm in GA",
       "snapshot": {
-        "mult": 0.9
+        "mult": 0.8767
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/GA/USAA": {
       "category": "state_offset",
       "name": "USAA in GA",
       "snapshot": {
-        "mult": 1.02
+        "mult": 1.0239
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/HI/GEICO": {
       "category": "state_offset",
@@ -1415,31 +1415,31 @@
       "category": "state_offset",
       "name": "GEICO in IL",
       "snapshot": {
-        "mult": 0.95
+        "mult": 0.9397
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/IL/State Farm": {
       "category": "state_offset",
       "name": "State Farm in IL",
       "snapshot": {
-        "mult": 0.82
+        "mult": 0.697
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/IL/USAA": {
       "category": "state_offset",
       "name": "USAA in IL",
       "snapshot": {
-        "mult": 1.06
+        "mult": 1.0381
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/IN/GEICO": {
       "category": "state_offset",
@@ -1535,21 +1535,21 @@
       "category": "state_offset",
       "name": "GEICO in LA",
       "snapshot": {
-        "mult": 0.9
+        "mult": 0.9794
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/LA/State Farm": {
       "category": "state_offset",
       "name": "State Farm in LA",
       "snapshot": {
-        "mult": 1.1
+        "mult": 1.0456
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/LA/USAA": {
       "category": "state_offset",
@@ -1635,11 +1635,11 @@
       "category": "state_offset",
       "name": "State Farm in MI",
       "snapshot": {
-        "mult": 0.96
+        "mult": 0.9138
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/MI/USAA": {
       "category": "state_offset",
@@ -1965,21 +1965,21 @@
       "category": "state_offset",
       "name": "GEICO in NY",
       "snapshot": {
-        "mult": 0.85
+        "mult": 0.8817
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NY/Progressive": {
       "category": "state_offset",
       "name": "Progressive in NY",
       "snapshot": {
-        "mult": 0.82
+        "mult": 0.8197
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json",
-      "notes": "Progressive flattened to real data 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NY/USAA": {
       "category": "state_offset",
@@ -1995,21 +1995,21 @@
       "category": "state_offset",
       "name": "GEICO in OH",
       "snapshot": {
-        "mult": 0.97
+        "mult": 0.9418
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/OH/State Farm": {
       "category": "state_offset",
       "name": "State Farm in OH",
       "snapshot": {
-        "mult": 0.97
+        "mult": 0.923
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/OH/USAA": {
       "category": "state_offset",
@@ -2105,11 +2105,11 @@
       "category": "state_offset",
       "name": "State Farm in PA",
       "snapshot": {
-        "mult": 0.9
+        "mult": 0.8826
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/PA/USAA": {
       "category": "state_offset",
@@ -2155,11 +2155,11 @@
       "category": "state_offset",
       "name": "State Farm in SC",
       "snapshot": {
-        "mult": 0.85
+        "mult": 0.7871
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/SC/USAA": {
       "category": "state_offset",
@@ -2205,21 +2205,21 @@
       "category": "state_offset",
       "name": "GEICO in TN",
       "snapshot": {
-        "mult": 0.92
+        "mult": 0.8904
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/TN/State Farm": {
       "category": "state_offset",
       "name": "State Farm in TN",
       "snapshot": {
-        "mult": 0.84
+        "mult": 0.714
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/TN/USAA": {
       "category": "state_offset",
@@ -2295,21 +2295,21 @@
       "category": "state_offset",
       "name": "GEICO in VA",
       "snapshot": {
-        "mult": 0.86
+        "mult": 0.8889
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/VA/USAA": {
       "category": "state_offset",
       "name": "USAA in VA",
       "snapshot": {
-        "mult": 0.97
+        "mult": 0.9534
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/VT/GEICO": {
       "category": "state_offset",
@@ -3480,31 +3480,31 @@
       "category": "state_offset",
       "name": "Allstate in CO",
       "snapshot": {
-        "mult": 1.08
+        "mult": 1.103
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/CO/Liberty Mutual": {
       "category": "state_offset",
       "name": "Liberty Mutual in CO",
       "snapshot": {
-        "mult": 1.07
+        "mult": 1.1331
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/CO/Safeco": {
       "category": "state_offset",
       "name": "Safeco in CO",
       "snapshot": {
-        "mult": 1.03
+        "mult": 1.0024
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/CO/The Hartford": {
       "category": "state_offset",
@@ -3520,11 +3520,11 @@
       "category": "state_offset",
       "name": "Nationwide in CO",
       "snapshot": {
-        "mult": 0.96
+        "mult": 0.9804
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/CO/Travelers": {
       "category": "state_offset",
@@ -3540,31 +3540,31 @@
       "category": "state_offset",
       "name": "Root Insurance in CO",
       "snapshot": {
-        "mult": 0.96
+        "mult": 0.9621
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/CO/Kemper": {
       "category": "state_offset",
       "name": "Kemper in CO",
       "snapshot": {
-        "mult": 1.04
+        "mult": 1.0336
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/CO/National General": {
       "category": "state_offset",
       "name": "National General in CO",
       "snapshot": {
-        "mult": 1.05
+        "mult": 1.0738
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/CT/Allstate": {
       "category": "state_offset",
@@ -3970,21 +3970,21 @@
       "category": "state_offset",
       "name": "Nationwide in GA",
       "snapshot": {
-        "mult": 1.01
+        "mult": 1.0138
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/GA/Travelers": {
       "category": "state_offset",
       "name": "Travelers in GA",
       "snapshot": {
-        "mult": 1.01
+        "mult": 0.9114
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/GA/Root Insurance": {
       "category": "state_offset",
@@ -4210,51 +4210,51 @@
       "category": "state_offset",
       "name": "Liberty Mutual in IL",
       "snapshot": {
-        "mult": 0.98
+        "mult": 0.9357
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/IL/Safeco": {
       "category": "state_offset",
       "name": "Safeco in IL",
       "snapshot": {
-        "mult": 0.99
+        "mult": 0.9889
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/IL/The Hartford": {
       "category": "state_offset",
       "name": "The Hartford in IL",
       "snapshot": {
-        "mult": 0.99
+        "mult": 0.955
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/IL/Nationwide": {
       "category": "state_offset",
       "name": "Nationwide in IL",
       "snapshot": {
-        "mult": 1.01
+        "mult": 0.9891
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/IL/Travelers": {
       "category": "state_offset",
       "name": "Travelers in IL",
       "snapshot": {
-        "mult": 1.02
+        "mult": 0.9689
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/IL/Root Insurance": {
       "category": "state_offset",
@@ -4270,11 +4270,11 @@
       "category": "state_offset",
       "name": "Kemper in IL",
       "snapshot": {
-        "mult": 0.99
+        "mult": 1.1385
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/IL/National General": {
       "category": "state_offset",
@@ -4650,21 +4650,21 @@
       "category": "state_offset",
       "name": "Allstate in LA",
       "snapshot": {
-        "mult": 1.1
+        "mult": 1.0272
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/LA/Liberty Mutual": {
       "category": "state_offset",
       "name": "Liberty Mutual in LA",
       "snapshot": {
-        "mult": 1.09
+        "mult": 1.1003
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/LA/Safeco": {
       "category": "state_offset",
@@ -4710,11 +4710,11 @@
       "category": "state_offset",
       "name": "Root Insurance in LA",
       "snapshot": {
-        "mult": 0.95
+        "mult": 0.9437
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/LA/Kemper": {
       "category": "state_offset",
@@ -5090,11 +5090,11 @@
       "category": "state_offset",
       "name": "National General in MI",
       "snapshot": {
-        "mult": 1.04
+        "mult": 1.0348
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/MN/Allstate": {
       "category": "state_offset",
@@ -5500,11 +5500,11 @@
       "category": "state_offset",
       "name": "Safeco in NV",
       "snapshot": {
-        "mult": 1.04
+        "mult": 1.0991
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NV/The Hartford": {
       "category": "state_offset",
@@ -5660,11 +5660,11 @@
       "category": "state_offset",
       "name": "Allstate in NJ",
       "snapshot": {
-        "mult": 1.09
+        "mult": 1.1179
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NJ/Liberty Mutual": {
       "category": "state_offset",
@@ -5690,11 +5690,11 @@
       "category": "state_offset",
       "name": "The Hartford in NJ",
       "snapshot": {
-        "mult": 1.04
+        "mult": 1.0306
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NJ/Nationwide": {
       "category": "state_offset",
@@ -5740,31 +5740,31 @@
       "category": "state_offset",
       "name": "National General in NJ",
       "snapshot": {
-        "mult": 1.05
+        "mult": 1.0405
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NY/Allstate": {
       "category": "state_offset",
       "name": "Allstate in NY",
       "snapshot": {
-        "mult": 1.05
+        "mult": 1.0382
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NY/Liberty Mutual": {
       "category": "state_offset",
       "name": "Liberty Mutual in NY",
       "snapshot": {
-        "mult": 1.04
+        "mult": 1.0792
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NY/Safeco": {
       "category": "state_offset",
@@ -5800,11 +5800,11 @@
       "category": "state_offset",
       "name": "Travelers in NY",
       "snapshot": {
-        "mult": 0.97
+        "mult": 0.9882
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NY/Root Insurance": {
       "category": "state_offset",
@@ -6020,41 +6020,41 @@
       "category": "state_offset",
       "name": "Allstate in OH",
       "snapshot": {
-        "mult": 0.92
+        "mult": 0.8439
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/OH/Liberty Mutual": {
       "category": "state_offset",
       "name": "Liberty Mutual in OH",
       "snapshot": {
-        "mult": 0.93
+        "mult": 0.886
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/OH/Safeco": {
       "category": "state_offset",
       "name": "Safeco in OH",
       "snapshot": {
-        "mult": 0.97
+        "mult": 1.0196
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/OH/The Hartford": {
       "category": "state_offset",
       "name": "The Hartford in OH",
       "snapshot": {
-        "mult": 0.96
+        "mult": 1.0388
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/OH/Nationwide": {
       "category": "state_offset",
@@ -6070,21 +6070,21 @@
       "category": "state_offset",
       "name": "Travelers in OH",
       "snapshot": {
-        "mult": 1.06
+        "mult": 1.0533
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/OH/Root Insurance": {
       "category": "state_offset",
       "name": "Root Insurance in OH",
       "snapshot": {
-        "mult": 1.04
+        "mult": 1.0279
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/OH/Kemper": {
       "category": "state_offset",
@@ -6310,11 +6310,11 @@
       "category": "state_offset",
       "name": "Safeco in PA",
       "snapshot": {
-        "mult": 1.01
+        "mult": 1.0464
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/PA/The Hartford": {
       "category": "state_offset",
@@ -6330,21 +6330,21 @@
       "category": "state_offset",
       "name": "Nationwide in PA",
       "snapshot": {
-        "mult": 0.99
+        "mult": 0.898
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/PA/Travelers": {
       "category": "state_offset",
       "name": "Travelers in PA",
       "snapshot": {
-        "mult": 0.99
+        "mult": 0.9588
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/PA/Root Insurance": {
       "category": "state_offset",
@@ -6470,11 +6470,11 @@
       "category": "state_offset",
       "name": "Allstate in SC",
       "snapshot": {
-        "mult": 1.03
+        "mult": 0.9652
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/SC/Liberty Mutual": {
       "category": "state_offset",
@@ -6650,11 +6650,11 @@
       "category": "state_offset",
       "name": "Allstate in TN",
       "snapshot": {
-        "mult": 0.96
+        "mult": 0.978
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/TN/Liberty Mutual": {
       "category": "state_offset",
@@ -6690,31 +6690,31 @@
       "category": "state_offset",
       "name": "Nationwide in TN",
       "snapshot": {
-        "mult": 1.02
+        "mult": 1.0118
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/TN/Travelers": {
       "category": "state_offset",
       "name": "Travelers in TN",
       "snapshot": {
-        "mult": 1.03
+        "mult": 1.0493
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/TN/Root Insurance": {
       "category": "state_offset",
       "name": "Root Insurance in TN",
       "snapshot": {
-        "mult": 1.02
+        "mult": 0.9799
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/TN/Kemper": {
       "category": "state_offset",
@@ -7010,21 +7010,21 @@
       "category": "state_offset",
       "name": "Allstate in VA",
       "snapshot": {
-        "mult": 0.94
+        "mult": 0.8906
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/VA/Liberty Mutual": {
       "category": "state_offset",
       "name": "Liberty Mutual in VA",
       "snapshot": {
-        "mult": 0.95
+        "mult": 0.9839
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/VA/Safeco": {
       "category": "state_offset",
@@ -7050,21 +7050,21 @@
       "category": "state_offset",
       "name": "Nationwide in VA",
       "snapshot": {
-        "mult": 1.03
+        "mult": 1.0138
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/VA/Travelers": {
       "category": "state_offset",
       "name": "Travelers in VA",
       "snapshot": {
-        "mult": 1.04
+        "mult": 1.0367
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/VA/Root Insurance": {
       "category": "state_offset",
@@ -7090,11 +7090,11 @@
       "category": "state_offset",
       "name": "National General in VA",
       "snapshot": {
-        "mult": 0.97
+        "mult": 0.9669
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/WA/Allstate": {
       "category": "state_offset",
@@ -7450,21 +7450,21 @@
       "category": "state_offset",
       "name": "State Farm in CO",
       "snapshot": {
-        "mult": 1.01
+        "mult": 0.9248
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/CO/Farmers": {
       "category": "state_offset",
       "name": "Farmers in CO",
       "snapshot": {
-        "mult": 0.93
+        "mult": 0.9691
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/CT/State Farm": {
       "category": "state_offset",
@@ -7530,11 +7530,11 @@
       "category": "state_offset",
       "name": "Farmers in GA",
       "snapshot": {
-        "mult": 0.91
+        "mult": 0.9591
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/HI/Farmers": {
       "category": "state_offset",
@@ -7550,11 +7550,11 @@
       "category": "state_offset",
       "name": "Farmers in IL",
       "snapshot": {
-        "mult": 0.91
+        "mult": 0.9126
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/IN/Farmers": {
       "category": "state_offset",
@@ -7760,21 +7760,21 @@
       "category": "state_offset",
       "name": "State Farm in NJ",
       "snapshot": {
-        "mult": 1.03
+        "mult": 1.0207
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NJ/Farmers": {
       "category": "state_offset",
       "name": "Farmers in NJ",
       "snapshot": {
-        "mult": 0.93
+        "mult": 0.9861
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NM/Farmers": {
       "category": "state_offset",
@@ -7800,11 +7800,11 @@
       "category": "state_offset",
       "name": "Farmers in NY",
       "snapshot": {
-        "mult": 0.92
+        "mult": 0.9888
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NC/Farmers": {
       "category": "state_offset",
@@ -7830,11 +7830,11 @@
       "category": "state_offset",
       "name": "Farmers in OH",
       "snapshot": {
-        "mult": 0.89
+        "mult": 0.9154
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/OK/Progressive": {
       "category": "state_offset",
@@ -7910,11 +7910,11 @@
       "category": "state_offset",
       "name": "Farmers in TN",
       "snapshot": {
-        "mult": 0.9
+        "mult": 0.9285
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/TX/Farmers": {
       "category": "state_offset",
@@ -7960,21 +7960,21 @@
       "category": "state_offset",
       "name": "State Farm in VA",
       "snapshot": {
-        "mult": 0.84
+        "mult": 0.7508
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/VA/Farmers": {
       "category": "state_offset",
       "name": "Farmers in VA",
       "snapshot": {
-        "mult": 0.9
+        "mult": 0.8962
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/WA/Farmers": {
       "category": "state_offset",
@@ -8200,11 +8200,11 @@
       "category": "state_offset",
       "name": "NJM Insurance in NJ",
       "snapshot": {
-        "mult": 0.82
+        "mult": 0.8126
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/NC/NC Farm Bureau": {
       "category": "state_offset",
@@ -8220,11 +8220,11 @@
       "category": "state_offset",
       "name": "Erie Insurance in OH",
       "snapshot": {
-        "mult": 0.82
+        "mult": 0.813
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/OK/Shelter Insurance": {
       "category": "state_offset",
@@ -8280,11 +8280,11 @@
       "category": "state_offset",
       "name": "Tennessee Farm Bureau in TN",
       "snapshot": {
-        "mult": 0.82
+        "mult": 0.8365
       },
-      "last_verified": "2026-06-23",
-      "source": "cheapest_by_state.json (NerdWallet/ValuePenguin published rates) + calibrate_model.py",
-      "notes": "model re-anchored to published rates 2026-06-23"
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     },
     "offset/TX/Texas Farm Bureau": {
       "category": "state_offset",
@@ -8345,6 +8345,492 @@
       "last_verified": "2026-06-23",
       "source": "",
       "notes": "(added via --sync)"
+    },
+    "carrier/nonstandard/Allstate": {
+      "category": "nonstandard",
+      "name": "Allstate",
+      "snapshot": {
+        "base": 1.43,
+        "csGrade": "C+",
+        "stability": 2
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "carrier/nonstandard/National General": {
+      "category": "nonstandard",
+      "name": "National General",
+      "snapshot": {
+        "base": 1.38,
+        "csGrade": "C",
+        "stability": 2
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "carrier/nonstandard/Gainsco": {
+      "category": "nonstandard",
+      "name": "Gainsco",
+      "snapshot": {
+        "base": 1.4,
+        "csGrade": "C",
+        "stability": 2
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "carrier/nonstandard/AssuranceAmerica": {
+      "category": "nonstandard",
+      "name": "AssuranceAmerica",
+      "snapshot": {
+        "base": 1.28,
+        "csGrade": "C",
+        "stability": 2
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "carrier/nonstandard/First Acceptance": {
+      "category": "nonstandard",
+      "name": "First Acceptance",
+      "snapshot": {
+        "base": 1.48,
+        "csGrade": "C",
+        "stability": 1
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "carrier/nonstandard/Safeway": {
+      "category": "nonstandard",
+      "name": "Safeway",
+      "snapshot": {
+        "base": 1.15,
+        "csGrade": "C",
+        "stability": 2
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "carrier/nonstandard/Imperial": {
+      "category": "nonstandard",
+      "name": "Imperial",
+      "snapshot": {
+        "base": 1.35,
+        "csGrade": "C",
+        "stability": 2
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "carrier/nonstandard/Old American": {
+      "category": "nonstandard",
+      "name": "Old American",
+      "snapshot": {
+        "base": 1.4,
+        "csGrade": "C",
+        "stability": 2
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "carrier/regional/Palisades": {
+      "category": "regional",
+      "name": "Palisades",
+      "snapshot": {
+        "base": 0.98,
+        "csGrade": "B",
+        "stability": 3
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "carrier/regional/MEEMIC": {
+      "category": "regional",
+      "name": "MEEMIC",
+      "snapshot": {
+        "base": 0.9,
+        "csGrade": "A-",
+        "stability": 4
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "carrier/regional/CURE": {
+      "category": "regional",
+      "name": "CURE",
+      "snapshot": {
+        "base": 0.87,
+        "csGrade": "B",
+        "stability": 3
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "carrier/regional/Northern Mutual": {
+      "category": "regional",
+      "name": "Northern Mutual",
+      "snapshot": {
+        "base": 0.9,
+        "csGrade": "B",
+        "stability": 4
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "carrier/regional/Bristol West": {
+      "category": "regional",
+      "name": "Bristol West",
+      "snapshot": {
+        "base": 1.05,
+        "csGrade": "B-",
+        "stability": 2
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/CO/Country Financial": {
+      "category": "state_offset",
+      "name": "Country Financial in CO",
+      "snapshot": {
+        "mult": 0.8577
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/CO/American Family": {
+      "category": "state_offset",
+      "name": "American Family in CO",
+      "snapshot": {
+        "mult": 0.9261
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/CO/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in CO",
+      "snapshot": {
+        "mult": 0.9433
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/CO/Shelter Insurance": {
+      "category": "state_offset",
+      "name": "Shelter Insurance in CO",
+      "snapshot": {
+        "mult": 0.9505
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/CO/Auto-Owners": {
+      "category": "state_offset",
+      "name": "Auto-Owners in CO",
+      "snapshot": {
+        "mult": 1.0654
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/GA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in GA",
+      "snapshot": {
+        "mult": 0.9626
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/IL/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in IL",
+      "snapshot": {
+        "mult": 0.9227
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/IL/Shelter Insurance": {
+      "category": "state_offset",
+      "name": "Shelter Insurance in IL",
+      "snapshot": {
+        "mult": 0.9519
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/IL/Auto-Owners": {
+      "category": "state_offset",
+      "name": "Auto-Owners in IL",
+      "snapshot": {
+        "mult": 0.9617
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/LA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in LA",
+      "snapshot": {
+        "mult": 0.9539
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/LA/Shelter Insurance": {
+      "category": "state_offset",
+      "name": "Shelter Insurance in LA",
+      "snapshot": {
+        "mult": 0.9853
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/MI/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in MI",
+      "snapshot": {
+        "mult": 0.9466
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/MI/Auto-Owners": {
+      "category": "state_offset",
+      "name": "Auto-Owners in MI",
+      "snapshot": {
+        "mult": 0.992
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/MI/MEEMIC": {
+      "category": "state_offset",
+      "name": "MEEMIC in MI",
+      "snapshot": {
+        "mult": 1.001
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/MI/The Hanover": {
+      "category": "state_offset",
+      "name": "The Hanover in MI",
+      "snapshot": {
+        "mult": 1.01
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/MI/Northern Mutual": {
+      "category": "state_offset",
+      "name": "Northern Mutual in MI",
+      "snapshot": {
+        "mult": 1.017
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/MI/Bristol West": {
+      "category": "state_offset",
+      "name": "Bristol West in MI",
+      "snapshot": {
+        "mult": 1.022
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/MI/Frankenmuth Insurance": {
+      "category": "state_offset",
+      "name": "Frankenmuth Insurance in MI",
+      "snapshot": {
+        "mult": 1.047
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/NJ/Palisades": {
+      "category": "state_offset",
+      "name": "Palisades in NJ",
+      "snapshot": {
+        "mult": 0.9414
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/NJ/CURE": {
+      "category": "state_offset",
+      "name": "CURE in NJ",
+      "snapshot": {
+        "mult": 1.0504
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/NJ/Selective Insurance": {
+      "category": "state_offset",
+      "name": "Selective Insurance in NJ",
+      "snapshot": {
+        "mult": 1.0583
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/OH/Shelter Insurance": {
+      "category": "state_offset",
+      "name": "Shelter Insurance in OH",
+      "snapshot": {
+        "mult": 0.8564
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/OH/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in OH",
+      "snapshot": {
+        "mult": 0.9861
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/OH/Auto-Owners": {
+      "category": "state_offset",
+      "name": "Auto-Owners in OH",
+      "snapshot": {
+        "mult": 1.0154
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/PA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in PA",
+      "snapshot": {
+        "mult": 0.9897
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/TN/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in TN",
+      "snapshot": {
+        "mult": 0.976
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/TN/Shelter Insurance": {
+      "category": "state_offset",
+      "name": "Shelter Insurance in TN",
+      "snapshot": {
+        "mult": 0.9841
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/TN/Auto-Owners": {
+      "category": "state_offset",
+      "name": "Auto-Owners in TN",
+      "snapshot": {
+        "mult": 1.0127
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/TX/Germania Insurance": {
+      "category": "state_offset",
+      "name": "Germania Insurance in TX",
+      "snapshot": {
+        "mult": 0.9
+      },
+      "last_verified": "2026-11-18",
+      "source": "",
+      "notes": "(added via --sync)"
+    },
+    "offset/VA/Auto-Owners": {
+      "category": "state_offset",
+      "name": "Auto-Owners in VA",
+      "snapshot": {
+        "mult": 0.964
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/VA/Progressive": {
+      "category": "state_offset",
+      "name": "Progressive in VA",
+      "snapshot": {
+        "mult": 1.0153
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/VA/Erie Insurance": {
+      "category": "state_offset",
+      "name": "Erie Insurance in VA",
+      "snapshot": {
+        "mult": 1.0376
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
+    },
+    "offset/VA/Cincinnati Insurance": {
+      "category": "state_offset",
+      "name": "Cincinnati Insurance in VA",
+      "snapshot": {
+        "mult": 1.1452
+      },
+      "last_verified": "2026-11-18",
+      "source": "SERFF pre-anchor catch-up (catchup_report.py --apply, roster baseline, 15% cap); trackings stamped catchup_applied in serff_filings.json",
+      "notes": "2026-11-18 owner-approved catch-up"
     }
   }
 }
