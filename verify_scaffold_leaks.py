@@ -15,6 +15,13 @@ import glob, sys
 import scaffold_guards as sg
 
 EXEMPT = {"gen_metro_base.html"}
+# Body-level scaffold leak: Atlanta-only prose from the base template. The rankings check
+# above never looked at the article BODY, so a generator whose body swap silently no-op'd
+# (gen_rate_tracker, 7b5ce562 -> 2026-11-18) shipped the whole Atlanta article on 17 pages
+# and still passed. Only atlanta.html may carry these.
+BODY_SIGNATURES = ("Atlanta averages ~", "How Atlanta compares to other Georgia metros",
+                   "How to find the cheapest carrier in Atlanta")
+BODY_OWNERS = {"article/metro/atlanta.html"}
 
 def main():
     bad = []
@@ -24,6 +31,8 @@ def main():
         html = open(p, encoding="utf-8", errors="replace").read()
         if sg.leaks(html):
             bad.append((p, sg.rankings_place(html), sg.page_place(html)))
+        elif p not in BODY_OWNERS and any(sig in html for sig in BODY_SIGNATURES):
+            bad.append((p, "Atlanta template body", sg.page_place(html)))
     for p, rp, pp in bad:
         print(f"LEAK  {p}\n        block says '{rp}'  but page is '{pp}'")
     print(f"\nscaffold leak check: {len(bad)} leaked page(s)")

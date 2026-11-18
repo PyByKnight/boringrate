@@ -134,9 +134,14 @@ def render(slug, title, desc, h1, dek, body_html, faq, in_subdir=True):
     # aren't interpreted as regex escapes
     html = re.sub(r'<div class="article-header">.*?</div>\s*<div class="article-body">',
                   lambda _m: header, html, count=1, flags=re.DOTALL)
-    body_repl = '<div class="article-body">\n' + body_html + '\n    <div class="article-email">'
-    html = re.sub(r'<div class="article-body">.*?<div class="article-email">',
-                  lambda _m: body_repl, html, count=1, flags=re.DOTALL)
+    # Body = everything between the article-body open and the closing divs before <footer>.
+    # The old end anchor (<div class="article-email">) was removed from the template by the
+    # CTA cleanup, which made this a silent no-op and shipped the Atlanta metro article as the
+    # body of every tracker. Fail loudly instead of publishing the scaffold.
+    html, n = re.subn(r'(<div class="article-body">).*?(\n  </div>\n</div>\s*<footer>)',
+                      lambda m: m.group(1) + '\n' + body_html + m.group(2), html, count=1, flags=re.DOTALL)
+    if n != 1:
+        raise SystemExit(f"gen_rate_tracker: article-body anchor not found in {TEMPLATE.name}; refusing to emit {slug}")
     html = html.replace("when Atlanta rates move", "when rates move in your area")
     html = html.replace("Compare Atlanta rates", "Compare rates")
 
