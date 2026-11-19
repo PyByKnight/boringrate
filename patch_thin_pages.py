@@ -30,6 +30,10 @@ SITE = "https://boringrate.com/"
 # (nav/header/footer/script/style stripped) so the ~1,100-word nav doesn't count.
 COMPARE_DIR, COMPARE_MIN_WORDS = "article/compare", 600
 
+# why-did-my pages: one template per carrier/state (62-69% shared text). Only the ones Google
+# showed to nobody are listed - the big-brand ones earn the site's best CTR and stay indexed.
+WHY_LIST = ROOT / "thin_why_pages.txt"
+
 
 def body_words(s):
     s = re.sub(r"<script.*?</script>|<style.*?</style>|<nav.*?</nav>|<header.*?</header>|<footer.*?</footer>",
@@ -46,6 +50,11 @@ def thin_pages():
     for p in sorted((ROOT / COMPARE_DIR).glob("*.html")):
         if p.name != "index.html" and body_words(p.read_text(encoding="utf-8")) < COMPARE_MIN_WORDS:
             yield p, p.relative_to(ROOT).as_posix()
+    if WHY_LIST.exists():
+        for rel in WHY_LIST.read_text(encoding="utf-8").split("\n"):
+            rel = rel.strip()
+            if rel and not rel.startswith("#") and (ROOT / rel).exists():
+                yield ROOT / rel, rel
 
 
 def main():
