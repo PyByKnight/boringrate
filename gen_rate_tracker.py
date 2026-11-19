@@ -4,6 +4,7 @@
 Angle: who raised, who cut, and "are you actually getting the new rate?" Every figure
 links to its source. Pages built from the article/metro/atlanta.html scaffolding.
 """
+import tracker_facts
 import json
 import pathlib
 import re
@@ -78,7 +79,7 @@ def ranking_block(code, name):
               '<button type="submit" style="font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:0 20px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;white-space:nowrap;">See rates &rarr;</button></form>')
     return (f'<h2>Cheapest car insurance carriers in {esc(name)} right now</h2>'
             f'<p>Estimated annual premiums for a standard profile, cheapest first &mdash; {esc(name)} averages about '
-            f'<strong>${r["avg"]:,}/yr</strong>. The spread between carriers is wide, so shopping is how you beat a rate hike.</p>'
+            f'<strong>${r["avg"]:,}/yr</strong>; {esc(r["top"][0]["name"])} comes in about ${r["median"] - r["top"][0]["price"]:,} under the middle of the market.</p>'
             + table + zipbox)
 
 
@@ -325,10 +326,9 @@ def repeat_block(code, name):
     # lead with the deepest cut on a real book (>= 50K PH), not a token one; else deepest overall
     lead = next((x for x in rows if x["affected"] >= 50000), rows[0])
     return (f'<h2>Carriers that cut {esc(name)} rates more than once</h2>'
-            f'<p>A single filing undersells a carrier that keeps cutting. These carriers cut the same book '
+            f'<p>These carriers cut the same book '
             f'two or more times, and the cuts stack: {esc(lead["carrier"])}&rsquo;s {len(lead["filings"])} filings add up to about '
-            f'<strong>&minus;{abs(lead["net_pct"]):.1f}%</strong> on {lead["affected"]:,} policyholders. Repeated cuts usually mean a carrier is pricing '
-            f'to win new customers &mdash; worth a quote if you haven&rsquo;t checked it lately.</p>'
+            f'<strong>&minus;{abs(lead["net_pct"]):.1f}%</strong> on {lead["affected"]:,} policyholders.</p>'
             '<table style="width:100%;border-collapse:collapse;font-size:15px;margin:14px 0;max-width:660px;">'
             '<thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">'
             '<th style="padding:8px 6px;">Carrier</th><th style="padding:8px 6px;">Cuts, in order</th>'
@@ -372,8 +372,8 @@ def state_page(code, changes):
         lead = f"{phrase(len(incs), 'raised')} {name} auto rates{upto} in 2026 — you may be overpaying."
     else:
         lead = f"{phrase(len(decs), 'cut')} {name} auto rates in 2026 — make sure you're actually getting it."
-    parts.append(f'<p style="font-size:20px;line-height:1.45;color:var(--ink);max-width:660px;"><strong>{lead}</strong> '
-                 f'The fastest way to stop overpaying is to compare carriers for your ZIP &mdash; the cheapest options in {esc(name)} are below.</p>')
+    parts.append(f'<p style="font-size:20px;line-height:1.45;color:var(--ink);max-width:660px;"><strong>{lead}</strong></p>')
+    parts.append(tracker_facts.facts(changes, name, "auto"))
     # 2) cheapest carriers + ZIP entry box
     parts.append(ranking_block(code, name))
     # 2b) repeat cutters - the cumulative angle a one-row-per-filing table hides
@@ -385,23 +385,14 @@ def state_page(code, changes):
         parts.append(f'<h2>Carriers that raised {esc(name)} rates in 2026</h2>' + rows_table(incs))
     if decs:
         parts.append(f'<h2>Carriers that cut {esc(name)} rates in 2026</h2>' + rows_table(decs))
-    # 4) the existing-customer catch
-    decline_note = ""
-    if decs:
-        ex = decs[0]
-        if ex.get("renewal"):
-            decline_note = (f' For example, {esc(ex["carrier"])}&rsquo;s cut took effect for <em>new</em> '
-                            f'customers on {fdate(ex["effective"])} but existing customers only at renewals '
-                            f'starting {fdate(ex["renewal"])}.')
-    parts.append(
-        '<div class="callout"><p><strong>Are you actually getting the new rate?</strong><br>'
-        'Approved changes are statewide averages, and a cut usually reaches <em>new</em> buyers first &mdash; '
-        'existing customers often don&rsquo;t see it until their next renewal, if at all.' + decline_note +
-        ' The only way to know you&rsquo;re on the best current price is to re-shop.</p></div>')
-    parts.append('<p style="font-size:13px;color:var(--ink-mute);">Filing figures are filed/approved statewide '
-                 'averages from each state&rsquo;s Department of Insurance; rankings are directional estimates. '
-                 '&ldquo;Affected&rdquo; counts are policyholders or insured vehicles as stated in each filing. '
-                 'Your individual rate varies by risk profile. Each filing links to its source. Not a quote.</p>')
+    # 4) the existing-customer catch - only when this state has a concrete new-vs-renewal example
+    ex = next((c for c in decs if c.get("renewal")), None)
+    if ex:
+        parts.append(
+            '<div class="callout"><p><strong>Are you actually getting the new rate?</strong><br>'
+            f'{esc(ex["carrier"])}&rsquo;s cut reached <em>new</em> customers on {fdate(ex["effective"])}, but existing '
+            f'customers only at renewals starting {fdate(ex["renewal"])}.</p></div>')
+    parts.append(tracker_facts.NOTE.format(what="driving record, car and ZIP"))
     faq = []
     summary = faq_carrier_summary(changes)
     up = [r for r in summary if r["pct"] > 0]
@@ -414,12 +405,10 @@ def state_page(code, changes):
         faq.append((f"Which carriers cut car insurance rates in {name} in 2026?",
                     faq_join(dn[:6]) +
                     ". Cuts usually reach new customers first and existing customers only at renewal."))
-    faq.append(("If my carrier cut rates, will my bill go down automatically?",
-                "Not necessarily. Decreases often apply to new business first and to existing customers only at "
-                "renewal. Re-shopping is the reliable way to capture the lowest current rate."))
-    faq.append((f"Where does this {name} rate-change data come from?",
-                "Approved rate filings from the state Department of Insurance and reputable outlets — each row "
-                "links to its source. Figures are statewide averages; your change depends on your risk profile."))
+    if ex:
+        faq.append((f"If my carrier cut {name} rates, will my bill go down automatically?",
+                    f"Not right away. {ex['carrier']}'s cut applied to new customers from {fdate(ex['effective'])} "
+                    f"and to existing customers only at renewals from {fdate(ex['renewal'])}."))
     return render(slug, title, desc, h1, dek, "\n".join(parts), faq)
 
 

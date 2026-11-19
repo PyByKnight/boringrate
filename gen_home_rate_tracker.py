@@ -5,6 +5,7 @@ Reads serff_home_filings.json (single source), filters to material moves (|%|>=0
 and builds per-state 'who raised / who cut home rates in [state]' pages + a hub, under
 home/rate-changes/. Same reactive-shopper angle as the auto tracker; homeowners voice.
 Page skeleton reuses the gen_home_faq.py scaffold (home/state/florida.html)."""
+import tracker_facts
 import json, re, pathlib
 from datetime import date
 from gen_metro_page import STATE, esc, _json
@@ -125,8 +126,7 @@ def dispersion_callout(changes, state):
                 f'yet ranged from <strong>{z["max_pct"]:+g}%</strong> to <strong>{z["min_pct"]:+g}%</strong> depending on the ZIP.')
     return (
         '<div class="callout" style="border-color:var(--accent);"><p><strong>The filed average is not your rate.</strong> '
-        'A single statewide filing can move different ZIPs by wildly different amounts. Here, the biggest single-territory '
-        f'increase we found was <strong>+{worst["max_pct"]:g}%</strong> ({esc(worst["carrier"])}, on a {worst["overall_pct"]:+g}% '
+        f'In {esc(STATE[state][0])}, the biggest single-territory increase we found was <strong>+{worst["max_pct"]:g}%</strong> ({esc(worst["carrier"])}, on a {worst["overall_pct"]:+g}% '
         f'filed average).{hook} The &ldquo;By ZIP&rdquo; column shows each filing&rsquo;s range &mdash; '
         '<a href="/home/index.html">check your ZIP</a> to see where you land.</p></div>')
 
@@ -230,8 +230,8 @@ def state_page(code, changes):
     else:
         lead = f"{phrase(len(decs), 'cut')} {name} homeowners rates in 2026 &mdash; make sure you're actually getting it."
     parts = [
-        f'<p style="font-size:20px;line-height:1.45;color:var(--ink);max-width:660px;"><strong>{lead}</strong> '
-        f'Homeowners rate hikes hit at renewal &mdash; the fastest way to stop overpaying is to compare carriers for your ZIP.</p>',
+        f'<p style="font-size:20px;line-height:1.45;color:var(--ink);max-width:660px;"><strong>{lead}</strong></p>',
+        tracker_facts.facts(changes, name, "home"),
         ZIPBOX,
     ]
     parts.append(dispersion_callout(changes, code))
@@ -239,14 +239,7 @@ def state_page(code, changes):
         parts.append(f'<h2>Carriers that raised {esc(name)} home rates in 2026</h2>' + rows_table(incs))
     if decs:
         parts.append(f'<h2>Carriers that cut {esc(name)} home rates in 2026</h2>' + rows_table(decs))
-    parts.append(
-        '<div class="callout"><p><strong>Are you actually getting the new rate?</strong><br>'
-        'Approved changes are statewide averages, and they reach your policy at <em>renewal</em>. A cut often '
-        'reaches new buyers first; a hike lands on your next renewal notice. Re-shopping is the only way to know '
-        'you&rsquo;re on the best current price for your home.</p></div>')
-    parts.append('<p style="font-size:13px;color:var(--ink-mute);">Figures are filed/approved statewide-average '
-                 'changes from each state&rsquo;s Department of Insurance (CA via CDI, TX via data.texas.gov, others via SERFF). '
-                 'Individual rates vary by home, roof age, and risk. Each filing links to its source. Not a quote.</p>')
+    parts.append(tracker_facts.NOTE.format(what="home, roof, claims history and ZIP"))
     faq = []
     summary = faq_carrier_summary(changes)
     up = [r for r in summary if r["pct"] > 0]
@@ -259,12 +252,6 @@ def state_page(code, changes):
         faq.append((f"Which insurers cut homeowners rates in {name} in 2026?",
                     faq_join(dn[:6]) +
                     ". Cuts usually reach new customers first and existing customers at renewal."))
-    faq.append(("Will my homeowners bill change automatically if my insurer files a new rate?",
-                "No — filed changes reach your policy at your next renewal, and a cut may apply to new business first. "
-                "Re-shopping is the reliable way to capture the lowest current rate."))
-    faq.append((f"Where does this {name} homeowners rate data come from?",
-                "Approved rate filings from the state Department of Insurance. Figures are statewide averages; "
-                "your change depends on your home and risk profile. Each row links to its source."))
     return page(slug, title, desc, h1, dek, "\n".join(parts), faq)
 
 
