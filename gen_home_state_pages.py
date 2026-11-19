@@ -5,7 +5,7 @@
 # is differentiated by the state's catastrophe profile (the SEO/quality differentiator)
 # plus its average premium and a generated cheapest-carrier ranking from HOME_CARRIERS.
 import os, json, re
-import state_compare
+import state_compare, flood_facts
 from plausible_snippet import ensure
 
 NATIONAL = 1915
@@ -269,6 +269,8 @@ def build(code):
 
 
     {state_compare.block("home", code)}
+
+    {flood_facts.block("home", code, name)}
 
     <div class="zip-embed">
       <div class="zip-embed-label">Compare homeowners insurance in {name}</div>
