@@ -47,6 +47,7 @@ if [[ "$MODE" == "home" || "$MODE" == "all" ]]; then
 fi
 
 echo "══════════ SHARED tail ══════════"
+step python3 patch_renters_compare.py      # "How <state> compares" on static renters state pages (idempotent)
 step python3 gen_rate_filings_rollup.py      # /rate-filings/ ledger (auto + home)
 step python3 gen_press_page.py               # /press/ journalist page
 step python3 patch_metro_citations.py        # Layer-2 sources note on auto metros (incl. 83 legacy)
