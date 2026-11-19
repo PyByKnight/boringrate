@@ -192,6 +192,11 @@ def build(cfg):
             + '\n\n    ' + thinzip(bot, tool) + '\n\n  </div>\n</div>\n\n')
     i0 = s.index('<div class="article-header">'); i1 = s.index('<footer>')
     s = s[:i0] + body + s[i1:]
+    # The template lives in article/, so its footer "Guides" links are relative (young-drivers.html).
+    # Pages written elsewhere (home/) would 404 on them - GSC flagged 73 home pages 2026-11-19.
+    if not cfg["path"].startswith('article/'):
+        s = re.sub(r'href="(young-drivers|credit-score-insurance|sr22-insurance|coverage-guide)\.html"',
+                   r'href="/article/\1.html"', s)
     open(cfg["path"], 'w', encoding='utf-8').write(s)
     # leftover guard
     bad = [w for w in ('Tennessee','Shelter') if w.lower() in re.sub(r'(?s)<div class="nav-mega".*?</div></div></div></div>', '', s).lower()
