@@ -1,4 +1,6 @@
 // Pre-render a static, indexable "Cheapest renters carriers in [State]" ranked table
+// NOTE 2026-11-19: renters/state pages are patched surgically after this runs (rz-zip CTA above the
+// block, patch_renters_state_prose.py). Re-running --all MOVES the top CTA below the table - check the diff.
 // into each renters state article. Mirrors gen_state_rankings.js but uses the RENTERS
 // model in renters/index.html (avg × base, filtered by carrier availability).
 const fs = require("fs");
@@ -43,7 +45,7 @@ function block(name, data) {
   }).join("");
   return `${START}
 <h2>Cheapest renters insurance carriers in ${name}</h2>
-<p>Estimated annual renters premiums for a standard policy (~$30k personal property), ranked cheapest first &mdash; ${name} averages about <strong>$${avg.toLocaleString()}/yr</strong> (median of the carriers below: $${median.toLocaleString()}/yr). Enter your ZIP for a ranking tuned to your coverage and deductible.</p>
+<p>Estimated annual renters premiums for a standard policy (~$30k personal property), ranked cheapest first &mdash; ${name} averages about <strong>$${avg.toLocaleString()}/yr</strong> (median of the carriers below: $${median.toLocaleString()}/yr).</p>
 <table style="width:100%;border-collapse:collapse;font-size:16px;margin:16px 0;max-width:660px;">
 <thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;"><th style="padding:8px 6px;">#</th><th style="padding:8px 6px;">Carrier</th><th style="padding:8px 6px;">Est. annual</th><th style="padding:8px 6px;">vs median</th></tr></thead>
 <tbody>${rows}</tbody></table>
@@ -51,7 +53,7 @@ function block(name, data) {
 <input name="zc" type="text" inputmode="numeric" maxlength="5" placeholder="Enter your ZIP" aria-label="ZIP code" style="flex:1;min-width:0;font-family:var(--mono);font-size:16px;letter-spacing:0.12em;padding:12px 14px;border:2px solid var(--ink);border-right:none;background:var(--paper);color:var(--ink);outline:none;" />
 <button type="submit" style="font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:0 20px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;white-space:nowrap;">See rates &rarr;</button>
 </form>
-<p style="font-size:13px;color:var(--ink-mute);max-width:660px;">Directional estimates from public filings and NAIC complaint indices &mdash; not a quote. Your actual rate depends on coverage amount, deductible, and ZIP.</p>
+<p style="font-size:13px;color:var(--ink-mute);max-width:660px;">Model estimates, not quotes (<a href="/methodology.html">methodology</a>).</p>
 ${END}`;
 }
 
