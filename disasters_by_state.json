@@ -1,0 +1,849 @@
+{
+ "_meta": {
+  "billion_dollar_source": "NOAA NCEI Billion-Dollar Weather and Climate Disasters (archive, retired 2025)",
+  "billion_dollar_url": "https://www.ncei.noaa.gov/access/billions/",
+  "billion_dollar_years": [
+   2015,
+   2024
+  ],
+  "storm_events_source": "NOAA NCEI Storm Events Database",
+  "storm_events_url": "https://www.ncei.noaa.gov/stormevents/",
+  "storm_events_years": [
+   2016,
+   2025
+  ],
+  "fetched": "2026-11-19",
+  "note": "bd_* are counts of billion-dollar events that affected the state (costs are multi-state, not used). property_damage = sum of Storm Events DAMAGE_PROPERTY estimates, nominal $."
+ },
+ "states": {
+  "AL": {
+   "bd_events": 52,
+   "bd_by_type": {
+    "Severe Storm": 35,
+    "Tropical Cyclone": 11,
+    "Drought": 2,
+    "Wildfire": 1,
+    "Freeze": 1,
+    "Flooding": 1,
+    "Winter Storm": 1
+   },
+   "bd_busiest_year": 2020,
+   "bd_busiest_year_events": 9,
+   "tornadoes": 865,
+   "big_hail": 117,
+   "property_damage": 481480250,
+   "top_damage_type": "Hurricane (Typhoon)",
+   "top_damage": 313380000
+  },
+  "AK": {
+   "bd_events": 3,
+   "bd_by_type": {
+    "Wildfire": 3
+   },
+   "bd_busiest_year": 2015,
+   "bd_busiest_year_events": 1,
+   "tornadoes": 1,
+   "big_hail": 0,
+   "property_damage": 120479740,
+   "top_damage_type": "Flood",
+   "top_damage": 66380740
+  },
+  "AZ": {
+   "bd_events": 13,
+   "bd_by_type": {
+    "Drought": 7,
+    "Wildfire": 5,
+    "Flooding": 1
+   },
+   "bd_busiest_year": 2021,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 58,
+   "big_hail": 9,
+   "property_damage": 364044150,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 148693000
+  },
+  "AR": {
+   "bd_events": 45,
+   "bd_by_type": {
+    "Severe Storm": 33,
+    "Flooding": 4,
+    "Winter Storm": 3,
+    "Drought": 3,
+    "Tropical Cyclone": 2
+   },
+   "bd_busiest_year": 2020,
+   "bd_busiest_year_events": 8,
+   "tornadoes": 445,
+   "big_hail": 208,
+   "property_damage": 861219800,
+   "top_damage_type": "Tornado",
+   "top_damage": 741389800
+  },
+  "CA": {
+   "bd_events": 18,
+   "bd_by_type": {
+    "Wildfire": 8,
+    "Drought": 6,
+    "Flooding": 3,
+    "Severe Storm": 1
+   },
+   "bd_busiest_year": 2017,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 64,
+   "big_hail": 3,
+   "property_damage": 22004059160,
+   "top_damage_type": "Wildfire",
+   "top_damage": 19031602520
+  },
+  "CO": {
+   "bd_events": 40,
+   "bd_by_type": {
+    "Severe Storm": 27,
+    "Drought": 5,
+    "Wildfire": 4,
+    "Winter Storm": 3,
+    "Flooding": 1
+   },
+   "bd_busiest_year": 2018,
+   "bd_busiest_year_events": 8,
+   "tornadoes": 414,
+   "big_hail": 583,
+   "property_damage": 5510235910,
+   "top_damage_type": "Hail",
+   "top_damage": 2918425800
+  },
+  "CT": {
+   "bd_events": 18,
+   "bd_by_type": {
+    "Severe Storm": 7,
+    "Winter Storm": 5,
+    "Tropical Cyclone": 4,
+    "Drought": 1,
+    "Flooding": 1
+   },
+   "bd_busiest_year": 2018,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 31,
+   "big_hail": 2,
+   "property_damage": 79742960,
+   "top_damage_type": "Tropical Storm",
+   "top_damage": 54337800
+  },
+  "DE": {
+   "bd_events": 10,
+   "bd_by_type": {
+    "Severe Storm": 4,
+    "Winter Storm": 3,
+    "Tropical Cyclone": 2,
+    "Flooding": 1
+   },
+   "bd_busiest_year": 2020,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 17,
+   "big_hail": 2,
+   "property_damage": 3839090,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 3740000
+  },
+  "DC": {
+   "bd_events": 0,
+   "bd_by_type": {},
+   "bd_busiest_year": null,
+   "bd_busiest_year_events": 0,
+   "tornadoes": 4,
+   "big_hail": 0,
+   "property_damage": 29191500,
+   "top_damage_type": "Thunderstorm Wind",
+   "top_damage": 28188500
+  },
+  "FL": {
+   "bd_events": 47,
+   "bd_by_type": {
+    "Severe Storm": 26,
+    "Tropical Cyclone": 18,
+    "Flooding": 2,
+    "Freeze": 1
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 11,
+   "tornadoes": 558,
+   "big_hail": 42,
+   "property_damage": 41719027080,
+   "top_damage_type": "Hurricane (Typhoon)",
+   "top_damage": 30753401000
+  },
+  "GA": {
+   "bd_events": 71,
+   "bd_by_type": {
+    "Severe Storm": 41,
+    "Tropical Cyclone": 19,
+    "Winter Storm": 4,
+    "Drought": 3,
+    "Flooding": 2,
+    "Wildfire": 1,
+    "Freeze": 1
+   },
+   "bd_busiest_year": 2023,
+   "bd_busiest_year_events": 14,
+   "tornadoes": 612,
+   "big_hail": 38,
+   "property_damage": 3766192190,
+   "top_damage_type": "Hurricane (Typhoon)",
+   "top_damage": 2352200000
+  },
+  "HI": {
+   "bd_events": 1,
+   "bd_by_type": {
+    "Wildfire": 1
+   },
+   "bd_busiest_year": 2023,
+   "bd_busiest_year_events": 1,
+   "tornadoes": 0,
+   "big_hail": 0,
+   "property_damage": 5691400250,
+   "top_damage_type": "Wildfire",
+   "top_damage": 5555886000
+  },
+  "ID": {
+   "bd_events": 11,
+   "bd_by_type": {
+    "Wildfire": 7,
+    "Drought": 4
+   },
+   "bd_busiest_year": 2015,
+   "bd_busiest_year_events": 2,
+   "tornadoes": 20,
+   "big_hail": 7,
+   "property_damage": 449840000,
+   "top_damage_type": "Wildfire",
+   "top_damage": 198252000
+  },
+  "IL": {
+   "bd_events": 60,
+   "bd_by_type": {
+    "Severe Storm": 49,
+    "Flooding": 5,
+    "Winter Storm": 4,
+    "Drought": 1,
+    "Tropical Cyclone": 1
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 12,
+   "tornadoes": 889,
+   "big_hail": 196,
+   "property_damage": 1498057400,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 1120824000
+  },
+  "IN": {
+   "bd_events": 43,
+   "bd_by_type": {
+    "Severe Storm": 37,
+    "Flooding": 3,
+    "Tropical Cyclone": 2,
+    "Winter Storm": 1
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 8,
+   "tornadoes": 390,
+   "big_hail": 109,
+   "property_damage": 315489300,
+   "top_damage_type": "Tornado",
+   "top_damage": 129614000
+  },
+  "IA": {
+   "bd_events": 42,
+   "bd_by_type": {
+    "Severe Storm": 32,
+    "Drought": 5,
+    "Flooding": 4,
+    "Winter Storm": 1
+   },
+   "bd_busiest_year": 2023,
+   "bd_busiest_year_events": 8,
+   "tornadoes": 759,
+   "big_hail": 270,
+   "property_damage": 879130850,
+   "top_damage_type": "Tornado",
+   "top_damage": 626996400
+  },
+  "KS": {
+   "bd_events": 44,
+   "bd_by_type": {
+    "Severe Storm": 34,
+    "Drought": 5,
+    "Flooding": 3,
+    "Winter Storm": 2
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 8,
+   "tornadoes": 593,
+   "big_hail": 838,
+   "property_damage": 266196180,
+   "top_damage_type": "Tornado",
+   "top_damage": 100644000
+  },
+  "KY": {
+   "bd_events": 39,
+   "bd_by_type": {
+    "Severe Storm": 29,
+    "Winter Storm": 3,
+    "Flooding": 3,
+    "Tropical Cyclone": 2,
+    "Freeze": 1,
+    "Drought": 1
+   },
+   "bd_busiest_year": 2023,
+   "bd_busiest_year_events": 7,
+   "tornadoes": 408,
+   "big_hail": 87,
+   "property_damage": 276408320,
+   "top_damage_type": "Flood",
+   "top_damage": 98402220
+  },
+  "LA": {
+   "bd_events": 51,
+   "bd_by_type": {
+    "Severe Storm": 30,
+    "Tropical Cyclone": 10,
+    "Flooding": 6,
+    "Drought": 3,
+    "Winter Storm": 2
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 10,
+   "tornadoes": 699,
+   "big_hail": 83,
+   "property_damage": 37365842800,
+   "top_damage_type": "Hurricane (Typhoon)",
+   "top_damage": 22112000000
+  },
+  "ME": {
+   "bd_events": 7,
+   "bd_by_type": {
+    "Winter Storm": 4,
+    "Drought": 1,
+    "Flooding": 1,
+    "Severe Storm": 1
+   },
+   "bd_busiest_year": 2023,
+   "bd_busiest_year_events": 2,
+   "tornadoes": 11,
+   "big_hail": 3,
+   "property_damage": 204842500,
+   "top_damage_type": "Coastal Flood",
+   "top_damage": 147979500
+  },
+  "MD": {
+   "bd_events": 43,
+   "bd_by_type": {
+    "Severe Storm": 29,
+    "Tropical Cyclone": 6,
+    "Winter Storm": 5,
+    "Flooding": 2,
+    "Drought": 1
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 8,
+   "tornadoes": 76,
+   "big_hail": 20,
+   "property_damage": 256872490,
+   "top_damage_type": "Thunderstorm Wind",
+   "top_damage": 101191750
+  },
+  "MA": {
+   "bd_events": 21,
+   "bd_by_type": {
+    "Severe Storm": 9,
+    "Winter Storm": 5,
+    "Tropical Cyclone": 4,
+    "Flooding": 2,
+    "Drought": 1
+   },
+   "bd_busiest_year": 2023,
+   "bd_busiest_year_events": 4,
+   "tornadoes": 37,
+   "big_hail": 3,
+   "property_damage": 78596090,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 31506900
+  },
+  "MI": {
+   "bd_events": 31,
+   "bd_by_type": {
+    "Severe Storm": 25,
+    "Winter Storm": 3,
+    "Flooding": 2,
+    "Tropical Cyclone": 1
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 8,
+   "tornadoes": 147,
+   "big_hail": 63,
+   "property_damage": 2119790800,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 679424500
+  },
+  "MN": {
+   "bd_events": 27,
+   "bd_by_type": {
+    "Severe Storm": 20,
+    "Flooding": 3,
+    "Drought": 3,
+    "Winter Storm": 1
+   },
+   "bd_busiest_year": 2022,
+   "bd_busiest_year_events": 7,
+   "tornadoes": 550,
+   "big_hail": 355,
+   "property_damage": 277297000,
+   "top_damage_type": "Thunderstorm Wind",
+   "top_damage": 66088200
+  },
+  "MS": {
+   "bd_events": 45,
+   "bd_by_type": {
+    "Severe Storm": 28,
+    "Tropical Cyclone": 7,
+    "Drought": 4,
+    "Winter Storm": 3,
+    "Flooding": 2,
+    "Freeze": 1
+   },
+   "bd_busiest_year": 2020,
+   "bd_busiest_year_events": 9,
+   "tornadoes": 1047,
+   "big_hail": 94,
+   "property_damage": 987216350,
+   "top_damage_type": "Tornado",
+   "top_damage": 548112200
+  },
+  "MO": {
+   "bd_events": 60,
+   "bd_by_type": {
+    "Severe Storm": 48,
+    "Flooding": 4,
+    "Drought": 4,
+    "Winter Storm": 3,
+    "Tropical Cyclone": 1
+   },
+   "bd_busiest_year": 2023,
+   "bd_busiest_year_events": 11,
+   "tornadoes": 607,
+   "big_hail": 343,
+   "property_damage": 2577721150,
+   "top_damage_type": "Tornado",
+   "top_damage": 1957356500
+  },
+  "MT": {
+   "bd_events": 15,
+   "bd_by_type": {
+    "Wildfire": 6,
+    "Drought": 6,
+    "Severe Storm": 3
+   },
+   "bd_busiest_year": 2015,
+   "bd_busiest_year_events": 2,
+   "tornadoes": 38,
+   "big_hail": 186,
+   "property_damage": 89278350,
+   "top_damage_type": "Flood",
+   "top_damage": 43716000
+  },
+  "NE": {
+   "bd_events": 32,
+   "bd_by_type": {
+    "Severe Storm": 25,
+    "Drought": 4,
+    "Flooding": 2,
+    "Winter Storm": 1
+   },
+   "bd_busiest_year": 2022,
+   "bd_busiest_year_events": 6,
+   "tornadoes": 484,
+   "big_hail": 679,
+   "property_damage": 1182311460,
+   "top_damage_type": "Flood",
+   "top_damage": 551562500
+  },
+  "NV": {
+   "bd_events": 11,
+   "bd_by_type": {
+    "Drought": 6,
+    "Wildfire": 4,
+    "Winter Storm": 1
+   },
+   "bd_busiest_year": 2021,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 10,
+   "big_hail": 1,
+   "property_damage": 188635300,
+   "top_damage_type": "Hail",
+   "top_damage": 55554100
+  },
+  "NH": {
+   "bd_events": 7,
+   "bd_by_type": {
+    "Winter Storm": 4,
+    "Flooding": 2,
+    "Drought": 1
+   },
+   "bd_busiest_year": 2023,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 13,
+   "big_hail": 2,
+   "property_damage": 90871100,
+   "top_damage_type": "Coastal Flood",
+   "top_damage": 58970000
+  },
+  "NJ": {
+   "bd_events": 37,
+   "bd_by_type": {
+    "Severe Storm": 24,
+    "Winter Storm": 6,
+    "Tropical Cyclone": 4,
+    "Flooding": 2,
+    "Drought": 1
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 10,
+   "tornadoes": 56,
+   "big_hail": 6,
+   "property_damage": 239348130,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 226728010
+  },
+  "NM": {
+   "bd_events": 15,
+   "bd_by_type": {
+    "Drought": 6,
+    "Severe Storm": 5,
+    "Wildfire": 4
+   },
+   "bd_busiest_year": 2021,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 116,
+   "big_hail": 126,
+   "property_damage": 915516450,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 558680200
+  },
+  "NY": {
+   "bd_events": 45,
+   "bd_by_type": {
+    "Severe Storm": 29,
+    "Winter Storm": 7,
+    "Tropical Cyclone": 6,
+    "Flooding": 2,
+    "Drought": 1
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 10,
+   "tornadoes": 112,
+   "big_hail": 29,
+   "property_damage": 959522500,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 648280000
+  },
+  "NC": {
+   "bd_events": 61,
+   "bd_by_type": {
+    "Severe Storm": 33,
+    "Tropical Cyclone": 17,
+    "Winter Storm": 5,
+    "Flooding": 2,
+    "Drought": 2,
+    "Wildfire": 1,
+    "Freeze": 1
+   },
+   "bd_busiest_year": 2020,
+   "bd_busiest_year_events": 9,
+   "tornadoes": 330,
+   "big_hail": 63,
+   "property_damage": 5888533010,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 2323388500
+  },
+  "ND": {
+   "bd_events": 9,
+   "bd_by_type": {
+    "Drought": 4,
+    "Severe Storm": 3,
+    "Wildfire": 1,
+    "Flooding": 1
+   },
+   "bd_busiest_year": 2021,
+   "bd_busiest_year_events": 2,
+   "tornadoes": 266,
+   "big_hail": 235,
+   "property_damage": 322407500,
+   "top_damage_type": "Hail",
+   "top_damage": 114809000
+  },
+  "OH": {
+   "bd_events": 49,
+   "bd_by_type": {
+    "Severe Storm": 38,
+    "Flooding": 5,
+    "Tropical Cyclone": 3,
+    "Winter Storm": 2,
+    "Drought": 1
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 12,
+   "tornadoes": 422,
+   "big_hail": 64,
+   "property_damage": 928832800,
+   "top_damage_type": "Tornado",
+   "top_damage": 661356250
+  },
+  "OK": {
+   "bd_events": 54,
+   "bd_by_type": {
+    "Severe Storm": 44,
+    "Flooding": 4,
+    "Drought": 4,
+    "Winter Storm": 2
+   },
+   "bd_busiest_year": 2023,
+   "bd_busiest_year_events": 8,
+   "tornadoes": 948,
+   "big_hail": 678,
+   "property_damage": 933394330,
+   "top_damage_type": "Tornado",
+   "top_damage": 560521000
+  },
+  "OR": {
+   "bd_events": 16,
+   "bd_by_type": {
+    "Wildfire": 7,
+    "Drought": 6,
+    "Winter Storm": 3
+   },
+   "bd_busiest_year": 2021,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 28,
+   "big_hail": 7,
+   "property_damage": 3928442750,
+   "top_damage_type": "High Wind",
+   "top_damage": 3228686250
+  },
+  "PA": {
+   "bd_events": 57,
+   "bd_by_type": {
+    "Severe Storm": 42,
+    "Winter Storm": 6,
+    "Tropical Cyclone": 6,
+    "Flooding": 2,
+    "Drought": 1
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 12,
+   "tornadoes": 253,
+   "big_hail": 48,
+   "property_damage": 681397190,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 459220300
+  },
+  "RI": {
+   "bd_events": 13,
+   "bd_by_type": {
+    "Winter Storm": 5,
+    "Severe Storm": 3,
+    "Tropical Cyclone": 3,
+    "Drought": 1,
+    "Flooding": 1
+   },
+   "bd_busiest_year": 2020,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 9,
+   "big_hail": 0,
+   "property_damage": 6378800,
+   "top_damage_type": "Tropical Storm",
+   "top_damage": 1912100
+  },
+  "SC": {
+   "bd_events": 51,
+   "bd_by_type": {
+    "Severe Storm": 25,
+    "Tropical Cyclone": 17,
+    "Winter Storm": 3,
+    "Flooding": 3,
+    "Drought": 2,
+    "Freeze": 1
+   },
+   "bd_busiest_year": 2020,
+   "bd_busiest_year_events": 10,
+   "tornadoes": 312,
+   "big_hail": 36,
+   "property_damage": 758920590,
+   "top_damage_type": "Tropical Storm",
+   "top_damage": 336623000
+  },
+  "SD": {
+   "bd_events": 15,
+   "bd_by_type": {
+    "Severe Storm": 9,
+    "Drought": 4,
+    "Flooding": 2
+   },
+   "bd_busiest_year": 2022,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 201,
+   "big_hail": 413,
+   "property_damage": 254656150,
+   "top_damage_type": "Flood",
+   "top_damage": 195320200
+  },
+  "TN": {
+   "bd_events": 57,
+   "bd_by_type": {
+    "Severe Storm": 40,
+    "Winter Storm": 5,
+    "Tropical Cyclone": 5,
+    "Drought": 3,
+    "Flooding": 2,
+    "Wildfire": 1,
+    "Freeze": 1
+   },
+   "bd_busiest_year": 2023,
+   "bd_busiest_year_events": 11,
+   "tornadoes": 395,
+   "big_hail": 81,
+   "property_damage": 2564718750,
+   "top_damage_type": "Tornado",
+   "top_damage": 1892063000
+  },
+  "TX": {
+   "bd_events": 105,
+   "bd_by_type": {
+    "Severe Storm": 82,
+    "Tropical Cyclone": 8,
+    "Flooding": 6,
+    "Drought": 5,
+    "Winter Storm": 3,
+    "Wildfire": 1
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 20,
+   "tornadoes": 1244,
+   "big_hail": 1986,
+   "property_damage": 67332322370,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 46198590300
+  },
+  "UT": {
+   "bd_events": 9,
+   "bd_by_type": {
+    "Drought": 5,
+    "Wildfire": 3,
+    "Severe Storm": 1
+   },
+   "bd_busiest_year": 2018,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 19,
+   "big_hail": 1,
+   "property_damage": 236989700,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 99567750
+  },
+  "VT": {
+   "bd_events": 6,
+   "bd_by_type": {
+    "Severe Storm": 2,
+    "Winter Storm": 2,
+    "Drought": 1,
+    "Flooding": 1
+   },
+   "bd_busiest_year": 2023,
+   "bd_busiest_year_events": 2,
+   "tornadoes": 5,
+   "big_hail": 0,
+   "property_damage": 224399500,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 188282000
+  },
+  "VA": {
+   "bd_events": 62,
+   "bd_by_type": {
+    "Severe Storm": 39,
+    "Tropical Cyclone": 12,
+    "Winter Storm": 6,
+    "Flooding": 3,
+    "Freeze": 1,
+    "Drought": 1
+   },
+   "bd_busiest_year": 2024,
+   "bd_busiest_year_events": 10,
+   "tornadoes": 175,
+   "big_hail": 55,
+   "property_damage": 641023520,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 230371880
+  },
+  "WA": {
+   "bd_events": 16,
+   "bd_by_type": {
+    "Wildfire": 7,
+    "Drought": 6,
+    "Winter Storm": 3
+   },
+   "bd_busiest_year": 2021,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 22,
+   "big_hail": 2,
+   "property_damage": 3306051160,
+   "top_damage_type": "Wildfire",
+   "top_damage": 1765957650
+  },
+  "WV": {
+   "bd_events": 14,
+   "bd_by_type": {
+    "Severe Storm": 9,
+    "Tropical Cyclone": 2,
+    "Flooding": 1,
+    "Winter Storm": 1,
+    "Drought": 1
+   },
+   "bd_busiest_year": 2020,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 42,
+   "big_hail": 35,
+   "property_damage": 279219710,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 134673950
+  },
+  "WI": {
+   "bd_events": 32,
+   "bd_by_type": {
+    "Severe Storm": 26,
+    "Flooding": 3,
+    "Winter Storm": 2,
+    "Drought": 1
+   },
+   "bd_busiest_year": 2022,
+   "bd_busiest_year_events": 7,
+   "tornadoes": 330,
+   "big_hail": 171,
+   "property_damage": 662116720,
+   "top_damage_type": "Flash Flood",
+   "top_damage": 329295510
+  },
+  "WY": {
+   "bd_events": 17,
+   "bd_by_type": {
+    "Severe Storm": 7,
+    "Wildfire": 6,
+    "Drought": 4
+   },
+   "bd_busiest_year": 2018,
+   "bd_busiest_year_events": 3,
+   "tornadoes": 102,
+   "big_hail": 147,
+   "property_damage": 80386330,
+   "top_damage_type": "Wildfire",
+   "top_damage": 38760000
+  }
+ }
+}
