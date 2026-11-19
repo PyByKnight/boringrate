@@ -52,6 +52,8 @@ def load(path, product):
         if r.get("overall_pct") is None:
             continue
         r = {**r, "_product": product}
+        if abs(r["overall_pct"]) < 0.05:        # rounds to 0.0%: treat as flat, never "cut −0.0%"
+            r["overall_pct"] = 0.0
         out.setdefault(norm(r["carrier"]), []).append(r)
     return out
 
@@ -81,9 +83,11 @@ def phrase(rows, product):
     n = len(rows)
     states = len({r["state"] for r in rows})
     mean = sum(r["overall_pct"] for r in rows) / n
-    sign = "+" if mean > 0 else ("−" if mean < 0 else "±")
+    mean = round(mean, 1)                       # sign from the ROUNDED value: no "−0.0%"
+    avg = ("roughly flat on average" if mean == 0 else
+           f'averaging {"+" if mean > 0 else "−"}{abs(mean):.1f}%')
     return (f'{n} {product.lower()} rate change{"s" if n != 1 else ""} across '
-            f'{states} state{"s" if states != 1 else ""}, averaging {sign}{abs(mean):.1f}%')
+            f'{states} state{"s" if states != 1 else ""}, {avg}')
 
 
 def section(name, rows, lead="Auto"):
@@ -119,14 +123,12 @@ def section(name, rows, lead="Auto"):
     if second:
         clauses.append(phrase(second, other))
     summary = " and ".join(clauses)
-    lead = (f'<p>The actual rate changes <strong>{name}</strong> filed with state insurance '
-            f'regulators &mdash; primary-source numbers, not estimates. In the filings we track, '
-            f'{name} filed {summary}. Each row links to the filing in our '
-            f'<a href="/rate-filings/" style="color:var(--ink);border-bottom:1px solid var(--rule);text-decoration:none;">rate-filings ledger</a>.</p>')
-    note = ('<p style="font-size:13px;color:var(--ink-mute);max-width:660px;">Filed/approved statewide-average '
-            'changes from each state&rsquo;s Department of Insurance; a filed average is not your rate &mdash; '
-            'your change depends on your ZIP, coverage, and risk profile, and a cut often reaches new customers '
-            'before renewals. Not a quote.</p>')
+    # 2026-11-19 prose strip: the shared 'primary-source numbers' opener and the 2-sentence
+    # disclaimer repeated on every carrier page; the summary + one-line note carry it.
+    lead = (f'<p>In the filings we track, <strong>{name}</strong> filed {summary} '
+            f'(<a href="/rate-filings/" style="color:var(--ink);border-bottom:1px solid var(--rule);text-decoration:none;">full ledger</a>).</p>')
+    note = ('<p style="font-size:13px;color:var(--ink-mute);max-width:660px;">Approved statewide averages from '
+            'state insurance departments, not quotes (<a href="/methodology.html">methodology</a>).</p>')
     return (f'{BEGIN}\n    <h2 id="filing-record">{name}&rsquo;s recent rate filings</h2>\n    {lead}\n    {table}\n    {note}\n    {END}\n    ')
 
 

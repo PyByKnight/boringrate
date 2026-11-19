@@ -221,7 +221,7 @@ def build(slug):
     <p>{d['whoFor']}</p>
 
     <h2>How much does {name} homeowners insurance cost?</h2>
-    <p>{name} homeowners insurance averages roughly <strong>${est:,}/year</strong> (about ${monthly:,}/month) for a standard policy with around $300,000 in dwelling coverage and a $1,000 deductible — {cw} of about ${NATIONAL:,}. Homeowners pricing varies enormously by state, dwelling amount, roof age, and claims history, so treat this as a directional benchmark and get a quote for your specific home.</p>
+    <p>{name} homeowners insurance averages roughly <strong>${est:,}/year</strong> (about ${monthly:,}/month) for a standard policy with around $300,000 in dwelling coverage and a $1,000 deductible — {cw} of about ${NATIONAL:,}.</p>
     <p><strong>Availability:</strong> {d['avail']}.</p>
 
     <h2>{name} homeowners insurance pros and cons</h2>
@@ -252,9 +252,8 @@ def build(slug):
     <div class="internal-links">{statelinks}</div>
 
     <h2>Frequently asked questions</h2>
-    <div class="callout"><p><strong>How much is {name} homeowners insurance?</strong><br>Roughly ${est:,}/year (~${monthly:,}/month) for a standard $300k-dwelling policy — {cw}. Your exact price depends on your home, deductible, and claims history.</p></div>
+    <div class="callout"><p><strong>How much is {name} homeowners insurance?</strong><br>Roughly ${est:,}/year (~${monthly:,}/month) for a standard $300k-dwelling policy — {cw}.</p></div>
     <div class="callout"><p><strong>Is {name} good for homeowners insurance?</strong><br>It carries an NAIC complaint ratio of {d['naic']} ({naic_note}) and {d['grade']} financial strength. {d['bottom']}</p></div>
-    <div class="callout"><p><strong>Not sure how much coverage you need?</strong><br>Use the <a href="/home/coverage.html">home coverage calculator</a> to size your dwelling, liability, and add-ons before you compare {name} against other carriers.</p></div>
 
     <!-- Email-capture block removed 2026-10-28. It had no JavaScript (no handler, no
          endpoint) and contradicts the no-email-capture rule in memory
