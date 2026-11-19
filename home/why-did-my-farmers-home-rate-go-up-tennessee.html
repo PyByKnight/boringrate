@@ -441,13 +441,13 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
       </table>
     </div>
 
-    <p>If your Farmers renewal in Tennessee came in higher, this is the source: Farmers filed for a rate increase (SERFF <strong>FARM-134862806</strong>) and it was approved at <strong>&plus;3.9%</strong> on about 33,936 policyholders, effective for new business April 19, 2026 and at renewal from May 22, 2026. The figures below are approved filings pulled from the public SERFF system &mdash; not estimates &mdash; and every one links to its filing.</p>
+    <p>If your Farmers renewal in Tennessee came in higher, this is the source: Farmers filed for a rate increase (SERFF <strong>FARM-134862806</strong>) and it was approved at <strong>&plus;3.9%</strong> on about 33,936 policyholders, effective for new business April 19, 2026 and at renewal from May 22, 2026. That puts it in the steeper half of the 19 homeowners increases filed in Tennessee that we have recorded.</p>
 
     <h2>Farmers asked for more than it got.</h2>
-    <p>The filing shows an <strong>indicated</strong> need of &plus;9.8% &mdash; the increase Farmers&rsquo;s own actuarial analysis said it required &mdash; against the <strong>&plus;3.9%</strong> it actually took. That gap matters for what comes next: a carrier that took less than it indicated has an unclosed gap, and the remainder often arrives in a later filing rather than disappearing.</p>
+    <p>The filing shows an <strong>indicated</strong> need of &plus;9.8% &mdash; the increase Farmers&rsquo;s own actuarial analysis said it required &mdash; against the <strong>&plus;3.9%</strong> it actually took, leaving about 5.9 points unclaimed that can return in a later filing.</p>
 
     <h2>Other Tennessee insurers are cutting.</h2>
-    <p>An increase is only worth acting on relative to the alternatives, and in Tennessee the direction is not uniform: Shelter Insurance (&minus;2.9%) and Encompass (&minus;6.4%) both filed <strong>decreases</strong> in the same period. A Farmers increase alongside competitor cuts is the clearest signal there is that the market has moved and your renewal has not.</p>
+    <p>Shelter Insurance (&minus;2.9%) and Encompass (&minus;6.4%) both filed <strong>decreases</strong> in Tennessee in the same period.</p>
 
     <p style="font-size:14px;margin:10px 0;"><a class="ca-link" href="/home/rate-changes/tennessee.html">See every approved Tennessee homeowners rate filing &rarr;</a></p>
 
@@ -476,10 +476,10 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
       </div>
       <div class="foot-col">
         <h5>Guides</h5>
-        <a href="../article/young-drivers.html">Young drivers</a>
-        <a href="../article/credit-score-insurance.html">Credit &amp; rates</a>
-        <a href="../article/sr22-insurance.html">SR-22 explained</a>
-        <a href="../article/coverage-guide.html">Coverage guide</a>
+        <a href="/article/young-drivers.html">Young drivers</a>
+        <a href="/article/credit-score-insurance.html">Credit &amp; rates</a>
+        <a href="/article/sr22-insurance.html">SR-22 explained</a>
+        <a href="/article/coverage-guide.html">Coverage guide</a>
       </div>
     </div>
     <div class="legal">
@@ -490,7 +490,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
 
 <script>
 (function(){try{var p=JSON.parse(localStorage.getItem("br_profile"));if(p&&p.zip){var zi=document.getElementById("zipBarInput");if(zi)zi.value=p.zip;var btn=document.querySelector(".zip-bar-btn");if(btn)btn.textContent="Return to Rates →";}}catch(e){}}());
-(document.getElementById("zipBarForm")||{addEventListener:function(){}}).addEventListener("submit",function(e){e.preventDefault();var zip=document.getElementById("zipBarInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("zipBarInput").focus();return;}window.location.href="/?zip="+zip;});
+(document.getElementById("zipBarForm")||{addEventListener:function(){}}).addEventListener("submit",function(e){e.preventDefault();var zip=document.getElementById("zipBarInput").value.trim();if(!/^\d{5}$/.test(zip)){document.getElementById("zipBarInput").focus();return;}window.location.href="/home/?zip="+zip;});
 (document.getElementById("zipBarInput")||{addEventListener:function(){}}).addEventListener("input",function(e){e.target.value=e.target.value.replace(/\D/g,"").substring(0,5);});
 </script>
 <script>(function(){var dds=document.querySelectorAll('.nav-dd-btn');dds.forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();var panel=document.getElementById(btn.id+'Panel');if(!panel)return;var wasOpen=panel.classList.contains('open');document.querySelectorAll('.nav-dd-panel').forEach(function(p){p.classList.remove('open');});document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.setAttribute('aria-expanded','false');});if(!wasOpen){panel.classList.add('open');btn.setAttribute('aria-expanded','true');}});});document.addEventListener('click',function(){document.querySelectorAll('.nav-dd-panel').forEach(function(p){p.classList.remove('open');});document.querySelectorAll('.nav-dd-btn').forEach(function(b){b.setAttribute('aria-expanded','false');});});})();</script>
@@ -534,7 +534,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
 .article-sticky-cta .ascta-arrow{color:var(--accent);font-size:15px;}
 @media(max-width:800px){.article-sticky-cta.show{display:flex;}}
 </style>
-<a class="article-sticky-cta" id="articleStickyCta" href="#zipBarInput" aria-label="Compare auto rates">Compare auto rates <span class="ascta-arrow">&rarr;</span></a>
+<a class="article-sticky-cta" id="articleStickyCta" href="#zipBarInput" aria-label="Compare home rates">Compare home rates <span class="ascta-arrow">&rarr;</span></a>
 <!-- article-sticky-cta-script --><script>
 (function(){
   var strip=document.getElementById("articleStickyCta");
@@ -553,7 +553,7 @@ nav.primary{align-items:center;gap:20px;margin-left:auto;}
     e.preventDefault();
     var inp=document.getElementById("zipBarInput");
     if(inp){inp.scrollIntoView({behavior:"smooth",block:"center"});setTimeout(function(){try{inp.focus();}catch(_){}}, 450);}
-    else{window.location.href="/";}
+    else{window.location.href="/home/";}
   });
 })();
 </script>

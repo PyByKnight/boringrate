@@ -61,3 +61,10 @@ home/why-did-my-stillwater-home-rate-go-up-new-jersey.html
 home/why-did-my-the-hartford-home-rate-go-up-colorado.html
 home/why-did-my-the-hartford-home-rate-go-up-michigan.html
 home/why-did-my-the-hartford-home-rate-go-up-ohio.html
+home/why-did-my-farmers-home-rate-go-up-colorado.html
+home/why-did-my-progressive-home-rate-go-up-colorado.html
+article/why-did-my-auto-owners-rate-go-up-colorado.html
+article/why-did-my-bristol-west-rate-go-up-colorado.html
+article/why-did-my-dairyland-rate-go-up-colorado.html
+article/why-did-my-farmers-rate-go-up-colorado.html
+article/why-did-my-the-hartford-rate-go-up-colorado.html

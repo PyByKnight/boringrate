@@ -194,6 +194,12 @@ def build(cfg):
     s = s[:i0] + body + s[i1:]
     # The template lives in article/, so its footer "Guides" links are relative (young-drivers.html).
     # Pages written elsewhere (home/) would 404 on them - GSC flagged 73 home pages 2026-11-19.
+    if tool != '/':
+        # The template is an auto article: its top ZIP bar + mobile sticky CTA send to the AUTO tool.
+        # Point them at this page's tool (home pages sent homeowners to car quotes until 2026-11-19).
+        s = s.replace('window.location.href="/?zip="+zip', f'window.location.href="{tool}?zip="+zip')
+        s = s.replace('else{window.location.href="/";}', f'else{{window.location.href="{tool}";}}')
+        s = s.replace('Compare auto rates', 'Compare home rates')
     if not cfg["path"].startswith('article/'):
         s = re.sub(r'href="(young-drivers|credit-score-insurance|sr22-insurance|coverage-guide)\.html"',
                    r'href="/article/\1.html"', s)

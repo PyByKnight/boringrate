@@ -246,8 +246,7 @@ def derive(carrier, state, ledger_rows, line='auto'):
              f'<strong>{_pct(pct)}</strong>'
              + (f' on about {_n(aff)} {subj.get("count_basis") or "policyholders"}' if aff else '')
              + (f', {eff}' if eff else '')
-             + '. The figures below are approved filings pulled from the public SERFF system '
-               '&mdash; not estimates &mdash; and every one links to its filing.</p>\n')
+             + '.' + rank_txt + '</p>\n')
 
     if 'spread' in evidence:
         # Only call the low end a "decrease" when it actually is one. A filing whose
@@ -263,20 +262,15 @@ def derive(carrier, state, ledger_rows, line='auto'):
                    f'times more than the headline while others barely moved')
         P.append(f'\n    <h2>The {_pct(pct)} is an average. Your {carrier} change ranges '
                  f'{_pct(mx)} to {_pct(mn)}.</h2>\n'
-                 f'    <p>A statewide rate change is one blended number, but {carrier} did not move every '
-                 f'{who} by the same amount. Its own filing reports the spread: the largest increase in the '
-                 f'book was about <strong>{_pct(mx)}</strong> {low}. Where you '
-                 f'land depends on your ZIP, '
-                 + ('home age, roof and claims history' if line == 'home'
-                    else 'vehicle, age and driving record') + '.</p>\n')
+                 f'    <p>{carrier}&rsquo;s own filing reports the spread: the largest increase in the '
+                 f'book was about <strong>{_pct(mx)}</strong> {low}.</p>\n')
 
     if 'indicated' in evidence:
         P.append(f'\n    <h2>{carrier} asked for more than it got.</h2>\n'
                  f'    <p>The filing shows an <strong>indicated</strong> need of {_pct(indicated)} &mdash; the '
                  f'increase {carrier}&rsquo;s own actuarial analysis said it required &mdash; against the '
-                 f'<strong>{_pct(pct)}</strong> it actually took. That gap matters for what comes next: a '
-                 f'carrier that took less than it indicated has an unclosed gap, and the remainder often '
-                 f'arrives in a later filing rather than disappearing.</p>\n')
+                 f'<strong>{_pct(pct)}</strong> it actually took, leaving about {abs(indicated - pct):.1f} '
+                 f'points unclaimed that can return in a later filing.</p>\n')
 
     prior = subj.get('prior_revision_pct')
     if prior is not None and abs(prior) >= 0.5:
@@ -286,24 +280,19 @@ def derive(carrier, state, ledger_rows, line='auto'):
                      f'    <p>The filing records a prior revision of <strong>{_pct(prior)}</strong> before '
                      f'this one. Taken together the two compound to roughly '
                      f'<strong>{_pct(compounded)}</strong> on the same book &mdash; which is why a renewal '
-                     f'can feel far worse than the {_pct(pct)} headline suggests. Rate changes stack; '
-                     f'your renewal notice shows only the latest one.</p>\n')
+                     f'can feel far worse than the {_pct(pct)} headline suggests.</p>\n')
         else:
             P.append(f'\n    <h2>{carrier} cut {sname} rates before this increase.</h2>\n'
                      f'    <p>The filing records a prior revision of <strong>{_pct(prior)}</strong>, so this '
                      f'{_pct(pct)} partly reverses an earlier cut &mdash; the two net to about '
-                     f'<strong>{_pct(compounded)}</strong> on the same book. Where you land depends on '
-                     f'whether you were on the books for both.</p>\n')
+                     f'<strong>{_pct(compounded)}</strong> on the same book.</p>\n')
 
     if cutters:
         sel = cutters[:3]
         names = _join(f'{r["carrier"]} ({_pct(r["overall_pct"])})' for r in sel)
         verb = 'both filed' if len(sel) == 2 else ('filed' if len(sel) == 1 else 'all filed')
         P.append(f'\n    <h2>Other {sname} insurers are cutting.</h2>\n'
-                 f'    <p>An increase is only worth acting on relative to the alternatives, and in {sname} '
-                 f'the direction is not uniform: {names} {verb} <strong>decreases</strong> in the same '
-                 f'period. {_an(carrier)} {carrier} increase alongside competitor cuts is the clearest '
-                 f'signal there is that the market has moved and your renewal has not.</p>\n')
+                 f'    <p>{names} {verb} <strong>decreases</strong> in {sname} in the same period.</p>\n')
 
     P.append(f'\n    <p style="font-size:14px;margin:10px 0;"><a class="ca-link" '
              f'href="/{"home" if line == "home" else "article"}/rate-changes/{sslug}.html">See every approved {sname} '
