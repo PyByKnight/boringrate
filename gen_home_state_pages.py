@@ -138,7 +138,7 @@ def ranking_block(code, name):
     return (avg, median, cheapest,
         f'''<!-- state-rankings-start -->
 <h2>Cheapest homeowners insurance carriers in {name}</h2>
-<p>Estimated annual premiums for a standard policy (~$300k dwelling, $1,000 deductible), ranked cheapest first &mdash; {name} averages about <strong>${avg:,}/yr</strong> (median of the carriers below: ${median:,}/yr). Enter ZIP for a ranking tuned to your dwelling amount, deductible, and coverage.</p>
+<p>Estimated annual premiums for a standard policy (~$300k dwelling, $1,000 deductible), ranked cheapest first &mdash; {name} averages about <strong>${avg:,}/yr</strong> (median of the carriers below: ${median:,}/yr).</p>
 <table style="width:100%;border-collapse:collapse;font-size:16px;margin:16px 0;max-width:660px;">
 <thead><tr style="text-align:left;border-bottom:2px solid var(--ink);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;"><th style="padding:8px 6px;">#</th><th style="padding:8px 6px;">Carrier</th><th style="padding:8px 6px;">Est. annual</th><th style="padding:8px 6px;">vs median</th></tr></thead>
 <tbody>{rows}</tbody></table>
@@ -146,7 +146,7 @@ def ranking_block(code, name):
 <input name="zc" type="text" inputmode="numeric" maxlength="5" placeholder="Enter ZIP" aria-label="ZIP code" style="flex:1;min-width:0;font-family:var(--mono);font-size:16px;letter-spacing:0.12em;padding:12px 14px;border:2px solid var(--ink);border-right:none;background:var(--paper);color:var(--ink);outline:none;" />
 <button type="submit" style="font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:0 20px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;white-space:nowrap;">See rates &rarr;</button>
 </form>
-<p style="font-size:13px;color:var(--ink-mute);max-width:660px;">Directional estimates from public rate filings and NAIC data &mdash; not a quote. Your actual rate depends on dwelling amount, deductible, roof age, claims history, and ZIP.</p>
+<p style="font-size:13px;color:var(--ink-mute);max-width:660px;">Model estimates, not quotes (<a href="/methodology.html">methodology</a>).</p>
 <!-- state-rankings-end -->''')
 
 # ── Extract reusable scaffold from a renters state page ──
@@ -171,6 +171,7 @@ def build(code):
     peril, peril_detail = RISK[code]
     a2, median, cheapest = rank(code)[0], rank(code)[2], None
     _avg, median, cheapest, rblock = ranking_block(code, name)
+    top = rank(code)[1]
     c1, c2, c3 = cheapest[0], cheapest[1], cheapest[2]
     url = f"https://boringrate.com/home/state/{slug}.html"
     desc = f"The cheapest homeowners insurance in {name} comes from {c1}, {c2} and {c3}. The state average is ${avg:,}/year — {tphrase}. Compare the cheapest carriers for your ZIP."
@@ -181,9 +182,7 @@ def build(code):
         {"@type":"Question","name":f"What is the cheapest homeowners insurance in {name}?",
          "acceptedAnswer":{"@type":"Answer","text":f"{c1}, {c2}, and {c3} are consistently among the cheapest homeowners insurance options in {name} for a standard policy. Pricing varies by your dwelling amount, deductible, and ZIP — enter your ZIP to compare current carrier rankings for your area."}},
         {"@type":"Question","name":f"Why is homeowners insurance {('expensive' if avg>NATIONAL else 'priced the way it is')} in {name}?",
-         "acceptedAnswer":{"@type":"Answer","text":f"{name} home insurance rates are driven largely by {peril}. {peril_detail} Your individual rate also depends on your home's age, roof, construction, and claims history."}},
-        {"@type":"Question","name":f"Is homeowners insurance required in {name}?",
-         "acceptedAnswer":{"@type":"Answer","text":f"No state law in {name} requires homeowners insurance. However, if you have a mortgage your lender will require it, and most homeowners carry it regardless because it protects the largest asset most people own. Standard policies exclude flood and earthquake, which require separate coverage."}},
+         "acceptedAnswer":{"@type":"Answer","text":f"{name} home insurance rates are driven largely by {peril}. {peril_detail} Your individual rate also depends on your home's age, roof, construction, and claims history."}}
     ]})
     crumb = json.dumps({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
         {"@type":"ListItem","position":1,"name":"BoringRate","item":"https://boringrate.com"},
@@ -193,7 +192,7 @@ def build(code):
     art = json.dumps({"@context":"https://schema.org","@type":"Article",
         "headline":f"Cheapest Homeowners Insurance in {name} (2026)","description":desc,
         "publisher":{"@type":"Organization","name":"BoringRate","url":"https://boringrate.com"},
-        "dateModified":"2026-06-15","mainEntityOfPage":url})
+        "dateModified":datetime.date.today().isoformat(),"mainEntityOfPage":url})
 
     head = f'''<!DOCTYPE html>
 <html lang="en">
@@ -253,10 +252,8 @@ def build(code):
       <div class="tldr-label">TLDR</div>
       <ul class="tldr-list">
         <li>{name} averages ${avg:,}/year (${monthly:,}/month) for homeowners insurance — {tphrase}</li>
-        <li>Rates here are driven largely by {peril} — your home's age, roof, and claims history matter too</li>
-        <li>{c1}, {c2}, and {c3} are typically the most competitive; compare at least 3 carriers when shopping</li>
-        <li>Not required by state law, but your mortgage lender will require it — and it protects your largest asset</li>
-        <li>Standard policies exclude flood and earthquake; buy those separately if you're exposed</li>
+        <li>The main cost driver here is {peril}</li>
+        <li>{c1}, {c2}, and {c3} price lowest in our model</li>
       </ul>
     </div>
 
@@ -264,15 +261,11 @@ def build(code):
     <p>The average cost of homeowners insurance in {name} is <strong>${avg:,} per year</strong> — about ${monthly:,}/month — for a standard policy with roughly $300,000 in dwelling coverage and a $1,000 deductible. That puts {name} {tphrase} of about ${NATIONAL:,}. The single biggest factor behind {name}'s rates is {peril}. {peril_detail}</p>
 
     <h2>Cheapest homeowners insurance companies in {name}</h2>
-    <p>{c1}, {c2}, and {c3} come out lowest-priced for a standard {name} policy in our model. Set your dwelling amount to rebuild cost, not market value, before comparing (<a href="/home/coverage.html">coverage calculator</a>).</p>
+    <p>{c1}, {c2}, and {c3} come out lowest-priced for a standard {name} policy in our model. {c1} at ${top[0][1]:,}/yr is ${avg - top[0][1]:,} under the state average; the tenth-cheapest carrier we rank is ${top[-1][1] - top[0][1]:,} a year more than {c1}.</p>
 
     <h2>What drives homeowners insurance rates in {name}?</h2>
-    <p>{name}'s premiums are shaped primarily by {peril}. {peril_detail} Within the state, roof age, construction and claims history move an individual rate the most.</p>
+    <p>{name}'s premiums are shaped primarily by {peril}. {peril_detail}</p>
 
-    <h2>Is homeowners insurance required in {name}?</h2>
-    <p>No state law in {name} requires homeowners insurance; a mortgage lender will. Standard policies <strong>exclude flood and earthquake</strong>, which are bought separately.</p>
-
-    <div class="callout"><p><strong>{name} homeowners insurance average:</strong> ${avg:,}/year (${monthly:,}/month). Rates here run {tphrase} and are driven mostly by {peril}.</p></div>
 
     <div class="zip-embed">
       <div class="zip-embed-label">Compare homeowners insurance in {name}</div>

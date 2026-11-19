@@ -3,6 +3,7 @@
 sourced from serff_home_filings.json (material moves). The home twin of gen_filing_highlights.py.
 Surfaces the primary-source home rate crisis where home shoppers land, links to the home tracker.
 Idempotent; inserts after the cheapest-carriers rankings block. Run after home-filing edits."""
+import tracker_facts
 import json, os, re
 from gen_metro_page import STATE
 
@@ -37,13 +38,13 @@ def block(name, st_slug, cuts, ups):
                     '<div style="font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:%s;margin-bottom:6px;">Raising rates &mdash; time to compare</div>'
                     '<ul style="list-style:none;padding:0;margin:0;font-size:16px;">%s</ul></div>'
                     % (RED, "".join(li(c, RED, "↑ ") for c in ups)))
-    return (START + "\n"
+    return ((START + "\n"
         '<h2>Who\'s cutting and raising home rates in %s right now</h2>\n'
-        '<p>The actual overall changes home insurers filed with state regulators &mdash; primary-source numbers, not estimates. '
-        'Home rate hikes hit at your renewal; if your carrier is on the &uarr; list, it\'s a good moment to compare.</p>\n'
+        '@@FACTS@@\n'
         '<div style="display:flex;flex-wrap:wrap;gap:24px;margin:14px 0;max-width:660px;">%s</div>\n'
         '<p style="font-size:14px;margin:10px 0;"><a class="ca-link" href="/home/rate-changes/%s.html">See every %s home rate filing, with the source &rarr;</a></p>\n'
         + END) % (name, "".join(cols), st_slug, name)
+    ).replace('@@FACTS@@', tracker_facts.facts(cuts + ups, name, 'home'))
 
 
 def main():

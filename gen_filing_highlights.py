@@ -8,6 +8,7 @@ verify_filing_tool_consistency.py). Idempotent; inserts after the rankings block
 
 Run after any rate_changes.json edit:  python3 gen_filing_highlights.py
 """
+import tracker_facts
 import json, re, os
 from collections import defaultdict
 
@@ -42,13 +43,13 @@ def block(name, st_slug, cuts, ups):
         cols.append('<div style="flex:1 1 240px;min-width:0;">'
                     '<div style="font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:%s;margin-bottom:6px;">Raising rates &mdash; time to compare</div>'
                     '<ul style="list-style:none;padding:0;margin:0;font-size:16px;">%s</ul></div>' % (RED, up_html))
-    return (START + "\n"
+    return ((START + "\n"
         '<h2>Who\'s cutting and raising rates in %s right now</h2>\n'
-        '<p>The actual overall changes carriers filed with state regulators &mdash; primary-source numbers, not estimates. '
-        'If your carrier is on the &uarr; list, it\'s a good moment to compare; the &darr; carriers are actively cutting.</p>\n'
+        '@@FACTS@@\n'
         '<div style="display:flex;flex-wrap:wrap;gap:24px;margin:14px 0;max-width:660px;">%s</div>\n'
         '<p style="font-size:14px;margin:10px 0;"><a class="ca-link" href="/article/rate-changes/%s.html">See every %s rate filing, with the source &rarr;</a></p>\n'
         + END) % (name, "".join(cols), st_slug, name)
+    ).replace('@@FACTS@@', tracker_facts.facts(cuts + ups, name, 'auto'))
 
 def main():
     d = json.load(open("rate_changes.json"))
