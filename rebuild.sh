@@ -63,6 +63,7 @@ echo "══════════ VALIDATE ══════════"
 step node qa_sweep.js
 step python3 verify_scaffold_leaks.py   # scaffold clones must not carry another place's rankings block
 step python3 audit_prose.py
+step python3 audit_templated_prose.py   # repeated prose per page family (memory boringrate-unique-content-rule)
 
 echo
 echo "✅ cascade complete. Review 'git diff', then commit."
