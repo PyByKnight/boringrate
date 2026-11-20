@@ -402,6 +402,7 @@ window.track = function (name, props) {
 })();
 </script>
 <!-- br-adsense-meta --><meta name="google-adsense-account" content="ca-pub-9438885843936206">
+<script src="/js/carrier-out.js"></script>
 </head>
 <body>
 
@@ -1806,13 +1807,14 @@ function renderRanking() {
     const stabTip = stabilityLabel(stabScore) + (_stabFiled ? ' Based on this carrier\'s recent rate filings.' : '');
     const stabHtml = '<div class="rank-stability" data-stab="' + stabScore + '" data-tip="' + stabTip + '" tabindex="0">' + stabilityDots(stabScore) + '</div>';
     const availHtml = c.restricted ? '<div class="rank-avail">' + c.availNote + '</div>' : '';
-    const quoteUrl = c.links || "#";
+    const _out = (window.brCarrierOut ? window.brCarrierOut(c.name, (c.links || "#"), {product: "home", state: (typeof stateData !== "undefined" && stateData) ? stateData.code : "", source: "rank"}) : {href: (c.links || "#"), rel: "noopener noreferrer", partner: false});
+    const quoteUrl = _out.href;
     const _qctaAction = _qDomain
       ? '<span class="qcta-action"><span class="qcta-action-prefix">@ </span>' + _qDomain + ' &rarr;</span>'
       : '<span class="qcta-action">Get Quote &rarr;</span>';
     const premiumHtml = '<div class="rank-premium">$' + row.price.toLocaleString() + '<span class="rank-premium-unit">/yr est.</span></div>';
     const _vsAvg = (row.price <= median ? '&minus;$' + (median - row.price).toLocaleString() : '+$' + (row.price - median).toLocaleString()) + ' vs avg';
-    const ctaHtml = '<div class="rank-cta">' + premiumHtml + '<a class="rank-quote-cta ' + delta.klass + '" href="' + quoteUrl + '" target="_blank" rel="noopener noreferrer"><span class="qcta-save">' + _vsAvg + '</span>' + _qctaAction + '</a></div>';
+    const ctaHtml = '<div class="rank-cta">' + premiumHtml + '<a class="rank-quote-cta ' + delta.klass + '" href="' + quoteUrl + '" target="_blank" rel="' + _out.rel + '" data-partner="' + (_out.partner ? 1 : 0) + '"><span class="qcta-save">' + _vsAvg + '</span>' + _qctaAction + '</a></div>';
     const a = document.createElement("div");
     a.className = "rank-row";
     a.dataset.carrier = c.name;
@@ -1889,7 +1891,7 @@ function renderRanking() {
     + '<div class="pb-count">' + pbLabel + '</div>';
 
   document.getElementById("rankFoot").innerHTML =
-    'Estimates based on state avg rate &times; carrier price position from public filings. Not a quote. Rates in FL, LA, TX, OK, CO may vary significantly. NAIC marks reflect home complaint indices. <a href="/methodology.html">How we rank &rarr;</a>';
+    'Estimates based on state avg rate &times; carrier price position from public filings. Not a quote. Rates in FL, LA, TX, OK, CO may vary significantly. NAIC marks reflect home complaint indices. <a href="/methodology.html">How we rank &rarr;</a>' + ((window.BR_PARTNER_NOTE && document.querySelector('#rankList [data-partner="1"]')) ? window.BR_PARTNER_NOTE : "");
 
   // Cross-sell auto: homeowners bundle home + auto for the biggest discount.
   var _csState = document.getElementById("crossSellAutoState");
@@ -2108,7 +2110,7 @@ document.getElementById("zipInput").addEventListener("input", e => {
     var q = e.target.closest(".rank-quote-cta");
     if (q) {
       var row = q.closest("[data-carrier]");
-      track("quote_clicked", { carrier: row ? row.getAttribute("data-carrier") : null, product: PRODUCT, href: q.getAttribute("href") });
+      track("quote_clicked", { carrier: row ? row.getAttribute("data-carrier") : null, product: PRODUCT, partner: q.getAttribute("data-partner") === "1", href: q.getAttribute("href") });
       return;
     }
     var cs = e.target.closest(".cross-sell");

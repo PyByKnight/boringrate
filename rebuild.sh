@@ -63,6 +63,7 @@ step python3 patch_sitemap_lastmod.py        # refresh <lastmod> from git dates
 echo "══════════ VALIDATE ══════════"
 step node qa_sweep.js
 step python3 verify_scaffold_leaks.py   # scaffold clones must not carry another place's rankings block
+step node verify_carrier_out.js   # carrier links route via js/carrier-out.js; partner never changes rank order
 step python3 audit_prose.py
 step python3 audit_templated_prose.py   # repeated prose per page family (memory boringrate-unique-content-rule)
 
