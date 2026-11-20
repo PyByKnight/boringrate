@@ -1,5 +1,34 @@
 # BoringRate — Session Notes
-_Last updated: 2026-11-19 (Opus 5.5)_
+_Last updated: 2026-11-20 (Opus 5.5)_
+
+## ▶▶ 2026-11-20 — AFFILIATE / REFERRAL LINK LAYER (all pushed)
+**Owner model:** affiliate links go IN the ranked listing (NerdWallet model). Every high-volume carrier stays
+listed whether it pays or not; rank order + rate estimates never change for money. Future lever = less
+branding / ad treatment for non-payers (NOT now, never removal). Pay-per-quote/lead only, no per-sale
+(licensing deferred). Rate-filing coverage is never a paid perk.
+- `8824d6ae` **`js/carrier-out.js` = single source for every outbound carrier link** (auto/home/renters tools,
+  rank rows + auto compare columns). `PARTNERS` map (empty today): adding a partner = one entry
+  (`url` template with `{product} {state} {source}` sub-IDs, optional `products`). Partners → rel="sponsored
+  noopener"; non-partners → canonical URL + `utm_source=boringrate&utm_medium=referral&utm_campaign=<product>`
+  (carriers now see us in their analytics instead of "direct"). Button label always the carrier's own domain.
+  `quote_clicked` Umami event gains `partner`. Disclosure note under results shows ONLY when a partner link
+  is on screen. `verify_carrier_out.js` (rebuild VALIDATE) asserts rank order identical with/without a partner.
+- `c085c275` disclosure copy: editorial-standards §02 (`#independence` anchor) + homepage FAQ mention referral
+  fees. ⚠ `gen_trust_pages.py` is STALE (regen re-adds brand suffix to title + old CTA label) — copy updated
+  in the generator but the page was patched surgically; don't regen trust pages blind.
+- `c0da5169` footer legal line (738 pages, `patch_footer_disclosure.py`): "...ADVERTISING, SPONSORED
+  PLACEMENTS, AND REFERRAL LINKS" + **ADVERTISING DISCLOSURE** link → editorial-standards#independence.
+  Metro zero-diff check: footer regenerates clean; ⚠ pre-existing gap — `gen_metros_batch.py` output lacks
+  the later noindex + adsense-meta patches on 11 metros (rebuild re-applies them; don't commit raw regen).
+- `AFFILIATE_PROGRAMS.md` = roster vs programs (directory figures, unverified): apply Liberty Mutual
+  (CJ/FlexOffers), Allstate (FlexOffers, check open), Root (own page), Lemonade (Impact, renters; check the
+  bind bonus isn't sale-contingent). GEICO/Progressive/State Farm = marketplace-only (MediaAlpha etc.).
+- Funnel baseline (Umami 11-17, US): 23% of results-viewers click a carrier (healthy); the leak is upstream —
+  only 10.4% of US sessions reach results. ~50 carrier clicks/mo.
+- **NEXT (owner):** sign up CJ + Impact as publisher; app note: "50-state rates from SERFF/DOI filings; 100%
+  organic, no paid search, no brand bidding". Send me the domain-verification meta tag/file → add sitewide.
+  Pitch MediaAlpha ~1.5–2K visitors/mo. Licensing read before lead networks: coverage calculator gives
+  profile-based coverage recommendations — confirm framing as general guidance.
 
 ## ▶▶ 2026-11-19 — GSC follow-up + SITEWIDE TEMPLATED-PROSE CLEANUP + state pages re-deepened (all pushed)
 **Why:** AdSense rejection (11-17) + GSC "Crawled – currently not indexed" (48 why-did-my URLs crawled 11-17).
