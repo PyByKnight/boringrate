@@ -47,3 +47,4 @@ Read every program's special terms; flag these to the owner:
 - 2026-11-20 Impact: marketplace application DECLINED (likely traffic/site age). Verification tag stays on
   index.html. Workarounds: brand direct-invite link (Lemonade partners page) bypasses the marketplace;
   appeal via Impact support; reapply at higher traffic.
+- 2026-11-20 Impact support ticket #927690 opened (asked for decline reason). Decline email gave none.
