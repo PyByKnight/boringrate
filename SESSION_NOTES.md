@@ -1,5 +1,51 @@
 # BoringRate — Session Notes
-_Last updated: 2026-11-17 (Opus 5.5)_
+_Last updated: 2026-11-19 (Opus 5.5)_
+
+## ▶▶ 2026-11-19 — GSC follow-up + SITEWIDE TEMPLATED-PROSE CLEANUP + state pages re-deepened (all pushed)
+**Why:** AdSense rejection (11-17) + GSC "Crawled – currently not indexed" (48 why-did-my URLs crawled 11-17).
+Owner-agreed rule (memory `boringrate-unique-content-rule`): repeated LAYOUT fine, repeated PROSE not.
+- `64494ff2` **Noindex 59 why-did-my pages** with 0 impressions in the 3-mo GSC export (`_gsc/2026-11-19`,
+  now `_gsc/latest`). List lives in `thin_why_pages.txt`, read by `patch_thin_pages.py`. New combos from
+  future backfills go on that list until they show impressions; a page that gains impressions can come off.
+- `abd6ede7` **404s**: home pages' footer "Guides" links were relative to /home/ (73 pages); fixed +
+  `gen_reactive_pages.py` writes /article/ paths for non-article pages. Rest of GSC 404 list = old junk.
+  → Owner: GSC Pages → Not found (404) → **Validate fix**.
+- **Prose strip** (measure: `audit_templated_prose.py`, now in rebuild VALIDATE, warns > 25%):
+  - `a756b78a` trackers 50/62% → 19/16%: new `tracker_facts.py` (policy-weighted avg move, change reaching
+    most customers, deepest cut, most recent) replaces 7 shared disclaimer/CTA sentences.
+  - `428a33da` home why-pages 43% → 19% (`gen_reactive_derive.py` generic sentences cut).
+    ★ BUG FIXED: home why-pages' top ZIP bar + mobile sticky CTA sent homeowners to the AUTO tool.
+    Regen picked up 7 new CO combos (5 auto, 2 home) → noindexed via thin_why_pages.txt.
+  - `860465ca` home state 22% → 13%; filing-highlight blocks (auto + home state pages) lead with tracker_facts.
+  - `70b780ce` renters state 37% → 4%: `patch_renters_state_prose.py` (static pages, idempotent) removes any
+    sentence on 3+ renters state pages, links the matching renters guide instead.
+    ⚠ `gen_renters_rankings.js --all` MOVES the top rz-zip CTA below the table — edit renters pages surgically.
+  - `8910af2f` carrier pages: home 18% → 6%, auto 2%; `patch_carrier_filings.py` one-line note; rounding-zero
+    filings now flat (no more "cut −0.0%"), zero average reads "roughly flat on average".
+- **Re-deepened state pages** (home 278 → 517 words, renters 231 → 475; all 102 pages):
+  - `d3865d47` `state_compare.py` "How <state> compares": rank/51, bordering states (linked), carriers the
+    model prices furthest under/over their national level, regional carriers. Renters via
+    `patch_renters_compare.py` (rebuild shared tail); home via `gen_home_state_pages.py`.
+  - `ee80d377` `flood_facts.py` from `flood_by_state.json` ← `fetch_openfema_flood.py` (FEMA NFIP penetration +
+    2016–2025 claims, 586K rows streamed). **Re-run quarterly** (network, ~10 min; not in rebuild).
+  - `3ce3f163` `disaster_facts.py` from `disasters_by_state.json` ← `fetch_noaa_disasters.py` (NOAA billion-dollar
+    archive 2015–2024 — COUNTS only, costs are multi-state; Storm Events 2016–2025). **Re-run yearly.**
+- Corrected earlier read: home state pages sit at ~pos 56, renters ~35 → depth problem, not title/CTR.
+- **NEXT:** GSC export ~mid-Dec 2026: did state pages move up? did noindexed why-pages drop out cleanly?
+  Then AdSense re-review outcome. Clean ~ of GSC + CO SERFF zips (all parsed).
+
+## ▶▶ 2026-11-18 — CO AUTO tier 1 + tracker body bug + pre-anchor catch-up + repeat cutters (all pushed)
+- `c6cfc26e`/`ca80fa01` CO auto: 52 tier-1 jackets → 90 ledger rows, 29 tracker movers (`append_co_auto.py`,
+  `add_co_changes.py`). 6 tier-1 inaccessible (Travelers G×3, Nationwide G, Safeway×2); owner: tier 1 only for now.
+  SFBC-134867882 + GMMX-134857795 jackets contradict themselves → recorded with `drift_exclude`.
+- `1c4395dd`/`2fbc3fce` ★ All 17 rate trackers had shipped the ATLANTA metro article as their body (regex anchor
+  silently missed). Fixed + assert; `verify_scaffold_leaks.py` now checks body signatures (leak #5).
+- `056ae462`/`c21e8b76` **Pre-anchor catch-up** (`catchup_report.py --apply`, owner: roster baseline, ±15% cap):
+  112 STATE_CARRIER_ADJ cells, 13 states; 205 ledger rows stamped `catchup_applied`. TX/CA excluded.
+  Re-run after each new state backfill (memory `boringrate-preanchor-catchup`). OH Allstate still #14/20 (accepted).
+- `b113189b` trackers: "cut more than once" section (`repeat_cutters.py`, compounded per book, ≥2 cuts, ≤ −5%).
+- `6d76cd86` OH rate-changes feature: Allstate three cuts ≈ −11% combined; State Farm stacked ≈ −7.9%.
+- GSC 5xx notice: all 462 sitemap URLs 200 — transient during deploys.
 
 ## ▶▶ 2026-11-17 — AdSense REJECTED (content quality) → thin-page cleanup, pushed; owner re-ticked policy box
 - Account-level rejection (Sites greyed out, generic "Meet AdSense program policies"). Owner resubmitted same day.
