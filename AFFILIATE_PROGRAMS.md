@@ -37,3 +37,10 @@ Read every program's special terms; flag these to the owner:
 - **Publisher insurance** (USAA: $1M/$2M CGL, $4M umbrella, $5M/$10M E&O + cyber, workers comp, certificates
   naming them additional insured *before* signing) — accepting = instant breach of a rep & warranty.
 - Only their creative/text allowed (our "@ domain.com" label is our own text).
+
+## Status log
+- 2026-11-20 CJ publisher account ACTIVE. Applied: USAA (manual review), AAA – Auto Club (check what it
+  links to — likely membership sales; territory may not match our CSAA / Auto Club Group rows).
+  Not on CJ: Liberty Mutual, Allstate, and the other A–O roster carriers.
+- 2026-11-20 FlexOffers registration submitted (review ≤5 business days). Verification: `fo-verify` meta tag
+  on index.html — keep it. After approval: apply Liberty Mutual + Allstate (insurance quote program).
