@@ -44,3 +44,6 @@ Read every program's special terms; flag these to the owner:
   Not on CJ: Liberty Mutual, Allstate, and the other A–O roster carriers.
 - 2026-11-20 FlexOffers registration submitted (review ≤5 business days). Verification: `fo-verify` meta tag
   on index.html — keep it. After approval: apply Liberty Mutual + Allstate (insurance quote program).
+- 2026-11-20 Impact: marketplace application DECLINED (likely traffic/site age). Verification tag stays on
+  index.html. Workarounds: brand direct-invite link (Lemonade partners page) bypasses the marketplace;
+  appeal via Impact support; reapply at higher traffic.
