@@ -9,7 +9,7 @@ Owner-agreed rule (memory `boringrate-unique-content-rule`): repeated LAYOUT fin
   future backfills go on that list until they show impressions; a page that gains impressions can come off.
 - `abd6ede7` **404s**: home pages' footer "Guides" links were relative to /home/ (73 pages); fixed +
   `gen_reactive_pages.py` writes /article/ paths for non-article pages. Rest of GSC 404 list = old junk.
-  → Owner: GSC Pages → Not found (404) → **Validate fix**.
+  → Owner clicked GSC 404 **Validate fix** 2026-11-19 (expect ~2 weeks; old junk URLs may stay listed).
 - **Prose strip** (measure: `audit_templated_prose.py`, now in rebuild VALIDATE, warns > 25%):
   - `a756b78a` trackers 50/62% → 19/16%: new `tracker_facts.py` (policy-weighted avg move, change reaching
     most customers, deepest cut, most recent) replaces 7 shared disclaimer/CTA sentences.
