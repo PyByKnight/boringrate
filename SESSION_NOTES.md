@@ -25,6 +25,14 @@ branding / ad treatment for non-payers (NOT now, never removal). Pay-per-quote/l
   bind bonus isn't sale-contingent). GEICO/Progressive/State Farm = marketplace-only (MediaAlpha etc.).
 - Funnel baseline (Umami 11-17, US): 23% of results-viewers click a carrier (healthy); the leak is upstream —
   only 10.4% of US sessions reach results. ~50 carrier clicks/mo.
+- **AdSense APPROVED 2026-11-20** (after 11-17 thin-page cleanup). Identity verified. Auto ads config:
+  overlay formats 0/3 (anchor would cover mobile sticky ZIP CTA; no vignette/side rails), intent-driven
+  OFF (would turn editorial words into ad links), multiplex OFF, banner max 6 (slider floor) + 1000px min
+  distance, "find more placements" + "optimize existing" OFF. Loader only on 287 content pages (tools,
+  metro, state excluded via patch_adsense.py). Payments "action required" alert = likely stale.
+  → ~11-27: re-run `fetch_umami.py --analyze`; if content→tool (13.5% baseline) drops, cut ad load.
+- Affiliate status: CJ active (USAA + AAA pending); FlexOffers in review; Impact marketplace declined
+  (ticket #927690; Lemonade direct-invite route). See AFFILIATE_PROGRAMS.md status log.
 - **NEXT (owner):** sign up CJ + Impact as publisher; app note: "50-state rates from SERFF/DOI filings; 100%
   organic, no paid search, no brand bidding". Send me the domain-verification meta tag/file → add sitewide.
   Pitch MediaAlpha ~1.5–2K visitors/mo. Licensing read before lead networks: coverage calculator gives
